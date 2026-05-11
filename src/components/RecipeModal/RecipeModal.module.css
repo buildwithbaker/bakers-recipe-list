@@ -133,6 +133,15 @@
   font-style: italic;
 }
 
+.ingList li.ingHeader {
+  list-style: none;
+  margin-left: -22px;
+  font-weight: 500;
+  color: var(--card-muted);
+  margin-top: 8px;
+  font-size: 13px;
+}
+
 .stepList {
   display: flex;
   flex-direction: column;

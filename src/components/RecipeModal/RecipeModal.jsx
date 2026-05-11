@@ -53,7 +53,10 @@ function Ingredients({ items }) {
       <div className={styles.modalSectionTitle}>Ingredients</div>
       <ul className={styles.ingList}>
         {items.map((ing, i) => (
-          <li key={i} className={ing.type === 'section' ? styles.ingSection : ''}>
+          <li key={i} className={
+            ing.type === 'section' ? styles.ingSection :
+            ing.type === 'header' ? styles.ingHeader : ''
+          }>
             {ing.text}
           </li>
         ))}
