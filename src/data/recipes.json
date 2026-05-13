@@ -19,7 +19,7 @@
       },
       {
         "type": "item",
-        "text": "¼ cup breadcrumbs"
+        "text": "\u00bc cup breadcrumbs"
       },
       {
         "type": "item",
@@ -39,11 +39,11 @@
       },
       {
         "type": "item",
-        "text": "½ tsp cumin"
+        "text": "\u00bd tsp cumin"
       },
       {
         "type": "item",
-        "text": "½ tsp oregano"
+        "text": "\u00bd tsp oregano"
       },
       {
         "type": "item",
@@ -57,7 +57,7 @@
     "instructions": [
       {
         "step": "Mix Ingredients",
-        "detail": "Put all ingredients (1 lb ground pork, 1 egg, ¼ cup breadcrumbs, all seasonings) in a bowl. Mix thoroughly."
+        "detail": "Put all ingredients (1 lb ground pork, 1 egg, \u00bc cup breadcrumbs, all seasonings) in a bowl. Mix thoroughly."
       },
       {
         "step": "Shape Patties",
@@ -69,7 +69,7 @@
       },
       {
         "step": "Cook Patties",
-        "detail": "Add the patties and cook to an internal temp of 160°F, flipping halfway. About 7 minutes per side."
+        "detail": "Add the patties and cook to an internal temp of 160\u00b0F, flipping halfway. About 7 minutes per side."
       }
     ],
     "is_blank": false
@@ -405,7 +405,7 @@
       },
       {
         "type": "item",
-        "text": "2½ tsp salt"
+        "text": "2\u00bd tsp salt"
       },
       {
         "type": "item",
@@ -417,7 +417,7 @@
       },
       {
         "type": "item",
-        "text": "1 jalapeño, deseeded and chopped"
+        "text": "1 jalape\u00f1o, deseeded and chopped"
       },
       {
         "type": "item",
@@ -425,7 +425,7 @@
       },
       {
         "type": "item",
-        "text": "¾ cup orange juice (approx. 2 oranges)"
+        "text": "\u00be cup orange juice (approx. 2 oranges)"
       },
       {
         "type": "item",
@@ -445,7 +445,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp chili flakes"
+        "text": "\u00bd tsp chili flakes"
       },
       {
         "type": "section",
@@ -467,7 +467,7 @@
     "instructions": [
       {
         "step": "Prep Pork",
-        "detail": "Rinse and dry pork shoulder (4 lb). Rub all over with salt (2½ tsp) and pepper (1 tsp)."
+        "detail": "Rinse and dry pork shoulder (4 lb). Rub all over with salt (2\u00bd tsp) and pepper (1 tsp)."
       },
       {
         "step": "Apply Rub",
@@ -475,7 +475,7 @@
       },
       {
         "step": "Load Slow Cooker",
-        "detail": "Place pork fat-cap-up in slow cooker. Top with chopped onion, jalapeño, minced garlic (4 cloves), and squeeze over orange juice (¾ cup)."
+        "detail": "Place pork fat-cap-up in slow cooker. Top with chopped onion, jalape\u00f1o, minced garlic (4 cloves), and squeeze over orange juice (\u00be cup)."
       },
       {
         "step": "Slow Cook",
@@ -547,15 +547,15 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "1 cup (240ml) water, warmed to ~110°F"
+        "text": "1 cup (240ml) water, warmed to ~110\u00b0F"
       },
       {
         "type": "item",
-        "text": "⅓ cup (80ml) whole milk, warmed to ~110°F"
+        "text": "\u2153 cup (80ml) whole milk, warmed to ~110\u00b0F"
       },
       {
         "type": "item",
-        "text": "2¼ tsp (7g) active dry or instant yeast (1 standard packet)"
+        "text": "2\u00bc tsp (7g) active dry or instant yeast (1 standard packet)"
       },
       {
         "type": "item",
@@ -575,11 +575,11 @@
       },
       {
         "type": "item",
-        "text": "1⅓ cups (173g) whole wheat flour (plus more as needed)"
+        "text": "1\u2153 cups (173g) whole wheat flour (plus more as needed)"
       },
       {
         "type": "item",
-        "text": "1¼ tsp salt"
+        "text": "1\u00bc tsp salt"
       },
       {
         "type": "section",
@@ -597,11 +597,11 @@
     "instructions": [
       {
         "step": "Activate Yeast",
-        "detail": "Whisk warm water (1 cup), warm milk (⅓ cup), and yeast (2¼ tsp) in a large bowl. Add 2 cups flour and stir until a thick batter forms. Cover and let double in size at room temperature, about 60-90 minutes."
+        "detail": "Whisk warm water (1 cup), warm milk (\u2153 cup), and yeast (2\u00bc tsp) in a large bowl. Add 2 cups flour and stir until a thick batter forms. Cover and let double in size at room temperature, about 60-90 minutes."
       },
       {
         "step": "Mix Dough",
-        "detail": "Add honey (3 Tbsp), butter (3 Tbsp), lemon juice (1 tsp), remaining flour (1⅓ cups), and salt (1¼ tsp). Using a dough hook or by hand, mix on medium until dough pulls away from sides, about 3 minutes."
+        "detail": "Add honey (3 Tbsp), butter (3 Tbsp), lemon juice (1 tsp), remaining flour (1\u2153 cups), and salt (1\u00bc tsp). Using a dough hook or by hand, mix on medium until dough pulls away from sides, about 3 minutes."
       },
       {
         "step": "Knead Dough",
@@ -613,11 +613,11 @@
       },
       {
         "step": "Grease Pan",
-        "detail": "Grease a 9×5-inch loaf pan."
+        "detail": "Grease a 9\u00d75-inch loaf pan."
       },
       {
         "step": "Shape Dough",
-        "detail": "Punch down dough to release air. On a lightly floured surface, roll into an 8×15-inch rectangle. Roll up into an 8-inch log and place in loaf pan."
+        "detail": "Punch down dough to release air. On a lightly floured surface, roll into an 8\u00d715-inch rectangle. Roll up into an 8-inch log and place in loaf pan."
       },
       {
         "step": "Final Rise",
@@ -625,7 +625,7 @@
       },
       {
         "step": "Preheat Oven",
-        "detail": "Adjust oven rack to a lower position and preheat to 350°F (177°C)."
+        "detail": "Adjust oven rack to a lower position and preheat to 350\u00b0F (177\u00b0C)."
       },
       {
         "step": "Add Topping",
@@ -633,7 +633,7 @@
       },
       {
         "step": "Bake",
-        "detail": "Bake for 36-40 minutes until golden brown. Bread is done when it sounds hollow when tapped, or an instant-read thermometer reads 195-200°F (90-93°C)."
+        "detail": "Bake for 36-40 minutes until golden brown. Bread is done when it sounds hollow when tapped, or an instant-read thermometer reads 195-200\u00b0F (90-93\u00b0C)."
       },
       {
         "step": "Cool",
@@ -681,11 +681,11 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "1½ lb (650g) chicken breast, cut into strips"
+        "text": "1\u00bd lb (650g) chicken breast, cut into strips"
       },
       {
         "type": "item",
-        "text": "1½ lb (650g) baby yellow potatoes, quartered"
+        "text": "1\u00bd lb (650g) baby yellow potatoes, quartered"
       },
       {
         "type": "item",
@@ -721,7 +721,7 @@
       },
       {
         "type": "item",
-        "text": "¼ cup low-sodium soy sauce (or coconut aminos)"
+        "text": "\u00bc cup low-sodium soy sauce (or coconut aminos)"
       },
       {
         "type": "item",
@@ -739,15 +739,15 @@
     "instructions": [
       {
         "step": "Marinate Chicken",
-        "detail": "Combine chicken (1½ lb strips) with soy sauce (¼ cup), olive oil (2 Tbsp), hot sauce (2 Tbsp), and a pinch of pepper. Toss well and set aside while you prepare potatoes."
+        "detail": "Combine chicken (1\u00bd lb strips) with soy sauce (\u00bc cup), olive oil (2 Tbsp), hot sauce (2 Tbsp), and a pinch of pepper. Toss well and set aside while you prepare potatoes."
       },
       {
         "step": "Parboil Potatoes",
-        "detail": "Bring a pot of salted water to a boil. Add quartered potatoes (1½ lb) and boil for 8 minutes. Drain."
+        "detail": "Bring a pot of salted water to a boil. Add quartered potatoes (1\u00bd lb) and boil for 8 minutes. Drain."
       },
       {
         "step": "Cook Potatoes",
-        "detail": "Heat 1 Tbsp olive oil and 1 Tbsp butter in a large skillet over medium-high heat. Add drained potatoes and sauté 4 minutes, then stir and cook another 4-5 minutes until golden and fork-tender. Transfer to a plate."
+        "detail": "Heat 1 Tbsp olive oil and 1 Tbsp butter in a large skillet over medium-high heat. Add drained potatoes and saut\u00e9 4 minutes, then stir and cook another 4-5 minutes until golden and fork-tender. Transfer to a plate."
       },
       {
         "step": "Cook Chicken",
@@ -805,11 +805,11 @@
       },
       {
         "type": "item",
-        "text": "½ cup ketchup"
+        "text": "\u00bd cup ketchup"
       },
       {
         "type": "item",
-        "text": "¼ cup brown sugar"
+        "text": "\u00bc cup brown sugar"
       },
       {
         "type": "item",
@@ -823,7 +823,7 @@
     "instructions": [
       {
         "step": "Preheat Oven",
-        "detail": "Preheat oven to 350°F."
+        "detail": "Preheat oven to 350\u00b0F."
       },
       {
         "step": "Mix Meatloaf",
@@ -831,7 +831,7 @@
       },
       {
         "step": "Make Glaze",
-        "detail": "Mix ketchup (½ cup), brown sugar (¼ cup), lemon juice (1 Tbsp), and mustard (2 tsp) in a small bowl."
+        "detail": "Mix ketchup (\u00bd cup), brown sugar (\u00bc cup), lemon juice (1 Tbsp), and mustard (2 tsp) in a small bowl."
       },
       {
         "step": "Shape & Glaze",
@@ -839,7 +839,7 @@
       },
       {
         "step": "Bake",
-        "detail": "Bake for 1 hour. Apply remaining glaze during the last 15 minutes. Internal temperature should reach 160°F."
+        "detail": "Bake for 1 hour. Apply remaining glaze during the last 15 minutes. Internal temperature should reach 160\u00b0F."
       },
       {
         "step": "Rest & Serve",
@@ -892,7 +892,7 @@
       },
       {
         "type": "item",
-        "text": "¼ cup olive oil"
+        "text": "\u00bc cup olive oil"
       },
       {
         "type": "item",
@@ -918,7 +918,7 @@
       },
       {
         "step": "Preheat Oven",
-        "detail": "Preheat oven to 425°F. Set a wire rack over a baking pan."
+        "detail": "Preheat oven to 425\u00b0F. Set a wire rack over a baking pan."
       },
       {
         "step": "Roast",
@@ -1098,7 +1098,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup onion, diced"
+        "text": "\u00bd cup onion, diced"
       },
       {
         "type": "item",
@@ -1118,7 +1118,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup beef broth"
+        "text": "\u00bd cup beef broth"
       },
       {
         "type": "item",
@@ -1126,7 +1126,7 @@
       },
       {
         "type": "item",
-        "text": "¼ tsp ground black pepper"
+        "text": "\u00bc tsp ground black pepper"
       },
       {
         "type": "item",
@@ -1148,11 +1148,11 @@
       },
       {
         "step": "Add Vegetables",
-        "detail": "Add diced onion (½ cup), green bell pepper (1), and potatoes (2 cups). Continue cooking over medium heat until onion and peppers are softened. Add garlic (4 cloves) and cook an additional 30 seconds."
+        "detail": "Add diced onion (\u00bd cup), green bell pepper (1), and potatoes (2 cups). Continue cooking over medium heat until onion and peppers are softened. Add garlic (4 cloves) and cook an additional 30 seconds."
       },
       {
         "step": "Add Sauce",
-        "detail": "Pour in tomato sauce (8-16 oz) and beef broth (½ cup). Add salt (1 tsp), pepper (¼ tsp), cumin (1 tsp), coriander (1 tsp), and bay leaf (1). Stir to combine."
+        "detail": "Pour in tomato sauce (8-16 oz) and beef broth (\u00bd cup). Add salt (1 tsp), pepper (\u00bc tsp), cumin (1 tsp), coriander (1 tsp), and bay leaf (1). Stir to combine."
       },
       {
         "step": "Simmer Covered",
@@ -1190,7 +1190,7 @@
       },
       {
         "type": "item",
-        "text": "4 oz Velveeta, cut into cubes (can sub ¾ cup shredded cheese)"
+        "text": "4 oz Velveeta, cut into cubes (can sub \u00be cup shredded cheese)"
       },
       {
         "type": "item",
@@ -1234,7 +1234,7 @@
       },
       {
         "type": "item",
-        "text": "½ lb medium pasta shells"
+        "text": "\u00bd lb medium pasta shells"
       }
     ],
     "instructions": [
@@ -1256,7 +1256,7 @@
       },
       {
         "step": "Cook Pasta",
-        "detail": "Bring to a gentle boil. Add pasta shells (½ lb) and submerge. Cover and cook according to package instructions, stirring halfway through."
+        "detail": "Bring to a gentle boil. Add pasta shells (\u00bd lb) and submerge. Cover and cook according to package instructions, stirring halfway through."
       },
       {
         "step": "Check Pasta",
@@ -1290,7 +1290,7 @@
       },
       {
         "type": "item",
-        "text": "¼ tsp cayenne pepper"
+        "text": "\u00bc tsp cayenne pepper"
       },
       {
         "type": "item",
@@ -1298,7 +1298,7 @@
       },
       {
         "type": "item",
-        "text": "1 jalapeño, deseeded and chopped"
+        "text": "1 jalape\u00f1o, deseeded and chopped"
       },
       {
         "type": "item",
@@ -1306,7 +1306,7 @@
       },
       {
         "type": "item",
-        "text": "¾ cup orange juice (approx. 2 oranges)"
+        "text": "\u00be cup orange juice (approx. 2 oranges)"
       },
       {
         "type": "section",
@@ -1344,7 +1344,7 @@
       },
       {
         "step": "Load Slow Cooker",
-        "detail": "Place pork fat-cap-up in slow cooker. Top with chopped onion, jalapeño, minced garlic (4 cloves), and squeeze over orange juice (¾ cup)."
+        "detail": "Place pork fat-cap-up in slow cooker. Top with chopped onion, jalape\u00f1o, minced garlic (4 cloves), and squeeze over orange juice (\u00be cup)."
       },
       {
         "step": "Slow Cook",
@@ -1402,11 +1402,11 @@
       },
       {
         "type": "item",
-        "text": "¼ cup mayo"
+        "text": "\u00bc cup mayo"
       },
       {
         "type": "item",
-        "text": "¼ cup Greek yogurt"
+        "text": "\u00bc cup Greek yogurt"
       }
     ],
     "instructions": [
@@ -1595,7 +1595,7 @@
       },
       {
         "step": "Blanch Broccoli",
-        "detail": "Bring water (8 cups) to a rolling boil. Add salt (1 tsp) and oil (2 tsp) — keeps the broccoli bright green. Add broccoli; the moment water returns to a boil, pull it out (4-5 min max). Shock in ice water 1 min, drain, set aside."
+        "detail": "Bring water (8 cups) to a rolling boil. Add salt (1 tsp) and oil (2 tsp) \u2014 keeps the broccoli bright green. Add broccoli; the moment water returns to a boil, pull it out (4-5 min max). Shock in ice water 1 min, drain, set aside."
       },
       {
         "step": "Stir Fry Chicken",
@@ -1603,7 +1603,7 @@
       },
       {
         "step": "Bring It Together",
-        "detail": "Add garlic (2 cloves), ginger (1 Tbsp), green onion whites (1/4 cup), and carrot (1/4 cup) to the hot wok; stir fry 30-40 sec until fragrant. Crank heat to high. Add broccoli and cooking wine (1 tsp); stir fry 1 1/2-2 min. Return chicken; stir fry 30 sec. Pour sauce into the wok center; toss 15-20 sec. Taste — add sugar (1/2 tsp) if needed. Drizzle in slurry while stirring, ~30 sec, until glossy and lightly coated. Finish with sesame oil (1 tsp), toss once, kill the heat. Plate immediately."
+        "detail": "Add garlic (2 cloves), ginger (1 Tbsp), green onion whites (1/4 cup), and carrot (1/4 cup) to the hot wok; stir fry 30-40 sec until fragrant. Crank heat to high. Add broccoli and cooking wine (1 tsp); stir fry 1 1/2-2 min. Return chicken; stir fry 30 sec. Pour sauce into the wok center; toss 15-20 sec. Taste \u2014 add sugar (1/2 tsp) if needed. Drizzle in slurry while stirring, ~30 sec, until glossy and lightly coated. Finish with sesame oil (1 tsp), toss once, kill the heat. Plate immediately."
       }
     ],
     "is_blank": false
@@ -1707,11 +1707,11 @@
       },
       {
         "type": "item",
-        "text": "¼ cup soy sauce"
+        "text": "\u00bc cup soy sauce"
       },
       {
         "type": "item",
-        "text": "¼ cup water or chicken broth"
+        "text": "\u00bc cup water or chicken broth"
       },
       {
         "type": "item",
@@ -1747,15 +1747,15 @@
       },
       {
         "type": "item",
-        "text": "½ tsp red pepper flakes"
+        "text": "\u00bd tsp red pepper flakes"
       },
       {
         "type": "item",
-        "text": "½ tsp white pepper"
+        "text": "\u00bd tsp white pepper"
       },
       {
         "type": "item",
-        "text": "½ tsp black pepper"
+        "text": "\u00bd tsp black pepper"
       },
       {
         "type": "item",
@@ -1775,7 +1775,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp salt"
+        "text": "\u00bd tsp salt"
       },
       {
         "type": "item",
@@ -1783,7 +1783,7 @@
       },
       {
         "type": "item",
-        "text": "¼ tsp white pepper"
+        "text": "\u00bc tsp white pepper"
       }
     ],
     "instructions": [
@@ -1797,7 +1797,7 @@
       },
       {
         "step": "Cook Noodles",
-        "detail": "Cook brown rice noodles per package directions. Drain and rinse under cold water to prevent overcooking. Reserve ¼ cup noodle water."
+        "detail": "Cook brown rice noodles per package directions. Drain and rinse under cold water to prevent overcooking. Reserve \u00bc cup noodle water."
       },
       {
         "step": "Cook Vegetables",
@@ -1859,11 +1859,11 @@
       },
       {
         "type": "item",
-        "text": "¾ cup cornstarch"
+        "text": "\u00be cup cornstarch"
       },
       {
         "type": "item",
-        "text": "¼ tsp baking soda"
+        "text": "\u00bc tsp baking soda"
       },
       {
         "type": "item",
@@ -1903,17 +1903,17 @@
       },
       {
         "type": "item",
-        "text": "½ tsp salt"
+        "text": "\u00bd tsp salt"
       },
       {
         "type": "item",
-        "text": "½ tsp pepper"
+        "text": "\u00bd tsp pepper"
       }
     ],
     "instructions": [
       {
         "step": "Make Marinade",
-        "detail": "Combine garlic (3 cloves, minced), salt (1 tsp), brown sugar (2 tsp), water (2 Tbsp), rice wine (1 Tbsp), baking soda (¼ tsp), and soy sauce (2 Tbsp). Stir to dissolve sugar."
+        "detail": "Combine garlic (3 cloves, minced), salt (1 tsp), brown sugar (2 tsp), water (2 Tbsp), rice wine (1 Tbsp), baking soda (\u00bc tsp), and soy sauce (2 Tbsp). Stir to dissolve sugar."
       },
       {
         "step": "Marinate Chicken",
@@ -1921,7 +1921,7 @@
       },
       {
         "step": "Prepare Coating",
-        "detail": "Beat egg in one bowl. Place cornstarch (¾ cup) in another bowl."
+        "detail": "Beat egg in one bowl. Place cornstarch (\u00be cup) in another bowl."
       },
       {
         "step": "Coat Chicken",
@@ -1933,7 +1933,7 @@
       },
       {
         "step": "Season and Serve",
-        "detail": "Return fried chicken to pan. Toss with salt (½ tsp) and pepper (½ tsp) to taste. Garnish with chopped green onions (2 Tbsp) and serve hot."
+        "detail": "Return fried chicken to pan. Toss with salt (\u00bd tsp) and pepper (\u00bd tsp) to taste. Garnish with chopped green onions (2 Tbsp) and serve hot."
       }
     ],
     "is_blank": false
@@ -1962,15 +1962,15 @@
       },
       {
         "type": "item",
-        "text": "½ onion, finely chopped"
+        "text": "\u00bd onion, finely chopped"
       },
       {
         "type": "item",
-        "text": "½ red bell pepper, diced (~¾ cup)"
+        "text": "\u00bd red bell pepper, diced (~\u00be cup)"
       },
       {
         "type": "item",
-        "text": "½ cup frozen peas"
+        "text": "\u00bd cup frozen peas"
       },
       {
         "type": "item",
@@ -1978,11 +1978,11 @@
       },
       {
         "type": "item",
-        "text": "1½ cups pineapple pieces, fresh or canned drained"
+        "text": "1\u00bd cups pineapple pieces, fresh or canned drained"
       },
       {
         "type": "item",
-        "text": "½ cup green onion, sliced"
+        "text": "\u00bd cup green onion, sliced"
       },
       {
         "type": "header",
@@ -1994,15 +1994,15 @@
       },
       {
         "type": "item",
-        "text": "1½ Tbsp fish sauce"
+        "text": "1\u00bd Tbsp fish sauce"
       },
       {
         "type": "item",
-        "text": "½ tsp sugar"
+        "text": "\u00bd tsp sugar"
       },
       {
         "type": "item",
-        "text": "1½ Tbsp soy sauce (light or all-purpose)"
+        "text": "1\u00bd Tbsp soy sauce (light or all-purpose)"
       },
       {
         "type": "item",
@@ -2016,15 +2016,15 @@
       },
       {
         "step": "Cook Aromatics",
-        "detail": "Add garlic (2 cloves) and onion (½). Cook for 1 minute."
+        "detail": "Add garlic (2 cloves) and onion (\u00bd). Cook for 1 minute."
       },
       {
         "step": "Cook Capsicum",
-        "detail": "Add red bell pepper (½) and cook for 1 minute."
+        "detail": "Add red bell pepper (\u00bd) and cook for 1 minute."
       },
       {
         "step": "Add Peas",
-        "detail": "Add frozen peas (½ cup) and stir for 30 seconds."
+        "detail": "Add frozen peas (\u00bd cup) and stir for 30 seconds."
       },
       {
         "step": "Cook Rice",
@@ -2032,11 +2032,11 @@
       },
       {
         "step": "Add Pineapple",
-        "detail": "Add pineapple pieces (1½ cups) and stir for 30 seconds to warm through."
+        "detail": "Add pineapple pieces (1\u00bd cups) and stir for 30 seconds to warm through."
       },
       {
         "step": "Serve",
-        "detail": "Stir through green onions (½ cup) and serve immediately."
+        "detail": "Stir through green onions (\u00bd cup) and serve immediately."
       }
     ],
     "is_blank": false
@@ -2062,11 +2062,11 @@
       },
       {
         "type": "item",
-        "text": "½ cup dried cranberries"
+        "text": "\u00bd cup dried cranberries"
       },
       {
         "type": "item",
-        "text": "½ cup walnuts"
+        "text": "\u00bd cup walnuts"
       },
       {
         "type": "header",
@@ -2074,15 +2074,15 @@
       },
       {
         "type": "item",
-        "text": "¼ cup extra virgin olive oil"
+        "text": "\u00bc cup extra virgin olive oil"
       },
       {
         "type": "item",
-        "text": "¼ cup seasoned rice vinegar"
+        "text": "\u00bc cup seasoned rice vinegar"
       },
       {
         "type": "item",
-        "text": "1½ Tbsp honey or maple syrup"
+        "text": "1\u00bd Tbsp honey or maple syrup"
       },
       {
         "type": "item",
@@ -2090,7 +2090,7 @@
       },
       {
         "type": "item",
-        "text": "1½ tsp soy sauce (reduced sodium)"
+        "text": "1\u00bd tsp soy sauce (reduced sodium)"
       },
       {
         "type": "item",
@@ -2104,11 +2104,11 @@
     "instructions": [
       {
         "step": "Make Dressing",
-        "detail": "Whisk together olive oil (¼ cup), rice vinegar (¼ cup), honey (1½ Tbsp), sesame oil (3 Tbsp), soy sauce (1½ tsp), salt, and garlic."
+        "detail": "Whisk together olive oil (\u00bc cup), rice vinegar (\u00bc cup), honey (1\u00bd Tbsp), sesame oil (3 Tbsp), soy sauce (1\u00bd tsp), salt, and garlic."
       },
       {
         "step": "Assemble",
-        "detail": "Toss spinach (3 cups) with cranberries (½ cup) and walnuts (½ cup). Drizzle with dressing and serve."
+        "detail": "Toss spinach (3 cups) with cranberries (\u00bd cup) and walnuts (\u00bd cup). Drizzle with dressing and serve."
       }
     ],
     "is_blank": false
@@ -2171,7 +2171,7 @@
       },
       {
         "step": "Preheat & Prepare Pan",
-        "detail": "Preheat oven to 425°F. Place pork on a wire rack set over a pan with about ¼ cup water (add more water as needed to prevent burning)."
+        "detail": "Preheat oven to 425\u00b0F. Place pork on a wire rack set over a pan with about \u00bc cup water (add more water as needed to prevent burning)."
       },
       {
         "step": "Start Cooking & Basting",
@@ -2323,6 +2323,167 @@
     "is_blank": false
   },
   {
+    "name": "Sticky Chinese Pork Belly",
+    "section": "ASIAN",
+    "category": "Asian",
+    "source": "Modified from Emma",
+    "tags": [
+      "#pork",
+      "#asian",
+      "#sticky",
+      "#slow-cooked"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Braise:"
+      },
+      {
+        "type": "item",
+        "text": "2.2 lbs rindless pork belly, sliced and halved (each piece about finger-length)"
+      },
+      {
+        "type": "item",
+        "text": "4 1/4 cups hot chicken stock"
+      },
+      {
+        "type": "item",
+        "text": "1 thumb-sized piece fresh ginger, peeled and minced"
+      },
+      {
+        "type": "item",
+        "text": "3 cloves garlic, roughly chopped"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp rice wine"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp sugar"
+      },
+      {
+        "type": "header",
+        "text": "Glaze (4x batch, divided into 4 portions):"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup vegetable oil, divided"
+      },
+      {
+        "type": "item",
+        "text": "Salt and pepper to taste"
+      },
+      {
+        "type": "item",
+        "text": "4 thumb-sized pieces fresh ginger, peeled and minced"
+      },
+      {
+        "type": "item",
+        "text": "4 red chilies, finely chopped"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup honey"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup packed brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "3/4 cup dark soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp rice vinegar (added to reserved portion only)"
+      },
+      {
+        "type": "header",
+        "text": "Vegetables:"
+      },
+      {
+        "type": "item",
+        "text": "1 medium onion, sliced"
+      },
+      {
+        "type": "item",
+        "text": "2 medium carrots, sliced on the bias"
+      },
+      {
+        "type": "item",
+        "text": "1 head broccoli, cut into florets"
+      },
+      {
+        "type": "item",
+        "text": "1 red bell pepper, diced"
+      },
+      {
+        "type": "header",
+        "text": "To Serve:"
+      },
+      {
+        "type": "item",
+        "text": "Cooked white rice"
+      },
+      {
+        "type": "item",
+        "text": "Chopped spring onions"
+      },
+      {
+        "type": "item",
+        "text": "Chopped red chilies"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Braise Pork",
+        "detail": "Add pork belly (2.2 lbs), hot chicken stock (4 1/4 cups), minced ginger (1 thumb-sized piece), garlic (3 cloves, roughly chopped), rice wine (1 Tbsp), and sugar (1 Tbsp) to a heavy-based pot or cast iron casserole. Bring to a boil, cover, reduce heat, and simmer for 2 hours."
+      },
+      {
+        "step": "Rest and Chop",
+        "detail": "Remove pork from the braising liquid and pat thoroughly dry with paper towels. Reserve the liquid if desired \u2014 excellent base for an Asian noodle soup. Cut pork into bite-sized chunks."
+      },
+      {
+        "step": "Make Glaze",
+        "detail": "Whisk together minced ginger (4 thumb-sized pieces), red chilies (4, finely chopped), honey (1/2 cup), brown sugar (1/2 cup), dark soy sauce (3/4 cup), garlic powder (1 Tbsp), and onion powder (1 Tbsp) in a bowl. Divide into 4 equal portions. Transfer 1 portion to a small bowl, stir in rice vinegar (1 tsp), and set aside. The remaining 3 portions go into the pan."
+      },
+      {
+        "step": "Cook Vegetables",
+        "detail": "Heat half the vegetable oil (1/4 cup) in a wok or large skillet over medium-high. Add onion (1 medium, sliced) and carrots (2 medium, sliced on the bias); cook stirring until softened, about 4 minutes. Add broccoli florets (1 head) and cook until bright green and just tender-crisp, about 3-4 minutes. Season with salt and pepper. Transfer to a large bowl and set aside."
+      },
+      {
+        "step": "Fry Pork",
+        "detail": "Heat remaining vegetable oil (1/4 cup) in the same pan over medium-high. Add pork chunks (2.2 lbs) with a pinch of salt and pepper. Fry, turning regularly, until golden and beginning to crisp on the edges, about 5-7 minutes. Use a splatter guard \u2014 rendered pork fat will pop aggressively at this stage."
+      },
+      {
+        "step": "Add Pepper and Glaze",
+        "detail": "Add diced red bell pepper (1) and cook until softened to your preference, about 2-3 minutes. Pour 3/4 of the total glaze (3 portions) over the pork and pepper. Cook, turning the pork frequently, until dark and sticky, about 2-3 minutes."
+      },
+      {
+        "step": "Fold in Vegetables",
+        "detail": "Add the cooked vegetables back in and fold into the pork mixture until evenly coated. For large batches, add in two additions so the pan stays hot."
+      },
+      {
+        "step": "Finish Sauce",
+        "detail": "Pour the reserved glaze portion with rice vinegar (1 tsp) over everything and fold to combine. If the sauce needs thickening, sprinkle in xanthan gum (start with 1/4 tsp) and toss until the sauce tightens to your liking."
+      },
+      {
+        "step": "Serve",
+        "detail": "Serve over cooked white rice topped with chopped spring onions and chopped red chilies."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "name": "Tomato Sauce",
     "section": "ITALIAN",
     "category": "Italian",
@@ -2424,7 +2585,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "1½ cups basmati rice"
+        "text": "1\u00bd cups basmati rice"
       },
       {
         "type": "item",
@@ -2448,7 +2609,7 @@
       },
       {
         "type": "item",
-        "text": "¼ tsp turmeric"
+        "text": "\u00bc tsp turmeric"
       },
       {
         "type": "item",
@@ -2464,7 +2625,7 @@
       },
       {
         "type": "item",
-        "text": "1½ tsp cinnamon"
+        "text": "1\u00bd tsp cinnamon"
       },
       {
         "type": "item",
@@ -2480,33 +2641,33 @@
       },
       {
         "type": "item",
-        "text": "½ tsp cardamom"
+        "text": "\u00bd tsp cardamom"
       },
       {
         "type": "item",
-        "text": "½ tsp allspice"
+        "text": "\u00bd tsp allspice"
       },
       {
         "type": "item",
-        "text": "¼ tsp nutmeg"
+        "text": "\u00bc tsp nutmeg"
       },
       {
         "type": "item",
-        "text": "¼ tsp ground cloves"
+        "text": "\u00bc tsp ground cloves"
       }
     ],
     "instructions": [
       {
         "step": "Soak Rice",
-        "detail": "Soak basmati rice (1½ cups) in a big bowl of water for at least 30 minutes."
+        "detail": "Soak basmati rice (1\u00bd cups) in a big bowl of water for at least 30 minutes."
       },
       {
         "step": "Coat Chicken",
         "detail": "Coat chicken with salt and the full spice blend. Reserve extra spice blend."
       },
       {
-        "step": "Sauté Aromatics",
-        "detail": "Add oil (3 Tbsp) to a pan and heat up. Add garlic (4 cloves) and onion (1 red). Season with salt, pepper, and half the reserved spice mix. Sauté well, then set aside."
+        "step": "Saut\u00e9 Aromatics",
+        "detail": "Add oil (3 Tbsp) to a pan and heat up. Add garlic (4 cloves) and onion (1 red). Season with salt, pepper, and half the reserved spice mix. Saut\u00e9 well, then set aside."
       },
       {
         "step": "Cook Chicken",
@@ -2514,7 +2675,7 @@
       },
       {
         "step": "Cook Rice",
-        "detail": "Add water (2 cups) to pan and bring to a boil. Add soaked rice. Add turmeric (¼ tsp) and remaining spice mix."
+        "detail": "Add water (2 cups) to pan and bring to a boil. Add soaked rice. Add turmeric (\u00bc tsp) and remaining spice mix."
       },
       {
         "step": "Simmer",
@@ -2544,11 +2705,11 @@
       },
       {
         "type": "item",
-        "text": "¼ cup parsley, chopped"
+        "text": "\u00bc cup parsley, chopped"
       },
       {
         "type": "item",
-        "text": "¼ cup spring onions, finely chopped"
+        "text": "\u00bc cup spring onions, finely chopped"
       },
       {
         "type": "item",
@@ -2556,11 +2717,11 @@
       },
       {
         "type": "item",
-        "text": "¼ cup extra virgin olive oil"
+        "text": "\u00bc cup extra virgin olive oil"
       },
       {
         "type": "item",
-        "text": "¼ cup fresh lemon juice"
+        "text": "\u00bc cup fresh lemon juice"
       },
       {
         "type": "item",
@@ -2586,11 +2747,11 @@
       },
       {
         "step": "Combine",
-        "detail": "In a large bowl, add potato chunks, spring onions (¼ cup), parsley (¼ cup), mint (1 Tbsp), and optional garlic."
+        "detail": "In a large bowl, add potato chunks, spring onions (\u00bc cup), parsley (\u00bc cup), mint (1 Tbsp), and optional garlic."
       },
       {
         "step": "Make Dressing",
-        "detail": "In a small bowl, whisk together olive oil (¼ cup), lemon juice (¼ cup), salt, and black pepper."
+        "detail": "In a small bowl, whisk together olive oil (\u00bc cup), lemon juice (\u00bc cup), salt, and black pepper."
       },
       {
         "step": "Dress & Serve",
@@ -2639,27 +2800,27 @@
       },
       {
         "type": "item",
-        "text": "½ tsp allspice"
+        "text": "\u00bd tsp allspice"
       },
       {
         "type": "item",
-        "text": "½ tsp cinnamon"
+        "text": "\u00bd tsp cinnamon"
       },
       {
         "type": "item",
-        "text": "½ tsp ground cloves"
+        "text": "\u00bd tsp ground cloves"
       },
       {
         "type": "item",
-        "text": "½ tsp coriander"
+        "text": "\u00bd tsp coriander"
       },
       {
         "type": "item",
-        "text": "½ tsp cumin"
+        "text": "\u00bd tsp cumin"
       },
       {
         "type": "item",
-        "text": "½ tsp nutmeg"
+        "text": "\u00bd tsp nutmeg"
       }
     ],
     "instructions": [
@@ -2681,7 +2842,7 @@
       },
       {
         "step": "Grill",
-        "detail": "Cook on grill over medium heat until internal temp reaches 145°F."
+        "detail": "Cook on grill over medium heat until internal temp reaches 145\u00b0F."
       }
     ],
     "is_blank": false
@@ -2707,7 +2868,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp ground mint (heaping)"
+        "text": "\u00bd tsp ground mint (heaping)"
       },
       {
         "type": "item",
@@ -2715,7 +2876,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp salt"
+        "text": "\u00bd tsp salt"
       }
     ],
     "instructions": [
@@ -2937,7 +3098,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "Scant ¾ cup mayonnaise (or vegan mayo)"
+        "text": "Scant \u00be cup mayonnaise (or vegan mayo)"
       },
       {
         "type": "item",
@@ -2953,11 +3114,11 @@
       },
       {
         "type": "item",
-        "text": "¾ tsp celery seeds"
+        "text": "\u00be tsp celery seeds"
       },
       {
         "type": "item",
-        "text": "¼ tsp sea salt"
+        "text": "\u00bc tsp sea salt"
       },
       {
         "type": "item",
@@ -2979,11 +3140,11 @@
       },
       {
         "step": "Dress Coleslaw",
-        "detail": "Pour dressing over 6–8 cups coleslaw mix (1 standard store bag). Toss to coat evenly."
+        "detail": "Pour dressing over 6\u20138 cups coleslaw mix (1 standard store bag). Toss to coat evenly."
       },
       {
         "step": "Rest",
-        "detail": "Refrigerate for 1–4 hours, stirring occasionally, to let flavors develop."
+        "detail": "Refrigerate for 1\u20134 hours, stirring occasionally, to let flavors develop."
       },
       {
         "step": "Serve Cold",
@@ -3005,15 +3166,15 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "¾ cup (70g) vanilla protein powder"
+        "text": "\u00be cup (70g) vanilla protein powder"
       },
       {
         "type": "item",
-        "text": "½ cup (50g) oat flour or almond flour"
+        "text": "\u00bd cup (50g) oat flour or almond flour"
       },
       {
         "type": "item",
-        "text": "⅓ cup (80g) peanut butter or almond butter"
+        "text": "\u2153 cup (80g) peanut butter or almond butter"
       },
       {
         "type": "item",
@@ -3021,11 +3182,11 @@
       },
       {
         "type": "item",
-        "text": "1½ Tbsp (20g) Greek yogurt"
+        "text": "1\u00bd Tbsp (20g) Greek yogurt"
       },
       {
         "type": "item",
-        "text": "¼ tsp salt (skip if using salted peanut butter)"
+        "text": "\u00bc tsp salt (skip if using salted peanut butter)"
       }
     ],
     "instructions": [
@@ -3069,7 +3230,7 @@
       },
       {
         "type": "item",
-        "text": "1½ scoops vanilla protein powder"
+        "text": "1\u00bd scoops vanilla protein powder"
       },
       {
         "type": "item",
@@ -3117,7 +3278,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "1½ cups whole rolled oats"
+        "text": "1\u00bd cups whole rolled oats"
       },
       {
         "type": "item",
@@ -3125,15 +3286,15 @@
       },
       {
         "type": "item",
-        "text": "¼ cup ground flaxseed"
+        "text": "\u00bc cup ground flaxseed"
       },
       {
         "type": "item",
-        "text": "¼ cup honey"
+        "text": "\u00bc cup honey"
       },
       {
         "type": "item",
-        "text": "2 scoops protein powder (¼ cup unflavored)"
+        "text": "2 scoops protein powder (\u00bc cup unflavored)"
       },
       {
         "type": "item",
@@ -3145,7 +3306,7 @@
       },
       {
         "type": "item",
-        "text": "¼ cup shredded coconut (optional - note: makes them dry)"
+        "text": "\u00bc cup shredded coconut (optional - note: makes them dry)"
       }
     ],
     "instructions": [
@@ -3249,7 +3410,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup high-protein Greek yogurt"
+        "text": "\u00bd cup high-protein Greek yogurt"
       },
       {
         "type": "item",
@@ -3257,15 +3418,15 @@
       },
       {
         "type": "item",
-        "text": "¼ cup ground flax seeds"
+        "text": "\u00bc cup ground flax seeds"
       },
       {
         "type": "item",
-        "text": "⅓ cup shredded coconut"
+        "text": "\u2153 cup shredded coconut"
       },
       {
         "type": "item",
-        "text": "¼ cup mini chocolate chips"
+        "text": "\u00bc cup mini chocolate chips"
       },
       {
         "type": "item",
@@ -3317,15 +3478,15 @@
       },
       {
         "type": "item",
-        "text": "½ cup almond butter"
+        "text": "\u00bd cup almond butter"
       },
       {
         "type": "item",
-        "text": "⅓ cup pumpkin puree"
+        "text": "\u2153 cup pumpkin puree"
       },
       {
         "type": "item",
-        "text": "¼ cup raw honey (or maple syrup for vegan)"
+        "text": "\u00bc cup raw honey (or maple syrup for vegan)"
       },
       {
         "type": "item",
@@ -3361,27 +3522,27 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "1¼ cups old-fashioned rolled oats"
+        "text": "1\u00bc cups old-fashioned rolled oats"
       },
       {
         "type": "item",
-        "text": "⅔ cup creamy peanut butter"
+        "text": "\u2154 cup creamy peanut butter"
       },
       {
         "type": "item",
-        "text": "½ cup vanilla protein powder"
+        "text": "\u00bd cup vanilla protein powder"
       },
       {
         "type": "item",
-        "text": "¼ cup pumpkin puree"
+        "text": "\u00bc cup pumpkin puree"
       },
       {
         "type": "item",
-        "text": "¼ cup mini chocolate chips"
+        "text": "\u00bc cup mini chocolate chips"
       },
       {
         "type": "item",
-        "text": "¼ cup dried cranberries"
+        "text": "\u00bc cup dried cranberries"
       },
       {
         "type": "item",
@@ -3397,7 +3558,7 @@
       },
       {
         "type": "item",
-        "text": "⅛ tsp salt"
+        "text": "\u215b tsp salt"
       }
     ],
     "instructions": [
@@ -3428,21 +3589,21 @@
       },
       {
         "type": "item",
-        "text": "⅓ cup cocoa powder"
+        "text": "\u2153 cup cocoa powder"
       },
       {
         "type": "item",
-        "text": "½ cup protein powder (chocolate or vanilla)"
+        "text": "\u00bd cup protein powder (chocolate or vanilla)"
       },
       {
         "type": "item",
-        "text": "⅓ cup coconut sugar or granulated sweetener of choice"
+        "text": "\u2153 cup coconut sugar or granulated sweetener of choice"
       }
     ],
     "instructions": [
       {
         "step": "Preheat & Prep",
-        "detail": "Preheat oven to 350°F and line a pan with parchment paper."
+        "detail": "Preheat oven to 350\u00b0F and line a pan with parchment paper."
       },
       {
         "step": "Mix",
@@ -3471,7 +3632,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "½ cup Greek yogurt (plain or vanilla)"
+        "text": "\u00bd cup Greek yogurt (plain or vanilla)"
       },
       {
         "type": "item",
@@ -3483,11 +3644,11 @@
       },
       {
         "type": "item",
-        "text": "½ tsp vanilla extract"
+        "text": "\u00bd tsp vanilla extract"
       },
       {
         "type": "item",
-        "text": "¼ cup oat flour or almond flour"
+        "text": "\u00bc cup oat flour or almond flour"
       },
       {
         "type": "item",
@@ -3497,11 +3658,11 @@
     "instructions": [
       {
         "step": "Mix Wet Ingredients",
-        "detail": "Mix Greek yogurt (½ cup), peanut butter (2 Tbsp), honey (1 Tbsp), and vanilla (½ tsp) in a bowl until well combined."
+        "detail": "Mix Greek yogurt (\u00bd cup), peanut butter (2 Tbsp), honey (1 Tbsp), and vanilla (\u00bd tsp) in a bowl until well combined."
       },
       {
         "step": "Add Flour",
-        "detail": "Add oat flour (¼ cup) and stir until a dough forms."
+        "detail": "Add oat flour (\u00bc cup) and stir until a dough forms."
       },
       {
         "step": "Add Chocolate Chips",
@@ -3639,7 +3800,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup sun-dried tomatoes"
+        "text": "\u00bd cup sun-dried tomatoes"
       },
       {
         "type": "item",
@@ -3667,7 +3828,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup white wine vinegar"
+        "text": "\u00bd cup white wine vinegar"
       },
       {
         "type": "item",
@@ -3693,7 +3854,7 @@
       },
       {
         "step": "Add Vegetables",
-        "detail": "Add onion (1), celery (3 stalks), garlic (3 cloves), and sun-dried tomatoes (½ cup) to broth. Simmer 10 minutes."
+        "detail": "Add onion (1), celery (3 stalks), garlic (3 cloves), and sun-dried tomatoes (\u00bd cup) to broth. Simmer 10 minutes."
       },
       {
         "step": "Add Pasta",
@@ -3701,7 +3862,7 @@
       },
       {
         "step": "Add Cream",
-        "detail": "Stir in heavy cream (1 cup), Parmesan (1 cup), and white wine vinegar (½ cup). Add shredded chicken back."
+        "detail": "Stir in heavy cream (1 cup), Parmesan (1 cup), and white wine vinegar (\u00bd cup). Add shredded chicken back."
       },
       {
         "step": "Thicken",
@@ -4012,15 +4173,15 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "½ cup Greek yogurt, plain"
+        "text": "\u00bd cup Greek yogurt, plain"
       },
       {
         "type": "item",
-        "text": "1 jalapeño, seeds removed"
+        "text": "1 jalape\u00f1o, seeds removed"
       },
       {
         "type": "item",
-        "text": "⅓ cup cilantro"
+        "text": "\u2153 cup cilantro"
       },
       {
         "type": "item",
@@ -4063,7 +4224,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "¼ cup Dijon mustard"
+        "text": "\u00bc cup Dijon mustard"
       },
       {
         "type": "item",
@@ -4083,11 +4244,11 @@
       },
       {
         "type": "item",
-        "text": "½ tsp paprika"
+        "text": "\u00bd tsp paprika"
       },
       {
         "type": "item",
-        "text": "½ tsp cayenne"
+        "text": "\u00bd tsp cayenne"
       }
     ],
     "instructions": [
@@ -4110,7 +4271,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "½ cup Greek yogurt"
+        "text": "\u00bd cup Greek yogurt"
       },
       {
         "type": "item",
@@ -4184,7 +4345,7 @@
       },
       {
         "type": "item",
-        "text": "½ egg white"
+        "text": "\u00bd egg white"
       },
       {
         "type": "item",
@@ -4255,7 +4416,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup yogurt"
+        "text": "\u00bd cup yogurt"
       },
       {
         "type": "item",
@@ -4303,7 +4464,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup heavy cream"
+        "text": "\u00bd cup heavy cream"
       },
       {
         "type": "item",
@@ -4313,11 +4474,11 @@
     "instructions": [
       {
         "step": "Marinate Chicken",
-        "detail": "Marinate chicken (1 lb) with yogurt (½ cup), lemon juice (1 Tbsp), ginger-garlic paste (1 Tbsp), chili powder (1 tsp), garam masala (1 tsp), salt (1 tsp). Rest 30 min+."
+        "detail": "Marinate chicken (1 lb) with yogurt (\u00bd cup), lemon juice (1 Tbsp), ginger-garlic paste (1 Tbsp), chili powder (1 tsp), garam masala (1 tsp), salt (1 tsp). Rest 30 min+."
       },
       {
-        "step": "Sauté Base",
-        "detail": "Sauté chopped onion (1 large) in butter (2 Tbsp). Add garlic (2 cloves, minced) and ginger (1 inch, grated)."
+        "step": "Saut\u00e9 Base",
+        "detail": "Saut\u00e9 chopped onion (1 large) in butter (2 Tbsp). Add garlic (2 cloves, minced) and ginger (1 inch, grated)."
       },
       {
         "step": "Build Sauce",
@@ -4329,7 +4490,7 @@
       },
       {
         "step": "Finish",
-        "detail": "Stir in heavy cream (½ cup) and butter (2 Tbsp). Finish with crushed fenugreek leaves (1 tsp)."
+        "detail": "Stir in heavy cream (\u00bd cup) and butter (2 Tbsp). Finish with crushed fenugreek leaves (1 tsp)."
       }
     ],
     "is_blank": false
@@ -4370,7 +4531,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp turmeric"
+        "text": "\u00bd tsp turmeric"
       },
       {
         "type": "item",
@@ -4382,7 +4543,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup water"
+        "text": "\u00bd cup water"
       },
       {
         "type": "item",
@@ -4390,25 +4551,25 @@
       },
       {
         "type": "item",
-        "text": "¼ cup cilantro, chopped"
+        "text": "\u00bc cup cilantro, chopped"
       }
     ],
     "instructions": [
       {
-        "step": "Sauté Aromatics",
-        "detail": "Heat oil (2 Tbsp) and sauté cumin seeds (1 tsp), onion (1 large, chopped), and garlic (3 cloves, minced)."
+        "step": "Saut\u00e9 Aromatics",
+        "detail": "Heat oil (2 Tbsp) and saut\u00e9 cumin seeds (1 tsp), onion (1 large, chopped), and garlic (3 cloves, minced)."
       },
       {
         "step": "Add Tomatoes & Spices",
-        "detail": "Add tomatoes (2, diced), chili powder (1 tsp), turmeric (½ tsp), and coriander (2 tsp). Cook until soft."
+        "detail": "Add tomatoes (2, diced), chili powder (1 tsp), turmeric (\u00bd tsp), and coriander (2 tsp). Cook until soft."
       },
       {
         "step": "Simmer",
-        "detail": "Add chickpeas (2 cups, drained) and water (½ cup). Simmer 20 minutes."
+        "detail": "Add chickpeas (2 cups, drained) and water (\u00bd cup). Simmer 20 minutes."
       },
       {
         "step": "Finish",
-        "detail": "Add garam masala (1 tsp) and chopped cilantro (¼ cup). Serve with rice or naan."
+        "detail": "Add garam masala (1 tsp) and chopped cilantro (\u00bc cup). Serve with rice or naan."
       }
     ],
     "is_blank": false
@@ -4457,11 +4618,11 @@
       },
       {
         "type": "item",
-        "text": "½ tsp turmeric"
+        "text": "\u00bd tsp turmeric"
       },
       {
         "type": "item",
-        "text": "½ tsp chili powder"
+        "text": "\u00bd tsp chili powder"
       },
       {
         "type": "item",
@@ -4478,12 +4639,12 @@
         "detail": "Brown lamb cubes (1.5 lb) in oil (3 Tbsp). Remove and set aside."
       },
       {
-        "step": "Sauté Aromatics",
+        "step": "Saut\u00e9 Aromatics",
         "detail": "Add onion (2, sliced), garlic (4 cloves), and ginger (1 Tbsp). Fry until golden."
       },
       {
         "step": "Add Spices",
-        "detail": "Stir in paprika (2 tsp), cumin (1 tsp), coriander (1 tsp), turmeric (½ tsp), and chili powder (½ tsp)."
+        "detail": "Stir in paprika (2 tsp), cumin (1 tsp), coriander (1 tsp), turmeric (\u00bd tsp), and chili powder (\u00bd tsp)."
       },
       {
         "step": "Combine",
@@ -4533,7 +4694,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup fresh basil"
+        "text": "\u00bd cup fresh basil"
       },
       {
         "type": "item",
@@ -4555,7 +4716,7 @@
       },
       {
         "step": "Finish",
-        "detail": "Simmer 10 minutes. Add fresh basil (½ cup) and lime juice (1 Tbsp). Serve with rice."
+        "detail": "Simmer 10 minutes. Add fresh basil (\u00bd cup) and lime juice (1 Tbsp). Serve with rice."
       }
     ],
     "is_blank": false
@@ -4625,7 +4786,7 @@
         "detail": "Brown beef chunks (1.5 lb) in oil (2 Tbsp). Remove."
       },
       {
-        "step": "Sauté",
+        "step": "Saut\u00e9",
         "detail": "Fry onion (2, chopped), garlic (4 cloves), and ginger (1 Tbsp)."
       },
       {
@@ -4685,8 +4846,8 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Vegetables",
-        "detail": "Sauté onion (1, sliced), carrot (2, diced), and potato (2, cubed) in oil (2 Tbsp)."
+        "step": "Saut\u00e9 Vegetables",
+        "detail": "Saut\u00e9 onion (1, sliced), carrot (2, diced), and potato (2, cubed) in oil (2 Tbsp)."
       },
       {
         "step": "Add Chicken",
@@ -4751,7 +4912,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp turmeric"
+        "text": "\u00bd tsp turmeric"
       },
       {
         "type": "item",
@@ -4759,21 +4920,21 @@
       },
       {
         "type": "item",
-        "text": "¼ cup cream"
+        "text": "\u00bc cup cream"
       }
     ],
     "instructions": [
       {
         "step": "Brown Paneer",
-        "detail": "Sauté paneer cubes (12 oz) in oil (2 Tbsp) until golden. Remove and set aside."
+        "detail": "Saut\u00e9 paneer cubes (12 oz) in oil (2 Tbsp) until golden. Remove and set aside."
       },
       {
-        "step": "Sauté Base",
+        "step": "Saut\u00e9 Base",
         "detail": "Fry onion (1), garlic (2 cloves), ginger (1 tsp), and cumin (1 tsp) in the same pan."
       },
       {
         "step": "Cook Spinach",
-        "detail": "Add spinach (10 oz), chili powder (1 tsp), turmeric (½ tsp), and salt (1 tsp). Cook until soft."
+        "detail": "Add spinach (10 oz), chili powder (1 tsp), turmeric (\u00bd tsp), and salt (1 tsp). Cook until soft."
       },
       {
         "step": "Blend",
@@ -4781,7 +4942,7 @@
       },
       {
         "step": "Finish",
-        "detail": "Stir in cream (¼ cup) and heat through."
+        "detail": "Stir in cream (\u00bc cup) and heat through."
       }
     ],
     "is_blank": false
@@ -4818,7 +4979,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp turmeric"
+        "text": "\u00bd tsp turmeric"
       },
       {
         "type": "item",
@@ -4847,12 +5008,12 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Base",
+        "step": "Saut\u00e9 Base",
         "detail": "Heat oil (2 Tbsp). Fry onion (1), garlic (3 cloves), ginger (1 tsp)."
       },
       {
         "step": "Add Spices",
-        "detail": "Add chili powder (1 tsp), turmeric (½ tsp), coriander (1 tsp), and cumin (1 tsp)."
+        "detail": "Add chili powder (1 tsp), turmeric (\u00bd tsp), coriander (1 tsp), and cumin (1 tsp)."
       },
       {
         "step": "Add Tomatoes",
@@ -4913,7 +5074,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp turmeric"
+        "text": "\u00bd tsp turmeric"
       },
       {
         "type": "item",
@@ -4934,12 +5095,12 @@
         "detail": "Fry mustard seeds (1 tsp) and cumin seeds (1 tsp) in oil (2 Tbsp) until they pop."
       },
       {
-        "step": "Sauté Aromatics",
+        "step": "Saut\u00e9 Aromatics",
         "detail": "Add onion (1), garlic (3 cloves), curry leaves (6), and green chili (1)."
       },
       {
         "step": "Add Spices",
-        "detail": "Stir in turmeric (½ tsp) and chili powder (1 tsp)."
+        "detail": "Stir in turmeric (\u00bd tsp) and chili powder (1 tsp)."
       },
       {
         "step": "Simmer",
@@ -4992,7 +5153,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp turmeric"
+        "text": "\u00bd tsp turmeric"
       },
       {
         "type": "item",
@@ -5009,7 +5170,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Base",
+        "step": "Saut\u00e9 Base",
         "detail": "Fry onion (1), garlic (3 cloves), ginger (1 tsp) in oil (2 Tbsp)."
       },
       {
@@ -5018,7 +5179,7 @@
       },
       {
         "step": "Add Spices",
-        "detail": "Stir in curry powder (2 Tbsp), cumin (1 tsp), coriander (1 tsp), turmeric (½ tsp)."
+        "detail": "Stir in curry powder (2 Tbsp), cumin (1 tsp), coriander (1 tsp), turmeric (\u00bd tsp)."
       },
       {
         "step": "Simmer",
@@ -5079,7 +5240,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp black pepper"
+        "text": "\u00bd tsp black pepper"
       },
       {
         "type": "item",
@@ -5088,8 +5249,8 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Vegetables",
-        "detail": "Heat olive oil (2 Tbsp) in a large pot. Add onion (1), carrots (2), celery (2 stalks), and garlic (3 cloves). Sauté until softened."
+        "step": "Saut\u00e9 Vegetables",
+        "detail": "Heat olive oil (2 Tbsp) in a large pot. Add onion (1), carrots (2), celery (2 stalks), and garlic (3 cloves). Saut\u00e9 until softened."
       },
       {
         "step": "Add Broth",
@@ -5101,7 +5262,7 @@
       },
       {
         "step": "Season & Finish",
-        "detail": "Add salt (1 tsp) and black pepper (½ tsp). Simmer until noodles are tender. Garnish with parsley (2 Tbsp)."
+        "detail": "Add salt (1 tsp) and black pepper (\u00bd tsp). Simmer until noodles are tender. Garnish with parsley (2 Tbsp)."
       }
     ],
     "is_blank": false
@@ -5158,13 +5319,13 @@
       },
       {
         "type": "item",
-        "text": "½ tsp black pepper"
+        "text": "\u00bd tsp black pepper"
       }
     ],
     "instructions": [
       {
-        "step": "Sauté Aromatics",
-        "detail": "Melt butter (2 Tbsp) in a soup pot. Sauté onion (1), celery (2 stalks), and carrots (3) until softened."
+        "step": "Saut\u00e9 Aromatics",
+        "detail": "Melt butter (2 Tbsp) in a soup pot. Saut\u00e9 onion (1), celery (2 stalks), and carrots (3) until softened."
       },
       {
         "step": "Add Chicken",
@@ -5180,7 +5341,7 @@
       },
       {
         "step": "Season & Serve",
-        "detail": "Season with salt (1 tsp) and black pepper (½ tsp). Remove bay leaf before serving."
+        "detail": "Season with salt (1 tsp) and black pepper (\u00bd tsp). Remove bay leaf before serving."
       }
     ],
     "is_blank": false
@@ -5213,7 +5374,7 @@
       },
       {
         "type": "item",
-        "text": "¼ cup flour"
+        "text": "\u00bc cup flour"
       },
       {
         "type": "item",
@@ -5237,17 +5398,17 @@
       },
       {
         "type": "item",
-        "text": "½ tsp black pepper"
+        "text": "\u00bd tsp black pepper"
       }
     ],
     "instructions": [
       {
-        "step": "Sauté",
+        "step": "Saut\u00e9",
         "detail": "Melt butter (4 Tbsp) in a large pot. Add carrots (2), celery (2 stalks), and onion (1). Cook until softened."
       },
       {
         "step": "Add Flour",
-        "detail": "Stir in flour (¼ cup) and cook for 2 minutes."
+        "detail": "Stir in flour (\u00bc cup) and cook for 2 minutes."
       },
       {
         "step": "Add Broth & Rice",
@@ -5255,7 +5416,7 @@
       },
       {
         "step": "Finish",
-        "detail": "Stir in shredded chicken (2 cups) and heavy cream (1 cup). Season with salt (1 tsp) and pepper (½ tsp)."
+        "detail": "Stir in shredded chicken (2 cups) and heavy cream (1 cup). Season with salt (1 tsp) and pepper (\u00bd tsp)."
       }
     ],
     "is_blank": false
@@ -5329,13 +5490,13 @@
       },
       {
         "type": "item",
-        "text": "½ tsp black pepper"
+        "text": "\u00bd tsp black pepper"
       }
     ],
     "instructions": [
       {
-        "step": "Sauté",
-        "detail": "Heat olive oil (2 Tbsp) in a large pot. Add onion (1), garlic (3 cloves), and red bell pepper (1). Sauté until softened."
+        "step": "Saut\u00e9",
+        "detail": "Heat olive oil (2 Tbsp) in a large pot. Add onion (1), garlic (3 cloves), and red bell pepper (1). Saut\u00e9 until softened."
       },
       {
         "step": "Build Soup",
@@ -5351,7 +5512,7 @@
       },
       {
         "step": "Serve",
-        "detail": "Top with crushed tortilla chips (2 cups). Season with salt (1 tsp) and pepper (½ tsp)."
+        "detail": "Top with crushed tortilla chips (2 cups). Season with salt (1 tsp) and pepper (\u00bd tsp)."
       }
     ],
     "is_blank": false
@@ -5421,7 +5582,7 @@
       },
       {
         "type": "item",
-        "text": "½ tsp black pepper"
+        "text": "\u00bd tsp black pepper"
       },
       {
         "type": "item",
@@ -5438,7 +5599,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté",
+        "step": "Saut\u00e9",
         "detail": "Heat olive oil (2 Tbsp). Add onion (1), garlic (3 cloves), carrots (2), and celery (2 stalks). Cook until softened."
       },
       {
@@ -5455,7 +5616,7 @@
       },
       {
         "step": "Finish",
-        "detail": "Season with salt (1 tsp) and pepper (½ tsp). Simmer 20 minutes."
+        "detail": "Season with salt (1 tsp) and pepper (\u00bd tsp). Simmer 20 minutes."
       },
       {
         "step": "Step 1 Name",
@@ -5533,7 +5694,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Aromatics",
+        "step": "Saut\u00e9 Aromatics",
         "detail": "Heat olive oil (1 tbsp) in a pot. Add garlic (2 cloves), onion (1), celery (3 stalks), and carrots (2). Cook until fragrant."
       },
       {
@@ -5620,8 +5781,8 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Vegetables",
-        "detail": "Heat olive oil (2 tbsp) in a soup pot. Sauté onion (1), carrots (3), celery (2 stalks), and garlic (2 cloves) until softened."
+        "step": "Saut\u00e9 Vegetables",
+        "detail": "Heat olive oil (2 tbsp) in a soup pot. Saut\u00e9 onion (1), carrots (3), celery (2 stalks), and garlic (2 cloves) until softened."
       },
       {
         "step": "Add Broth & Rice",
@@ -5712,7 +5873,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Base",
+        "step": "Saut\u00e9 Base",
         "detail": "Melt butter (2 tbsp). Add onion (1) and garlic (2 cloves). Cook until fragrant."
       },
       {
@@ -5796,8 +5957,8 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Vegetables",
-        "detail": "Heat olive oil (2 tbsp). Add onion (1), garlic (2 cloves), and zucchini (1). Sauté until softened."
+        "step": "Saut\u00e9 Vegetables",
+        "detail": "Heat olive oil (2 tbsp). Add onion (1), garlic (2 cloves), and zucchini (1). Saut\u00e9 until softened."
       },
       {
         "step": "Build Soup",
@@ -5879,7 +6040,7 @@
         "detail": "Heat olive oil (2 tbsp). Add beef stew meat (1 lb) and brown on all sides. Set aside."
       },
       {
-        "step": "Sauté Vegetables",
+        "step": "Saut\u00e9 Vegetables",
         "detail": "Stir in onion (1), carrots (2), celery (2 stalks), and garlic (3 cloves). Cook until softened."
       },
       {
@@ -5958,7 +6119,7 @@
         "detail": "Melt butter (2 tbsp). Add ground beef (1 lb) and cook until browned."
       },
       {
-        "step": "Sauté Vegetables",
+        "step": "Saut\u00e9 Vegetables",
         "detail": "Stir in onion (1), carrots (3), and celery (2 stalks). Cook until softened."
       },
       {
@@ -6045,8 +6206,8 @@
         "detail": "Mix ground beef (1/2 lb), ground pork (1/2 lb), breadcrumbs (1/2 cup), egg (1), Parmesan (1/4 cup), and garlic (2 cloves). Form into small meatballs and brown in a skillet."
       },
       {
-        "step": "Sauté Vegetables",
-        "detail": "In a large pot, sauté onion (1), carrots (2), and celery (2 stalks)."
+        "step": "Saut\u00e9 Vegetables",
+        "detail": "In a large pot, saut\u00e9 onion (1), carrots (2), and celery (2 stalks)."
       },
       {
         "step": "Simmer",
@@ -6190,7 +6351,7 @@
       },
       {
         "type": "item",
-        "text": "Gruyère cheese (2 cups, shredded)"
+        "text": "Gruy\u00e8re cheese (2 cups, shredded)"
       }
     ],
     "instructions": [
@@ -6208,7 +6369,7 @@
       },
       {
         "step": "Broil",
-        "detail": "Ladle into oven-safe bowls. Top each with a baguette slice and Gruyère cheese (2 cups total). Broil until cheese is melted and bubbly."
+        "detail": "Ladle into oven-safe bowls. Top each with a baguette slice and Gruy\u00e8re cheese (2 cups total). Broil until cheese is melted and bubbly."
       }
     ],
     "is_blank": false
@@ -6355,7 +6516,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Vegetables",
+        "step": "Saut\u00e9 Vegetables",
         "detail": "Melt butter (3 tbsp). Add onion (1), carrots (2), and celery (2 stalks). Cook until softened."
       },
       {
@@ -6513,7 +6674,7 @@
         "detail": "Cook bacon (4 slices) in a pot until crisp. Remove and set aside."
       },
       {
-        "step": "Sauté Vegetables",
+        "step": "Saut\u00e9 Vegetables",
         "detail": "Add butter (2 tbsp), onion (1), and celery (2 stalks). Cook until softened. Stir in flour (1/4 cup) and cook 1 minute."
       },
       {
@@ -6751,7 +6912,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Aromatics",
+        "step": "Saut\u00e9 Aromatics",
         "detail": "Heat olive oil (2 tbsp). Add onion (1), carrots (2), celery (2 stalks), and garlic (2 cloves). Cook until softened."
       },
       {
@@ -7114,7 +7275,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté",
+        "step": "Saut\u00e9",
         "detail": "Heat olive oil (2 tbsp). Add onion (1) and garlic (3 cloves). Cook until softened."
       },
       {
@@ -7193,7 +7354,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Aromatics",
+        "step": "Saut\u00e9 Aromatics",
         "detail": "Heat olive oil (2 tbsp). Add onion (1), carrots (2), celery (2 stalks), and garlic (3 cloves). Cook until softened."
       },
       {
@@ -7256,7 +7417,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté",
+        "step": "Saut\u00e9",
         "detail": "Melt butter (2 tbsp). Add onion (1). Cook until softened. Add carrots (6) and ginger (2 tbsp). Cook 5 minutes."
       },
       {
@@ -7323,7 +7484,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté",
+        "step": "Saut\u00e9",
         "detail": "Heat olive oil (2 tbsp). Add onion (1) and garlic (3 cloves). Cook until softened. Add butternut squash (1 large) and carrots (2); stir 5 minutes."
       },
       {
@@ -7398,7 +7559,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Aromatics",
+        "step": "Saut\u00e9 Aromatics",
         "detail": "Heat olive oil (2 tbsp). Add onion (1), garlic (3 cloves), and carrots (2). Cook until softened."
       },
       {
@@ -7482,7 +7643,7 @@
     ],
     "instructions": [
       {
-        "step": "Sauté Aromatics",
+        "step": "Saut\u00e9 Aromatics",
         "detail": "Heat coconut oil (2 tbsp). Add onion (1), garlic (3 cloves), and ginger (1 tbsp). Cook until fragrant."
       },
       {
@@ -7606,7 +7767,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast until 165°F (74°C).",
+        "step": "Grill or roast until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -7621,7 +7782,7 @@
       },
       {
         "type": "item",
-        "step": "Marinate chicken (2 lb) 2-8 hours; grill until 165°F (74°C).",
+        "step": "Marinate chicken (2 lb) 2-8 hours; grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -7631,7 +7792,7 @@
     "name": "Chipotle Lime - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
-    "source": "Bon Appétit / Food Network",
+    "source": "Bon App\u00e9tit / Food Network",
     "tags": [
       "#chicken",
       "#marinade",
@@ -7640,7 +7801,7 @@
     "ingredients": [
       {
         "type": "section",
-        "text": "Version 1 - Bon Appétit"
+        "text": "Version 1 - Bon App\u00e9tit"
       },
       {
         "type": "item",
@@ -7714,7 +7875,7 @@
     "instructions": [
       {
         "type": "section",
-        "step": "Version 1 - Bon Appétit",
+        "step": "Version 1 - Bon App\u00e9tit",
         "detail": ""
       },
       {
@@ -7724,7 +7885,7 @@
       },
       {
         "type": "item",
-        "step": "Marinate chicken (2 lb) 2-6 hours; grill until 165°F (74°C).",
+        "step": "Marinate chicken (2 lb) 2-6 hours; grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -7739,7 +7900,7 @@
       },
       {
         "type": "item",
-        "step": "Marinate chicken (2 lb) 1-4 hours; roast or grill to 165°F (74°C).",
+        "step": "Marinate chicken (2 lb) 1-4 hours; roast or grill to 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -7863,7 +8024,7 @@
       },
       {
         "type": "item",
-        "step": "Roast or grill until 165°F (74°C).",
+        "step": "Roast or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -7883,7 +8044,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -7987,7 +8148,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -8007,7 +8168,7 @@
       },
       {
         "type": "item",
-        "step": "Bake or grill until 165°F (74°C).",
+        "step": "Bake or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -8111,7 +8272,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or pan-sear until 165°F (74°C), garnish with scallions (2).",
+        "step": "Grill or pan-sear until 165\u00b0F (74\u00b0C), garnish with scallions (2).",
         "detail": ""
       },
       {
@@ -8131,7 +8292,7 @@
       },
       {
         "type": "item",
-        "step": "Bake or grill until 165°F (74°C).",
+        "step": "Bake or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -8363,7 +8524,7 @@
       },
       {
         "type": "item",
-        "step": "Grill until 165°F (74°C), spoon reserved chimichurri (2-3 tbsp) over chicken.",
+        "step": "Grill until 165\u00b0F (74\u00b0C), spoon reserved chimichurri (2-3 tbsp) over chicken.",
         "detail": ""
       },
       {
@@ -8507,7 +8668,7 @@
       },
       {
         "type": "item",
-        "step": "Grill to 165°F (74°C).",
+        "step": "Grill to 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -8527,7 +8688,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -8635,7 +8796,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -8655,7 +8816,7 @@
       },
       {
         "type": "item",
-        "step": "Grill until 165°F (74°C).",
+        "step": "Grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -8767,7 +8928,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -8787,7 +8948,7 @@
       },
       {
         "type": "item",
-        "step": "Roast or grill until 165°F (74°C).",
+        "step": "Roast or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -8895,7 +9056,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or pan-sear until 165°F (74°C).",
+        "step": "Grill or pan-sear until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -8915,7 +9076,7 @@
       },
       {
         "type": "item",
-        "step": "Roast or grill to 165°F (74°C).",
+        "step": "Roast or grill to 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9043,7 +9204,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast to 165°F (74°C).",
+        "step": "Grill or roast to 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9147,7 +9308,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -9167,7 +9328,7 @@
       },
       {
         "type": "item",
-        "step": "Cook chicken until 165°F (74°C).",
+        "step": "Cook chicken until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9267,7 +9428,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake to 165°F (74°C).",
+        "step": "Grill or bake to 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -9287,7 +9448,7 @@
       },
       {
         "type": "item",
-        "step": "Pan-sear or grill until 165°F (74°C).",
+        "step": "Pan-sear or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9403,7 +9564,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast until 165°F (74°C).",
+        "step": "Grill or roast until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -9423,7 +9584,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake to 165°F (74°C).",
+        "step": "Grill or bake to 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9543,7 +9704,7 @@
       },
       {
         "type": "item",
-        "step": "Cook on grill or in oven until 165°F (74°C).",
+        "step": "Cook on grill or in oven until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9647,7 +9808,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -9667,7 +9828,7 @@
       },
       {
         "type": "item",
-        "step": "Cook until 165°F (74°C).",
+        "step": "Cook until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9783,7 +9944,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast until 165°F (74°C).",
+        "step": "Grill or roast until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -9803,7 +9964,7 @@
       },
       {
         "type": "item",
-        "step": "Cook until 165°F (74°C).",
+        "step": "Cook until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -9911,7 +10072,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast until 165°F (74°C).",
+        "step": "Grill or roast until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -9931,7 +10092,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast to 165°F (74°C).",
+        "step": "Grill or roast to 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10023,7 +10184,7 @@
       },
       {
         "type": "item",
-        "step": "Bake or grill until 165°F (74°C).",
+        "step": "Bake or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -10043,7 +10204,7 @@
       },
       {
         "type": "item",
-        "step": "Cook on grill or in oven until 165°F (74°C).",
+        "step": "Cook on grill or in oven until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10053,7 +10214,7 @@
     "name": "Cilantro Lime - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
-    "source": "Bon Appétit / Allrecipes",
+    "source": "Bon App\u00e9tit / Allrecipes",
     "tags": [
       "#chicken",
       "#marinade",
@@ -10062,7 +10223,7 @@
     "ingredients": [
       {
         "type": "section",
-        "text": "Version 1 - Bon Appétit"
+        "text": "Version 1 - Bon App\u00e9tit"
       },
       {
         "type": "item",
@@ -10132,7 +10293,7 @@
     "instructions": [
       {
         "type": "section",
-        "step": "Version 1 - Bon Appétit",
+        "step": "Version 1 - Bon App\u00e9tit",
         "detail": ""
       },
       {
@@ -10147,7 +10308,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -10167,7 +10328,7 @@
       },
       {
         "type": "item",
-        "step": "Cook on grill or in oven until 165°F (74°C).",
+        "step": "Cook on grill or in oven until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10267,7 +10428,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or pan-sear until 165°F (74°C).",
+        "step": "Grill or pan-sear until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -10287,7 +10448,7 @@
       },
       {
         "type": "item",
-        "step": "Roast or grill until 165°F (74°C).",
+        "step": "Roast or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10387,7 +10548,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -10407,7 +10568,7 @@
       },
       {
         "type": "item",
-        "step": "Cook until 165°F (74°C).",
+        "step": "Cook until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10417,7 +10578,7 @@
     "name": "Spicy Harissa - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
-    "source": "NYT Cooking / Bon Appétit",
+    "source": "NYT Cooking / Bon App\u00e9tit",
     "tags": [
       "#chicken",
       "#marinade",
@@ -10458,7 +10619,7 @@
       },
       {
         "type": "section",
-        "text": "Version 2 - Bon Appétit"
+        "text": "Version 2 - Bon App\u00e9tit"
       },
       {
         "type": "item",
@@ -10507,12 +10668,12 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast to 165°F (74°C).",
+        "step": "Grill or roast to 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
         "type": "section",
-        "step": "Version 2 - Bon Appétit",
+        "step": "Version 2 - Bon App\u00e9tit",
         "detail": ""
       },
       {
@@ -10527,7 +10688,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10627,7 +10788,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake to 165°F (74°C).",
+        "step": "Grill or bake to 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -10647,7 +10808,7 @@
       },
       {
         "type": "item",
-        "step": "Grill, pan-fry, or roast until 165°F (74°C).",
+        "step": "Grill, pan-fry, or roast until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10751,7 +10912,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast until 165°F (74°C).",
+        "step": "Grill or roast until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -10771,7 +10932,7 @@
       },
       {
         "type": "item",
-        "step": "Bake or grill until 165°F (74°C).",
+        "step": "Bake or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10875,7 +11036,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -10895,7 +11056,7 @@
       },
       {
         "type": "item",
-        "step": "Cook until 165°F (74°C).",
+        "step": "Cook until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -10999,7 +11160,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or pan-fry until 165°F (74°C).",
+        "step": "Grill or pan-fry until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -11019,7 +11180,7 @@
       },
       {
         "type": "item",
-        "step": "Roast or grill until 165°F (74°C).",
+        "step": "Roast or grill until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -11135,7 +11296,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or roast until 165°F (74°C).",
+        "step": "Grill or roast until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -11155,7 +11316,7 @@
       },
       {
         "type": "item",
-        "step": "Cook on grill or in oven until 165°F (74°C).",
+        "step": "Cook on grill or in oven until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -11255,7 +11416,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or bake until 165°F (74°C).",
+        "step": "Grill or bake until 165\u00b0F (74\u00b0C).",
         "detail": ""
       },
       {
@@ -11275,7 +11436,7 @@
       },
       {
         "type": "item",
-        "step": "Cook on grill or in oven until 165°F (74°C).",
+        "step": "Cook on grill or in oven until 165\u00b0F (74\u00b0C).",
         "detail": ""
       }
     ],
@@ -11451,7 +11612,7 @@
       },
       {
         "type": "item",
-        "step": "Sear, then brush with reserved marinade that’s been boiled (1 minute) to glaze.",
+        "step": "Sear, then brush with reserved marinade that\u2019s been boiled (1 minute) to glaze.",
         "detail": ""
       },
       {
@@ -11902,7 +12063,7 @@
       },
       {
         "type": "section",
-        "text": "Version 2 - Natasha’s Kitchen"
+        "text": "Version 2 - Natasha\u2019s Kitchen"
       },
       {
         "type": "item",
@@ -11964,7 +12125,7 @@
       },
       {
         "type": "section",
-        "step": "Version 2 - Natasha’s Kitchen",
+        "step": "Version 2 - Natasha\u2019s Kitchen",
         "detail": ""
       },
       {
@@ -13305,7 +13466,7 @@
       },
       {
         "type": "item",
-        "step": "Roast at 425°F (218°C) on a rack 20 minutes, brush with honey (1 tbsp) mixed with hot water (1 tbsp), flip and roast 15-20 minutes more until 145°F (63°C).",
+        "step": "Roast at 425\u00b0F (218\u00b0C) on a rack 20 minutes, brush with honey (1 tbsp) mixed with hot water (1 tbsp), flip and roast 15-20 minutes more until 145\u00b0F (63\u00b0C).",
         "detail": ""
       },
       {
@@ -13330,7 +13491,7 @@
       },
       {
         "type": "item",
-        "step": "Smoke or grill over medium heat to 145°F (63°C), basting with reduced marinade (1/4 cup) to glaze.",
+        "step": "Smoke or grill over medium heat to 145\u00b0F (63\u00b0C), basting with reduced marinade (1/4 cup) to glaze.",
         "detail": ""
       }
     ],
@@ -13450,7 +13611,7 @@
       },
       {
         "type": "item",
-        "step": "Roast or grill until tender and 195°F (90°C) for pulled texture, or to 145°F (63°C) for slices; baste with reserved mojo (1/4 cup).",
+        "step": "Roast or grill until tender and 195\u00b0F (90\u00b0C) for pulled texture, or to 145\u00b0F (63\u00b0C) for slices; baste with reserved mojo (1/4 cup).",
         "detail": ""
       },
       {
@@ -13553,7 +13714,7 @@
       },
       {
         "type": "item",
-        "text": "Pineapple (1/2 cup, puréed)"
+        "text": "Pineapple (1/2 cup, pur\u00e9ed)"
       },
       {
         "type": "item",
@@ -13620,7 +13781,7 @@
     "is_blank": false
   },
   {
-    "name": "Vietnamese Lemongrass (Sườn Nướng style) - Pork Marinade",
+    "name": "Vietnamese Lemongrass (S\u01b0\u1eddn N\u01b0\u1edbng style) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
     "source": "Hungry Huy (Vietnamese Pork Chops) / The Woks of Life (Lemongrass marinade technique)",
@@ -13733,7 +13894,7 @@
       },
       {
         "type": "item",
-        "step": "Grill or pan-sear to 145°F (63°C); rest and serve.",
+        "step": "Grill or pan-sear to 145\u00b0F (63\u00b0C); rest and serve.",
         "detail": ""
       },
       {
@@ -14027,7 +14188,7 @@
       },
       {
         "type": "item",
-        "step": "Smoke or grill to 145°F (63°C) for slices or to tenderness for shoulder; rest before serving.",
+        "step": "Smoke or grill to 145\u00b0F (63\u00b0C) for slices or to tenderness for shoulder; rest before serving.",
         "detail": ""
       },
       {
@@ -14037,7 +14198,7 @@
       },
       {
         "type": "item",
-        "step": "Purée all ingredients to a paste; coat pork (2 lb) thoroughly and marinate 8-24 hours.",
+        "step": "Pur\u00e9e all ingredients to a paste; coat pork (2 lb) thoroughly and marinate 8-24 hours.",
         "detail": ""
       },
       {
@@ -14276,7 +14437,7 @@
       },
       {
         "type": "item",
-        "step": "Marinate pork (2 lb) 2-8 hours; grill to 145°F (63°C) and rest.",
+        "step": "Marinate pork (2 lb) 2-8 hours; grill to 145\u00b0F (63\u00b0C) and rest.",
         "detail": ""
       }
     ],
@@ -14856,7 +15017,7 @@
       },
       {
         "type": "item",
-        "step": "Marinate pork (2 lb) 1-4 hours; grill to 145°F (63°C).",
+        "step": "Marinate pork (2 lb) 1-4 hours; grill to 145\u00b0F (63\u00b0C).",
         "detail": ""
       }
     ],
@@ -14988,7 +15149,7 @@
     "name": "Orange-Ginger - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
-    "source": "Food.com (Orange & Ginger Pork Tenderloin) / Bon Appétit (Orange-Glazed Roast Pork - flavor profile",
+    "source": "Food.com (Orange & Ginger Pork Tenderloin) / Bon App\u00e9tit (Orange-Glazed Roast Pork - flavor profile",
     "tags": [
       "#pork",
       "#marinade",
@@ -15033,7 +15194,7 @@
       },
       {
         "type": "section",
-        "text": "Version 2 - Bon Appétit (Orange-Glazed Roast Pork - flavor profile inspiration)"
+        "text": "Version 2 - Bon App\u00e9tit (Orange-Glazed Roast Pork - flavor profile inspiration)"
       },
       {
         "type": "item",
@@ -15077,12 +15238,12 @@
       },
       {
         "type": "item",
-        "step": "Marinate pork (2 lb) 2-6 hours; grill or roast to 145°F (63°C).",
+        "step": "Marinate pork (2 lb) 2-6 hours; grill or roast to 145\u00b0F (63\u00b0C).",
         "detail": ""
       },
       {
         "type": "section",
-        "step": "Version 2 - Bon Appétit (Orange-Glazed Roast Pork - flavor profile inspiration)",
+        "step": "Version 2 - Bon App\u00e9tit (Orange-Glazed Roast Pork - flavor profile inspiration)",
         "detail": ""
       },
       {
