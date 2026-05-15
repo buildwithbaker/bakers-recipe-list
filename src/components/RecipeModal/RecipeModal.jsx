@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { Component, lazy, Suspense, useEffect, useId, useMemo, useRef, useState } from 'react';
 import styles from './RecipeModal.module.css';
 import { estimateServings } from '../../utils/estimateServings.js';
 import { useMacroEstimate } from '../../hooks/useMacroEstimate.js';
@@ -9,6 +9,14 @@ import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 
 const MacroCard = lazy(() => import('../MacroCard/MacroCard.jsx'));
+
+// Silent error boundary for the macro section — if the lazy chunk 404s after
+// a new deployment, the macro card just disappears instead of crashing the modal.
+class MacroErrorBoundary extends Component {
+  constructor(props) { super(props); this.state = { failed: false }; }
+  static getDerivedStateFromError() { return { failed: true }; }
+  render() { return this.state.failed ? null : this.props.children; }
+}
 
 const SCALE_STEPS = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4];
 
@@ -314,9 +322,11 @@ export default function RecipeModal({ recipe, onClose, onTagClick, onAddToList }
             <>
               <Ingredients items={recipe.ingredients} scale={scale} onAddToList={onAddToList ? handleAddToList : null} />
               <Instructions steps={recipe.instructions} />
-              <Suspense fallback={null}>
-                <MacroCard {...macroState} />
-              </Suspense>
+              <MacroErrorBoundary>
+                <Suspense fallback={null}>
+                  <MacroCard {...macroState} />
+                </Suspense>
+              </MacroErrorBoundary>
               <CookLogSection recipeName={recipe.name} />
             </>
           )}
