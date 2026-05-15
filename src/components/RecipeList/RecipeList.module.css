@@ -1,1 +1,18 @@
-/* RecipeList itself has no styles — main is styled in globals.css */
+/* Slight opacity while the deferred filter is catching up — signals work in progress. */
+.filtering {
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+
+.resultCount {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 14px 0 4px;
+}
+
+.noResults {
+  font-size: 15px;
+  color: var(--text-muted);
+  padding: 60px 0;
+  text-align: center;
+}

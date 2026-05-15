@@ -1,0 +1,62 @@
+.bar {
+  position: sticky;
+  top: 52px; /* clears the TopBar (14px padding + ~24px title + 14px padding) */
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+}
+
+.icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+  min-width: 0;
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Remove browser default search cancel button */
+.input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.clear {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  line-height: 1;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.clear:hover {
+  color: var(--text);
+}
+
+@media (max-width: 480px) {
+  .bar {
+    top: 44px; /* TopBar is shorter on mobile: 12px padding + ~20px title + 12px padding */
+    padding: 8px 12px;
+  }
+  .input {
+    font-size: 13px;
+  }
+}

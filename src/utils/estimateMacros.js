@@ -6,7 +6,7 @@ import { parseIngredient } from './parseIngredient.js';
 import { convertToGrams } from './convertToGrams.js';
 import { fetchNutrition, isRateLimited } from './fetchNutrition.js';
 
-export async function estimateMacros(recipe, servings) {
+export async function estimateMacros(recipe, servings, signal) {
   if (!recipe || recipe.is_blank) return null;
   if (!servings || servings <= 0) return null;
 
@@ -38,7 +38,7 @@ export async function estimateMacros(recipe, servings) {
 
   // Fire all USDA fetches in parallel (most resolve from sessionStorage).
   const responses = await Promise.all(
-    lookups.map((l) => fetchNutrition(l.name).then((macros) => ({ ...l, macros })))
+    lookups.map((l) => fetchNutrition(l.name, signal).then((macros) => ({ ...l, macros })))
   );
 
   let totals = { calories: 0, protein: 0, fat: 0, carbs: 0, fiber: 0 };

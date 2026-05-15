@@ -229,3 +229,117 @@
     font-size: 12px;
   }
 }
+
+/* Header action buttons (print + close grouped together) */
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.printBtn {
+  background: none;
+  border: none;
+  color: var(--card-muted);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.printBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--card-body);
+}
+
+/* Tag buttons in meta line */
+.tagBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  font-style: inherit;
+  color: var(--card-tag);
+  cursor: pointer;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+  font-family: inherit;
+}
+.tagBtn:hover {
+  color: var(--card-heading);
+}
+
+.metaSep {
+  color: var(--card-tag);
+}
+
+/* Serving scaler inline controls */
+.scalerRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.scalerBtn {
+  background: none;
+  border: 1px solid var(--card-border, #e0dbd4);
+  border-radius: 3px;
+  color: var(--card-tag);
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  padding: 1px 5px;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+.scalerBtn:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--card-body);
+}
+.scalerBtn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.scaleTag {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--card-tag-strong);
+  vertical-align: middle;
+}
+
+/* Ingredients section header row (title + copy button) */
+.sectionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+/* Copy button next to Ingredients heading */
+.copyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 3px 8px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  font-family: inherit;
+}
+.copyBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+.copyBtnDone {
+  color: #2a7a4a;
+  border-color: #2a7a4a;
+}

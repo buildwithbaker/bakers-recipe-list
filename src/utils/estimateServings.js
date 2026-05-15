@@ -11,6 +11,8 @@
 // Returns null for blank recipes, Seasonings, Doughs, or anything else
 // where a serving estimate isn't meaningful.
 
+import { parseQuantityStr } from './fractions.js';
+
 const SECTIONS_NO_SERVINGS = new Set(['SEASONINGS', 'DOUGHS']);
 
 const SECTION_DEFAULTS = {
@@ -51,29 +53,6 @@ const GRAIN_KEYWORDS = [
   'pasta', 'noodles',
 ];
 
-// Convert a quantity token (incl. unicode fractions and mixed numbers) → number.
-import { UNICODE_FRAC } from './fractions.js';
-
-function parseQuantity(s) {
-  if (!s) return NaN;
-  const trimmed = s.trim();
-  // Mixed number with unicode: "1½"
-  const mixUni = trimmed.match(/^(\d+)([½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘])$/);
-  if (mixUni) return parseInt(mixUni[1], 10) + UNICODE_FRAC[mixUni[2]];
-  // Mixed number with ASCII fraction: "1 1/2"
-  const mixAscii = trimmed.match(/^(\d+)\s+(\d+)\/(\d+)$/);
-  if (mixAscii) return parseInt(mixAscii[1], 10) + parseInt(mixAscii[2], 10) / parseInt(mixAscii[3], 10);
-  // Pure unicode: "½"
-  if (UNICODE_FRAC[trimmed]) return UNICODE_FRAC[trimmed];
-  // ASCII fraction: "3/4"
-  const asciiFrac = trimmed.match(/^(\d+)\/(\d+)$/);
-  if (asciiFrac) return parseInt(asciiFrac[1], 10) / parseInt(asciiFrac[2], 10);
-  // Decimal or integer: "1", "1.5"
-  const num = parseFloat(trimmed);
-  if (!isNaN(num)) return num;
-  return NaN;
-}
-
 // Look for "makes/yields/serves N" in instruction text.
 function findExplicitYield(recipe) {
   const all = (recipe.instructions || [])
@@ -88,39 +67,34 @@ function findExplicitYield(recipe) {
 }
 
 // Look at ingredient text for a primary-protein weight, return total grams (approx).
-// Returns null if no protein found.
 function findProteinWeight(recipe) {
   for (const ing of recipe.ingredients || []) {
     if (ing.type === 'section') continue;
     const text = (ing.text || '').toLowerCase();
     if (!PROTEIN_KEYWORDS.some((k) => text.includes(k))) continue;
-    // Look for "X lb" or "X oz" early in the string
     const lbMatch = text.match(/^([\d./\s½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]+)\s*(?:lb|lbs|pound|pounds)\b/);
     if (lbMatch) {
-      const q = parseQuantity(lbMatch[1]);
-      if (!isNaN(q)) return q * 453.6; // grams
+      const q = parseQuantityStr(lbMatch[1].trim());
+      if (!isNaN(q)) return q * 453.6;
     }
     const ozMatch = text.match(/^([\d./\s½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]+)\s*(?:oz|ounce|ounces)\b/);
     if (ozMatch) {
-      const q = parseQuantity(ozMatch[1]);
+      const q = parseQuantityStr(ozMatch[1].trim());
       if (!isNaN(q)) return q * 28.35;
     }
   }
   return null;
 }
 
-// Per-serving protein weight depends on the dish format. Small bites
-// (patties, meatballs, burgers) yield more servings per pound than a
-// big slow-cooker pot of pulled pork.
 function gramsPerServingForRecipe(recipe) {
   const name = (recipe.name || '').toLowerCase();
   if (/\b(patties?|meatballs?|burgers?|muffins?|bites?|nuggets?|skewers?|wings?)\b/.test(name)) {
-    return 55;  // small-bite portion
+    return 55;
   }
   if (recipe.section === 'SLOW COOKER') {
-    return 150; // big-meal portion
+    return 150;
   }
-  return 115;   // standard ~4oz cooked protein
+  return 115;
 }
 
 // Sum up "X cup(s)" amounts for ingredients matching a keyword set.
@@ -130,10 +104,9 @@ function sumCupsFor(recipe, keywords) {
     if (ing.type === 'section') continue;
     const text = (ing.text || '').toLowerCase();
     if (!keywords.some((k) => text.includes(k))) continue;
-    // Match leading "QTY cup(s)" — handles "1 cup", "2 ½ cups", "1/2 cup", "¼ cup"
     const m = text.match(/^([\d./\s½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]+)\s*cups?\b/);
     if (!m) continue;
-    const q = parseQuantity(m[1].trim());
+    const q = parseQuantityStr(m[1].trim());
     if (!isNaN(q) && q > 0) total += q;
   }
   return total;
@@ -164,8 +137,6 @@ export function estimateServings(recipe) {
     };
   }
 
-  // No primary protein — look at total liquid base (oatmeal, soup, smoothie, etc.).
-  // ~1.25 cups of liquid per serving for porridge/oatmeal-style; ~1.5 cups for soup.
   const liquidCups = sumCupsFor(recipe, LIQUID_KEYWORDS);
   if (liquidCups >= 3) {
     const perServing = recipe.section?.includes('SOUP') ? 1.5 : 1.25;
@@ -173,8 +144,6 @@ export function estimateServings(recipe) {
     return { servings: s, basis: 'Estimated from ingredients' };
   }
 
-  // Grain-heavy recipe with no protein/liquid signal: ~30g dry grain per serving,
-  // and 1 cup of dry oats/rice ≈ 180g, so 1 cup ≈ 6 servings.
   const grainCups = sumCupsFor(recipe, GRAIN_KEYWORDS);
   if (grainCups >= 1) {
     const s = Math.max(2, Math.min(12, Math.round(grainCups * 6)));

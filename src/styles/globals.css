@@ -59,3 +59,31 @@ main {
     padding: 16px 12px 60px;
   }
 }
+
+/* ============================================================
+   Print styles — triggered by the recipe modal print button.
+   Uses the visibility trick: hide everything, then un-hide only
+   the element with [data-print-modal]. This keeps the overlay
+   chrome (backdrop, close/print buttons) out of the printout.
+   ============================================================ */
+@media print {
+  * {
+    visibility: hidden;
+  }
+
+  [data-print-modal],
+  [data-print-modal] * {
+    visibility: visible;
+  }
+
+  [data-print-modal] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    max-width: 100% !important;
+  }
+}

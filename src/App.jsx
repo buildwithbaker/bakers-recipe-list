@@ -1,21 +1,59 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import recipes from './data/recipes.json';
 import TopBar from './components/TopBar/TopBar.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
 import TOCNav from './components/TOCNav/TOCNav.jsx';
 import RecipeList from './components/RecipeList/RecipeList.jsx';
 import RecipeModal from './components/RecipeModal/RecipeModal.jsx';
+import SearchBar from './components/SearchBar/SearchBar.jsx';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
+import RecentlyViewed from './components/RecentlyViewed/RecentlyViewed.jsx';
+import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
+
+// Read a single URL search param without triggering re-render (called once at init).
+function getParam(key) {
+  try {
+    return new URLSearchParams(window.location.search).get(key) || '';
+  } catch {
+    return '';
+  }
+}
+
+function setParam(key, value) {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (value) params.set(key, value);
+    else params.delete(key);
+    const qs = params.toString();
+    window.history.replaceState(null, '', qs ? `?${qs}` : window.location.pathname + window.location.hash);
+  } catch { /* ignore */ }
+}
 
 export default function App() {
-  const [selectedRecipe, setSelectedRecipe] = useState(null);
+  // Initialise from URL so ?recipe= and ?q= survive refresh and are shareable.
+  const [selectedRecipe, setSelectedRecipe] = useState(() => {
+    const name = getParam('recipe');
+    return name ? (recipes.find((r) => r.name === name) ?? null) : null;
+  });
+
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
+
+  // Ref to SearchBar's imperative focus() handle (set up in SearchBar via forwardRef).
+  const searchBarRef = useRef(null);
+
+  // Recently-viewed history (localStorage-backed).
+  const [recentHistory, addToHistory] = useRecentlyViewed();
 
   const handleViewRecipe = useCallback((recipe) => {
     setSelectedRecipe(recipe);
-  }, []);
+    setParam('recipe', recipe.name);
+    addToHistory(recipe);
+  }, [addToHistory]);
 
   const handleCloseModal = useCallback(() => {
     setSelectedRecipe(null);
+    setParam('recipe', '');
   }, []);
 
   const handleMenuToggle = useCallback(() => {
@@ -26,13 +64,52 @@ export default function App() {
     setMenuOpen(false);
   }, []);
 
+  const handleSearch = useCallback((query) => {
+    setSearchQuery(query);
+    setParam('q', query);
+  }, []);
+
+  // Tag click: close the modal and set the clicked tag as the search query.
+  const handleTagClick = useCallback((tag) => {
+    handleCloseModal();
+    handleSearch(tag);
+  }, [handleCloseModal, handleSearch]);
+
+  // "/" keyboard shortcut: focus the search bar when no modal is open.
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key !== '/') return;
+      if (selectedRecipe) return;         // modal is open — don't steal focus
+      const active = document.activeElement;
+      if (active?.tagName === 'INPUT' || active?.tagName === 'TEXTAREA') return;
+      e.preventDefault();
+      searchBarRef.current?.focus();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [selectedRecipe]);
+
   return (
     <ErrorBoundary>
       <TopBar onMenuToggle={handleMenuToggle} />
       <UsdaKeyNotice />
       <TOCNav open={menuOpen} onClose={handleMenuClose} />
-      <RecipeList onViewRecipe={handleViewRecipe} />
-      <RecipeModal recipe={selectedRecipe} onClose={handleCloseModal} />
+      <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
+      <RecentlyViewed
+        history={recentHistory}
+        onViewRecipe={handleViewRecipe}
+        searchQuery={searchQuery}
+      />
+      <RecipeList onViewRecipe={handleViewRecipe} searchQuery={searchQuery} />
+      {/* key prop resets the ErrorBoundary when a different recipe opens,
+          so a crash in one modal card doesn't block all subsequent ones. */}
+      <ErrorBoundary key={selectedRecipe?.name ?? '__none__'}>
+        <RecipeModal
+          recipe={selectedRecipe}
+          onClose={handleCloseModal}
+          onTagClick={handleTagClick}
+        />
+      </ErrorBoundary>
     </ErrorBoundary>
   );
 }

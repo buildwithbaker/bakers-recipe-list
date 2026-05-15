@@ -90,7 +90,7 @@ export function isRateLimited() {
   return rateLimited;
 }
 
-export async function fetchNutrition(ingredientName) {
+export async function fetchNutrition(ingredientName, signal) {
   if (!ingredientName) return null;
   const key = ingredientName.trim().toLowerCase();
   if (!key) return null;
@@ -106,7 +106,7 @@ export async function fetchNutrition(ingredientName) {
     const url =
       `${USDA_BASE}/foods/search?query=${encodeURIComponent(key)}` +
       `&dataType=SR%20Legacy,Foundation&pageSize=5&api_key=${USDA_API_KEY}`;
-    const res = await fetch(url);
+    const res = await fetch(url, signal ? { signal } : undefined);
     if (res.status === 429 || res.status === 403) {
       // Rate-limited or auth error — DON'T cache (transient), but stop further lookups
       rateLimited = true;

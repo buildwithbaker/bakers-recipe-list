@@ -10,7 +10,7 @@
 //   "Salt and pepper to taste"       → null
 //   "Olive oil (1/4 cup)"            → { quantity: 0.25, unit: 'cup', name: 'olive oil' }
 
-import { UNICODE_FRAC } from './fractions.js';
+import { UNICODE_FRAC, parseQuantityStr } from './fractions.js';
 
 // Canonical unit names. Keys here include all the spellings/aliases
 // that may appear in recipe text; values are the normalized form
@@ -50,7 +50,6 @@ const SKIP_PATTERNS = [
 ];
 
 // Qualifier words to strip from the ingredient name once parsed.
-// Keep multi-word qualifiers BEFORE single-word ones in the regex.
 const QUALIFIER_RE = new RegExp(
   '\\b(' + [
     'finely diced', 'finely chopped', 'finely minced', 'roughly chopped', 'thinly sliced',
@@ -63,17 +62,14 @@ const QUALIFIER_RE = new RegExp(
   'gi'
 );
 
+// Single-token quantity parse — delegates to the shared parseQuantityStr.
+// Called on individual tokens during progressive tokenization, so it never
+// receives a mixed-number string with a space (those are accumulated externally).
 function quantityToken(s) {
-  if (!s) return NaN;
-  const t = s.trim();
-  if (UNICODE_FRAC[t]) return UNICODE_FRAC[t];
-  const asciiFrac = t.match(/^(\d+)\/(\d+)$/);
-  if (asciiFrac) return parseInt(asciiFrac[1], 10) / parseInt(asciiFrac[2], 10);
-  const num = parseFloat(t);
-  return isNaN(num) ? NaN : num;
+  return parseQuantityStr(s);
 }
 
-// Sum a sequence of quantity tokens like ["1", "½"] → 1.5, or ["1", "1/4"] → 1.25.
+// Sum a sequence of quantity tokens like ["1", "½"] → 1.5.
 function sumQuantityTokens(tokens) {
   let total = 0;
   for (const tok of tokens) {
@@ -85,13 +81,11 @@ function sumQuantityTokens(tokens) {
 }
 
 // Try to extract a "(quantity unit)" trailing parenthetical, e.g. "Olive oil (1/4 cup)".
-// Returns { quantity, unit, nameBase } or null.
 function extractParenQuantity(text) {
   const m = text.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
   if (!m) return null;
   const nameBase = m[1].trim();
   const inner = m[2].trim();
-  // Inner may also contain a comma-prep: "1/4 cup, packed" — keep only the first segment
   const firstSeg = inner.split(',')[0].trim();
   const parsed = parseQuantityAndUnit(firstSeg);
   if (parsed) return { ...parsed, nameBase };
@@ -100,7 +94,6 @@ function extractParenQuantity(text) {
 
 // Parse a leading "QUANTITY UNIT" off a string. Returns { quantity, unit, rest } or null.
 function parseQuantityAndUnit(s) {
-  // Token regex: numbers, ascii fractions, or unicode fractions (one or more, separated by space)
   const tokens = [];
   let rest = s;
   while (true) {
@@ -114,15 +107,12 @@ function parseQuantityAndUnit(s) {
       tokens.push(tail[1]);
       rest = rest.slice(tail[0].length);
     }
-    // Skip whitespace
     rest = rest.replace(/^\s+/, '');
-    // If next char isn't a number/fraction, stop
     if (!/^[\d½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]/.test(rest)) break;
   }
   if (tokens.length === 0) return null;
   const quantity = sumQuantityTokens(tokens);
   if (isNaN(quantity)) return null;
-  // Unit: optional next word (or compound like "fl oz")
   const unitMatch = rest.match(/^([a-zA-Z]+\.?)\s*/);
   let unit = 'each';
   let after = rest;
@@ -138,11 +128,11 @@ function parseQuantityAndUnit(s) {
 
 function cleanName(s) {
   let out = s
-    .replace(/\([^)]*\)/g, ' ')        // strip any remaining parentheticals
-    .replace(QUALIFIER_RE, ' ')        // strip qualifier words
-    .replace(/\bof\s+/gi, ' ')         // "tablespoons of olive oil" → "olive oil"
-    .replace(/[,;].*$/, '')            // drop ", minced" etc. after a comma
-    .replace(/\s+or\s+.*$/i, '')       // drop "X or Y" alternatives
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(QUALIFIER_RE, ' ')
+    .replace(/\bof\s+/gi, ' ')
+    .replace(/[,;].*$/, '')
+    .replace(/\s+or\s+.*$/i, '')
     .replace(/\s{2,}/g, ' ')
     .trim()
     .toLowerCase();
