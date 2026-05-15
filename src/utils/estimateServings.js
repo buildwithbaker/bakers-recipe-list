@@ -144,10 +144,38 @@ export function estimateServings(recipe) {
     return { servings: s, basis: 'Estimated from ingredients' };
   }
 
+  // Grain cups check (covers "2 cups rice")
   const grainCups = sumCupsFor(recipe, GRAIN_KEYWORDS);
   if (grainCups >= 1) {
-    const s = Math.max(2, Math.min(12, Math.round(grainCups * 6)));
+    const s = Math.max(2, Math.min(12, Math.round(grainCups * 4)));
     return { servings: s, basis: 'Estimated from ingredients' };
+  }
+
+  // Grain weight check — catches "8 oz pasta", "1 lb noodles" which are commonly
+  // listed by weight. Dry pasta/noodles roughly double+ in cooked volume, so
+  // 8 oz dry (~227g) yields ~4 generous servings as a main.
+  for (const ing of recipe.ingredients || []) {
+    if (ing.type === 'section') continue;
+    const text = (ing.text || '').toLowerCase();
+    if (!GRAIN_KEYWORDS.some((k) => text.includes(k))) continue;
+    const lbMatch = text.match(/^([\d./\s½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]+)\s*(?:lb|lbs|pound|pounds)\b/);
+    if (lbMatch) {
+      const q = parseQuantityStr(lbMatch[1].trim());
+      if (!isNaN(q) && q > 0) {
+        // 1 lb dry pasta/noodles ≈ 4 servings as a main
+        const s = Math.max(2, Math.min(12, Math.round(q * 4)));
+        return { servings: s, basis: 'Estimated from ingredients' };
+      }
+    }
+    const ozMatch = text.match(/^([\d./\s½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]+)\s*(?:oz|ounce|ounces)\b/);
+    if (ozMatch) {
+      const q = parseQuantityStr(ozMatch[1].trim());
+      if (!isNaN(q) && q > 0) {
+        // 8 oz dry pasta ≈ 2–3 servings; use q/2.5 rounding to nearest whole
+        const s = Math.max(2, Math.min(12, Math.round(q / 2.5)));
+        return { servings: s, basis: 'Estimated from ingredients' };
+      }
+    }
   }
 
   const def = SECTION_DEFAULTS[recipe.section];

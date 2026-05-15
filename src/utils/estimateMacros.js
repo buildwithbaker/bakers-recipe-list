@@ -41,15 +41,37 @@ export async function estimateMacros(recipe, servings, signal) {
     lookups.map((l) => fetchNutrition(l.name, signal).then((macros) => ({ ...l, macros })))
   );
 
+  // Ingredients where fat drains substantially during cooking.
+  // Multiplier applied to the fat value from USDA (which is raw/uncooked).
+  // Sources: USDA SR Legacy cooked vs raw comparisons.
+  const FAT_DRAIN = [
+    { keywords: ['ground beef'], factor: 0.65 },  // 80/20 loses ~35% fat when drained
+    { keywords: ['ground pork'], factor: 0.70 },  // pork sausage/ground pork drains ~30%
+    { keywords: ['bacon'], factor: 0.50 },        // bacon renders most of its fat
+    { keywords: ['sausage'], factor: 0.75 },
+  ];
+
+  function fatDrainFactor(name) {
+    const lower = name.toLowerCase();
+    for (const { keywords, factor } of FAT_DRAIN) {
+      if (keywords.some((k) => lower.includes(k))) return factor;
+    }
+    return 1;
+  }
+
   let totals = { calories: 0, protein: 0, fat: 0, carbs: 0, fiber: 0 };
   let matched = 0;
   for (const r of responses) {
     if (!r.macros) continue;
     matched++;
     const factor = r.grams / 100; // USDA values are per 100g
-    totals.calories += r.macros.calories * factor;
+    const drain = fatDrainFactor(r.name);
+    const adjustedFat = r.macros.fat * drain;
+    // Calories from fat adjust proportionally (9 kcal/g); protein+carb unchanged
+    const fatCalAdj = (r.macros.fat - adjustedFat) * 9;
+    totals.calories += (r.macros.calories - fatCalAdj) * factor;
     totals.protein += r.macros.protein * factor;
-    totals.fat += r.macros.fat * factor;
+    totals.fat += adjustedFat * factor;
     totals.carbs += r.macros.carbs * factor;
     totals.fiber += r.macros.fiber * factor;
   }

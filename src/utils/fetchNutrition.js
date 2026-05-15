@@ -33,7 +33,7 @@
 export const USDA_API_KEY =
   import.meta.env.VITE_USDA_API_KEY || 'DEMO_KEY';
 const USDA_BASE = 'https://api.nal.usda.gov/fdc/v1';
-const CACHE_PREFIX = 'usda_v2_';
+const CACHE_PREFIX = 'usda_v3_';
 
 // One-time migration: wipe v1 cache keys so stale data doesn't persist
 // after scoring logic changes. Runs at module load, silent if nothing to remove.
@@ -66,17 +66,36 @@ function extractMacros(food) {
 }
 
 // Score a USDA result. Lower is better. We prefer:
-//   - shorter descriptions (raw "Chicken breast" beats "Chicken breast tenders, breaded, uncooked")
 //   - Foundation > SR Legacy
+//   - shorter descriptions (simpler = more generic = more accurate)
+//   - cooked state for grains/legumes (pasta, rice, noodles, beans, lentils)
+//     since recipes measure them dry but eat them cooked (same total carbs,
+//     but cooked weight per serving is what ends up on the plate)
 //   - descriptions that don't contain "breaded", "with sauce", "frozen", etc.
-function scoreResult(food) {
+const PREFER_COOKED = ['pasta', 'noodle', 'spaghetti', 'penne', 'fettuccine', 'linguine',
+  'macaroni', 'rotini', 'rigatoni', 'farfalle', 'rice', 'lentil', 'bean', 'chickpea',
+  'couscous', 'quinoa', 'barley', 'bulgur'];
+
+function scoreResult(food, queryName) {
   let score = (food.description || '').length;
   if (food.dataType === 'Foundation') score -= 30;
   const desc = (food.description || '').toLowerCase();
-  const penaltyWords = ['breaded', 'in oil', 'with sauce', 'with gravy', 'frozen', 'canned', 'flavored', 'sweetened'];
+  const qLower = (queryName || '').toLowerCase();
+
+  // Hard penalties — skip these wherever possible
+  const penaltyWords = ['breaded', 'in oil', 'with sauce', 'with gravy', 'frozen', 'canned',
+    'flavored', 'sweetened', 'restaurant', 'commercial', 'fast food'];
   for (const w of penaltyWords) {
-    if (desc.includes(w)) score += 50;
+    if (desc.includes(w)) score += 60;
   }
+
+  // For grains/legumes prefer the cooked entry (matches the served portion)
+  const wantsCooked = PREFER_COOKED.some((k) => qLower.includes(k));
+  if (wantsCooked) {
+    if (desc.includes('cooked')) score -= 40;
+    if (desc.includes('dry') || desc.includes('unenriched') || desc.includes('uncooked')) score += 30;
+  }
+
   return score;
 }
 
@@ -134,7 +153,7 @@ export async function fetchNutrition(ingredientName, signal) {
       writeCache(key, null);  // genuine miss — cache so we don't retry
       return null;
     }
-    const best = foods.slice().sort((a, b) => scoreResult(a) - scoreResult(b))[0];
+    const best = foods.slice().sort((a, b) => scoreResult(a, key) - scoreResult(b, key))[0];
     const macros = extractMacros(best);
     writeCache(key, macros);
     return macros;

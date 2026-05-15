@@ -80,10 +80,51 @@ function MetaLine({ recipe, servingEstimate, onTagClick, scale, onScaleDown, onS
   );
 }
 
-function Ingredients({ items, scale, onAddToList }) {
+function Ingredients({ items, scale, onAddToList, onListModeChange }) {
   const [copied, setCopied] = useState(false);
   const [added, setAdded] = useState(false);
+  const [selectionMode, setSelectionMode] = useState(false);
+  const [selectedItems, setSelectedItems] = useState(() => new Set());
+
   if (!items?.length) return null;
+
+  // Only 'item' type lines get checkboxes
+  const foodIndices = items.reduce((acc, ing, i) => {
+    if (ing.type === 'item') acc.push(i);
+    return acc;
+  }, []);
+
+  const handleListClick = () => {
+    // Pre-check all food items
+    setSelectedItems(new Set(foodIndices));
+    setSelectionMode(true);
+    onListModeChange?.(true);
+  };
+
+  const handleCancelSelect = () => {
+    setSelectionMode(false);
+    setSelectedItems(new Set());
+    onListModeChange?.(false);
+  };
+
+  const handleConfirmSelect = () => {
+    // Pass only the checked ingredient items (skip headers/sections)
+    const chosen = items.filter((ing, i) => ing.type === 'item' && selectedItems.has(i));
+    onAddToList?.(chosen, scale);
+    setSelectionMode(false);
+    setSelectedItems(new Set());
+    onListModeChange?.(false);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
+
+  const toggleItem = (idx) => {
+    setSelectedItems((prev) => {
+      const next = new Set(prev);
+      if (next.has(idx)) next.delete(idx); else next.add(idx);
+      return next;
+    });
+  };
 
   const handleCopy = () => {
     const text = items
@@ -96,23 +137,19 @@ function Ingredients({ items, scale, onAddToList }) {
     }).catch(() => {});
   };
 
-  const handleAddToList = () => {
-    onAddToList?.(items, scale);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
-  };
+  const selectedCount = selectedItems.size;
 
   return (
     <>
       <div className={styles.sectionRow}>
         <div className={styles.modalSectionTitle}>Ingredients</div>
         <div className={styles.ingActions}>
-          {onAddToList && (
+          {onAddToList && !selectionMode && (
             <button
               type="button"
               className={`${styles.listBtn} ${added ? styles.listBtnDone : ''}`}
-              onClick={handleAddToList}
-              aria-label="Add ingredients to shopping list"
+              onClick={handleListClick}
+              aria-label="Select ingredients to add to shopping list"
             >
               {added ? (
                 <><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Added</>
@@ -121,30 +158,77 @@ function Ingredients({ items, scale, onAddToList }) {
               )}
             </button>
           )}
-          <button
-            type="button"
-            className={`${styles.copyBtn} ${copied ? styles.copyBtnDone : ''}`}
-            onClick={handleCopy}
-            aria-label="Copy ingredients to clipboard"
-          >
-            {copied ? (
-              <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Copied</>
-            ) : (
-              <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</>
-            )}
-          </button>
+          {!selectionMode && (
+            <button
+              type="button"
+              className={`${styles.copyBtn} ${copied ? styles.copyBtnDone : ''}`}
+              onClick={handleCopy}
+              aria-label="Copy ingredients to clipboard"
+            >
+              {copied ? (
+                <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Copied</>
+              ) : (
+                <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</>
+              )}
+            </button>
+          )}
+          {selectionMode && (
+            <div className={styles.selectBar}>
+              <button type="button" className={styles.selectCancelBtn} onClick={handleCancelSelect}>
+                Cancel
+              </button>
+              <button
+                type="button"
+                className={styles.selectConfirmBtn}
+                onClick={handleConfirmSelect}
+                disabled={selectedCount === 0}
+              >
+                Add {selectedCount} item{selectedCount !== 1 ? 's' : ''}
+              </button>
+            </div>
+          )}
         </div>
       </div>
-      <ul className={styles.ingList}>
-        {items.map((ing, i) => (
-          <li key={i} className={
-            ing.type === 'section' ? styles.ingSection :
-            ing.type === 'header' ? styles.ingHeader : ''
-          }>
-            {ing.type === 'item' ? scaleIngredientText(ing.text, scale) : ing.text}
-          </li>
-        ))}
-      </ul>
+
+      {selectionMode ? (
+        <ul className={styles.ingSelectList}>
+          {items.map((ing, i) => (
+            <li
+              key={i}
+              className={
+                ing.type === 'section' ? styles.ingSection :
+                ing.type === 'header' ? styles.ingHeader :
+                styles.ingSelectItem
+              }
+            >
+              {ing.type === 'item' ? (
+                <label className={styles.ingCheckLabel}>
+                  <input
+                    type="checkbox"
+                    className={styles.ingCheckbox}
+                    checked={selectedItems.has(i)}
+                    onChange={() => toggleItem(i)}
+                  />
+                  <span>{scaleIngredientText(ing.text, scale)}</span>
+                </label>
+              ) : (
+                ing.text
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <ul className={styles.ingList}>
+          {items.map((ing, i) => (
+            <li key={i} className={
+              ing.type === 'section' ? styles.ingSection :
+              ing.type === 'header' ? styles.ingHeader : ''
+            }>
+              {ing.type === 'item' ? scaleIngredientText(ing.text, scale) : ing.text}
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }
@@ -230,6 +314,7 @@ export default function RecipeModal({ recipe, onClose, onTagClick, onAddToList }
   const titleId = useId();
   const [scale, setScale] = useState(1);
   const [shareCopied, setShareCopied] = useState(false);
+  const [listSelecting, setListSelecting] = useState(false);
   const modalCardRef = useRef(null);
 
   const servingEstimate = useMemo(() => recipe ? estimateServings(recipe) : null, [recipe]);
@@ -237,7 +322,7 @@ export default function RecipeModal({ recipe, onClose, onTagClick, onAddToList }
 
   useFocusTrap(modalCardRef, !!recipe);
 
-  useEffect(() => { setScale(1); }, [recipe]);
+  useEffect(() => { setScale(1); setListSelecting(false); }, [recipe]);
 
   useEffect(() => {
     if (!recipe) return;
@@ -320,14 +405,21 @@ export default function RecipeModal({ recipe, onClose, onTagClick, onAddToList }
             <div className={styles.comingSoon}>🍳 Recipe coming soon — this one is on the list!</div>
           ) : (
             <>
-              <Ingredients items={recipe.ingredients} scale={scale} onAddToList={onAddToList ? handleAddToList : null} />
-              <Instructions steps={recipe.instructions} />
-              <MacroErrorBoundary>
-                <Suspense fallback={null}>
-                  <MacroCard {...macroState} />
-                </Suspense>
-              </MacroErrorBoundary>
-              <CookLogSection recipeName={recipe.name} />
+              <Ingredients
+                items={recipe.ingredients}
+                scale={scale}
+                onAddToList={onAddToList ? handleAddToList : null}
+                onListModeChange={setListSelecting}
+              />
+              <div className={listSelecting ? styles.dimmed : undefined}>
+                <Instructions steps={recipe.instructions} />
+                <MacroErrorBoundary>
+                  <Suspense fallback={null}>
+                    <MacroCard {...macroState} />
+                  </Suspense>
+                </MacroErrorBoundary>
+                <CookLogSection recipeName={recipe.name} />
+              </div>
             </>
           )}
         </div>

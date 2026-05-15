@@ -50,14 +50,16 @@ const SKIP_PATTERNS = [
 ];
 
 // Qualifier words to strip from the ingredient name once parsed.
+// INTENTIONALLY excluded: ground, raw, cooked, uncooked, dried, boneless, skinless —
+// these affect USDA lookup result selection so we preserve them in the name.
 const QUALIFIER_RE = new RegExp(
   '\\b(' + [
     'finely diced', 'finely chopped', 'finely minced', 'roughly chopped', 'thinly sliced',
     'freshly grated', 'freshly ground', 'extra virgin', 'extra-virgin',
-    'scant', 'heaping', 'packed', 'fresh', 'dried', 'ground', 'minced',
-    'chopped', 'diced', 'sliced', 'grated', 'shredded', 'crushed',
-    'cubed', 'whole', 'large', 'small', 'medium', 'organic', 'raw',
-    'cooked', 'uncooked', 'boneless', 'skinless', 'unsalted', 'salted',
+    'scant', 'heaping', 'packed', 'fresh',
+    'minced', 'chopped', 'diced', 'sliced', 'grated', 'shredded', 'crushed',
+    'cubed', 'whole', 'large', 'small', 'medium', 'organic',
+    'unsalted', 'salted',
   ].join('|') + ')\\b',
   'gi'
 );
@@ -81,10 +83,15 @@ function sumQuantityTokens(tokens) {
 }
 
 // Try to extract a "(quantity unit)" trailing parenthetical, e.g. "Olive oil (1/4 cup)".
+// Guard: skip if nameBase itself starts with a quantity — that means the parens hold
+// supplementary info (e.g. fat%, packaging, or notes), not the measurement.
 function extractParenQuantity(text) {
   const m = text.match(/^(.+?)\s*\(([^)]+)\)\s*$/);
   if (!m) return null;
   const nameBase = m[1].trim();
+  // If nameBase starts with a number, the real measurement is already in the main text —
+  // don't let a ratio like "(80/20)" or note like "(bone-in)" hijack the quantity.
+  if (/^[\d½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]/.test(nameBase)) return null;
   const inner = m[2].trim();
   const firstSeg = inner.split(',')[0].trim();
   const parsed = parseQuantityAndUnit(firstSeg);

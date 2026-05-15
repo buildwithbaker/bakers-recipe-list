@@ -71,6 +71,10 @@
   font-style: italic;
   cursor: help;
   border-bottom: 1px dotted rgba(107, 127, 163, 0.5);
+  /* Fixed width prevents the +/- buttons from shifting as the number changes */
+  display: inline-block;
+  min-width: 96px;
+  text-align: center;
 }
 
 .modalClose {
@@ -444,4 +448,96 @@
 .listBtnDone {
   color: #2a7a4a;
   border-color: #2a7a4a;
+}
+
+/* ---- Ingredient selection mode ---- */
+
+/* Confirm / cancel bar that replaces the List+Copy buttons during selection */
+.selectBar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.selectCancelBtn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 11px;
+  padding: 3px 8px;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s;
+}
+.selectCancelBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text);
+}
+.selectConfirmBtn {
+  background: var(--blue);
+  border: 1px solid var(--blue);
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.selectConfirmBtn:hover:not(:disabled) {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.selectConfirmBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* Ingredient checkbox list — same visual spacing as bullet list */
+.ingSelectList {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.ingSelectItem {
+  padding: 3px 0;
+}
+.ingCheckLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--card-body);
+  line-height: 1.45;
+  user-select: none;
+}
+.ingCheckLabel:hover {
+  color: var(--card-heading);
+}
+.ingCheckbox {
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+/* Dim unchecked items slightly to emphasise checked ones */
+.ingCheckLabel:has(.ingCheckbox:not(:checked)) {
+  opacity: 0.55;
+}
+
+/* Dim non-ingredient sections of the modal body during selection */
+.dimmed {
+  opacity: 0.18;
+  pointer-events: none;
+  filter: blur(1.5px);
+  transition: opacity 0.2s, filter 0.2s;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .ingCheckLabel { font-size: 13px; }
 }
