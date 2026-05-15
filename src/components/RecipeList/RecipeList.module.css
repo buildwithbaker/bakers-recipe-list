@@ -1,4 +1,4 @@
-/* Slight opacity while the deferred filter is catching up — signals work in progress. */
+/* Slight opacity while the deferred filter is catching up */
 .filtering {
   opacity: 0.7;
   transition: opacity 0.15s;
@@ -10,9 +10,96 @@
   padding: 14px 0 4px;
 }
 
-.noResults {
-  font-size: 15px;
+/* Empty state — shown when search returns no results */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px 80px;
+  gap: 8px;
+}
+
+.emptyIllustration {
+  width: 100px;
+  height: 68px;
   color: var(--text-muted);
-  padding: 60px 0;
+  opacity: 0.45;
+  margin-bottom: 8px;
+}
+
+.emptyTitle {
+  font-size: 15px;
+  color: var(--text);
+  margin: 0;
   text-align: center;
+}
+
+.emptyHint {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---- List toolbar: random recipe + made filter ---- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0 4px;
+}
+
+.randomBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 11px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.randomBtn:hover {
+  background: var(--surface);
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 11px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+.filterBtn:hover {
+  background: var(--surface);
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+.filterBtnActive {
+  color: #2a7a4a;
+  border-color: #2a7a4a;
+  background: rgba(42, 122, 74, 0.07);
+}
+.filterBtnActive:hover {
+  background: rgba(42, 122, 74, 0.12);
+}
+
+@media (max-width: 480px) {
+  .randomBtn, .filterBtn {
+    font-size: 11px;
+    padding: 4px 9px;
+  }
 }

@@ -50,27 +50,36 @@ export function parseQuantityStr(s) {
 //
 // Examples:
 //   0.25  → "¼"     1.5  → "1½"    2    → "2"
-//   0.33  → "⅓"     2.75 → "2¾"    0.1  → "0.1"
+//   0.375 → "⅜"     2.75 → "2¾"    0.1  → "0.1"
+//
+// Fix vs. naive scan: we find the NEAREST fraction across all candidates,
+// not the first one within tolerance. Naive order-scan would return ⅓ (0.333)
+// for an input of 0.38 because it scans 0.333 before 0.375, even though ⅜
+// is closer. Minimum-diff search always picks the best match.
 export function formatQuantity(n) {
   if (!isFinite(n) || n <= 0) return '0';
 
   const whole = Math.floor(n);
   const frac = n - whole;
 
-  // Close enough to whole number?
   if (frac < 0.04) return String(whole || 1);
   if (frac > 0.96) return String(whole + 1);
 
-  // Match to the nearest common fraction (within ±0.07 tolerance).
   const FRACS = [
-    [0.125, '⅛'], [0.25, '¼'], [1/3, '⅓'], [0.375, '⅜'],
-    [0.5, '½'],   [0.625, '⅝'], [2/3, '⅔'], [0.75, '¾'],
+    [0.125, '⅛'], [0.25, '¼'], [1 / 3, '⅓'], [0.375, '⅜'],
+    [0.5, '½'],   [0.625, '⅝'], [2 / 3, '⅔'], [0.75, '¾'],
     [0.875, '⅞'],
   ];
+
+  // Find the nearest fraction — scan all, keep minimum diff.
+  let bestSym = null, bestDiff = Infinity;
   for (const [val, sym] of FRACS) {
-    if (Math.abs(frac - val) < 0.07) {
-      return whole > 0 ? `${whole}${sym}` : sym;
-    }
+    const d = Math.abs(frac - val);
+    if (d < bestDiff) { bestDiff = d; bestSym = sym; }
+  }
+
+  if (bestDiff < 0.09) {
+    return whole > 0 ? `${whole}${bestSym}` : bestSym;
   }
 
   // Fall back to 1-decimal string (e.g. 1.4 → "1.4").

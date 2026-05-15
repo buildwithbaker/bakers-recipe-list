@@ -4,12 +4,12 @@ import styles from './TOCNav.module.css';
 
 // Hamburger drawer that lists every section as a vertical link.
 // Visibility is controlled by the parent (App) via `open` + `onClose`.
+// Outside-click dismiss: the overlay div covers the full viewport and calls
+// onClose directly — clicking anywhere outside the drawer closes it.
 export default function TOCNav({ open, onClose }) {
   useEffect(() => {
     if (!open) return;
-    const onKey = (e) => {
-      if (e.key === 'Escape') onClose();
-    };
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
     document.body.style.overflow = 'hidden';
     return () => {
@@ -18,10 +18,10 @@ export default function TOCNav({ open, onClose }) {
     };
   }, [open, onClose]);
 
-  const handleClick = (e, id) => {
+  const handleLinkClick = (e, id) => {
     e.preventDefault();
     onClose();
-    // Defer the scroll so the drawer can close + body unfreeze first.
+    // Defer scroll so the drawer can close and body-overflow can clear first.
     // Smooth scroll comes from `html { scroll-behavior: smooth }` in globals.css.
     setTimeout(() => {
       const el = document.getElementById(id);
@@ -57,7 +57,7 @@ export default function TOCNav({ open, onClose }) {
               <a
                 href={`#${section.id}`}
                 className={section.review ? `${styles.link} ${styles.review}` : styles.link}
-                onClick={(e) => handleClick(e, section.id)}
+                onClick={(e) => handleLinkClick(e, section.id)}
               >
                 {section.label}
               </a>

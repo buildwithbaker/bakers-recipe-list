@@ -343,3 +343,24 @@
   color: #2a7a4a;
   border-color: #2a7a4a;
 }
+
+/* Share button */
+.shareBtn {
+  background: none;
+  border: none;
+  color: var(--card-muted);
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.shareBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--card-body);
+}
+.shareBtnDone {
+  color: #2a7a4a;
+}

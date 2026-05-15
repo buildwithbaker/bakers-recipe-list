@@ -12,6 +12,7 @@
   --amber-deep: #412402;
   --pill-bg: #EF9F27;
   --pill-text: #412402;
+  --hover-row-bg: #fef8ec;
 
   /* === Warm Cookbook palette (recipe modal only — see card_color_schemes.md) === */
   --card-surface: #FFFFFF;
@@ -67,7 +68,10 @@ main {
    chrome (backdrop, close/print buttons) out of the printout.
    ============================================================ */
 @media print {
-  * {
+  /* Only hide everything when a recipe modal is open — avoids blank page
+     when the user prints with no modal open (:has() has broad support:
+     Chrome 105+, Safari 15.4+, Firefox 121+). */
+  body:has([data-print-modal]) * {
     visibility: hidden;
   }
 
@@ -85,5 +89,43 @@ main {
     border: none !important;
     border-radius: 0 !important;
     max-width: 100% !important;
+  }
+}
+
+/* ============================================================
+   Dark mode — activated by system preference.
+
+/* ============================================================
+   Dark mode — activated by system preference.
+   Warm dark palette: deep navy background keeps the cookbook
+   feel; amber and blue accents stay the same hue, just brighter.
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141A22;
+    --surface: #1C2430;
+    --border: #2A3545;
+    --text: #E8E3D8;
+    --text-muted: #7A8494;
+    --navy: #C8D8EE;
+    --blue: #5B9BD5;
+    --blue-mid: #7AB4E8;
+    --amber: #F0A830;
+    --amber-dark: #D4901C;
+    --amber-deep: #F5D9A0;
+    --pill-bg: #D4901C;
+    --pill-text: #FFF3DA;
+    --hover-row-bg: rgba(255, 255, 255, 0.04);
+
+    /* Card palette — warm dark parchment */
+    --card-surface: #1C2430;
+    --card-border: #2A3545;
+    --card-heading: #D4804A;
+    --card-tag: #7A94B8;
+    --card-tag-strong: #92AACE;
+    --card-section-label: #A8BEDA;
+    --card-body: #DDD8CE;
+    --card-muted: #8090A4;
+    --card-divider: #2E3E54;
   }
 }

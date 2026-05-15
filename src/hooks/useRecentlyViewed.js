@@ -1,7 +1,8 @@
 // Tracks the last N recipes opened by the user, persisted to localStorage.
-// Returns [history, addToHistory] where:
-//   history — array of recipe objects (most recent first, max 5)
-//   addToHistory(recipe) — adds a recipe to the front, deduplicates by name
+// Returns [history, addToHistory, clearHistory] where:
+//   history       — array of recipe objects (most recent first, max 5)
+//   addToHistory  — adds a recipe to the front, deduplicates by name
+//   clearHistory  — wipes the list and localStorage entry
 
 import { useCallback, useState } from 'react';
 
@@ -37,5 +38,10 @@ export function useRecentlyViewed() {
     });
   }, []);
 
-  return [history, addToHistory];
+  const clearHistory = useCallback(() => {
+    try { localStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
+    setHistory([]);
+  }, []);
+
+  return [history, addToHistory, clearHistory];
 }

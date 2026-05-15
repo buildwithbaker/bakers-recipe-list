@@ -33,7 +33,19 @@
 export const USDA_API_KEY =
   import.meta.env.VITE_USDA_API_KEY || 'DEMO_KEY';
 const USDA_BASE = 'https://api.nal.usda.gov/fdc/v1';
-const CACHE_PREFIX = 'usda_v1_';
+const CACHE_PREFIX = 'usda_v2_';
+
+// One-time migration: wipe v1 cache keys so stale data doesn't persist
+// after scoring logic changes. Runs at module load, silent if nothing to remove.
+try {
+  const toRemove = [];
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const k = sessionStorage.key(i);
+    if (k && k.startsWith('usda_v1_')) toRemove.push(k);
+  }
+  toRemove.forEach((k) => sessionStorage.removeItem(k));
+} catch { /* ignore */ }
+
 
 // Track session-wide rate-limit state. Once 429d, skip further lookups for
 // the rest of the session — they'd just keep failing.

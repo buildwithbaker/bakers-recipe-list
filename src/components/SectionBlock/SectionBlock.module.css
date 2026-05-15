@@ -1,14 +1,20 @@
 .sectionBlock {
   margin-bottom: 36px;
-  scroll-margin-top: 70px;
+  scroll-margin-top: 106px; /* TopBar (~52px) + SearchBar (~46px) + 8px breathing room */
 }
 
+/* Sticky section headers — always visible while scrolling through long sections */
 .sectionHeader {
+  position: sticky;
+  top: 98px; /* just below TopBar + SearchBar stack */
+  z-index: 10;
+  background: var(--bg);
   font-size: 16px;
   font-weight: 700;
   color: var(--blue);
   border-bottom: 2px solid var(--blue);
   padding-bottom: 6px;
+  padding-top: 4px;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -17,6 +23,17 @@
 .review {
   color: #1A6B5A;
   border-bottom-color: #1A6B5A;
+}
+
+/* Flash animation: brief background highlight on hash-jump */
+@keyframes sectionFlash {
+  0%   { background: transparent; }
+  15%  { background: rgba(12, 68, 124, 0.12); }
+  75%  { background: rgba(12, 68, 124, 0.10); }
+  100% { background: transparent; }
+}
+.flash {
+  animation: sectionFlash 1.4s ease-out forwards;
 }
 
 .table {
@@ -40,7 +57,7 @@
 }
 
 .table tbody tr:hover {
-  background: #fef8ec;
+  background: var(--hover-row-bg);
 }
 
 .table tbody td {
@@ -53,8 +70,10 @@
 @media (max-width: 480px) {
   .sectionBlock {
     margin-bottom: 28px;
+    scroll-margin-top: 90px;
   }
   .sectionHeader {
+    top: 84px; /* TopBar (~44px) + SearchBar (~40px) on mobile */
     font-size: 14px;
   }
   .table thead th {
@@ -65,4 +84,27 @@
     padding: 8px 6px;
     font-size: 13px;
   }
+}
+
+/* Recipe count badge in section headers */
+.countBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(12, 68, 124, 0.10);
+  color: var(--blue);
+  border-radius: 10px;
+  padding: 1px 7px;
+  margin-left: 9px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  line-height: 1.6;
+}
+.review .countBadge {
+  background: rgba(26, 107, 90, 0.10);
+  color: #1A6B5A;
+}
+.countTotal {
+  opacity: 0.55;
 }

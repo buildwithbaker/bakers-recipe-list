@@ -1,12 +1,7 @@
-import recipes from '../../data/recipes.json';
+import { recipesByName } from '../../data/recipeIndex.js';
 import styles from './RecentlyViewed.module.css';
 
-// Resolves a name from the recently-viewed history to a full recipe object.
-const recipesByName = new Map(recipes.map((r) => [r.name, r]));
-
-// Shows a compact horizontal strip of recently opened recipes. Hidden when
-// the history is empty (first visit) or when a search query is active.
-export default function RecentlyViewed({ history, onViewRecipe, searchQuery }) {
+export default function RecentlyViewed({ history, onViewRecipe, onClear, searchQuery }) {
   if (!history?.length || searchQuery) return null;
 
   return (
@@ -29,6 +24,17 @@ export default function RecentlyViewed({ history, onViewRecipe, searchQuery }) {
           );
         })}
       </div>
+      {onClear && (
+        <button
+          type="button"
+          className={styles.clearBtn}
+          onClick={onClear}
+          aria-label="Clear recently viewed"
+          title="Clear recently viewed"
+        >
+          Clear
+        </button>
+      )}
     </div>
   );
 }
