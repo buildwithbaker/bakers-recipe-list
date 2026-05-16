@@ -34,7 +34,7 @@
 export const USDA_API_KEY =
   import.meta.env.VITE_USDA_API_KEY || 'DEMO_KEY';
 const USDA_BASE = 'https://api.nal.usda.gov/fdc/v1';
-const CACHE_PREFIX = 'usda_v7_';
+const CACHE_PREFIX = 'usda_v8_';
 
 // One-time migration: wipe v1 cache keys so stale data doesn't persist
 // after scoring logic changes. Runs at module load, silent if nothing to remove.
@@ -42,7 +42,7 @@ try {
   const toRemove = [];
   for (let i = 0; i < sessionStorage.length; i++) {
     const k = sessionStorage.key(i);
-    if (k && (k.startsWith('usda_v1_') || k.startsWith('usda_v4_') || k.startsWith('usda_v5_') || k.startsWith('usda_v6_'))) toRemove.push(k);
+    if (k && (k.startsWith('usda_v1_') || k.startsWith('usda_v4_') || k.startsWith('usda_v5_') || k.startsWith('usda_v6_') || k.startsWith('usda_v7_'))) toRemove.push(k);
   }
   toRemove.forEach((k) => sessionStorage.removeItem(k));
 } catch { /* ignore */ }
@@ -181,19 +181,19 @@ const QUERY_ALIASES = {
   // ── Spices (all aliased to "spices X" form for reliable USDA matching) ───
   'allspice': 'spices allspice ground',
   'ground allspice': 'spices allspice ground',
-  'black pepper': 'spices pepper black',
-  'ground black pepper': 'spices pepper black',
-  'white pepper': 'spices pepper white',
-  'red pepper flakes': 'spices pepper red cayenne',
-  'chili flakes': 'spices pepper red cayenne',
-  'cayenne': 'spices pepper red cayenne',
-  'cayenne pepper': 'spices pepper red cayenne',
+  'black pepper': 'black pepper',
+  'ground black pepper': 'black pepper',
+  'white pepper': 'white pepper',
+  'red pepper flakes': 'red pepper cayenne',
+  'chili flakes': 'red pepper cayenne',
+  'cayenne': 'red pepper cayenne',
+  'cayenne pepper': 'red pepper cayenne',
   'cumin': 'spices cumin seed',
   'ground cumin': 'spices cumin seed',
   'cumin seeds': 'spices cumin seed',
-  'coriander': 'spices coriander seed',
-  'ground coriander': 'spices coriander seed',
-  'coriander powder': 'spices coriander seed',
+  'coriander': 'coriander seed',
+  'ground coriander': 'coriander seed',
+  'coriander powder': 'coriander seed',
   'paprika': 'spices paprika',
   'smoked paprika': 'spices paprika',
   'turmeric': 'spices turmeric ground',
@@ -220,8 +220,8 @@ const QUERY_ALIASES = {
   'dried thyme': 'spices thyme dried',
   'dried rosemary': 'spices rosemary dried',
   'rosemary': 'spices rosemary',
-  'bay leaves': 'spices bay leaf',
-  'bay leaf': 'spices bay leaf',
+  'bay leaves': 'bay leaf dried',
+  'bay leaf': 'bay leaf dried',
   'ground ginger': 'spices ginger ground',
   'ground mint': 'spices spearmint dried',
   'dried mint': 'spices spearmint dried',
@@ -389,6 +389,9 @@ const QUERY_ALIASES = {
   'scotch bonnet peppers': 'peppers hot chili raw',
 
   // ── Alliums ──────────────────────────────────────────────────────────────
+  'onion': 'onions raw',
+  'yellow onion': 'onions raw',
+  'white onion': 'onions raw',
   'red onion': 'onions red raw',
   'green onion': 'onions spring raw',
   'green onions': 'onions spring raw',
