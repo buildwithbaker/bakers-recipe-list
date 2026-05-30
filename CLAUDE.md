@@ -1,6 +1,7 @@
 # CLAUDE.md - bakers-recipe-list
 
 See @README.md for what this project is.
+See @docs/internal/architecture.md for the deep architecture reference (data model, nutrition pipeline, components/hooks/utils map, extension points, gotchas).
 
 ## Build, test, deploy
 - npm run dev    # Vite dev server, localhost:5173
