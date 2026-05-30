@@ -1,0 +1,21 @@
+.footer {
+  margin-top: 3rem;
+  padding: 1.5rem 1rem calc(1.5rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.badge:hover,
+.badge:focus-visible {
+  color: var(--blue);
+  text-decoration: underline;
+}
