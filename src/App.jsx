@@ -10,6 +10,7 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
 import RecentlyViewed from './components/RecentlyViewed/RecentlyViewed.jsx';
 import BackToTop from './components/BackToTop/BackToTop.jsx';
 import ShoppingList from './components/ShoppingList/ShoppingList.jsx';
+import Footer from './components/Footer/Footer.jsx';
 import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
@@ -131,6 +132,7 @@ function AppInner() {
         onClearChecked={clearChecked}
         onClearAll={clearAll}
       />
+      <Footer />
     </ErrorBoundary>
   );
 }
