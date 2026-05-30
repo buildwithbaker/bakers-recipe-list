@@ -71,6 +71,8 @@ Pushes to `main` auto-deploy to GitHub Pages via
 and publishes it). The Vite `base` is set to `/bakers-recipe-list/` to match the
 Pages project path.
 
+> **Internals:** see [docs/internal/architecture.md](docs/internal/architecture.md) for the full architecture reference — data model, the USDA nutrition pipeline, components/hooks/utils map, extension points, and gotchas.
+
 ## License
 
 [MIT](LICENSE). The MIT license covers the **code**; the recipe content is the
