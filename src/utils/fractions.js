@@ -49,8 +49,8 @@ export function parseQuantityStr(s) {
 // fractions where possible. Used by the serving-size scaler in RecipeModal.
 //
 // Examples:
-//   0.25  → "¼"     1.5  → "1½"    2    → "2"
-//   0.375 → "⅜"     2.75 → "2¾"    0.1  → "0.1"
+//   0.25  → "¼"     1.5  → "1½"    2     → "2"
+//   0.375 → "⅜"     2.75 → "2¾"    0.667 → "⅔"
 //
 // Fix vs. naive scan: we find the NEAREST fraction across all candidates,
 // not the first one within tolerance. Naive order-scan would return ⅓ (0.333)
@@ -82,6 +82,8 @@ export function formatQuantity(n) {
     return whole > 0 ? `${whole}${bestSym}` : bestSym;
   }
 
-  // Fall back to 1-decimal string (e.g. 1.4 → "1.4").
+  // Fall back to a 1-decimal string for a fractional part that isn't near any
+  // listed fraction. The table above is dense enough (max ~0.06 gap) that this
+  // rarely fires, but it keeps formatting safe for unusual inputs.
   return n.toFixed(1).replace(/\.0$/, '');
 }
