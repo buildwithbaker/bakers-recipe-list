@@ -91,6 +91,31 @@ main {
     border-radius: 0 !important;
     max-width: 100% !important;
   }
+
+  /* Same visibility trick for the shopping list, keyed on [data-print-list].
+     Prints a clean checklist (recipe groups + checkbox items) and strips the
+     interactive chrome (header buttons, remove ×, footer actions). */
+  body:has([data-print-list]) * {
+    visibility: hidden;
+  }
+
+  [data-print-list],
+  [data-print-list] * {
+    visibility: visible !important;
+  }
+
+  [data-print-list] {
+    position: static !important;
+    width: 100%;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+
+  [data-print-list] [data-print-hide] {
+    display: none !important;
+  }
 }
 
 /* ============================================================

@@ -16,7 +16,8 @@ export default function MacroCard({ status, macros, matchedCount, totalCount }) 
           >
             fdc.nal.usda.gov
           </a>{' '}
-          and replace <code>USDA_API_KEY</code> in <code>fetchNutrition.js</code>.
+          and set it as <code>VITE_USDA_API_KEY</code> (in <code>.env.local</code>{' '}
+          for local dev, or the deploy secret for production).
         </div>
       </div>
     );

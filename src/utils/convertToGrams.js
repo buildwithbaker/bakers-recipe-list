@@ -28,7 +28,8 @@ const BASE = {
 };
 
 // Per-cup weight overrides for solids (matched against ingredient name substring).
-// Order matters — more specific matches first.
+// The longest matching needle wins (see lookupOverride), so order is not
+// load-bearing — but keep related entries grouped for readability.
 // Vegetable/produce densities sourced from USDA cup-to-gram reference data.
 const CUP_OVERRIDES = [
   // --- Vegetables & produce (were defaulting to 240g/cup = water = wrong) ---
@@ -108,8 +109,9 @@ const CUP_OVERRIDES = [
 ];
 
 // Per-piece weight estimates for "each"-unit items (e.g. "1 egg").
-// ORDER MATTERS: more-specific needles must come before shorter substrings
-// (e.g. 'chicken breast' before 'chicken', 'asian pear' before 'pear').
+// The longest matching needle wins (see lookupOverride), so a specific needle
+// like 'chicken breast' beats 'chicken' and 'asian pear' beats 'pear'
+// regardless of order — entries are grouped by item for readability only.
 const EACH_OVERRIDES = [
   ['egg', 50],
   ['onion', 110],
@@ -142,12 +144,21 @@ const EACH_OVERRIDES = [
   ['zucchini', 200],
 ];
 
+// Returns the value for the LONGEST needle that appears in `name`, so the most
+// specific match wins regardless of table order — e.g. "sweet potato" resolves
+// to 'sweet potato' (133), not the shorter 'potato' (150), and "cooked rice"
+// resolves to 'cooked rice' (158), not 'rice' (185).
 function lookupOverride(name, table) {
   const lower = name.toLowerCase();
+  let bestVal = null;
+  let bestLen = -1;
   for (const [needle, val] of table) {
-    if (lower.includes(needle)) return val;
+    if (needle.length > bestLen && lower.includes(needle)) {
+      bestVal = val;
+      bestLen = needle.length;
+    }
   }
-  return null;
+  return bestVal;
 }
 
 export function convertToGrams({ quantity, unit, name }) {

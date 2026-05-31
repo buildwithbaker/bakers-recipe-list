@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { SECTIONS } from '../../data/sections.js';
+import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import styles from './TOCNav.module.css';
 
 // Hamburger drawer that lists every section as a vertical link.
@@ -7,6 +8,11 @@ import styles from './TOCNav.module.css';
 // Outside-click dismiss: the overlay div covers the full viewport and calls
 // onClose directly — clicking anywhere outside the drawer closes it.
 export default function TOCNav({ open, onClose }) {
+  const drawerRef = useRef(null);
+
+  // Trap Tab focus inside the drawer while open (mirrors RecipeModal).
+  useFocusTrap(drawerRef, open);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
@@ -36,8 +42,11 @@ export default function TOCNav({ open, onClose }) {
   return (
     <div className={styles.overlay} onClick={onClose}>
       <nav
+        ref={drawerRef}
         className={styles.drawer}
         onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
         aria-label="Recipe sections"
       >
         <div className={styles.drawerHeader}>
