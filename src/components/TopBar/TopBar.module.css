@@ -1,5 +1,8 @@
 .topBar {
-  background: var(--navy);
+  /* --topbar-bg stays dark in both themes (see globals.css). Previously this
+     used --navy, which flips to a light tone in dark mode and made the amber
+     title nearly invisible (~1.4:1 contrast). */
+  background: var(--topbar-bg);
   padding: 14px 20px;
   position: sticky;
   top: 0;
@@ -11,7 +14,7 @@
 }
 
 .title {
-  color: var(--amber);
+  color: var(--topbar-accent);
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.3px;
@@ -20,7 +23,7 @@
 }
 
 .subtitle {
-  color: #85B7EB;
+  color: var(--topbar-subtitle);
   font-size: 13px;
   margin-left: 8px;
 }
@@ -100,7 +103,7 @@
   top: 3px;
   right: 3px;
   background: var(--amber);
-  color: var(--navy);
+  color: var(--topbar-bg);
   font-size: 9px;
   font-weight: 800;
   border-radius: 8px;
