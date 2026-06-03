@@ -20,7 +20,7 @@
   animation: fadeUp 0.2s ease-out;
 }
 .btn:hover {
-  background: var(--navy);
+  background: var(--brand-dark);
   transform: translateY(-2px);
 }
 .btn:active {

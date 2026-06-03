@@ -519,8 +519,8 @@
   transition: background 0.15s;
 }
 .selectConfirmBtn:hover:not(:disabled) {
-  background: var(--navy);
-  border-color: var(--navy);
+  background: var(--brand-dark);
+  border-color: var(--brand-dark);
 }
 .selectConfirmBtn:disabled {
   opacity: 0.45;
