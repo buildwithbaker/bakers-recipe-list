@@ -6,8 +6,8 @@ const STORAGE_KEY = 'usda_notice_dismissed_v1';
 
 // Only renders when the app is still using the public DEMO_KEY (which is
 // rate-limited to ~30 requests/hour and will quickly stop returning macro
-// data). Disappears automatically once a real key is configured in
-// src/utils/fetchNutrition.js. Also dismissible per-browser.
+// data). Disappears automatically once a real key is configured via the
+// VITE_USDA_API_KEY env var. Also dismissible per-browser.
 export default function UsdaKeyNotice() {
   const [dismissed, setDismissed] = useState(() => {
     try {
@@ -43,8 +43,8 @@ export default function UsdaKeyNotice() {
         >
           fdc.nal.usda.gov
         </a>
-        {' '}and replace <code>USDA_API_KEY</code> in{' '}
-        <code>src/utils/fetchNutrition.js</code>.
+        {' '}and set it as <code>VITE_USDA_API_KEY</code> in{' '}
+        <code>.env.local</code> (or the deploy secret for production).
       </span>
       <button
         type="button"

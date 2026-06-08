@@ -34,17 +34,10 @@ export default function ShoppingList({ items, open, onClose, onToggle, onRemove,
 
   if (!open) return null;
 
-  const handlePrint = () => {
-    const lines = [];
-    for (const [recipe, rItems] of groups) {
-      lines.push(`\n${recipe}`);
-      lines.push(...rItems.map((it) => `  ${it.checked ? '☑' : '☐'} ${it.text}`));
-    }
-    const w = window.open('', '_blank');
-    w.document.write(`<pre style="font-family:serif;font-size:14px;padding:20px">${lines.join('\n').trim()}</pre>`);
-    w.document.close();
-    w.print();
-  };
+  // Print via print-only CSS (see globals.css [data-print-list]) rather than
+  // opening a popup window — popups are blocker-fragile. The @media print rules
+  // hide everything except the list and strip the interactive chrome.
+  const handlePrint = () => window.print();
 
   return (
     <>
@@ -54,6 +47,7 @@ export default function ShoppingList({ items, open, onClose, onToggle, onRemove,
         className={styles.panel}
         role="complementary"
         aria-label="Shopping list"
+        data-print-list
       >
         {/* Header */}
         <div className={styles.header}>
@@ -63,7 +57,7 @@ export default function ShoppingList({ items, open, onClose, onToggle, onRemove,
               <span className={styles.countChip}>{totalCount - checkedCount} left</span>
             )}
           </h2>
-          <div className={styles.headerActions}>
+          <div className={styles.headerActions} data-print-hide>
             {totalCount > 0 && (
               <button type="button" className={styles.iconBtn} onClick={handlePrint} title="Print list" aria-label="Print list">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -112,6 +106,7 @@ export default function ShoppingList({ items, open, onClose, onToggle, onRemove,
                         className={styles.removeBtn}
                         onClick={() => onRemove(item.id)}
                         aria-label="Remove item"
+                        data-print-hide
                       >×</button>
                     </li>
                   ))}
@@ -123,7 +118,7 @@ export default function ShoppingList({ items, open, onClose, onToggle, onRemove,
 
         {/* Footer actions */}
         {totalCount > 0 && (
-          <div className={styles.footer}>
+          <div className={styles.footer} data-print-hide>
             {checkedCount > 0 && (
               <button type="button" className={styles.footerBtn} onClick={onClearChecked}>
                 Remove checked ({checkedCount})

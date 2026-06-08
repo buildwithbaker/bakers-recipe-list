@@ -92,7 +92,7 @@
   vertical-align: middle;
 }
 .viewBtn:hover {
-  background: var(--navy);
+  background: var(--brand-dark);
 }
 
 @media (max-width: 480px) {

@@ -2,8 +2,6 @@ import { Component, lazy, Suspense, useEffect, useId, useMemo, useRef, useState 
 import styles from './RecipeModal.module.css';
 import { estimateServings } from '../../utils/estimateServings.js';
 import { useMacroEstimate } from '../../hooks/useMacroEstimate.js';
-import { parseIngredient } from '../../utils/parseIngredient.js';
-import { formatQuantity } from '../../utils/fractions.js';
 import { scaleIngredientText } from '../../utils/scaleIngredient.js';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';

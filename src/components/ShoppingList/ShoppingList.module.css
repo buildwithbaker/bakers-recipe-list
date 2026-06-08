@@ -35,7 +35,7 @@
   justify-content: space-between;
   padding: 16px 18px 14px;
   border-bottom: 1px solid var(--border);
-  background: var(--navy);
+  background: var(--brand-dark);
   gap: 10px;
   flex-shrink: 0;
 }

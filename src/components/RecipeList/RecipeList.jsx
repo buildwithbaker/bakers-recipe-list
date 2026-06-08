@@ -4,6 +4,7 @@ import { SECTIONS } from '../../data/sections.js';
 import { expandVersionedRecipe } from '../../data/expandVersions.js';
 import SectionBlock from '../SectionBlock/SectionBlock.jsx';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
+import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { getEffectiveTags } from '../../utils/autoTags.js';
 import styles from './RecipeList.module.css';
 
@@ -87,6 +88,10 @@ function saveCollapsed(set) {
 function TagBrowser({ onSelectTag, onClose }) {
   const [search, setSearch] = useState('');
   const inputRef = useRef(null);
+  const modalRef = useRef(null);
+
+  // Trap Tab focus inside the dialog while it's open (mirrors RecipeModal).
+  useFocusTrap(modalRef, true);
 
   useEffect(() => { inputRef.current?.focus(); }, []);
 
@@ -102,7 +107,7 @@ function TagBrowser({ onSelectTag, onClose }) {
 
   return (
     <div className={styles.tagOverlay} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div className={styles.tagModal} role="dialog" aria-label="Browse tags">
+      <div ref={modalRef} className={styles.tagModal} role="dialog" aria-modal="true" aria-label="Browse tags">
         <div className={styles.tagModalHeader}>
           <span className={styles.tagModalTitle}>Browse Tags</span>
           <button type="button" className={styles.tagModalClose} onClick={onClose} aria-label="Close">&#x2715;</button>
