@@ -1,0 +1,26 @@
+# CodeRabbit config - bakers-recipe-list (Vite app)
+# Docs: https://docs.coderabbit.ai/getting-started/configure-coderabbit
+language: en-US
+reviews:
+  profile: assertive          # was "chill"
+  high_level_summary: true
+  poem: false
+  review_status: true
+  auto_review:
+    enabled: true
+    drafts: false
+  path_filters:
+    - "!dist/**"              # generated output - never review
+    - "!node_modules/**"
+    - "!public/**"            # static assets
+  path_instructions:
+    - path: "src/**"
+      instructions: >-
+        Focus on logic bugs, state-handling errors, unhandled promise
+        rejections, and accessibility of any rendered markup. Ignore subjective
+        styling preferences.
+    - path: "**/*"
+      instructions: >-
+        Flag any committed secret, API key, token, or credential in plain text.
+chat:
+  auto_reply: true
