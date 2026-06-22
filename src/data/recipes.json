@@ -199,9 +199,71 @@
       "#pork",
       "#slow-cooker"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "7 lb bone-in pork shoulder"
+      },
+      {
+        "type": "item",
+        "text": "Seasoned salt, to coat"
+      },
+      {
+        "type": "item",
+        "text": "1 cup barbecue sauce, plus more to finish"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp yellow mustard"
+      },
+      {
+        "type": "item",
+        "text": "1 tbsp white vinegar"
+      },
+      {
+        "type": "item",
+        "text": "2 tbsp brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "1 tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp pepper"
+      },
+      {
+        "type": "item",
+        "text": "2 tbsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "2 tbsp garlic powder"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Rub",
+        "detail": "Coat the pork shoulder (7 lb) all over with seasoned salt."
+      },
+      {
+        "step": "Build the sauce",
+        "detail": "Set the pork in the slow cooker. Top with barbecue sauce (1 cup), mustard (1/2 tsp), white vinegar (1 tbsp), brown sugar (2 tbsp), soy sauce (1 tbsp), salt (1 tsp), pepper (1 tsp), onion powder (2 tbsp), and garlic powder (2 tbsp)."
+      },
+      {
+        "step": "Cook",
+        "detail": "Cook on low 8-10 hours."
+      },
+      {
+        "step": "Shred & finish",
+        "detail": "Remove the fat cap, shred the pork, mix it back into the juices, and add extra barbecue sauce until slightly wet."
+      }
+    ],
+    "is_blank": false
   },
   {
     "name": "Pepperoncini Beef",
@@ -265,9 +327,59 @@
       "#soup",
       "#slow-cooker"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "2.5 lb beef chuck roast"
+      },
+      {
+        "type": "item",
+        "text": "5 carrots, peeled, cut into 1-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "1 large onion, quartered"
+      },
+      {
+        "type": "item",
+        "text": "5 stalks celery, cut into 1-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "5 russet potatoes, washed, cut into large cubes"
+      },
+      {
+        "type": "item",
+        "text": "2 packets onion soup mix"
+      },
+      {
+        "type": "item",
+        "text": "1 cup steak sauce"
+      },
+      {
+        "type": "item",
+        "text": "Salt and pepper, to coat"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Season & sear",
+        "detail": "Pat the chuck roast (2.5 lb) dry, coat both sides with salt and pepper, and sear in a hot pan on the stove about 2 minutes per side."
+      },
+      {
+        "step": "Load the cooker",
+        "detail": "Add the carrots (5), onion (1, quartered), celery (5 stalks), and potatoes (5) to the slow cooker. Nestle the seared beef on top, then add the onion soup mix (2 packets) and steak sauce (1 cup). Cook on low 8 hours."
+      },
+      {
+        "step": "Pull & cube",
+        "detail": "At the 7-hour mark, lift out the beef and stir the vegetables. Let the beef cool, then cut into cubes."
+      },
+      {
+        "step": "Finish",
+        "detail": "Return the cubed beef to the cooker, stir everything together, and finish the last hour."
+      }
+    ],
+    "is_blank": false
   },
   {
     "name": "Pork Stew",
@@ -279,9 +391,59 @@
       "#soup",
       "#slow-cooker"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "2.5 lb pork tenderloin (about 2 tenderloins)"
+      },
+      {
+        "type": "item",
+        "text": "5 carrots, peeled, cut into 1-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "1 large onion, quartered"
+      },
+      {
+        "type": "item",
+        "text": "5 stalks celery, cut into 1-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "5 russet potatoes, washed, cut into large cubes"
+      },
+      {
+        "type": "item",
+        "text": "1 packet onion soup mix"
+      },
+      {
+        "type": "item",
+        "text": "1 can (12 oz) frozen apple juice concentrate"
+      },
+      {
+        "type": "item",
+        "text": "Salt and pepper, to coat"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Season & sear",
+        "detail": "Coat the pork tenderloin (2.5 lb) on both sides with salt and pepper and sear about 2 minutes per side on the stove."
+      },
+      {
+        "step": "Load the cooker",
+        "detail": "Add the carrots (5), onion (1, quartered), celery (5 stalks), and potatoes (5) to the slow cooker. Set the tenderloin on top, then add the onion soup mix (1 packet) and frozen apple juice concentrate (1 can). Cook on low 5 hours."
+      },
+      {
+        "step": "Pull & rest",
+        "detail": "About 1 hour before the end (around the 4-hour mark), lift out the tenderloin and stir the vegetables. Let the pork rest at least 5 minutes, then slice into medallions."
+      },
+      {
+        "step": "Finish",
+        "detail": "Return the medallions to the stew and serve."
+      }
+    ],
+    "is_blank": false
   },
   {
     "name": "Corned Beef and Cabbage",
@@ -292,9 +454,51 @@
       "#beef",
       "#slow-cooker"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "3 lb corned beef brisket (with seasoning packet)"
+      },
+      {
+        "type": "item",
+        "text": "1 can (12 oz) frozen apple juice concentrate"
+      },
+      {
+        "type": "item",
+        "text": "5 carrots, peeled, cut into 1-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "1 large onion, quartered"
+      },
+      {
+        "type": "item",
+        "text": "5 russet potatoes, washed, cut into large cubes"
+      },
+      {
+        "type": "item",
+        "text": "1 head cabbage, cut into wedges"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Prep the spices",
+        "detail": "Remove the seasoning packet from the corned beef and tie it into a tea strainer so the spices flavor the liquid but stay contained."
+      },
+      {
+        "step": "Load the cooker",
+        "detail": "Add the corned beef (3 lb), carrots (5), onion (1, quartered), and potatoes (5) to the slow cooker with the frozen apple juice concentrate (1 can) and the strained seasoning packet. Cook on low 8-10 hours."
+      },
+      {
+        "step": "Add cabbage",
+        "detail": "Add the cabbage wedges (1 head) for the last 1-2 hours so they soften without turning to mush."
+      },
+      {
+        "step": "Serve",
+        "detail": "Discard the seasoning packet, slice the corned beef against the grain, and serve with the vegetables."
+      }
+    ],
+    "is_blank": false
   },
   {
     "name": "Tortellini Soup",
