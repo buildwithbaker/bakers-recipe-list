@@ -2954,6 +2954,82 @@
     "is_blank": true
   },
   {
+    "name": "Coconut Rice",
+    "section": "SIDES",
+    "category": "Sides",
+    "source": "RecipeTinEats",
+    "tags": [
+      "#side",
+      "#rice",
+      "#asian"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "2 cups jasmine rice"
+      },
+      {
+        "type": "item",
+        "text": "1 2/3 cups coconut milk (one 14 oz can), full-fat or light"
+      },
+      {
+        "type": "item",
+        "text": "1 cup water"
+      },
+      {
+        "type": "item",
+        "text": "5 tsp white sugar"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp kosher salt"
+      },
+      {
+        "type": "header",
+        "text": "Asian restaurant-style flavor (use one):"
+      },
+      {
+        "type": "item",
+        "text": "1 pandan leaf, knotted"
+      },
+      {
+        "type": "item",
+        "text": "2 kaffir lime leaves, crushed in hand"
+      },
+      {
+        "type": "header",
+        "text": "Optional garnish:"
+      },
+      {
+        "type": "item",
+        "text": "1 tbsp desiccated coconut, toasted"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Rinse the rice",
+        "detail": "Rinse the rice (2 cups) until the water runs mostly clear to wash off excess surface starch — it won't go 100% clear. This matters more than for plain rice: coconut milk is thicker than water, so leftover starch turns the rice gluey."
+      },
+      {
+        "step": "Soak 1 hour",
+        "detail": "Cover the rinsed rice with water and soak 1 hour, then drain. The head start on water absorption is what lets the grains cook through evenly in the thicker coconut liquid."
+      },
+      {
+        "step": "Heat the liquid",
+        "detail": "Preheat the oven to 400°F. In a saucepan, combine the coconut milk (1 2/3 cups), water (1 cup), sugar (5 tsp), and salt (1/2 tsp) and bring to a boil. Heating the liquid first means the rice starts cooking the moment it hits the oven instead of bloating in lukewarm liquid for 10-15 minutes."
+      },
+      {
+        "step": "Assemble and bake",
+        "detail": "Put the drained rice in a baking pan, tuck in the pandan leaf (1, knotted) or kaffir lime leaves (2, crushed), and pour over the boiling liquid. Cover tightly with foil and bake 40 minutes. The foil traps steam, so this is essentially oven steam-rice with no scorching risk and more even heat than the stovetop."
+      },
+      {
+        "step": "Rest 15 minutes",
+        "detail": "Pull the pan and rest, still covered in foil, for 15 minutes — don't skip it. The rice finishes cooking and reabsorbs surface moisture, leaving it fluffy. Fluff, discard the leaf, and garnish with toasted desiccated coconut (1 tbsp) if using."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "name": "Brown Rice",
     "section": "SIDES",
     "category": "Sides",
@@ -5583,18 +5659,6 @@
       {
         "type": "item",
         "text": "½ tsp black pepper"
-      },
-      {
-        "type": "item",
-        "text": "___________________________"
-      },
-      {
-        "type": "item",
-        "text": "___________________________"
-      },
-      {
-        "type": "item",
-        "text": "___________________________"
       }
     ],
     "instructions": [
@@ -5617,18 +5681,6 @@
       {
         "step": "Finish",
         "detail": "Season with salt (1 tsp) and pepper (½ tsp). Simmer 20 minutes."
-      },
-      {
-        "step": "Step 1 Name",
-        "detail": "___________________________"
-      },
-      {
-        "step": "Step 2 Name",
-        "detail": "___________________________"
-      },
-      {
-        "step": "Step 3 Name",
-        "detail": "___________________________"
       }
     ],
     "is_blank": false
@@ -7908,13 +7960,12 @@
   },
   {
     "name": "Tandoori - Chicken Marinade",
-    "section": "FOR REVIEW - MARINADES - CHICKEN",
+    "section": "MARINADES",
     "category": "Marinades",
     "source": "BBC Good Food / Serious Eats",
     "tags": [
       "#chicken",
-      "#marinade",
-      "#for-review"
+      "#marinade"
     ],
     "ingredients": [
       {
@@ -9611,7 +9662,7 @@
       },
       {
         "type": "item",
-        "text": "1/2 cup bBQ sauce"
+        "text": "1/2 cup BBQ sauce"
       },
       {
         "type": "item",
@@ -9643,7 +9694,7 @@
       },
       {
         "type": "item",
-        "text": "1/2 cup bBQ sauce"
+        "text": "1/2 cup BBQ sauce"
       },
       {
         "type": "item",
