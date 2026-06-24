@@ -9,8 +9,10 @@
   },
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/validate-recipes.mjs",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate:recipes": "node scripts/validate-recipes.mjs"
   },
   "dependencies": {
     "react": "^18.3.1",
