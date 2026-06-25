@@ -18,12 +18,16 @@ export function CookHistoryProvider({ children }) {
   const [cookLog, logCook, updateNotes] = useCookLog();
   const [pinnedSet, togglePinned] = usePinnedRecipes();
 
-  // Wrap toggleMade so marking a recipe as made also logs the date.
+  // Wrap toggleMade so the first time a recipe is ever marked made also logs a
+  // dated cook entry. Only the first time: repeat cooks use the explicit
+  // "+ Log cook" button, so toggling made off→on→off→on no longer inflates the
+  // "Cooked N×" count.
   const toggleMade = useCallback((name) => {
     const wasAlreadyMade = madeSet.has(name);
+    const hasCookHistory = (cookLog[name]?.dates?.length ?? 0) > 0;
     toggleMadeRaw(name);
-    if (!wasAlreadyMade) logCook(name);
-  }, [madeSet, toggleMadeRaw, logCook]);
+    if (!wasAlreadyMade && !hasCookHistory) logCook(name);
+  }, [madeSet, cookLog, toggleMadeRaw, logCook]);
 
   const value = useMemo(
     () => ({ madeSet, toggleMade, cookLog, logCook, updateNotes, pinnedSet, togglePinned }),

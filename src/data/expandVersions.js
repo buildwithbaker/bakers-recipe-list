@@ -24,7 +24,7 @@ function splitByVersion(arr, textField) {
 // Strips the redundant "— Chicken Marinade" / "— Beef Marinade" suffix
 // since the section header already conveys that context.
 function shortenName(name) {
-  return name.replace(/\s*[—–\-]\s*\S+\s+Marinade\s*$/i, '').trim();
+  return name.replace(/\s*[-—–]\s*\S+\s+Marinade\s*$/i, '').trim();
 }
 
 export function expandVersionedRecipe(recipe) {
@@ -38,7 +38,7 @@ export function expandVersionedRecipe(recipe) {
   const baseName = shortenName(recipe.name);
 
   return labels.map((label, i) => {
-    const sourceFromLabel = label.replace(/^Version\s*\d+\s*[—–\-]\s*/i, '').trim();
+    const sourceFromLabel = label.replace(/^Version\s*\d+\s*[-—–]\s*/i, '').trim();
     const displayName = labels.length > 1
       ? `${baseName} (Version ${i + 1})`
       : baseName;
