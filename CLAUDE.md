@@ -7,7 +7,11 @@ See @docs/internal/architecture.md for the deep architecture reference (data mod
 - npm run dev    # Vite dev server, localhost:5173
 - npm run build  # production build to dist/
 - npm run lint   # must pass before any commit (if lint script exists)
-- Deploy: GitHub Pages via .github/workflows/deploy.yml
+- Deploy: GitHub Pages via .github/workflows/deploy.yml (deploys on merge to main).
+
+## Branching (main is protected)
+`main` is protected - direct pushes are rejected. Branch, commit, push, open a
+PR, then squash-merge once CI is green. Never run `git push origin main`.
 
 ## File organization (root is locked)
 Do not add files to root unless required by tooling. New CSS -> src/styles/;
