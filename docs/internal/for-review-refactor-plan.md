@@ -2,13 +2,13 @@
 
 Status: proposed (not started). Author hand-off doc. Last updated 2026-06-24.
 
-> **Base-branch prerequisite (important).** This refactor MUST be built on top of
-> `fix/audit-followups` (or on `main` *after* that branch merges) — NOT on the
-> current `origin/main`. `origin/main` has a latent data bug: 19 soups exist
-> twice (a blank `SOUPS` placeholder + a real `FOR REVIEW - SOUPS` recipe with
-> the same name), which the new validator correctly rejects. `fix/audit-followups`
-> already removes those duplicate placeholders (232 records, 0 dups). Building
-> this refactor on `origin/main` would fail validation before it started.
+> **Base-branch note.** Build this refactor on `main` once PR #18 is merged.
+> PR #18 (the recipe-schema + validator work) already removed the 19 duplicate
+> blank-soup placeholders that previously broke validation on `main`, and wired
+> the schema-enforcing validator into `prebuild`. Do NOT base this on
+> `fix/audit-followups` — that branch has diverged (4 ahead / 3 behind main,
+> ~34 files, and an older `recipes.json` missing main's newer slow-cooker
+> recipes); a PR from it into main would revert those recipes.
 
 The `section` field is overloaded. It encodes a recipe's display category AND
 its review state, by prefixing the section name with `FOR REVIEW`. This causes:
