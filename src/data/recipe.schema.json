@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://buildwithbaker.github.io/bakers-recipe-list/recipe.schema.json",
+  "title": "Baker's Recipe List — Recipe",
+  "description": "The single hard-coded contract every recipe in src/data/recipes.json must satisfy. recipes.json is a JSON array of objects shaped exactly like this. When adding or editing a recipe, conform to THIS file — do not infer the shape from an existing recipe. Enforced at build time by scripts/validate-recipes.mjs (runs as the npm `prebuild` hook, so a violation fails `npm run build` and CI).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "section", "category", "source", "tags", "ingredients", "instructions", "is_blank"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The canonical unique key used everywhere in the app (state keys, ?recipe= deep links, lookups). MUST be globally unique across all recipes."
+    },
+    "section": {
+      "type": "string",
+      "description": "Display group. MUST be one of the keys defined in src/data/sections.js (the validator drift-guards this enum against that file). The `FOR REVIEW ...` keys are a staging area surfaced under the app's For-Review tab; they are known tech debt pending a status-field refactor — do not add new recipes there unless intentionally staging for review.",
+      "enum": [
+        "BREAKFAST",
+        "SLOW COOKER",
+        "SEASONINGS",
+        "DOUGHS",
+        "AMERICAN",
+        "MEXICAN",
+        "ASIAN",
+        "ITALIAN",
+        "MIDDLE EASTERN",
+        "SANDWICHES",
+        "SIDES",
+        "SNACKS",
+        "SOUPS",
+        "MARINADES",
+        "SMOOTHIES",
+        "BREAD",
+        "FOR REVIEW --- CURRY",
+        "FOR REVIEW --- SOUPS",
+        "FOR REVIEW - SOUPS",
+        "FOR REVIEW - MARINADES - CHICKEN",
+        "FOR REVIEW - MARINADES - BEEF",
+        "FOR REVIEW - MARINADES - PORK"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "description": "Coarse grouping label. MUST be one of the values below.",
+      "enum": [
+        "American",
+        "Asian",
+        "Bread",
+        "Breakfast",
+        "Doughs",
+        "For Review",
+        "Italian",
+        "Marinades",
+        "Mexican",
+        "Middle Eastern",
+        "Sandwiches",
+        "Seasonings",
+        "Sides",
+        "Slow Cooker",
+        "Smoothies",
+        "Snacks",
+        "Soups"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Attribution. Use \"Original\" for the author's own recipes; otherwise name the source(s)."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Lowercase kebab-case hashtags. Examples: #pork, #seasoning, #middle-eastern.",
+      "items": {
+        "type": "string",
+        "pattern": "^#[a-z0-9-]+$"
+      }
+    },
+    "ingredients": {
+      "type": "array",
+      "description": "Ordered list. type:item is an actual ingredient line. type:section and type:header are sub-grouping labels within the ingredient list (e.g. 'For the sauce:'). A non-blank recipe must contain at least one type:item entry.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type", "text"],
+        "properties": {
+          "type": { "type": "string", "enum": ["item", "section", "header"] },
+          "text": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "instructions": {
+      "type": "array",
+      "description": "Ordered method steps. Two valid conventions coexist: (A) classic — {step: short title, detail: full instruction text}; (B) grouped (used by multi-version marinades) — {type, step: the full content, detail: \"\"} where type:section/header is a sub-heading like \"Version 1\" and type:item is a step. Rule: `step` is always non-empty; `detail` is required but may be empty; `type`, when present, is item|section|header. A non-blank recipe must have at least one instruction.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["step", "detail"],
+        "properties": {
+          "step": { "type": "string", "minLength": 1 },
+          "detail": { "type": "string" },
+          "type": { "type": "string", "enum": ["item", "section", "header"] }
+        }
+      }
+    },
+    "is_blank": {
+      "type": "boolean",
+      "description": "true = placeholder rendered as a 'coming soon' row (ingredients/instructions may be empty). false = a real recipe, which MUST have at least one type:item ingredient and at least one instruction."
+    }
+  }
+}

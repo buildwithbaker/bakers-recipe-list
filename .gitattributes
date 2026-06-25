@@ -1,0 +1,17 @@
+# Normalize line endings. Stops CRLF/LF churn when the repo is edited across
+# Windows and Linux (e.g. a Windows checkout edited through a Linux mount).
+# Text files are stored as LF in git and checked out as LF.
+* text=auto eol=lf
+
+# Treat these as binary (never normalize / never diff as text).
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.woff  binary
+*.woff2 binary
+*.ttf  binary
+*.eot  binary
+*.pdf  binary
