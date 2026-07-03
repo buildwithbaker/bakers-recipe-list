@@ -51,6 +51,45 @@
   white-space: nowrap;
 }
 
+/* "To Try" backlog rows — a source-link card instead of the coming-soon row */
+.toTryRow td {
+  background: rgba(12, 68, 124, 0.03);
+}
+.toTryRow:hover td {
+  background: rgba(12, 68, 124, 0.07) !important;
+}
+
+.toTryBadge {
+  font-size: 10px;
+  background: rgba(12, 68, 124, 0.10);
+  color: var(--blue);
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+}
+
+.sourceLink {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  border-radius: 4px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background 0.15s;
+  vertical-align: middle;
+}
+.sourceLink:hover {
+  background: var(--brand-dark);
+}
+
 /* Made/unmade toggle button */
 .madeBtn {
   background: none;
@@ -102,6 +141,8 @@
   .blankBadge { font-size: 9px; padding: 1px 5px; margin-left: 4px; }
   .madeBtn { padding: 3px 5px; font-size: 11px; margin-right: 3px; }
   .viewBtn { padding: 4px 9px; font-size: 11px; }
+  .sourceLink { padding: 4px 9px; font-size: 11px; }
+  .toTryBadge { font-size: 9px; padding: 1px 5px; margin-left: 4px; }
 }
 
 /* Search term highlight — blue tint stays visible on both default and amber hover rows */

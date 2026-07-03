@@ -17,19 +17,50 @@ function HighlightedText({ text, query }) {
   );
 }
 
+// A "To Try" backlog entry: a blank placeholder whose source is a real URL
+// (a Pinterest-style link to try later). Rendered as a source-link card rather
+// than the plain "coming soon" row.
+function isToTry(recipe) {
+  return recipe.is_blank && typeof recipe.source === 'string' && /^https?:\/\//i.test(recipe.source);
+}
+
 function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
   const { madeSet, toggleMade, cookLog, pinnedSet, togglePinned } = useCookHistoryContext();
   const isMade   = madeSet.has(recipe.name);
   const isPinned = pinnedSet.has(recipe.name);
   const hasNotes = !!(cookLog[recipe.name]?.notes?.trim());
 
+  const tags = getEffectiveTags(recipe).join(' ');
+
+  // "To Try" card: name + external "View source" link, no coming-soon/made/pin UI.
+  if (isToTry(recipe)) {
+    return (
+      <tr className={styles.toTryRow}>
+        <td className={styles.recipeName}>
+          <HighlightedText text={recipe.name} query={highlightQuery} />
+          <span className={styles.toTryBadge}>to try</span>
+        </td>
+        <td className={styles.recipeTags}>{tags}</td>
+        {!hideSource && <td className={styles.recipeSource} />}
+        <td className={styles.actionCell}>
+          <a
+            className={styles.sourceLink}
+            href={recipe.source}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View source ↗
+          </a>
+        </td>
+      </tr>
+    );
+  }
+
   const rowClass = [
     recipe.is_blank ? styles.blankRow : '',
     isMade          ? styles.madeRow  : '',
     isPinned        ? styles.pinnedRow : '',
   ].filter(Boolean).join(' ');
-
-  const tags = getEffectiveTags(recipe).join(' ');
 
   return (
     <tr className={rowClass}>
