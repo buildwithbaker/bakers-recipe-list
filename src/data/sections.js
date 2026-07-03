@@ -20,6 +20,7 @@ export const SECTIONS = [
   { key: "MARINADES", label: "Marinades", id: "sec-MARINADES" },
   { key: "SMOOTHIES", label: "Smoothies", id: "sec-SMOOTHIES" },
   { key: "BREAD", label: "Bread", id: "sec-BREAD" },
+  { key: "TO TRY", label: "To Try", id: "sec-TO-TRY" },
   { key: "FOR REVIEW --- CURRY", label: "For Review: Curry", id: "sec-FOR-REVIEW-CURRY", review: true },
   { key: "FOR REVIEW --- SOUPS", label: "For Review: Soups", id: "sec-FOR-REVIEW-SOUPS", review: true },
   { key: "FOR REVIEW - SOUPS", label: "For Review: Soups (More)", id: "sec-FOR-REVIEW-SOUPS-NEW", review: true },
