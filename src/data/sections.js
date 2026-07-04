@@ -36,6 +36,7 @@ export const SECTIONS = [
   { key: "TO TRY --- SNACKS", label: "Snacks", id: "sec-TO-TRY-SNACKS", toTry: true },
   { key: "TO TRY --- SMOOTHIES", label: "Smoothies", id: "sec-TO-TRY-SMOOTHIES", toTry: true },
   { key: "TO TRY --- DESSERTS", label: "Desserts", id: "sec-TO-TRY-DESSERTS", toTry: true },
+  { key: "TO TRY --- BREAD", label: "Bread", id: "sec-TO-TRY-BREAD", toTry: true },
   { key: "FOR REVIEW --- CURRY", label: "For Review: Curry", id: "sec-FOR-REVIEW-CURRY", review: true },
   { key: "FOR REVIEW --- SOUPS", label: "For Review: Soups", id: "sec-FOR-REVIEW-SOUPS", review: true },
   { key: "FOR REVIEW - SOUPS", label: "For Review: Soups (More)", id: "sec-FOR-REVIEW-SOUPS-NEW", review: true },
