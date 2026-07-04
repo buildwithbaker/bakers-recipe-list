@@ -23,8 +23,12 @@ const recipesBySection = (() => {
 
 const SECTION_BY_KEY = new Map(SECTIONS.map((s) => [s.key, s]));
 
-const mainSections   = SECTIONS.filter((s) => !s.review);
+// Published Recipes tab = everything that is neither a For-Review nor a To-Try
+// staging section. The To-Try sections ("TO TRY --- <cuisine>") route to their
+// own tab, sub-headed by cuisine.
+const mainSections   = SECTIONS.filter((s) => !s.review && !s.toTry);
 const reviewSections = SECTIONS.filter((s) => !!s.review);
+const toTrySections  = SECTIONS.filter((s) => !!s.toTry);
 
 const displayedBySection = (() => {
   const map = new Map();
@@ -33,6 +37,18 @@ const displayedBySection = (() => {
     map.set(key, section?.review ? recs.flatMap(expandVersionedRecipe) : recs);
   }
   return map;
+})();
+
+// Peanut Butter tab = a tag-driven view of every recipe tagged #peanut,
+// regardless of which section/tab it otherwise lives in. Rendered under a
+// single synthetic section so it reuses the normal SectionBlock machinery.
+const PEANUT_SECTION = { key: '__PEANUT__', label: 'Peanut Butter', id: 'sec-PEANUT' };
+const peanutRecipes = (() => {
+  const out = [];
+  for (const recs of displayedBySection.values()) {
+    recs.forEach((r) => { if (getEffectiveTags(r).includes('#peanut')) out.push(r); });
+  }
+  return out;
 })();
 
 // All tags (manual + auto-derived) with counts — computed once at module scope.
@@ -275,11 +291,11 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
 
   const filtered = useMemo(() => {
     const q = deferredQuery.trim().toLowerCase();
-    const sectionsToSearch = activeTab === 'recipes' ? mainSections : reviewSections;
     const out = new Map();
-    for (const section of sectionsToSearch) {
-      const displayed = displayedBySection.get(section.key) || [];
-      let matches = q ? displayed.filter((r) => recipeMatchesQuery(r, q)) : displayed;
+
+    // Apply the shared query + made/pinned/blank filters to a recipe list.
+    const applyFilters = (list) => {
+      let matches = q ? list.filter((r) => recipeMatchesQuery(r, q)) : list;
       if (madeFilter === 'made') {
         matches = matches.filter((r) => r.is_blank || madeSet.has(r.name));
       } else if (madeFilter === 'unmade') {
@@ -291,6 +307,22 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
       if (hideBlanks) {
         matches = matches.filter((r) => !r.is_blank);
       }
+      return matches;
+    };
+
+    if (activeTab === 'peanut') {
+      const matches = applyFilters(peanutRecipes);
+      if (matches.length > 0) out.set(PEANUT_SECTION.key, matches);
+      return out;
+    }
+
+    const sectionsToSearch =
+      activeTab === 'recipes' ? mainSections :
+      activeTab === 'totry'   ? toTrySections :
+      reviewSections;
+    for (const section of sectionsToSearch) {
+      const displayed = displayedBySection.get(section.key) || [];
+      const matches = applyFilters(displayed);
       if (matches.length > 0) out.set(section.key, matches);
     }
     return out;
@@ -322,6 +354,20 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
           onClick={() => setActiveTab('review')}
         >
           For Review
+        </button>
+        <button
+          type="button"
+          className={`${styles.tabBtn} ${activeTab === 'totry' ? styles.tabBtnActive : ''}`}
+          onClick={() => setActiveTab('totry')}
+        >
+          To Try
+        </button>
+        <button
+          type="button"
+          className={`${styles.tabBtn} ${activeTab === 'peanut' ? styles.tabBtnActive : ''}`}
+          onClick={() => setActiveTab('peanut')}
+        >
+          Peanut Butter
         </button>
       </div>
       <ListToolbar
@@ -360,7 +406,12 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
           </div>
         )
       )}
-      {(activeTab === 'recipes' ? mainSections : reviewSections).map((section) => {
+      {(
+        activeTab === 'recipes' ? mainSections :
+        activeTab === 'totry'   ? toTrySections :
+        activeTab === 'peanut'  ? [PEANUT_SECTION] :
+        reviewSections
+      ).map((section) => {
         const displayed = filtered.get(section.key) || [];
         if (displayed.length === 0) return null;
         return (

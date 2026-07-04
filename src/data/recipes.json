@@ -3181,7 +3181,8 @@
     "category": "Sandwiches",
     "source": "Original",
     "tags": [
-      "#sandwich"
+      "#sandwich",
+      "#peanut"
     ],
     "ingredients": [],
     "instructions": [],
@@ -15339,8 +15340,8 @@
   },
   {
     "name": "Baked Brown Sugar Dijon Chicken Wings",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.rockrecipes.com/baked-brown-sugar-dijon-chicken-wings/",
     "tags": [
       "#to-try",
@@ -15352,8 +15353,8 @@
   },
   {
     "name": "Brown Sugar Pineapple Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.carlsbadcravings.com/brown-sugar-pineapple-chicken/",
     "tags": [
       "#to-try",
@@ -15365,8 +15366,8 @@
   },
   {
     "name": "Cheese And Prosciutto Stuffed Chicken Breasts",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.jocooks.com/healthy-eating/cheese-and-prosciutto-stuffed-chicken-breasts/",
     "tags": [
       "#to-try",
@@ -15378,8 +15379,8 @@
   },
   {
     "name": "Chicken Broccoli And Bell Pepper Stir Fry",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.juliasalbum.com/2015/07/chicken-broccoli-and-bell-pepper-stir-fry/",
     "tags": [
       "#to-try",
@@ -15391,8 +15392,8 @@
   },
   {
     "name": "Chicken Cordon Bleu Lasagna",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.chef-in-training.com/2016/07/chicken-cordon-bleu-lasagna/",
     "tags": [
       "#to-try",
@@ -15404,8 +15405,8 @@
   },
   {
     "name": "Chicken Potatoes With Garlic Parmesan Cream Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.eatwell101.com/chicken-potatoes-with-garlic-parmesan-cream-sauce",
     "tags": [
       "#to-try",
@@ -15417,8 +15418,8 @@
   },
   {
     "name": "Chili Pineapple Grilled Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.plainchicken.com/2016/06/chili-pineapple-grilled-chicken.html",
     "tags": [
       "#to-try",
@@ -15430,8 +15431,8 @@
   },
   {
     "name": "Chinese Lemon Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://cakewhiz.com/chinese-lemon-chicken-recipe/",
     "tags": [
       "#to-try",
@@ -15443,8 +15444,8 @@
   },
   {
     "name": "Cream Cheese And Chicken Taquitos",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://lilluna.com/cream-cheese-and-chicken-taquitos/",
     "tags": [
       "#to-try",
@@ -15456,8 +15457,8 @@
   },
   {
     "name": "Creamy One Pot Chicken Rice And Mushrooms",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://laughingspatula.com/creamy-one-pot-chicken-rice-and-mushrooms/",
     "tags": [
       "#to-try",
@@ -15469,8 +15470,8 @@
   },
   {
     "name": "Creamy Parmesan Chicken Carbonara",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "https://cafedelites.com/2017/05/08/creamy-parmesan-chicken-carbonara/",
     "tags": [
       "#to-try",
@@ -15482,8 +15483,8 @@
   },
   {
     "name": "Creamy Tuscan Garlic Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://therecipecritic.com/2016/05/creamy-tuscan-garlic-chicken/",
     "tags": [
       "#to-try",
@@ -15495,8 +15496,8 @@
   },
   {
     "name": "Dump Bake Aloha Chicken Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.theseasonedmom.com/dump-bake-aloha-chicken-rice/",
     "tags": [
       "#to-try",
@@ -15508,8 +15509,8 @@
   },
   {
     "name": "Easy One Pan French Onion Stuffed Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://thebusybaker.ca/easy-one-pan-french-onion-stuffed-chicken/",
     "tags": [
       "#to-try",
@@ -15521,8 +15522,8 @@
   },
   {
     "name": "French Onion Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.westviamidwest.com/french-onion-chicken/",
     "tags": [
       "#to-try",
@@ -15534,8 +15535,8 @@
   },
   {
     "name": "Honey Mustard Chicken Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://cafedelites.com/2016/12/05/honey-mustard-chicken-potatoes/",
     "tags": [
       "#to-try",
@@ -15547,8 +15548,8 @@
   },
   {
     "name": "Indonesian Honey Garlic Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://littlespicejar.com/indonesian-honey-garlic-chicken/",
     "tags": [
       "#to-try",
@@ -15560,8 +15561,8 @@
   },
   {
     "name": "Lemon Butter Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://damndelicious.net/2014/12/31/lemon-butter-chicken/",
     "tags": [
       "#to-try",
@@ -15573,8 +15574,8 @@
   },
   {
     "name": "Lemon Chicken Skillet",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.bhg.com/blogs/delish-dish/2015/10/13/lemon-chicken-skillet/",
     "tags": [
       "#to-try",
@@ -15586,8 +15587,8 @@
   },
   {
     "name": "Louisiana Chicken Pasta (Cheesecake Factory copycat)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://dinnerthendessert.com/louisiana-chicken-pasta-cheesecake-factory/",
     "tags": [
       "#to-try",
@@ -15599,8 +15600,8 @@
   },
   {
     "name": "Man Pleasing Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://www.justapinch.com/recipes/main-course/chicken/man-pleasing-chicken.html",
     "tags": [
       "#to-try",
@@ -15612,8 +15613,8 @@
   },
   {
     "name": "One Pan Balsamic Chicken & Veggies",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.chelseasmessyapron.com/one-pan-balsamic-chicken-veggies/",
     "tags": [
       "#to-try",
@@ -15625,8 +15626,8 @@
   },
   {
     "name": "One Pan Cheesy Jalapeno Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.thechunkychef.com/one-pan-cheesy-jalapeno-chicken/",
     "tags": [
       "#to-try",
@@ -15638,8 +15639,8 @@
   },
   {
     "name": "One Pan Chicken And Spinach Gnocchi",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.chelseasmessyapron.com/one-pan-chicken-and-spinach-gnocchi/",
     "tags": [
       "#to-try",
@@ -15651,8 +15652,8 @@
   },
   {
     "name": "One Pan Pesto Chicken And Veggies",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://juliasalbum.com/2016/06/one-pan-pesto-chicken-and-veggies/",
     "tags": [
       "#to-try",
@@ -15664,8 +15665,8 @@
   },
   {
     "name": "Roasted Chicken, Potatoes, Garlic, Lemon & Herbs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://thecafesucrefarine.com/2015/05/roasted-chicken-potatoes-garlic-lemon-herbs/",
     "tags": [
       "#to-try",
@@ -15677,8 +15678,8 @@
   },
   {
     "name": "Rustic Chicken With Garlic Gravy",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://coorec.com/p/rustic-chicken-with-garlic-gravy",
     "tags": [
       "#to-try",
@@ -15690,8 +15691,8 @@
   },
   {
     "name": "Salt And Pepper Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://sites.google.com/view/jho-recipes/recipes/salt-and-pepper-chicken",
     "tags": [
       "#to-try",
@@ -15703,8 +15704,8 @@
   },
   {
     "name": "Sheet Pan Lemon Chicken With Parmesan Roasted Broccoli",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.cookingclassy.com/sheet-pan-lemon-chicken-with-parmesan-roasted-broccoli/",
     "tags": [
       "#to-try",
@@ -15716,8 +15717,8 @@
   },
   {
     "name": "Sticky Honey Garlic Chicken Strips",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://whiteonricecouple.com/recipes/sticky-honey-garlic-chicken-strips/",
     "tags": [
       "#to-try",
@@ -15729,8 +15730,8 @@
   },
   {
     "name": "Skillet Chicken Thighs in Creamy Tomato Basil Spinach Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://juliasalbum.com/skillet-chicken-thighs-creamy-tomato-basil-spinach-sauce/",
     "tags": [
       "#to-try",
@@ -15742,8 +15743,8 @@
   },
   {
     "name": "Grilled Moroccan Chicken with Garlic Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.perrysplate.com/2014/08/grilled-moroccan-chicken-garlic-sauce.html",
     "tags": [
       "#to-try",
@@ -15755,8 +15756,8 @@
   },
   {
     "name": "Lemon Chicken Scallopini with Lemon Garlic Cream Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://cafedelites.com/2017/03/05/lemon-chicken-scallopini-with-lemon-garlic-cream-sauce/",
     "tags": [
       "#to-try",
@@ -15768,8 +15769,8 @@
   },
   {
     "name": "Chicken In Wine And Mustard Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://vikalinka.com/chicken-in-wine-and-mustard-sauce/",
     "tags": [
       "#to-try",
@@ -15781,8 +15782,8 @@
   },
   {
     "name": "Bbq Bacon Meatball Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://beef.littlethings.com/bbq-bacon-meatball-recipe",
     "tags": [
       "#to-try",
@@ -15794,8 +15795,8 @@
   },
   {
     "name": "Beef Rump Rolls Breaded With Cheddar And Bacon",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://www.tastemade.com/videos/beef-rump-rolls-breaded-with-cheddar-and-bacon",
     "tags": [
       "#to-try",
@@ -15807,8 +15808,8 @@
   },
   {
     "name": "Cheesesteak Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://whoneedsacape.com/2014/02/cheesesteak-casserole/",
     "tags": [
       "#to-try",
@@ -15820,8 +15821,8 @@
   },
   {
     "name": "Cilantro Lime Black Bean Burgers",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://www.lemonsandzest.com/2015/06/17/cilantro-lime-black-bean-burgers/",
     "tags": [
       "#to-try",
@@ -15833,8 +15834,8 @@
   },
   {
     "name": "Creamy Beef Noodle Bake",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://togetherasfamily.com/2015/05/creamy-beef-noodle-bake/",
     "tags": [
       "#to-try",
@@ -15846,8 +15847,8 @@
   },
   {
     "name": "Crockpot Pepper Steak",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://www.eatingonadime.com/crockpot-pepper-steak-recipe/",
     "tags": [
       "#to-try",
@@ -15859,8 +15860,8 @@
   },
   {
     "name": "Garlic Butter Steak And Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.eatwell101.com/garlic-butter-steak-and-potatoes-recipe",
     "tags": [
       "#to-try",
@@ -15872,8 +15873,8 @@
   },
   {
     "name": "Gordon Ramsay's Beef Wellington",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://pinkpostitnote.com/2016/03/gordon-ramsays-beef-wellington.html",
     "tags": [
       "#to-try",
@@ -15885,8 +15886,8 @@
   },
   {
     "name": "Home Style Beef N Noodles with Mushrooms & Onions",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://wildflourskitchen.com/2016/01/25/home-style-beef-n-noodles-mushrooms-onions/",
     "tags": [
       "#to-try",
@@ -15898,8 +15899,8 @@
   },
   {
     "name": "Meatball Parmesan Bake",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.thechunkychef.com/meatball-parmesan-bake/",
     "tags": [
       "#to-try",
@@ -15911,8 +15912,8 @@
   },
   {
     "name": "One Pot Beef Stroganoff",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://hipfoodiemom.com/2016/03/14/one-pot-beef-stroganoff/",
     "tags": [
       "#to-try",
@@ -15924,8 +15925,8 @@
   },
   {
     "name": "Pepper Steak",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://therecipecritic.com/pepper-steak-recipe/",
     "tags": [
       "#to-try",
@@ -15937,8 +15938,8 @@
   },
   {
     "name": "Philly Cheese Steak Egg Rolls",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.iwashyoudry.com/2014/01/06/philly-cheese-steak-egg-rolls/",
     "tags": [
       "#to-try",
@@ -15950,8 +15951,8 @@
   },
   {
     "name": "Philly Cheese Steak Sloppy Joes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://thebestblogrecipes.com/philly-cheese-steak-sloppy-joes/",
     "tags": [
       "#to-try",
@@ -15963,8 +15964,8 @@
   },
   {
     "name": "Roasted Garlic Rosemary Baked Meatballs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.willcookforsmiles.com/2015/07/roasted-garlic-rosemary-baked-meatballs.html",
     "tags": [
       "#to-try",
@@ -15976,8 +15977,8 @@
   },
   {
     "name": "Rolled Meatloaf With Ham, Cheese & Spinach",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://beafunmum.com/2015/07/rolled-meatloaf-with-ham-cheese-spinach/",
     "tags": [
       "#to-try",
@@ -15989,8 +15990,8 @@
   },
   {
     "name": "Salisbury Steak With Mushroom Gravy",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.recipetineats.com/salisbury-steak-with-mushroom-gravy/",
     "tags": [
       "#to-try",
@@ -16002,8 +16003,8 @@
   },
   {
     "name": "Sloppy Joe Mac N Cheese",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.tasteandtellblog.com/sloppy-joe-mac-n-cheese/",
     "tags": [
       "#to-try",
@@ -16015,8 +16016,8 @@
   },
   {
     "name": "Asian Pork Meatballs with Coconut Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://thebestblogrecipes.com/asian-pork-meatballs-coconut-rice/",
     "tags": [
       "#to-try",
@@ -16028,8 +16029,8 @@
   },
   {
     "name": "Bangers And Mash",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.justapinch.com/recipes/main-course/beef/bangers-and-mash.html",
     "tags": [
       "#to-try",
@@ -16041,8 +16042,8 @@
   },
   {
     "name": "Chicken Schnitzel",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://www.chiselandfork.com/chicken-schnitzel/",
     "tags": [
       "#to-try",
@@ -16054,8 +16055,8 @@
   },
   {
     "name": "12 Minute Chicken Schnitzel",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.spendwithpennies.com/12-minute-chicken-schnitzel/",
     "tags": [
       "#to-try",
@@ -16067,8 +16068,8 @@
   },
   {
     "name": "Creamy Cheesy Italian Sausage And Basil Penne",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://foodtasia.com/creamy-cheesy-italian-sausage-and-basil-penne/",
     "tags": [
       "#to-try",
@@ -16080,8 +16081,8 @@
   },
   {
     "name": "Italian Sausage Tortellini",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.kevinandamanda.com/recipes/dinner/italian-sausage-tortellini.html",
     "tags": [
       "#to-try",
@@ -16093,8 +16094,8 @@
   },
   {
     "name": "One Pot Sausage Sun Dried Tomato Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "https://www.budgetbytes.com/2017/03/one-pot-sausage-sun-dried-tomato-pasta/",
     "tags": [
       "#to-try",
@@ -16106,8 +16107,8 @@
   },
   {
     "name": "One Skillet Sausage White Bean Gnocchi",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.chelseasmessyapron.com/one-skillet-sausage-white-bean-gnocchi/",
     "tags": [
       "#to-try",
@@ -16119,8 +16120,8 @@
   },
   {
     "name": "20 Minute One Pan Gnocchi With Sausage And Spinach",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.chewoutloud.com/2015/09/29/20-minute-one-pan-gnocchi-with-sausage-and-spinach/",
     "tags": [
       "#to-try",
@@ -16132,8 +16133,8 @@
   },
   {
     "name": "Orzo with Italian Sausage & Roasted Red Peppers",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://cookinginstilettos.com/orzo-italian-sausage-roasted-red-peppers/",
     "tags": [
       "#to-try",
@@ -16145,8 +16146,8 @@
   },
   {
     "name": "Pan Cheesy Smoked Sausage Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.budgetsavvydiva.com/2014/09/pan-cheesy-smoked-sausage-pasta-recipe/",
     "tags": [
       "#to-try",
@@ -16158,8 +16159,8 @@
   },
   {
     "name": "Pork Schnitzel with Dijon Gravy",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://fitnessnip.com/",
     "tags": [
       "#to-try",
@@ -16171,8 +16172,8 @@
   },
   {
     "name": "Puff Pastry Sausage Rolls",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://cookingwithcurls.com/2014/10/08/puff-pastry-sausage-rolls/",
     "tags": [
       "#to-try",
@@ -16184,8 +16185,8 @@
   },
   {
     "name": "Rigatoni & Italian Sausage Skillet Meal",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://whoneedsacape.com/2016/11/rigatoni-italian-sausage-skillet-meal/",
     "tags": [
       "#to-try",
@@ -16197,8 +16198,8 @@
   },
   {
     "name": "Rigatoni Sausage Bolognese with Broccoli",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.savorytooth.com/rigatoni-sausage-bolognese-broccoli/",
     "tags": [
       "#to-try",
@@ -16210,8 +16211,8 @@
   },
   {
     "name": "Roasted Garlic Potatoes And Sausage",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.chelseasmessyapron.com/roasted-garlic-potatoes-and-sausage/",
     "tags": [
       "#to-try",
@@ -16223,8 +16224,8 @@
   },
   {
     "name": "Sausage Alfredo Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.shugarysweets.com/2016/10/sausage-alfredo-pasta",
     "tags": [
       "#to-try",
@@ -16236,8 +16237,8 @@
   },
   {
     "name": "Sausage Cabbage Dinner",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.theseasonedmom.com/sausage-cabbage-dinner/",
     "tags": [
       "#to-try",
@@ -16249,8 +16250,8 @@
   },
   {
     "name": "Sausage, Pepper And Rice Skillet",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://lifemadesimplebakes.com/2017/01/sausage-pepper-and-rice-skillet/",
     "tags": [
       "#to-try",
@@ -16262,8 +16263,8 @@
   },
   {
     "name": "Spicy Pork",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://www.southyourmouth.com/2014/09/spicy-pork.html",
     "tags": [
       "#to-try",
@@ -16275,8 +16276,8 @@
   },
   {
     "name": "White Beans With Spinach & Sausage",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.justapinch.com/recipes/white-beans-with-spinach-sausage.html",
     "tags": [
       "#to-try",
@@ -16288,8 +16289,8 @@
   },
   {
     "name": "Cuban Roast Pork",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "https://www.cook2eatwell.com/cuban-roast-pork/",
     "tags": [
       "#to-try",
@@ -16301,8 +16302,8 @@
   },
   {
     "name": "Korean Pork Chops",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.itisakeeper.com/14020/korean-pork-chops/",
     "tags": [
       "#to-try",
@@ -16314,8 +16315,8 @@
   },
   {
     "name": "10 Minute Honey Garlic Shrimp",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://www.munchkintime.com/10-minute-honey-garlic-shrimp-recipe/",
     "tags": [
       "#to-try",
@@ -16327,8 +16328,8 @@
   },
   {
     "name": "20 Minute Skinny Sriracha Shrimp And Broccoli",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://bakerbynature.com/20-minute-skinny-sriracha-shrimp-and-broccoli/",
     "tags": [
       "#to-try",
@@ -16340,8 +16341,8 @@
   },
   {
     "name": "5 Ingredient Garlic Parmesan Tilapia",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.theseasonedmom.com/5-ingredient-garlic-parmesan-tilapia/",
     "tags": [
       "#to-try",
@@ -16353,8 +16354,8 @@
   },
   {
     "name": "Baked Salmon With Parmesan Herb Crust",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://addapinch.com/cooking/baked-salmon-with-parmesan-herb-crust-recipe/",
     "tags": [
       "#to-try",
@@ -16366,8 +16367,8 @@
   },
   {
     "name": "Baked Lemon Salmon with Creamy Dill Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.cookingclassy.com/2014/03/baked-lemon-salmon-creamy-dill-sauce/",
     "tags": [
       "#to-try",
@@ -16379,8 +16380,8 @@
   },
   {
     "name": "Bang Bang Shrimp",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://dinnerthendessert.com/bang-bang-shrimp/",
     "tags": [
       "#to-try",
@@ -16392,8 +16393,8 @@
   },
   {
     "name": "Cilantro Lime Shrimp Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://juliasalbum.com/2016/06/cilantro-lime-shrimp-pasta/",
     "tags": [
       "#to-try",
@@ -16405,8 +16406,8 @@
   },
   {
     "name": "Crispy Cajun Shrimp Fettuccine",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.jocooks.com/main-courses/seafood/crispy-cajun-shrimp-fettuccine/",
     "tags": [
       "#to-try",
@@ -16418,8 +16419,8 @@
   },
   {
     "name": "Easy Poached Fish",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://thehealthyfoodie.com/easy-poached-fish-recipe/",
     "tags": [
       "#to-try",
@@ -16431,8 +16432,8 @@
   },
   {
     "name": "Healthy Shrimp Pad Thai",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.wellplated.com/healthy-shrimp-pad-thai/",
     "tags": [
       "#to-try",
@@ -16444,8 +16445,8 @@
   },
   {
     "name": "Honey Garlic Lemon Butter Salmon In Foil",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.eatwell101.com/honey-garlic-lemon-butter-salmon-in-foil",
     "tags": [
       "#to-try",
@@ -16457,8 +16458,8 @@
   },
   {
     "name": "Honey Mustard Baked Salmon",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://rasamalaysia.com/honey-mustard-baked-salmon/",
     "tags": [
       "#to-try",
@@ -16470,8 +16471,8 @@
   },
   {
     "name": "Honey Mustard Garlic Shrimp",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://juliasalbum.com/2016/12/honey-mustard-garlic-shrimp/",
     "tags": [
       "#to-try",
@@ -16483,8 +16484,8 @@
   },
   {
     "name": "Orange Rosemary Glazed Salmon",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.cookingclassy.com/2015/09/orange-rosemary-glazed-salmon/",
     "tags": [
       "#to-try",
@@ -16496,8 +16497,8 @@
   },
   {
     "name": "Oven Baked Blackened Tilapia",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.101cookingfortwo.com/oven-baked-blackened-tilapia/",
     "tags": [
       "#to-try",
@@ -16509,8 +16510,8 @@
   },
   {
     "name": "Parmesan Crusted Tilapia",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.tasteandtellblog.com/parmesan-crusted-tilapia/",
     "tags": [
       "#to-try",
@@ -16522,8 +16523,8 @@
   },
   {
     "name": "Sheet Pan Chili Lime Salmon",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://cafedelites.com/2016/05/16/sheet-pan-chili-lime-salmon/",
     "tags": [
       "#to-try",
@@ -16535,8 +16536,8 @@
   },
   {
     "name": "Seafood Gnocchi in White Wine Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://bsugarmama.com/seafood-gnocchi-white-wine-sauce/",
     "tags": [
       "#to-try",
@@ -16548,8 +16549,8 @@
   },
   {
     "name": "Shrimp With Corn Salsa",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://12tomatoes.com/shrimp-with-corn-salsa/",
     "tags": [
       "#to-try",
@@ -16561,8 +16562,8 @@
   },
   {
     "name": "Sticky Honey Garlic Butter Shrimp",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://therecipecritic.com/2017/01/sticky-honey-garlic-butter-shrimp/",
     "tags": [
       "#to-try",
@@ -16574,8 +16575,8 @@
   },
   {
     "name": "Grilled Shrimp with Garlic Cilantro Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.themediterraneandish.com/grilled-shrimp-recipe-garlic-cilantro-sauce/",
     "tags": [
       "#to-try",
@@ -16587,8 +16588,8 @@
   },
   {
     "name": "Tuna Cakes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://tasteandsee.com/tuna-cakes/",
     "tags": [
       "#to-try",
@@ -16600,8 +16601,8 @@
   },
   {
     "name": "Bacon Cheeseburger Crock Pot Tater Tot Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://www.julieseatsandtreats.com/bacon-cheeseburger-crock-pot-tater-tot-casserole/",
     "tags": [
       "#to-try",
@@ -16613,8 +16614,8 @@
   },
   {
     "name": "Best Slow Cooker French Dip Sandwiches",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.carlsbadcravings.com/best-slow-cooker-french-dip-sandwiches/",
     "tags": [
       "#to-try",
@@ -16626,8 +16627,8 @@
   },
   {
     "name": "Crispy Slow Cooker Pork Carnitas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://chefsavvy.com/crispy-slow-cooker-pork-carnitas/",
     "tags": [
       "#to-try",
@@ -16639,8 +16640,8 @@
   },
   {
     "name": "Crock Pot Chicken And Stuffing",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://thecozycook.com/crock-pot-chicken-and-stuffing/",
     "tags": [
       "#to-try",
@@ -16652,8 +16653,8 @@
   },
   {
     "name": "Crock Pot Hawaiian Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.herecomesthesunblog.net/crock-pot-hawaiian-chicken/",
     "tags": [
       "#to-try",
@@ -16665,8 +16666,8 @@
   },
   {
     "name": "Crock Pot Queso Blanco Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://life-in-the-lofthouse.com/crock-pot-queso-blanco-dip/",
     "tags": [
       "#to-try",
@@ -16678,8 +16679,8 @@
   },
   {
     "name": "Crockpot Pierogi Casserole with Kielbasa",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.dailydiylife.com/crockpot-pierogi-casserole-kielbasa-easy-meals/",
     "tags": [
       "#to-try",
@@ -16691,8 +16692,8 @@
   },
   {
     "name": "Juicy Slow Cooker Turkey Breast",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.recipetineats.com/juicy-slow-cooker-turkey-breast/",
     "tags": [
       "#to-try",
@@ -16704,8 +16705,8 @@
   },
   {
     "name": "Slow Cooker Apricot Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://www.dinneratthezoo.com/slow-cooker-apricot-chicken/",
     "tags": [
       "#to-try",
@@ -16717,8 +16718,8 @@
   },
   {
     "name": "Slow Cooker Beef Ragu With Pappardelle",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://pinchofyum.com/slow-cooker-beef-ragu-with-pappardelle",
     "tags": [
       "#to-try",
@@ -16730,8 +16731,8 @@
   },
   {
     "name": "Slow Cooker Breakfast Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://stlcooks.com/2013/12/slow-cooker-breakfast-casserole/",
     "tags": [
       "#to-try",
@@ -16743,8 +16744,8 @@
   },
   {
     "name": "Slow Cooker Brown Sugar And Garlic Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://flavorite.net/2016/02/22/slow-cooker-brown-sugar-and-garlic-chicken/",
     "tags": [
       "#to-try",
@@ -16756,8 +16757,8 @@
   },
   {
     "name": "Slow Cooker Cabbage Rolls",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://growingupgabel.com/slow-cooker-cabbage-rolls/",
     "tags": [
       "#to-try",
@@ -16769,8 +16770,8 @@
   },
   {
     "name": "Slow Cooker Carnitas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://selfproclaimedfoodie.com/slow-cooker-carnitas/",
     "tags": [
       "#to-try",
@@ -16782,8 +16783,8 @@
   },
   {
     "name": "Slow Cooker Chicken Adobo",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.manilaspoon.com/2016/04/slow-cooker-chicken-adobo.html",
     "tags": [
       "#to-try",
@@ -16795,8 +16796,8 @@
   },
   {
     "name": "Slow Cooker Chicken Alfredo Tortellini",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.thegunnysack.com/slow-cooker-chicken-alfredo-tortellini/",
     "tags": [
       "#to-try",
@@ -16808,8 +16809,8 @@
   },
   {
     "name": "Slow Cooker Chicken Marsala",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://lecremedelacrumb.com/2015/09/slow-cooker-chicken-marsala.html",
     "tags": [
       "#to-try",
@@ -16821,8 +16822,8 @@
   },
   {
     "name": "Slow Cooker Creamy Beef Stroganoff",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.lecremedelacrumb.com/slow-cooker-creamy-beef-stroganoff/",
     "tags": [
       "#to-try",
@@ -16834,8 +16835,8 @@
   },
   {
     "name": "Slow Cooker Creamy Tortellini Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://cafedelites.com/2016/11/27/slow-cooker-creamy-tortellini-soup/",
     "tags": [
       "#to-try",
@@ -16847,8 +16848,8 @@
   },
   {
     "name": "Slow Cooker Cuban Mojo Pork",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://dinnerthendessert.com/slow-cooker-cuban-mojo-pork/",
     "tags": [
       "#to-try",
@@ -16860,8 +16861,8 @@
   },
   {
     "name": "Slow Cooker Cuban Mojo Pork (alt)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.lemonblossoms.com/blog/slow-cooker-cuban-mojo-pork/",
     "tags": [
       "#to-try",
@@ -16873,8 +16874,8 @@
   },
   {
     "name": "Slow Cooker Cube Steak with Mushroom Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.littledairyontheprairie.com/slow-cooker-cube-steak-mushroom-sauce/",
     "tags": [
       "#to-try",
@@ -16886,8 +16887,8 @@
   },
   {
     "name": "Slow Cooker French Onion Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.spendwithpennies.com/slow-cooker-french-onion-soup/",
     "tags": [
       "#to-try",
@@ -16899,8 +16900,8 @@
   },
   {
     "name": "Slow Cooker General Tso's Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://therecipecritic.com/2013/03/slow-cooker-general-tsos-chicken/",
     "tags": [
       "#to-try",
@@ -16912,8 +16913,8 @@
   },
   {
     "name": "Slow Cooker Hatch Green Chile Verde",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.foodiecrush.com/2014/09/slow-cooker-hatch-green-chile-verde/",
     "tags": [
       "#to-try",
@@ -16925,8 +16926,8 @@
   },
   {
     "name": "Slow Cooker Hawaiian Pineapple Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://dinnerthendessert.com/slow-cooker-hawaiian-pineapple-chicken/",
     "tags": [
       "#to-try",
@@ -16938,8 +16939,8 @@
   },
   {
     "name": "Slow Cooker Honey Garlic Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://dinnerthendessert.com/slow-cooker-honey-garlic-chicken/",
     "tags": [
       "#to-try",
@@ -16951,8 +16952,8 @@
   },
   {
     "name": "Slow Cooker Honey Garlic Chicken (alt)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://chefsavvy.com/slow-cooker-honey-garlic-chicken/",
     "tags": [
       "#to-try",
@@ -16964,8 +16965,8 @@
   },
   {
     "name": "Slow Cooker Honey Lime Ginger Pork",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://therecipecritic.com/2016/02/slow-cooker-honey-lime-ginger-pork/",
     "tags": [
       "#to-try",
@@ -16977,8 +16978,8 @@
   },
   {
     "name": "Slow Cooker Honey Sesame Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://lecremedelacrumb.com/2016/03/slow-cooker-honey-sesame-chicken.html",
     "tags": [
       "#to-try",
@@ -16990,8 +16991,8 @@
   },
   {
     "name": "Slow Cooker Italian Chicken & Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://therecipecritic.com/2016/12/slow-cooker-italian-chicken-potatoes/",
     "tags": [
       "#to-try",
@@ -17003,8 +17004,8 @@
   },
   {
     "name": "Slow Cooker Jerk Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://dinnerthendessert.com/slow-cooker-jerk-chicken/",
     "tags": [
       "#to-try",
@@ -17016,8 +17017,8 @@
   },
   {
     "name": "Slow Cooker Kielbasa And Barbecue Beans",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.momontimeout.com/2016/10/slow-cooker-kielbasa-and-barbecue-beans/",
     "tags": [
       "#to-try",
@@ -17029,8 +17030,8 @@
   },
   {
     "name": "Slow Cooker Mongolian Beef",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://therecipecritic.com/2015/08/slow-cooker-mongolian-beef/",
     "tags": [
       "#to-try",
@@ -17042,8 +17043,8 @@
   },
   {
     "name": "Slow Cooker Orange Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://therecipecritic.com/2012/10/slow-cooker-orange-chicken/",
     "tags": [
       "#to-try",
@@ -17055,8 +17056,8 @@
   },
   {
     "name": "Slow Cooker Parmesan Herb Chicken Orzo",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.lecremedelacrumb.com/2016/09/slow-cooker-parmesan-herb-chicken-orzo.html",
     "tags": [
       "#to-try",
@@ -17068,8 +17069,8 @@
   },
   {
     "name": "Slow Cooker Pasta E Fagioli Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://therecipecritic.com/2015/10/slow-cooker-pasta-e-fagioli-soup/",
     "tags": [
       "#to-try",
@@ -17081,8 +17082,8 @@
   },
   {
     "name": "Slow Cooker Red Beans & Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://addapinch.com/slow-cooker-red-beans-rice-recipe/",
     "tags": [
       "#to-try",
@@ -17094,8 +17095,8 @@
   },
   {
     "name": "Slow Cooker Rice Pudding",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://slowcookingperfected.com/slow-cooker-rice-pudding/",
     "tags": [
       "#to-try",
@@ -17107,8 +17108,8 @@
   },
   {
     "name": "Slow Cooker Sausage & Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.theslowcookinghousewife.com/slow-cooker-sausage-potatoes/",
     "tags": [
       "#to-try",
@@ -17120,8 +17121,8 @@
   },
   {
     "name": "Slow Cooker Sausage, Spinach And White Bean Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://damndelicious.net/2015/03/21/slow-cooker-sausage-spinach-and-white-bean-soup/",
     "tags": [
       "#to-try",
@@ -17133,8 +17134,8 @@
   },
   {
     "name": "Slow Cooker Smothered Pork Chops",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://bakeatmidnite.com/slow-cooker-smothered-pork-chops/",
     "tags": [
       "#to-try",
@@ -17146,8 +17147,8 @@
   },
   {
     "name": "Slow Cooker Spicy Chicken Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://thebestblogrecipes.com/2016/10/slow-cooker-spicy-chicken-rice.html",
     "tags": [
       "#to-try",
@@ -17159,8 +17160,8 @@
   },
   {
     "name": "Slow Cooker Thai Peanut Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.averiecooks.com/2016/02/slow-cooker-thai-peanut-chicken.html",
     "tags": [
       "#to-try",
@@ -17173,8 +17174,8 @@
   },
   {
     "name": "Slow Cooker Thai Peanut Chicken (alt)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://dinnerthendessert.com/slow-cooker-thai-peanut-chicken/",
     "tags": [
       "#to-try",
@@ -17187,8 +17188,8 @@
   },
   {
     "name": "Slow Cooker Zuppa Toscana",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.thechunkychef.com/slow-cooker-zuppa-toscana/",
     "tags": [
       "#to-try",
@@ -17200,8 +17201,8 @@
   },
   {
     "name": "Slow Cooker Cheesesteak Sandwiches",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.laurengreutman.com/slow-cooker-cheesesteak-sandwiches/",
     "tags": [
       "#to-try",
@@ -17213,8 +17214,8 @@
   },
   {
     "name": "Slow Cooker Salisbury Steak",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "http://www.spendwithpennies.com/slow-cooker-salisbury-steak/",
     "tags": [
       "#to-try",
@@ -17226,8 +17227,8 @@
   },
   {
     "name": "Asian Chicken Noodle Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.cookingclassy.com/2015/09/asian-chicken-noodle-soup/",
     "tags": [
       "#to-try",
@@ -17239,8 +17240,8 @@
   },
   {
     "name": "Beef Bean Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://shewearsmanyhats.com/beef-bean-soup-recipe/",
     "tags": [
       "#to-try",
@@ -17252,8 +17253,8 @@
   },
   {
     "name": "Best Green Chile Stew",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://barefeetinthekitchen.com/best-green-chile-stew-recipe/",
     "tags": [
       "#to-try",
@@ -17265,8 +17266,8 @@
   },
   {
     "name": "Chicken Wild Rice Mushroom Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.simplystacie.net/2016/05/chicken-wild-rice-mushroom-soup/",
     "tags": [
       "#to-try",
@@ -17278,8 +17279,8 @@
   },
   {
     "name": "Chickpea Lime Coconut Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "https://www.asaucykitchen.com/chickpea-lime-coconut-soup/",
     "tags": [
       "#to-try",
@@ -17291,8 +17292,8 @@
   },
   {
     "name": "Creamy Tortellini Soup With Italian Sausage",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.gimmesomeoven.com/creamy-tortellini-soup-with-italian-sausage/",
     "tags": [
       "#to-try",
@@ -17304,8 +17305,8 @@
   },
   {
     "name": "Dublin Coddle",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.savingdessert.com/dublin-coddle-recipe/",
     "tags": [
       "#to-try",
@@ -17317,8 +17318,8 @@
   },
   {
     "name": "Instant Pot Smoked Sausage White Bean Vegetable Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.goodinthesimple.com/instant-pot-smoked-sausage-white-bean-vegetable-soup/",
     "tags": [
       "#to-try",
@@ -17330,8 +17331,8 @@
   },
   {
     "name": "Italian Sausage Tortellini Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.twopeasandtheirpod.com/italian-sausage-tortellini-soup/",
     "tags": [
       "#to-try",
@@ -17343,8 +17344,8 @@
   },
   {
     "name": "Japanese Clear Onion Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.livingchirpy.com/2015/japanese-clear-onion-soup/",
     "tags": [
       "#to-try",
@@ -17356,8 +17357,8 @@
   },
   {
     "name": "My Mom's Old Fashioned Vegetable Beef Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://smilesandwich.com/2015/10/03/my-moms-old-fashioned-vegetable-beef-soup/",
     "tags": [
       "#to-try",
@@ -17369,8 +17370,8 @@
   },
   {
     "name": "New Orleans Gumbo with Shrimp & Sausage",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://littlespicejar.com/new-orleans-gumbo-shrimp-sausage/",
     "tags": [
       "#to-try",
@@ -17382,8 +17383,8 @@
   },
   {
     "name": "Olive Garden Chicken Gnocchi Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://tornadoughalli.com/2015/06/olive-garden-chicken-gnocchi-soup/",
     "tags": [
       "#to-try",
@@ -17395,8 +17396,8 @@
   },
   {
     "name": "One Pot Chicken Orzo Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.thecasualcraftlete.com/2016/09/27/one-pot-chicken-orzo-soup/",
     "tags": [
       "#to-try",
@@ -17408,8 +17409,8 @@
   },
   {
     "name": "One Pot Philly Cheesesteak Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "https://carlsbadcravings.com/one-pot-philly-cheesesteak-soup-recipe/",
     "tags": [
       "#to-try",
@@ -17421,8 +17422,8 @@
   },
   {
     "name": "Smoked Sausage Cheesy Potato Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.auntbeesrecipes.com/2013/12/smoked-sausage-cheesy-potato-soup.html",
     "tags": [
       "#to-try",
@@ -17434,8 +17435,8 @@
   },
   {
     "name": "Thai Curry Vegetable Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "https://www.budgetbytes.com/thai-curry-vegetable-soup/",
     "tags": [
       "#to-try",
@@ -17447,8 +17448,8 @@
   },
   {
     "name": "Thai Spicy Noodle Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.everydayeasyeats.com/thai-spicy-noodle-soup/",
     "tags": [
       "#to-try",
@@ -17460,8 +17461,8 @@
   },
   {
     "name": "The Best Potato Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "https://bunnyswarmoven.net/2015/10/the-best-potato-soup",
     "tags": [
       "#to-try",
@@ -17473,8 +17474,8 @@
   },
   {
     "name": "White Bean And Ham Soup",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
     "source": "http://www.simplyrecipes.com/recipes/white_bean_and_ham_soup/",
     "tags": [
       "#to-try",
@@ -17486,8 +17487,8 @@
   },
   {
     "name": "Amish Country Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.plainchicken.com/2016/08/amish-country-casserole.html",
     "tags": [
       "#to-try",
@@ -17499,8 +17500,8 @@
   },
   {
     "name": "Amish Country Casserole (alt)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.withablast.net/2013/09/amish-country-casserole.html",
     "tags": [
       "#to-try",
@@ -17512,8 +17513,8 @@
   },
   {
     "name": "Beef and Noodle Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.sixsistersstuff.com/",
     "tags": [
       "#to-try",
@@ -17525,8 +17526,8 @@
   },
   {
     "name": "Cheesy Meatballs & Shells Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://bakeatmidnite.com/cheesy-meatballs-shells-casserole/",
     "tags": [
       "#to-try",
@@ -17538,8 +17539,8 @@
   },
   {
     "name": "Cheesy Sausage, Broccoli And Rice Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.asavoryfeast.com/cheesy-sausage-broccoli-and-rice-casserole/",
     "tags": [
       "#to-try",
@@ -17551,8 +17552,8 @@
   },
   {
     "name": "Chicken Cordon Bleu Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://tastykitchen.com/blog/2012/07/chicken-cordon-bleu-casserole/",
     "tags": [
       "#to-try",
@@ -17564,8 +17565,8 @@
   },
   {
     "name": "Corn And Broccoli Rice Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.plainchicken.com/2016/07/corn-and-broccoli-rice-casserole.html",
     "tags": [
       "#to-try",
@@ -17577,8 +17578,8 @@
   },
   {
     "name": "Cream Corn Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.theanthonykitchen.com/cream-corn-casserole/",
     "tags": [
       "#to-try",
@@ -17590,8 +17591,8 @@
   },
   {
     "name": "Easy Swedish Meatball Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://temeculablogs.com/easy-swedish-meatball-casserole/",
     "tags": [
       "#to-try",
@@ -17603,8 +17604,8 @@
   },
   {
     "name": "Green Chile Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.tasteandtellblog.com/green-chile-casserole/",
     "tags": [
       "#to-try",
@@ -17616,8 +17617,8 @@
   },
   {
     "name": "Ham And Green Bean Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.julieseatsandtreats.com/ham-and-green-bean-casserole/",
     "tags": [
       "#to-try",
@@ -17629,8 +17630,8 @@
   },
   {
     "name": "Hamburger Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://triedandtasty.com/hamburger-casserole/",
     "tags": [
       "#to-try",
@@ -17642,8 +17643,8 @@
   },
   {
     "name": "Joleans Cheese Potato Smoked Sausage Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.food.com/recipe/joleans-cheese-potato-smoked-sausage-casserole-126623",
     "tags": [
       "#to-try",
@@ -17655,8 +17656,8 @@
   },
   {
     "name": "Loaded Cauliflower Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.everydaydiabeticrecipes.com/Casseroles/Loaded-Cauliflower-Casserole",
     "tags": [
       "#to-try",
@@ -17668,8 +17669,8 @@
   },
   {
     "name": "Loaded Million Dollar Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.withablast.net/2013/04/loaded-million-dollar-casserole.html",
     "tags": [
       "#to-try",
@@ -17681,8 +17682,8 @@
   },
   {
     "name": "Meatball Sub Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SANDWICHES",
+    "category": "Sandwiches",
     "source": "http://www.thecountrycook.net/2012/05/meatball-sub-casserole-and-giveaway.html",
     "tags": [
       "#to-try",
@@ -17694,8 +17695,8 @@
   },
   {
     "name": "Mexican Beef & Rice Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.kraftrecipes.com/recipes/mexican-beef-rice-casserole-182832.aspx",
     "tags": [
       "#to-try",
@@ -17707,8 +17708,8 @@
   },
   {
     "name": "One Pot Mexican Beef And Rice Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://damndelicious.net/2016/09/17/one-pot-mexican-beef-and-rice-casserole/",
     "tags": [
       "#to-try",
@@ -17720,8 +17721,8 @@
   },
   {
     "name": "One Pot Perogie Casserole Bake",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.thebewitchinkitchen.com/one-pot-perogie-casserole-bake/",
     "tags": [
       "#to-try",
@@ -17733,8 +17734,8 @@
   },
   {
     "name": "Pepperoni Pizza Hamburger Helper",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://dinnerthendessert.com/pepperoni-pizza-hamburger-helper/",
     "tags": [
       "#to-try",
@@ -17746,8 +17747,8 @@
   },
   {
     "name": "Sausage And Rice Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.wellplated.com/sausage-and-rice-casserole/",
     "tags": [
       "#to-try",
@@ -17759,8 +17760,8 @@
   },
   {
     "name": "Stuffed Peppers Pasta Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.willcookforsmiles.com/2016/12/stuffed-peppers-pasta-casserole.html",
     "tags": [
       "#to-try",
@@ -17772,8 +17773,8 @@
   },
   {
     "name": "Tomato Beef Country Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://togetherasfamily.com/2016/08/tomato-beef-country-casserole/",
     "tags": [
       "#to-try",
@@ -17785,8 +17786,8 @@
   },
   {
     "name": "Twice Baked Potato Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.thirtyhandmadedays.com/twice-baked-potato-casserole/",
     "tags": [
       "#to-try",
@@ -17798,8 +17799,8 @@
   },
   {
     "name": "Unstuffed Cabbage Casserole",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.spendwithpennies.com/unstuffed-cabbage-casserole/",
     "tags": [
       "#to-try",
@@ -17811,8 +17812,8 @@
   },
   {
     "name": "Lemon One Pot Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "https://www.vnutritionandwellness.com/lemon-one-pot-pasta/",
     "tags": [
       "#to-try",
@@ -17824,8 +17825,8 @@
   },
   {
     "name": "One Pot Creamy French Onion Pasta Bake",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.halfbakedharvest.com/one-pot-creamy-french-onion-pasta-bake/",
     "tags": [
       "#to-try",
@@ -17837,8 +17838,8 @@
   },
   {
     "name": "Parmesan Spinach Gnocchi",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.lifeasastrawberry.com/parmesan-spinach-gnocchi/",
     "tags": [
       "#to-try",
@@ -17850,8 +17851,8 @@
   },
   {
     "name": "Pesto Vegetable Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://suebeehomemaker.com/pesto-vegetable-pasta/",
     "tags": [
       "#to-try",
@@ -17863,8 +17864,8 @@
   },
   {
     "name": "Sesame Noodles",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://www.gimmesomeoven.com/sesame-noodles/",
     "tags": [
       "#to-try",
@@ -17876,8 +17877,8 @@
   },
   {
     "name": "Spicy Tenderstem Peanut Noodle Stir Fry",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://wallflowerkitchen.com/spicy-tenderstem-peanut-noodle-stir-fry/",
     "tags": [
       "#to-try",
@@ -17890,8 +17891,8 @@
   },
   {
     "name": "Kung Pao Noodles",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.lecremedelacrumb.com/kung-pao-noodles/",
     "tags": [
       "#to-try",
@@ -17903,8 +17904,8 @@
   },
   {
     "name": "Spicy Sichuan Noodles",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://rasamalaysia.com/spicy-sichuan-noodles/",
     "tags": [
       "#to-try",
@@ -17916,8 +17917,8 @@
   },
   {
     "name": "5 Ingredient Lemon Turmeric Quinoa",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.simplyquinoa.com/5-ingredient-lemon-turmeric-quinoa/",
     "tags": [
       "#to-try",
@@ -17929,8 +17930,8 @@
   },
   {
     "name": "Jamaican Rice And Peas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://tastyfoodvideos.com/recipes/jamaican-rice-and-peas/",
     "tags": [
       "#to-try",
@@ -17942,8 +17943,8 @@
   },
   {
     "name": "Parmesan Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://spicysouthernkitchen.com/parmesan-rice/",
     "tags": [
       "#to-try",
@@ -17955,8 +17956,8 @@
   },
   {
     "name": "Texas Roadhouse Seasoned Rice (copycat)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://tastydive.com/texas-roadhouse-seasoned-rice-recipe-copycat/",
     "tags": [
       "#to-try",
@@ -17968,8 +17969,8 @@
   },
   {
     "name": "Food Tutorial: Spanish Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://lilluna.com/food-tutorial-spanish-rice/",
     "tags": [
       "#to-try",
@@ -17981,8 +17982,8 @@
   },
   {
     "name": "Dirty Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://spicysouthernkitchen.com/dirty-rice/",
     "tags": [
       "#to-try",
@@ -17994,8 +17995,8 @@
   },
   {
     "name": "Broccoli And Cheddar Twice Baked Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://bakerbynature.com/broccoli-and-cheddar-twice-baked-potatoes/",
     "tags": [
       "#to-try",
@@ -18007,8 +18008,8 @@
   },
   {
     "name": "Butter Steamed New Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.deepsouthdish.com/2012/07/butter-steamed-new-potatoes.html",
     "tags": [
       "#to-try",
@@ -18020,8 +18021,8 @@
   },
   {
     "name": "Crack Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.julieseatsandtreats.com/crack-potatoes/",
     "tags": [
       "#to-try",
@@ -18033,8 +18034,8 @@
   },
   {
     "name": "Creamy Potatoes & Peas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.favfamilyrecipes.com/2013/07/creamy-potatoes-peas.html",
     "tags": [
       "#to-try",
@@ -18046,8 +18047,8 @@
   },
   {
     "name": "Herb Roasted Potatoes & Green Beans",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.thegraciouswife.com/herb-roasted-potatoes-green-beans-thanksgiving-side-dish-recipe/",
     "tags": [
       "#to-try",
@@ -18059,8 +18060,8 @@
   },
   {
     "name": "Melting Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.closetcooking.com/2016/12/melting-potatoes.html",
     "tags": [
       "#to-try",
@@ -18072,8 +18073,8 @@
   },
   {
     "name": "Mini Hasselback Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.bowlofdelicious.com/2016/11/03/mini-hasselback-potatoes/",
     "tags": [
       "#to-try",
@@ -18085,8 +18086,8 @@
   },
   {
     "name": "Southern Style Green Beans & Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://m.southyourmouth.com/tqnlqgq/articles/27809/Southern-Style-Green-Beans-Potatoes",
     "tags": [
       "#to-try",
@@ -18098,8 +18099,8 @@
   },
   {
     "name": "Steakhouse Potatoes Romanoff",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.allrecipes.com/recipe/276526/steakhouse-potatoes-romanoff/",
     "tags": [
       "#to-try",
@@ -18111,8 +18112,8 @@
   },
   {
     "name": "Volcano Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://baconbuttercheesegarlic.blogspot.com.au/2015/05/volcano-potatoes.html",
     "tags": [
       "#to-try",
@@ -18124,8 +18125,8 @@
   },
   {
     "name": "Baby Potatoes With Creamy Garlic Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.orgasmicchef.com/vegetables/baby-potatoes-with-creamy-garlic-sauce/",
     "tags": [
       "#to-try",
@@ -18137,8 +18138,8 @@
   },
   {
     "name": "Balsamic Roasted Brussels Sprouts And Carrots",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://damndelicious.net/2015/09/21/balsamic-roasted-brussels-sprouts-and-carrots/",
     "tags": [
       "#to-try",
@@ -18150,8 +18151,8 @@
   },
   {
     "name": "Broccoli Fritters",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://cooktoria.com/broccoli-fritters/",
     "tags": [
       "#to-try",
@@ -18163,8 +18164,8 @@
   },
   {
     "name": "Corn Fritters",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://cooktoria.com/corn-fritters/",
     "tags": [
       "#to-try",
@@ -18176,8 +18177,8 @@
   },
   {
     "name": "Crispy Broccoli Parmesan Fritters",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://cafedelites.com/2016/04/06/crispy-broccoli-parmesan-fritters-recipe/",
     "tags": [
       "#to-try",
@@ -18189,8 +18190,8 @@
   },
   {
     "name": "Gram's Corn Fritters",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://viewsfromtheville.com/2016/10/22/grams-corn-fritters-recipe/",
     "tags": [
       "#to-try",
@@ -18202,8 +18203,8 @@
   },
   {
     "name": "Green Bean Hobo Pack",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.bhg.com/recipe/green-bean-hobo-pack/",
     "tags": [
       "#to-try",
@@ -18215,8 +18216,8 @@
   },
   {
     "name": "Grilled Corn With Garlic And Parmesan Cheese",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.eatwell101.com/grilled-corn-with-garlic-and-parmesan-cheese",
     "tags": [
       "#to-try",
@@ -18228,8 +18229,8 @@
   },
   {
     "name": "Loaded Cauliflower Mac & Cheese",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://fakeginger.com/loaded-cauliflower-mac-cheese/",
     "tags": [
       "#to-try",
@@ -18241,8 +18242,8 @@
   },
   {
     "name": "Magic Broccoli",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.recipetineats.com/magic-broccoli/",
     "tags": [
       "#to-try",
@@ -18254,8 +18255,8 @@
   },
   {
     "name": "Parmesan Roasted Carrots",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.yourhomebasedmom.com/parmesan-roasted-carrots/",
     "tags": [
       "#to-try",
@@ -18267,8 +18268,8 @@
   },
   {
     "name": "Roasted Brown Butter Honey Garlic Carrots",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://therecipecritic.com/2017/03/roasted-brown-butter-honey-garlic-carrots/",
     "tags": [
       "#to-try",
@@ -18280,8 +18281,8 @@
   },
   {
     "name": "Smashed Carrots",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.recipesbylayla.com/smashed-carrots/",
     "tags": [
       "#to-try",
@@ -18293,8 +18294,8 @@
   },
   {
     "name": "Southern Fried Cabbage",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.auntbeesrecipes.com/2015/02/southern-fried-cabbage.html",
     "tags": [
       "#to-try",
@@ -18306,8 +18307,8 @@
   },
   {
     "name": "Spicy Southern Hot Corn",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://peasandcrayons.com/2016/11/spicy-southern-hot-corn.html",
     "tags": [
       "#to-try",
@@ -18319,8 +18320,8 @@
   },
   {
     "name": "Bacon Mac And Cheese Bites",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.thegunnysack.com/bacon-mac-and-cheese-bites/",
     "tags": [
       "#to-try",
@@ -18332,8 +18333,8 @@
   },
   {
     "name": "Beef Enchilada Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://addapinch.com/cooking/2013/10/09/beef-enchilada-dip-recipe/",
     "tags": [
       "#to-try",
@@ -18345,8 +18346,8 @@
   },
   {
     "name": "Beer Cheese Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.dinneratthezoo.com/beer-cheese-dip/",
     "tags": [
       "#to-try",
@@ -18358,8 +18359,8 @@
   },
   {
     "name": "Buffalo Chicken Tortilla Roll Ups",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SANDWICHES",
+    "category": "Sandwiches",
     "source": "http://sugarapron.com/2016/01/17/buffalo-chicken-tortilla-roll-ups/",
     "tags": [
       "#to-try",
@@ -18371,8 +18372,8 @@
   },
   {
     "name": "Cheeseburger Biscuit Cups",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://togetherasfamily.com/2017/07/cheeseburger-biscuit-cups/",
     "tags": [
       "#to-try",
@@ -18384,8 +18385,8 @@
   },
   {
     "name": "Cheeseburger Tots",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.homemadeinterest.com/cheeseburger-tots/",
     "tags": [
       "#to-try",
@@ -18397,8 +18398,8 @@
   },
   {
     "name": "Cheesy Taco Sticks",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.iwashyoudry.com/2016/08/29/cheesy-taco-sticks/",
     "tags": [
       "#to-try",
@@ -18410,8 +18411,8 @@
   },
   {
     "name": "Chili Cheese Dog Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.delish.com/cooking/videos/a45815/chili-cheese-dog-dip-best-super-bowl-appetizers/",
     "tags": [
       "#to-try",
@@ -18423,8 +18424,8 @@
   },
   {
     "name": "Chili Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.afamilyfeast.com/chili-dip/",
     "tags": [
       "#to-try",
@@ -18436,8 +18437,8 @@
   },
   {
     "name": "Crab Rangoon Dip with Wonton Chips",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.spendwithpennies.com/crab-rangoon-dip-wonton-chips/",
     "tags": [
       "#to-try",
@@ -18449,8 +18450,8 @@
   },
   {
     "name": "Cracked Out Turkey Pinwheels",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.plainchicken.com/2016/11/cracked-out-turkey-pinwheels-football.html",
     "tags": [
       "#to-try",
@@ -18462,8 +18463,8 @@
   },
   {
     "name": "Crunchy Taco Cups",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.kevinandamanda.com/recipes/dinner/crunchy-taco-cups.html",
     "tags": [
       "#to-try",
@@ -18475,8 +18476,8 @@
   },
   {
     "name": "Dill Pickle Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://wonkywonderful.com/dill-pickle-dip/",
     "tags": [
       "#to-try",
@@ -18488,8 +18489,8 @@
   },
   {
     "name": "Easy Broccoli Cheese Cups",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.thelazydish.com/easy-broccoli-cheese-cups-healthy-snack-idea/",
     "tags": [
       "#to-try",
@@ -18501,8 +18502,8 @@
   },
   {
     "name": "Egg Roll Stir Fry",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.southyourmouth.com/2016/01/egg-roll-stir-fry.html",
     "tags": [
       "#to-try",
@@ -18514,8 +18515,8 @@
   },
   {
     "name": "Fried Mac And Cheese Bites",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.littlesouthernkitchen.com/fried-mac-and-cheese-bites/",
     "tags": [
       "#to-try",
@@ -18527,8 +18528,8 @@
   },
   {
     "name": "Garlicky Cheesy Carrots And Cauliflower Tots",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://diethood.com/garlicky-cheesy-carrots-and-cauliflower-tots/",
     "tags": [
       "#to-try",
@@ -18540,8 +18541,8 @@
   },
   {
     "name": "Hot Sausage Beer Cheese Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.foodlovinfamily.com/hot-sausage-beer-cheese-dip/",
     "tags": [
       "#to-try",
@@ -18553,8 +18554,8 @@
   },
   {
     "name": "Irish Potato Bites",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://www.homemadeinterest.com/irish-potato-bites/",
     "tags": [
       "#to-try",
@@ -18566,8 +18567,8 @@
   },
   {
     "name": "Mashed Potato Cheese Bites",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "http://tiphero.com/mashed-potato-cheese-bites/",
     "tags": [
       "#to-try",
@@ -18579,8 +18580,8 @@
   },
   {
     "name": "Reuben Roll Ups",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SANDWICHES",
+    "category": "Sandwiches",
     "source": "http://www.spendwithpennies.com/reuben-roll-ups/",
     "tags": [
       "#to-try",
@@ -18592,8 +18593,8 @@
   },
   {
     "name": "Savory Bacon Pineapple Bites",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.smalltownwoman.com/savory-bacon-pineapple-bites/",
     "tags": [
       "#to-try",
@@ -18605,8 +18606,8 @@
   },
   {
     "name": "Spaghetti And Meatball Skewers",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "https://www.foodnetwork.com/recipes/food-network-kitchen/spaghetti-and-meatball-skewers-recipe-2104218",
     "tags": [
       "#to-try",
@@ -18618,8 +18619,8 @@
   },
   {
     "name": "Stuffed Pizza Rolls",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.cookglee.com/2013/11/stuffed-pizza-rolls.html",
     "tags": [
       "#to-try",
@@ -18631,8 +18632,8 @@
   },
   {
     "name": "Texas Trash Warm Bean Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://www.anaffairfromtheheart.com/2016/07/texas-trash-dip-warm-bean-dip/",
     "tags": [
       "#to-try",
@@ -18644,8 +18645,8 @@
   },
   {
     "name": "Cajun Shrimp Guacamole Bites",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.joyfulhealthyeats.com/cajun-shrimp-guacamole-bites/",
     "tags": [
       "#to-try",
@@ -18657,8 +18658,8 @@
   },
   {
     "name": "Kickass Chinese Chicken Drumsticks",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "https://cookpad.com/us/recipes/347115-kickass-chinese-chicken-drumsticks",
     "tags": [
       "#to-try",
@@ -18670,8 +18671,8 @@
   },
   {
     "name": "Pesto Cheese Bombs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://selfproclaimedfoodie.com/pesto-cheese-bombs/",
     "tags": [
       "#to-try",
@@ -18683,8 +18684,8 @@
   },
   {
     "name": "Maple Caramel Bacon Crack",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://thedomesticrebel.com/2014/09/23/maple-caramel-bacon-crack/",
     "tags": [
       "#to-try",
@@ -18696,8 +18697,8 @@
   },
   {
     "name": "Deep Dish Mini Pizzas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://onelittleproject.com/deep-dish-mini-pizzas/",
     "tags": [
       "#to-try",
@@ -18709,8 +18710,8 @@
   },
   {
     "name": "Easy Pull Apart Pizza Bread",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://sweetandsimpleliving.com/easy-pull-apart-pizza-bread/",
     "tags": [
       "#to-try",
@@ -18722,8 +18723,8 @@
   },
   {
     "name": "Ham And Swiss Stromboli",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "http://www.the-girl-who-ate-everything.com/2016/03/ham-and-swiss-stromboli.html",
     "tags": [
       "#to-try",
@@ -18735,8 +18736,8 @@
   },
   {
     "name": "Bacon Jalapeno Fry Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://realhousemoms.com/bacon-jalapeno-fry-sauce/",
     "tags": [
       "#to-try",
@@ -18748,8 +18749,8 @@
   },
   {
     "name": "Caribbean Style Mango Habanero Hot Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.chilipeppermadness.stfi.re/chili-pepper-recipes/hot-sauces/caribbean-style-mango-habanero-hot-sauce-video",
     "tags": [
       "#to-try",
@@ -18761,8 +18762,8 @@
   },
   {
     "name": "Carolina Mustard Barbecue Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://selfproclaimedfoodie.com/carolina-mustard-barbecue-sauce/",
     "tags": [
       "#to-try",
@@ -18774,8 +18775,8 @@
   },
   {
     "name": "Cilantro Habanero Hot Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.chilipeppermadness.com/chili-pepper-recipes/hot-sauces/cilantro-habanero-hot-sauce",
     "tags": [
       "#to-try",
@@ -18787,8 +18788,8 @@
   },
   {
     "name": "Copycat Chick-Fil-A Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://houseofyumm.com/copycat-chick-fil-a-sauce/",
     "tags": [
       "#to-try",
@@ -18800,8 +18801,8 @@
   },
   {
     "name": "Creamy Avocado Cilantro Lime Dressing",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://gimmedelicious.com/2015/09/27/creamy-avocado-cilantro-lime-dressing/",
     "tags": [
       "#to-try",
@@ -18813,8 +18814,8 @@
   },
   {
     "name": "Fermented Jalapeno Hot Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://fermentationpodcast.com/fermented-jalapeno-hot-sauce-recipe/",
     "tags": [
       "#to-try",
@@ -18826,8 +18827,8 @@
   },
   {
     "name": "Homemade Green Enchilada Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.rebootedmom.com/2016/06/07/homemade-green-enchilada-sauce/",
     "tags": [
       "#to-try",
@@ -18839,8 +18840,8 @@
   },
   {
     "name": "Jack's Ultimate Steak Marinade",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.plainchicken.com/2016/07/jacks-ultimate-steak-marinade.html",
     "tags": [
       "#to-try",
@@ -18852,8 +18853,8 @@
   },
   {
     "name": "Sweet Chilli Pineapple Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.theflavoursofkitchen.com/sweet-chilli-pineapple-sauce-recipe",
     "tags": [
       "#to-try",
@@ -18865,8 +18866,8 @@
   },
   {
     "name": "Thai Peanut Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.gimmesomeoven.com/thai-peanut-sauce/",
     "tags": [
       "#to-try",
@@ -18879,8 +18880,8 @@
   },
   {
     "name": "The Bomb Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.simplymaderecipes.com/the-bomb-sauce/",
     "tags": [
       "#to-try",
@@ -18892,8 +18893,8 @@
   },
   {
     "name": "White Barbecue Sauce (Alabama)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://www.rockrecipes.com/white-barbecue-sauce-an-alabama-favorite/",
     "tags": [
       "#to-try",
@@ -18905,8 +18906,8 @@
   },
   {
     "name": "Yum Yum Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "http://wannabite.com/yum-yum-sauce-recipe/",
     "tags": [
       "#to-try",
@@ -18918,8 +18919,8 @@
   },
   {
     "name": "Chicken Shawarma With Garlic Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://bellieskitchen.com/chicken-shawarma-with-garlic-sauce/",
     "tags": [
       "#to-try",
@@ -18931,8 +18932,8 @@
   },
   {
     "name": "Best & Easiest Mongolian Beef",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.savorytooth.com/best-easiest-mongolian-beef/",
     "tags": [
       "#to-try",
@@ -18944,8 +18945,8 @@
   },
   {
     "name": "Chicken Almond Ding",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.dinneratthezoo.com/chicken-almond-ding/",
     "tags": [
       "#to-try",
@@ -18957,8 +18958,8 @@
   },
   {
     "name": "Classic Chinese Chow Mein",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://dinnerthendessert.com/classic-chinese-chow-mein/",
     "tags": [
       "#to-try",
@@ -18970,8 +18971,8 @@
   },
   {
     "name": "Creamy Thai Coconut Chickpeas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://mysimpledishes.com/creamy-thai-coconut-chickpeas-a-flavorful-journey/",
     "tags": [
       "#to-try",
@@ -18983,8 +18984,8 @@
   },
   {
     "name": "Double Crunch Orange Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://www.rockrecipes.com/double-crunch-orange-chicken/",
     "tags": [
       "#to-try",
@@ -18996,8 +18997,8 @@
   },
   {
     "name": "Grilled Hawaiian Barbecue Chicken Foil Packs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://therecipecritic.com/2016/08/grilled-hawaiian-barbecue-chicken-foil/",
     "tags": [
       "#to-try",
@@ -19009,8 +19010,8 @@
   },
   {
     "name": "Ground Beef Bulgogi",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://seonkyounglongest.com/ground-beef-bulgogi/",
     "tags": [
       "#to-try",
@@ -19022,8 +19023,8 @@
   },
   {
     "name": "Ground Hawaiian Beef",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://cookingmadehealthy.com/ground-hawaiian-beef/",
     "tags": [
       "#to-try",
@@ -19035,8 +19036,8 @@
   },
   {
     "name": "Hawaiian BBQ Chicken Wraps",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SANDWICHES",
+    "category": "Sandwiches",
     "source": "http://tastesbetterfromscratch.com/2016/03/hawaiian-bbq-chicken-wraps.html",
     "tags": [
       "#to-try",
@@ -19048,8 +19049,8 @@
   },
   {
     "name": "Honey Sriracha Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://rasamalaysia.com/honey-sriracha-chicken/",
     "tags": [
       "#to-try",
@@ -19061,8 +19062,8 @@
   },
   {
     "name": "Korean Braised Potatoes (Gamja Jorim)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://zerowasteeats.com/korean-braised-potatoes-gamja-jorim/",
     "tags": [
       "#to-try",
@@ -19074,8 +19075,8 @@
   },
   {
     "name": "Korean Ground Beef Over Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.manilaspoon.com/2016/10/korean-ground-beef-over-rice.html",
     "tags": [
       "#to-try",
@@ -19087,8 +19088,8 @@
   },
   {
     "name": "Mongolian Beef",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://dinnerthendessert.com/mongolian-beef/",
     "tags": [
       "#to-try",
@@ -19100,8 +19101,8 @@
   },
   {
     "name": "Mongolian Beef Noodle Bowls",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://iowagirleats.com/2015/09/23/mongolian-beef-noodle-bowls/",
     "tags": [
       "#to-try",
@@ -19113,8 +19114,8 @@
   },
   {
     "name": "One Pot Black Pepper Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://mytastydish.com/one-pot-black-pepper-chicken/",
     "tags": [
       "#to-try",
@@ -19126,8 +19127,8 @@
   },
   {
     "name": "One Pot Teriyaki Chicken And Pineapple Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.carlsbadcravings.com/one-pot-teriyaki-chicken-and-pineapple-rice/",
     "tags": [
       "#to-try",
@@ -19139,8 +19140,8 @@
   },
   {
     "name": "Orange Chicken 30 Minute Skillet",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.thegunnysack.com/2014/08/orange-chicken-30-minute-skillet-recipe.html",
     "tags": [
       "#to-try",
@@ -19152,8 +19153,8 @@
   },
   {
     "name": "Pad See Ew",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://takestwoeggs.com/pad-see-ew/",
     "tags": [
       "#to-try",
@@ -19165,8 +19166,8 @@
   },
   {
     "name": "Panda Express Kung Pao Chicken (copycat)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://dinnerthendessert.com/panda-express-kung-pao-chicken-copycat/",
     "tags": [
       "#to-try",
@@ -19178,8 +19179,8 @@
   },
   {
     "name": "Sheet Pan Hawaiian Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://myrecipemagic.com/recipe/recipedetail/sheet-pan-supper-hawaiian-chicken",
     "tags": [
       "#to-try",
@@ -19191,8 +19192,8 @@
   },
   {
     "name": "Sticky Thai Peanut Orange Chicken (30 Min)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.carlsbadcravings.com/sticky-thai-peanut-orange-chicken-30-minutes/",
     "tags": [
       "#to-try",
@@ -19205,8 +19206,8 @@
   },
   {
     "name": "Sweet And Sour Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://hostthetoast.com/sweet-and-sour-chicken/",
     "tags": [
       "#to-try",
@@ -19218,8 +19219,8 @@
   },
   {
     "name": "Sweet & Sour Chicken (alt)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "http://dinnerthendessert.com/sweet-sour-chicken/",
     "tags": [
       "#to-try",
@@ -19231,8 +19232,8 @@
   },
   {
     "name": "Sweet & Spicy Korean Meatballs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://www.jocooks.com/dinner/sweet-spicy-korean-meatballs/",
     "tags": [
       "#to-try",
@@ -19244,8 +19245,8 @@
   },
   {
     "name": "Thai Basil Chicken (Pad Krapow)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://thewoksoflife.com/2016/06/thai-basil-chicken-pad-krapow/",
     "tags": [
       "#to-try",
@@ -19257,8 +19258,8 @@
   },
   {
     "name": "Thai Sweet Chili Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "http://rasamalaysia.com/thai-sweet-chili-chicken/",
     "tags": [
       "#to-try",
@@ -19270,8 +19271,8 @@
   },
   {
     "name": "Gochujang Recipes (roundup)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://slimmingviolet.com/gochujang-recipes/",
     "tags": [
       "#to-try",
@@ -19283,8 +19284,8 @@
   },
   {
     "name": "Cajun Dirty Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.plainchicken.com/2017/02/cajun-dirty-rice.html",
     "tags": [
       "#to-try",
@@ -19296,8 +19297,8 @@
   },
   {
     "name": "Cheesy Ground Beef Empanadas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://neighborfoodblog.com/2017/08/cheesy-ground-beef-empanadas.html",
     "tags": [
       "#to-try",
@@ -19309,8 +19310,8 @@
   },
   {
     "name": "Cheesy Taco Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://dinnerthendessert.com/cheesy-taco-pasta/",
     "tags": [
       "#to-try",
@@ -19322,8 +19323,8 @@
   },
   {
     "name": "Chicken And Rice Bake with Southwestern Flare",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "https://www.thebewitchinkitchen.com/chicken-and-rice-bake-with-a-southwestern-flare/",
     "tags": [
       "#to-try",
@@ -19335,8 +19336,8 @@
   },
   {
     "name": "Easy Cheesy Green Chile Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.scatteredthoughtsofacraftymom.com/2015/09/easy-and-cheesy-green-chile-chicken-and.html",
     "tags": [
       "#to-try",
@@ -19348,8 +19349,8 @@
   },
   {
     "name": "Foil Pack Creamy Salsa Verde Chicken, Rice & Veggies",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.chelseasmessyapron.com/foil-pack-creamy-salsa-verde-chicken-rice-veggies/",
     "tags": [
       "#to-try",
@@ -19361,8 +19362,8 @@
   },
   {
     "name": "Green Chile Chicken & Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.ourbestbites.com/2014/09/green-chile-chicken-rice/",
     "tags": [
       "#to-try",
@@ -19374,8 +19375,8 @@
   },
   {
     "name": "Mexican Coleslaw (lemontreedwelling.com)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.lemontreedwelling.com/2017/05/mexican-coleslaw.html",
     "tags": [
       "#to-try",
@@ -19387,8 +19388,8 @@
   },
   {
     "name": "Mexican Street Corn Pasta Salad",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.chelseasmessyapron.com/mexican-street-corn-pasta-salad-2/",
     "tags": [
       "#to-try",
@@ -19400,8 +19401,8 @@
   },
   {
     "name": "One Pot Cajun Chicken And Sausage Alfredo",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.number-2-pencil.com/2015/10/15/one-pot-cajun-chicken-and-sausage-alfredo/",
     "tags": [
       "#to-try",
@@ -19413,8 +19414,8 @@
   },
   {
     "name": "One Pot Cheesy Taco Pasta",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.motherthyme.com/2016/07/one-pot-cheesy-taco-pasta.html",
     "tags": [
       "#to-try",
@@ -19426,8 +19427,8 @@
   },
   {
     "name": "One Pot Chicken Dirty Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.thechunkychef.com/one-pot-chicken-dirty-rice/",
     "tags": [
       "#to-try",
@@ -19439,8 +19440,8 @@
   },
   {
     "name": "One Pot Spanish Chicken And Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.aheadofthyme.com/2017/02/one-pot-spanish-chicken-and-rice/",
     "tags": [
       "#to-try",
@@ -19452,8 +19453,8 @@
   },
   {
     "name": "Southwest Beef Rice Skillet",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.savorytooth.com/southwest-beef-rice-skillet/",
     "tags": [
       "#to-try",
@@ -19465,8 +19466,8 @@
   },
   {
     "name": "Taco Hand Pies (Beef & Bean)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.kitchengidget.com/2016/02/28/taco-hand-pies-beef-bean/",
     "tags": [
       "#to-try",
@@ -19478,8 +19479,8 @@
   },
   {
     "name": "Taco Lime Grilled Chicken",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "http://www.closetcooking.com/2015/09/taco-lime-grilled-chicken.html",
     "tags": [
       "#to-try",
@@ -19491,8 +19492,8 @@
   },
   {
     "name": "Venezuelan Cachapas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "https://yumfoodusa.com/venezuelan-cachapas/",
     "tags": [
       "#to-try",
@@ -19504,8 +19505,8 @@
   },
   {
     "name": "Bombay Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.contentednesscooking.com/bombay-potatoes/",
     "tags": [
       "#to-try",
@@ -19517,8 +19518,8 @@
   },
   {
     "name": "Fasolakia (Greek Green Beans With Potatoes)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "https://nikolopaa.com/fasolakia-recipe-greek-green-beans-with-potatoes/",
     "tags": [
       "#to-try",
@@ -19530,8 +19531,8 @@
   },
   {
     "name": "Greek Puff Pastry Appetizers With Kalamata Olives",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "http://www.goodlifeeats.com/2010/11/greek-puff-pastry-appetizers-with-kalamata-olives.html",
     "tags": [
       "#to-try",
@@ -19543,8 +19544,8 @@
   },
   {
     "name": "Greek Lemon Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "https://thingscook.com/light-and-flavorful-greek-lemon-rice-for-every-occasion/",
     "tags": [
       "#to-try",
@@ -19556,8 +19557,8 @@
   },
   {
     "name": "Middle Eastern Spicy Potato Salad (Batata Harra)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "http://www.themediterraneandish.com/middle-eastern-spicy-potato-salad-recipe-batata-harra/",
     "tags": [
       "#to-try",
@@ -19569,8 +19570,8 @@
   },
   {
     "name": "Moroccan Couscous With Roast Vegetables",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "https://betterhomebase.com/moroccan-couscous-with-roast-vegetables",
     "tags": [
       "#to-try",
@@ -19582,8 +19583,8 @@
   },
   {
     "name": "Moroccan Spiced Chicken Briouats",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "https://yumrecipesfood.com/moroccan-spiced-chicken-briouats/",
     "tags": [
       "#to-try",
@@ -19595,8 +19596,8 @@
   },
   {
     "name": "Mujaddara",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "https://theplantbasedschool.com/mujaddara/",
     "tags": [
       "#to-try",
@@ -19608,8 +19609,8 @@
   },
   {
     "name": "Spiced Samosa Patties",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://theprettybee.com/spiced-samosa-patties/",
     "tags": [
       "#to-try",
@@ -19621,8 +19622,8 @@
   },
   {
     "name": "Za'atar Potatoes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.bytheforkful.com/zaatar-potatoes/",
     "tags": [
       "#to-try",
@@ -19634,8 +19635,8 @@
   },
   {
     "name": "Fruit Infused Water — 6 Ways",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SMOOTHIES",
+    "category": "Smoothies",
     "source": "http://www.sheuncovered.com/2015/05/fruit-infused-water-6-ways/",
     "tags": [
       "#to-try",
@@ -19647,8 +19648,8 @@
   },
   {
     "name": "Peach Carrot Smoothie",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SMOOTHIES",
+    "category": "Smoothies",
     "source": "http://www.primaverakitchen.com/peach-carrot-smoothie/",
     "tags": [
       "#to-try",
@@ -19660,8 +19661,8 @@
   },
   {
     "name": "Moo Dad Deaw",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://hungryinthailand.com/moo-dad-deaw/",
     "tags": [
       "#to-try",
@@ -19673,8 +19674,8 @@
   },
   {
     "name": "Crying Tiger Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://reciperella.com/crying-tiger-sauce",
     "tags": [
       "#to-try",
@@ -19686,8 +19687,8 @@
   },
   {
     "name": "Chinese Coconut Pudding",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://grumpyrecipes.com/chinese-coconut-pudding/",
     "tags": [
       "#to-try",
@@ -19699,8 +19700,8 @@
   },
   {
     "name": "Coconut Cheesecake Bread Pudding",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://www.willcookforsmiles.com/coconut-cheesecake-bread-pudding/",
     "tags": [
       "#to-try",
@@ -19712,8 +19713,8 @@
   },
   {
     "name": "Venezuelan Sweet Corn Cachapas",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "https://yerecipes.com/venezuelan-sweet-corn-cachapas",
     "tags": [
       "#to-try",
@@ -19725,8 +19726,8 @@
   },
   {
     "name": "Plum Sauce Chicken Thighs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://cookingwithmike.com/plum-sauce-chicken-thighs/",
     "tags": [
       "#to-try",
@@ -19738,8 +19739,8 @@
   },
   {
     "name": "Banana Blondies",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://life-in-the-lofthouse.com/banana-blondies/",
     "tags": [
       "#to-try",
@@ -19751,8 +19752,8 @@
   },
   {
     "name": "Salsa Verde Chicken Rice Skillet",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "https://onebalancedlife.com/salsa-verde-chicken-rice-skillet/",
     "tags": [
       "#to-try",
@@ -19764,8 +19765,8 @@
   },
   {
     "name": "Strawberry Cheesecake Cookies 2",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://www.brynnrecipes.com/strawberry-cheesecake-cookies-2/",
     "tags": [
       "#to-try",
@@ -19777,8 +19778,8 @@
   },
   {
     "name": "Sweet Jalapeno Pork",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://mixmealmagic.com/sweet-jalapeno-pork/",
     "tags": [
       "#to-try",
@@ -19790,8 +19791,8 @@
   },
   {
     "name": "Sticky Tamarind Chicken With Crisp Lettuce A Sweet Spicy Chicken Dinner Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://thenatureofhome.com/sticky-tamarind-chicken-with-crisp-lettuce-a-sweet-spicy-chicken-dinner-recipe/",
     "tags": [
       "#to-try",
@@ -19803,8 +19804,8 @@
   },
   {
     "name": "Creamy Coconut Chicken With Lime Jasmine Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://juicymeatrecipes.com/creamy-coconut-chicken-with-lime-jasmine-rice/",
     "tags": [
       "#to-try",
@@ -19816,8 +19817,8 @@
   },
   {
     "name": "Mongolian Chicken Thighs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://cookingwithmike.com/mongolian-chicken-thighs/",
     "tags": [
       "#to-try",
@@ -19829,8 +19830,8 @@
   },
   {
     "name": "Bao Bun Fillings",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://www.greedygirlgourmet.com/bao-bun-fillings/",
     "tags": [
       "#to-try",
@@ -19842,8 +19843,8 @@
   },
   {
     "name": "Apple Cider Pork With Mashed Sweet Potatoes Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://ameliabites.com/apple-cider-pork-with-mashed-sweet-potatoes-recipe/",
     "tags": [
       "#to-try",
@@ -19855,8 +19856,8 @@
   },
   {
     "name": "Vietnamese Caramel Pork",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://yumtasticrecipes.com/vietnamese-caramel-pork/",
     "tags": [
       "#to-try",
@@ -19868,8 +19869,8 @@
   },
   {
     "name": "Sticky Honey Garlic Pork",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://kjandcompany.co/sticky-honey-garlic-pork/",
     "tags": [
       "#to-try",
@@ -19881,8 +19882,8 @@
   },
   {
     "name": "Hoisin Pork Tenderloin",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://www.callmepmc.com/hoisin-pork-tenderloin/",
     "tags": [
       "#to-try",
@@ -19894,8 +19895,8 @@
   },
   {
     "name": "Paleo Carnitas Whole30 Crockpot",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://40aprons.com/paleo-carnitas-whole30-crockpot/",
     "tags": [
       "#to-try",
@@ -19907,8 +19908,8 @@
   },
   {
     "name": "Best Easy Thai Peanut Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://cookingheavenly.com/best-easy-thai-peanut-sauce/",
     "tags": [
       "#to-try",
@@ -19921,8 +19922,8 @@
   },
   {
     "name": "French Onion Chicken Orzo",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
     "source": "https://marygourmet.com/french-onion-chicken-orzo/",
     "tags": [
       "#to-try",
@@ -19934,8 +19935,8 @@
   },
   {
     "name": "Honey Lime Chicken With Mango Salsa",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
     "source": "https://kwikarecipes.com/honey-lime-chicken-with-mango-salsa/",
     "tags": [
       "#to-try",
@@ -19947,8 +19948,8 @@
   },
   {
     "name": "Spicy Brazilian Coconut Chicken An Incredible Ultimate Recipe For 4",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "https://globalbitesrecipes.com/spicy-brazilian-coconut-chicken-an-incredible-ultimate-recipe-for-4/",
     "tags": [
       "#to-try",
@@ -19960,8 +19961,8 @@
   },
   {
     "name": "Gochujang Miso Chicken Thighs An Amazing Ultimate Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://inspiredrecipebox.com/gochujang-miso-chicken-thighs-an-amazing-ultimate-recipe/",
     "tags": [
       "#to-try",
@@ -19973,8 +19974,8 @@
   },
   {
     "name": "Mongolian Meatballs",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://cozymealswithme.com/mongolian-meatballs/",
     "tags": [
       "#to-try",
@@ -19986,8 +19987,8 @@
   },
   {
     "name": "Chicken Bulgogi Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://marysplate.com/chicken-bulgogi-recipe/",
     "tags": [
       "#to-try",
@@ -19999,8 +20000,8 @@
   },
   {
     "name": "Peruvian Green Rice",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
     "source": "https://www.miacookery.com/peruvian-green-rice/",
     "tags": [
       "#to-try",
@@ -20012,8 +20013,8 @@
   },
   {
     "name": "Sugar Free Apple Pie Bars",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://www.veggieinspired.com/sugar-free-apple-pie-bars/",
     "tags": [
       "#to-try",
@@ -20025,8 +20026,8 @@
   },
   {
     "name": "Honey Curry Roasted Cauliflower A Flavorful Delight",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
     "source": "https://www.ariellarecipes.com/honey-curry-roasted-cauliflower-a-flavorful-delight/",
     "tags": [
       "#to-try",
@@ -20038,8 +20039,8 @@
   },
   {
     "name": "Easy Dump And Bake Chicken Tzatziki Rice Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
     "source": "https://fromellaspan.com/easy-dump-and-bake-chicken-tzatziki-rice-recipe/",
     "tags": [
       "#to-try",
@@ -20051,8 +20052,8 @@
   },
   {
     "name": "Slow Cooker Chicken Shawarma",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
     "source": "https://withloveandflavor.com/slow-cooker-chicken-shawarma/",
     "tags": [
       "#to-try",
@@ -20064,8 +20065,8 @@
   },
   {
     "name": "Greek Chicken Meatballs With Tzatziki Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://lifewithzoe.com/greek-chicken-meatballs-with-tzatziki-sauce/",
     "tags": [
       "#to-try",
@@ -20077,8 +20078,8 @@
   },
   {
     "name": "Thai Chicken Wrap With Crunchy Asian Slaw",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://thehungrygoddess.com/thai-chicken-wrap-with-crunchy-asian-slaw/",
     "tags": [
       "#to-try",
@@ -20090,8 +20091,8 @@
   },
   {
     "name": "Baked Cajun Salmon With Avocado Lime Sauce",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- MARINADES",
+    "category": "Marinades",
     "source": "https://mycoffeehasbutter.com/baked-cajun-salmon-with-avocado-lime-sauce/",
     "tags": [
       "#to-try",
@@ -20103,8 +20104,8 @@
   },
   {
     "name": "Spiced Samosa Patties Gluten Free Vegan Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://forkfy.com/spiced-samosa-patties-gluten-free-vegan-recipe/",
     "tags": [
       "#to-try",
@@ -20116,8 +20117,8 @@
   },
   {
     "name": "Chinese Brown Sugar Bread Guo Kui",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://www.chinasichuanfood.com/chinese-brown-sugar-bread-guo-kui/",
     "tags": [
       "#to-try",
@@ -20129,8 +20130,8 @@
   },
   {
     "name": "Lemon Curd Chia Pudding",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://www.veganricha.com/lemon-curd-chia-pudding/",
     "tags": [
       "#to-try",
@@ -20142,8 +20143,8 @@
   },
   {
     "name": "Turkish Delight With Rosewater And Pistachios Lokum",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://yumfoodusa.com/turkish-delight-with-rosewater-and-pistachios-lokum/",
     "tags": [
       "#to-try",
@@ -20155,8 +20156,8 @@
   },
   {
     "name": "Halva Middle Eastern Confection",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://silkroadrecipes.com/halva-middle-eastern-confection/",
     "tags": [
       "#to-try",
@@ -20168,8 +20169,8 @@
   },
   {
     "name": "Chai Spice Vegan Pear Pie",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://thealmondeater.com/chai-spice-vegan-pear-pie/",
     "tags": [
       "#to-try",
@@ -20181,8 +20182,8 @@
   },
   {
     "name": "Blueberry Lemon Curd Tart Recipe",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://savoryrecipe.com/blueberry-lemon-curd-tart-recipe/",
     "tags": [
       "#to-try",
@@ -20194,8 +20195,8 @@
   },
   {
     "name": "Pineapple Upside Down Minis",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "https://dolesunshine.com/Recipes/Pineapple-Upside-Down-Minis",
     "tags": [
       "#to-try",
@@ -20207,8 +20208,8 @@
   },
   {
     "name": "Blueberry Croissant Bake",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "http://www.smartdiylist.com/blueberry-croissant-bake/",
     "tags": [
       "#to-try",
@@ -20220,8 +20221,8 @@
   },
   {
     "name": "Easy Caramel Apple Cream Cheese Spread",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "http://shewearsmanyhats.com/easy-caramel-apple-cream-cheese-spread/",
     "tags": [
       "#to-try",
@@ -20233,8 +20234,8 @@
   },
   {
     "name": "Easy Pumpkin Pie Bites",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "http://sugarapron.com/2016/08/16/easy-pumpkin-pie-bites/",
     "tags": [
       "#to-try",
@@ -20246,8 +20247,8 @@
   },
   {
     "name": "Caramel Apple Grapes",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "http://bellyfull.net/2012/06/18/caramel-apple-grapes-and-ba-bye-to-our-no-junk-food-challenge/",
     "tags": [
       "#to-try",
@@ -20259,8 +20260,8 @@
   },
   {
     "name": "Brie Baked Cheese Appetizer",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
     "source": "http://growingupgabel.com/brie-baked-cheese-appetizer/",
     "tags": [
       "#to-try",
@@ -20272,8 +20273,8 @@
   },
   {
     "name": "Cherry Cheesecake Dip",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "http://www.ihearteating.com/cherry-cheesecake-dip/",
     "tags": [
       "#to-try",
@@ -20285,8 +20286,8 @@
   },
   {
     "name": "Energy Bites (9 Recipes)",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
     "source": "http://www.blessthismessplease.com/2016/07/9-energy-bites-recipes.html",
     "tags": [
       "#to-try",
@@ -20298,12 +20299,1026 @@
   },
   {
     "name": "20 Minute Thai Basil Beef Rolls",
-    "section": "TO TRY",
-    "category": "To Try",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
     "source": "https://oneirichome.com/20-minute-thai-basil-beef-rolls/",
     "tags": [
       "#to-try",
       "#beef"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Grilled Chicken Italia Roll Ups",
+    "section": "TO TRY --- SANDWICHES",
+    "category": "Sandwiches",
+    "source": "https://m.musely.com/tips/Grilled-Chicken-italia-Roll-ups/27886977",
+    "tags": [
+      "#to-try",
+      "#sandwiches"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Chicken And Asparagus Lemon Stir Fry",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "http://www.skinnytaste.com/2014/03/chicken-and-asparagus-lemon-stir-fry.html",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Maple Glazed Chicken With Sweet Potatoes",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "http://www.bhg.com/blogs/delish-dish/2015/10/27/maple-glazed-chicken-with-sweet-potatoes/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Teriyaki Chicken And Rice Casserole",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "http://www.emilybites.com/2015/11/teriyaki-chicken-and-rice-casserole.html",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Balsamic Glazed Chicken",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "http://www.eatingonadime.com/balsamic-glazed-chicken/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Sausage Gravy Pioneer Woman",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "http://www.keyingredient.com/recipes/874625033/sausage-gravy-pioneer-woman/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Pull Apart Ham And Cheese Sliders",
+    "section": "TO TRY --- SANDWICHES",
+    "category": "Sandwiches",
+    "source": "https://www.buzzfeed.com/christinebyrne/pull-apart-ham-and-cheese-sliders",
+    "tags": [
+      "#to-try",
+      "#sandwiches"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Homemade Crunchwrap Supreme Recipe",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "http://cookingwithjanica.com/homemade-crunchwrap-supreme-recipe/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Easy Pad Thai",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "http://www.keyingredient.com/recipes/14273043/easy-pad-thai/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Leftover Mashed Potato Puffs",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "http://www.cinnamonspiceandeverythingnice.com/leftover-mashed-potato-puffs/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Simple Sesame Noodles",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "http://thepioneerwoman.com/cooking/2010/08/simple-sesame-noodles/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Greek Potatoes",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "http://www.southyourmouth.com/2015/03/greek-potatoes.html",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Crispy Cheese Bacon Potatoes Recipe",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "http://www.barefeetinthekitchen.com/2014/11/crispy-cheese-bacon-potatoes-recipe.html",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Better Than Takeout Chicken Fried Rice",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "http://rachelschultz.com/2012/07/14/better-than-takeout-chicken-fried-rice/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Mango Lime Rice A Bright Tropical Side Dish Bursting With Flavor",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://tastybitesfast.com/mango-lime-rice-a-bright-tropical-side-dish-bursting-with-flavor/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Salmon Balls With Creamy Avocado Sauce",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "https://hibord.com/salmon-balls-with-creamy-avocado-sauce/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Creamy Garlic Chicken Shawarma Recipe",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://foodmadegently.com/creamy-garlic-chicken-shawarma-recipe/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Roz Meammar Meammar Rice",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://amiraspantry.com/roz-meammar-meammar-rice/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Nigerian Jollof Rice",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://crispysavors.com/nigerian-jollof-rice/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Syrian Fattet Djaj Layered Chicken Platter",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://cookingwhispers.com/syrian-fattet-djaj-layered-chicken-platter/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Simple Bok Choy Rice",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://cookingwithlei.com/simple-bok-choy-rice/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Batata Harra Lebanese Spicy Potatoes",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://www.paintthekitchenred.com/batata-harra-lebanese-spicy-potatoes/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Brown Rice And Lentil Pilaf",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://ourkitchenrecipe.com/brown-rice-and-lentil-pilaf/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Adas Polo Rice And Lentils Recipe",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://www.themediterraneandish.com/adas-polo-rice-and-lentils-recipe/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Egyptian Rice Recipe",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://cinnamonsnail.com/egyptian-rice-recipe/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "How To Cook Basmati Rice For Biryani",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://hinzcooking.com/how-to-cook-basmati-rice-for-biryani/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Gozleme Turkish",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://lovefoodies.com/gozleme-turkish/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Coconut Shrimp With Sweet Chili Mayo",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "https://www.foodmarine.com/coconut-shrimp-with-sweet-chili-mayo-a-tropical-twist-youll-crave-again-and-again/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Vegan German Potato Soup",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
+    "source": "https://elavegan.com/vegan-german-potato-soup/",
+    "tags": [
+      "#to-try",
+      "#soups"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Lebanese Meat Pies",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://www.cookinwithmima.com/lebanese-meat-pies/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Cabbage Curry",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://foodiesterminal.com/cabbage-curry/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Dopiazeh Aloo Persian Potato Curry",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://www.themediterraneandish.com/dopiazeh-aloo-persian-potato-curry/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Chicken Bhuna",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://www.chiselandfork.com/chicken-bhuna/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "African Cabbage Stew With Ground Beef",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
+    "source": "https://lowcarbafrica.com/african-cabbage-stew-with-ground-beef/",
+    "tags": [
+      "#to-try",
+      "#soups"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Turkish Cabbage Stew",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
+    "source": "https://sweetandsavorymeals.com/turkish-cabbage-stew/",
+    "tags": [
+      "#to-try",
+      "#soups"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Jerk Meatballs In Coconut Curry Sauce",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "https://www.butterbeready.com/jerk-meatballs-in-coconut-curry-sauce/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Lahmacun Recipe Baked",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://poshplate.us/lahmacun-recipe-baked/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Gozleme Turkish Flatbread",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://www.themediterraneandish.com/gozleme-turkish-flatbread/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Greek Style Meatballs Tzatziki Sauce Easy Recipe",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://propertastyfood.com/greek-style-meatballs-tzatziki-sauce-easy-recipe/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Soutzoukakia Recipe Greek Meatballs",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://nomadparadise.com/soutzoukakia-recipe-greek-meatballs/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Sticky Honey Gochujang Chicken",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://flavorsmile.com/sticky-honey-gochujang-chicken/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Korean Honey Butter Chicken",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://jennierecipes.com/korean-honey-butter-chicken/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Middle Eastern Chicken And Rice With Tahini Yogurt Sauce",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://sugarspiceslife.com/2018/05/23/middle-eastern-chicken-and-rice-with-tahini-yogurt-sauce-recipe/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Chinese Meat Pies",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://redhousespice.com/chinese-meat-pies/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Persian Chicken (simplecooktips.com)",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://simplecooktips.com/persian-chicken-an-amazing-ultimate-recipe-you-must-try/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Chicken Vesuvio",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
+    "source": "https://www.recipesbyzoey.com/chicken-vesuvio/",
+    "tags": [
+      "#to-try",
+      "#italian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Korean Cheese Pancake",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://easykitchenguide.com/korean-cheese-pancake/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Slow Cooker Chicken Korma",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
+    "source": "https://savvybites.co.uk/slow-cooker-chicken-korma/",
+    "tags": [
+      "#to-try",
+      "#slow-cooker"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Poulet Yassa Senegalese Chicken",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://lowcarbafrica.com/poulet-yassa-senegalese-chicken-recipe/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Churu Chicken Amarillo",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://www.virilerecipes.com/churu-chicken-amarillo-recipe/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Moroccan Beef And Potato Tagine",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://www.moroccaneats.com/moroccan-beef-and-potato-tagine-recipe/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Moroccan Spiced Chicken",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://gourmetmartha.com/moroccan-spiced-chicken-a-flavorful-journey-to-north-africa/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Zaatar Chicken And Rice",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://rookiewithacookie.com/zaatar-chicken-and-rice/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Arayes Lebanese Meat Stuffed Pita",
+    "section": "TO TRY --- MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "https://www.knedir.com/arayes-lebanese-meat-stuffed-pita/",
+    "tags": [
+      "#to-try",
+      "#middle-eastern"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Ginger Lime Pork With Coconut Rice",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://www.recipesbylayla.com/ginger-lime-pork-with-coconut-rice/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Cottage Cheese Ice Cream",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
+    "source": "https://slimmingviolet.com/cottage-cheese-ice-cream-recipes/",
+    "tags": [
+      "#to-try",
+      "#desserts"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Crockpot Hamburger Potato Casserole",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
+    "source": "https://cooktune.com/crockpot-hamburger-potato-casserole/",
+    "tags": [
+      "#to-try",
+      "#slow-cooker"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Meatballs In Lemon Sauce",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "https://realgreekrecipes.com/meatballs-in-lemon-sauce/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Giouvetsi Greek Beef Stew Orzo",
+    "section": "TO TRY --- SOUPS",
+    "category": "Soups",
+    "source": "https://skinnyspatula.com/giouvetsi-greek-beef-stew-orzo/",
+    "tags": [
+      "#to-try",
+      "#soups"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Slow Cooker Korean Beef",
+    "section": "TO TRY --- SLOW COOKER",
+    "category": "Slow Cooker",
+    "source": "https://cooktrove.com/slow-cooker-korean-beef!",
+    "tags": [
+      "#to-try",
+      "#slow-cooker"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Crab Rangoon Bombs",
+    "section": "TO TRY --- SNACKS",
+    "category": "Snacks",
+    "source": "https://hibord.com/crab-rangoon-bombs/",
+    "tags": [
+      "#to-try",
+      "#snacks"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Lemon Oatmeal Crumble Bars",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
+    "source": "https://thecozyweave.com/lemon-oatmeal-crumble-bars/",
+    "tags": [
+      "#to-try",
+      "#desserts"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "One Pan Honey Bbq Chicken Rice",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://www.recipesbylayla.com/one-pan-honey-bbq-chicken-rice/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "One Pan Spanish Chicken Rice",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://www.lecremedelacrumb.com/one-pan-spanish-chicken-rice/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "One Pot Mushroom Chicken Rice",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://bake-eat-repeat.com/one-pot-mushroom-chicken-rice-recipe/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Protein Packed Cookie Dough Brownies",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
+    "source": "https://foodsocial.io/recipe/protein-packed-cookie-dough-brownies/",
+    "tags": [
+      "#to-try",
+      "#desserts"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Fluffy Cottage Cheese Blueberry Cloud Bread",
+    "section": "TO TRY --- DESSERTS",
+    "category": "Desserts",
+    "source": "https://www.tastyathome.com/fluffy-cottage-cheese-blueberry-cloud-bread/",
+    "tags": [
+      "#to-try",
+      "#desserts"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Peruvian Chicken And Rice With Green Sauce",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://ambersbridal.com/peruvian-chicken-and-rice-with-green-sauce/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Potatoes And Green Beans",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://eatsomethingvegan.com/potatoes-and-green-beans/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Korean Braised Potatoes",
+    "section": "TO TRY --- ASIAN",
+    "category": "Asian",
+    "source": "https://www.cookerru.com/korean-braised-potatoes/",
+    "tags": [
+      "#to-try",
+      "#asian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Mexican Picadillo",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://houseofyumm.com/mexican-picadillo/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Brown Sugar Glazed Ham",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "https://www.gogogogourmet.com/brown-sugar-glazed-ham/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Garlic Butter Cod Asparagus Skillet",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "https://www.eatwell101.com/garlic-butter-cod-asparagus-skillet-recipe",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "One Pot Ground Beef And Potatoes",
+    "section": "TO TRY --- SIDES",
+    "category": "Sides",
+    "source": "https://thesaltymarshmallow.com/one-pot-ground-beef-and-potatoes/",
+    "tags": [
+      "#to-try",
+      "#sides"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Mustard Chicken",
+    "section": "TO TRY --- AMERICAN",
+    "category": "American",
+    "source": "http://www.lavenderandmacarons.com/meat-recipes/mustard-chicken-recipe-4/",
+    "tags": [
+      "#to-try",
+      "#american"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Creamy Skillet Tortellini With Sweet Potato And Spinach",
+    "section": "TO TRY --- ITALIAN",
+    "category": "Italian",
+    "source": "https://www.thekitchn.com/recipe-creamy-skillet-tortellini-with-sweet-potato-and-spinach-225241",
+    "tags": [
+      "#to-try",
+      "#italian"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "Taco Pasta (thecozycook.com)",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://thecozycook.com/taco-pasta/",
+    "tags": [
+      "#to-try",
+      "#mexican"
+    ],
+    "ingredients": [],
+    "instructions": [],
+    "is_blank": true
+  },
+  {
+    "name": "One Skillet Mexican Rice Casserole",
+    "section": "TO TRY --- MEXICAN",
+    "category": "Mexican",
+    "source": "https://www.theslowroasteditalian.com/2016/02/one-skillet-mexican-rice-casserole-recipe.html",
+    "tags": [
+      "#to-try",
+      "#mexican"
     ],
     "ingredients": [],
     "instructions": [],
