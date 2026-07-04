@@ -39,17 +39,50 @@ const displayedBySection = (() => {
   return map;
 })();
 
-// Peanut Butter tab = a tag-driven view of every recipe tagged #peanut,
-// regardless of which section/tab it otherwise lives in. Rendered under a
-// single synthetic section so it reuses the normal SectionBlock machinery.
-const PEANUT_SECTION = { key: '__PEANUT__', label: 'Peanut Butter', id: 'sec-PEANUT' };
-const peanutRecipes = (() => {
-  const out = [];
-  for (const recs of displayedBySection.values()) {
-    recs.forEach((r) => { if (getEffectiveTags(r).includes('#peanut')) out.push(r); });
+// Peanut Butter tab = a purely tag-driven view of every recipe whose `tags`
+// array contains "#peanut", regardless of which section/tab it otherwise lives
+// in. Filter on the raw tag only — NOT auto-derived tags and NOT by section.
+const peanutRecipes = recipes.filter(
+  (r) => Array.isArray(r.tags) && r.tags.includes('#peanut'),
+);
+
+// Display label for a recipe's "base" section: strip the "TO TRY --- " staging
+// prefix and reuse the declared section label where one exists (nice casing),
+// falling back to a title-cased version of the raw key.
+function baseSectionLabel(sectionKey) {
+  const base = sectionKey.replace(/^TO TRY --- /, '');
+  const declared = SECTION_BY_KEY.get(base);
+  if (declared) return declared.label;
+  return base
+    .toLowerCase()
+    .split(' ')
+    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
+    .join(' ');
+}
+
+// Peanut recipes grouped by base section into synthetic sections, so the
+// Peanut Butter tab reuses the normal SectionBlock machinery. Ordered by group
+// size (largest first) for readability.
+const PEANUT_GROUPS = (() => {
+  const byBase = new Map();
+  for (const r of peanutRecipes) {
+    const base = r.section.replace(/^TO TRY --- /, '');
+    if (!byBase.has(base)) {
+      byBase.set(base, {
+        key: `__PEANUT__${base}`,
+        label: baseSectionLabel(r.section),
+        id: `sec-peanut-${base.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
+        recipes: [],
+      });
+    }
+    byBase.get(base).recipes.push(r);
   }
-  return out;
+  return [...byBase.values()].sort(
+    (a, b) => b.recipes.length - a.recipes.length || a.label.localeCompare(b.label),
+  );
 })();
+
+const PEANUT_TOTAL = peanutRecipes.length;
 
 // All tags (manual + auto-derived) with counts — computed once at module scope.
 const allTagCounts = (() => {
@@ -311,8 +344,10 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
     };
 
     if (activeTab === 'peanut') {
-      const matches = applyFilters(peanutRecipes);
-      if (matches.length > 0) out.set(PEANUT_SECTION.key, matches);
+      for (const group of PEANUT_GROUPS) {
+        const matches = applyFilters(group.recipes);
+        if (matches.length > 0) out.set(group.key, matches);
+      }
       return out;
     }
 
@@ -367,7 +402,7 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
           className={`${styles.tabBtn} ${activeTab === 'peanut' ? styles.tabBtnActive : ''}`}
           onClick={() => setActiveTab('peanut')}
         >
-          Peanut Butter
+          Peanut Butter ({PEANUT_TOTAL})
         </button>
       </div>
       <ListToolbar
@@ -409,7 +444,7 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
       {(
         activeTab === 'recipes' ? mainSections :
         activeTab === 'totry'   ? toTrySections :
-        activeTab === 'peanut'  ? [PEANUT_SECTION] :
+        activeTab === 'peanut'  ? PEANUT_GROUPS :
         reviewSections
       ).map((section) => {
         const displayed = filtered.get(section.key) || [];
