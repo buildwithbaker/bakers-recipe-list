@@ -1204,6 +1204,112 @@
     "is_blank": false
   },
   {
+    "name": "Seared Chicken Breast with Cranberry-Thyme Pan Sauce",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#pansauce",
+      "#cranberry",
+      "#holiday",
+      "#makeahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "For the chicken:"
+      },
+      {
+        "type": "item",
+        "text": "2 boneless skinless chicken breasts (about 6 oz each)"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "Kosher salt and black pepper, to taste"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fresh thyme (or 1/2 tsp dried)"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp rubbed sage"
+      },
+      {
+        "type": "header",
+        "text": "For the cranberry-thyme sauce (make ahead):"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup dried cranberries"
+      },
+      {
+        "type": "item",
+        "text": "2/3 cup chicken stock"
+      },
+      {
+        "type": "item",
+        "text": "1/4 small onion, thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp Dijon mustard"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp maple syrup"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp fresh thyme"
+      },
+      {
+        "type": "item",
+        "text": "Salt and black pepper, to taste"
+      },
+      {
+        "type": "header",
+        "text": "To finish the sauce:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp cold butter"
+      },
+      {
+        "type": "item",
+        "text": "Small splash of vinegar or lemon juice"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Soak the sauce base (make ahead)",
+        "detail": "Simmer the chicken stock (2/3 cup) with the dried cranberries (1/4 cup), sliced onion (1/4 small), Dijon (1 tsp), maple syrup (1 tsp), thyme (1/2 tsp), and a pinch of salt and pepper for 2-3 minutes. Pull off heat, cover, and let sit several hours so the cranberries rehydrate. Hold the butter and acid until service - they break down if added now."
+      },
+      {
+        "step": "Butterfly and season",
+        "detail": "Butterfly each chicken breast to an even thickness. Season both sides generously with salt, pepper, the thyme (1 tsp), and rubbed sage (1/2 tsp)."
+      },
+      {
+        "step": "Sear (stovetop, no oven)",
+        "detail": "Pat the breasts dry. Heat the oil (1 Tbsp) in a skillet over medium-high until shimmering. Cook 4-5 minutes per side until deep golden and the internal temperature reaches 165F. Rest the chicken 5 minutes."
+      },
+      {
+        "step": "Finish the sauce",
+        "detail": "Reheat the cranberry base and simmer 2 minutes to a light nappe, loosening with a splash of stock if it thickened while soaking. Off heat, swirl in the cold butter (1 Tbsp) and a small splash of vinegar or lemon juice. Spoon over the rested chicken."
+      },
+      {
+        "step": "Serve",
+        "detail": "Serve with mashed potatoes or stuffing and a green vegetable such as green beans or brussels sprouts."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "name": "Ground Beef Meat",
     "section": "MEXICAN",
     "category": "Mexican",
