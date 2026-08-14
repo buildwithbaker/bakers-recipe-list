@@ -33,7 +33,13 @@ export default function TOCNav({ open, onClose }) {
       const el = document.getElementById(id);
       if (!el) return;
       el.scrollIntoView({ block: 'start' });
-      history.replaceState(null, '', `#${id}`);
+      // Keep history.state (App's overlay stack) and the ?q= search intact — a bare
+      // `#id` URL discards both and strands the Back button.
+      history.replaceState(
+        history.state,
+        '',
+        `${window.location.pathname}${window.location.search}#${id}`,
+      );
     }, 50);
   };
 
