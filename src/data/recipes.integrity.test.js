@@ -39,4 +39,35 @@ describe('recipes.json integrity', () => {
     const unknown = [...new Set(recipes.map((r) => r.section))].filter((s) => !validKeys.has(s));
     expect(unknown).toEqual([]);
   });
+
+  // Every recipe must be cookable on its own. A step that names another recipe
+  // ("slide the drumstick pan in", "425 F is the compromise temperature") makes
+  // this one unusable without reading that one, and a later edit to that recipe
+  // silently invalidates this one's timings.
+  //
+  // Match is CASE-SENSITIVE and word-bounded, so a generic serving suggestion
+  // ("serve with mashed potatoes") does not trip on the recipe titled
+  // "Mashed Potatoes". A name also present in this recipe's own ingredient list
+  // is a sub-recipe it makes or uses (e.g. Taco Seasoning) and is allowed.
+  it('has no recipe whose steps depend on another recipe by name', () => {
+    const distinctive = recipes
+      .map((r) => r.name)
+      .filter((n) => n.length >= 14 && n.includes(' '));
+
+    const offenders = [];
+    for (const recipe of recipes) {
+      const steps = (recipe.instructions ?? [])
+        .map((s) => `${s.step ?? ''} ${s.detail ?? ''}`)
+        .join(' ');
+      const ingredients = (recipe.ingredients ?? []).map((i) => i.text ?? '').join(' ');
+      for (const name of distinctive) {
+        if (name === recipe.name) continue;
+        const bounded = new RegExp(`(?<![A-Za-z])${name.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&')}(?![A-Za-z])`);
+        if (!bounded.test(steps)) continue;
+        if (ingredients.toLowerCase().includes(name.toLowerCase())) continue;
+        offenders.push(`${recipe.name} -> ${name}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
 });
