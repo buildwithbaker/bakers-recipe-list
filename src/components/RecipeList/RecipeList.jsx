@@ -1,7 +1,6 @@
 import { useDeferredValue, useCallback, useMemo, useRef, useState, useEffect } from 'react';
-import recipes from '../../data/recipes.json';
+import { displayRecipes, displayedBySection } from '../../data/recipeIndex.js';
 import { SECTIONS } from '../../data/sections.js';
-import { expandVersionedRecipe } from '../../data/expandVersions.js';
 import SectionBlock from '../SectionBlock/SectionBlock.jsx';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
@@ -12,15 +11,6 @@ import styles from './RecipeList.module.css';
 // Module-scope constants
 // ---------------------------------------------------------------------------
 
-const recipesBySection = (() => {
-  const map = new Map();
-  recipes.forEach((recipe) => {
-    if (!map.has(recipe.section)) map.set(recipe.section, []);
-    map.get(recipe.section).push(recipe);
-  });
-  return map;
-})();
-
 const SECTION_BY_KEY = new Map(SECTIONS.map((s) => [s.key, s]));
 
 // Published Recipes tab = everything that is neither a For-Review nor a To-Try
@@ -30,19 +20,12 @@ const mainSections   = SECTIONS.filter((s) => !s.review && !s.toTry);
 const reviewSections = SECTIONS.filter((s) => !!s.review);
 const toTrySections  = SECTIONS.filter((s) => !!s.toTry);
 
-const displayedBySection = (() => {
-  const map = new Map();
-  for (const [key, recs] of recipesBySection) {
-    const section = SECTION_BY_KEY.get(key);
-    map.set(key, section?.review ? recs.flatMap(expandVersionedRecipe) : recs);
-  }
-  return map;
-})();
-
 // Peanut Butter tab = a purely tag-driven view of every recipe whose `tags`
 // array contains "#peanut", regardless of which section/tab it otherwise lives
 // in. Filter on the raw tag only — NOT auto-derived tags and NOT by section.
-const peanutRecipes = recipes.filter(
+// Drawn from the display list so a #peanut recipe staged in a review section
+// would render the same expanded rows (and the same names) as its own section.
+const peanutRecipes = displayRecipes.filter(
   (r) => Array.isArray(r.tags) && r.tags.includes('#peanut'),
 );
 
@@ -85,9 +68,11 @@ const PEANUT_GROUPS = (() => {
 const PEANUT_TOTAL = peanutRecipes.length;
 
 // All tags (manual + auto-derived) with counts — computed once at module scope.
+// Counted over display rows, because clicking a pill searches the display list:
+// counting raw records instead reported "#marinade 69" and then returned 128.
 const allTagCounts = (() => {
   const counts = new Map();
-  recipes.forEach((r) => {
+  displayRecipes.forEach((r) => {
     getEffectiveTags(r).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1));
   });
   // Sort by count desc, then alphabetically.
