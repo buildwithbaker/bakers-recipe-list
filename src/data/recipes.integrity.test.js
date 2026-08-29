@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import recipes from './recipes.json';
 import { SECTIONS } from './sections.js';
+import { displayRecipes, displayedBySection, recipesByName } from './recipeIndex.js';
 
 // Integrity guard for the recipe catalog. Mirrors scripts/validate-recipes.mjs
 // (the build-time check) so the invariants are enforced in CI tests too.
@@ -69,5 +70,54 @@ describe('recipes.json integrity', () => {
       }
     }
     expect(offenders).toEqual([]);
+  });
+});
+
+// The rendered list and the name→recipe lookup must agree. Recipes in a
+// `review: true` section are RENAMED at display time by expandVersionedRecipe,
+// so a row can emit a name that is not in recipes.json. When the lookup was
+// built from the raw file, all 121 expanded marinade rows resolved to null and
+// clicking one silently rendered an empty card — nothing threw, so the
+// ErrorBoundary never fired. These tests are that invariant.
+describe('display list ↔ lookup identity', () => {
+  it('resolves every name reachable from the rendered display list', () => {
+    const unresolvable = displayRecipes
+      .filter((r) => recipesByName.get(r.name)?.name !== r.name)
+      .map((r) => `${r.name} [${r.section}]`);
+    expect(unresolvable).toEqual([]);
+  });
+
+  it('resolves every name reachable from a rendered section', () => {
+    const unresolvable = [];
+    for (const [key, rows] of displayedBySection) {
+      for (const row of rows) {
+        if (recipesByName.get(row.name)?.name !== row.name) {
+          unresolvable.push(`${row.name} [${key}]`);
+        }
+      }
+    }
+    expect(unresolvable).toEqual([]);
+  });
+
+  it('lists no duplicate names in the display list', () => {
+    const counts = new Map();
+    for (const r of displayRecipes) counts.set(r.name, (counts.get(r.name) || 0) + 1);
+    const dups = [...counts.entries()].filter(([, c]) => c > 1).map(([n]) => n);
+    expect(dups).toEqual([]);
+  });
+
+  it('renders every raw record as at least one display row', () => {
+    expect(displayRecipes.length).toBeGreaterThanOrEqual(recipes.length);
+    const sections = new Set(displayRecipes.map((r) => r.section));
+    expect([...new Set(recipes.map((r) => r.section))].filter((s) => !sections.has(s))).toEqual([]);
+  });
+
+  // Expansion splits one record's ingredients/instructions across its versions.
+  // A version that lands empty would render a card with no method at all.
+  it('gives every non-blank display row ingredients and instructions', () => {
+    const empty = displayRecipes
+      .filter((r) => !r.is_blank && (!r.ingredients?.length || !r.instructions?.length))
+      .map((r) => r.name);
+    expect(empty).toEqual([]);
   });
 });

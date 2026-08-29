@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import recipes from './data/recipes.json';
+import { recipesByName } from './data/recipeIndex.js';
 import TopBar from './components/TopBar/TopBar.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
 import TOCNav from './components/TOCNav/TOCNav.jsx';
@@ -74,8 +74,10 @@ function urlForOverlays(overlays) {
   return urlWithParam('recipe', recipeNameIn(overlays));
 }
 
+// Resolves against the same map the rendered rows draw their names from, so an
+// expanded review row ("Lemon Herb (Version 1)") opens the version the row shows.
 function findRecipe(name) {
-  return name ? (recipes.find((r) => r.name === name) ?? null) : null;
+  return name ? (recipesByName.get(name) ?? null) : null;
 }
 
 // On first paint: a reload keeps history.state, so trust it. A fresh shared link
