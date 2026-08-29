@@ -11,7 +11,7 @@ import { displayRecipes, displayedBySection, recipesByName } from './recipeIndex
 describe('recipes.json integrity', () => {
   // Snapshot counts — bump these intentionally when the catalog changes so a
   // surprise add/drop of records is caught in review.
-  const EXPECTED_RECORDS = 751;
+  const EXPECTED_RECORDS = 752;
 
   it('has the expected number of records', () => {
     expect(recipes.length).toBe(EXPECTED_RECORDS);

@@ -1423,6 +1423,157 @@
     "is_blank": false
   },
   {
+    "name": "Skillet Beef and Potato Hash with Fried Eggs",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original - Adam",
+    "tags": [
+      "#beef",
+      "#potato",
+      "#eggs",
+      "#skillet",
+      "#one-pan",
+      "#breakfast"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Beef:"
+      },
+      {
+        "type": "item",
+        "text": "1 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp chili powder"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table or Morton kosher salt, or 1 1/2 tsp Diamond Crystal"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Potatoes and Onion:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb russet or Yukon Gold potatoes, peeled and cut into 1/2-inch dice"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table or Morton kosher salt, or 1 1/2 tsp Diamond Crystal"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "Reserved rendered beef fat (about 1/4 cup, drained from the beef)"
+      },
+      {
+        "type": "header",
+        "text": "To Finish:"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup shredded sharp cheddar"
+      },
+      {
+        "type": "item",
+        "text": "4 large eggs"
+      },
+      {
+        "type": "item",
+        "text": "Salt, black pepper, and paprika, for the eggs"
+      },
+      {
+        "type": "item",
+        "text": "Steak sauce, ketchup, or barbecue sauce, for serving"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Boil the Potatoes",
+        "detail": "Makes 4 servings. Peel the potatoes (2 lb) and cut into 1/2-inch dice. Boil in well-salted water for 20 minutes, until a knife slides in with no resistance. Drain and let them sit in the colander 2-3 minutes to steam-dry. A wet potato surface is pinned at 212F and cannot brown, so this pause is doing real work."
+      },
+      {
+        "step": "Season the Raw Beef",
+        "detail": "In a bowl, mix the ground beef (1 lb, 80/20) with paprika (1 1/2 tsp), garlic powder (1 tsp), onion powder (1 tsp), chili powder (1/2 tsp), ground cumin (1/2 tsp), salt (1 tsp table or Morton kosher, or 1 1/2 tsp Diamond Crystal), and black pepper (1/2 tsp). Season before it hits the pan, not after - the spices are fat-soluble and bloom in the fat as it renders."
+      },
+      {
+        "step": "Brown and Drain Twice",
+        "detail": "Cook the seasoned beef (1 lb) in a 12-inch skillet over medium-high, breaking it up. As fat and juice pool, tip it off into a heatproof cup and reserve. Drain a second time once more renders. 80/20 gives up more fat than the pan can use, and beef sitting in liquid is held at 212F and will not brown. Do not discard the fat - it is the cooking medium for everything that follows."
+      },
+      {
+        "step": "Fry the Beef in Its Own Fat",
+        "detail": "Return a spoonful of the reserved beef fat to the pan. Press the beef flat and leave it alone 3-4 minutes, then flip; repeat 2-3 times, adding reserved fat a spoonful at a time whenever the surface goes dry and dull. You are frying it now, not steaming it. Move it to a plate."
+      },
+      {
+        "step": "Brown the Onion",
+        "detail": "Add about 2 Tbsp of the reserved beef fat and the sliced onion (1 large). Cook 8-10 minutes over medium-high until the edges are deep brown. Sliced, not minced - it holds its texture through the rest of the cook."
+      },
+      {
+        "step": "Add the Potatoes",
+        "detail": "Add the drained potatoes (2 lb) with paprika (1 Tbsp), garlic powder (1 tsp), onion powder (1 tsp), salt (1 tsp table or Morton kosher, or 1 1/2 tsp Diamond Crystal), and black pepper (1/2 tsp). Toss to coat and cook 2-3 minutes to soften and take on the fat."
+      },
+      {
+        "step": "Crisp It All Together",
+        "detail": "Return the beef to the pan. Press the whole thing flat, leave it 4 minutes without stirring, flip in sections, and go another 4 minutes. Two or three passes total. Add reserved beef fat a spoonful at a time any time the pan looks dry - dry means the crust stops forming."
+      },
+      {
+        "step": "Melt the Cheese",
+        "detail": "Turn the heat to low, scatter the shredded cheddar (1/2 cup) evenly over the top, cover for 1 minute, and pull it off the heat."
+      },
+      {
+        "step": "Fry the Eggs",
+        "detail": "In a separate pan, fry the eggs (4 large) in a spoonful of the reserved beef fat, seasoned with salt, black pepper, and paprika. Yolk sets at about 158F and white does not fully set until about 185F, so cover the pan for 1-2 minutes to set the whites by steam and pull while the yolks are still loose. Cooking the eggs directly on top of the hash works but the hash keeps feeding them heat and they overshoot."
+      },
+      {
+        "step": "Serve With Sauce",
+        "detail": "Slide the eggs onto the hash and serve immediately with steak sauce, ketchup, or barbecue sauce. This is not a garnish - the hash reads dry without one."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "name": "Ground Beef Meat",
     "section": "MEXICAN",
     "category": "Mexican",
