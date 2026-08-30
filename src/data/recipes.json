@@ -8473,16 +8473,12 @@
     "name": "Tandoori - Chicken Marinade",
     "section": "MARINADES",
     "category": "Marinades",
-    "source": "BBC Good Food / Serious Eats",
+    "source": "BBC Good Food",
     "tags": [
       "#chicken",
       "#marinade"
     ],
     "ingredients": [
-      {
-        "type": "section",
-        "text": "Version 1 - BBC Good Food"
-      },
       {
         "type": "item",
         "text": "2 lb chicken drumsticks"
@@ -8522,11 +8518,37 @@
       {
         "type": "item",
         "text": "2 tbsp vegetable oil"
+      }
+    ],
+    "instructions": [
+      {
+        "type": "item",
+        "step": "Whisk yogurt (1 cup), lemon juice (2 tbsp), garlic paste (1 tbsp), ginger paste (1 tbsp), turmeric (1 tsp), chili powder (1 tsp), cumin (1 tsp), salt (1.5 tsp), and oil (2 tbsp).",
+        "detail": ""
       },
       {
-        "type": "section",
-        "text": "Version 2 - Serious Eats"
+        "type": "item",
+        "step": "Rub onto chicken (2 lb) and marinate 4-24 hours.",
+        "detail": ""
       },
+      {
+        "type": "item",
+        "step": "Roast or grill until 165°F (74°C).",
+        "detail": ""
+      }
+    ],
+    "is_blank": false
+  },
+  {
+    "name": "Tandoori - Chicken Marinade (Serious Eats)",
+    "section": "MARINADES",
+    "category": "Marinades",
+    "source": "Serious Eats",
+    "tags": [
+      "#chicken",
+      "#marinade"
+    ],
+    "ingredients": [
       {
         "type": "item",
         "text": "2 lb chicken thighs, bone-in"
@@ -8569,31 +8591,6 @@
       }
     ],
     "instructions": [
-      {
-        "type": "section",
-        "step": "Version 1 - BBC Good Food",
-        "detail": ""
-      },
-      {
-        "type": "item",
-        "step": "Whisk yogurt (1 cup), lemon juice (2 tbsp), garlic paste (1 tbsp), ginger paste (1 tbsp), turmeric (1 tsp), chili powder (1 tsp), cumin (1 tsp), salt (1.5 tsp), and oil (2 tbsp).",
-        "detail": ""
-      },
-      {
-        "type": "item",
-        "step": "Rub onto chicken (2 lb) and marinate 4-24 hours.",
-        "detail": ""
-      },
-      {
-        "type": "item",
-        "step": "Roast or grill until 165°F (74°C).",
-        "detail": ""
-      },
-      {
-        "type": "section",
-        "step": "Version 2 - Serious Eats",
-        "detail": ""
-      },
       {
         "type": "item",
         "step": "Mix yogurt (1 cup), lemon juice (2 tbsp), garlic (from 4 cloves), ginger (1 tbsp), garam masala (1 tsp), coriander (1 tsp), paprika (1 tsp), cayenne (1/2 tsp), and salt (1.5 tsp).",
