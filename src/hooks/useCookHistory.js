@@ -1,7 +1,7 @@
 // Tracks which recipes the user has cooked, persisted to localStorage.
 // Returns [madeSet, toggleMade] where:
-//   madeSet       — Set of recipe name strings
-//   toggleMade(name) — adds if absent, removes if present
+//   madeSet       — Set of recipe id strings
+//   toggleMade(id) — adds if absent, removes if present
 
 import { useCallback, useState } from 'react';
 
@@ -22,11 +22,11 @@ function save(set) {
 export function useCookHistory() {
   const [madeSet, setMadeSet] = useState(load);
 
-  const toggleMade = useCallback((recipeName) => {
+  const toggleMade = useCallback((recipeId) => {
     setMadeSet((prev) => {
       const next = new Set(prev);
-      if (next.has(recipeName)) next.delete(recipeName);
-      else next.add(recipeName);
+      if (next.has(recipeId)) next.delete(recipeId);
+      else next.add(recipeId);
       save(next);
       return next;
     });

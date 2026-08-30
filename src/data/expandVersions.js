@@ -44,6 +44,10 @@ export function expandVersionedRecipe(recipe) {
       : baseName;
     return {
       ...recipe,
+      // Child id, DERIVED and never persisted: n is 1-based from marker order
+      // within this record alone. Never from the global display list — that
+      // would renumber every sibling whenever an unrelated record changed.
+      id: `${recipe.id}::v${i + 1}`,
       name: displayName,
       source: sourceFromLabel || recipe.source,
       ingredients: ingVersions[i]?.items || [],

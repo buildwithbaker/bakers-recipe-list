@@ -1,5 +1,5 @@
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, sep } from 'node:path';
 import { describe, it, expect } from 'vitest';
 import recipes from './recipes.json';
 import idManifest from './recipes.ids.json';
@@ -129,8 +129,9 @@ describe('display list ↔ lookup identity', () => {
 // slug of the name at assignment time, but it is not a function of the name:
 // renaming a recipe must never change its id, and nothing may recompute one at
 // runtime. src/data/recipes.ids.json is the frozen {id: nameAtAssignment}
-// manifest — it is both the anti-drift guard here and the snapshot the
-// localStorage migration will read. Nothing consumes `id` yet.
+// manifest — it is both the anti-drift guard here and the frozen legacy-name
+// snapshot stateMigration.js reads. It is APPEND-ONLY: see the _doc block in
+// the file itself.
 describe('recipe ids', () => {
   const ID_PATTERN = /^[a-z0-9-]+$/;
 
@@ -155,33 +156,50 @@ describe('recipe ids', () => {
   // unmergeable — the old id would vanish from recipes.json.
   it('still holds every id in the frozen manifest', () => {
     const byId = new Map(recipes.map((r) => [r.id, r]));
-    const gone = Object.entries(idManifest)
+    const gone = Object.entries(idManifest.ids)
       .filter(([id]) => !byId.has(id))
       .map(([id, name]) => `${id}: gone from recipes.json (was "${name}")`);
     expect(gone).toEqual([]);
   });
 
   // The manifest records the name each id was assigned AGAINST, which is also
-  // the localStorage key users currently have. No recipe has been renamed since
-  // assignment, so it must still match everywhere.
+  // the localStorage key users held before the migration.
   //
-  // NOTE for the first legitimate rename: the fix is to RELAX this test, not to
-  // update the manifest. The manifest is a frozen historical snapshot — the
-  // migration needs the name that is in users' localStorage, which is the old
-  // one. Rewriting it to a new name would silently orphan that record's saved
-  // state, the exact failure the id pass exists to prevent.
+  // NOTE for the first legitimate rename: do NOT edit the manifest and do NOT
+  // relax this test. Add the record's id to the `renamed` allowlist in
+  // recipes.ids.json instead. The manifest is a frozen historical snapshot —
+  // rewriting an entry to a recipe's new name makes the migration look up a key
+  // nobody has and silently orphans that record's saved state. An allowlist
+  // accumulates evidence; a relaxed test just erodes.
   it('still maps every id to the name it was assigned against', () => {
     const byId = new Map(recipes.map((r) => [r.id, r]));
-    const renamed = Object.entries(idManifest)
+    const allowed = idManifest.renamed ?? {};
+    const drifted = Object.entries(idManifest.ids)
       .filter(([id, name]) => byId.has(id) && byId.get(id).name !== name)
+      .filter(([id]) => !(id in allowed))
       .map(([id, name]) => `${id}: "${name}" -> "${byId.get(id).name}"`);
-    expect(renamed).toEqual([]);
+    expect(drifted).toEqual([]);
+  });
+
+  it('keeps the renamed allowlist honest', () => {
+    const byId = new Map(recipes.map((r) => [r.id, r]));
+    // An allowlist entry must name a real id that HAS actually been renamed —
+    // otherwise it is a blanket exemption waiting to hide a future mistake.
+    const stale = Object.keys(idManifest.renamed ?? {}).filter(
+      (id) => !byId.has(id) || byId.get(id).name === idManifest.ids[id],
+    );
+    expect(stale).toEqual([]);
+  });
+
+  it('keeps the manifest append-only in shape', () => {
+    expect(Object.keys(idManifest)).toEqual(['_doc', 'renamed', 'ids']);
+    expect(Array.isArray(idManifest._doc)).toBe(true);
   });
 
   it('gives every record a manifest entry', () => {
-    const unlisted = recipes.filter((r) => !(r.id in idManifest)).map((r) => `${r.name} (${r.id})`);
+    const unlisted = recipes.filter((r) => !(r.id in idManifest.ids)).map((r) => `${r.name} (${r.id})`);
     expect(unlisted).toEqual([]);
-    expect(Object.keys(idManifest)).toHaveLength(recipes.length);
+    expect(Object.keys(idManifest.ids)).toHaveLength(recipes.length);
   });
 
   // Ids are frozen, so the slug function must not be reachable at runtime — its
@@ -200,15 +218,29 @@ describe('recipe ids', () => {
       const src = readFileSync(f, 'utf8');
       // A slugifier by name, or anything lowercasing a `.name` and punching it
       // into dashes — the exact move that would un-freeze an id.
+      //
+      // DO NOT "tighten" this to any lowercase+replace: RecipeList builds a DOM
+      // anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
+      // and that is legitimate — it derives an anchor from a section, not an id
+      // from a recipe name. It is missed on purpose, not by luck. scripts/ is
+      // also deliberately out of scope: the one-time assignment script owns the
+      // only real slug function and must keep it.
       return /slug/i.test(src) || /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/.test(src);
     });
     expect(offenders).toEqual([]);
   });
 
-  it('has no consumer reading the id manifest yet', () => {
+  // The manifest is legacy-name data. Only the resolution layer and the
+  // migration may touch it — a component or hook reading it would mean name
+  // lookups leaking back into the UI, which is what the id pass removed.
+  it('keeps the id manifest inside the data layer', () => {
     const readers = shippedSources()
-      .filter((f) => readFileSync(f, 'utf8').includes('recipes.ids.json'));
-    expect(readers).toEqual([]);
+      .filter((f) => readFileSync(f, 'utf8').includes('recipes.ids.json'))
+      .map((f) => f.split(sep).join('/'));
+    expect(readers.sort()).toEqual([
+      'src/data/recipeIndex.js',
+      'src/data/stateMigration.js',
+    ]);
   });
 });
 
