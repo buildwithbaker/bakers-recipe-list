@@ -5,8 +5,14 @@
   "description": "The single hard-coded contract every recipe in src/data/recipes.json must satisfy. recipes.json is a JSON array of objects shaped exactly like this. When adding or editing a recipe, conform to THIS file — do not infer the shape from an existing recipe. Enforced at build time by scripts/validate-recipes.mjs (runs as the npm `prebuild` hook, so a violation fails `npm run build` and CI).",
   "type": "object",
   "additionalProperties": false,
-  "required": ["name", "section", "category", "source", "tags", "ingredients", "instructions", "is_blank"],
+  "required": ["id", "name", "section", "category", "source", "tags", "ingredients", "instructions", "is_blank"],
   "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Stable, permanent identity. A lowercase slug of the record's name AT ASSIGNMENT TIME, collisions broken with -2, -3. FROZEN: it is never recomputed. Renaming a recipe MUST NOT change its id, and nothing may derive an id from a name at runtime — the slug function exists only in the one-time assignment script and is deliberately absent from src/. src/data/recipes.ids.json is the frozen {id: nameAtAssignment} manifest and the drift guard. Assigned in PR 1; no consumer reads it yet.",
+      "minLength": 1
+    },
     "name": {
       "type": "string",
       "minLength": 1,

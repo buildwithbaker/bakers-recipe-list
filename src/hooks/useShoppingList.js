@@ -1,8 +1,9 @@
 // Shopping list — persisted to localStorage.
-// Items are grouped by recipe name. Checked items are crossed out but kept
+// Items are grouped by recipe id (ShoppingList resolves the label). Checked
+// items are crossed out but kept
 // until explicitly cleared so the user can shop at their own pace.
 //
-// schema: [{ id, text, recipe, checked }]
+// schema: [{ id, text, recipe (recipe id), checked }]
 
 import { useCallback, useState } from 'react';
 
@@ -27,14 +28,14 @@ export function useShoppingList() {
   const [items, setItems] = useState(load);
 
   // Add all ingredients from a recipe (already scaled text).
-  const addItems = useCallback((recipeName, scaledTexts) => {
+  const addItems = useCallback((recipeId, scaledTexts) => {
     setItems((prev) => {
       // Remove existing items from the same recipe so re-adding replaces them.
-      const without = prev.filter((it) => it.recipe !== recipeName);
+      const without = prev.filter((it) => it.recipe !== recipeId);
       const added = scaledTexts.map((text) => ({
         id: nextId(),
         text,
-        recipe: recipeName,
+        recipe: recipeId,
         checked: false,
       }));
       const next = [...without, ...added];

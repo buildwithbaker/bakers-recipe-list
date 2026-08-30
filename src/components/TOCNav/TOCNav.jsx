@@ -1,13 +1,16 @@
 import { useEffect, useRef } from 'react';
-import { SECTIONS } from '../../data/sections.js';
+import { navSectionsByTab } from '../../data/navSections.js';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import styles from './TOCNav.module.css';
 
-// Hamburger drawer that lists every section as a vertical link.
-// Visibility is controlled by the parent (App) via `open` + `onClose`.
+// Hamburger drawer that lists every section that actually renders rows, grouped
+// under the tab that owns it. Visibility is controlled by the parent (App) via
+// `open` + `onClose`, and navigation is delegated to `onNavigate` because a
+// section may live on a tab that is not the active one — App switches the tab,
+// then scrolls once the target has rendered.
 // Outside-click dismiss: the overlay div covers the full viewport and calls
 // onClose directly — clicking anywhere outside the drawer closes it.
-export default function TOCNav({ open, onClose }) {
+export default function TOCNav({ open, onClose, onNavigate, activeTab }) {
   const drawerRef = useRef(null);
 
   // Trap Tab focus inside the drawer while open (mirrors RecipeModal).
@@ -24,17 +27,9 @@ export default function TOCNav({ open, onClose }) {
     };
   }, [open, onClose]);
 
-  const handleLinkClick = (e, id) => {
+  const handleLinkClick = (e, section) => {
     e.preventDefault();
-    onClose();
-    // Defer scroll so the drawer can close and body-overflow can clear first.
-    // Smooth scroll comes from `html { scroll-behavior: smooth }` in globals.css.
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.scrollIntoView({ block: 'start' });
-      history.replaceState(null, '', `#${id}`);
-    }, 50);
+    onNavigate(section);
   };
 
   if (!open) return null;
@@ -60,19 +55,30 @@ export default function TOCNav({ open, onClose }) {
             &#x2715;
           </button>
         </div>
-        <ul className={styles.list}>
-          {SECTIONS.map((section) => (
-            <li key={section.id}>
-              <a
-                href={`#${section.id}`}
-                className={section.review ? `${styles.link} ${styles.review}` : styles.link}
-                onClick={(e) => handleLinkClick(e, section.id)}
-              >
-                {section.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {navSectionsByTab.map((group) => (
+          <div key={group.tab} className={styles.group}>
+            <div className={styles.groupHeading}>
+              {group.label}
+              {group.tab === activeTab && (
+                <span className={styles.groupCurrent}>current tab</span>
+              )}
+            </div>
+            <ul className={styles.list}>
+              {group.sections.map((section) => (
+                <li key={section.id}>
+                  <a
+                    href={`#${section.id}`}
+                    className={section.review ? `${styles.link} ${styles.review}` : styles.link}
+                    onClick={(e) => handleLinkClick(e, section)}
+                  >
+                    {section.label}
+                    <span className={styles.count}>{section.count}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </nav>
     </div>
   );
