@@ -26,6 +26,7 @@ const categoryEnum = props.category.enum;
 const ingTypeEnum = props.ingredients.items.properties.type.enum;
 const tagPattern = new RegExp(props.tags.items.pattern);
 const instrKeys = Object.keys(props.instructions.items.properties);
+const idPattern = new RegExp(props.id.pattern);
 
 // 0. recipes.json must be an array.
 if (!Array.isArray(recipes)) {
@@ -44,6 +45,7 @@ if (JSON.stringify(secKeys) !== JSON.stringify(schemaSecs)) {
 }
 
 const seen = new Map();
+const seenIds = new Map();
 
 recipes.forEach((r, i) => {
   const where = `record #${i}${r && typeof r.name === 'string' ? ` ("${r.name}")` : ''}`;
@@ -59,6 +61,13 @@ recipes.forEach((r, i) => {
   Object.keys(r).forEach((k) => {
     if (!(k in props)) errors.push(`${where} has unknown field "${k}"`);
   });
+
+  // id — frozen identity. Never recomputed from the name; see recipe.schema.json.
+  if (typeof r.id !== 'string' || !idPattern.test(r.id)) {
+    errors.push(`${where} id must be a string matching ${props.id.pattern}`);
+  } else {
+    seenIds.set(r.id, (seenIds.get(r.id) || 0) + 1);
+  }
 
   // name (canonical key)
   if (typeof r.name !== 'string' || r.name.trim() === '') {
@@ -146,6 +155,15 @@ recipes.forEach((r, i) => {
   }
 });
 
+// duplicate ids
+const idDups = [...seenIds.entries()].filter(([, c]) => c > 1);
+if (idDups.length) {
+  errors.push(
+    `${idDups.length} duplicate recipe id(s): ` +
+      idDups.map(([n, c]) => `"${n}" (×${c})`).join(', '),
+  );
+}
+
 // duplicate names
 const dups = [...seen.entries()].filter(([, c]) => c > 1);
 if (dups.length) {
@@ -163,5 +181,5 @@ if (errors.length) {
 }
 
 console.log(
-  `✓ recipes.json OK — ${recipes.length} records, ${seen.size} unique names, validated against recipe.schema.json`,
+  `✓ recipes.json OK — ${recipes.length} records, ${seen.size} unique names, ${seenIds.size} unique ids, validated against recipe.schema.json`,
 );
