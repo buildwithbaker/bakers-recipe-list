@@ -1,7 +1,15 @@
 import { useEffect, useRef } from 'react';
+import { resolveRecipe } from '../../data/recipeIndex.js';
 import styles from './ShoppingList.module.css';
 
-// Groups a flat items array by recipe name, preserving insertion order.
+// Items are keyed by recipe id; the heading needs a name. Falls back to the
+// stored key so a group whose recipe has since been removed still labels
+// itself with whatever it was added under.
+function recipeLabel(key) {
+  return resolveRecipe(key)?.name ?? key;
+}
+
+// Groups a flat items array by recipe id, preserving insertion order.
 function groupByRecipe(items) {
   const map = new Map();
   for (const item of items) {
@@ -85,7 +93,7 @@ export default function ShoppingList({ items, open, onClose, onToggle, onRemove,
           <div className={styles.body}>
             {[...groups.entries()].map(([recipe, rItems]) => (
               <div key={recipe} className={styles.group}>
-                <div className={styles.groupLabel}>{recipe}</div>
+                <div className={styles.groupLabel}>{recipeLabel(recipe)}</div>
                 <ul className={styles.itemList}>
                   {rItems.map((item) => (
                     <li key={item.id} className={`${styles.item} ${item.checked ? styles.itemChecked : ''}`}>

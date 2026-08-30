@@ -258,27 +258,27 @@ function Instructions({ steps }) {
 }
 
 // Cook log section — history summary + notes textarea + manual log button
-function CookLogSection({ recipeName }) {
+function CookLogSection({ recipeId }) {
   const { cookLog, logCook, updateNotes } = useCookHistoryContext();
-  const entry = cookLog[recipeName];
+  const entry = cookLog[recipeId];
   const [draft, setDraft] = useState(entry?.notes ?? '');
   const [loggedFlash, setLoggedFlash] = useState(false);
 
   // Keep draft in sync if another tab updates localStorage (edge case)
   useEffect(() => {
-    setDraft(cookLog[recipeName]?.notes ?? '');
-  }, [recipeName, cookLog]);
+    setDraft(cookLog[recipeId]?.notes ?? '');
+  }, [recipeId, cookLog]);
 
   const handleBlur = () => {
     const trimmed = draft.trim();
     // Only write if value actually changed to avoid spurious localStorage writes.
     if (trimmed !== (entry?.notes ?? '').trim()) {
-      updateNotes(recipeName, trimmed);
+      updateNotes(recipeId, trimmed);
     }
   };
 
   const handleLogCook = () => {
-    logCook(recipeName);
+    logCook(recipeId);
     setLoggedFlash(true);
     setTimeout(() => setLoggedFlash(false), 2000);
   };
@@ -366,7 +366,8 @@ export default function RecipeModal({ recipe, onClose, onTagClick, onAddToList }
   const handleScaleUp   = () => { if (scaleIdx < SCALE_STEPS.length - 1) setScale(SCALE_STEPS[scaleIdx + 1]); };
 
   const handleShare = () => {
-    const url = `${window.location.origin}${window.location.pathname}?recipe=${encodeURIComponent(recipe.name)}`;
+    // Share the id: it survives a rename, where the name does not.
+    const url = `${window.location.origin}${window.location.pathname}?recipe=${encodeURIComponent(recipe.id)}`;
     if (navigator.share) {
       navigator.share({ title: recipe.name, url }).catch(() => {});
     } else {
@@ -378,7 +379,7 @@ export default function RecipeModal({ recipe, onClose, onTagClick, onAddToList }
   };
 
   const handleAddToList = (items, sc) => {
-    onAddToList?.(recipe.name, items, sc);
+    onAddToList?.(recipe.id, items, sc);
   };
 
   return (
@@ -438,7 +439,7 @@ export default function RecipeModal({ recipe, onClose, onTagClick, onAddToList }
                     <MacroCard {...macroState} />
                   </Suspense>
                 </MacroErrorBoundary>
-                <CookLogSection recipeName={recipe.name} />
+                <CookLogSection recipeId={recipe.id} />
               </div>
             </>
           )}

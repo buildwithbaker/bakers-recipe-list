@@ -315,12 +315,12 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
     const applyFilters = (list) => {
       let matches = q ? list.filter((r) => recipeMatchesQuery(r, q)) : list;
       if (madeFilter === 'made') {
-        matches = matches.filter((r) => r.is_blank || madeSet.has(r.name));
+        matches = matches.filter((r) => r.is_blank || madeSet.has(r.id));
       } else if (madeFilter === 'unmade') {
-        matches = matches.filter((r) => r.is_blank || !madeSet.has(r.name));
+        matches = matches.filter((r) => r.is_blank || !madeSet.has(r.id));
       }
       if (pinnedFilter) {
-        matches = matches.filter((r) => r.is_blank || pinnedSet.has(r.name));
+        matches = matches.filter((r) => r.is_blank || pinnedSet.has(r.id));
       }
       if (hideBlanks) {
         matches = matches.filter((r) => !r.is_blank);

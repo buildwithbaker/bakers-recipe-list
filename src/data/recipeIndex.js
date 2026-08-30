@@ -13,6 +13,7 @@
 // display name that the raw-name lookup could not find, and the card silently
 // rendered nothing.
 import recipes from './recipes.json';
+import idManifest from './recipes.ids.json';
 import { SECTIONS } from './sections.js';
 import { expandVersionedRecipe } from './expandVersions.js';
 
@@ -40,11 +41,34 @@ export const displayedBySection = (() => {
   return map;
 })();
 
-// Name→recipe resolution. Display names are canonical and are written last, so
-// they win any tie. The pre-expansion names are seeded first as fallback
-// aliases, which keeps `?recipe=Tandoori%20-%20Chicken%20Marinade` links and
-// Recently Viewed entries saved before the expansion existed resolving.
-export const recipesByName = new Map([
-  ...recipes.map((r) => [r.name, r]),
-  ...displayRecipes.map((r) => [r.name, r]),
-]);
+// id→recipe, over DISPLAY rows, so an expanded child resolves by its derived
+// `${parent}::v{n}` id and an unexpanded record by its own. This is the primary
+// lookup: `id` is what state keys and `?recipe=` links carry.
+export const recipesById = new Map(displayRecipes.map((r) => [r.id, r]));
+
+// Name→recipe: the ALIAS LAYER. Names stay resolvable forever, so no link or
+// stored entry ever dies, but they are no longer the identity.
+//
+// Seeded in ASCENDING precedence — each pass overwrites the last, so the
+// listed-first source wins:
+//   3. legacy names from the frozen manifest (what a pre-migration link held)
+//   2. raw pre-expansion names from recipes.json
+//   1. display names — canonical, written last, win every tie
+export const recipesByName = (() => {
+  const byId = new Map(recipes.map((r) => [r.id, r]));
+  const map = new Map();
+  for (const [id, legacyName] of Object.entries(idManifest.ids)) {
+    const record = byId.get(id);
+    if (record) map.set(legacyName, record);
+  }
+  for (const r of recipes) map.set(r.name, r);
+  for (const r of displayRecipes) map.set(r.name, r);
+  return map;
+})();
+
+// The one resolution entry point: id first, then any name alias. Everything
+// that turns a stored string back into a recipe goes through this.
+export function resolveRecipe(key) {
+  if (!key) return null;
+  return recipesById.get(key) ?? recipesByName.get(key) ?? null;
+}

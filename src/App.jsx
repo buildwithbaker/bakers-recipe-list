@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { recipesByName } from './data/recipeIndex.js';
+import { resolveRecipe } from './data/recipeIndex.js';
 import { TAB_RECIPES } from './data/navSections.js';
 import TopBar from './components/TopBar/TopBar.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
@@ -65,20 +65,24 @@ function entryOverlays() {
   } catch { return []; }
 }
 
-function recipeNameIn(overlays) {
+// The recipe key carried on the current entry. Now an id for anything this
+// build wrote, but an old shared link still carries a name — resolution below
+// takes either, so both keep working.
+function recipeKeyIn(overlays) {
   const token = overlays.find((t) => t.startsWith(RECIPE_PREFIX));
   return token ? token.slice(RECIPE_PREFIX.length) : '';
 }
 
 // Only the recipe card is shareable, so it is the only layer mirrored into the URL.
 function urlForOverlays(overlays) {
-  return urlWithParam('recipe', recipeNameIn(overlays));
+  return urlWithParam('recipe', recipeKeyIn(overlays));
 }
 
-// Resolves against the same map the rendered rows draw their names from, so an
-// expanded review row ("Lemon Herb (Version 1)") opens the version the row shows.
-function findRecipe(name) {
-  return name ? (recipesByName.get(name) ?? null) : null;
+// Resolution order: id, then display name, then raw pre-expansion name, then
+// the frozen manifest's legacy name — see resolveRecipe in recipeIndex.js.
+// `?recipe=` now emits an id, and every link ever shared still opens.
+function findRecipe(key) {
+  return resolveRecipe(key);
 }
 
 // On first paint: a reload keeps history.state, so trust it. A fresh shared link
@@ -108,7 +112,7 @@ function AppInner() {
   const [darkMode, toggleDark] = useDarkMode();
   const [listItems, addListItems, toggleListItem, removeListItem, clearChecked, clearAll] = useShoppingList();
 
-  const selectedRecipe = findRecipe(recipeNameIn(overlays));
+  const selectedRecipe = findRecipe(recipeKeyIn(overlays));
   const menuOpen = overlays.includes(MENU);
   const listOpen = overlays.includes(LIST);
 
@@ -145,13 +149,13 @@ function AppInner() {
   }, [applyOverlays]);
 
   const handleViewRecipe = useCallback((recipe) => {
-    openOverlay(RECIPE_PREFIX + recipe.name);
+    openOverlay(RECIPE_PREFIX + recipe.id);
     addToHistory(recipe);
   }, [openOverlay, addToHistory]);
 
   const closeRecipe = useCallback(() => {
-    const name = recipeNameIn(overlaysRef.current);
-    return name ? closeOverlay(RECIPE_PREFIX + name) : false;
+    const key = recipeKeyIn(overlaysRef.current);
+    return key ? closeOverlay(RECIPE_PREFIX + key) : false;
   }, [closeOverlay]);
 
   const handleCloseModal = useCallback(() => { closeRecipe(); }, [closeRecipe]);
@@ -193,11 +197,11 @@ function AppInner() {
 
   // Called from RecipeModal's "List" button — adds scaled ingredients to shopping list.
   // The list opens on TOP of the card, so Back closes the list and leaves the card open.
-  const handleAddToList = useCallback((recipeName, ingredients, scale) => {
+  const handleAddToList = useCallback((recipeId, ingredients, scale) => {
     const texts = ingredients
       .filter((ing) => ing.type === 'item')
       .map((ing) => scaleIngredientText(ing.text, scale));
-    addListItems(recipeName, texts);
+    addListItems(recipeId, texts);
     openOverlay(LIST);
   }, [addListItems, openOverlay]);
 

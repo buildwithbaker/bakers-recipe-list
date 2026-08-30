@@ -26,9 +26,11 @@ function isToTry(recipe) {
 
 function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
   const { madeSet, toggleMade, cookLog, pinnedSet, togglePinned } = useCookHistoryContext();
-  const isMade   = madeSet.has(recipe.name);
-  const isPinned = pinnedSet.has(recipe.name);
-  const hasNotes = !!(cookLog[recipe.name]?.notes?.trim());
+  // Keyed by id, not name: an expanded row's name renumbers when its record
+  // gains a version, and `id` does not.
+  const isMade   = madeSet.has(recipe.id);
+  const isPinned = pinnedSet.has(recipe.id);
+  const hasNotes = !!(cookLog[recipe.id]?.notes?.trim());
 
   const tags = getEffectiveTags(recipe).join(' ');
 
@@ -84,14 +86,14 @@ function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
             <button
               type="button"
               className={`${styles.pinBtn} ${isPinned ? styles.pinBtnActive : ''}`}
-              onClick={() => togglePinned(recipe.name)}
+              onClick={() => togglePinned(recipe.id)}
               aria-label={isPinned ? 'Unpin recipe' : 'Pin recipe'}
               title={isPinned ? 'Pinned — click to unpin' : 'Pin for later'}
             >★</button>
             <button
               type="button"
               className={`${styles.madeBtn} ${isMade ? styles.madeBtnActive : ''}`}
-              onClick={() => toggleMade(recipe.name)}
+              onClick={() => toggleMade(recipe.id)}
               aria-label={isMade ? 'Mark as not made' : 'Mark as made'}
               title={isMade ? 'Unmark' : 'Made it!'}
             >
