@@ -19,6 +19,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npm run lint --if-present
-      - run: npm test --if-present
+      # No --if-present: a check that silently vanishes when someone deletes
+      # the script is not a check. Fail loudly instead.
+      - run: npm run lint
+      - run: npm test
       - run: npm run build
