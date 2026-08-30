@@ -150,19 +150,32 @@ describe('recipe ids', () => {
     expect(new Set(recipes.map((r) => r.id)).size).toBe(recipes.length);
   });
 
-  // The drift guard. If an id is edited, or a record is renamed and someone
-  // "helpfully" regenerates its id, these two stop the merge.
-  it('still holds every id in the frozen manifest, against the same name', () => {
+  // The drift guard proper: an id, once assigned, never changes and never
+  // disappears. This is what makes "renamed the recipe, regenerated the id"
+  // unmergeable — the old id would vanish from recipes.json.
+  it('still holds every id in the frozen manifest', () => {
     const byId = new Map(recipes.map((r) => [r.id, r]));
-    const drifted = Object.entries(idManifest)
-      .map(([id, name]) => {
-        const found = byId.get(id);
-        if (!found) return `${id}: gone from recipes.json (was "${name}")`;
-        if (found.name !== name) return `${id}: name changed "${name}" -> "${found.name}"`;
-        return null;
-      })
-      .filter(Boolean);
-    expect(drifted).toEqual([]);
+    const gone = Object.entries(idManifest)
+      .filter(([id]) => !byId.has(id))
+      .map(([id, name]) => `${id}: gone from recipes.json (was "${name}")`);
+    expect(gone).toEqual([]);
+  });
+
+  // The manifest records the name each id was assigned AGAINST, which is also
+  // the localStorage key users currently have. No recipe has been renamed since
+  // assignment, so it must still match everywhere.
+  //
+  // NOTE for the first legitimate rename: the fix is to RELAX this test, not to
+  // update the manifest. The manifest is a frozen historical snapshot — the
+  // migration needs the name that is in users' localStorage, which is the old
+  // one. Rewriting it to a new name would silently orphan that record's saved
+  // state, the exact failure the id pass exists to prevent.
+  it('still maps every id to the name it was assigned against', () => {
+    const byId = new Map(recipes.map((r) => [r.id, r]));
+    const renamed = Object.entries(idManifest)
+      .filter(([id, name]) => byId.has(id) && byId.get(id).name !== name)
+      .map(([id, name]) => `${id}: "${name}" -> "${byId.get(id).name}"`);
+    expect(renamed).toEqual([]);
   });
 
   it('gives every record a manifest entry', () => {
