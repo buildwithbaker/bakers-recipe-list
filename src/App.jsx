@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { recipesByName } from './data/recipeIndex.js';
+import { TAB_RECIPES } from './data/navSections.js';
 import TopBar from './components/TopBar/TopBar.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
 import TOCNav from './components/TOCNav/TOCNav.jsx';
@@ -92,6 +93,12 @@ function initialOverlays() {
 function AppInner() {
   const [overlays, setOverlays] = useState(initialOverlays);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
+  // Which list tab is showing. Owned here, not in RecipeList, because the
+  // sections drawer can link to a section on a tab that is not the active one.
+  const [activeTab, setActiveTab] = useState(TAB_RECIPES);
+  // Section id waiting to be scrolled to once its tab has rendered and the
+  // drawer has closed.
+  const [pendingAnchor, setPendingAnchor] = useState(null);
   const searchBarRef = useRef(null);
   // Mirrors `overlays` for use inside callbacks that must not re-create on every change.
   const overlaysRef = useRef(overlays);
@@ -154,6 +161,15 @@ function AppInner() {
   }, [openOverlay, closeOverlay]);
   const handleMenuClose = useCallback(() => { closeOverlay(MENU); }, [closeOverlay]);
 
+  // A drawer entry may belong to another tab, so switch to the tab that renders
+  // the section first and record the anchor; the effect below does the scroll
+  // once that tab has painted and the drawer is actually gone.
+  const handleNavigateSection = useCallback((section) => {
+    setActiveTab(section.tab);
+    setPendingAnchor(section.id);
+    closeOverlay(MENU);
+  }, [closeOverlay]);
+
   const handleListToggle = useCallback(() => {
     if (overlaysRef.current.includes(LIST)) closeOverlay(LIST); else openOverlay(LIST);
   }, [openOverlay, closeOverlay]);
@@ -184,6 +200,29 @@ function AppInner() {
     addListItems(recipeName, texts);
     openOverlay(LIST);
   }, [addListItems, openOverlay]);
+
+  // Scroll to a section picked in the drawer. This replaces the 50ms setTimeout
+  // TOCNav used to guess with: the wait is not a fixed delay but two real
+  // conditions — the owning tab must have rendered (it has, this effect runs
+  // after commit) and the drawer must be closed, because it pins
+  // `body { overflow: hidden }` while open and closing it can take a back
+  // navigation to land. Re-runs when `menuOpen` finally flips.
+  useEffect(() => {
+    if (!pendingAnchor || menuOpen) return;
+    const el = document.getElementById(pendingAnchor);
+    setPendingAnchor(null);
+    if (!el) return;
+    el.scrollIntoView({ block: 'start' });
+    // Keep history.state (the overlay stack) and ?q= intact — a bare `#id` URL
+    // discards both and strands the Back button.
+    try {
+      window.history.replaceState(
+        window.history.state,
+        '',
+        `${window.location.pathname}${window.location.search}#${pendingAnchor}`,
+      );
+    } catch { /* ignore */ }
+  }, [pendingAnchor, menuOpen]);
 
   // Back/forward is the single source of truth for which layers are open.
   useEffect(() => {
@@ -240,7 +279,7 @@ function AppInner() {
         listItemCount={uncheckedCount}
       />
       <UsdaKeyNotice />
-      <TOCNav open={menuOpen} onClose={handleMenuClose} />
+      <TOCNav open={menuOpen} onClose={handleMenuClose} onNavigate={handleNavigateSection} activeTab={activeTab} />
       <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
       <RecentlyViewed
         history={recentHistory}
@@ -248,7 +287,13 @@ function AppInner() {
         onClear={clearHistory}
         searchQuery={searchQuery}
       />
-      <RecipeList onViewRecipe={handleViewRecipe} searchQuery={searchQuery} onSearch={handleSearch} />
+      <RecipeList
+        onViewRecipe={handleViewRecipe}
+        searchQuery={searchQuery}
+        onSearch={handleSearch}
+        activeTab={activeTab}
+        onTabChange={setActiveTab}
+      />
       <ErrorBoundary key={selectedRecipe?.name ?? '__none__'}>
         <RecipeModal
           recipe={selectedRecipe}

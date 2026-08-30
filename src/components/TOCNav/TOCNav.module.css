@@ -94,3 +94,50 @@
 .link.review:hover {
   border-left-color: #1A6B5A;
 }
+
+/* --- Tab groups -----------------------------------------------------------
+   Entries are grouped under the tab that renders them, because clicking one
+   may switch tabs. Without the heading a "Marinades" under Recipes and a
+   "For Review: Marinades - Chicken" read as the same kind of destination. */
+
+.group + .group {
+  border-top: 1px solid var(--border);
+}
+
+.groupHeading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 12px 18px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+}
+
+.groupCurrent {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: var(--blue);
+  background: var(--border);
+  border-radius: 8px;
+  padding: 2px 6px;
+  text-transform: none;
+}
+
+.link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.count {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
