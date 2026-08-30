@@ -127,9 +127,14 @@
   line-height: 1.45;
 }
 
-.ingList li.ingSection {
+/* Sub-group markers (type:"section" / type:"header") read as subheadings in
+   BOTH ingredient views. They used to be scoped to .ingList only, so in the
+   shopping-list picker they inherited plain item styling and a divider like
+   "Version 1 - BBC Good Food" was indistinguishable from an ingredient —
+   sitting among checkboxes without one. */
+.ingList li.ingSection,
+.ingSelectList li.ingSection {
   list-style: none;
-  margin-left: -22px;
   font-weight: 600;
   color: var(--card-tag-strong);
   margin-top: 8px;
@@ -137,13 +142,19 @@
   font-style: italic;
 }
 
-.ingList li.ingHeader {
+.ingList li.ingHeader,
+.ingSelectList li.ingHeader {
   list-style: none;
-  margin-left: -22px;
   font-weight: 500;
   color: var(--card-section-label);
   margin-top: 8px;
   font-size: 13px;
+}
+
+/* Pull back out of .ingList's bullet indent. .ingSelectList has no indent. */
+.ingList li.ingSection,
+.ingList li.ingHeader {
+  margin-left: -22px;
 }
 
 .stepList {

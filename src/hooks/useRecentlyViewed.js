@@ -1,7 +1,7 @@
 // Tracks the last N recipes opened by the user, persisted to localStorage.
 // Returns [history, addToHistory, clearHistory] where:
 //   history       — array of recipe objects (most recent first, max 5)
-//   addToHistory  — adds a recipe to the front, deduplicates by name
+//   addToHistory  — adds a recipe to the front, deduplicates by id
 //   clearHistory  — wipes the list and localStorage entry
 
 import { useCallback, useState } from 'react';
@@ -29,10 +29,11 @@ export function useRecentlyViewed() {
 
   const addToHistory = useCallback((recipe) => {
     setHistory((prev) => {
-      // Deduplicate: remove any existing entry for this recipe name.
-      const deduped = prev.filter((r) => r.name !== recipe.name);
+      // Deduplicate by id. `name` is still stored: it is the label if the
+      // recipe is ever removed and the id stops resolving.
+      const deduped = prev.filter((r) => (r.id ?? r.name) !== recipe.id);
       // Prepend the new recipe, cap at MAX.
-      const next = [{ name: recipe.name, section: recipe.section }, ...deduped].slice(0, MAX);
+      const next = [{ id: recipe.id, name: recipe.name, section: recipe.section }, ...deduped].slice(0, MAX);
       saveHistory(next);
       return next;
     });

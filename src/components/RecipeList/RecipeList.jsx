@@ -1,7 +1,7 @@
 import { useDeferredValue, useCallback, useMemo, useRef, useState, useEffect } from 'react';
-import recipes from '../../data/recipes.json';
+import { displayRecipes, displayedBySection } from '../../data/recipeIndex.js';
+import { TAB_PEANUT, TAB_RECIPES, TAB_REVIEW, TAB_TOTRY } from '../../data/navSections.js';
 import { SECTIONS } from '../../data/sections.js';
-import { expandVersionedRecipe } from '../../data/expandVersions.js';
 import SectionBlock from '../SectionBlock/SectionBlock.jsx';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
@@ -12,15 +12,6 @@ import styles from './RecipeList.module.css';
 // Module-scope constants
 // ---------------------------------------------------------------------------
 
-const recipesBySection = (() => {
-  const map = new Map();
-  recipes.forEach((recipe) => {
-    if (!map.has(recipe.section)) map.set(recipe.section, []);
-    map.get(recipe.section).push(recipe);
-  });
-  return map;
-})();
-
 const SECTION_BY_KEY = new Map(SECTIONS.map((s) => [s.key, s]));
 
 // Published Recipes tab = everything that is neither a For-Review nor a To-Try
@@ -30,19 +21,12 @@ const mainSections   = SECTIONS.filter((s) => !s.review && !s.toTry);
 const reviewSections = SECTIONS.filter((s) => !!s.review);
 const toTrySections  = SECTIONS.filter((s) => !!s.toTry);
 
-const displayedBySection = (() => {
-  const map = new Map();
-  for (const [key, recs] of recipesBySection) {
-    const section = SECTION_BY_KEY.get(key);
-    map.set(key, section?.review ? recs.flatMap(expandVersionedRecipe) : recs);
-  }
-  return map;
-})();
-
 // Peanut Butter tab = a purely tag-driven view of every recipe whose `tags`
 // array contains "#peanut", regardless of which section/tab it otherwise lives
 // in. Filter on the raw tag only — NOT auto-derived tags and NOT by section.
-const peanutRecipes = recipes.filter(
+// Drawn from the display list so a #peanut recipe staged in a review section
+// would render the same expanded rows (and the same names) as its own section.
+const peanutRecipes = displayRecipes.filter(
   (r) => Array.isArray(r.tags) && r.tags.includes('#peanut'),
 );
 
@@ -85,9 +69,11 @@ const PEANUT_GROUPS = (() => {
 const PEANUT_TOTAL = peanutRecipes.length;
 
 // All tags (manual + auto-derived) with counts — computed once at module scope.
+// Counted over display rows, because clicking a pill searches the display list:
+// counting raw records instead reported "#marinade 69" and then returned 128.
 const allTagCounts = (() => {
   const counts = new Map();
-  recipes.forEach((r) => {
+  displayRecipes.forEach((r) => {
     getEffectiveTags(r).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1));
   });
   // Sort by count desc, then alphabetically.
@@ -274,10 +260,9 @@ function ListToolbar({ onRandom, madeFilter, onToggleMadeFilter, hasMade, pinned
 // Component
 // ---------------------------------------------------------------------------
 
-export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
+export default function RecipeList({ onViewRecipe, searchQuery, onSearch, activeTab, onTabChange }) {
   const deferredQuery = useDeferredValue(searchQuery || '');
   const isFiltering = (searchQuery || '') !== deferredQuery;
-  const [activeTab, setActiveTab] = useState('recipes');
   const [madeFilter, setMadeFilter] = useState('all');
   const [pinnedFilter, setPinnedFilter] = useState(false);
   const [hideBlanks, setHideBlanks] = useState(loadHideBlanks);
@@ -330,12 +315,12 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
     const applyFilters = (list) => {
       let matches = q ? list.filter((r) => recipeMatchesQuery(r, q)) : list;
       if (madeFilter === 'made') {
-        matches = matches.filter((r) => r.is_blank || madeSet.has(r.name));
+        matches = matches.filter((r) => r.is_blank || madeSet.has(r.id));
       } else if (madeFilter === 'unmade') {
-        matches = matches.filter((r) => r.is_blank || !madeSet.has(r.name));
+        matches = matches.filter((r) => r.is_blank || !madeSet.has(r.id));
       }
       if (pinnedFilter) {
-        matches = matches.filter((r) => r.is_blank || pinnedSet.has(r.name));
+        matches = matches.filter((r) => r.is_blank || pinnedSet.has(r.id));
       }
       if (hideBlanks) {
         matches = matches.filter((r) => !r.is_blank);
@@ -343,7 +328,7 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
       return matches;
     };
 
-    if (activeTab === 'peanut') {
+    if (activeTab === TAB_PEANUT) {
       for (const group of PEANUT_GROUPS) {
         const matches = applyFilters(group.recipes);
         if (matches.length > 0) out.set(group.key, matches);
@@ -352,8 +337,8 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
     }
 
     const sectionsToSearch =
-      activeTab === 'recipes' ? mainSections :
-      activeTab === 'totry'   ? toTrySections :
+      activeTab === TAB_RECIPES ? mainSections :
+      activeTab === TAB_TOTRY   ? toTrySections :
       reviewSections;
     for (const section of sectionsToSearch) {
       const displayed = displayedBySection.get(section.key) || [];
@@ -378,29 +363,29 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
       <div className={styles.tabBar}>
         <button
           type="button"
-          className={`${styles.tabBtn} ${activeTab === 'recipes' ? styles.tabBtnActive : ''}`}
-          onClick={() => setActiveTab('recipes')}
+          className={`${styles.tabBtn} ${activeTab === TAB_RECIPES ? styles.tabBtnActive : ''}`}
+          onClick={() => onTabChange(TAB_RECIPES)}
         >
           Recipes
         </button>
         <button
           type="button"
-          className={`${styles.tabBtn} ${activeTab === 'review' ? styles.tabBtnActive : ''}`}
-          onClick={() => setActiveTab('review')}
+          className={`${styles.tabBtn} ${activeTab === TAB_REVIEW ? styles.tabBtnActive : ''}`}
+          onClick={() => onTabChange(TAB_REVIEW)}
         >
           For Review
         </button>
         <button
           type="button"
-          className={`${styles.tabBtn} ${activeTab === 'totry' ? styles.tabBtnActive : ''}`}
-          onClick={() => setActiveTab('totry')}
+          className={`${styles.tabBtn} ${activeTab === TAB_TOTRY ? styles.tabBtnActive : ''}`}
+          onClick={() => onTabChange(TAB_TOTRY)}
         >
           To Try
         </button>
         <button
           type="button"
-          className={`${styles.tabBtn} ${activeTab === 'peanut' ? styles.tabBtnActive : ''}`}
-          onClick={() => setActiveTab('peanut')}
+          className={`${styles.tabBtn} ${activeTab === TAB_PEANUT ? styles.tabBtnActive : ''}`}
+          onClick={() => onTabChange(TAB_PEANUT)}
         >
           Peanut Butter ({PEANUT_TOTAL})
         </button>
@@ -442,9 +427,9 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch }) {
         )
       )}
       {(
-        activeTab === 'recipes' ? mainSections :
-        activeTab === 'totry'   ? toTrySections :
-        activeTab === 'peanut'  ? PEANUT_GROUPS :
+        activeTab === TAB_RECIPES ? mainSections :
+        activeTab === TAB_TOTRY   ? toTrySections :
+        activeTab === TAB_PEANUT  ? PEANUT_GROUPS :
         reviewSections
       ).map((section) => {
         const displayed = filtered.get(section.key) || [];

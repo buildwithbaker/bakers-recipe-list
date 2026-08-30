@@ -10,7 +10,11 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  build:
+  # The real work. Named `verify`, not `build`, because deploy.yml also has a
+  # job called `build` and branch protection matches required checks BY NAME —
+  # a gate written to mean "the job that runs the tests" could otherwise be
+  # satisfied by a different workflow's job that happens to share the name.
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +23,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npm run lint --if-present
-      - run: npm test --if-present
+      # No --if-present: a check that silently vanishes when someone deletes
+      # the script is not a check. Fail loudly instead.
+      - run: npm run lint
+      - run: npm test
       - run: npm run build

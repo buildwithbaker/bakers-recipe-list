@@ -1,5 +1,6 @@
 [
   {
+    "id": "spicy-pork-patties",
     "name": "Spicy Pork Patties",
     "section": "BREAKFAST",
     "category": "Breakfast",
@@ -75,6 +76,7 @@
     "is_blank": false
   },
   {
+    "id": "scrambled-eggs",
     "name": "Scrambled Eggs",
     "section": "BREAKFAST",
     "category": "Breakfast",
@@ -110,6 +112,7 @@
     "is_blank": false
   },
   {
+    "id": "breakfast-burrito",
     "name": "Breakfast Burrito",
     "section": "BREAKFAST",
     "category": "Breakfast",
@@ -123,6 +126,7 @@
     "is_blank": true
   },
   {
+    "id": "breakfast-muffins",
     "name": "Breakfast Muffins",
     "section": "BREAKFAST",
     "category": "Breakfast",
@@ -136,6 +140,7 @@
     "is_blank": true
   },
   {
+    "id": "oatmeal",
     "name": "Oatmeal",
     "section": "BREAKFAST",
     "category": "Breakfast",
@@ -191,6 +196,7 @@
     "is_blank": false
   },
   {
+    "id": "pulled-pork",
     "name": "Pulled Pork",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -266,6 +272,7 @@
     "is_blank": false
   },
   {
+    "id": "pepperoncini-beef",
     "name": "Pepperoncini Beef",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -305,6 +312,7 @@
     "is_blank": false
   },
   {
+    "id": "orange-chicken-and-broccoli",
     "name": "Orange Chicken and Broccoli",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -318,6 +326,7 @@
     "is_blank": true
   },
   {
+    "id": "beef-stew",
     "name": "Beef Stew",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -382,6 +391,7 @@
     "is_blank": false
   },
   {
+    "id": "pork-stew",
     "name": "Pork Stew",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -446,6 +456,7 @@
     "is_blank": false
   },
   {
+    "id": "corned-beef-and-cabbage",
     "name": "Corned Beef and Cabbage",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -501,6 +512,7 @@
     "is_blank": false
   },
   {
+    "id": "tortellini-soup",
     "name": "Tortellini Soup",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -515,6 +527,7 @@
     "is_blank": true
   },
   {
+    "id": "barbacoa-beef",
     "name": "Barbacoa Beef",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
@@ -529,6 +542,7 @@
     "is_blank": true
   },
   {
+    "id": "taco-seasoning",
     "name": "Taco Seasoning",
     "section": "SEASONINGS",
     "category": "Seasonings",
@@ -542,6 +556,7 @@
     "is_blank": true
   },
   {
+    "id": "tandoori",
     "name": "Tandoori",
     "section": "SEASONINGS",
     "category": "Seasonings",
@@ -555,6 +570,7 @@
     "is_blank": true
   },
   {
+    "id": "garam-masala",
     "name": "Garam Masala",
     "section": "SEASONINGS",
     "category": "Seasonings",
@@ -568,6 +584,7 @@
     "is_blank": true
   },
   {
+    "id": "curry-powder",
     "name": "Curry Powder",
     "section": "SEASONINGS",
     "category": "Seasonings",
@@ -581,6 +598,7 @@
     "is_blank": true
   },
   {
+    "id": "italian-seasoning",
     "name": "Italian Seasoning",
     "section": "SEASONINGS",
     "category": "Seasonings",
@@ -594,6 +612,7 @@
     "is_blank": true
   },
   {
+    "id": "rib-rub",
     "name": "Rib Rub",
     "section": "SEASONINGS",
     "category": "Seasonings",
@@ -662,6 +681,7 @@
     "is_blank": false
   },
   {
+    "id": "pork-carnitas-spice-rub",
     "name": "Pork Carnitas Spice Rub",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -769,6 +789,7 @@
     "is_blank": false
   },
   {
+    "id": "noodle-dough",
     "name": "Noodle Dough",
     "section": "DOUGHS",
     "category": "Doughs",
@@ -781,6 +802,7 @@
     "is_blank": true
   },
   {
+    "id": "biscuit-dough",
     "name": "Biscuit Dough",
     "section": "DOUGHS",
     "category": "Doughs",
@@ -794,6 +816,7 @@
     "is_blank": true
   },
   {
+    "id": "white-bread-dough",
     "name": "White Bread Dough",
     "section": "DOUGHS",
     "category": "Doughs",
@@ -807,6 +830,7 @@
     "is_blank": true
   },
   {
+    "id": "wheat-bread-dough",
     "name": "Wheat Bread Dough",
     "section": "DOUGHS",
     "category": "Doughs",
@@ -915,6 +939,7 @@
     "is_blank": false
   },
   {
+    "id": "burger",
     "name": "Burger",
     "section": "AMERICAN",
     "category": "American",
@@ -928,6 +953,7 @@
     "is_blank": true
   },
   {
+    "id": "baked-bean-casserole",
     "name": "Baked Bean Casserole",
     "section": "AMERICAN",
     "category": "American",
@@ -941,6 +967,7 @@
     "is_blank": true
   },
   {
+    "id": "garlic-butter-chicken-and-potatoes-skillet",
     "name": "Garlic Butter Chicken and Potatoes Skillet",
     "section": "AMERICAN",
     "category": "American",
@@ -1037,6 +1064,7 @@
     "is_blank": false
   },
   {
+    "id": "meatloaf",
     "name": "Meatloaf",
     "section": "AMERICAN",
     "category": "American",
@@ -1121,6 +1149,7 @@
     "is_blank": false
   },
   {
+    "id": "marinated-chicken-drumsticks",
     "name": "Marinated Chicken Drumsticks",
     "section": "AMERICAN",
     "category": "American",
@@ -1204,6 +1233,121 @@
     "is_blank": false
   },
   {
+    "id": "soy-garlic-paprika-drumsticks",
+    "name": "Soy-Garlic-Paprika Drumsticks",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#drumsticks",
+      "#soy-garlic",
+      "#smoked-paprika",
+      "#spicy",
+      "#oven-roasted",
+      "#dry-brine",
+      "#american"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "8 chicken drumsticks (about 2 1/2 lb), skin on"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp kosher salt (for the dry brine)"
+      },
+      {
+        "type": "header",
+        "text": "Bloomed Spice Oil:"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "4 cloves garlic, grated on a microplane"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp crushed red pepper flakes (or 1 Tbsp gochugaru)"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp coarse black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Stirred In After Cooling:"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp brown sugar (or honey)"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lemon juice"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Dry Brine (5-6 hr Ahead)",
+        "detail": "Makes 4 servings, 2 drumsticks each. Pat the drumsticks (8, about 2 1/2 lb) completely dry. Rub kosher salt (2 tsp) over all sides. Set on a wire rack over a sheet pan and refrigerate uncovered 5 to 6 hours. Uncovered is load-bearing - airflow dries the skin while the salt migrates inward. This step, not the marinade, is what makes the skin crisp."
+      },
+      {
+        "step": "Bloom the Spices",
+        "detail": "About 1 hour before cooking, warm olive oil (3 Tbsp) to roughly 325 F. Off the heat, stir in grated garlic (4 cloves), smoked paprika (1 Tbsp), crushed red pepper flakes (2 tsp), dried oregano (1 tsp), and coarse black pepper (1 tsp). Cool to room temperature. Capsaicin and the paprika carotenoids are both fat-soluble and barely dissolve in cold oil; thirty seconds in hot fat releases multiples more of both."
+      },
+      {
+        "step": "Finish the Paste",
+        "detail": "Into the cooled oil, stir soy sauce (2 Tbsp), brown sugar (1 Tbsp), and lemon juice (1 Tbsp). Soy is cut from 1/4 cup because the dry brine already salted the meat - at full volume with the brine this comes out aggressively salty."
+      },
+      {
+        "step": "Coat Late",
+        "detail": "Rub the paste over the drumsticks 60 minutes before cooking, no earlier. The paste is a surface coat; left on for hours it only re-wets the skin the dry brine spent all afternoon drying out."
+      },
+      {
+        "step": "Blot Dry",
+        "detail": "Wipe off standing liquid with paper towels; leave the clinging garlic and paprika. Surface water must boil off before the skin can brown, and the sugar will not caramelize through a wet film."
+      },
+      {
+        "step": "Roast",
+        "detail": "Heat oven to 425 F. Space the drumsticks on a wire rack set over a sheet pan. Roast 35 to 40 minutes, turning once at the halfway point. The rack keeps them out of their own rendered fat, which would steam the undersides gray."
+      },
+      {
+        "step": "Check Doneness",
+        "detail": "Pull at 170 to 175 F at the thickest point, probe angled away from the bone. Rest 5 minutes. Dark meat should run past the 165 F safety line - collagen breaks down in the higher band and texture improves rather than drying out."
+      },
+      {
+        "step": "Grill Variation (Optional)",
+        "detail": "Skin side up over indirect heat until the thickest part reads 170 F, then blot the paste off and finish skin-side down over the coals 2 to 3 minutes. Blotting is not optional here - sugary, oily surface coatings are the standard flare-up ignition source, and sustained flame turns the skin acrid."
+      },
+      {
+        "step": "Serving Note",
+        "detail": "The sweet-soy glaze wants something plain and crisp across from it - a roasted potato side and a sharp green vegetable both work. Roast a side on a lower rack while these are on the upper one; anything that runs at 425 F shares the oven without adjustment."
+      }
+    ],
+    "is_blank": false
+  },
+  {
+    "id": "seared-chicken-breast-with-cranberry-thyme-pan-sauce",
     "name": "Seared Chicken Breast with Cranberry-Thyme Pan Sauce",
     "section": "AMERICAN",
     "category": "American",
@@ -1310,6 +1454,159 @@
     "is_blank": false
   },
   {
+    "id": "skillet-beef-and-potato-hash-with-fried-eggs",
+    "name": "Skillet Beef and Potato Hash with Fried Eggs",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original - Adam",
+    "tags": [
+      "#beef",
+      "#potato",
+      "#eggs",
+      "#skillet",
+      "#one-pan",
+      "#breakfast"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Beef:"
+      },
+      {
+        "type": "item",
+        "text": "1 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp chili powder"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table or Morton kosher salt, or 1 1/2 tsp Diamond Crystal"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Potatoes and Onion:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb russet or Yukon Gold potatoes, peeled and cut into 1/2-inch dice"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table or Morton kosher salt, or 1 1/2 tsp Diamond Crystal"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "Reserved rendered beef fat (about 1/4 cup, drained from the beef)"
+      },
+      {
+        "type": "header",
+        "text": "To Finish:"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup shredded sharp cheddar"
+      },
+      {
+        "type": "item",
+        "text": "4 large eggs"
+      },
+      {
+        "type": "item",
+        "text": "Salt, black pepper, and paprika, for the eggs"
+      },
+      {
+        "type": "item",
+        "text": "Steak sauce, ketchup, or barbecue sauce, for serving"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Boil the Potatoes",
+        "detail": "Makes 4 servings. Peel the potatoes (2 lb) and cut into 1/2-inch dice. Boil in well-salted water for 20 minutes, until a knife slides in with no resistance. Drain and let them sit in the colander 2-3 minutes to steam-dry. A wet potato surface is pinned at 212F and cannot brown, so this pause is doing real work."
+      },
+      {
+        "step": "Season the Raw Beef",
+        "detail": "In a bowl, mix the ground beef (1 lb, 80/20) with paprika (1 1/2 tsp), garlic powder (1 tsp), onion powder (1 tsp), chili powder (1/2 tsp), ground cumin (1/2 tsp), salt (1 tsp table or Morton kosher, or 1 1/2 tsp Diamond Crystal), and black pepper (1/2 tsp). Season before it hits the pan, not after - the spices are fat-soluble and bloom in the fat as it renders."
+      },
+      {
+        "step": "Brown and Drain Twice",
+        "detail": "Cook the seasoned beef (1 lb) in a 12-inch skillet over medium-high, breaking it up. As fat and juice pool, tip it off into a heatproof cup and reserve. Drain a second time once more renders. 80/20 gives up more fat than the pan can use, and beef sitting in liquid is held at 212F and will not brown. Do not discard the fat - it is the cooking medium for everything that follows."
+      },
+      {
+        "step": "Fry the Beef in Its Own Fat",
+        "detail": "Return a spoonful of the reserved beef fat to the pan. Press the beef flat and leave it alone 3-4 minutes, then flip; repeat 2-3 times, adding reserved fat a spoonful at a time whenever the surface goes dry and dull. You are frying it now, not steaming it. Move it to a plate."
+      },
+      {
+        "step": "Brown the Onion",
+        "detail": "Add about 2 Tbsp of the reserved beef fat and the sliced onion (1 large). Cook 8-10 minutes over medium-high until the edges are deep brown. Sliced, not minced - it holds its texture through the rest of the cook."
+      },
+      {
+        "step": "Add the Potatoes",
+        "detail": "Add the drained potatoes (2 lb) with paprika (1 Tbsp), garlic powder (1 tsp), onion powder (1 tsp), salt (1 tsp table or Morton kosher, or 1 1/2 tsp Diamond Crystal), and black pepper (1/2 tsp). Toss to coat and cook 2-3 minutes to soften and take on the fat."
+      },
+      {
+        "step": "Crisp It All Together",
+        "detail": "Return the beef to the pan. Press the whole thing flat, leave it 4 minutes without stirring, flip in sections, and go another 4 minutes. Two or three passes total. Add reserved beef fat a spoonful at a time any time the pan looks dry - dry means the crust stops forming."
+      },
+      {
+        "step": "Melt the Cheese",
+        "detail": "Turn the heat to low, scatter the shredded cheddar (1/2 cup) evenly over the top, cover for 1 minute, and pull it off the heat."
+      },
+      {
+        "step": "Fry the Eggs",
+        "detail": "In a separate pan, fry the eggs (4 large) in a spoonful of the reserved beef fat, seasoned with salt, black pepper, and paprika. Yolk sets at about 158F and white does not fully set until about 185F, so cover the pan for 1-2 minutes to set the whites by steam and pull while the yolks are still loose. Cooking the eggs directly on top of the hash works but the hash keeps feeding them heat and they overshoot."
+      },
+      {
+        "step": "Serve With Sauce",
+        "detail": "Slide the eggs onto the hash and serve immediately with steak sauce, ketchup, or barbecue sauce. This is not a garnish - the hash reads dry without one."
+      }
+    ],
+    "is_blank": false
+  },
+  {
+    "id": "ground-beef-meat",
     "name": "Ground Beef Meat",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1323,6 +1620,7 @@
     "is_blank": true
   },
   {
+    "id": "ground-beef-tacos",
     "name": "Ground Beef Tacos",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1336,6 +1634,7 @@
     "is_blank": true
   },
   {
+    "id": "shrimp-street-tacos",
     "name": "Shrimp Street Tacos",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1349,6 +1648,7 @@
     "is_blank": true
   },
   {
+    "id": "enchilada-pie",
     "name": "Enchilada Pie",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1361,6 +1661,7 @@
     "is_blank": true
   },
   {
+    "id": "lemon-lime-chicken",
     "name": "Lemon Lime Chicken",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1374,6 +1675,7 @@
     "is_blank": true
   },
   {
+    "id": "fajita",
     "name": "Fajita",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1386,6 +1688,7 @@
     "is_blank": true
   },
   {
+    "id": "fajita-chicken",
     "name": "Fajita Chicken",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1399,6 +1702,7 @@
     "is_blank": true
   },
   {
+    "id": "fajita-shrimp",
     "name": "Fajita Shrimp",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1412,6 +1716,7 @@
     "is_blank": true
   },
   {
+    "id": "quesadillas",
     "name": "Quesadillas",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1424,6 +1729,7 @@
     "is_blank": true
   },
   {
+    "id": "mexican-rice-bowl",
     "name": "Mexican Rice Bowl",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1436,6 +1742,7 @@
     "is_blank": true
   },
   {
+    "id": "white-enchiladas",
     "name": "White Enchiladas",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1448,6 +1755,7 @@
     "is_blank": true
   },
   {
+    "id": "spanish-chicken-and-rice",
     "name": "Spanish Chicken and Rice",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1461,6 +1769,7 @@
     "is_blank": true
   },
   {
+    "id": "picadillo",
     "name": "Picadillo",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1548,6 +1857,7 @@
     "is_blank": false
   },
   {
+    "id": "taco-pasta",
     "name": "Taco Pasta",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1652,6 +1962,7 @@
     "is_blank": false
   },
   {
+    "id": "slow-cooker-pork-carnitas",
     "name": "Slow Cooker Pork Carnitas",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1744,6 +2055,7 @@
     "is_blank": false
   },
   {
+    "id": "mexican-coleslaw",
     "name": "Mexican Coleslaw",
     "section": "MEXICAN",
     "category": "Mexican",
@@ -1800,6 +2112,7 @@
     "is_blank": false
   },
   {
+    "id": "stir-fry",
     "name": "Stir Fry",
     "section": "ASIAN",
     "category": "Asian",
@@ -1812,6 +2125,7 @@
     "is_blank": true
   },
   {
+    "id": "stir-fry-beef",
     "name": "Stir Fry - Beef",
     "section": "ASIAN",
     "category": "Asian",
@@ -1825,6 +2139,7 @@
     "is_blank": true
   },
   {
+    "id": "broccoli-chicken-stir-fry",
     "name": "Broccoli Chicken Stir Fry",
     "section": "ASIAN",
     "category": "Asian",
@@ -1987,6 +2302,7 @@
     "is_blank": false
   },
   {
+    "id": "stir-fry-pork",
     "name": "Stir Fry - Pork",
     "section": "ASIAN",
     "category": "Asian",
@@ -2000,6 +2316,7 @@
     "is_blank": true
   },
   {
+    "id": "fried-rice",
     "name": "Fried Rice",
     "section": "ASIAN",
     "category": "Asian",
@@ -2012,6 +2329,7 @@
     "is_blank": true
   },
   {
+    "id": "beef-and-cabbage",
     "name": "Beef and Cabbage",
     "section": "ASIAN",
     "category": "Asian",
@@ -2025,6 +2343,7 @@
     "is_blank": true
   },
   {
+    "id": "korean-bulgogi-beef",
     "name": "Korean Bulgogi Beef",
     "section": "ASIAN",
     "category": "Asian",
@@ -2038,6 +2357,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-noodles",
     "name": "Peanut Butter Noodles",
     "section": "ASIAN",
     "category": "Asian",
@@ -2197,6 +2517,7 @@
     "is_blank": false
   },
   {
+    "id": "katsu-fried-chicken",
     "name": "Katsu Fried Chicken",
     "section": "ASIAN",
     "category": "Asian",
@@ -2210,6 +2531,7 @@
     "is_blank": true
   },
   {
+    "id": "salt-and-pepper-chicken",
     "name": "Salt and Pepper Chicken",
     "section": "ASIAN",
     "category": "Asian",
@@ -2317,6 +2639,7 @@
     "is_blank": false
   },
   {
+    "id": "thai-pineapple-fried-rice",
     "name": "Thai Pineapple Fried Rice",
     "section": "ASIAN",
     "category": "Asian",
@@ -2420,6 +2743,7 @@
     "is_blank": false
   },
   {
+    "id": "asian-spinach-salad",
     "name": "Asian Spinach Salad",
     "section": "ASIAN",
     "category": "Asian",
@@ -2492,6 +2816,7 @@
     "is_blank": false
   },
   {
+    "id": "pork-char-siu",
     "name": "Pork Char Siu",
     "section": "ASIAN",
     "category": "Asian",
@@ -2571,6 +2896,7 @@
     "is_blank": false
   },
   {
+    "id": "sesame-beef-and-noodles",
     "name": "Sesame Beef and Noodles",
     "section": "ASIAN",
     "category": "Asian",
@@ -2701,6 +3027,7 @@
     "is_blank": false
   },
   {
+    "id": "sticky-chinese-pork-belly",
     "name": "Sticky Chinese Pork Belly",
     "section": "ASIAN",
     "category": "Asian",
@@ -2862,6 +3189,7 @@
     "is_blank": false
   },
   {
+    "id": "tomato-sauce",
     "name": "Tomato Sauce",
     "section": "ITALIAN",
     "category": "Italian",
@@ -2875,6 +3203,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-parmesan",
     "name": "Chicken Parmesan",
     "section": "ITALIAN",
     "category": "Italian",
@@ -2888,6 +3217,7 @@
     "is_blank": true
   },
   {
+    "id": "spaghetti-and-meatballs",
     "name": "Spaghetti and Meatballs",
     "section": "ITALIAN",
     "category": "Italian",
@@ -2901,6 +3231,7 @@
     "is_blank": true
   },
   {
+    "id": "lasagna",
     "name": "Lasagna",
     "section": "ITALIAN",
     "category": "Italian",
@@ -2914,6 +3245,7 @@
     "is_blank": true
   },
   {
+    "id": "stuffed-meatballs",
     "name": "Stuffed Meatballs",
     "section": "ITALIAN",
     "category": "Italian",
@@ -2927,6 +3259,7 @@
     "is_blank": true
   },
   {
+    "id": "stuffed-shells",
     "name": "Stuffed Shells",
     "section": "ITALIAN",
     "category": "Italian",
@@ -2939,6 +3272,7 @@
     "is_blank": true
   },
   {
+    "id": "middle-eastern-chicken",
     "name": "Middle Eastern Chicken",
     "section": "MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -2952,6 +3286,7 @@
     "is_blank": true
   },
   {
+    "id": "persian-chicken",
     "name": "Persian Chicken",
     "section": "MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -3067,6 +3402,7 @@
     "is_blank": false
   },
   {
+    "id": "lebanese-potato-salad",
     "name": "Lebanese Potato Salad",
     "section": "MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -3139,6 +3475,7 @@
     "is_blank": false
   },
   {
+    "id": "lebanese-kafta-ground-beef-skewers",
     "name": "Lebanese Kafta (Ground Beef Skewers)",
     "section": "MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -3226,6 +3563,7 @@
     "is_blank": false
   },
   {
+    "id": "lebanese-cucumber-salad",
     "name": "Lebanese Cucumber Salad",
     "section": "MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -3270,6 +3608,7 @@
     "is_blank": false
   },
   {
+    "id": "grilled-cheese",
     "name": "Grilled Cheese",
     "section": "SANDWICHES",
     "category": "Sandwiches",
@@ -3282,6 +3621,7 @@
     "is_blank": true
   },
   {
+    "id": "grilled-peanut-butter-and-jelly",
     "name": "Grilled Peanut Butter and Jelly",
     "section": "SANDWICHES",
     "category": "Sandwiches",
@@ -3295,6 +3635,7 @@
     "is_blank": true
   },
   {
+    "id": "cuban",
     "name": "Cuban",
     "section": "SANDWICHES",
     "category": "Sandwiches",
@@ -3308,6 +3649,7 @@
     "is_blank": true
   },
   {
+    "id": "monte-cristo",
     "name": "Monte Cristo",
     "section": "SANDWICHES",
     "category": "Sandwiches",
@@ -3320,6 +3662,7 @@
     "is_blank": true
   },
   {
+    "id": "chopped-salami",
     "name": "Chopped Salami",
     "section": "SANDWICHES",
     "category": "Sandwiches",
@@ -3333,6 +3676,7 @@
     "is_blank": true
   },
   {
+    "id": "coconut-rice",
     "name": "Coconut Rice",
     "section": "SIDES",
     "category": "Sides",
@@ -3409,6 +3753,7 @@
     "is_blank": false
   },
   {
+    "id": "brown-rice",
     "name": "Brown Rice",
     "section": "SIDES",
     "category": "Sides",
@@ -3422,6 +3767,7 @@
     "is_blank": true
   },
   {
+    "id": "quinoa",
     "name": "Quinoa",
     "section": "SIDES",
     "category": "Sides",
@@ -3435,6 +3781,7 @@
     "is_blank": true
   },
   {
+    "id": "rice-pilaf",
     "name": "Rice Pilaf",
     "section": "SIDES",
     "category": "Sides",
@@ -3448,6 +3795,7 @@
     "is_blank": true
   },
   {
+    "id": "mashed-potatoes",
     "name": "Mashed Potatoes",
     "section": "SIDES",
     "category": "Sides",
@@ -3461,6 +3809,7 @@
     "is_blank": true
   },
   {
+    "id": "smashed-potatoes",
     "name": "Smashed Potatoes",
     "section": "SIDES",
     "category": "Sides",
@@ -3474,6 +3823,7 @@
     "is_blank": true
   },
   {
+    "id": "garlic-half-mash-potatoes",
     "name": "Garlic Half-Mash Potatoes",
     "section": "SIDES",
     "category": "Sides",
@@ -3487,6 +3837,7 @@
     "is_blank": true
   },
   {
+    "id": "twice-baked-mashed-potatoes",
     "name": "Twice Baked Mashed Potatoes",
     "section": "SIDES",
     "category": "Sides",
@@ -3500,6 +3851,7 @@
     "is_blank": true
   },
   {
+    "id": "baked-potato-chunks",
     "name": "Baked Potato Chunks",
     "section": "SIDES",
     "category": "Sides",
@@ -3513,6 +3865,121 @@
     "is_blank": true
   },
   {
+    "id": "crispy-onion-and-black-pepper-russet-chunks",
+    "name": "Crispy Onion-and-Black-Pepper Russet Chunks",
+    "section": "SIDES",
+    "category": "Sides",
+    "source": "Original",
+    "tags": [
+      "#potatoes",
+      "#russet",
+      "#side",
+      "#oven-roasted",
+      "#crispy",
+      "#american",
+      "#parboil",
+      "#sheet-pan"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Potatoes:"
+      },
+      {
+        "type": "item",
+        "text": "2 1/2 lb russet potatoes (about 3 large), scrubbed, cut into 1-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "2 qt water"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp baking soda"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp kosher salt (for the boiling water)"
+      },
+      {
+        "type": "header",
+        "text": "Fat and Seasoning:"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup beef tallow, duck fat, or neutral high-heat oil (avocado or refined peanut)"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp kosher salt"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp coarse black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, cut into 1-inch wedges, root end intact"
+      },
+      {
+        "type": "header",
+        "text": "Finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp rice vinegar (or malt vinegar)"
+      },
+      {
+        "type": "item",
+        "text": "3 scallions, green parts only, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp flaky salt"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Preheat the Pan",
+        "detail": "Makes 4 servings. Set a rack in the lower third and heat the oven to 450 F with a bare half sheet pan inside holding the tallow (1/4 cup). No foil, no parchment - foil is a poor conductor and reflects radiant heat, so potatoes on foil brown noticeably less than on bare aluminum. The pan and fat must be at temperature before the potatoes land; that first contact is where the crust starts."
+      },
+      {
+        "step": "Cut",
+        "detail": "Cut the russets (2 1/2 lb) into 1-inch chunks, skin on. Keep the variance tight - a pan holding 1/2-inch and 1 1/2-inch pieces guarantees some burnt and some raw. Skin on gives a second texture; peel them if you want crust on every face."
+      },
+      {
+        "step": "Alkaline Parboil",
+        "detail": "Bring water (2 qt) to a boil with baking soda (1/2 tsp) and kosher salt (1 Tbsp). Add the potatoes and boil 8 to 10 minutes, until a knife tip meets almost no resistance at the edge but the center still holds. Pectin degrades by base-catalyzed beta-elimination, so alkaline water blows out the outer few millimeters far faster than the core. Undershoot and there is no slurry to work with; overshoot and they collapse in the pot."
+      },
+      {
+        "step": "Rough Them Up",
+        "detail": "Drain thoroughly, return to the dry pot, and steam-dry off the heat 1 minute. Add kosher salt (1 tsp) and coarse black pepper (1 1/2 tsp), then shake the pot hard for 10 to 15 seconds until the exteriors look fuzzy and pasted over. This is the step people skip. The starch slurry gelatinizes and dehydrates in the oven into a shattering crust - it is the difference between this and ordinary oven fries."
+      },
+      {
+        "step": "Roast, Stage One",
+        "detail": "Pull the hot pan, add the potatoes in a single layer with visible gaps between pieces, and return to the 450 F oven. Roast 10 minutes untouched. Crowding parks the surface at 212 F and it will never brown; two pans beat one crowded pan every time."
+      },
+      {
+        "step": "Drop the Heat",
+        "detail": "Drop the oven to 425 F and leave the potatoes alone. Ten minutes at 450 F is all it takes to set the crust; everything after that is driving moisture out of the interiors, and 425 F does that without the set crust going too dark over a 45- to 50-minute roast."
+      },
+      {
+        "step": "First Flip",
+        "detail": "At the 25-minute mark of total roasting time, flip with a thin metal spatula and tuck the onion wedges (1 large) into the gaps. Rotate the pan 180 degrees. Do not flip earlier - an unset crust tears and sticks, while a set crust releases on its own. The rotation covers your oven's hot spot."
+      },
+      {
+        "step": "Finish",
+        "detail": "Roast 20 to 25 minutes more, until the potatoes are deep brown with crackled edges and the onion is soft and browned at the tips. Total roasting time 45 to 50 minutes. Use convection if you have it; moving air is the right call whenever drying the surface is the goal."
+      },
+      {
+        "step": "Dress Off the Heat",
+        "detail": "Turn out into a warm bowl, add rice vinegar (1 Tbsp), toss once, then scatter the scallion greens (3) and flaky salt (1/2 tsp). Serve immediately. Vinegar on the sheet pan would steam the crust; in the bowl it flashes off the hot surfaces and leaves the sharpness behind."
+      }
+    ],
+    "is_blank": false
+  },
+  {
+    "id": "honey-carrots",
     "name": "Honey Carrots",
     "section": "SIDES",
     "category": "Sides",
@@ -3526,6 +3993,7 @@
     "is_blank": true
   },
   {
+    "id": "parmesan-baked-carrots",
     "name": "Parmesan Baked Carrots",
     "section": "SIDES",
     "category": "Sides",
@@ -3540,6 +4008,7 @@
     "is_blank": true
   },
   {
+    "id": "classic-coleslaw-dressing",
     "name": "Classic Coleslaw Dressing",
     "section": "SIDES",
     "category": "Sides",
@@ -3609,6 +4078,7 @@
     "is_blank": false
   },
   {
+    "id": "protein-balls-1",
     "name": "Protein Balls 1",
     "section": "SNACKS",
     "category": "Snacks",
@@ -3661,6 +4131,7 @@
     "is_blank": false
   },
   {
+    "id": "protein-balls-2",
     "name": "Protein Balls 2",
     "section": "SNACKS",
     "category": "Snacks",
@@ -3721,6 +4192,7 @@
     "is_blank": false
   },
   {
+    "id": "protein-balls-3",
     "name": "Protein Balls 3",
     "section": "SNACKS",
     "category": "Snacks",
@@ -3777,6 +4249,7 @@
     "is_blank": false
   },
   {
+    "id": "protein-balls-4",
     "name": "Protein Balls 4",
     "section": "SNACKS",
     "category": "Snacks",
@@ -3849,6 +4322,7 @@
     "is_blank": false
   },
   {
+    "id": "protein-balls-5",
     "name": "Protein Balls 5",
     "section": "SNACKS",
     "category": "Snacks",
@@ -3909,6 +4383,7 @@
     "is_blank": false
   },
   {
+    "id": "pumpkin-protein-balls-1",
     "name": "Pumpkin Protein Balls 1",
     "section": "SNACKS",
     "category": "Snacks",
@@ -3965,6 +4440,7 @@
     "is_blank": false
   },
   {
+    "id": "pumpkin-protein-balls-2",
     "name": "Pumpkin Protein Balls 2",
     "section": "SNACKS",
     "category": "Snacks",
@@ -4025,6 +4501,7 @@
     "is_blank": false
   },
   {
+    "id": "greek-yogurt-brownies",
     "name": "Greek Yogurt Brownies",
     "section": "SNACKS",
     "category": "Snacks",
@@ -4076,6 +4553,7 @@
     "is_blank": false
   },
   {
+    "id": "greek-yogurt-cookie-dough",
     "name": "Greek Yogurt Cookie Dough",
     "section": "SNACKS",
     "category": "Snacks",
@@ -4139,6 +4617,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-noodle-soup",
     "name": "Chicken Noodle Soup",
     "section": "SOUPS",
     "category": "Soups",
@@ -4214,6 +4693,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-wild-rice-soup",
     "name": "Chicken Wild Rice Soup",
     "section": "SOUPS",
     "category": "Soups",
@@ -4227,6 +4707,7 @@
     "is_blank": true
   },
   {
+    "id": "tuscan-chicken-soup",
     "name": "Tuscan Chicken Soup",
     "section": "SOUPS",
     "category": "Soups",
@@ -4331,6 +4812,7 @@
     "is_blank": false
   },
   {
+    "id": "cheesy-chicken-tortilla-soup",
     "name": "Cheesy Chicken Tortilla Soup",
     "section": "SOUPS",
     "category": "Soups",
@@ -4345,6 +4827,7 @@
     "is_blank": true
   },
   {
+    "id": "beef-barley-soup",
     "name": "Beef Barley Soup",
     "section": "SOUPS",
     "category": "Soups",
@@ -4358,6 +4841,7 @@
     "is_blank": true
   },
   {
+    "id": "minestrone",
     "name": "Minestrone",
     "section": "SOUPS",
     "category": "Soups",
@@ -4372,6 +4856,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-marinade-sweet-garlic-lime",
     "name": "Chicken Marinade - Sweet Garlic Lime",
     "section": "MARINADES",
     "category": "Marinades",
@@ -4423,6 +4908,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-marinade-spicy-maple-mustard",
     "name": "Chicken Marinade - Spicy Maple Mustard",
     "section": "MARINADES",
     "category": "Marinades",
@@ -4470,6 +4956,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-marinade-lemon-herb",
     "name": "Chicken Marinade - Lemon Herb",
     "section": "MARINADES",
     "category": "Marinades",
@@ -4521,6 +5008,7 @@
     "is_blank": false
   },
   {
+    "id": "stir-fry-marinade-beef",
     "name": "Stir-Fry Marinade - Beef",
     "section": "MARINADES",
     "category": "Marinades",
@@ -4535,6 +5023,7 @@
     "is_blank": true
   },
   {
+    "id": "stir-fry-marinade-chicken",
     "name": "Stir-Fry Marinade - Chicken",
     "section": "MARINADES",
     "category": "Marinades",
@@ -4571,6 +5060,7 @@
     "is_blank": false
   },
   {
+    "id": "stir-fry-marinade-pork",
     "name": "Stir-Fry Marinade - Pork",
     "section": "MARINADES",
     "category": "Marinades",
@@ -4585,6 +5075,7 @@
     "is_blank": true
   },
   {
+    "id": "smoothies",
     "name": "Smoothies",
     "section": "SMOOTHIES",
     "category": "Smoothies",
@@ -4597,6 +5088,7 @@
     "is_blank": true
   },
   {
+    "id": "bread",
     "name": "Bread",
     "section": "BREAD",
     "category": "Bread",
@@ -4610,6 +5102,7 @@
     "is_blank": true
   },
   {
+    "id": "butter-chicken-murgh-makhani",
     "name": "Butter Chicken (Murgh Makhani)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -4706,6 +5199,7 @@
     "is_blank": false
   },
   {
+    "id": "chana-masala-chickpea-curry",
     "name": "Chana Masala (Chickpea Curry)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -4785,6 +5279,7 @@
     "is_blank": false
   },
   {
+    "id": "lamb-rogan-josh",
     "name": "Lamb Rogan Josh",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -4868,6 +5363,7 @@
     "is_blank": false
   },
   {
+    "id": "thai-green-curry-vegetarian",
     "name": "Thai Green Curry (Vegetarian)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -4932,6 +5428,7 @@
     "is_blank": false
   },
   {
+    "id": "beef-madras",
     "name": "Beef Madras",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -5015,6 +5512,7 @@
     "is_blank": false
   },
   {
+    "id": "japanese-curry-kare-raisu",
     "name": "Japanese Curry (Kare Raisu)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -5079,6 +5577,7 @@
     "is_blank": false
   },
   {
+    "id": "saag-paneer-spinach-curry",
     "name": "Saag Paneer (Spinach Curry)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -5158,6 +5657,7 @@
     "is_blank": false
   },
   {
+    "id": "goan-fish-curry-tomato-base",
     "name": "Goan Fish Curry (Tomato Base)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -5241,6 +5741,7 @@
     "is_blank": false
   },
   {
+    "id": "sri-lankan-dhal-curry",
     "name": "Sri Lankan Dhal Curry",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -5320,6 +5821,7 @@
     "is_blank": false
   },
   {
+    "id": "south-african-bunny-chow-chicken-curry-in-bread",
     "name": "South African Bunny Chow (Chicken Curry in Bread)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
@@ -5403,6 +5905,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-noodle-soup-version-1-allrecipes",
     "name": "Chicken Noodle Soup - Version 1 (Allrecipes)",
     "section": "FOR REVIEW --- SOUPS",
     "category": "For Review",
@@ -5478,6 +5981,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-noodle-soup-version-2-food-network",
     "name": "Chicken Noodle Soup - Version 2 (Food Network)",
     "section": "FOR REVIEW --- SOUPS",
     "category": "For Review",
@@ -5557,6 +6061,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-wild-rice-soup-version-1-allrecipes",
     "name": "Chicken Wild Rice Soup - Version 1 (Allrecipes)",
     "section": "FOR REVIEW --- SOUPS",
     "category": "For Review",
@@ -5632,6 +6137,7 @@
     "is_blank": false
   },
   {
+    "id": "cheesy-chicken-tortilla-soup-version-1-delish",
     "name": "Cheesy Chicken Tortilla Soup - Version 1 (Delish)",
     "section": "FOR REVIEW --- SOUPS",
     "category": "For Review",
@@ -5728,6 +6234,7 @@
     "is_blank": false
   },
   {
+    "id": "tuscan-chicken-soup-version-1-food-network",
     "name": "Tuscan Chicken Soup - Version 1 (Food Network)",
     "section": "FOR REVIEW --- SOUPS",
     "category": "For Review",
@@ -5820,6 +6327,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-noodle-soup-version-3",
     "name": "Chicken Noodle Soup - Version 3",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -5899,6 +6407,7 @@
     "is_blank": false
   },
   {
+    "id": "chicken-wild-rice-soup-version-2",
     "name": "Chicken Wild Rice Soup - Version 2",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -5986,6 +6495,7 @@
     "is_blank": false
   },
   {
+    "id": "cheesy-chicken-tortilla-soup-version-2",
     "name": "Cheesy Chicken Tortilla Soup - Version 2",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6082,6 +6592,7 @@
     "is_blank": false
   },
   {
+    "id": "tuscan-chicken-soup-version-2",
     "name": "Tuscan Chicken Soup - Version 2",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6162,6 +6673,7 @@
     "is_blank": false
   },
   {
+    "id": "beef-barley-soup-version-1",
     "name": "Beef Barley Soup - Version 1",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6241,6 +6753,7 @@
     "is_blank": false
   },
   {
+    "id": "beef-barley-soup-version-2",
     "name": "Beef Barley Soup - Version 2",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6320,6 +6833,7 @@
     "is_blank": false
   },
   {
+    "id": "italian-wedding-soup",
     "name": "Italian Wedding Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6407,6 +6921,7 @@
     "is_blank": false
   },
   {
+    "id": "stuffed-pepper-soup",
     "name": "Stuffed Pepper Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6486,6 +7001,7 @@
     "is_blank": false
   },
   {
+    "id": "french-onion-soup",
     "name": "French Onion Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6561,6 +7077,7 @@
     "is_blank": false
   },
   {
+    "id": "loaded-baked-potato-soup",
     "name": "Loaded Baked Potato Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6647,6 +7164,7 @@
     "is_blank": false
   },
   {
+    "id": "cheesy-potato-soup",
     "name": "Cheesy Potato Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6721,6 +7239,7 @@
     "is_blank": false
   },
   {
+    "id": "ham-and-15-bean-soup",
     "name": "Ham and 15 Bean Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6792,6 +7311,7 @@
     "is_blank": false
   },
   {
+    "id": "clam-chowder",
     "name": "Clam Chowder",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6875,6 +7395,7 @@
     "is_blank": false
   },
   {
+    "id": "cheesy-broccoli-soup",
     "name": "Cheesy Broccoli Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -6950,6 +7471,7 @@
     "is_blank": false
   },
   {
+    "id": "hot-and-sour-soup",
     "name": "Hot and Sour Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7029,6 +7551,7 @@
     "is_blank": false
   },
   {
+    "id": "minestrone-soup",
     "name": "Minestrone Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7113,6 +7636,7 @@
     "is_blank": false
   },
   {
+    "id": "egg-drop-soup",
     "name": "Egg Drop Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7176,6 +7700,7 @@
     "is_blank": false
   },
   {
+    "id": "sopa-de-tortilla",
     "name": "Sopa de Tortilla",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7251,6 +7776,7 @@
     "is_blank": false
   },
   {
+    "id": "sancocho",
     "name": "Sancocho",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7333,6 +7859,7 @@
     "is_blank": false
   },
   {
+    "id": "pozole",
     "name": "Pozole",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7413,6 +7940,7 @@
     "is_blank": false
   },
   {
+    "id": "tomato-basil-soup",
     "name": "Tomato Basil Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7476,6 +8004,7 @@
     "is_blank": false
   },
   {
+    "id": "lentil-soup",
     "name": "Lentil Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7555,6 +8084,7 @@
     "is_blank": false
   },
   {
+    "id": "carrot-ginger-soup",
     "name": "Carrot Ginger Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7618,6 +8148,7 @@
     "is_blank": false
   },
   {
+    "id": "butternut-squash-soup",
     "name": "Butternut Squash Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7685,6 +8216,7 @@
     "is_blank": false
   },
   {
+    "id": "chickpea-and-spinach-soup",
     "name": "Chickpea and Spinach Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7760,6 +8292,7 @@
     "is_blank": false
   },
   {
+    "id": "vegan-coconut-curry-soup",
     "name": "Vegan Coconut Curry Soup",
     "section": "FOR REVIEW - SOUPS",
     "category": "For Review",
@@ -7848,6 +8381,7 @@
     "is_blank": false
   },
   {
+    "id": "lemon-herb-chicken-marinade",
     "name": "Lemon Herb - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -7975,6 +8509,7 @@
     "is_blank": false
   },
   {
+    "id": "chipotle-lime-chicken-marinade",
     "name": "Chipotle Lime - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -8093,19 +8628,16 @@
     "is_blank": false
   },
   {
+    "id": "tandoori-chicken-marinade",
     "name": "Tandoori - Chicken Marinade",
     "section": "MARINADES",
     "category": "Marinades",
-    "source": "BBC Good Food / Serious Eats",
+    "source": "BBC Good Food",
     "tags": [
       "#chicken",
       "#marinade"
     ],
     "ingredients": [
-      {
-        "type": "section",
-        "text": "Version 1 - BBC Good Food"
-      },
       {
         "type": "item",
         "text": "2 lb chicken drumsticks"
@@ -8145,11 +8677,38 @@
       {
         "type": "item",
         "text": "2 tbsp vegetable oil"
+      }
+    ],
+    "instructions": [
+      {
+        "type": "item",
+        "step": "Whisk yogurt (1 cup), lemon juice (2 tbsp), garlic paste (1 tbsp), ginger paste (1 tbsp), turmeric (1 tsp), chili powder (1 tsp), cumin (1 tsp), salt (1.5 tsp), and oil (2 tbsp).",
+        "detail": ""
       },
       {
-        "type": "section",
-        "text": "Version 2 - Serious Eats"
+        "type": "item",
+        "step": "Rub onto chicken (2 lb) and marinate 4-24 hours.",
+        "detail": ""
       },
+      {
+        "type": "item",
+        "step": "Roast or grill until 165°F (74°C).",
+        "detail": ""
+      }
+    ],
+    "is_blank": false
+  },
+  {
+    "id": "tandoori-chicken-marinade-serious-eats",
+    "name": "Tandoori - Chicken Marinade (Serious Eats)",
+    "section": "MARINADES",
+    "category": "Marinades",
+    "source": "Serious Eats",
+    "tags": [
+      "#chicken",
+      "#marinade"
+    ],
+    "ingredients": [
       {
         "type": "item",
         "text": "2 lb chicken thighs, bone-in"
@@ -8193,31 +8752,6 @@
     ],
     "instructions": [
       {
-        "type": "section",
-        "step": "Version 1 - BBC Good Food",
-        "detail": ""
-      },
-      {
-        "type": "item",
-        "step": "Whisk yogurt (1 cup), lemon juice (2 tbsp), garlic paste (1 tbsp), ginger paste (1 tbsp), turmeric (1 tsp), chili powder (1 tsp), cumin (1 tsp), salt (1.5 tsp), and oil (2 tbsp).",
-        "detail": ""
-      },
-      {
-        "type": "item",
-        "step": "Rub onto chicken (2 lb) and marinate 4-24 hours.",
-        "detail": ""
-      },
-      {
-        "type": "item",
-        "step": "Roast or grill until 165°F (74°C).",
-        "detail": ""
-      },
-      {
-        "type": "section",
-        "step": "Version 2 - Serious Eats",
-        "detail": ""
-      },
-      {
         "type": "item",
         "step": "Mix yogurt (1 cup), lemon juice (2 tbsp), garlic (from 4 cloves), ginger (1 tbsp), garam masala (1 tsp), coriander (1 tsp), paprika (1 tsp), cayenne (1/2 tsp), and salt (1.5 tsp).",
         "detail": ""
@@ -8236,6 +8770,7 @@
     "is_blank": false
   },
   {
+    "id": "honey-mustard-chicken-marinade",
     "name": "Honey Mustard - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -8360,6 +8895,7 @@
     "is_blank": false
   },
   {
+    "id": "garlic-soy-chicken-marinade",
     "name": "Garlic Soy - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -8484,6 +9020,7 @@
     "is_blank": false
   },
   {
+    "id": "teriyaki-chicken-marinade",
     "name": "Teriyaki - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -8596,6 +9133,7 @@
     "is_blank": false
   },
   {
+    "id": "chimichurri-chicken-marinade",
     "name": "Chimichurri - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -8736,6 +9274,7 @@
     "is_blank": false
   },
   {
+    "id": "caribbean-jerk-chicken-marinade",
     "name": "Caribbean Jerk - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -8880,6 +9419,7 @@
     "is_blank": false
   },
   {
+    "id": "greek-yogurt-dill-chicken-marinade",
     "name": "Greek Yogurt Dill - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9008,6 +9548,7 @@
     "is_blank": false
   },
   {
+    "id": "balsamic-herb-chicken-marinade",
     "name": "Balsamic Herb - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9140,6 +9681,7 @@
     "is_blank": false
   },
   {
+    "id": "cajun-spice-chicken-marinade",
     "name": "Cajun Spice - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9268,6 +9810,7 @@
     "is_blank": false
   },
   {
+    "id": "satay-peanut-chicken-marinade",
     "name": "Satay Peanut - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9396,6 +9939,7 @@
     "is_blank": false
   },
   {
+    "id": "pesto-chicken-marinade",
     "name": "Pesto - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9520,6 +10064,7 @@
     "is_blank": false
   },
   {
+    "id": "orange-ginger-chicken-marinade",
     "name": "Orange Ginger - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9640,6 +10185,7 @@
     "is_blank": false
   },
   {
+    "id": "mediterranean-herb-chicken-marinade",
     "name": "Mediterranean Herb - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9776,6 +10322,7 @@
     "is_blank": false
   },
   {
+    "id": "bbq-chicken-marinade",
     "name": "BBQ - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -9896,6 +10443,7 @@
     "is_blank": false
   },
   {
+    "id": "thai-coconut-curry-chicken-marinade",
     "name": "Thai Coconut Curry - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10020,6 +10568,7 @@
     "is_blank": false
   },
   {
+    "id": "moroccan-chermoula-chicken-marinade",
     "name": "Moroccan Chermoula - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10156,6 +10705,7 @@
     "is_blank": false
   },
   {
+    "id": "peri-peri-chicken-marinade",
     "name": "Peri Peri - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10284,6 +10834,7 @@
     "is_blank": false
   },
   {
+    "id": "honey-sriracha-chicken-marinade",
     "name": "Honey Sriracha - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10396,6 +10947,7 @@
     "is_blank": false
   },
   {
+    "id": "cilantro-lime-chicken-marinade",
     "name": "Cilantro Lime - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10520,6 +11072,7 @@
     "is_blank": false
   },
   {
+    "id": "hoisin-ginger-chicken-marinade",
     "name": "Hoisin Ginger - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10640,6 +11193,7 @@
     "is_blank": false
   },
   {
+    "id": "indian-curry-yogurt-chicken-marinade",
     "name": "Indian Curry Yogurt - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10760,6 +11314,7 @@
     "is_blank": false
   },
   {
+    "id": "spicy-harissa-chicken-marinade",
     "name": "Spicy Harissa - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -10880,6 +11435,7 @@
     "is_blank": false
   },
   {
+    "id": "sesame-ginger-chicken-marinade",
     "name": "Sesame Ginger - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -11000,6 +11556,7 @@
     "is_blank": false
   },
   {
+    "id": "smoky-paprika-chicken-marinade",
     "name": "Smoky Paprika - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -11124,6 +11681,7 @@
     "is_blank": false
   },
   {
+    "id": "lemon-garlic-herb-chicken-marinade",
     "name": "Lemon Garlic Herb - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -11248,6 +11806,7 @@
     "is_blank": false
   },
   {
+    "id": "korean-gochujang-chicken-marinade",
     "name": "Korean Gochujang - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -11372,6 +11931,7 @@
     "is_blank": false
   },
   {
+    "id": "jamaican-brown-sugar-spice-chicken-marinade",
     "name": "Jamaican Brown Sugar Spice - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -11508,6 +12068,7 @@
     "is_blank": false
   },
   {
+    "id": "mediterranean-lemon-oregano-chicken-marinade",
     "name": "Mediterranean Lemon Oregano - Chicken Marinade",
     "section": "FOR REVIEW - MARINADES - CHICKEN",
     "category": "Marinades",
@@ -11628,6 +12189,7 @@
     "is_blank": false
   },
   {
+    "id": "red-wine-herb-marinade-beef-marinade",
     "name": "Red Wine & Herb Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -11653,6 +12215,7 @@
     "is_blank": true
   },
   {
+    "id": "balsamic-garlic-marinade-beef-marinade",
     "name": "Balsamic & Garlic Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -11678,6 +12241,7 @@
     "is_blank": true
   },
   {
+    "id": "soy-garlic-ginger-marinade-beef-marinade",
     "name": "Soy-Garlic-Ginger Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -11703,6 +12267,7 @@
     "is_blank": true
   },
   {
+    "id": "teriyaki-marinade-beef-marinade",
     "name": "Teriyaki Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -11824,6 +12389,7 @@
     "is_blank": false
   },
   {
+    "id": "korean-bulgogi-marinade-beef-marinade",
     "name": "Korean Bulgogi Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -11953,6 +12519,7 @@
     "is_blank": false
   },
   {
+    "id": "chipotle-lime-marinade-beef-marinade",
     "name": "Chipotle-Lime Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12068,6 +12635,7 @@
     "is_blank": false
   },
   {
+    "id": "chimichurri-marinade-beef-marinade",
     "name": "Chimichurri Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12196,6 +12764,7 @@
     "is_blank": false
   },
   {
+    "id": "carne-asada-marinade-beef-marinade",
     "name": "Carne Asada Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12332,6 +12901,7 @@
     "is_blank": false
   },
   {
+    "id": "jamaican-jerk-marinade-beef-marinade",
     "name": "Jamaican Jerk Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12478,6 +13048,7 @@
     "is_blank": false
   },
   {
+    "id": "greek-lemon-oregano-marinade-beef-marinade",
     "name": "Greek Lemon-Oregano Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12598,6 +13169,7 @@
     "is_blank": false
   },
   {
+    "id": "coffee-brown-sugar-marinade-beef-marinade",
     "name": "Coffee & Brown Sugar Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12710,6 +13282,7 @@
     "is_blank": false
   },
   {
+    "id": "beer-mustard-marinade-beef-marinade",
     "name": "Beer & Mustard Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12838,6 +13411,7 @@
     "is_blank": false
   },
   {
+    "id": "miso-sesame-marinade-beef-marinade",
     "name": "Miso-Sesame Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -12958,6 +13532,7 @@
     "is_blank": false
   },
   {
+    "id": "gochujang-marinade-beef-marinade",
     "name": "Gochujang Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -13069,6 +13644,7 @@
     "is_blank": false
   },
   {
+    "id": "montreal-steak-marinade-beef-marinade",
     "name": "Montreal Steak Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -13167,6 +13743,7 @@
     "is_blank": false
   },
   {
+    "id": "soy-balsamic-black-diamond-style-marinade-beef-marinade",
     "name": "Soy-Balsamic Black Diamond-Style Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -13290,6 +13867,7 @@
     "is_blank": false
   },
   {
+    "id": "bulgogi-inspired-gochujang-fusion-marinade-beef-marinade",
     "name": "Bulgogi-Inspired Gochujang Fusion Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -13414,6 +13992,7 @@
     "is_blank": false
   },
   {
+    "id": "herb-garlic-lemon-marinade-beef-marinade",
     "name": "Herb-Garlic Lemon Marinade - Beef Marinade",
     "section": "FOR REVIEW - MARINADES - BEEF",
     "category": "Marinades",
@@ -13534,6 +14113,7 @@
     "is_blank": false
   },
   {
+    "id": "char-siu-chinese-bbq-pork-marinade",
     "name": "Char Siu (Chinese BBQ) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -13683,6 +14263,7 @@
     "is_blank": false
   },
   {
+    "id": "cuban-mojo-citrus-garlic-pork-marinade",
     "name": "Cuban Mojo (Citrus-Garlic) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -13823,6 +14404,7 @@
     "is_blank": false
   },
   {
+    "id": "al-pastor-achiote-chile-pineapple-pork-marinade",
     "name": "Al Pastor (Achiote-Chile-Pineapple) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -13966,6 +14548,7 @@
     "is_blank": false
   },
   {
+    "id": "vietnamese-lemongrass-suon-nuong-style-pork-marinade",
     "name": "Vietnamese Lemongrass (Sườn Nướng style) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14101,6 +14684,7 @@
     "is_blank": false
   },
   {
+    "id": "korean-spicy-pork-bulgogi-jeyuk-dwaeji-bulgogi-pork-marinade",
     "name": "Korean Spicy Pork Bulgogi (Jeyuk/Dwaeji Bulgogi) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14240,6 +14824,7 @@
     "is_blank": false
   },
   {
+    "id": "jamaican-jerk-pork-marinade",
     "name": "Jamaican Jerk - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14395,6 +14980,7 @@
     "is_blank": false
   },
   {
+    "id": "greek-lemon-oregano-souvlaki-pork-marinade",
     "name": "Greek Lemon-Oregano (Souvlaki) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14518,6 +15104,7 @@
     "is_blank": false
   },
   {
+    "id": "honey-garlic-pork-marinade",
     "name": "Honey Garlic - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14629,6 +15216,7 @@
     "is_blank": false
   },
   {
+    "id": "maple-dijon-pork-marinade",
     "name": "Maple Dijon - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14743,6 +15331,7 @@
     "is_blank": false
   },
   {
+    "id": "chimichurri-marinade-sauce-pork-marinade",
     "name": "Chimichurri (Marinade & Sauce) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14878,6 +15467,7 @@
     "is_blank": false
   },
   {
+    "id": "teriyaki-japanese-style-pork-marinade",
     "name": "Teriyaki (Japanese-style) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -14985,6 +15575,7 @@
     "is_blank": false
   },
   {
+    "id": "thai-moo-ping-bbq-pork-skewers-pork-marinade",
     "name": "Thai Moo Ping (BBQ Pork Skewers) - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -15103,6 +15694,7 @@
     "is_blank": false
   },
   {
+    "id": "balsamic-rosemary-pork-marinade",
     "name": "Balsamic Rosemary - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -15209,6 +15801,7 @@
     "is_blank": false
   },
   {
+    "id": "chipotle-lime-pork-marinade",
     "name": "Chipotle-Lime - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -15331,6 +15924,7 @@
     "is_blank": false
   },
   {
+    "id": "orange-ginger-pork-marinade",
     "name": "Orange-Ginger - Pork Marinade",
     "section": "FOR REVIEW - MARINADES - PORK",
     "category": "Marinades",
@@ -15445,6 +16039,7 @@
     "is_blank": false
   },
   {
+    "id": "baked-brown-sugar-dijon-chicken-wings",
     "name": "Baked Brown Sugar Dijon Chicken Wings",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15458,6 +16053,7 @@
     "is_blank": true
   },
   {
+    "id": "brown-sugar-pineapple-chicken",
     "name": "Brown Sugar Pineapple Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15471,6 +16067,7 @@
     "is_blank": true
   },
   {
+    "id": "cheese-and-prosciutto-stuffed-chicken-breasts",
     "name": "Cheese And Prosciutto Stuffed Chicken Breasts",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15484,6 +16081,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-broccoli-and-bell-pepper-stir-fry",
     "name": "Chicken Broccoli And Bell Pepper Stir Fry",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -15497,6 +16095,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-cordon-bleu-lasagna",
     "name": "Chicken Cordon Bleu Lasagna",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -15510,6 +16109,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-potatoes-with-garlic-parmesan-cream-sauce",
     "name": "Chicken Potatoes With Garlic Parmesan Cream Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -15523,6 +16123,7 @@
     "is_blank": true
   },
   {
+    "id": "chili-pineapple-grilled-chicken",
     "name": "Chili Pineapple Grilled Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15536,6 +16137,7 @@
     "is_blank": true
   },
   {
+    "id": "chinese-lemon-chicken",
     "name": "Chinese Lemon Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15549,6 +16151,7 @@
     "is_blank": true
   },
   {
+    "id": "cream-cheese-and-chicken-taquitos",
     "name": "Cream Cheese And Chicken Taquitos",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15562,6 +16165,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-one-pot-chicken-rice-and-mushrooms",
     "name": "Creamy One Pot Chicken Rice And Mushrooms",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -15575,6 +16179,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-parmesan-chicken-carbonara",
     "name": "Creamy Parmesan Chicken Carbonara",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -15588,6 +16193,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-tuscan-garlic-chicken",
     "name": "Creamy Tuscan Garlic Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15601,6 +16207,7 @@
     "is_blank": true
   },
   {
+    "id": "dump-bake-aloha-chicken-rice",
     "name": "Dump Bake Aloha Chicken Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -15614,6 +16221,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-one-pan-french-onion-stuffed-chicken",
     "name": "Easy One Pan French Onion Stuffed Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15627,6 +16235,7 @@
     "is_blank": true
   },
   {
+    "id": "french-onion-chicken",
     "name": "French Onion Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15640,6 +16249,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-mustard-chicken-potatoes",
     "name": "Honey Mustard Chicken Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -15653,6 +16263,7 @@
     "is_blank": true
   },
   {
+    "id": "indonesian-honey-garlic-chicken",
     "name": "Indonesian Honey Garlic Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15666,6 +16277,7 @@
     "is_blank": true
   },
   {
+    "id": "lemon-butter-chicken",
     "name": "Lemon Butter Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15679,6 +16291,7 @@
     "is_blank": true
   },
   {
+    "id": "lemon-chicken-skillet",
     "name": "Lemon Chicken Skillet",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15692,6 +16305,7 @@
     "is_blank": true
   },
   {
+    "id": "louisiana-chicken-pasta-cheesecake-factory-copycat",
     "name": "Louisiana Chicken Pasta (Cheesecake Factory copycat)",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -15705,6 +16319,7 @@
     "is_blank": true
   },
   {
+    "id": "man-pleasing-chicken",
     "name": "Man Pleasing Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15718,6 +16333,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pan-balsamic-chicken-veggies",
     "name": "One Pan Balsamic Chicken & Veggies",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15731,6 +16347,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pan-cheesy-jalapeno-chicken",
     "name": "One Pan Cheesy Jalapeno Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15744,6 +16361,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pan-chicken-and-spinach-gnocchi",
     "name": "One Pan Chicken And Spinach Gnocchi",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -15757,6 +16375,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pan-pesto-chicken-and-veggies",
     "name": "One Pan Pesto Chicken And Veggies",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15770,6 +16389,7 @@
     "is_blank": true
   },
   {
+    "id": "roasted-chicken-potatoes-garlic-lemon-herbs",
     "name": "Roasted Chicken, Potatoes, Garlic, Lemon & Herbs",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -15783,6 +16403,7 @@
     "is_blank": true
   },
   {
+    "id": "rustic-chicken-with-garlic-gravy",
     "name": "Rustic Chicken With Garlic Gravy",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15796,6 +16417,7 @@
     "is_blank": true
   },
   {
+    "id": "salt-and-pepper-chicken-2",
     "name": "Salt And Pepper Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15809,6 +16431,7 @@
     "is_blank": true
   },
   {
+    "id": "sheet-pan-lemon-chicken-with-parmesan-roasted-broccoli",
     "name": "Sheet Pan Lemon Chicken With Parmesan Roasted Broccoli",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -15822,6 +16445,7 @@
     "is_blank": true
   },
   {
+    "id": "sticky-honey-garlic-chicken-strips",
     "name": "Sticky Honey Garlic Chicken Strips",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15835,6 +16459,7 @@
     "is_blank": true
   },
   {
+    "id": "skillet-chicken-thighs-in-creamy-tomato-basil-spinach-sauce",
     "name": "Skillet Chicken Thighs in Creamy Tomato Basil Spinach Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -15848,6 +16473,7 @@
     "is_blank": true
   },
   {
+    "id": "grilled-moroccan-chicken-with-garlic-sauce",
     "name": "Grilled Moroccan Chicken with Garlic Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -15861,6 +16487,7 @@
     "is_blank": true
   },
   {
+    "id": "lemon-chicken-scallopini-with-lemon-garlic-cream-sauce",
     "name": "Lemon Chicken Scallopini with Lemon Garlic Cream Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -15874,6 +16501,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-in-wine-and-mustard-sauce",
     "name": "Chicken In Wine And Mustard Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -15887,6 +16515,7 @@
     "is_blank": true
   },
   {
+    "id": "bbq-bacon-meatball-recipe",
     "name": "Bbq Bacon Meatball Recipe",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15900,6 +16529,7 @@
     "is_blank": true
   },
   {
+    "id": "beef-rump-rolls-breaded-with-cheddar-and-bacon",
     "name": "Beef Rump Rolls Breaded With Cheddar And Bacon",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15913,6 +16543,7 @@
     "is_blank": true
   },
   {
+    "id": "cheesesteak-casserole",
     "name": "Cheesesteak Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15926,6 +16557,7 @@
     "is_blank": true
   },
   {
+    "id": "cilantro-lime-black-bean-burgers",
     "name": "Cilantro Lime Black Bean Burgers",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15939,6 +16571,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-beef-noodle-bake",
     "name": "Creamy Beef Noodle Bake",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15952,6 +16585,7 @@
     "is_blank": true
   },
   {
+    "id": "crockpot-pepper-steak",
     "name": "Crockpot Pepper Steak",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -15965,6 +16599,7 @@
     "is_blank": true
   },
   {
+    "id": "garlic-butter-steak-and-potatoes",
     "name": "Garlic Butter Steak And Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -15978,6 +16613,7 @@
     "is_blank": true
   },
   {
+    "id": "gordon-ramsay-s-beef-wellington",
     "name": "Gordon Ramsay's Beef Wellington",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -15991,6 +16627,7 @@
     "is_blank": true
   },
   {
+    "id": "home-style-beef-n-noodles-with-mushrooms-onions",
     "name": "Home Style Beef N Noodles with Mushrooms & Onions",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16004,6 +16641,7 @@
     "is_blank": true
   },
   {
+    "id": "meatball-parmesan-bake",
     "name": "Meatball Parmesan Bake",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16017,6 +16655,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-beef-stroganoff",
     "name": "One Pot Beef Stroganoff",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16030,6 +16669,7 @@
     "is_blank": true
   },
   {
+    "id": "pepper-steak",
     "name": "Pepper Steak",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16043,6 +16683,7 @@
     "is_blank": true
   },
   {
+    "id": "philly-cheese-steak-egg-rolls",
     "name": "Philly Cheese Steak Egg Rolls",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -16056,6 +16697,7 @@
     "is_blank": true
   },
   {
+    "id": "philly-cheese-steak-sloppy-joes",
     "name": "Philly Cheese Steak Sloppy Joes",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16069,6 +16711,7 @@
     "is_blank": true
   },
   {
+    "id": "roasted-garlic-rosemary-baked-meatballs",
     "name": "Roasted Garlic Rosemary Baked Meatballs",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16082,6 +16725,7 @@
     "is_blank": true
   },
   {
+    "id": "rolled-meatloaf-with-ham-cheese-spinach",
     "name": "Rolled Meatloaf With Ham, Cheese & Spinach",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16095,6 +16739,7 @@
     "is_blank": true
   },
   {
+    "id": "salisbury-steak-with-mushroom-gravy",
     "name": "Salisbury Steak With Mushroom Gravy",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16108,6 +16753,7 @@
     "is_blank": true
   },
   {
+    "id": "sloppy-joe-mac-n-cheese",
     "name": "Sloppy Joe Mac N Cheese",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16121,6 +16767,7 @@
     "is_blank": true
   },
   {
+    "id": "asian-pork-meatballs-with-coconut-rice",
     "name": "Asian Pork Meatballs with Coconut Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -16134,6 +16781,7 @@
     "is_blank": true
   },
   {
+    "id": "bangers-and-mash",
     "name": "Bangers And Mash",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16147,6 +16795,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-schnitzel",
     "name": "Chicken Schnitzel",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16160,6 +16809,7 @@
     "is_blank": true
   },
   {
+    "id": "12-minute-chicken-schnitzel",
     "name": "12 Minute Chicken Schnitzel",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16173,6 +16823,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-cheesy-italian-sausage-and-basil-penne",
     "name": "Creamy Cheesy Italian Sausage And Basil Penne",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16186,6 +16837,7 @@
     "is_blank": true
   },
   {
+    "id": "italian-sausage-tortellini",
     "name": "Italian Sausage Tortellini",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16199,6 +16851,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-sausage-sun-dried-tomato-pasta",
     "name": "One Pot Sausage Sun Dried Tomato Pasta",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16212,6 +16865,7 @@
     "is_blank": true
   },
   {
+    "id": "one-skillet-sausage-white-bean-gnocchi",
     "name": "One Skillet Sausage White Bean Gnocchi",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16225,6 +16879,7 @@
     "is_blank": true
   },
   {
+    "id": "20-minute-one-pan-gnocchi-with-sausage-and-spinach",
     "name": "20 Minute One Pan Gnocchi With Sausage And Spinach",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16238,6 +16893,7 @@
     "is_blank": true
   },
   {
+    "id": "orzo-with-italian-sausage-roasted-red-peppers",
     "name": "Orzo with Italian Sausage & Roasted Red Peppers",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16251,6 +16907,7 @@
     "is_blank": true
   },
   {
+    "id": "pan-cheesy-smoked-sausage-pasta",
     "name": "Pan Cheesy Smoked Sausage Pasta",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16264,6 +16921,7 @@
     "is_blank": true
   },
   {
+    "id": "pork-schnitzel-with-dijon-gravy",
     "name": "Pork Schnitzel with Dijon Gravy",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16277,6 +16935,7 @@
     "is_blank": true
   },
   {
+    "id": "puff-pastry-sausage-rolls",
     "name": "Puff Pastry Sausage Rolls",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16290,6 +16949,7 @@
     "is_blank": true
   },
   {
+    "id": "rigatoni-italian-sausage-skillet-meal",
     "name": "Rigatoni & Italian Sausage Skillet Meal",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16303,6 +16963,7 @@
     "is_blank": true
   },
   {
+    "id": "rigatoni-sausage-bolognese-with-broccoli",
     "name": "Rigatoni Sausage Bolognese with Broccoli",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16316,6 +16977,7 @@
     "is_blank": true
   },
   {
+    "id": "roasted-garlic-potatoes-and-sausage",
     "name": "Roasted Garlic Potatoes And Sausage",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -16329,6 +16991,7 @@
     "is_blank": true
   },
   {
+    "id": "sausage-alfredo-pasta",
     "name": "Sausage Alfredo Pasta",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16342,6 +17005,7 @@
     "is_blank": true
   },
   {
+    "id": "sausage-cabbage-dinner",
     "name": "Sausage Cabbage Dinner",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -16355,6 +17019,7 @@
     "is_blank": true
   },
   {
+    "id": "sausage-pepper-and-rice-skillet",
     "name": "Sausage, Pepper And Rice Skillet",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -16368,6 +17033,7 @@
     "is_blank": true
   },
   {
+    "id": "spicy-pork",
     "name": "Spicy Pork",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16381,6 +17047,7 @@
     "is_blank": true
   },
   {
+    "id": "white-beans-with-spinach-sausage",
     "name": "White Beans With Spinach & Sausage",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16394,6 +17061,7 @@
     "is_blank": true
   },
   {
+    "id": "cuban-roast-pork",
     "name": "Cuban Roast Pork",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -16407,6 +17075,7 @@
     "is_blank": true
   },
   {
+    "id": "korean-pork-chops",
     "name": "Korean Pork Chops",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -16420,6 +17089,7 @@
     "is_blank": true
   },
   {
+    "id": "10-minute-honey-garlic-shrimp",
     "name": "10 Minute Honey Garlic Shrimp",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16433,6 +17103,7 @@
     "is_blank": true
   },
   {
+    "id": "20-minute-skinny-sriracha-shrimp-and-broccoli",
     "name": "20 Minute Skinny Sriracha Shrimp And Broccoli",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -16446,6 +17117,7 @@
     "is_blank": true
   },
   {
+    "id": "5-ingredient-garlic-parmesan-tilapia",
     "name": "5 Ingredient Garlic Parmesan Tilapia",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16459,6 +17131,7 @@
     "is_blank": true
   },
   {
+    "id": "baked-salmon-with-parmesan-herb-crust",
     "name": "Baked Salmon With Parmesan Herb Crust",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16472,6 +17145,7 @@
     "is_blank": true
   },
   {
+    "id": "baked-lemon-salmon-with-creamy-dill-sauce",
     "name": "Baked Lemon Salmon with Creamy Dill Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -16485,6 +17159,7 @@
     "is_blank": true
   },
   {
+    "id": "bang-bang-shrimp",
     "name": "Bang Bang Shrimp",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -16498,6 +17173,7 @@
     "is_blank": true
   },
   {
+    "id": "cilantro-lime-shrimp-pasta",
     "name": "Cilantro Lime Shrimp Pasta",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -16511,6 +17187,7 @@
     "is_blank": true
   },
   {
+    "id": "crispy-cajun-shrimp-fettuccine",
     "name": "Crispy Cajun Shrimp Fettuccine",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -16524,6 +17201,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-poached-fish",
     "name": "Easy Poached Fish",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16537,6 +17215,7 @@
     "is_blank": true
   },
   {
+    "id": "healthy-shrimp-pad-thai",
     "name": "Healthy Shrimp Pad Thai",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -16550,6 +17229,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-garlic-lemon-butter-salmon-in-foil",
     "name": "Honey Garlic Lemon Butter Salmon In Foil",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16563,6 +17243,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-mustard-baked-salmon",
     "name": "Honey Mustard Baked Salmon",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16576,6 +17257,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-mustard-garlic-shrimp",
     "name": "Honey Mustard Garlic Shrimp",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16589,6 +17271,7 @@
     "is_blank": true
   },
   {
+    "id": "orange-rosemary-glazed-salmon",
     "name": "Orange Rosemary Glazed Salmon",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16602,6 +17285,7 @@
     "is_blank": true
   },
   {
+    "id": "oven-baked-blackened-tilapia",
     "name": "Oven Baked Blackened Tilapia",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16615,6 +17299,7 @@
     "is_blank": true
   },
   {
+    "id": "parmesan-crusted-tilapia",
     "name": "Parmesan Crusted Tilapia",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16628,6 +17313,7 @@
     "is_blank": true
   },
   {
+    "id": "sheet-pan-chili-lime-salmon",
     "name": "Sheet Pan Chili Lime Salmon",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16641,6 +17327,7 @@
     "is_blank": true
   },
   {
+    "id": "seafood-gnocchi-in-white-wine-sauce",
     "name": "Seafood Gnocchi in White Wine Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -16654,6 +17341,7 @@
     "is_blank": true
   },
   {
+    "id": "shrimp-with-corn-salsa",
     "name": "Shrimp With Corn Salsa",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -16667,6 +17355,7 @@
     "is_blank": true
   },
   {
+    "id": "sticky-honey-garlic-butter-shrimp",
     "name": "Sticky Honey Garlic Butter Shrimp",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16680,6 +17369,7 @@
     "is_blank": true
   },
   {
+    "id": "grilled-shrimp-with-garlic-cilantro-sauce",
     "name": "Grilled Shrimp with Garlic Cilantro Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -16693,6 +17383,7 @@
     "is_blank": true
   },
   {
+    "id": "tuna-cakes",
     "name": "Tuna Cakes",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -16706,6 +17397,7 @@
     "is_blank": true
   },
   {
+    "id": "bacon-cheeseburger-crock-pot-tater-tot-casserole",
     "name": "Bacon Cheeseburger Crock Pot Tater Tot Casserole",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16719,6 +17411,7 @@
     "is_blank": true
   },
   {
+    "id": "best-slow-cooker-french-dip-sandwiches",
     "name": "Best Slow Cooker French Dip Sandwiches",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16732,6 +17425,7 @@
     "is_blank": true
   },
   {
+    "id": "crispy-slow-cooker-pork-carnitas",
     "name": "Crispy Slow Cooker Pork Carnitas",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16745,6 +17439,7 @@
     "is_blank": true
   },
   {
+    "id": "crock-pot-chicken-and-stuffing",
     "name": "Crock Pot Chicken And Stuffing",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16758,6 +17453,7 @@
     "is_blank": true
   },
   {
+    "id": "crock-pot-hawaiian-chicken",
     "name": "Crock Pot Hawaiian Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16771,6 +17467,7 @@
     "is_blank": true
   },
   {
+    "id": "crock-pot-queso-blanco-dip",
     "name": "Crock Pot Queso Blanco Dip",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16784,6 +17481,7 @@
     "is_blank": true
   },
   {
+    "id": "crockpot-pierogi-casserole-with-kielbasa",
     "name": "Crockpot Pierogi Casserole with Kielbasa",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16797,6 +17495,7 @@
     "is_blank": true
   },
   {
+    "id": "juicy-slow-cooker-turkey-breast",
     "name": "Juicy Slow Cooker Turkey Breast",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16810,6 +17509,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-apricot-chicken",
     "name": "Slow Cooker Apricot Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16823,6 +17523,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-beef-ragu-with-pappardelle",
     "name": "Slow Cooker Beef Ragu With Pappardelle",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16836,6 +17537,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-breakfast-casserole",
     "name": "Slow Cooker Breakfast Casserole",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16849,6 +17551,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-brown-sugar-and-garlic-chicken",
     "name": "Slow Cooker Brown Sugar And Garlic Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16862,6 +17565,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-cabbage-rolls",
     "name": "Slow Cooker Cabbage Rolls",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16875,6 +17579,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-carnitas",
     "name": "Slow Cooker Carnitas",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16888,6 +17593,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-chicken-adobo",
     "name": "Slow Cooker Chicken Adobo",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16901,6 +17607,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-chicken-alfredo-tortellini",
     "name": "Slow Cooker Chicken Alfredo Tortellini",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16914,6 +17621,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-chicken-marsala",
     "name": "Slow Cooker Chicken Marsala",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16927,6 +17635,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-creamy-beef-stroganoff",
     "name": "Slow Cooker Creamy Beef Stroganoff",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16940,6 +17649,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-creamy-tortellini-soup",
     "name": "Slow Cooker Creamy Tortellini Soup",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16953,6 +17663,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-cuban-mojo-pork",
     "name": "Slow Cooker Cuban Mojo Pork",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16966,6 +17677,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-cuban-mojo-pork-alt",
     "name": "Slow Cooker Cuban Mojo Pork (alt)",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16979,6 +17691,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-cube-steak-with-mushroom-sauce",
     "name": "Slow Cooker Cube Steak with Mushroom Sauce",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -16992,6 +17705,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-french-onion-soup",
     "name": "Slow Cooker French Onion Soup",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17005,6 +17719,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-general-tso-s-chicken",
     "name": "Slow Cooker General Tso's Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17018,6 +17733,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-hatch-green-chile-verde",
     "name": "Slow Cooker Hatch Green Chile Verde",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17031,6 +17747,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-hawaiian-pineapple-chicken",
     "name": "Slow Cooker Hawaiian Pineapple Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17044,6 +17761,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-honey-garlic-chicken",
     "name": "Slow Cooker Honey Garlic Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17057,6 +17775,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-honey-garlic-chicken-alt",
     "name": "Slow Cooker Honey Garlic Chicken (alt)",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17070,6 +17789,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-honey-lime-ginger-pork",
     "name": "Slow Cooker Honey Lime Ginger Pork",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17083,6 +17803,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-honey-sesame-chicken",
     "name": "Slow Cooker Honey Sesame Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17096,6 +17817,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-italian-chicken-potatoes",
     "name": "Slow Cooker Italian Chicken & Potatoes",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17109,6 +17831,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-jerk-chicken",
     "name": "Slow Cooker Jerk Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17122,6 +17845,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-kielbasa-and-barbecue-beans",
     "name": "Slow Cooker Kielbasa And Barbecue Beans",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17135,6 +17859,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-mongolian-beef",
     "name": "Slow Cooker Mongolian Beef",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17148,6 +17873,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-orange-chicken",
     "name": "Slow Cooker Orange Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17161,6 +17887,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-parmesan-herb-chicken-orzo",
     "name": "Slow Cooker Parmesan Herb Chicken Orzo",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17174,6 +17901,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-pasta-e-fagioli-soup",
     "name": "Slow Cooker Pasta E Fagioli Soup",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17187,6 +17915,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-red-beans-rice",
     "name": "Slow Cooker Red Beans & Rice",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17200,6 +17929,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-rice-pudding",
     "name": "Slow Cooker Rice Pudding",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17213,6 +17943,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-sausage-potatoes",
     "name": "Slow Cooker Sausage & Potatoes",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17226,6 +17957,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-sausage-spinach-and-white-bean-soup",
     "name": "Slow Cooker Sausage, Spinach And White Bean Soup",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17239,6 +17971,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-smothered-pork-chops",
     "name": "Slow Cooker Smothered Pork Chops",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17252,6 +17985,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-spicy-chicken-rice",
     "name": "Slow Cooker Spicy Chicken Rice",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17265,6 +17999,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-thai-peanut-chicken",
     "name": "Slow Cooker Thai Peanut Chicken",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17279,6 +18014,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-thai-peanut-chicken-alt",
     "name": "Slow Cooker Thai Peanut Chicken (alt)",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17293,6 +18029,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-zuppa-toscana",
     "name": "Slow Cooker Zuppa Toscana",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17306,6 +18043,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-cheesesteak-sandwiches",
     "name": "Slow Cooker Cheesesteak Sandwiches",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17319,6 +18057,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-salisbury-steak",
     "name": "Slow Cooker Salisbury Steak",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -17332,6 +18071,7 @@
     "is_blank": true
   },
   {
+    "id": "asian-chicken-noodle-soup",
     "name": "Asian Chicken Noodle Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17345,6 +18085,7 @@
     "is_blank": true
   },
   {
+    "id": "beef-bean-soup",
     "name": "Beef Bean Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17358,6 +18099,7 @@
     "is_blank": true
   },
   {
+    "id": "best-green-chile-stew",
     "name": "Best Green Chile Stew",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17371,6 +18113,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-wild-rice-mushroom-soup",
     "name": "Chicken Wild Rice Mushroom Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17384,6 +18127,7 @@
     "is_blank": true
   },
   {
+    "id": "chickpea-lime-coconut-soup",
     "name": "Chickpea Lime Coconut Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17397,6 +18141,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-tortellini-soup-with-italian-sausage",
     "name": "Creamy Tortellini Soup With Italian Sausage",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17410,6 +18155,7 @@
     "is_blank": true
   },
   {
+    "id": "dublin-coddle",
     "name": "Dublin Coddle",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17423,6 +18169,7 @@
     "is_blank": true
   },
   {
+    "id": "instant-pot-smoked-sausage-white-bean-vegetable-soup",
     "name": "Instant Pot Smoked Sausage White Bean Vegetable Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17436,6 +18183,7 @@
     "is_blank": true
   },
   {
+    "id": "italian-sausage-tortellini-soup",
     "name": "Italian Sausage Tortellini Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17449,6 +18197,7 @@
     "is_blank": true
   },
   {
+    "id": "japanese-clear-onion-soup",
     "name": "Japanese Clear Onion Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17462,6 +18211,7 @@
     "is_blank": true
   },
   {
+    "id": "my-mom-s-old-fashioned-vegetable-beef-soup",
     "name": "My Mom's Old Fashioned Vegetable Beef Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17475,6 +18225,7 @@
     "is_blank": true
   },
   {
+    "id": "new-orleans-gumbo-with-shrimp-sausage",
     "name": "New Orleans Gumbo with Shrimp & Sausage",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17488,6 +18239,7 @@
     "is_blank": true
   },
   {
+    "id": "olive-garden-chicken-gnocchi-soup",
     "name": "Olive Garden Chicken Gnocchi Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17501,6 +18253,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-chicken-orzo-soup",
     "name": "One Pot Chicken Orzo Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17514,6 +18267,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-philly-cheesesteak-soup",
     "name": "One Pot Philly Cheesesteak Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17527,6 +18281,7 @@
     "is_blank": true
   },
   {
+    "id": "smoked-sausage-cheesy-potato-soup",
     "name": "Smoked Sausage Cheesy Potato Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17540,6 +18295,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-curry-vegetable-soup",
     "name": "Thai Curry Vegetable Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17553,6 +18309,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-spicy-noodle-soup",
     "name": "Thai Spicy Noodle Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17566,6 +18323,7 @@
     "is_blank": true
   },
   {
+    "id": "the-best-potato-soup",
     "name": "The Best Potato Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17579,6 +18337,7 @@
     "is_blank": true
   },
   {
+    "id": "white-bean-and-ham-soup",
     "name": "White Bean And Ham Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -17592,6 +18351,7 @@
     "is_blank": true
   },
   {
+    "id": "amish-country-casserole",
     "name": "Amish Country Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17605,6 +18365,7 @@
     "is_blank": true
   },
   {
+    "id": "amish-country-casserole-alt",
     "name": "Amish Country Casserole (alt)",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17618,6 +18379,7 @@
     "is_blank": true
   },
   {
+    "id": "beef-and-noodle-casserole",
     "name": "Beef and Noodle Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17631,6 +18393,7 @@
     "is_blank": true
   },
   {
+    "id": "cheesy-meatballs-shells-casserole",
     "name": "Cheesy Meatballs & Shells Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17644,6 +18407,7 @@
     "is_blank": true
   },
   {
+    "id": "cheesy-sausage-broccoli-and-rice-casserole",
     "name": "Cheesy Sausage, Broccoli And Rice Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17657,6 +18421,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-cordon-bleu-casserole",
     "name": "Chicken Cordon Bleu Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17670,6 +18435,7 @@
     "is_blank": true
   },
   {
+    "id": "corn-and-broccoli-rice-casserole",
     "name": "Corn And Broccoli Rice Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17683,6 +18449,7 @@
     "is_blank": true
   },
   {
+    "id": "cream-corn-casserole",
     "name": "Cream Corn Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17696,6 +18463,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-swedish-meatball-casserole",
     "name": "Easy Swedish Meatball Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17709,6 +18477,7 @@
     "is_blank": true
   },
   {
+    "id": "green-chile-casserole",
     "name": "Green Chile Casserole",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -17722,6 +18491,7 @@
     "is_blank": true
   },
   {
+    "id": "ham-and-green-bean-casserole",
     "name": "Ham And Green Bean Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17735,6 +18505,7 @@
     "is_blank": true
   },
   {
+    "id": "hamburger-casserole",
     "name": "Hamburger Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17748,6 +18519,7 @@
     "is_blank": true
   },
   {
+    "id": "joleans-cheese-potato-smoked-sausage-casserole",
     "name": "Joleans Cheese Potato Smoked Sausage Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17761,6 +18533,7 @@
     "is_blank": true
   },
   {
+    "id": "loaded-cauliflower-casserole",
     "name": "Loaded Cauliflower Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17774,6 +18547,7 @@
     "is_blank": true
   },
   {
+    "id": "loaded-million-dollar-casserole",
     "name": "Loaded Million Dollar Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17787,6 +18561,7 @@
     "is_blank": true
   },
   {
+    "id": "meatball-sub-casserole",
     "name": "Meatball Sub Casserole",
     "section": "TO TRY --- SANDWICHES",
     "category": "Sandwiches",
@@ -17800,6 +18575,7 @@
     "is_blank": true
   },
   {
+    "id": "mexican-beef-rice-casserole",
     "name": "Mexican Beef & Rice Casserole",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -17813,6 +18589,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-mexican-beef-and-rice-casserole",
     "name": "One Pot Mexican Beef And Rice Casserole",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -17826,6 +18603,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-perogie-casserole-bake",
     "name": "One Pot Perogie Casserole Bake",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17839,6 +18617,7 @@
     "is_blank": true
   },
   {
+    "id": "pepperoni-pizza-hamburger-helper",
     "name": "Pepperoni Pizza Hamburger Helper",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17852,6 +18631,7 @@
     "is_blank": true
   },
   {
+    "id": "sausage-and-rice-casserole",
     "name": "Sausage And Rice Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17865,6 +18645,7 @@
     "is_blank": true
   },
   {
+    "id": "stuffed-peppers-pasta-casserole",
     "name": "Stuffed Peppers Pasta Casserole",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -17878,6 +18659,7 @@
     "is_blank": true
   },
   {
+    "id": "tomato-beef-country-casserole",
     "name": "Tomato Beef Country Casserole",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17891,6 +18673,7 @@
     "is_blank": true
   },
   {
+    "id": "twice-baked-potato-casserole",
     "name": "Twice Baked Potato Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17904,6 +18687,7 @@
     "is_blank": true
   },
   {
+    "id": "unstuffed-cabbage-casserole",
     "name": "Unstuffed Cabbage Casserole",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -17917,6 +18701,7 @@
     "is_blank": true
   },
   {
+    "id": "lemon-one-pot-pasta",
     "name": "Lemon One Pot Pasta",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -17930,6 +18715,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-creamy-french-onion-pasta-bake",
     "name": "One Pot Creamy French Onion Pasta Bake",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -17943,6 +18729,7 @@
     "is_blank": true
   },
   {
+    "id": "parmesan-spinach-gnocchi",
     "name": "Parmesan Spinach Gnocchi",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -17956,6 +18743,7 @@
     "is_blank": true
   },
   {
+    "id": "pesto-vegetable-pasta",
     "name": "Pesto Vegetable Pasta",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -17969,6 +18757,7 @@
     "is_blank": true
   },
   {
+    "id": "sesame-noodles",
     "name": "Sesame Noodles",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17982,6 +18771,7 @@
     "is_blank": true
   },
   {
+    "id": "spicy-tenderstem-peanut-noodle-stir-fry",
     "name": "Spicy Tenderstem Peanut Noodle Stir Fry",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -17996,6 +18786,7 @@
     "is_blank": true
   },
   {
+    "id": "kung-pao-noodles",
     "name": "Kung Pao Noodles",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -18009,6 +18800,7 @@
     "is_blank": true
   },
   {
+    "id": "spicy-sichuan-noodles",
     "name": "Spicy Sichuan Noodles",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -18022,6 +18814,7 @@
     "is_blank": true
   },
   {
+    "id": "5-ingredient-lemon-turmeric-quinoa",
     "name": "5 Ingredient Lemon Turmeric Quinoa",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18035,6 +18828,7 @@
     "is_blank": true
   },
   {
+    "id": "jamaican-rice-and-peas",
     "name": "Jamaican Rice And Peas",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18048,6 +18842,7 @@
     "is_blank": true
   },
   {
+    "id": "parmesan-rice",
     "name": "Parmesan Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18061,6 +18856,7 @@
     "is_blank": true
   },
   {
+    "id": "texas-roadhouse-seasoned-rice-copycat",
     "name": "Texas Roadhouse Seasoned Rice (copycat)",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18074,6 +18870,7 @@
     "is_blank": true
   },
   {
+    "id": "food-tutorial-spanish-rice",
     "name": "Food Tutorial: Spanish Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -18087,6 +18884,7 @@
     "is_blank": true
   },
   {
+    "id": "dirty-rice",
     "name": "Dirty Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -18100,6 +18898,7 @@
     "is_blank": true
   },
   {
+    "id": "broccoli-and-cheddar-twice-baked-potatoes",
     "name": "Broccoli And Cheddar Twice Baked Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18113,6 +18912,7 @@
     "is_blank": true
   },
   {
+    "id": "butter-steamed-new-potatoes",
     "name": "Butter Steamed New Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18126,6 +18926,7 @@
     "is_blank": true
   },
   {
+    "id": "crack-potatoes",
     "name": "Crack Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18139,6 +18940,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-potatoes-peas",
     "name": "Creamy Potatoes & Peas",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18152,6 +18954,7 @@
     "is_blank": true
   },
   {
+    "id": "herb-roasted-potatoes-green-beans",
     "name": "Herb Roasted Potatoes & Green Beans",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18165,6 +18968,7 @@
     "is_blank": true
   },
   {
+    "id": "melting-potatoes",
     "name": "Melting Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18178,6 +18982,7 @@
     "is_blank": true
   },
   {
+    "id": "mini-hasselback-potatoes",
     "name": "Mini Hasselback Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18191,6 +18996,7 @@
     "is_blank": true
   },
   {
+    "id": "southern-style-green-beans-potatoes",
     "name": "Southern Style Green Beans & Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18204,6 +19010,7 @@
     "is_blank": true
   },
   {
+    "id": "steakhouse-potatoes-romanoff",
     "name": "Steakhouse Potatoes Romanoff",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18217,6 +19024,7 @@
     "is_blank": true
   },
   {
+    "id": "volcano-potatoes",
     "name": "Volcano Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18230,6 +19038,7 @@
     "is_blank": true
   },
   {
+    "id": "baby-potatoes-with-creamy-garlic-sauce",
     "name": "Baby Potatoes With Creamy Garlic Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18243,6 +19052,7 @@
     "is_blank": true
   },
   {
+    "id": "balsamic-roasted-brussels-sprouts-and-carrots",
     "name": "Balsamic Roasted Brussels Sprouts And Carrots",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18256,6 +19066,7 @@
     "is_blank": true
   },
   {
+    "id": "broccoli-fritters",
     "name": "Broccoli Fritters",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18269,6 +19080,7 @@
     "is_blank": true
   },
   {
+    "id": "corn-fritters",
     "name": "Corn Fritters",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18282,6 +19094,7 @@
     "is_blank": true
   },
   {
+    "id": "crispy-broccoli-parmesan-fritters",
     "name": "Crispy Broccoli Parmesan Fritters",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18295,6 +19108,7 @@
     "is_blank": true
   },
   {
+    "id": "gram-s-corn-fritters",
     "name": "Gram's Corn Fritters",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18308,6 +19122,7 @@
     "is_blank": true
   },
   {
+    "id": "green-bean-hobo-pack",
     "name": "Green Bean Hobo Pack",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18321,6 +19136,7 @@
     "is_blank": true
   },
   {
+    "id": "grilled-corn-with-garlic-and-parmesan-cheese",
     "name": "Grilled Corn With Garlic And Parmesan Cheese",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18334,6 +19150,7 @@
     "is_blank": true
   },
   {
+    "id": "loaded-cauliflower-mac-cheese",
     "name": "Loaded Cauliflower Mac & Cheese",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18347,6 +19164,7 @@
     "is_blank": true
   },
   {
+    "id": "magic-broccoli",
     "name": "Magic Broccoli",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18360,6 +19178,7 @@
     "is_blank": true
   },
   {
+    "id": "parmesan-roasted-carrots",
     "name": "Parmesan Roasted Carrots",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18373,6 +19192,7 @@
     "is_blank": true
   },
   {
+    "id": "roasted-brown-butter-honey-garlic-carrots",
     "name": "Roasted Brown Butter Honey Garlic Carrots",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18386,6 +19206,7 @@
     "is_blank": true
   },
   {
+    "id": "smashed-carrots",
     "name": "Smashed Carrots",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18399,6 +19220,7 @@
     "is_blank": true
   },
   {
+    "id": "southern-fried-cabbage",
     "name": "Southern Fried Cabbage",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18412,6 +19234,7 @@
     "is_blank": true
   },
   {
+    "id": "spicy-southern-hot-corn",
     "name": "Spicy Southern Hot Corn",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18425,6 +19248,7 @@
     "is_blank": true
   },
   {
+    "id": "bacon-mac-and-cheese-bites",
     "name": "Bacon Mac And Cheese Bites",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -18438,6 +19262,7 @@
     "is_blank": true
   },
   {
+    "id": "beef-enchilada-dip",
     "name": "Beef Enchilada Dip",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -18451,6 +19276,7 @@
     "is_blank": true
   },
   {
+    "id": "beer-cheese-dip",
     "name": "Beer Cheese Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18464,6 +19290,7 @@
     "is_blank": true
   },
   {
+    "id": "buffalo-chicken-tortilla-roll-ups",
     "name": "Buffalo Chicken Tortilla Roll Ups",
     "section": "TO TRY --- SANDWICHES",
     "category": "Sandwiches",
@@ -18477,6 +19304,7 @@
     "is_blank": true
   },
   {
+    "id": "cheeseburger-biscuit-cups",
     "name": "Cheeseburger Biscuit Cups",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18490,6 +19318,7 @@
     "is_blank": true
   },
   {
+    "id": "cheeseburger-tots",
     "name": "Cheeseburger Tots",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18503,6 +19332,7 @@
     "is_blank": true
   },
   {
+    "id": "cheesy-taco-sticks",
     "name": "Cheesy Taco Sticks",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -18516,6 +19346,7 @@
     "is_blank": true
   },
   {
+    "id": "chili-cheese-dog-dip",
     "name": "Chili Cheese Dog Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18529,6 +19360,7 @@
     "is_blank": true
   },
   {
+    "id": "chili-dip",
     "name": "Chili Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18542,6 +19374,7 @@
     "is_blank": true
   },
   {
+    "id": "crab-rangoon-dip-with-wonton-chips",
     "name": "Crab Rangoon Dip with Wonton Chips",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18555,6 +19388,7 @@
     "is_blank": true
   },
   {
+    "id": "cracked-out-turkey-pinwheels",
     "name": "Cracked Out Turkey Pinwheels",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18568,6 +19402,7 @@
     "is_blank": true
   },
   {
+    "id": "crunchy-taco-cups",
     "name": "Crunchy Taco Cups",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -18581,6 +19416,7 @@
     "is_blank": true
   },
   {
+    "id": "dill-pickle-dip",
     "name": "Dill Pickle Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18594,6 +19430,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-broccoli-cheese-cups",
     "name": "Easy Broccoli Cheese Cups",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18607,6 +19444,7 @@
     "is_blank": true
   },
   {
+    "id": "egg-roll-stir-fry",
     "name": "Egg Roll Stir Fry",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -18620,6 +19458,7 @@
     "is_blank": true
   },
   {
+    "id": "fried-mac-and-cheese-bites",
     "name": "Fried Mac And Cheese Bites",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -18633,6 +19472,7 @@
     "is_blank": true
   },
   {
+    "id": "garlicky-cheesy-carrots-and-cauliflower-tots",
     "name": "Garlicky Cheesy Carrots And Cauliflower Tots",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18646,6 +19486,7 @@
     "is_blank": true
   },
   {
+    "id": "hot-sausage-beer-cheese-dip",
     "name": "Hot Sausage Beer Cheese Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18659,6 +19500,7 @@
     "is_blank": true
   },
   {
+    "id": "irish-potato-bites",
     "name": "Irish Potato Bites",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18672,6 +19514,7 @@
     "is_blank": true
   },
   {
+    "id": "mashed-potato-cheese-bites",
     "name": "Mashed Potato Cheese Bites",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -18685,6 +19528,7 @@
     "is_blank": true
   },
   {
+    "id": "reuben-roll-ups",
     "name": "Reuben Roll Ups",
     "section": "TO TRY --- SANDWICHES",
     "category": "Sandwiches",
@@ -18698,6 +19542,7 @@
     "is_blank": true
   },
   {
+    "id": "savory-bacon-pineapple-bites",
     "name": "Savory Bacon Pineapple Bites",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18711,6 +19556,7 @@
     "is_blank": true
   },
   {
+    "id": "spaghetti-and-meatball-skewers",
     "name": "Spaghetti And Meatball Skewers",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -18724,6 +19570,7 @@
     "is_blank": true
   },
   {
+    "id": "stuffed-pizza-rolls",
     "name": "Stuffed Pizza Rolls",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18737,6 +19584,7 @@
     "is_blank": true
   },
   {
+    "id": "texas-trash-warm-bean-dip",
     "name": "Texas Trash Warm Bean Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18750,6 +19598,7 @@
     "is_blank": true
   },
   {
+    "id": "cajun-shrimp-guacamole-bites",
     "name": "Cajun Shrimp Guacamole Bites",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -18763,6 +19612,7 @@
     "is_blank": true
   },
   {
+    "id": "kickass-chinese-chicken-drumsticks",
     "name": "Kickass Chinese Chicken Drumsticks",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18776,6 +19626,7 @@
     "is_blank": true
   },
   {
+    "id": "pesto-cheese-bombs",
     "name": "Pesto Cheese Bombs",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18789,6 +19640,7 @@
     "is_blank": true
   },
   {
+    "id": "maple-caramel-bacon-crack",
     "name": "Maple Caramel Bacon Crack",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18802,6 +19654,7 @@
     "is_blank": true
   },
   {
+    "id": "deep-dish-mini-pizzas",
     "name": "Deep Dish Mini Pizzas",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18815,6 +19668,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-pull-apart-pizza-bread",
     "name": "Easy Pull Apart Pizza Bread",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -18828,6 +19682,7 @@
     "is_blank": true
   },
   {
+    "id": "ham-and-swiss-stromboli",
     "name": "Ham And Swiss Stromboli",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -18841,6 +19696,7 @@
     "is_blank": true
   },
   {
+    "id": "bacon-jalapeno-fry-sauce",
     "name": "Bacon Jalapeno Fry Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18854,6 +19710,7 @@
     "is_blank": true
   },
   {
+    "id": "caribbean-style-mango-habanero-hot-sauce",
     "name": "Caribbean Style Mango Habanero Hot Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18867,6 +19724,7 @@
     "is_blank": true
   },
   {
+    "id": "carolina-mustard-barbecue-sauce",
     "name": "Carolina Mustard Barbecue Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18880,6 +19738,7 @@
     "is_blank": true
   },
   {
+    "id": "cilantro-habanero-hot-sauce",
     "name": "Cilantro Habanero Hot Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18893,6 +19752,7 @@
     "is_blank": true
   },
   {
+    "id": "copycat-chick-fil-a-sauce",
     "name": "Copycat Chick-Fil-A Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18906,6 +19766,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-avocado-cilantro-lime-dressing",
     "name": "Creamy Avocado Cilantro Lime Dressing",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18919,6 +19780,7 @@
     "is_blank": true
   },
   {
+    "id": "fermented-jalapeno-hot-sauce",
     "name": "Fermented Jalapeno Hot Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18932,6 +19794,7 @@
     "is_blank": true
   },
   {
+    "id": "homemade-green-enchilada-sauce",
     "name": "Homemade Green Enchilada Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18945,6 +19808,7 @@
     "is_blank": true
   },
   {
+    "id": "jack-s-ultimate-steak-marinade",
     "name": "Jack's Ultimate Steak Marinade",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18958,6 +19822,7 @@
     "is_blank": true
   },
   {
+    "id": "sweet-chilli-pineapple-sauce",
     "name": "Sweet Chilli Pineapple Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18971,6 +19836,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-peanut-sauce",
     "name": "Thai Peanut Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18985,6 +19851,7 @@
     "is_blank": true
   },
   {
+    "id": "the-bomb-sauce",
     "name": "The Bomb Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -18998,6 +19865,7 @@
     "is_blank": true
   },
   {
+    "id": "white-barbecue-sauce-alabama",
     "name": "White Barbecue Sauce (Alabama)",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -19011,6 +19879,7 @@
     "is_blank": true
   },
   {
+    "id": "yum-yum-sauce",
     "name": "Yum Yum Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -19024,6 +19893,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-shawarma-with-garlic-sauce",
     "name": "Chicken Shawarma With Garlic Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -19037,6 +19907,7 @@
     "is_blank": true
   },
   {
+    "id": "best-easiest-mongolian-beef",
     "name": "Best & Easiest Mongolian Beef",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19050,6 +19921,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-almond-ding",
     "name": "Chicken Almond Ding",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19063,6 +19935,7 @@
     "is_blank": true
   },
   {
+    "id": "classic-chinese-chow-mein",
     "name": "Classic Chinese Chow Mein",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19076,6 +19949,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-thai-coconut-chickpeas",
     "name": "Creamy Thai Coconut Chickpeas",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19089,6 +19963,7 @@
     "is_blank": true
   },
   {
+    "id": "double-crunch-orange-chicken",
     "name": "Double Crunch Orange Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19102,6 +19977,7 @@
     "is_blank": true
   },
   {
+    "id": "grilled-hawaiian-barbecue-chicken-foil-packs",
     "name": "Grilled Hawaiian Barbecue Chicken Foil Packs",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -19115,6 +19991,7 @@
     "is_blank": true
   },
   {
+    "id": "ground-beef-bulgogi",
     "name": "Ground Beef Bulgogi",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19128,6 +20005,7 @@
     "is_blank": true
   },
   {
+    "id": "ground-hawaiian-beef",
     "name": "Ground Hawaiian Beef",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -19141,6 +20019,7 @@
     "is_blank": true
   },
   {
+    "id": "hawaiian-bbq-chicken-wraps",
     "name": "Hawaiian BBQ Chicken Wraps",
     "section": "TO TRY --- SANDWICHES",
     "category": "Sandwiches",
@@ -19154,6 +20033,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-sriracha-chicken",
     "name": "Honey Sriracha Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19167,6 +20047,7 @@
     "is_blank": true
   },
   {
+    "id": "korean-braised-potatoes-gamja-jorim",
     "name": "Korean Braised Potatoes (Gamja Jorim)",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19180,6 +20061,7 @@
     "is_blank": true
   },
   {
+    "id": "korean-ground-beef-over-rice",
     "name": "Korean Ground Beef Over Rice",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19193,6 +20075,7 @@
     "is_blank": true
   },
   {
+    "id": "mongolian-beef",
     "name": "Mongolian Beef",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19206,6 +20089,7 @@
     "is_blank": true
   },
   {
+    "id": "mongolian-beef-noodle-bowls",
     "name": "Mongolian Beef Noodle Bowls",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19219,6 +20103,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-black-pepper-chicken",
     "name": "One Pot Black Pepper Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19232,6 +20117,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-teriyaki-chicken-and-pineapple-rice",
     "name": "One Pot Teriyaki Chicken And Pineapple Rice",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19245,6 +20131,7 @@
     "is_blank": true
   },
   {
+    "id": "orange-chicken-30-minute-skillet",
     "name": "Orange Chicken 30 Minute Skillet",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19258,6 +20145,7 @@
     "is_blank": true
   },
   {
+    "id": "pad-see-ew",
     "name": "Pad See Ew",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19271,6 +20159,7 @@
     "is_blank": true
   },
   {
+    "id": "panda-express-kung-pao-chicken-copycat",
     "name": "Panda Express Kung Pao Chicken (copycat)",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19284,6 +20173,7 @@
     "is_blank": true
   },
   {
+    "id": "sheet-pan-hawaiian-chicken",
     "name": "Sheet Pan Hawaiian Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -19297,6 +20187,7 @@
     "is_blank": true
   },
   {
+    "id": "sticky-thai-peanut-orange-chicken-30-min",
     "name": "Sticky Thai Peanut Orange Chicken (30 Min)",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19311,6 +20202,7 @@
     "is_blank": true
   },
   {
+    "id": "sweet-and-sour-chicken",
     "name": "Sweet And Sour Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19324,6 +20216,7 @@
     "is_blank": true
   },
   {
+    "id": "sweet-sour-chicken-alt",
     "name": "Sweet & Sour Chicken (alt)",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -19337,6 +20230,7 @@
     "is_blank": true
   },
   {
+    "id": "sweet-spicy-korean-meatballs",
     "name": "Sweet & Spicy Korean Meatballs",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19350,6 +20244,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-basil-chicken-pad-krapow",
     "name": "Thai Basil Chicken (Pad Krapow)",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19363,6 +20258,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-sweet-chili-chicken",
     "name": "Thai Sweet Chili Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19376,6 +20272,7 @@
     "is_blank": true
   },
   {
+    "id": "gochujang-recipes-roundup",
     "name": "Gochujang Recipes (roundup)",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19389,6 +20286,7 @@
     "is_blank": true
   },
   {
+    "id": "cajun-dirty-rice",
     "name": "Cajun Dirty Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19402,6 +20300,7 @@
     "is_blank": true
   },
   {
+    "id": "cheesy-ground-beef-empanadas",
     "name": "Cheesy Ground Beef Empanadas",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19415,6 +20314,7 @@
     "is_blank": true
   },
   {
+    "id": "cheesy-taco-pasta",
     "name": "Cheesy Taco Pasta",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19428,6 +20328,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-and-rice-bake-with-southwestern-flare",
     "name": "Chicken And Rice Bake with Southwestern Flare",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19441,6 +20342,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-cheesy-green-chile-chicken",
     "name": "Easy Cheesy Green Chile Chicken",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19454,6 +20356,7 @@
     "is_blank": true
   },
   {
+    "id": "foil-pack-creamy-salsa-verde-chicken-rice-veggies",
     "name": "Foil Pack Creamy Salsa Verde Chicken, Rice & Veggies",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19467,6 +20370,7 @@
     "is_blank": true
   },
   {
+    "id": "green-chile-chicken-rice",
     "name": "Green Chile Chicken & Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19480,6 +20384,7 @@
     "is_blank": true
   },
   {
+    "id": "mexican-coleslaw-lemontreedwelling-com",
     "name": "Mexican Coleslaw (lemontreedwelling.com)",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19493,6 +20398,7 @@
     "is_blank": true
   },
   {
+    "id": "mexican-street-corn-pasta-salad",
     "name": "Mexican Street Corn Pasta Salad",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19506,6 +20412,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-cajun-chicken-and-sausage-alfredo",
     "name": "One Pot Cajun Chicken And Sausage Alfredo",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19519,6 +20426,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-cheesy-taco-pasta",
     "name": "One Pot Cheesy Taco Pasta",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19532,6 +20440,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-chicken-dirty-rice",
     "name": "One Pot Chicken Dirty Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19545,6 +20454,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-spanish-chicken-and-rice",
     "name": "One Pot Spanish Chicken And Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19558,6 +20468,7 @@
     "is_blank": true
   },
   {
+    "id": "southwest-beef-rice-skillet",
     "name": "Southwest Beef Rice Skillet",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19571,6 +20482,7 @@
     "is_blank": true
   },
   {
+    "id": "taco-hand-pies-beef-bean",
     "name": "Taco Hand Pies (Beef & Bean)",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19584,6 +20496,7 @@
     "is_blank": true
   },
   {
+    "id": "taco-lime-grilled-chicken",
     "name": "Taco Lime Grilled Chicken",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19597,6 +20510,7 @@
     "is_blank": true
   },
   {
+    "id": "venezuelan-cachapas",
     "name": "Venezuelan Cachapas",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19610,6 +20524,7 @@
     "is_blank": true
   },
   {
+    "id": "bombay-potatoes",
     "name": "Bombay Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -19623,6 +20538,7 @@
     "is_blank": true
   },
   {
+    "id": "fasolakia-greek-green-beans-with-potatoes",
     "name": "Fasolakia (Greek Green Beans With Potatoes)",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -19636,6 +20552,7 @@
     "is_blank": true
   },
   {
+    "id": "greek-puff-pastry-appetizers-with-kalamata-olives",
     "name": "Greek Puff Pastry Appetizers With Kalamata Olives",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -19649,6 +20566,7 @@
     "is_blank": true
   },
   {
+    "id": "greek-lemon-rice",
     "name": "Greek Lemon Rice",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -19662,6 +20580,7 @@
     "is_blank": true
   },
   {
+    "id": "middle-eastern-spicy-potato-salad-batata-harra",
     "name": "Middle Eastern Spicy Potato Salad (Batata Harra)",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -19675,6 +20594,7 @@
     "is_blank": true
   },
   {
+    "id": "moroccan-couscous-with-roast-vegetables",
     "name": "Moroccan Couscous With Roast Vegetables",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -19688,6 +20608,7 @@
     "is_blank": true
   },
   {
+    "id": "moroccan-spiced-chicken-briouats",
     "name": "Moroccan Spiced Chicken Briouats",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -19701,6 +20622,7 @@
     "is_blank": true
   },
   {
+    "id": "mujaddara",
     "name": "Mujaddara",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -19714,6 +20636,7 @@
     "is_blank": true
   },
   {
+    "id": "spiced-samosa-patties",
     "name": "Spiced Samosa Patties",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19727,6 +20650,7 @@
     "is_blank": true
   },
   {
+    "id": "za-atar-potatoes",
     "name": "Za'atar Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -19740,6 +20664,7 @@
     "is_blank": true
   },
   {
+    "id": "fruit-infused-water-6-ways",
     "name": "Fruit Infused Water — 6 Ways",
     "section": "TO TRY --- SMOOTHIES",
     "category": "Smoothies",
@@ -19753,6 +20678,7 @@
     "is_blank": true
   },
   {
+    "id": "peach-carrot-smoothie",
     "name": "Peach Carrot Smoothie",
     "section": "TO TRY --- SMOOTHIES",
     "category": "Smoothies",
@@ -19766,6 +20692,7 @@
     "is_blank": true
   },
   {
+    "id": "moo-dad-deaw",
     "name": "Moo Dad Deaw",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19779,6 +20706,7 @@
     "is_blank": true
   },
   {
+    "id": "crying-tiger-sauce",
     "name": "Crying Tiger Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -19792,6 +20720,7 @@
     "is_blank": true
   },
   {
+    "id": "chinese-coconut-pudding",
     "name": "Chinese Coconut Pudding",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -19805,6 +20734,7 @@
     "is_blank": true
   },
   {
+    "id": "coconut-cheesecake-bread-pudding",
     "name": "Coconut Cheesecake Bread Pudding",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -19818,6 +20748,7 @@
     "is_blank": true
   },
   {
+    "id": "venezuelan-sweet-corn-cachapas",
     "name": "Venezuelan Sweet Corn Cachapas",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19831,6 +20762,7 @@
     "is_blank": true
   },
   {
+    "id": "plum-sauce-chicken-thighs",
     "name": "Plum Sauce Chicken Thighs",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -19844,6 +20776,7 @@
     "is_blank": true
   },
   {
+    "id": "banana-blondies",
     "name": "Banana Blondies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -19857,6 +20790,7 @@
     "is_blank": true
   },
   {
+    "id": "salsa-verde-chicken-rice-skillet",
     "name": "Salsa Verde Chicken Rice Skillet",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -19870,6 +20804,7 @@
     "is_blank": true
   },
   {
+    "id": "strawberry-cheesecake-cookies-2",
     "name": "Strawberry Cheesecake Cookies 2",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -19883,6 +20818,7 @@
     "is_blank": true
   },
   {
+    "id": "sweet-jalapeno-pork",
     "name": "Sweet Jalapeno Pork",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -19896,6 +20832,7 @@
     "is_blank": true
   },
   {
+    "id": "sticky-tamarind-chicken-with-crisp-lettuce-a-sweet-spicy-chicken-dinner-recipe",
     "name": "Sticky Tamarind Chicken With Crisp Lettuce A Sweet Spicy Chicken Dinner Recipe",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19909,6 +20846,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-coconut-chicken-with-lime-jasmine-rice",
     "name": "Creamy Coconut Chicken With Lime Jasmine Rice",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19922,6 +20860,7 @@
     "is_blank": true
   },
   {
+    "id": "mongolian-chicken-thighs",
     "name": "Mongolian Chicken Thighs",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19935,6 +20874,7 @@
     "is_blank": true
   },
   {
+    "id": "bao-bun-fillings",
     "name": "Bao Bun Fillings",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19948,6 +20888,7 @@
     "is_blank": true
   },
   {
+    "id": "apple-cider-pork-with-mashed-sweet-potatoes-recipe",
     "name": "Apple Cider Pork With Mashed Sweet Potatoes Recipe",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -19961,6 +20902,7 @@
     "is_blank": true
   },
   {
+    "id": "vietnamese-caramel-pork",
     "name": "Vietnamese Caramel Pork",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -19974,6 +20916,7 @@
     "is_blank": true
   },
   {
+    "id": "sticky-honey-garlic-pork",
     "name": "Sticky Honey Garlic Pork",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -19987,6 +20930,7 @@
     "is_blank": true
   },
   {
+    "id": "hoisin-pork-tenderloin",
     "name": "Hoisin Pork Tenderloin",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20000,6 +20944,7 @@
     "is_blank": true
   },
   {
+    "id": "paleo-carnitas-whole30-crockpot",
     "name": "Paleo Carnitas Whole30 Crockpot",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -20013,6 +20958,7 @@
     "is_blank": true
   },
   {
+    "id": "best-easy-thai-peanut-sauce",
     "name": "Best Easy Thai Peanut Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -20027,6 +20973,7 @@
     "is_blank": true
   },
   {
+    "id": "french-onion-chicken-orzo",
     "name": "French Onion Chicken Orzo",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -20040,6 +20987,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-lime-chicken-with-mango-salsa",
     "name": "Honey Lime Chicken With Mango Salsa",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20053,6 +21001,7 @@
     "is_blank": true
   },
   {
+    "id": "spicy-brazilian-coconut-chicken-an-incredible-ultimate-recipe-for-4",
     "name": "Spicy Brazilian Coconut Chicken An Incredible Ultimate Recipe For 4",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -20066,6 +21015,7 @@
     "is_blank": true
   },
   {
+    "id": "gochujang-miso-chicken-thighs-an-amazing-ultimate-recipe",
     "name": "Gochujang Miso Chicken Thighs An Amazing Ultimate Recipe",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20079,6 +21029,7 @@
     "is_blank": true
   },
   {
+    "id": "mongolian-meatballs",
     "name": "Mongolian Meatballs",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20092,6 +21043,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-bulgogi-recipe",
     "name": "Chicken Bulgogi Recipe",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20105,6 +21057,7 @@
     "is_blank": true
   },
   {
+    "id": "peruvian-green-rice",
     "name": "Peruvian Green Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -20118,6 +21071,7 @@
     "is_blank": true
   },
   {
+    "id": "sugar-free-apple-pie-bars",
     "name": "Sugar Free Apple Pie Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20131,6 +21085,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-curry-roasted-cauliflower-a-flavorful-delight",
     "name": "Honey Curry Roasted Cauliflower A Flavorful Delight",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20144,6 +21099,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-dump-and-bake-chicken-tzatziki-rice-recipe",
     "name": "Easy Dump And Bake Chicken Tzatziki Rice Recipe",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20157,6 +21113,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-chicken-shawarma",
     "name": "Slow Cooker Chicken Shawarma",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -20170,6 +21127,7 @@
     "is_blank": true
   },
   {
+    "id": "greek-chicken-meatballs-with-tzatziki-sauce",
     "name": "Greek Chicken Meatballs With Tzatziki Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -20183,6 +21141,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-chicken-wrap-with-crunchy-asian-slaw",
     "name": "Thai Chicken Wrap With Crunchy Asian Slaw",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20196,6 +21155,7 @@
     "is_blank": true
   },
   {
+    "id": "baked-cajun-salmon-with-avocado-lime-sauce",
     "name": "Baked Cajun Salmon With Avocado Lime Sauce",
     "section": "TO TRY --- MARINADES",
     "category": "Marinades",
@@ -20209,6 +21169,7 @@
     "is_blank": true
   },
   {
+    "id": "spiced-samosa-patties-gluten-free-vegan-recipe",
     "name": "Spiced Samosa Patties Gluten Free Vegan Recipe",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20222,6 +21183,7 @@
     "is_blank": true
   },
   {
+    "id": "chinese-brown-sugar-bread-guo-kui",
     "name": "Chinese Brown Sugar Bread Guo Kui",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20235,6 +21197,7 @@
     "is_blank": true
   },
   {
+    "id": "lemon-curd-chia-pudding",
     "name": "Lemon Curd Chia Pudding",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20248,6 +21211,7 @@
     "is_blank": true
   },
   {
+    "id": "turkish-delight-with-rosewater-and-pistachios-lokum",
     "name": "Turkish Delight With Rosewater And Pistachios Lokum",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20261,6 +21225,7 @@
     "is_blank": true
   },
   {
+    "id": "halva-middle-eastern-confection",
     "name": "Halva Middle Eastern Confection",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20274,6 +21239,7 @@
     "is_blank": true
   },
   {
+    "id": "chai-spice-vegan-pear-pie",
     "name": "Chai Spice Vegan Pear Pie",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20287,6 +21253,7 @@
     "is_blank": true
   },
   {
+    "id": "blueberry-lemon-curd-tart-recipe",
     "name": "Blueberry Lemon Curd Tart Recipe",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20300,6 +21267,7 @@
     "is_blank": true
   },
   {
+    "id": "pineapple-upside-down-minis",
     "name": "Pineapple Upside Down Minis",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20313,6 +21281,7 @@
     "is_blank": true
   },
   {
+    "id": "blueberry-croissant-bake",
     "name": "Blueberry Croissant Bake",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20326,6 +21295,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-caramel-apple-cream-cheese-spread",
     "name": "Easy Caramel Apple Cream Cheese Spread",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20339,6 +21309,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-pumpkin-pie-bites",
     "name": "Easy Pumpkin Pie Bites",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20352,6 +21323,7 @@
     "is_blank": true
   },
   {
+    "id": "caramel-apple-grapes",
     "name": "Caramel Apple Grapes",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20365,6 +21337,7 @@
     "is_blank": true
   },
   {
+    "id": "brie-baked-cheese-appetizer",
     "name": "Brie Baked Cheese Appetizer",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -20378,6 +21351,7 @@
     "is_blank": true
   },
   {
+    "id": "cherry-cheesecake-dip",
     "name": "Cherry Cheesecake Dip",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20391,6 +21365,7 @@
     "is_blank": true
   },
   {
+    "id": "energy-bites-9-recipes",
     "name": "Energy Bites (9 Recipes)",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -20404,6 +21379,7 @@
     "is_blank": true
   },
   {
+    "id": "20-minute-thai-basil-beef-rolls",
     "name": "20 Minute Thai Basil Beef Rolls",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20417,6 +21393,7 @@
     "is_blank": true
   },
   {
+    "id": "grilled-chicken-italia-roll-ups",
     "name": "Grilled Chicken Italia Roll Ups",
     "section": "TO TRY --- SANDWICHES",
     "category": "Sandwiches",
@@ -20430,6 +21407,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-and-asparagus-lemon-stir-fry",
     "name": "Chicken And Asparagus Lemon Stir Fry",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20443,6 +21421,7 @@
     "is_blank": true
   },
   {
+    "id": "maple-glazed-chicken-with-sweet-potatoes",
     "name": "Maple Glazed Chicken With Sweet Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20456,6 +21435,7 @@
     "is_blank": true
   },
   {
+    "id": "teriyaki-chicken-and-rice-casserole",
     "name": "Teriyaki Chicken And Rice Casserole",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20469,6 +21449,7 @@
     "is_blank": true
   },
   {
+    "id": "balsamic-glazed-chicken",
     "name": "Balsamic Glazed Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20482,6 +21463,7 @@
     "is_blank": true
   },
   {
+    "id": "sausage-gravy-pioneer-woman",
     "name": "Sausage Gravy Pioneer Woman",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20495,6 +21477,7 @@
     "is_blank": true
   },
   {
+    "id": "pull-apart-ham-and-cheese-sliders",
     "name": "Pull Apart Ham And Cheese Sliders",
     "section": "TO TRY --- SANDWICHES",
     "category": "Sandwiches",
@@ -20508,6 +21491,7 @@
     "is_blank": true
   },
   {
+    "id": "homemade-crunchwrap-supreme-recipe",
     "name": "Homemade Crunchwrap Supreme Recipe",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -20521,6 +21505,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-pad-thai",
     "name": "Easy Pad Thai",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20534,6 +21519,7 @@
     "is_blank": true
   },
   {
+    "id": "leftover-mashed-potato-puffs",
     "name": "Leftover Mashed Potato Puffs",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20547,6 +21533,7 @@
     "is_blank": true
   },
   {
+    "id": "simple-sesame-noodles",
     "name": "Simple Sesame Noodles",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20560,6 +21547,7 @@
     "is_blank": true
   },
   {
+    "id": "greek-potatoes",
     "name": "Greek Potatoes",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20573,6 +21561,7 @@
     "is_blank": true
   },
   {
+    "id": "crispy-cheese-bacon-potatoes-recipe",
     "name": "Crispy Cheese Bacon Potatoes Recipe",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20586,6 +21575,7 @@
     "is_blank": true
   },
   {
+    "id": "better-than-takeout-chicken-fried-rice",
     "name": "Better Than Takeout Chicken Fried Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20599,6 +21589,7 @@
     "is_blank": true
   },
   {
+    "id": "mango-lime-rice-a-bright-tropical-side-dish-bursting-with-flavor",
     "name": "Mango Lime Rice A Bright Tropical Side Dish Bursting With Flavor",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20612,6 +21603,7 @@
     "is_blank": true
   },
   {
+    "id": "salmon-balls-with-creamy-avocado-sauce",
     "name": "Salmon Balls With Creamy Avocado Sauce",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20625,6 +21617,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-garlic-chicken-shawarma-recipe",
     "name": "Creamy Garlic Chicken Shawarma Recipe",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20638,6 +21631,7 @@
     "is_blank": true
   },
   {
+    "id": "roz-meammar-meammar-rice",
     "name": "Roz Meammar Meammar Rice",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20651,6 +21645,7 @@
     "is_blank": true
   },
   {
+    "id": "nigerian-jollof-rice",
     "name": "Nigerian Jollof Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -20664,6 +21659,7 @@
     "is_blank": true
   },
   {
+    "id": "syrian-fattet-djaj-layered-chicken-platter",
     "name": "Syrian Fattet Djaj Layered Chicken Platter",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20677,6 +21673,7 @@
     "is_blank": true
   },
   {
+    "id": "simple-bok-choy-rice",
     "name": "Simple Bok Choy Rice",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20690,6 +21687,7 @@
     "is_blank": true
   },
   {
+    "id": "batata-harra-lebanese-spicy-potatoes",
     "name": "Batata Harra Lebanese Spicy Potatoes",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20703,6 +21701,7 @@
     "is_blank": true
   },
   {
+    "id": "brown-rice-and-lentil-pilaf",
     "name": "Brown Rice And Lentil Pilaf",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20716,6 +21715,7 @@
     "is_blank": true
   },
   {
+    "id": "adas-polo-rice-and-lentils-recipe",
     "name": "Adas Polo Rice And Lentils Recipe",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20729,6 +21729,7 @@
     "is_blank": true
   },
   {
+    "id": "egyptian-rice-recipe",
     "name": "Egyptian Rice Recipe",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20742,6 +21743,7 @@
     "is_blank": true
   },
   {
+    "id": "how-to-cook-basmati-rice-for-biryani",
     "name": "How To Cook Basmati Rice For Biryani",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20755,6 +21757,7 @@
     "is_blank": true
   },
   {
+    "id": "gozleme-turkish",
     "name": "Gozleme Turkish",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20768,6 +21771,7 @@
     "is_blank": true
   },
   {
+    "id": "coconut-shrimp-with-sweet-chili-mayo",
     "name": "Coconut Shrimp With Sweet Chili Mayo",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20781,6 +21785,7 @@
     "is_blank": true
   },
   {
+    "id": "vegan-german-potato-soup",
     "name": "Vegan German Potato Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -20794,6 +21799,7 @@
     "is_blank": true
   },
   {
+    "id": "lebanese-meat-pies",
     "name": "Lebanese Meat Pies",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20807,6 +21813,7 @@
     "is_blank": true
   },
   {
+    "id": "cabbage-curry",
     "name": "Cabbage Curry",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -20820,6 +21827,7 @@
     "is_blank": true
   },
   {
+    "id": "dopiazeh-aloo-persian-potato-curry",
     "name": "Dopiazeh Aloo Persian Potato Curry",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20833,6 +21841,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-bhuna",
     "name": "Chicken Bhuna",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20846,6 +21855,7 @@
     "is_blank": true
   },
   {
+    "id": "african-cabbage-stew-with-ground-beef",
     "name": "African Cabbage Stew With Ground Beef",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -20859,6 +21869,7 @@
     "is_blank": true
   },
   {
+    "id": "turkish-cabbage-stew",
     "name": "Turkish Cabbage Stew",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -20872,6 +21883,7 @@
     "is_blank": true
   },
   {
+    "id": "jerk-meatballs-in-coconut-curry-sauce",
     "name": "Jerk Meatballs In Coconut Curry Sauce",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -20885,6 +21897,7 @@
     "is_blank": true
   },
   {
+    "id": "lahmacun-recipe-baked",
     "name": "Lahmacun Recipe Baked",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20898,6 +21911,7 @@
     "is_blank": true
   },
   {
+    "id": "gozleme-turkish-flatbread",
     "name": "Gozleme Turkish Flatbread",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20911,6 +21925,7 @@
     "is_blank": true
   },
   {
+    "id": "greek-style-meatballs-tzatziki-sauce-easy-recipe",
     "name": "Greek Style Meatballs Tzatziki Sauce Easy Recipe",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20924,6 +21939,7 @@
     "is_blank": true
   },
   {
+    "id": "soutzoukakia-recipe-greek-meatballs",
     "name": "Soutzoukakia Recipe Greek Meatballs",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20937,6 +21953,7 @@
     "is_blank": true
   },
   {
+    "id": "sticky-honey-gochujang-chicken",
     "name": "Sticky Honey Gochujang Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20950,6 +21967,7 @@
     "is_blank": true
   },
   {
+    "id": "korean-honey-butter-chicken",
     "name": "Korean Honey Butter Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20963,6 +21981,7 @@
     "is_blank": true
   },
   {
+    "id": "middle-eastern-chicken-and-rice-with-tahini-yogurt-sauce",
     "name": "Middle Eastern Chicken And Rice With Tahini Yogurt Sauce",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -20976,6 +21995,7 @@
     "is_blank": true
   },
   {
+    "id": "chinese-meat-pies",
     "name": "Chinese Meat Pies",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -20989,6 +22009,7 @@
     "is_blank": true
   },
   {
+    "id": "persian-chicken-simplecooktips-com",
     "name": "Persian Chicken (simplecooktips.com)",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -21002,6 +22023,7 @@
     "is_blank": true
   },
   {
+    "id": "chicken-vesuvio",
     "name": "Chicken Vesuvio",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -21015,6 +22037,7 @@
     "is_blank": true
   },
   {
+    "id": "korean-cheese-pancake",
     "name": "Korean Cheese Pancake",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21028,6 +22051,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-chicken-korma",
     "name": "Slow Cooker Chicken Korma",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -21041,6 +22065,7 @@
     "is_blank": true
   },
   {
+    "id": "poulet-yassa-senegalese-chicken",
     "name": "Poulet Yassa Senegalese Chicken",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -21054,6 +22079,7 @@
     "is_blank": true
   },
   {
+    "id": "churu-chicken-amarillo",
     "name": "Churu Chicken Amarillo",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -21067,6 +22093,7 @@
     "is_blank": true
   },
   {
+    "id": "moroccan-beef-and-potato-tagine",
     "name": "Moroccan Beef And Potato Tagine",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -21080,6 +22107,7 @@
     "is_blank": true
   },
   {
+    "id": "moroccan-spiced-chicken",
     "name": "Moroccan Spiced Chicken",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -21093,6 +22121,7 @@
     "is_blank": true
   },
   {
+    "id": "zaatar-chicken-and-rice",
     "name": "Zaatar Chicken And Rice",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -21106,6 +22135,7 @@
     "is_blank": true
   },
   {
+    "id": "arayes-lebanese-meat-stuffed-pita",
     "name": "Arayes Lebanese Meat Stuffed Pita",
     "section": "TO TRY --- MIDDLE EASTERN",
     "category": "Middle Eastern",
@@ -21119,6 +22149,7 @@
     "is_blank": true
   },
   {
+    "id": "ginger-lime-pork-with-coconut-rice",
     "name": "Ginger Lime Pork With Coconut Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21132,6 +22163,7 @@
     "is_blank": true
   },
   {
+    "id": "cottage-cheese-ice-cream",
     "name": "Cottage Cheese Ice Cream",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21145,6 +22177,7 @@
     "is_blank": true
   },
   {
+    "id": "crockpot-hamburger-potato-casserole",
     "name": "Crockpot Hamburger Potato Casserole",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -21158,6 +22191,7 @@
     "is_blank": true
   },
   {
+    "id": "meatballs-in-lemon-sauce",
     "name": "Meatballs In Lemon Sauce",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -21171,6 +22205,7 @@
     "is_blank": true
   },
   {
+    "id": "giouvetsi-greek-beef-stew-orzo",
     "name": "Giouvetsi Greek Beef Stew Orzo",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -21184,6 +22219,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-korean-beef",
     "name": "Slow Cooker Korean Beef",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
@@ -21197,6 +22233,7 @@
     "is_blank": true
   },
   {
+    "id": "crab-rangoon-bombs",
     "name": "Crab Rangoon Bombs",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -21210,6 +22247,7 @@
     "is_blank": true
   },
   {
+    "id": "lemon-oatmeal-crumble-bars",
     "name": "Lemon Oatmeal Crumble Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21223,6 +22261,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pan-honey-bbq-chicken-rice",
     "name": "One Pan Honey Bbq Chicken Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21236,6 +22275,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pan-spanish-chicken-rice",
     "name": "One Pan Spanish Chicken Rice",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -21249,6 +22289,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-mushroom-chicken-rice",
     "name": "One Pot Mushroom Chicken Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21262,6 +22303,7 @@
     "is_blank": true
   },
   {
+    "id": "protein-packed-cookie-dough-brownies",
     "name": "Protein Packed Cookie Dough Brownies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21275,6 +22317,7 @@
     "is_blank": true
   },
   {
+    "id": "fluffy-cottage-cheese-blueberry-cloud-bread",
     "name": "Fluffy Cottage Cheese Blueberry Cloud Bread",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21288,6 +22331,7 @@
     "is_blank": true
   },
   {
+    "id": "peruvian-chicken-and-rice-with-green-sauce",
     "name": "Peruvian Chicken And Rice With Green Sauce",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -21301,6 +22345,7 @@
     "is_blank": true
   },
   {
+    "id": "potatoes-and-green-beans",
     "name": "Potatoes And Green Beans",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21314,6 +22359,7 @@
     "is_blank": true
   },
   {
+    "id": "korean-braised-potatoes",
     "name": "Korean Braised Potatoes",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21327,6 +22373,7 @@
     "is_blank": true
   },
   {
+    "id": "mexican-picadillo",
     "name": "Mexican Picadillo",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -21340,6 +22387,7 @@
     "is_blank": true
   },
   {
+    "id": "brown-sugar-glazed-ham",
     "name": "Brown Sugar Glazed Ham",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -21353,6 +22401,7 @@
     "is_blank": true
   },
   {
+    "id": "garlic-butter-cod-asparagus-skillet",
     "name": "Garlic Butter Cod Asparagus Skillet",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -21366,6 +22415,7 @@
     "is_blank": true
   },
   {
+    "id": "one-pot-ground-beef-and-potatoes",
     "name": "One Pot Ground Beef And Potatoes",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21379,6 +22429,7 @@
     "is_blank": true
   },
   {
+    "id": "mustard-chicken",
     "name": "Mustard Chicken",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
@@ -21392,6 +22443,7 @@
     "is_blank": true
   },
   {
+    "id": "creamy-skillet-tortellini-with-sweet-potato-and-spinach",
     "name": "Creamy Skillet Tortellini With Sweet Potato And Spinach",
     "section": "TO TRY --- ITALIAN",
     "category": "Italian",
@@ -21405,6 +22457,7 @@
     "is_blank": true
   },
   {
+    "id": "taco-pasta-thecozycook-com",
     "name": "Taco Pasta (thecozycook.com)",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -21418,6 +22471,7 @@
     "is_blank": true
   },
   {
+    "id": "one-skillet-mexican-rice-casserole",
     "name": "One Skillet Mexican Rice Casserole",
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
@@ -21431,6 +22485,7 @@
     "is_blank": true
   },
   {
+    "id": "african-peanut-butter-rice",
     "name": "African Peanut Butter Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21445,6 +22500,7 @@
     "is_blank": true
   },
   {
+    "id": "this-peanut-butter-bread-recipe-hasnt-changed-since-the-1930s",
     "name": "This Peanut Butter Bread Recipe Hasnt Changed Since The 1930s",
     "section": "TO TRY --- BREAD",
     "category": "Bread",
@@ -21459,6 +22515,7 @@
     "is_blank": true
   },
   {
+    "id": "best-peanut-butter-dessert-recipes",
     "name": "Best Peanut Butter Dessert Recipes",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21473,6 +22530,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-cucumber-salad-with-chicken",
     "name": "Thai Cucumber Salad With Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21487,6 +22545,7 @@
     "is_blank": true
   },
   {
+    "id": "the-best-peanut-butter-recipes",
     "name": "The Best Peanut Butter Recipes",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21501,6 +22560,7 @@
     "is_blank": true
   },
   {
+    "id": "skillet-peanut-butter-banana-nachos-dessert",
     "name": "Skillet Peanut Butter Banana Nachos Dessert",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21515,6 +22575,7 @@
     "is_blank": true
   },
   {
+    "id": "vegan-chocolate-peanut-butter-fudge",
     "name": "Vegan Chocolate Peanut Butter Fudge",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21529,6 +22590,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-chickpea-buddha-bowl",
     "name": "Peanut Chickpea Buddha Bowl",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21543,6 +22605,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-chicken",
     "name": "Peanut Butter Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21557,6 +22620,7 @@
     "is_blank": true
   },
   {
+    "id": "cucumbers-in-spicy-peanut-sauce",
     "name": "Cucumbers In Spicy Peanut Sauce",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21571,6 +22635,7 @@
     "is_blank": true
   },
   {
+    "id": "3-ingredient-peanut-butter-and-jelly-cups-no-refined-sugar",
     "name": "3 Ingredient Peanut Butter And Jelly Cups No Refined Sugar",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21585,6 +22650,7 @@
     "is_blank": true
   },
   {
+    "id": "36-recipes-that-start-with-a-tub-of-peanut-butter",
     "name": "36 Recipes That Start With A Tub Of Peanut Butter",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21599,6 +22665,7 @@
     "is_blank": true
   },
   {
+    "id": "thai-peanut-chicken-wraps",
     "name": "Thai Peanut Chicken Wraps",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21613,6 +22680,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-yogurt-dip",
     "name": "Peanut Butter Yogurt Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -21627,6 +22695,7 @@
     "is_blank": true
   },
   {
+    "id": "homemade-peanut-butter-protein-bars",
     "name": "Homemade Peanut Butter Protein Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21641,6 +22710,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-jelly-bread",
     "name": "Peanut Butter Jelly Bread",
     "section": "TO TRY --- BREAD",
     "category": "Bread",
@@ -21655,6 +22725,7 @@
     "is_blank": true
   },
   {
+    "id": "greek-yogurt-and-peanut-butter-blondies",
     "name": "Greek Yogurt And Peanut Butter Blondies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21669,6 +22740,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-peanut-clusters",
     "name": "Slow Cooker Peanut Clusters",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -21683,6 +22755,7 @@
     "is_blank": true
   },
   {
+    "id": "10-minute-peanut-butter-curry",
     "name": "10 Minute Peanut Butter Curry",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21697,6 +22770,7 @@
     "is_blank": true
   },
   {
+    "id": "chinese-peanut-butter-chicken-buffet-style",
     "name": "Chinese Peanut Butter Chicken Buffet Style",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21711,6 +22785,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-satay-dip",
     "name": "Peanut Butter Satay Dip",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21725,6 +22800,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-soup",
     "name": "Peanut Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -21739,6 +22815,7 @@
     "is_blank": true
   },
   {
+    "id": "healthy-peanut-butter-banana-cookies",
     "name": "Healthy Peanut Butter Banana Cookies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21753,6 +22830,7 @@
     "is_blank": true
   },
   {
+    "id": "mafe-senegalese-peanut-stew",
     "name": "Mafe Senegalese Peanut Stew",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -21767,6 +22845,7 @@
     "is_blank": true
   },
   {
+    "id": "chinese-peanut-butter-chicken",
     "name": "Chinese Peanut Butter Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21781,6 +22860,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-mochi",
     "name": "Peanut Butter Mochi",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21795,6 +22875,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-rice",
     "name": "Peanut Butter Rice",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -21809,6 +22890,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-banana-bars",
     "name": "Peanut Butter Banana Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21823,6 +22905,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-and-jelly-cookies",
     "name": "Peanut Butter And Jelly Cookies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21837,6 +22920,7 @@
     "is_blank": true
   },
   {
+    "id": "chocolate-peanut-butter-chickpea-cookies",
     "name": "Chocolate Peanut Butter Chickpea Cookies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21851,6 +22935,7 @@
     "is_blank": true
   },
   {
+    "id": "no-bake-desserts-you-can-make-in-10-minutes-or-less",
     "name": "No Bake Desserts You Can Make In 10 Minutes Or Less",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21865,6 +22950,7 @@
     "is_blank": true
   },
   {
+    "id": "healthy-flourless-peanut-butter-jelly-cookie-sandwiches",
     "name": "Healthy Flourless Peanut Butter Jelly Cookie Sandwiches",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21879,6 +22965,7 @@
     "is_blank": true
   },
   {
+    "id": "healthy-peanut-butter-cookies",
     "name": "Healthy Peanut Butter Cookies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21893,6 +22980,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-balls",
     "name": "Peanut Butter Balls",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -21907,6 +22995,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-mousse",
     "name": "Peanut Butter Mousse",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21921,6 +23010,7 @@
     "is_blank": true
   },
   {
+    "id": "high-protein-peanut-butter-yogurt-bites",
     "name": "High Protein Peanut Butter Yogurt Bites",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -21935,6 +23025,7 @@
     "is_blank": true
   },
   {
+    "id": "healthy-peanut-butter-oat-bars",
     "name": "Healthy Peanut Butter Oat Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21949,6 +23040,7 @@
     "is_blank": true
   },
   {
+    "id": "savory-thai-peanut-chicken",
     "name": "Savory Thai Peanut Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -21963,6 +23055,7 @@
     "is_blank": true
   },
   {
+    "id": "slow-cooker-sweet-and-spicy-peanuts",
     "name": "Slow Cooker Sweet And Spicy Peanuts",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -21977,6 +23070,7 @@
     "is_blank": true
   },
   {
+    "id": "protein-peanut-butter-truffles",
     "name": "Protein Peanut Butter Truffles",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -21991,6 +23085,7 @@
     "is_blank": true
   },
   {
+    "id": "holiday-protein-muddy-buddies",
     "name": "Holiday Protein Muddy Buddies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22005,6 +23100,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-dip",
     "name": "Peanut Butter Dip",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -22019,6 +23115,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-banana-cookie-dough-fudge-cups",
     "name": "Peanut Butter Banana Cookie Dough Fudge Cups",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22033,6 +23130,7 @@
     "is_blank": true
   },
   {
+    "id": "easy-no-bake-peanut-butter-oat-cups",
     "name": "Easy No Bake Peanut Butter Oat Cups",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22047,6 +23145,7 @@
     "is_blank": true
   },
   {
+    "id": "african-peanut-soup",
     "name": "African Peanut Soup",
     "section": "TO TRY --- SOUPS",
     "category": "Soups",
@@ -22061,6 +23160,7 @@
     "is_blank": true
   },
   {
+    "id": "flourless-peanut-butter-banana-muffins",
     "name": "Flourless Peanut Butter Banana Muffins",
     "section": "TO TRY --- BREAD",
     "category": "Bread",
@@ -22075,6 +23175,7 @@
     "is_blank": true
   },
   {
+    "id": "crunchy-salad-with-peanut-dressing",
     "name": "Crunchy Salad With Peanut Dressing",
     "section": "TO TRY --- SIDES",
     "category": "Sides",
@@ -22089,6 +23190,7 @@
     "is_blank": true
   },
   {
+    "id": "pacoca-recipe",
     "name": "Pacoca Recipe",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22103,6 +23205,7 @@
     "is_blank": true
   },
   {
+    "id": "healthier-peanut-butter-balls",
     "name": "Healthier Peanut Butter Balls",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -22117,6 +23220,7 @@
     "is_blank": true
   },
   {
+    "id": "honey-roasted-peanuts",
     "name": "Honey Roasted Peanuts",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -22131,6 +23235,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-roll",
     "name": "Peanut Butter Roll",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22145,6 +23250,7 @@
     "is_blank": true
   },
   {
+    "id": "chewy-peanut-butter-brownies",
     "name": "Chewy Peanut Butter Brownies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22159,6 +23265,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-masala-masala-groundnut",
     "name": "Peanut Masala (Masala Groundnut)",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -22173,6 +23280,7 @@
     "is_blank": true
   },
   {
+    "id": "irresistible-thai-peanut-chicken",
     "name": "Irresistible Thai Peanut Chicken",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -22187,6 +23295,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-chocolate-bars",
     "name": "Peanut Butter Chocolate Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22201,6 +23310,7 @@
     "is_blank": true
   },
   {
+    "id": "classic-peanut-butter-cookies",
     "name": "Classic Peanut Butter Cookies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22215,6 +23325,7 @@
     "is_blank": true
   },
   {
+    "id": "10-minute-peanut-sauce-rice-noodles",
     "name": "10 Minute Peanut Sauce Rice Noodles",
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
@@ -22229,6 +23340,7 @@
     "is_blank": true
   },
   {
+    "id": "peanut-butter-jelly-banana-bread",
     "name": "Peanut Butter Jelly Banana Bread",
     "section": "TO TRY --- BREAD",
     "category": "Bread",
@@ -22243,6 +23355,7 @@
     "is_blank": true
   },
   {
+    "id": "high-protein-bagel-bites",
     "name": "High Protein Bagel Bites",
     "section": "TO TRY --- BREAD",
     "category": "Bread",
@@ -22256,6 +23369,7 @@
     "is_blank": true
   },
   {
+    "id": "overnight-oats",
     "name": "Overnight Oats",
     "section": "TO TRY --- BREAD",
     "category": "Bread",
@@ -22269,6 +23383,7 @@
     "is_blank": true
   },
   {
+    "id": "quinoa-pudding",
     "name": "Quinoa Pudding",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22282,6 +23397,7 @@
     "is_blank": true
   },
   {
+    "id": "irresistible-banana-oatmeal-bars",
     "name": "Irresistible Banana Oatmeal Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22295,6 +23411,7 @@
     "is_blank": true
   },
   {
+    "id": "greek-yogurt-peanut-butter-protein-cake-with-chocolate-fudge-topping",
     "name": "Greek Yogurt Peanut Butter Protein Cake With Chocolate Fudge Topping",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22309,6 +23426,7 @@
     "is_blank": true
   },
   {
+    "id": "almond-flour-sugar-cookie-bars",
     "name": "Almond Flour Sugar Cookie Bars",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22322,6 +23440,7 @@
     "is_blank": true
   },
   {
+    "id": "pumpkin-energy-balls",
     "name": "Pumpkin Energy Balls",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22335,6 +23454,7 @@
     "is_blank": true
   },
   {
+    "id": "healthy-oatmeal-protein-cookies",
     "name": "Healthy Oatmeal Protein Cookies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22348,6 +23468,7 @@
     "is_blank": true
   },
   {
+    "id": "cottage-cheese-protein-cookies",
     "name": "Cottage Cheese Protein Cookies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22361,6 +23482,7 @@
     "is_blank": true
   },
   {
+    "id": "low-calorie-protein-brownies-with-greek-yogurt",
     "name": "Low Calorie Protein Brownies With Greek Yogurt",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22374,6 +23496,7 @@
     "is_blank": true
   },
   {
+    "id": "healthy-peanut-butter-greek-yogurt-breakfast-blondies",
     "name": "Healthy Peanut Butter Greek Yogurt Breakfast Blondies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22388,6 +23511,7 @@
     "is_blank": true
   },
   {
+    "id": "protein-pumpkin-bread",
     "name": "Protein Pumpkin Bread",
     "section": "TO TRY --- BREAD",
     "category": "Bread",
@@ -22401,6 +23525,7 @@
     "is_blank": true
   },
   {
+    "id": "cottage-cheese-brownies",
     "name": "Cottage Cheese Brownies",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
@@ -22414,6 +23539,7 @@
     "is_blank": true
   },
   {
+    "id": "cinnamon-apple-cottage-cheese-bites",
     "name": "Cinnamon Apple Cottage Cheese Bites",
     "section": "TO TRY --- SNACKS",
     "category": "Snacks",
@@ -22427,6 +23553,7 @@
     "is_blank": true
   },
   {
+    "id": "pumpkin-queijadas-pumpkin-milk-tarts",
     "name": "Pumpkin Queijadas (Pumpkin Milk Tarts)",
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",

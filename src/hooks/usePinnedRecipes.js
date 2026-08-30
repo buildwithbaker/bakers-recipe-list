@@ -20,11 +20,11 @@ function save(set) {
 export function usePinnedRecipes() {
   const [pinnedSet, setPinnedSet] = useState(load);
 
-  const togglePinned = useCallback((recipeName) => {
+  const togglePinned = useCallback((recipeId) => {
     setPinnedSet((prev) => {
       const next = new Set(prev);
-      if (next.has(recipeName)) next.delete(recipeName);
-      else next.add(recipeName);
+      if (next.has(recipeId)) next.delete(recipeId);
+      else next.add(recipeId);
       save(next);
       return next;
     });

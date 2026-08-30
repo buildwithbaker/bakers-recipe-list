@@ -58,7 +58,7 @@ function SectionBlock({ section, recipes, onViewRecipe, hideSource, highlightQue
           <tbody>
             {recipes.map((recipe) => (
               <RecipeRow
-                key={recipe.name}
+                key={recipe.id}
                 recipe={recipe}
                 onViewRecipe={onViewRecipe}
                 hideSource={hideSource}

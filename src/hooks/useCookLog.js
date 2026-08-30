@@ -3,7 +3,7 @@
 // "unmade" doesn't erase the history.
 //
 // localStorage key: 'brl_cook_log'
-// schema: { [recipeName]: { dates: string[], notes: string } }
+// schema: { [recipeId]: { dates: string[], notes: string } }
 
 import { useCallback, useState } from 'react';
 
