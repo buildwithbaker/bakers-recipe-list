@@ -1,4 +1,4 @@
-import { recipesByName } from '../../data/recipeIndex.js';
+import { resolveRecipe } from '../../data/recipeIndex.js';
 import styles from './RecentlyViewed.module.css';
 
 export default function RecentlyViewed({ history, onViewRecipe, onClear, searchQuery }) {
@@ -9,17 +9,19 @@ export default function RecentlyViewed({ history, onViewRecipe, onClear, searchQ
       <span className={styles.label}>Recently viewed:</span>
       <div className={styles.chips}>
         {history.map((item) => {
-          const recipe = recipesByName.get(item.name);
+          // Entries written before the id migration carry only `name`; the
+          // resolver takes either.
+          const recipe = resolveRecipe(item.id ?? item.name);
           if (!recipe) return null;
           return (
             <button
-              key={item.name}
+              key={item.id ?? item.name}
               type="button"
               className={styles.chip}
               onClick={() => onViewRecipe(recipe)}
-              title={item.name}
+              title={recipe.name}
             >
-              {item.name}
+              {recipe.name}
             </button>
           );
         })}
