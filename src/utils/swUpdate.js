@@ -55,8 +55,16 @@ export function installUpdateReload({
     return { status: 'unsupported' };
   }
   if (!serviceWorker.controller) {
-    // First visit: the imminent controllerchange is the initial claim, not a
-    // new version. Reloading here would reload every first-time visitor.
+    // DO NOT REMOVE THIS GUARD. It looks redundant and is not.
+    //
+    // controllerchange fires in TWO situations: a new worker replacing an old
+    // one (an update — what we want to reload for), and a worker claiming a
+    // page that had none (the first visit — a claim, not an update). They are
+    // indistinguishable from inside the event.
+    //
+    // Only a page that was ALREADY controlled when we installed can be running
+    // stale code, so an uncontrolled page arms nothing. Delete this and every
+    // first-time visitor gets a spurious reload on their very first page view.
     return { status: 'uncontrolled' };
   }
 
