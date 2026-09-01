@@ -94,7 +94,7 @@ describe('validate-recipes.mjs', () => {
   it('passes the real src/data, so the fixtures exercise the production path', () => {
     const { code, output } = runValidator(repoRoot);
     expect(code).toBe(0);
-    expect(output).toMatch(/753 records, 753 unique names, 753 unique ids, 753 manifest entries/);
+    expect(output).toMatch(/754 records, 754 unique names, 754 unique ids, 754 manifest entries/);
   });
 
   it('fails when an id is changed', () => {
