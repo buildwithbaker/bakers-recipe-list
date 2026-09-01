@@ -1374,7 +1374,11 @@
       },
       {
         "type": "item",
-        "text": "Kosher salt and black pepper, to taste"
+        "text": "3/4 tsp kosher salt"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
       },
       {
         "type": "item",
@@ -1427,6 +1431,26 @@
       {
         "type": "item",
         "text": "Small splash of vinegar or lemon juice"
+      },
+      {
+        "type": "header",
+        "text": "Green beans (optional side):"
+      },
+      {
+        "type": "item",
+        "text": "12 oz green beans, trimmed"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 clove garlic, smashed"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp toasted sliced almonds (optional)"
       }
     ],
     "instructions": [
@@ -1436,19 +1460,23 @@
       },
       {
         "step": "Butterfly and season",
-        "detail": "Butterfly each chicken breast to an even thickness. Season both sides generously with salt, pepper, the thyme (1 tsp), and rubbed sage (1/2 tsp)."
+        "detail": "Butterfly each chicken breast (2, about 6 oz each) to an even thickness. Season both sides with kosher salt (3/4 tsp), black pepper (1/2 tsp), fresh thyme (1 tsp), and rubbed sage (1/2 tsp). Let it sit while the pan heats - even 15 minutes of dry-brining seasons deeper than surface salt does."
       },
       {
         "step": "Sear (stovetop, no oven)",
-        "detail": "Pat the breasts dry. Heat the oil (1 Tbsp) in a skillet over medium-high until shimmering. Cook 4-5 minutes per side until deep golden and the internal temperature reaches 165F. Rest the chicken 5 minutes."
+        "detail": "Pat the breasts dry - dry meat is what gives you a real sear. Heat the oil (1 Tbsp) in a skillet over medium-high until shimmering. Cook 4-5 minutes per side until deep golden, pulling the chicken at an internal temperature of about 157F. Rest 5 minutes. Chicken breast is pasteurized by time at temperature, not by hitting 165F instantly - held near 157F it reaches the same safety in under a minute, and it stays juicy. Past 165F in the pan is where breast turns to sawdust."
       },
       {
         "step": "Finish the sauce",
         "detail": "Reheat the cranberry base and simmer 2 minutes to a light nappe, loosening with a splash of stock if it thickened while soaking. Off heat, swirl in the cold butter (1 Tbsp) and a small splash of vinegar or lemon juice. Spoon over the rested chicken."
       },
       {
+        "step": "Green beans (optional)",
+        "detail": "Steam or blanch the green beans (12 oz) 3-4 minutes, then toss in butter (1 Tbsp) with a smashed garlic clove (1) and salt to taste. Top with toasted sliced almonds (2 Tbsp) if you want."
+      },
+      {
         "step": "Serve",
-        "detail": "Serve with mashed potatoes or stuffing and a green vegetable such as green beans or brussels sprouts."
+        "detail": "Serve with mashed potatoes or stuffing and the green beans or another green vegetable such as brussels sprouts."
       }
     ],
     "is_blank": false
@@ -1601,6 +1629,94 @@
       {
         "step": "Serve With Sauce",
         "detail": "Slide the eggs onto the hash and serve immediately with steak sauce, ketchup, or barbecue sauce. This is not a garnish - the hash reads dry without one."
+      }
+    ],
+    "is_blank": false
+  },
+  {
+    "id": "sheet-pan-paprika-chicken-thighs-with-potatoes",
+    "name": "Sheet-Pan Paprika Chicken Thighs with Potatoes",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#sheet-pan",
+      "#potatoes",
+      "#one-pan",
+      "#weeknight",
+      "#american"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "2 lb boneless skinless chicken thighs (about 8)"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 lb baby Yukon Gold potatoes, halved"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp olive oil, divided"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1/2 to 1 tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp kosher salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 lemon, cut into wedges"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 425F with a rack in the middle position."
+      },
+      {
+        "step": "Mix the Seasoning",
+        "detail": "In a small bowl, stir together the smoked paprika (1 Tbsp), garlic powder (2 tsp), dried oregano (1 tsp), cayenne (1/2 to 1 tsp), kosher salt (2 tsp), and black pepper (1 tsp)."
+      },
+      {
+        "step": "Start the Potatoes Alone",
+        "detail": "On a rimmed sheet pan, toss the halved potatoes (1 1/2 lb) with olive oil (2 Tbsp) and about a third of the seasoning mix. Spread them cut-side down. Roast 20 minutes by themselves - boneless thighs cook in roughly half the time bone-in do, so the potatoes need the head start."
+      },
+      {
+        "step": "Season the Chicken",
+        "detail": "While the potatoes roast, pat the chicken thighs (2 lb) dry with paper towels, then toss them in a bowl with the remaining olive oil (2 Tbsp) and the rest of the seasoning mix."
+      },
+      {
+        "step": "Add the Chicken",
+        "detail": "Pull the pan out, push the potatoes to the edges, and lay the thighs (2 lb) in the middle, smooth side up and not touching. Roast another 18-20 minutes, until the thighs read 175F. Do not crowd the pan - touching thighs steam instead of roast."
+      },
+      {
+        "step": "Brown It",
+        "detail": "Broil 2-3 minutes at the end. Boneless skinless thighs have no skin or bone fat to self-baste, so they come out pale and flat without this step."
+      },
+      {
+        "step": "Serve",
+        "detail": "Rest 5 minutes on the pan so the potatoes pick up the rendered fat, then squeeze the lemon (1, cut into wedges) over everything."
       }
     ],
     "is_blank": false
