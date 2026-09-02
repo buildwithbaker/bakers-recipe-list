@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
+import { EXPECTED_RECORDS } from './recordCount.js';
 
 // Tests for scripts/validate-recipes.mjs itself.
 //
@@ -55,6 +56,12 @@ const BASE_MANIFEST = {
 
 const clone = (v) => JSON.parse(JSON.stringify(v));
 
+// The validator's summary line, built from a record count. The count itself is
+// hand-authored once in src/data/recordCount.js - this only formats it, so a
+// catalog change is a one-line bump there and nothing to remember here.
+const summaryLine = (n) =>
+  new RegExp(`${n} records, ${n} unique names, ${n} unique ids, ${n} manifest entries`);
+
 // Mirrors the repo layout the validator resolves against: it reads
 // <root>/src/data/* relative to its own file, and imports sections.js. The
 // script, schema and sections are copied VERBATIM so the fixtures exercise the
@@ -85,7 +92,7 @@ describe('validate-recipes.mjs', () => {
     const { code, output } = runValidator(fixture());
     expect(code).toBe(0);
     expect(output).toMatch(/recipes\.json OK/);
-    expect(output).toMatch(/2 records, 2 unique names, 2 unique ids, 2 manifest entries/);
+    expect(output).toMatch(summaryLine(BASE_RECORDS.length));
   });
 
   // Proves the harness is not self-fulfilling: the same spawn, pointed at the
@@ -94,7 +101,7 @@ describe('validate-recipes.mjs', () => {
   it('passes the real src/data, so the fixtures exercise the production path', () => {
     const { code, output } = runValidator(repoRoot);
     expect(code).toBe(0);
-    expect(output).toMatch(/754 records, 754 unique names, 754 unique ids, 754 manifest entries/);
+    expect(output).toMatch(summaryLine(EXPECTED_RECORDS));
   });
 
   it('fails when an id is changed', () => {
