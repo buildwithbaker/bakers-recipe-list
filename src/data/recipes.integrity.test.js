@@ -5,6 +5,7 @@ import recipes from './recipes.json';
 import idManifest from './recipes.ids.json';
 import { SECTIONS } from './sections.js';
 import { displayRecipes, displayedBySection, recipesByName } from './recipeIndex.js';
+import { EXPECTED_RECORDS } from './recordCount.js';
 
 // Integrity guard for the recipe catalog. Mirrors scripts/validate-recipes.mjs
 // (the build-time check) so the invariants are enforced in CI tests too.
@@ -12,9 +13,9 @@ import { displayRecipes, displayedBySection, recipesByName } from './recipeIndex
 // links), so duplicate names corrupt behavior — see issue #2.
 
 describe('recipes.json integrity', () => {
-  // Snapshot counts — bump these intentionally when the catalog changes so a
-  // surprise add/drop of records is caught in review.
-  const EXPECTED_RECORDS = 754;
+  // Snapshot count. It is authored in ./recordCount.js and bumped there
+  // intentionally when the catalog changes, so a surprise add/drop of records
+  // is caught in review. It is the only hand-written record count in the repo.
 
   it('has the expected number of records', () => {
     expect(recipes.length).toBe(EXPECTED_RECORDS);
