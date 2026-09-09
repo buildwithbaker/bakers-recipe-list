@@ -217,8 +217,15 @@ describe('recipe ids', () => {
   it('ships no slug-from-name helper anywhere under src/', () => {
     const offenders = shippedSources().filter((f) => {
       const src = readFileSync(f, 'utf8');
-      // A slugifier by name, or anything lowercasing a `.name` and punching it
-      // into dashes — the exact move that would un-freeze an id.
+      // A slugifier, a name→slug helper, or anything lowercasing a `.name` and
+      // punching it into dashes — the exact move that would un-freeze an id.
+      //
+      // NARROWED, deliberately, from a blanket ban on the word "slug":
+      // src/utils/recipeSlug.js transforms an ID into a URL path segment and
+      // back (`parent::v1` <-> `parent--v1`), which the /r/<slug>/ routes need
+      // at runtime. That direction is safe — the id is already frozen and the
+      // transform is reversible — and the assertion below proves it never
+      // reaches for a name. What must stay banned is deriving an id FROM a name.
       //
       // DO NOT "tighten" this to any lowercase+replace: RecipeList builds a DOM
       // anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
@@ -226,8 +233,25 @@ describe('recipe ids', () => {
       // from a recipe name. It is missed on purpose, not by luck. scripts/ is
       // also deliberately out of scope: the one-time assignment script owns the
       // only real slug function and must keep it.
-      return /slug/i.test(src) || /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/.test(src);
+      return /slugif/i.test(src)
+        || /name[A-Za-z]*slug|slug[A-Za-z]*(from)?name/i.test(src)
+        || /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/.test(src);
     });
+    expect(offenders).toEqual([]);
+  });
+
+  // The slug module is the one place allowed to say "slug", so it gets its own
+  // guard: it may only ever see an id.
+  it('keeps the slug module free of any name lookup', () => {
+    const src = readFileSync(join('src', 'utils', 'recipeSlug.js'), 'utf8');
+    expect(/\.name\b|recipesByName|resolveRecipe/.test(src)).toBe(false);
+  });
+
+  // `--` in a path segment is what a `::` in a versioned child id becomes, and
+  // slugToId turns every `--` back into `::`. An authored id containing a double
+  // dash would therefore resolve to a different recipe than the one it names.
+  it('has no authored id containing a double dash', () => {
+    const offenders = recipes.filter((r) => String(r.id).includes('--')).map((r) => r.id);
     expect(offenders).toEqual([]);
   });
 

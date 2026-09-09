@@ -6,6 +6,7 @@ import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
 import TOCNav from './components/TOCNav/TOCNav.jsx';
 import RecipeList from './components/RecipeList/RecipeList.jsx';
 import RecipeModal from './components/RecipeModal/RecipeModal.jsx';
+import RecipePage from './components/RecipePage/RecipePage.jsx';
 import SearchBar from './components/SearchBar/SearchBar.jsx';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
 import RecentlyViewed from './components/RecentlyViewed/RecentlyViewed.jsx';
@@ -17,21 +18,31 @@ import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
 import { useDarkMode } from './hooks/useDarkMode.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
+import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js';
 
 /*
+ * Routing model
+ * -------------
+ * THE PATH IS THE OPEN RECIPE. /r/<slug>/ names one recipe and nothing else,
+ * which is what lets scripts/prerender.mjs put a real file with real Open Graph
+ * tags at that address — a link-preview crawler runs no JavaScript, so a query
+ * string could never have carried this. `?recipe=` still resolves forever; a
+ * legacy link is rewritten to its path on load.
+ *
  * Overlay history model
  * ---------------------
- * Every dismissable layer — recipe card, shopping list, sections menu — pushes a
- * history entry when it opens. The entry's `history.state.overlays` array records
- * the full stack that is open at that entry, so the device/browser Back button
- * pops exactly one layer instead of leaving the site, and Forward restores it.
+ * The remaining dismissable layers — shopping list, sections menu — push a
+ * history entry when they open. The entry's `history.state.overlays` array
+ * records the full stack open at that entry, so Back pops exactly one layer
+ * instead of leaving the site, and Forward restores it. The recipe is NOT in
+ * that array: it is in the URL, so Back pops it for free.
  *
  * Layers nest: the card's "List" button opens the shopping list on top of the
  * card, so Back closes the list first, then the card, then leaves the site.
  * Only the topmost layer responds to Back / Escape / its own close button —
- * that is what stops a single Escape from closing two stacked layers at once.
+ * that is what stops a single Escape from closing two stacked layers at once,
+ * and it is why closing the recipe is refused while an overlay sits above it.
  */
-const RECIPE_PREFIX = 'recipe:';
 const MENU = 'menu';
 const LIST = 'list';
 
@@ -40,12 +51,28 @@ function getParam(key) {
   catch { return ''; }
 }
 
-// Builds a URL string from the current location with `key` set (or removed when falsy).
+// The current query string with `recipe` dropped — the path carries the recipe
+// now, so keeping the legacy parameter alongside it would mean two sources of
+// truth in one URL. `?q=` and anything else survives untouched.
+function searchWithoutRecipe() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    params.delete('recipe');
+    const qs = params.toString();
+    return qs ? `?${qs}` : '';
+  } catch { return ''; }
+}
+
+const listUrl = () => `${BASE_PATH}${searchWithoutRecipe()}`;
+const urlForRecipe = (id) => `${recipePath(id)}${searchWithoutRecipe()}`;
+
+// Builds a URL string from the current location with `key` set (or removed when
+// falsy). Keeps the pathname: it is the route now, not decoration.
 function urlWithParam(key, value) {
   const params = new URLSearchParams(window.location.search);
   if (value) params.set(key, value); else params.delete(key);
   const qs = params.toString();
-  return qs ? `?${qs}` : window.location.pathname + window.location.hash;
+  return `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
 }
 
 // Rewrites the current history entry. Used for search — typing must not create
@@ -65,37 +92,37 @@ function entryOverlays() {
   } catch { return []; }
 }
 
-// The recipe key carried on the current entry. Now an id for anything this
-// build wrote, but an old shared link still carries a name — resolution below
-// takes either, so both keep working.
-function recipeKeyIn(overlays) {
-  const token = overlays.find((t) => t.startsWith(RECIPE_PREFIX));
-  return token ? token.slice(RECIPE_PREFIX.length) : '';
+// Whether the current history entry renders its recipe as a full page.
+function isPageEntry() {
+  try { return !!window.history.state?.page; } catch { return false; }
 }
 
-// Only the recipe card is shareable, so it is the only layer mirrored into the URL.
-function urlForOverlays(overlays) {
-  return urlWithParam('recipe', recipeKeyIn(overlays));
+// Nothing but the recipe is mirrored into the URL, so opening or closing an
+// overlay keeps the address exactly as it is — path, query and hash.
+function currentUrl() {
+  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
-// Resolution order: id, then display name, then raw pre-expansion name, then
-// the frozen manifest's legacy name — see resolveRecipe in recipeIndex.js.
-// `?recipe=` now emits an id, and every link ever shared still opens.
-function findRecipe(key) {
-  return resolveRecipe(key);
-}
-
-// On first paint: a reload keeps history.state, so trust it. A fresh shared link
-// (?recipe=Chili) has no state yet — derive the card from the URL.
-function initialOverlays() {
-  const fromEntry = entryOverlays();
-  if (fromEntry.length) return fromEntry;
-  const name = getParam('recipe');
-  return name ? [RECIPE_PREFIX + name] : [];
+// Where the app starts, read once. The path wins; `?recipe=` is the legacy form
+// and is accepted by id, display name, raw pre-expansion name, or the frozen
+// manifest's legacy name (resolveRecipe in recipeIndex.js), so every link ever
+// shared still opens. `key` is kept alongside `id` because a key that does NOT
+// resolve still has to be cleaned out of the URL.
+function initialRoute() {
+  const key = recipeKeyFromPath(window.location.pathname) || getParam('recipe');
+  const recipe = key ? resolveRecipe(key) : null;
+  return { key, id: recipe ? recipe.id : '' };
 }
 
 function AppInner() {
-  const [overlays, setOverlays] = useState(initialOverlays);
+  const [landing] = useState(initialRoute);
+  const [recipeId, setRecipeId] = useState(landing.id);
+  // Modal or page — a presentation choice on ONE route, recorded per history
+  // entry as `state.page` so Back and Forward restore what was on screen. True
+  // from the first paint when the visitor arrived on /r/<slug>/ itself: there
+  // is no list behind them to lay a card over.
+  const [pageView, setPageView] = useState(() => !!landing.id);
+  const [overlays, setOverlays] = useState(entryOverlays);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
   // Which list tab is showing. Owned here, not in RecipeList, because the
   // sections drawer can link to a section on a tab that is not the active one.
@@ -106,27 +133,37 @@ function AppInner() {
   const searchBarRef = useRef(null);
   // Mirrors `overlays` for use inside callbacks that must not re-create on every change.
   const overlaysRef = useRef(overlays);
+  // Same, for the open recipe — closeRecipe must not be rebuilt per navigation.
+  const recipeIdRef = useRef(recipeId);
   // Holds a tag search that must be applied after a back navigation lands.
   const pendingSearchRef = useRef(null);
   const [recentHistory, addToHistory, clearHistory] = useRecentlyViewed();
   const [darkMode, toggleDark] = useDarkMode();
   const [listItems, addListItems, toggleListItem, removeListItem, clearChecked, clearAll] = useShoppingList();
 
-  const selectedRecipe = findRecipe(recipeKeyIn(overlays));
+  const selectedRecipe = recipeId ? resolveRecipe(recipeId) : null;
   const menuOpen = overlays.includes(MENU);
   const listOpen = overlays.includes(LIST);
+  const fullPage = !!selectedRecipe && pageView;
 
   const applyOverlays = useCallback((next) => {
     overlaysRef.current = next;
     setOverlays(next);
   }, []);
 
+  const applyRecipe = useCallback((id) => {
+    recipeIdRef.current = id;
+    setRecipeId(id);
+  }, []);
+
   // Opening a layer PUSHES a history entry, so Back pops the layer, not the site.
+  // The URL does not change: only the recipe is mirrored into it. `page` rides
+  // along so that popping back to this entry restores the same rendering.
   const openOverlay = useCallback((token) => {
     if (overlaysRef.current.includes(token)) return;
     const next = [...overlaysRef.current, token];
     try {
-      window.history.pushState({ overlays: next }, '', urlForOverlays(next));
+      window.history.pushState({ overlays: next, page: isPageEntry() }, '', currentUrl());
     } catch { /* ignore */ }
     applyOverlays(next);
   }, [applyOverlays]);
@@ -143,22 +180,64 @@ function AppInner() {
     }
     // history.state was lost (e.g. an external replaceState) — close without navigating.
     const next = stack.slice(0, -1);
-    try { window.history.replaceState({ overlays: next }, '', urlForOverlays(next)); } catch { /* ignore */ }
+    try { window.history.replaceState({ overlays: next, page: isPageEntry() }, '', currentUrl()); } catch { /* ignore */ }
     applyOverlays(next);
     return false;
   }, [applyOverlays]);
 
+  // Opening a recipe is a real navigation: the path changes and a history entry
+  // is pushed, carrying whatever overlays were already open so Forward restores
+  // them. No overlay bookkeeping for the card itself — Back pops the path.
   const handleViewRecipe = useCallback((recipe) => {
-    openOverlay(RECIPE_PREFIX + recipe.id);
+    try {
+      window.history.pushState({ overlays: overlaysRef.current, page: false }, '', urlForRecipe(recipe.id));
+    } catch { /* ignore */ }
+    applyRecipe(recipe.id);
+    setPageView(false);
     addToHistory(recipe);
-  }, [openOverlay, addToHistory]);
+  }, [applyRecipe, addToHistory]);
 
+  // Leaves the recipe for the list WITHOUT a back navigation — used when the
+  // destination is the list plus something else (a section anchor, a tag
+  // search), where stepping back would land on an entry we then have to fight.
+  const goToList = useCallback(() => {
+    try { window.history.pushState({ overlays: [], page: false }, '', listUrl()); } catch { /* ignore */ }
+    applyOverlays([]);
+    applyRecipe('');
+    setPageView(false);
+  }, [applyOverlays, applyRecipe]);
+
+  // Returns true when a back navigation is in flight (popstate finishes the close).
   const closeRecipe = useCallback(() => {
-    const key = recipeKeyIn(overlaysRef.current);
-    return key ? closeOverlay(RECIPE_PREFIX + key) : false;
-  }, [closeOverlay]);
+    if (!recipeIdRef.current) return false;
+    // An overlay sits above the card — it owns Back and Escape until it closes.
+    if (overlaysRef.current.length) return false;
+    // The bootstrap effect below guarantees a list entry behind every recipe
+    // entry, so Back is the normal path. If history.state is missing the push
+    // never happened, and stepping back would leave the site — rewrite instead.
+    if (window.history.state) {
+      window.history.back();
+      return true;
+    }
+    try { window.history.replaceState({ overlays: [], page: false }, '', listUrl()); } catch { /* ignore */ }
+    applyRecipe('');
+    setPageView(false);
+    return false;
+  }, [applyRecipe]);
 
   const handleCloseModal = useCallback(() => { closeRecipe(); }, [closeRecipe]);
+
+  // The modal and the page are the same route, so "open full page" is not a
+  // navigation: same URL, same history entry, different rendering. Recording it
+  // on the entry is what makes Back out of a layer opened from the page return
+  // to the page rather than to a card.
+  const handleOpenFullPage = useCallback(() => {
+    try {
+      window.history.replaceState({ overlays: overlaysRef.current, page: true }, '', currentUrl());
+    } catch { /* ignore */ }
+    setPageView(true);
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const handleMenuToggle = useCallback(() => {
     if (overlaysRef.current.includes(MENU)) closeOverlay(MENU); else openOverlay(MENU);
@@ -167,12 +246,13 @@ function AppInner() {
 
   // A drawer entry may belong to another tab, so switch to the tab that renders
   // the section first and record the anchor; the effect below does the scroll
-  // once that tab has painted and the drawer is actually gone.
+  // once that tab has painted and the drawer is actually gone. From the full
+  // page there is no list underneath, so this navigates to one.
   const handleNavigateSection = useCallback((section) => {
     setActiveTab(section.tab);
     setPendingAnchor(section.id);
-    closeOverlay(MENU);
-  }, [closeOverlay]);
+    if (fullPage) goToList(); else closeOverlay(MENU);
+  }, [closeOverlay, fullPage, goToList]);
 
   const handleListToggle = useCallback(() => {
     if (overlaysRef.current.includes(LIST)) closeOverlay(LIST); else openOverlay(LIST);
@@ -184,16 +264,21 @@ function AppInner() {
     setParam('q', query);
   }, []);
 
-  // Tag click closes the card and searches the tag. When the close triggers a back
+  // Tag click leaves the recipe and searches the tag. When the close triggers a back
   // navigation the search is deferred until the pop lands, otherwise the popstate
   // handler would overwrite the URL and drop `q`.
   const handleTagClick = useCallback((tag) => {
+    if (fullPage) {
+      goToList();
+      handleSearch(tag);
+      return;
+    }
     pendingSearchRef.current = tag;
     if (!closeRecipe()) {
       pendingSearchRef.current = null;
       handleSearch(tag);
     }
-  }, [closeRecipe, handleSearch]);
+  }, [closeRecipe, handleSearch, fullPage, goToList]);
 
   // Called from RecipeModal's "List" button — adds scaled ingredients to shopping list.
   // The list opens on TOP of the card, so Back closes the list and leaves the card open.
@@ -228,10 +313,16 @@ function AppInner() {
     } catch { /* ignore */ }
   }, [pendingAnchor, menuOpen]);
 
-  // Back/forward is the single source of truth for which layers are open.
+  // Back/forward is the single source of truth for what is on screen: the path
+  // says which recipe, `state.overlays` says which layers, `state.page` says
+  // card or page. Nothing here decides — it reads the entry we landed on.
   useEffect(() => {
     const onPopState = () => {
       applyOverlays(entryOverlays());
+      const key = recipeKeyFromPath(window.location.pathname);
+      const recipe = key ? resolveRecipe(key) : null;
+      applyRecipe(recipe ? recipe.id : '');
+      setPageView(isPageEntry());
       const pending = pendingSearchRef.current;
       if (pending !== null) {
         pendingSearchRef.current = null;
@@ -241,20 +332,26 @@ function AppInner() {
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
-  }, [applyOverlays]);
+  }, [applyOverlays, applyRecipe]);
 
-  // A shared link like ?recipe=Chili opens straight into a card with nothing behind it.
-  // Rewrite that first entry to the plain list, then push the card on top, so Back has
-  // an in-app destination instead of leaving the site. Skipped on reload, where the
-  // entry already carries its overlay stack.
+  // A shared link — /r/spicy-pork-patties/ or the legacy ?recipe=Chili — opens
+  // straight into a recipe with nothing behind it. Rewrite that first entry to
+  // the plain list, then push the recipe on top, so Back has an in-app
+  // destination instead of dumping the visitor off the site. That push is also
+  // what turns a legacy `?recipe=` link into its `/r/<slug>/` equivalent.
+  //
+  // `history.state` is the "this entry is ours" marker: a reload preserves it,
+  // so re-running would duplicate the entry. A link that resolves to nothing
+  // (a stale id, a renamed recipe) just gets its URL cleaned back to the list —
+  // being shown the collection beats being shown an error.
   useEffect(() => {
-    const name = getParam('recipe');
-    if (!name || entryOverlays().length) return;
+    if (!landing.key || window.history.state) return;
     try {
-      window.history.replaceState({ overlays: [] }, '', urlWithParam('recipe', ''));
-      window.history.pushState({ overlays: [RECIPE_PREFIX + name] }, '', urlWithParam('recipe', name));
+      window.history.replaceState({ overlays: [], page: false }, '', listUrl());
+      if (!landing.id) return;
+      window.history.pushState({ overlays: [], page: true }, '', urlForRecipe(landing.id));
     } catch { /* ignore */ }
-  }, []);
+  }, [landing]);
 
   // "/" focuses the search bar when nothing is layered over the list.
   useEffect(() => {
@@ -284,28 +381,44 @@ function AppInner() {
       />
       <UsdaKeyNotice />
       <TOCNav open={menuOpen} onClose={handleMenuClose} onNavigate={handleNavigateSection} activeTab={activeTab} />
-      <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
-      <RecentlyViewed
-        history={recentHistory}
-        onViewRecipe={handleViewRecipe}
-        onClear={clearHistory}
-        searchQuery={searchQuery}
-      />
-      <RecipeList
-        onViewRecipe={handleViewRecipe}
-        searchQuery={searchQuery}
-        onSearch={handleSearch}
-        activeTab={activeTab}
-        onTabChange={setActiveTab}
-      />
-      <ErrorBoundary key={selectedRecipe?.name ?? '__none__'}>
-        <RecipeModal
-          recipe={selectedRecipe}
-          onClose={handleCloseModal}
-          onTagClick={handleTagClick}
-          onAddToList={handleAddToList}
-        />
-      </ErrorBoundary>
+      {fullPage ? (
+        // Arrived here from a shared link: there is no list to lay a card over,
+        // so the recipe IS the page. Same URL either way.
+        <ErrorBoundary key={selectedRecipe.id}>
+          <RecipePage
+            recipe={selectedRecipe}
+            onBackToList={handleCloseModal}
+            onTagClick={handleTagClick}
+            onAddToList={handleAddToList}
+          />
+        </ErrorBoundary>
+      ) : (
+        <>
+          <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
+          <RecentlyViewed
+            history={recentHistory}
+            onViewRecipe={handleViewRecipe}
+            onClear={clearHistory}
+            searchQuery={searchQuery}
+          />
+          <RecipeList
+            onViewRecipe={handleViewRecipe}
+            searchQuery={searchQuery}
+            onSearch={handleSearch}
+            activeTab={activeTab}
+            onTabChange={setActiveTab}
+          />
+          <ErrorBoundary key={selectedRecipe?.name ?? '__none__'}>
+            <RecipeModal
+              recipe={selectedRecipe}
+              onClose={handleCloseModal}
+              onOpenFullPage={handleOpenFullPage}
+              onTagClick={handleTagClick}
+              onAddToList={handleAddToList}
+            />
+          </ErrorBoundary>
+        </>
+      )}
       <ShoppingList
         items={listItems}
         open={listOpen}
