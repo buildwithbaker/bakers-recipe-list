@@ -795,11 +795,84 @@
     "category": "Doughs",
     "source": "Original",
     "tags": [
-      "#dough"
+      "#dough",
+      "#pasta",
+      "#italian",
+      "#handmade"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "3 cups all-purpose flour, spooned and leveled, plus more for dusting"
+      },
+      {
+        "type": "item",
+        "text": "4 large eggs"
+      },
+      {
+        "type": "item",
+        "text": "1 large egg yolk"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt or Morton kosher salt (or 1 1/2 tsp Diamond Crystal)"
+      },
+      {
+        "type": "item",
+        "text": "1 to 2 Tbsp water, as needed"
+      },
+      {
+        "type": "item",
+        "text": "Semolina or extra all-purpose flour, for dusting the cut sheets"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp table salt or 1 1/2 Tbsp Morton kosher salt (or 1/4 cup Diamond Crystal), for the blanching water"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix To Shaggy",
+        "detail": "Makes about 1 1/4 lb dough, enough for 12 to 14 lasagna sheets or 4 servings of cut noodles. Mound the all-purpose flour (3 cups) on a board or in a wide bowl and make a well in the center. Add the eggs (4), the egg yolk (1), the olive oil (1 Tbsp), and the salt (1 tsp table or Morton kosher, or 1 1/2 tsp Diamond Crystal). Break the yolks with a fork and pull flour in from the walls of the well until you have a shaggy, uneven mass with no dry pockets left. Add the water (1 to 2 Tbsp) only if flour refuses to take up. Do not knead yet."
+      },
+      {
+        "step": "Rest Before Kneading",
+        "detail": "Cover with an inverted bowl and leave it 30 minutes. This is a modified autolyse: enzymes naturally present in the flour begin breaking weak protein bonds while the flour hydrates fully, which makes the dough measurably more extensible and cuts the kneading needed to reach the same gluten development. It is the highest-leverage step in the recipe if you are rolling by hand."
+      },
+      {
+        "step": "Knead Briefly",
+        "detail": "Knead 6 to 8 minutes, pushing with the heel of your hand, folding, and giving the dough a quarter turn each time. Stop when it is smooth and slightly tacky. Do not chase a windowpane. Overworking builds the elastic snap-back that fights a rolling pin."
+      },
+      {
+        "step": "Rest Again",
+        "detail": "Wrap tightly in plastic and rest at room temperature at least 1 hour. This is stress relaxation in the gluten network, and skipping it means the sheet retracts every time you lift the pin. The dough holds overnight in the refrigerator; bring it back to room temperature before rolling."
+      },
+      {
+        "step": "Divide And Roll",
+        "detail": "Cut the dough into 4 pieces and keep three covered. On a lightly floured surface, flatten one piece and roll from the center outward, rotating the sheet a quarter turn every two or three passes so it thins evenly rather than going long and narrow. If it starts pushing back, set it down, cover it, and give it 10 minutes before continuing."
+      },
+      {
+        "step": "Judge Thickness",
+        "detail": "Roll to about 1/16 inch for lasagna, thinner for cut noodles. To gauge it without a machine dial, lay the sheet over a printed page: you should be able to read the text through it, but the letters should look soft-edged rather than sharp. Sharp text means too thin for lasagna and the sheet will dissolve into the sauce. Fully opaque means too thick and the layers will read as bready."
+      },
+      {
+        "step": "Cut And Hold",
+        "detail": "For lasagna, cut each sheet into rectangles roughly 4 1/2 inches wide by 9 inches long, which lays three across a 9x13 pan. For noodles, flour the sheet well, roll it loosely, and slice to the width you want. Dust the cut pieces on both faces with semolina, which is coarse enough that it does not hydrate and turn to glue, and stack them on a towel-lined sheet pan with parchment between layers."
+      },
+      {
+        "step": "Blanch",
+        "detail": "Bring 4 quarts of water to a rolling boil and salt it at 1 percent by weight: 2 Tbsp table salt, 1 1/2 Tbsp Morton kosher, or 1/4 cup Diamond Crystal. Work in batches of 3 or 4 sheets for 45 to 60 seconds each, then lift straight into a bowl of cold water to stop the cooking. Lay flat on damp towels in a single layer, barely oiled, until you are ready to build. Cut noodles for serving need 90 seconds to 2 minutes and no shock."
+      },
+      {
+        "step": "Why These Choices",
+        "detail": "Use all-purpose flour (3 cups) rather than a high-gluten or semolina-heavy blend: protein content drives elastic recoil, and the 10 to 12 percent range of all-purpose is what makes a hand-rolled sheet cooperate. Brand matters within that range, so add the full water (2 Tbsp) if your flour runs high in protein. The olive oil (1 Tbsp) and the extra yolk (1) both work by coating flour particles and interfering with gluten formation, buying extensibility and tenderness at a dose small enough to keep the structure the sheet needs to survive the blanch. Blanching is worth the step because it rinses off surface starch that otherwise sets into a gluey seam between layers, and it pre-gelatinizes the sheet so the bake is about melting and setting rather than cooking raw pasta."
+      }
+    ],
+    "is_blank": false
   },
   {
     "id": "biscuit-dough",
@@ -3354,11 +3427,208 @@
     "source": "Original",
     "tags": [
       "#beef",
-      "#italian"
+      "#pork",
+      "#italian",
+      "#lasagna",
+      "#make-ahead"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Meat sauce:"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 lb ground beef, 80/20"
+      },
+      {
+        "type": "item",
+        "text": "1/2 lb hot Italian sausage, casings removed"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fennel seed, crushed"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp crushed red pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt or Morton kosher salt (or 1 1/2 tsp Diamond Crystal)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp olive oil, only if the reserved beef fat runs short"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 cups yellow onion, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "3/4 cup carrot, small dice"
+      },
+      {
+        "type": "item",
+        "text": "3/4 cup celery, small dice"
+      },
+      {
+        "type": "item",
+        "text": "6 cloves garlic, sliced"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp tomato paste"
+      },
+      {
+        "type": "item",
+        "text": "1 cup dry red wine"
+      },
+      {
+        "type": "item",
+        "text": "1 can (28 oz) whole peeled tomatoes, crushed by hand"
+      },
+      {
+        "type": "item",
+        "text": "1 can (15 oz) crushed tomatoes"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "1 Parmigiano-Reggiano rind, about 2 inches"
+      },
+      {
+        "type": "item",
+        "text": "2 bay leaves"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp red wine vinegar"
+      },
+      {
+        "type": "header",
+        "text": "Ricotta filling:"
+      },
+      {
+        "type": "item",
+        "text": "15 oz whole-milk ricotta"
+      },
+      {
+        "type": "item",
+        "text": "1 large egg"
+      },
+      {
+        "type": "item",
+        "text": "3/4 cup Parmigiano-Reggiano, finely grated"
+      },
+      {
+        "type": "item",
+        "text": "1/3 cup flat-leaf parsley, chopped"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1/4 tsp nutmeg, freshly grated"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp table salt or Morton kosher salt (or 3/4 tsp Diamond Crystal)"
+      },
+      {
+        "type": "header",
+        "text": "Assembly:"
+      },
+      {
+        "type": "item",
+        "text": "12 to 14 fresh egg pasta sheets, about 4 1/2 by 9 inches, blanched (see Noodle Dough), or 12 no-boil dried sheets"
+      },
+      {
+        "type": "item",
+        "text": "1 lb low-moisture whole-milk mozzarella, shredded from a block"
+      },
+      {
+        "type": "item",
+        "text": "3/4 cup Parmigiano-Reggiano, finely grated"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup fresh basil, torn"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Drain The Ricotta",
+        "detail": "Makes 8 servings in one 9x13 pan. Set the whole-milk ricotta (15 oz) in a fine-mesh sieve over a bowl and leave it 30 minutes while you build the sauce. Whole-milk ricotta carries enough free water to turn the bottom of the pan to soup, and there is no fixing it after the bake."
+      },
+      {
+        "step": "Season The Raw Meat",
+        "detail": "In a bowl, work the dried oregano (1 1/2 tsp), crushed fennel seed (1 tsp), crushed red pepper (1 1/2 tsp), black pepper (1 tsp), and salt (1 tsp table or Morton kosher, or 1 1/2 tsp Diamond Crystal) into the ground beef (1 1/2 lb) with your hands. Leave the Italian sausage (1/2 lb) unseasoned; it is already salted and spiced, and stacking salt on salt is how this gets away from you."
+      },
+      {
+        "step": "Brown The Beef",
+        "detail": "Heat a wide heavy skillet over medium-high. Add the seasoned ground beef (1 1/2 lb) and press it flat into one even slab. Leave it undisturbed 3 to 4 minutes, flip, and repeat, flipping two or three times total. Drain the rendered fat into a heatproof cup partway through and again near the end, reserving all of it. Add the fat back a spoonful at a time as the pan goes dry so the beef fries rather than steams. Transfer the beef to a bowl."
+      },
+      {
+        "step": "Brown The Sausage",
+        "detail": "Add the Italian sausage (1/2 lb) to the same pan, break it into rough chunks, and brown hard for 5 to 6 minutes. Transfer it to the bowl with the beef. Leave the browned fond on the pan floor; it is concentrated Maillard product and it carries the sauce's bass notes."
+      },
+      {
+        "step": "Build The Soffritto",
+        "detail": "Pour about 3 Tbsp of the reserved beef fat back into the pan, topping up with olive oil (2 Tbsp) if you are short. Drop the heat to medium, add the onion (1 1/2 cups), carrot (3/4 cup), and celery (3/4 cup), and cook 8 to 10 minutes until the onion is translucent and the edges take color. Add the garlic (6 cloves) for the final 30 seconds."
+      },
+      {
+        "step": "Bloom The Paste",
+        "detail": "Add the tomato paste (3 Tbsp) and stir constantly for 60 to 90 seconds, until it darkens from bright red to brick and smells nutty instead of tinny. Under-blooming it leaves a raw metallic note that survives the entire simmer."
+      },
+      {
+        "step": "Deglaze And Reduce",
+        "detail": "Add the dry red wine (1 cup) and scrape the pan floor with a flat wooden spatula while it boils, pushing rather than stirring, until the floor goes bare. Let the wine reduce by half, 4 to 5 minutes. Do not shortcut this: wine added and never reduced leaves a sharp boozy edge that 90 minutes of simmering will not remove."
+      },
+      {
+        "step": "Simmer The Sauce",
+        "detail": "Return the beef and sausage with any collected juices. Add the hand-crushed whole tomatoes (28 oz can), crushed tomatoes (15 oz can), whole milk (1/2 cup), Parmigiano-Reggiano rind (1 piece), and bay leaves (2). Bring it to a full simmer, meaning steady streams of small bubbles breaking the surface roughly one to three per second rather than a boil, then drop to a bare simmer and cook uncovered 1 hour 30 minutes, stirring every 20 minutes. It should reduce to a thick sauce that mounds on a spoon. If it is still loose at 90 minutes, raise the heat and keep going, because a wet sauce is the leading cause of a lasagna that will not slice."
+      },
+      {
+        "step": "Finish The Sauce",
+        "detail": "Pull the Parmigiano rind (1 piece) and bay leaves (2). Off heat, stir in the red wine vinegar (2 tsp). The tomato and wine were cooked-in acid building depth; this late addition is for brightness, and it is what keeps a long-simmered meat sauce from tasting heavy and flat. Taste and correct the salt now, after the reduction, never before it."
+      },
+      {
+        "step": "Mix The Filling",
+        "detail": "Combine the drained ricotta (15 oz), egg (1), grated Parmigiano-Reggiano (3/4 cup), parsley (1/3 cup), black pepper (1/2 tsp), nutmeg (1/4 tsp), and salt (1/2 tsp table or Morton kosher, or 3/4 tsp Diamond Crystal). The egg is doing structural work: its proteins coagulate in the oven and hold the filling as a distinct layer instead of letting it slump into the sauce."
+      },
+      {
+        "step": "Assemble",
+        "detail": "Heat the oven to 375F. Spread about 1 cup of the meat sauce across the bottom of a 9x13 pan. Lay 3 blanched pasta sheets crosswise with the edges just overlapping. Spread a third of the ricotta filling, scatter a quarter of the shredded mozzarella (1 lb total), then about 1 1/2 cups of meat sauce. Repeat that sequence twice more. Finish with a fourth layer of sheets, the remaining meat sauce, the remaining mozzarella, and the grated Parmigiano-Reggiano (3/4 cup)."
+      },
+      {
+        "step": "Bake Covered Then Open",
+        "detail": "Tent foil over the pan so it does not touch the cheese and bake 40 minutes. Remove the foil and bake another 20 to 25 minutes, until the top is browned in patches and the edges are bubbling. The uncovering is the entire browning step: under foil the surface is parked at 212F by trapped steam, and nothing browns at 212F. If it is still pale at 25 minutes, run the broiler 2 to 3 minutes and watch it continuously."
+      },
+      {
+        "step": "Rest Before Slicing",
+        "detail": "Rest 30 minutes out of the oven before cutting. This is not optional. Cut into it hot and you get a plate of slurry, because the starch and egg matrix has to cool and set before it will hold a slice. Scatter the torn basil (1/4 cup) at service."
+      },
+      {
+        "step": "Notes And Make-Ahead",
+        "detail": "Shred the mozzarella (1 lb) from a block rather than buying it pre-shredded, which is dusted with cellulose to stop clumping and melts grainy. Mozzarella is a long-protein, high-melt cheese that stretches; Parmigiano-Reggiano is the opposite, high in protein and low in moisture, and it breaks if melted into a sauce, which is why it goes into the filling and onto the top as a dry crust instead. The sauce is better on day two, since soluble flavor compounds keep diffusing at refrigerator temperature long after the cook, so make the sauce a day ahead if you want to split the work. Cool it in containers no deeper than 2 inches, uncovered in an ice bath for 20 minutes, then refrigerate uncovered before lidding; do not put a hot covered pot straight into the refrigerator."
+      }
+    ],
+    "is_blank": false
   },
   {
     "id": "stuffed-meatballs",
