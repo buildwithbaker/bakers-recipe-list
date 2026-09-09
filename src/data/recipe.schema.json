@@ -129,6 +129,32 @@
     "is_blank": {
       "type": "boolean",
       "description": "true = placeholder rendered as a 'coming soon' row (ingredients/instructions may be empty). false = a real recipe, which MUST have at least one type:item ingredient and at least one instruction."
+    },
+    "image": {
+      "type": "string",
+      "pattern": "^photos/[a-z0-9-]+\\.(jpg|jpeg|png|webp)$",
+      "description": "OPTIONAL. Path to the dish photo, relative to public/ with no leading slash — e.g. \"photos/spicy-pork-patties.jpg\". Absent means the recipe has not been photographed yet and both the recipe page and its og:image fall back to public/recipe-placeholder.png. Name the file after the record's id so the pairing stays obvious. The build fails if the file is missing or over 500 KB — see docs/internal/adding-a-photo.md."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200,
+      "description": "OPTIONAL. One sentence describing the dish, written for a link preview and the Recipe rich result. When absent, scripts/prerender.mjs derives one from the first instruction, then from the ingredient list. Authoring it beats the derivation — write it for the recipes you actually share."
+    },
+    "prepTime": {
+      "type": "string",
+      "pattern": "^PT(?:[0-9]+H)?(?:[0-9]+M)?$",
+      "description": "OPTIONAL. Hands-on time as an ISO 8601 duration, e.g. \"PT20M\", \"PT1H30M\". Google pairs prepTime with cookTime — author both or neither. Published in the Recipe JSON-LD only when present."
+    },
+    "cookTime": {
+      "type": "string",
+      "pattern": "^PT(?:[0-9]+H)?(?:[0-9]+M)?$",
+      "description": "OPTIONAL. Unattended cooking time as an ISO 8601 duration. See prepTime — the two go together. totalTime is computed from the pair by the prerender script and is never authored."
+    },
+    "recipeYield": {
+      "type": "string",
+      "minLength": 1,
+      "description": "OPTIONAL. The yield AS AUTHORED, e.g. \"4 servings\", \"about 24 cookies\". This is deliberately separate from estimateServings.js, which GUESSES a serving count at runtime for the scaler. Only an authored yield is published as fact in the JSON-LD; an estimate never is."
     }
   }
 }

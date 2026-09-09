@@ -1,7 +1,11 @@
 // The recipe as a real page, for a visitor who landed on /r/<slug>/ from a
 // shared link with no list behind them. Same route and same body as the modal
-// (RecipeView) — the difference is the frame: a hero photo, a way back to the
-// collection, and no backdrop to dismiss.
+// (RecipeView) — the difference is the frame: a way back to the collection, and
+// no backdrop to dismiss.
+//
+// The hero is RecipeView's to render. This frame only decides what an
+// UNPHOTOGRAPHED recipe gets: the placeholder, because a page opening on a bare
+// title line reads as broken in a way a card over a list does not.
 //
 // data-print-modal is deliberate and must stay: globals.css keys its print
 // rules off that attribute, so without it Print from this page emits a blank
@@ -9,18 +13,10 @@
 import { useId } from 'react';
 import styles from './RecipePage.module.css';
 import RecipeView from '../RecipeView/RecipeView.jsx';
-import { BASE_PATH } from '../../utils/recipeRoute.js';
-
-// Until a recipe carries its own photo (`image` arrives with the schema patch)
-// every page shows the shared brand placeholder — the same file the prerendered
-// og:image points at, so the preview and the page agree.
-const PLACEHOLDER = `${BASE_PATH}recipe-placeholder.png`;
 
 export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToList }) {
   const titleId = useId();
   if (!recipe) return null;
-
-  const heroSrc = recipe.image ? `${BASE_PATH}${String(recipe.image).replace(/^\/+/, '')}` : PLACEHOLDER;
 
   return (
     <main className={styles.page}>
@@ -34,13 +30,9 @@ export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToLi
         <RecipeView
           recipe={recipe}
           titleId={titleId}
+          showPlaceholderHero
           onTagClick={onTagClick}
           onAddToList={onAddToList}
-          hero={
-            <div className={styles.hero}>
-              <img className={styles.heroImg} src={heroSrc} alt="" width="1200" height="630" />
-            </div>
-          }
         />
       </article>
     </main>

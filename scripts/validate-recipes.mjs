@@ -9,10 +9,17 @@
 // key={recipe.name}, ?recipe=<name> deep links), so duplicate names corrupt
 // state and lookups — guarded here.
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SECTIONS } from '../src/data/sections.js';
+
+// Photo weight ceiling. An untreated phone photo runs 3-5 MB; the collection has
+// hundreds of records, so accepting them would put hundreds of megabytes of
+// binaries into git history permanently AND push the published site past the
+// GitHub Pages 1 GB limit. A resized JPEG of the same dish is ~150-300 KB and
+// looks identical at the size it is displayed, so the ceiling costs nothing.
+const MAX_IMAGE_BYTES = 500 * 1024;
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const schema = JSON.parse(readFileSync(join(root, 'src/data/recipe.schema.json'), 'utf8'));
@@ -88,6 +95,50 @@ recipes.forEach((r, i) => {
 
   // is_blank
   if (typeof r.is_blank !== 'boolean') errors.push(`${where} is_blank must be a boolean`);
+
+  // Optional fields — absent is always valid; present must be well formed.
+  const optionalStrings = ['image', 'description', 'prepTime', 'cookTime', 'recipeYield'];
+  optionalStrings.forEach((k) => {
+    if (!(k in r)) return;
+    if (typeof r[k] !== 'string' || r[k].trim() === '') {
+      errors.push(`${where} ${k} must be a non-empty string when present`);
+      return;
+    }
+    const pattern = props[k].pattern;
+    if (pattern && !new RegExp(pattern).test(r[k])) {
+      errors.push(`${where} ${k} ${JSON.stringify(r[k])} must match ${pattern}`);
+    }
+    const max = props[k].maxLength;
+    if (max && r[k].length > max) {
+      errors.push(`${where} ${k} is ${r[k].length} chars, over the ${max} limit`);
+    }
+  });
+
+  // Google pairs the two times; one without the other yields no rich-result
+  // benefit and reads as missing data.
+  if (('prepTime' in r) !== ('cookTime' in r)) {
+    errors.push(`${where} has only one of prepTime/cookTime — author both or neither`);
+  }
+
+  // A photo that is referenced but not committed is a broken image in
+  // production and a broken og:image in every share of it. One that IS
+  // committed but never resized is a permanent weight in git history — see
+  // MAX_IMAGE_BYTES above and docs/internal/adding-a-photo.md.
+  if (typeof r.image === 'string') {
+    const photo = join(root, 'public', r.image);
+    if (!existsSync(photo)) {
+      errors.push(`${where} image "${r.image}" does not exist at public/${r.image}`);
+    } else {
+      const bytes = statSync(photo).size;
+      if (bytes > MAX_IMAGE_BYTES) {
+        errors.push(
+          `${where} image "${r.image}" is ${Math.round(bytes / 1024)} KB, over the ` +
+            `${MAX_IMAGE_BYTES / 1024} KB limit — resize it to about 1600px wide and ` +
+            're-save as JPEG quality 80 (see docs/internal/adding-a-photo.md)',
+        );
+      }
+    }
+  }
 
   // tags
   if (!Array.isArray(r.tags)) {

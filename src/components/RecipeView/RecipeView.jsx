@@ -13,9 +13,17 @@ import { useMacroEstimate } from '../../hooks/useMacroEstimate.js';
 import { scaleIngredientText } from '../../utils/scaleIngredient.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
-import { recipePath } from '../../utils/recipeRoute.js';
+import { BASE_PATH, recipePath } from '../../utils/recipeRoute.js';
 
 const MacroCard = lazy(() => import('../MacroCard/MacroCard.jsx'));
+
+// Shown when a recipe has no photo yet. It is also what scripts/prerender.mjs
+// falls back to for og:image, so an unphotographed recipe looks the same in a
+// link preview as it does on its own page.
+const PLACEHOLDER_IMAGE = `${BASE_PATH}recipe-placeholder.png`;
+
+// `image` is a path under public/ with no leading slash (recipe.schema.json).
+const imageUrl = (image) => `${BASE_PATH}${String(image).replace(/^\/+/, '')}`;
 
 // Silent error boundary for the macro section — if the lazy chunk 404s after
 // a new deployment, the macro card just disappears instead of crashing the view.
@@ -343,13 +351,18 @@ function CookLogSection({ recipeId }) {
  *
  * @param recipe        the display row to render; null renders nothing
  * @param titleId       id put on the title, so a dialog frame can aria-labelledby it
- * @param hero          optional node rendered above the header (the page's photo)
+ * @param showPlaceholderHero
+ *        what to do when the recipe has NO photo yet. The frame decides, because
+ *        the answer differs: the full page always wants a hero so its layout
+ *        never collapses (true), while a placeholder card inside a modal is just
+ *        noise over a list the visitor is already looking at (false, the
+ *        default). A REAL photo is always shown, in both frames.
  * @param extraActions  frame-specific header buttons, placed after Share and Print
  * @param onTagClick    tag → filter the list
  * @param onAddToList   (recipeId, items, scale) → shopping list; omit to hide the button
  */
 export default function RecipeView({
-  recipe, titleId, hero = null, extraActions = null, onTagClick, onAddToList,
+  recipe, titleId, showPlaceholderHero = false, extraActions = null, onTagClick, onAddToList,
 }) {
   const [scale, setScale] = useState(1);
   const [shareCopied, setShareCopied] = useState(false);
@@ -385,9 +398,24 @@ export default function RecipeView({
     onAddToList?.(recipe.id, items, sc);
   };
 
+  // alt="" is correct, not lazy: the photo is decorative here. The dish is
+  // already named by the title directly beneath it, so describing it again is
+  // noise to a screen reader.
+  const showHero = !!recipe.image || showPlaceholderHero;
+
   return (
     <>
-      {hero}
+      {showHero && (
+        <div className={styles.hero}>
+          <img
+            className={styles.heroImg}
+            src={recipe.image ? imageUrl(recipe.image) : PLACEHOLDER_IMAGE}
+            alt=""
+            width="1200"
+            height="630"
+          />
+        </div>
+      )}
       <div className={styles.header}>
         <div>
           <div id={titleId} className={styles.title}>{recipe.name}</div>
