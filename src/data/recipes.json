@@ -276,37 +276,100 @@
     "name": "Pepperoncini Beef",
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
-    "source": "Original",
+    "source": "Adam's build, Mississippi pot roast lineage; technique corrected against the slow cooker reference",
     "tags": [
       "#beef",
-      "#slow-cooker"
+      "#slow-cooker",
+      "#american",
+      "#pepperoncini",
+      "#pot-roast"
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "2-3 lb chuck roast, top round, or London broil"
+        "type": "header",
+        "text": "Beef and Dry Brine:"
       },
       {
         "type": "item",
-        "text": "1 jar pepperoncini peppers"
+        "text": "3 1/2 lb boneless beef chuck roast"
       },
       {
         "type": "item",
-        "text": "Salt and pepper"
+        "text": "1 Tbsp Diamond Crystal kosher salt, or 2 tsp Morton kosher salt, or 2 1/2 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp neutral oil"
+      },
+      {
+        "type": "header",
+        "text": "The Braise:"
+      },
+      {
+        "type": "item",
+        "text": "1 jar (16 oz) whole pepperoncini, 1/4 cup of the brine reserved separately"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, sliced"
+      },
+      {
+        "type": "item",
+        "text": "6 cloves garlic, smashed"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp tomato paste"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp Worcestershire sauce"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "4 whole dried chiles de arbol"
+      },
+      {
+        "type": "header",
+        "text": "Finish:"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup reserved pepperoncini brine (3 Tbsp before the reduction, 1 Tbsp off the heat)"
       }
     ],
     "instructions": [
       {
-        "step": "Season Meat",
-        "detail": "Coat meat in salt and pepper."
+        "step": "Dry Brine",
+        "detail": "Makes 6 servings. The night before, pat the chuck roast (3 1/2 lb) dry and season every surface with the salt (1 Tbsp Diamond Crystal, or 2 tsp Morton, or 2 1/2 tsp table) - about 1% of the roast's weight. Set on a rack over a sheet pan and refrigerate uncovered 8 to 24 hours. Uncovered is the point: it dries the surface for the sear. Use 1%, not the 1.25 to 1.5% an oven braise wants, because a jar of brine, soy sauce (2 Tbsp), and Worcestershire (3 Tbsp) are all going in and nothing will evaporate to give you room later."
       },
       {
         "step": "Sear",
-        "detail": "Sear on all sides for 2-3 minutes each side."
+        "detail": "Blot the roast (3 1/2 lb) bone dry. Heat the neutral oil (2 Tbsp) in a heavy skillet over medium-high until it shimmers and the first thread of smoke appears. Sear 3 to 4 minutes per face until genuinely dark brown, not tan - 7 to 10 minutes total. Transfer to the slow cooker. Not optional: nothing inside a slow cooker ever reaches the roughly 300F browning threshold, so unlike an oven braise there is no second chance from surfaces above the liquid line."
       },
       {
-        "step": "Slow Cook",
-        "detail": "Cook on low in slow cooker for 6-8 hours."
+        "step": "Build the Base",
+        "detail": "Pour off all but about 1 Tbsp of fat. Drop to medium, add the sliced onion (1 large) and cook 6 to 8 minutes until translucent with browned edges. Add the smashed garlic (6 cloves) for the last 30 seconds. Add the tomato paste (2 Tbsp) and stir constantly 60 to 90 seconds, until it darkens from bright red to brick and smells nutty instead of tinny. Deglaze with the brine from the pepperoncini jar, scraping the pan floor with a flat wooden spatula until the fond releases and the floor goes bare."
+      },
+      {
+        "step": "Load and Cook",
+        "detail": "Scrape the whole pan - onions, fond, brine - over the roast. Add the pepperoncini from the jar, the Worcestershire (3 Tbsp), the soy sauce (2 Tbsp), and the chiles de arbol (4 whole). Add no stock, no broth, and no water. It will look like far too little liquid. It is not: the roast releases 1 to 2 cups of its own and a sealed cooker evaporates almost none of it, so the pot finishes with more liquid than it started with. Adding stock here is the single most common way to ruin this dish. Lid on, Low for 9 to 10 hours, first hour on High if you can. Root vegetables, if you use them, go quartered on the bottom and against the sides before the meat - the element is a wire belt around the lower side wall, not a disc underneath, and roots cook slower than the beef."
+      },
+      {
+        "step": "Check by Feel",
+        "detail": "At 9 hours, push a thin metal skewer or paring knife tip into the thickest part. It should slide in and, more importantly, slide back out with zero grip - like pushing into cold butter. Any resistance means another 45 to 60 minutes. Internal lands at 195 to 205F, but temperature only tells you when to start testing. Do not stretch it to 12 hours: past the window the collagen holding the fiber bundles together has dissolved and the roast goes shredded and stringy at the same time."
+      },
+      {
+        "step": "Defat and Reduce",
+        "detail": "Lift the beef out and hold it under foil. Let the liquid settle 10 minutes and skim the fat off with a ladle - there will be a lot, and a slow cooker never boils it back into the sauce the way a hard simmer would. Stir in 3 Tbsp of the reserved brine, then reduce with the lid off, cooker on High, 30 to 45 minutes, until it coats the back of a spoon. Do not salt before this step - whatever is in there concentrates now."
+      },
+      {
+        "step": "Finish and Serve",
+        "detail": "Off the heat, stir in the last 1 Tbsp of reserved brine and taste for salt for the first time. That final off-heat acid is what keeps ten hours of braise from reading heavy and flat, and it only works if it has not been boiled. Shred or slice the beef, return it to the sauce to warm through without boiling, and serve with the pepperoncini. For more heat than the peppers give, ground cayenne or hot sauce goes in during the last hour of the cook, never at the start - both turn bitter over a long hold."
       }
     ],
     "is_blank": false
