@@ -214,37 +214,63 @@ describe('recipe ids', () => {
     return walk('src').filter((f) => /\.(js|jsx)$/.test(f) && !/\.test\.(js|jsx)$/.test(f));
   };
 
+  // The invariant is "never derive an id FROM a name", and it is enforced two
+  // ways because neither catches everything on its own.
+  //
+  // SHAPE PATTERNS run over EVERY shipped file, allowlisted ones included. They
+  // catch a helper whatever it is called.
+  //
+  // DO NOT "tighten" the last one to any lowercase+replace: RecipeList builds a
+  // DOM anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
+  // and that is legitimate — an anchor from a section, not an id from a recipe
+  // name. It is missed on purpose, not by luck.
+  const SLUG_SHAPES = [
+    /slugif/i,
+    /name[A-Za-z]*slug|slug[A-Za-z]*(from)?name/i,
+    /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/,
+  ];
+
+  // WORD BAN runs over every shipped file EXCEPT these. It is the belt to the
+  // shape patterns' braces: it catches the anonymous case they cannot see —
+  // `function slug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g, '-') }`
+  // has no "slugif", no name-slug word pair and no literal `.name`.
+  //
+  // The two allowlisted modules transform an ID into a URL path segment and back
+  // (`parent::v1` <-> `parent--v1`), which the /r/<slug>/ routes need at runtime.
+  // That direction is safe: the id is already frozen, the transform is
+  // reversible, and the assertion below proves neither module reaches for a
+  // name. Adding a path here is a deliberate, reviewable act — do it only for a
+  // module that transforms an existing id, never one that mints one.
+  //
+  // scripts/ is out of scope entirely: the one-time assignment script owns the
+  // only real slug function and must keep it.
+  const SLUG_WORD_ALLOWLIST = [
+    join('src', 'utils', 'recipeSlug.js'),
+    join('src', 'utils', 'recipeRoute.js'),
+  ];
+
   it('ships no slug-from-name helper anywhere under src/', () => {
     const offenders = shippedSources().filter((f) => {
       const src = readFileSync(f, 'utf8');
-      // A slugifier, a name→slug helper, or anything lowercasing a `.name` and
-      // punching it into dashes — the exact move that would un-freeze an id.
-      //
-      // NARROWED, deliberately, from a blanket ban on the word "slug":
-      // src/utils/recipeSlug.js transforms an ID into a URL path segment and
-      // back (`parent::v1` <-> `parent--v1`), which the /r/<slug>/ routes need
-      // at runtime. That direction is safe — the id is already frozen and the
-      // transform is reversible — and the assertion below proves it never
-      // reaches for a name. What must stay banned is deriving an id FROM a name.
-      //
-      // DO NOT "tighten" this to any lowercase+replace: RecipeList builds a DOM
-      // anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
-      // and that is legitimate — it derives an anchor from a section, not an id
-      // from a recipe name. It is missed on purpose, not by luck. scripts/ is
-      // also deliberately out of scope: the one-time assignment script owns the
-      // only real slug function and must keep it.
-      return /slugif/i.test(src)
-        || /name[A-Za-z]*slug|slug[A-Za-z]*(from)?name/i.test(src)
-        || /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/.test(src);
+      if (SLUG_SHAPES.some((re) => re.test(src))) return true;
+      return !SLUG_WORD_ALLOWLIST.includes(f) && /\bslug/i.test(src);
     });
     expect(offenders).toEqual([]);
   });
 
-  // The slug module is the one place allowed to say "slug", so it gets its own
-  // guard: it may only ever see an id.
-  it('keeps the slug module free of any name lookup', () => {
-    const src = readFileSync(join('src', 'utils', 'recipeSlug.js'), 'utf8');
-    expect(/\.name\b|recipesByName|resolveRecipe/.test(src)).toBe(false);
+  // The modules allowed to say "slug" may only ever see an id. Checked as CODE
+  // shapes — a name property read, the name map, a call to the resolver, or any
+  // import from the data layer — not as bare words: a comment is free to name
+  // the resolver to explain who calls whom, and banning that would only teach
+  // the next editor to delete the explanation.
+  const NAME_LOOKUPS = [/\.name\b/, /recipesByName/, /resolveRecipe\s*\(/, /from\s+['"][^'"]*\/data\//];
+
+  it('keeps the slug modules free of any name lookup', () => {
+    for (const file of SLUG_WORD_ALLOWLIST) {
+      const src = readFileSync(file, 'utf8');
+      const hits = NAME_LOOKUPS.filter((re) => re.test(src)).map(String);
+      expect([file, hits]).toEqual([file, []]);
+    }
   });
 
   // `--` in a path segment is what a `::` in a versioned child id becomes, and

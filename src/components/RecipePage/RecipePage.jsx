@@ -1,4 +1,4 @@
-// The recipe as a real page, for a visitor who landed on /r/<slug>/ from a
+// The recipe as a real page, for a visitor who landed on /r/…/ from a
 // shared link with no list behind them. Same route and same body as the modal
 // (RecipeView) — the difference is the frame: a hero photo, a way back to the
 // collection, and no backdrop to dismiss.

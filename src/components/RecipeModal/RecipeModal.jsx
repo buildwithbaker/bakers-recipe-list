@@ -1,8 +1,8 @@
 // The recipe card over the list: a backdrop, a focus-trapped dialog, and the
 // three buttons that only make sense as a modal — close, and "open full page".
 //
-// The recipe itself is RecipeView, which the /r/<slug>/ page renders too. Both
-// are the SAME route (App.jsx reads it off location.pathname), so the modal is
+// The recipe itself is RecipeView, which the /r/…/ page renders too. Both are
+// the SAME route (App.jsx reads it off location.pathname), so the modal is
 // a presentation choice, not a different destination: whichever one you are
 // looking at, Share hands out the same URL.
 import { useEffect, useId, useRef } from 'react';

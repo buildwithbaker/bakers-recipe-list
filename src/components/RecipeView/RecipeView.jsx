@@ -3,9 +3,9 @@
 // recipe rather than to the frame around it.
 //
 // ONE component, TWO frames. RecipeModal renders it over the list; RecipePage
-// renders it at /r/<slug>/ for someone who arrived from a shared link. They are
-// the same route, so a second renderer would be a second thing to keep correct
-// — which is exactly how a card and its page drift apart.
+// renders it at /r/…/ for someone who arrived from a shared link. They are the
+// same route, so a second renderer would be a second thing to keep correct —
+// which is exactly how a card and its page drift apart.
 import { Component, lazy, Suspense, useEffect, useMemo, useState } from 'react';
 import styles from './RecipeView.module.css';
 import { estimateServings } from '../../utils/estimateServings.js';

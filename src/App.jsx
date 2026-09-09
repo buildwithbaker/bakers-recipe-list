@@ -23,7 +23,7 @@ import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js
 /*
  * Routing model
  * -------------
- * THE PATH IS THE OPEN RECIPE. /r/<slug>/ names one recipe and nothing else,
+ * THE PATH IS THE OPEN RECIPE. /r/…/ names one recipe and nothing else,
  * which is what lets scripts/prerender.mjs put a real file with real Open Graph
  * tags at that address — a link-preview crawler runs no JavaScript, so a query
  * string could never have carried this. `?recipe=` still resolves forever; a
@@ -118,10 +118,11 @@ function AppInner() {
   const [landing] = useState(initialRoute);
   const [recipeId, setRecipeId] = useState(landing.id);
   // Modal or page — a presentation choice on ONE route, recorded per history
-  // entry as `state.page` so Back and Forward restore what was on screen. True
-  // from the first paint when the visitor arrived on /r/<slug>/ itself: there
-  // is no list behind them to lay a card over.
-  const [pageView, setPageView] = useState(() => !!landing.id);
+  // entry as `state.page` so Back, Forward and RELOAD all restore what was on
+  // screen. A reload keeps history.state, so that entry is the authority; only
+  // a fresh arrival has no state to read, and arriving on /r/…/ itself means
+  // a page, because there is no list behind it to lay a card over.
+  const [pageView, setPageView] = useState(() => (window.history.state ? isPageEntry() : !!landing.id));
   const [overlays, setOverlays] = useState(entryOverlays);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
   // Which list tab is showing. Owned here, not in RecipeList, because the
@@ -338,7 +339,7 @@ function AppInner() {
   // straight into a recipe with nothing behind it. Rewrite that first entry to
   // the plain list, then push the recipe on top, so Back has an in-app
   // destination instead of dumping the visitor off the site. That push is also
-  // what turns a legacy `?recipe=` link into its `/r/<slug>/` equivalent.
+  // what turns a legacy `?recipe=` link into its `/r/…/` equivalent.
   //
   // `history.state` is the "this entry is ours" marker: a reload preserves it,
   // so re-running would duplicate the entry. A link that resolves to nothing
@@ -408,7 +409,7 @@ function AppInner() {
             activeTab={activeTab}
             onTabChange={setActiveTab}
           />
-          <ErrorBoundary key={selectedRecipe?.name ?? '__none__'}>
+          <ErrorBoundary key={selectedRecipe?.id ?? '__none__'}>
             <RecipeModal
               recipe={selectedRecipe}
               onClose={handleCloseModal}
