@@ -22,6 +22,9 @@ export default defineConfig({
         // precache entry can exceed the 2 MiB default. Raise the ceiling.
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
         cleanupOutdatedCaches: true,
+        // A repeat visit with the service worker active serves the cached shell
+        // for /r/<slug>/ too, not the prerendered file — which is correct: the
+        // app routes from location.pathname, and a crawler never has a worker.
         navigateFallback: `${BASE}index.html`,
       },
       manifest: {

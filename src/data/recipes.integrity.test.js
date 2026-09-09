@@ -214,20 +214,93 @@ describe('recipe ids', () => {
     return walk('src').filter((f) => /\.(js|jsx)$/.test(f) && !/\.test\.(js|jsx)$/.test(f));
   };
 
+  // Strips /* … */ blocks and // … line comments so a check can look at CODE
+  // alone. `//` starts a comment only when it is NOT preceded by `:`, so the
+  // `https://` inside a string literal does not swallow the rest of its line.
+  //
+  // This is a regex, not a parser: it over-strips in corners a parser would get
+  // right (a `//` inside a non-URL string, a `/*` inside a regex literal). That
+  // is an acceptable risk ONLY because the shape patterns below run over raw,
+  // unstripped source — over-stripping can weaken the word ban, never the net
+  // underneath it. Do not reuse this to weaken the shape patterns.
+  const stripComments = (src) => src
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/(^|[^:])\/\/[^\n]*/g, '$1');
+
+  // The invariant is "never derive an id FROM a name", and it is enforced two
+  // ways because neither catches everything on its own.
+  //
+  // SHAPE PATTERNS run over EVERY shipped file, allowlisted ones included, and
+  // over RAW source with comments intact. They catch a helper whatever it is
+  // called, and prose cannot talk its way past them.
+  //
+  // DO NOT "tighten" the last one to any lowercase+replace: RecipeList builds a
+  // DOM anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
+  // and that is legitimate — an anchor from a section, not an id from a recipe
+  // name. It is missed on purpose, not by luck.
+  const SLUG_SHAPES = [
+    /slugif/i,
+    /name[A-Za-z]*slug|slug[A-Za-z]*(from)?name/i,
+    /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/,
+  ];
+
+  // WORD BAN runs over stripComments(src) for every shipped file EXCEPT these.
+  // It is the belt to the shape patterns' braces: it catches the anonymous case
+  // they cannot see —
+  // `function slug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g, '-') }`
+  // has no "slugif", no name-slug word pair and no literal `.name`.
+  //
+  // It reads CODE only. A comment describing the /r/<slug>/ route is documenting
+  // the URL shape, not minting an id, and a guard that makes people write worse
+  // prose to appease it is the guard being wrong. That collision recurs every
+  // time anyone writes about the route, so the mechanism absorbs it once here.
+  //
+  // The two allowlisted modules transform an ID into a URL path segment and back
+  // (`parent::v1` <-> `parent--v1`), which the /r/<slug>/ routes need at runtime.
+  // That direction is safe: the id is already frozen, the transform is
+  // reversible, and the assertion below proves neither module reaches for a
+  // name. Adding a path here is a deliberate, reviewable act — do it only for a
+  // module that transforms an existing id, never one that mints one.
+  //
+  // scripts/ is out of scope entirely: the one-time assignment script owns the
+  // only real slug function and must keep it.
+  const SLUG_WORD_ALLOWLIST = [
+    join('src', 'utils', 'recipeSlug.js'),
+    join('src', 'utils', 'recipeRoute.js'),
+  ];
+
   it('ships no slug-from-name helper anywhere under src/', () => {
     const offenders = shippedSources().filter((f) => {
       const src = readFileSync(f, 'utf8');
-      // A slugifier by name, or anything lowercasing a `.name` and punching it
-      // into dashes — the exact move that would un-freeze an id.
-      //
-      // DO NOT "tighten" this to any lowercase+replace: RecipeList builds a DOM
-      // anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
-      // and that is legitimate — it derives an anchor from a section, not an id
-      // from a recipe name. It is missed on purpose, not by luck. scripts/ is
-      // also deliberately out of scope: the one-time assignment script owns the
-      // only real slug function and must keep it.
-      return /slug/i.test(src) || /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/.test(src);
+      // Shape patterns: RAW source, every file.
+      if (SLUG_SHAPES.some((re) => re.test(src))) return true;
+      // Word ban: code only, every file but the allowlisted two.
+      return !SLUG_WORD_ALLOWLIST.includes(f) && /\bslug/i.test(stripComments(src));
     });
+    expect(offenders).toEqual([]);
+  });
+
+  // The modules allowed to say "slug" may only ever see an id. Checked as CODE
+  // shapes over stripped source — a name property read, the name map, a call to
+  // the resolver, or any import from the data layer. Not as bare words, and not
+  // over comments: recipeRoute.js names resolveRecipe in prose to explain who
+  // calls whom, and banning that would only teach the next editor to delete the
+  // explanation. The import check is what catches an import with no call yet.
+  const NAME_LOOKUPS = [/\.name\b/, /recipesByName/, /resolveRecipe\s*\(/, /from\s+['"][^'"]*\/data\//];
+
+  it('keeps the slug modules free of any name lookup', () => {
+    for (const file of SLUG_WORD_ALLOWLIST) {
+      const src = stripComments(readFileSync(file, 'utf8'));
+      const hits = NAME_LOOKUPS.filter((re) => re.test(src)).map(String);
+      expect([file, hits]).toEqual([file, []]);
+    }
+  });
+
+  // `--` in a path segment is what a `::` in a versioned child id becomes, and
+  // slugToId turns every `--` back into `::`. An authored id containing a double
+  // dash would therefore resolve to a different recipe than the one it names.
+  it('has no authored id containing a double dash', () => {
+    const offenders = recipes.filter((r) => String(r.id).includes('--')).map((r) => r.id);
     expect(offenders).toEqual([]);
   });
 
