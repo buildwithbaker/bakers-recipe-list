@@ -5537,6 +5537,81 @@
     "is_blank": true
   },
   {
+    "id": "strawberry-spinach-smoothie",
+    "name": "Strawberry Spinach Smoothie",
+    "section": "SMOOTHIES",
+    "category": "Smoothies",
+    "source": "Original",
+    "tags": [
+      "#smoothie",
+      "#strawberry",
+      "#spinach",
+      "#peanut-butter",
+      "#no-cook"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "1 cup baby spinach, loosely packed (1 large handful)"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup frozen strawberries"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup frozen blueberries"
+      },
+      {
+        "type": "item",
+        "text": "1 whole frozen banana, broken into 3 or 4 pieces"
+      },
+      {
+        "type": "item",
+        "text": "1/3 cup plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "1 heaping Tbsp peanut butter"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp ground flaxseed (must be ground - whole seeds pass through both the blender and the body intact)"
+      },
+      {
+        "type": "item",
+        "text": "1/2-inch piece fresh ginger, peeled and sliced thin (or 1/4 tsp ground ginger)"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup whole milk, plus more to loosen"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Load The Cup",
+        "detail": "Makes one full 18-oz Magic Bullet cup, about 16 oz of smoothie - one serving. Drop the baby spinach (1 cup, loosely packed) into the cup first; it collapses to almost nothing. Add the frozen strawberries (1/2 cup), frozen blueberries (1/4 cup), and frozen banana (1 whole, broken into 3 or 4 pieces). Skip ice entirely - the banana and the frozen fruit already carry the chill, and ice on top of them overfills the cup and waters the result down."
+      },
+      {
+        "step": "Add The Rest",
+        "detail": "Add the Greek yogurt (1/3 cup), peanut butter (1 heaping Tbsp), ground flaxseed (1 Tbsp), and fresh ginger (1/2-inch piece, peeled and sliced thin, or 1/4 tsp ground). Pour the whole milk (1/2 cup) in LAST. The Magic Bullet cup inverts onto its blade, so whatever goes in last sits against the blade - a blade spinning in liquid throws a vortex that pulls the frozen fruit down into it, while a blade buried in frozen fruit just cavitates and stalls."
+      },
+      {
+        "step": "Blend In Bursts",
+        "detail": "Screw on the blade, invert, and run in 15-second bursts, shaking the cup between each one, until smooth - about four bursts. If it stalls, add whole milk 2 Tbsp at a time rather than running the motor longer; the Magic Bullet's motor overheats before it wins an argument with frozen fruit. Never fill past the max line - the seal leaks under pressure."
+      },
+      {
+        "step": "Why It Works",
+        "detail": "Spinach carries non-heme iron, which absorbs poorly on its own but noticeably better alongside vitamin C - the strawberries (1/2 cup) are the biggest vitamin C contributor here, which is why they lead the fruit rather than the blueberries (1/4 cup). Peanut butter (1 heaping Tbsp) and ground flaxseed (1 Tbsp) cover magnesium, and the Greek yogurt (1/3 cup) adds the protein that flattens the blood sugar spike a straight fruit smoothie gives you. Ginger (1/2-inch piece) is the anti-inflammatory note and cuts the flat sweetness of the banana. One tradeoff worth knowing: the calcium in the yogurt and milk does blunt iron absorption somewhat, so treat this as a magnesium-and-protein drink rather than an iron one."
+      },
+      {
+        "step": "Substitutions",
+        "detail": "Lower the lactose by swapping the whole milk (1/2 cup) for lactose-free milk or by cutting it to 1/4 cup and loosening with water - the Greek yogurt (1/3 cup) is already strained and low in lactose, so the milk is where most of it sits. Mango (1/4 cup frozen) can stand in for the blueberries (1/4 cup) but pushes the drink sweeter and drops the vitamin C. Unsweetened cocoa powder (1 Tbsp) adds magnesium and pairs with the peanut butter (1 heaping Tbsp), but fights the berries - use it only if you drop the strawberries (1/2 cup) and blueberries (1/4 cup) and lean on the banana."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "id": "bread",
     "name": "Bread",
     "section": "BREAD",

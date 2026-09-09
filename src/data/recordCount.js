@@ -18,4 +18,4 @@
 //     production validator out of it.
 //
 // Bump this in the same commit as the data change, never after the fact.
-export const EXPECTED_RECORDS = 754;
+export const EXPECTED_RECORDS = 755;
