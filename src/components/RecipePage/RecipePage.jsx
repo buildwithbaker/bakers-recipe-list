@@ -13,8 +13,9 @@
 import { useId } from 'react';
 import styles from './RecipePage.module.css';
 import RecipeView from '../RecipeView/RecipeView.jsx';
+import RelatedRecipes from '../RelatedRecipes/RelatedRecipes.jsx';
 
-export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToList }) {
+export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToList, onViewRelated }) {
   const titleId = useId();
   if (!recipe) return null;
 
@@ -35,6 +36,7 @@ export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToLi
           onAddToList={onAddToList}
         />
       </article>
+      <RelatedRecipes recipe={recipe} onNavigate={onViewRelated} />
     </main>
   );
 }

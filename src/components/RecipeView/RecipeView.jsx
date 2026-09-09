@@ -13,6 +13,7 @@ import { useMacroEstimate } from '../../hooks/useMacroEstimate.js';
 import { scaleIngredientText } from '../../utils/scaleIngredient.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
+import { useWakeLock } from '../../hooks/useWakeLock.js';
 import { BASE_PATH, recipePath } from '../../utils/recipeRoute.js';
 
 const MacroCard = lazy(() => import('../MacroCard/MacroCard.jsx'));
@@ -367,6 +368,7 @@ export default function RecipeView({
   const [scale, setScale] = useState(1);
   const [shareCopied, setShareCopied] = useState(false);
   const [listSelecting, setListSelecting] = useState(false);
+  const wakeLock = useWakeLock();
 
   const servingEstimate = useMemo(() => recipe ? estimateServings(recipe) : null, [recipe]);
   const macroState = useMacroEstimate(recipe, servingEstimate);
@@ -429,6 +431,28 @@ export default function RecipeView({
           />
         </div>
         <div className={styles.headerActions}>
+          {/* Cook mode. Absent entirely where the API is missing — a disabled
+              button explaining that the browser is too old helps nobody. The on
+              state carries a word, not just a colour: this gets read at arm's
+              length across a counter. */}
+          {wakeLock.supported && (
+            <button
+              type="button"
+              className={`${styles.cookBtn} ${wakeLock.active ? styles.cookBtnOn : ''}`}
+              onClick={wakeLock.toggle}
+              aria-pressed={wakeLock.active}
+              title={wakeLock.active ? 'Screen staying awake — tap to turn off' : 'Keep the screen awake while you cook'}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"/>
+                <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+                <line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/>
+                <line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/>
+              </svg>
+              {wakeLock.active ? 'Screen on' : 'Cook mode'}
+            </button>
+          )}
           <button
             type="button"
             className={`${styles.shareBtn} ${shareCopied ? styles.shareBtnDone : ''}`}

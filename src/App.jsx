@@ -189,14 +189,26 @@ function AppInner() {
   // Opening a recipe is a real navigation: the path changes and a history entry
   // is pushed, carrying whatever overlays were already open so Forward restores
   // them. No overlay bookkeeping for the card itself — Back pops the path.
-  const handleViewRecipe = useCallback((recipe) => {
+  const openRecipe = useCallback((recipe, asPage) => {
     try {
-      window.history.pushState({ overlays: overlaysRef.current, page: false }, '', urlForRecipe(recipe.id));
+      window.history.pushState({ overlays: overlaysRef.current, page: asPage }, '', urlForRecipe(recipe.id));
     } catch { /* ignore */ }
     applyRecipe(recipe.id);
-    setPageView(false);
+    setPageView(asPage);
     addToHistory(recipe);
   }, [applyRecipe, addToHistory]);
+
+  // From the list: a card over the list the visitor is already looking at.
+  const handleViewRecipe = useCallback((recipe) => openRecipe(recipe, false), [openRecipe]);
+
+  // From a related link on a full page: another full page. The href on that
+  // link points at /r/<slug>/, and someone with JavaScript off lands on the
+  // page — so a click with JavaScript on has to arrive somewhere that matches,
+  // not at a card over a list they have never seen.
+  const handleViewRelated = useCallback((recipe) => {
+    openRecipe(recipe, true);
+    window.scrollTo({ top: 0 });
+  }, [openRecipe]);
 
   // Leaves the recipe for the list WITHOUT a back navigation — used when the
   // destination is the list plus something else (a section anchor, a tag
@@ -391,6 +403,7 @@ function AppInner() {
             onBackToList={handleCloseModal}
             onTagClick={handleTagClick}
             onAddToList={handleAddToList}
+            onViewRelated={handleViewRelated}
           />
         </ErrorBoundary>
       ) : (

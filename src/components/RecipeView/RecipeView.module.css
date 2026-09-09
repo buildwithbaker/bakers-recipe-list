@@ -335,6 +335,51 @@
   border-color: #2a7a4a;
 }
 
+/* Cook mode toggle. A LABELLED pill, not a bare icon: it is the one control
+   here whose state has to be readable at arm's length across a counter, and the
+   on state must not depend on colour alone. */
+.cookBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: 1px solid var(--card-border);
+  border-radius: 4px;
+  color: var(--card-muted);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 11px;
+  padding: 3px 8px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.cookBtn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--card-body);
+  border-color: var(--card-muted);
+}
+
+.cookBtnOn {
+  background: var(--amber);
+  border-color: var(--amber-dark);
+  color: var(--amber-deep);
+  font-weight: 700;
+}
+
+.cookBtnOn:hover {
+  background: var(--amber-dark);
+  border-color: var(--amber-dark);
+  color: var(--amber-deep);
+}
+
+/* Nothing about keeping a screen awake belongs on paper. */
+@media print {
+  .cookBtn {
+    display: none !important;
+  }
+}
+
 /* Share button */
 .shareBtn {
   background: none;

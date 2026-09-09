@@ -1,5 +1,7 @@
 # Baker's Recipe List — Architecture Reference
 
+> **⚠ OUT OF DATE as of 2026-09-09.** Known wrong: the record count (755, not 232); `recipe.name` is no longer the canonical key (`recipe.id` is, and it is frozen); and `?recipe=<name>` is no longer the routing model (the URL path `/r/<slug>/` is, with `?recipe=` kept only as a permanent legacy alias). A full rewrite is pending — do not rely on this document until it lands.
+
 Deep reference for how Baker's Recipe List is built, how it runs, and how to extend it. Pairs with the root [`CLAUDE.md`](../../CLAUDE.md) (build/deploy/do-not-touch quick rules). Last updated 2026-05-29.
 
 ---
