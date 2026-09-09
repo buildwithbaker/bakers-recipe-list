@@ -19,6 +19,8 @@
   background: var(--card-surface);
   border: 1px solid var(--card-border);
   border-radius: 12px;
+  /* Clips a hero photo to the card's rounded top corners. */
+  overflow: hidden;
   width: 100%;
   max-width: 620px;
   padding: 0;
