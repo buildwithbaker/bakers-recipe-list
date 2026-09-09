@@ -1,22 +1,34 @@
-// "What else is like this?" — ranked by RARITY-WEIGHTED shared tags.
+// "What else is like this?" — cross-section, rarity-weighted, and gated.
 //
 // Tags come from getEffectiveTags, the SAME source the meta line renders, so
 // what a visitor sees listed under a recipe is exactly what the ranking used.
 // A second notion of "this recipe's tags" would drift from the visible one and
 // make the results look arbitrary.
 //
-// WHY NOT A PLAIN SHARED-TAG COUNT: the tag vocabulary is wildly lopsided.
-// #marinade is on 124 of the 216 published recipes and #for-review on 118, while
-// 37 of the 68 tags are on exactly one recipe. Counting shared tags equally
-// meant "shares #marinade" scored the same as "shares #cardamom", so almost
-// every marinade tied with almost every other marinade and the tie-break — file
-// order — silently decided the results. That is a section listing wearing a
-// related-recipes label.
+// THREE RULES, each answering a way this went wrong:
 //
-// So each shared tag is weighted by inverse document frequency, log(N / freq):
-// a tag on 2 recipes is worth about ten times a tag on 124. This also demotes
-// #for-review on its own, without special-casing it — a marker carried by half
-// the catalog earns almost nothing, which is exactly what it is worth.
+// 1. RARITY WEIGHTING. The tag vocabulary is lopsided — #marinade is on 124 of
+//    the 216 published recipes and #for-review on 118, while 37 of the 68 tags
+//    are on exactly one recipe. Counting shared tags equally made "shares
+//    #marinade" worth as much as "shares #cardamom". Each shared tag is
+//    weighted log(N / freq) instead, so a tag on two recipes counts about ten
+//    times a tag on 124. This also demotes #for-review — an internal workflow
+//    marker on over half the catalog — without special-casing it.
+//
+// 2. CROSS-SECTION ONLY. Weighting alone did not help, because it can only
+//    re-rank candidates whose shared tag sets DIFFER, and every chicken
+//    marinade carries the identical four tags. The result was six neighbours
+//    from the section the visitor had just arrived from: a section listing
+//    wearing a related-recipes label. The discovery value is across sections,
+//    so a recipe's own section is excluded — except its own sibling versions,
+//    which live in that section by construction and are one of the more useful
+//    hops here.
+//
+// 3. A FLOOR ON WHAT COUNTS AS A MATCH. One shared bucket label is not
+//    evidence. A candidate has to share at least two tags AND at least one of
+//    them has to be genuinely distinctive. Below that the section does not
+//    render at all — an unrelated recipe presented as related is worse than an
+//    absent heading.
 //
 // This also exists to stop the prerendered pages being 216 orphans. Nothing on
 // the site linked one recipe to another; a crawler that reached one page found
@@ -24,6 +36,17 @@
 import { getEffectiveTags } from './autoTags.js';
 
 export const RELATED_LIMIT = 6;
+
+// A candidate sharing exactly one tag with the recipe is almost always sharing
+// a bucket label — #marinade, #chicken — and nothing more.
+export const MIN_SHARED_TAGS = 2;
+
+// A tag carried by more than this share of the published catalog describes
+// which drawer a recipe lives in, not what it is like. At least one shared tag
+// must be rarer than this, or the match is two bucket labels stacked. Expressed
+// as a SHARE, not a count, so it keeps meaning as the collection grows — the
+// count is derived from the live frequency map below.
+export const DISTINCTIVE_TAG_MAX_SHARE = 0.25;
 
 // Frequencies are a property of the catalog, not of one lookup, so they are
 // computed once per candidate list and reused — the same "build the map once"
@@ -45,7 +68,7 @@ function tagFrequencies(all) {
       freq.set(tag, (freq.get(tag) || 0) + 1);
     }
   }
-  const table = { freq, published };
+  const table = { freq, published, distinctiveBelow: published * DISTINCTIVE_TAG_MAX_SHARE };
   frequencyCache.set(all, table);
   return table;
 }
@@ -58,13 +81,26 @@ function tagWeight(tag, { freq, published }) {
   return Math.log(published / seen);
 }
 
+// A versioned child carries a derived id like `parent::v1` (expandVersions.js).
+const parentOf = (id) => {
+  const marker = String(id).indexOf('::');
+  return marker === -1 ? null : String(id).slice(0, marker);
+};
+
+// Two rows expanded from the SAME record. They necessarily share a section, so
+// the cross-section rule has to let them through explicitly or Version 1 could
+// never reach Version 2.
+function areSiblings(a, b) {
+  const parent = parentOf(a);
+  return parent !== null && parent === parentOf(b);
+}
+
 /**
  * @param recipe  the display row being viewed
  * @param all     every display row, IN FILE ORDER — the order is the final
  *                tie-break, so it has to be stable across builds
- * @returns up to `limit` display rows, best match first; [] when nothing shares
- *          a tag that carries any weight. Never padded: an unrelated recipe
- *          presented as related is worse than an absent section.
+ * @returns up to `limit` display rows, best match first; [] when nothing clears
+ *          the floor. Never padded.
  */
 export function relatedRecipes(recipe, all, limit = RELATED_LIMIT) {
   if (!recipe || !Array.isArray(all)) return [];
@@ -75,21 +111,23 @@ export function relatedRecipes(recipe, all, limit = RELATED_LIMIT) {
 
   const scored = [];
   all.forEach((candidate, index) => {
-    // Itself. Sibling VERSIONS of the same parent are deliberately kept —
-    // getting to Version 2 from Version 1 is one of the more useful hops here,
-    // and they carry distinct ids (`parent::v2`).
     if (candidate.id === recipe.id) return;
     // A "coming soon" placeholder is a dead end: no ingredients, no method, and
     // no prerendered page behind its link.
     if (candidate.is_blank !== false) return;
+    // The visitor came from this section. Its neighbours are one tap away in
+    // the list they just left — except a sibling version, which is not.
+    if (candidate.section === recipe.section && !areSiblings(recipe.id, candidate.id)) return;
 
     // Sorted so an identical set of shared tags always sums in the same order
     // and therefore to the same float. Without that, two candidates sharing the
     // same tags could differ in the last bit and jump the file-order tie-break.
     const shared = [...new Set(getEffectiveTags(candidate))].filter((tag) => mine.has(tag)).sort();
-    if (shared.length === 0) return;
+    if (shared.length < MIN_SHARED_TAGS) return;
+    // At least one shared tag has to actually mean something.
+    if (!shared.some((tag) => (table.freq.get(tag) || 0) < table.distinctiveBelow)) return;
+
     const score = shared.reduce((sum, tag) => sum + tagWeight(tag, table), 0);
-    // Everything shared is carried by the whole catalog: no evidence at all.
     if (score <= 0) return;
 
     scored.push({ candidate, score, sameCategory: candidate.category === recipe.category, index });

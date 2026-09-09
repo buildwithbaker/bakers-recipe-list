@@ -1,16 +1,17 @@
 import { describe, it, expect } from 'vitest';
-import { relatedRecipes, RELATED_LIMIT } from './relatedRecipes.js';
+import { relatedRecipes, RELATED_LIMIT, MIN_SHARED_TAGS, DISTINCTIVE_TAG_MAX_SHARE } from './relatedRecipes.js';
 import { displayRecipes } from '../data/recipeIndex.js';
 
-// The section is deliberately one that SECTION_TAG_MAP does not know, and the
-// ingredient deliberately triggers no protein or spicy rule, so getEffectiveTags
-// returns exactly the tags the fixture declares. A mapped section (BREAKFAST,
-// say) would silently give every row a shared `#breakfast` and the "nothing is
-// related" case could never be reached.
+// Sections are per-row by default, because the ranking now EXCLUDES a
+// candidate in the recipe's own section — a shared fixture section would
+// silently empty every result. Tests that care about the section rule pass one
+// explicitly. The section names are also deliberately absent from
+// SECTION_TAG_MAP, and the ingredient triggers no protein or spicy rule, so
+// getEffectiveTags returns exactly the tags the fixture declares.
 const row = (id, tags, extra = {}) => ({
   id,
   name: id,
-  section: 'UNMAPPED-TEST-SECTION',
+  section: `SECTION-${id}`,
   category: 'Breakfast',
   source: 'Original',
   tags,
@@ -20,109 +21,158 @@ const row = (id, tags, extra = {}) => ({
   ...extra,
 });
 
-// Padding that carries a tag, so the tag's frequency is high and its weight low
-// without those rows ever matching the recipe under test.
-const commonFiller = (n, tag) => Array.from({ length: n }, (_, i) => row(`filler-${tag}-${i}`, [tag]));
+// The distinctive-tag rule is a SHARE of the published set, so a fixture has to
+// be big enough for the share to mean anything: with 24 published rows the
+// cutoff is 6, so a tag on 2-5 rows is distinctive and a tag on 6+ is not.
+// These filler rows carry `tag` to push its frequency up, and never match the
+// recipe under test.
+const PAD = 20;
+const filler = (n, tag, prefix = 'f') =>
+  Array.from({ length: n }, (_, i) => row(`${prefix}-${tag}-${i}`, [tag]));
+const pad = () => filler(PAD, '#padding');
 
-describe('relatedRecipes — rarity weighting', () => {
-  it('prefers one RARE shared tag over several common ones', () => {
-    // #common is on 20+ rows, #rare on just the two that share it.
-    const me = row('me', ['#common', '#alsocommon', '#rare']);
+describe('relatedRecipes — the match floor', () => {
+  it(`requires at least ${MIN_SHARED_TAGS} shared tags`, () => {
+    const me = row('me', ['#rareA', '#rareB']);
+    const all = [me, row('one-tag', ['#rareA']), row('two-tags', ['#rareA', '#rareB']), ...pad()];
+    expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['two-tags']);
+  });
+
+  it('requires at least one shared tag to be distinctive, not two bucket labels', () => {
+    // #bulkA and #bulkB are each on well over the cutoff, so sharing both is
+    // sharing two drawer labels and nothing more.
+    const me = row('me', ['#bulkA', '#bulkB', '#rare']);
     const all = [
       me,
-      row('shares-two-common', ['#common', '#alsocommon']),
-      row('shares-one-rare', ['#rare']),
-      ...commonFiller(20, '#common'),
-      ...commonFiller(20, '#alsocommon'),
+      row('two-bulk', ['#bulkA', '#bulkB']),
+      row('bulk-plus-rare', ['#bulkA', '#rare']),
+      ...filler(10, '#bulkA', 'a'),
+      ...filler(10, '#bulkB', 'b'),
+      ...pad(),
     ];
-    expect(relatedRecipes(me, all).slice(0, 2).map((r) => r.id))
-      .toEqual(['shares-one-rare', 'shares-two-common']);
+    expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['bulk-plus-rare']);
   });
 
-  it('still adds weights up, so more rare tags beat one rare tag', () => {
-    const me = row('me', ['#rareA', '#rareB']);
-    const all = [me, row('one-rare', ['#rareA']), row('two-rare', ['#rareA', '#rareB']), ...commonFiller(20, '#x')];
-    expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['two-rare', 'one-rare']);
+  it('derives the distinctive cutoff from the catalog size, not a fixed count', () => {
+    // Same tag frequency (6), different catalog sizes: distinctive in the big
+    // one, a bucket label in the small one.
+    const me = row('me', ['#mid', '#rare']);
+    const match = row('match', ['#mid', '#rare']);
+    const midRows = filler(4, '#mid', 'm'); // #mid ends up on 6 rows total
+    const small = [me, match, ...midRows, ...filler(10, '#padding')]; // 16 published → cutoff 4
+    const big = [me, match, ...midRows, ...filler(80, '#padding')]; // 86 published → cutoff 21.5
+    expect(DISTINCTIVE_TAG_MAX_SHARE).toBe(0.25);
+    // #rare is on 2 of 16 = distinctive either way, so both match; what changes
+    // is whether #mid alone would have been enough. Check that directly:
+    const meMidOnly = row('me2', ['#mid', '#mid2']);
+    const matchMidOnly = row('match2', ['#mid', '#mid2']);
+    const mid2Rows = filler(4, '#mid2', 'n');
+    const smallMid = [meMidOnly, matchMidOnly, ...midRows, ...mid2Rows, ...filler(6, '#padding')];
+    const bigMid = [meMidOnly, matchMidOnly, ...midRows, ...mid2Rows, ...filler(80, '#padding')];
+    expect(relatedRecipes(meMidOnly, smallMid)).toEqual([]); // 22 published, cutoff 5.5, #mid on 6 → not distinctive
+    expect(relatedRecipes(meMidOnly, bigMid).map((r) => r.id)).toEqual(['match2']); // cutoff 24 → distinctive
+    expect(relatedRecipes(me, small).map((r) => r.id)).toEqual(['match']);
+    expect(relatedRecipes(me, big).map((r) => r.id)).toEqual(['match']);
   });
 
-  it('ignores a tag carried by every published recipe — it is evidence of nothing', () => {
-    const me = row('me', ['#universal']);
-    const all = [me, row('a', ['#universal']), row('b', ['#universal'])];
-    expect(relatedRecipes(me, all)).toEqual([]);
+  it('renders nothing rather than padding when nothing clears the floor', () => {
+    const me = row('me', ['#a']);
+    expect(relatedRecipes(me, [me, row('x', ['#a']), ...pad()])).toEqual([]);
+  });
+});
+
+describe('relatedRecipes — cross-section only', () => {
+  it('excludes a candidate from the recipe\'s own section', () => {
+    const me = row('me', ['#rareA', '#rareB'], { section: 'SHARED' });
+    const neighbour = row('neighbour', ['#rareA', '#rareB'], { section: 'SHARED' });
+    const elsewhere = row('elsewhere', ['#rareA', '#rareB']);
+    expect(relatedRecipes(me, [me, neighbour, elsewhere, ...pad()]).map((r) => r.id))
+      .toEqual(['elsewhere']);
+  });
+
+  it('keeps a sibling version even though it shares the section', () => {
+    const me = row('parent::v1', ['#rareA', '#rareB'], { section: 'SHARED' });
+    const sibling = row('parent::v2', ['#rareA', '#rareB'], { section: 'SHARED' });
+    const neighbour = row('neighbour', ['#rareA', '#rareB'], { section: 'SHARED' });
+    expect(relatedRecipes(me, [me, sibling, neighbour, ...pad()]).map((r) => r.id))
+      .toEqual(['parent::v2']);
+  });
+
+  it('does not treat two unrelated versioned rows as siblings', () => {
+    const me = row('alpha::v1', ['#rareA', '#rareB'], { section: 'SHARED' });
+    const other = row('beta::v1', ['#rareA', '#rareB'], { section: 'SHARED' });
+    expect(relatedRecipes(me, [me, other, ...pad()])).toEqual([]);
+  });
+});
+
+describe('relatedRecipes — rarity weighting', () => {
+  it('prefers a rarer shared pair over a more common one', () => {
+    const me = row('me', ['#common', '#alsoCommon', '#rareA', '#rareB']);
+    const all = [
+      me,
+      row('common-pair', ['#common', '#alsoCommon', '#rareA']),
+      row('rare-pair', ['#rareA', '#rareB']),
+      ...filler(12, '#common', 'c'),
+      ...filler(12, '#alsoCommon', 'd'),
+      ...pad(),
+    ];
+    expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['rare-pair', 'common-pair']);
   });
 
   it('does not let blank records shape the weights', () => {
-    // 20 blanks carrying #rare must not make #rare look common.
-    const me = row('me', ['#rare']);
+    const me = row('me', ['#rareA', '#rareB']);
     const blanks = Array.from({ length: 20 }, (_, i) =>
-      row(`blank-${i}`, ['#rare'], { is_blank: true, ingredients: [], instructions: [] }));
-    const all = [me, row('match', ['#rare']), ...blanks, ...commonFiller(20, '#x')];
+      row(`blank-${i}`, ['#rareA', '#rareB'], { is_blank: true, ingredients: [], instructions: [] }));
+    const all = [me, row('match', ['#rareA', '#rareB']), ...blanks, ...pad()];
     expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['match']);
   });
 });
 
 describe('relatedRecipes — ordering and exclusions', () => {
   it('breaks a tie on score with the same category', () => {
-    const me = row('me', ['#rare']);
+    const me = row('me', ['#rareA', '#rareB']);
     const all = [
       me,
-      row('other-category', ['#rare'], { category: 'Dinner' }),
-      row('same-category', ['#rare']),
-      ...commonFiller(20, '#x'),
+      row('other-category', ['#rareA', '#rareB'], { category: 'Dinner' }),
+      row('same-category', ['#rareA', '#rareB']),
+      ...pad(),
     ];
     expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['same-category', 'other-category']);
   });
 
   it('breaks a full tie on file order, so the ordering is deterministic', () => {
-    const me = row('me', ['#rare']);
-    const all = [me, row('first', ['#rare']), row('second', ['#rare']), row('third', ['#rare']), ...commonFiller(20, '#x')];
+    const me = row('me', ['#rareA', '#rareB']);
+    const all = [me, row('first', ['#rareA', '#rareB']), row('second', ['#rareA', '#rareB']),
+      row('third', ['#rareA', '#rareB']), ...pad()];
     expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['first', 'second', 'third']);
   });
 
   it('gives an identical shared-tag set an identical score, whatever order the tags are in', () => {
     const me = row('me', ['#p', '#q', '#r']);
-    const all = [
-      me,
-      row('forwards', ['#p', '#q', '#r']),
-      row('backwards', ['#r', '#q', '#p']),
-      ...commonFiller(20, '#x'),
-    ];
-    // Equal scores, equal category — so file order decides, not float noise.
+    const all = [me, row('forwards', ['#p', '#q', '#r']), row('backwards', ['#r', '#q', '#p']), ...pad()];
     expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['forwards', 'backwards']);
   });
 
   it('excludes the recipe itself', () => {
-    const me = row('me', ['#rare']);
-    expect(relatedRecipes(me, [me, ...commonFiller(20, '#x')])).toEqual([]);
+    const me = row('me', ['#rareA', '#rareB']);
+    expect(relatedRecipes(me, [me, ...pad()])).toEqual([]);
   });
 
   it('excludes blank placeholders — a coming-soon link is a dead end', () => {
-    const me = row('me', ['#rare']);
-    const blank = row('blank', ['#rare'], { is_blank: true, ingredients: [], instructions: [] });
-    expect(relatedRecipes(me, [me, blank, ...commonFiller(20, '#x')])).toEqual([]);
-  });
-
-  it('keeps a sibling version of the same parent', () => {
-    const me = row('parent::v1', ['#rare']);
-    const sibling = row('parent::v2', ['#rare']);
-    expect(relatedRecipes(me, [me, sibling, ...commonFiller(20, '#x')]).map((r) => r.id))
-      .toEqual(['parent::v2']);
-  });
-
-  it('returns nothing when no tag is shared, rather than padding', () => {
-    const me = row('me', ['#a']);
-    const all = [me, row('x', ['#z']), row('y', ['#q']), ...commonFiller(20, '#x')];
-    expect(relatedRecipes(me, all)).toEqual([]);
+    const me = row('me', ['#rareA', '#rareB']);
+    const blank = row('blank', ['#rareA', '#rareB'], { is_blank: true, ingredients: [], instructions: [] });
+    expect(relatedRecipes(me, [me, blank, ...pad()])).toEqual([]);
   });
 
   it('returns nothing when the recipe itself has no tags', () => {
-    const me = row('me', []);
-    expect(relatedRecipes(me, [me, row('x', ['#a'])])).toEqual([]);
+    expect(relatedRecipes(row('me', []), [row('me', []), row('x', ['#a', '#b']), ...pad()])).toEqual([]);
   });
 
   it(`caps the list at ${RELATED_LIMIT}`, () => {
-    const me = row('me', ['#rare']);
-    const all = [me, ...Array.from({ length: 20 }, (_, i) => row(`r${i}`, ['#rare'])), ...commonFiller(40, '#x')];
+    const me = row('me', ['#rareA', '#rareB']);
+    // Padding sized so the 21 rows carrying #rareA stay under the distinctive
+    // cutoff — otherwise the tag becomes a bucket label and nothing qualifies.
+    const all = [me, ...Array.from({ length: 20 }, (_, i) => row(`r${i}`, ['#rareA', '#rareB'])), ...filler(100, '#padding')];
     expect(relatedRecipes(me, all)).toHaveLength(RELATED_LIMIT);
   });
 
@@ -143,11 +193,22 @@ describe('relatedRecipes — against the real catalog', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('never suggests a same-section recipe that is not a sibling version', () => {
+    const offenders = [];
+    for (const recipe of displayRecipes) {
+      for (const match of relatedRecipes(recipe, displayRecipes)) {
+        if (match.section !== recipe.section) continue;
+        const parent = String(recipe.id).split('::')[0];
+        if (String(match.id).split('::')[0] !== parent) offenders.push(`${recipe.id} → ${match.id}`);
+      }
+    }
+    expect(offenders).toEqual([]);
+  });
+
   it('is deterministic — the same call twice gives the same order', () => {
     for (const recipe of displayRecipes.slice(0, 40)) {
       const a = relatedRecipes(recipe, displayRecipes).map((r) => r.id);
-      const b = relatedRecipes(recipe, displayRecipes).map((r) => r.id);
-      expect(b).toEqual(a);
+      expect(relatedRecipes(recipe, displayRecipes).map((r) => r.id)).toEqual(a);
     }
   });
 });
