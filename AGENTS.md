@@ -63,6 +63,36 @@ schema and validator accept both:
 Rule the validator enforces: `step` is always non-empty; `detail` is required but
 may be empty; `type`, when present, is `item`, `section`, or `header`.
 
+## Probing a guard: read the mutation back before you trust the result
+
+Proving a guard works means temporarily breaking something and watching the
+build or the suite go red. **Any probe that mutates a file must read that file
+back and assert the mutation is actually present, before it asserts anything
+about the outcome.**
+
+A probe whose write silently failed reports PASS for every case, and that is
+worse than having no probe at all: it manufactures confidence in a check nobody
+has actually exercised.
+
+This is not hypothetical. A probe harness here wrote its mutations through a
+`/tmp/...` path. On Windows Node resolves that to `C:\tmp\...`, which does not
+exist, so every write threw and `recipes.json` was never touched — while the
+harness reported **PASS for all thirteen cases**, each one merely re-validating
+the unmodified file. It was caught only because one case ("an unknown field is
+accepted") is impossible under `additionalProperties: false`. The next silent
+no-op will not come with an impossible result sitting next to it.
+
+So:
+
+1. Mutate the file.
+2. Read it back and assert the mutation is there. Fail loudly if it is not.
+3. Only then run the check and record the result.
+4. Revert, and confirm the revert with `git status` / `git diff`.
+
+Use absolute paths that the runtime itself can open — the shell and Node do not
+resolve paths the same way on Windows. Never leave probe data or probe files in
+the tree.
+
 ## Workflow & guardrails (from CLAUDE.md)
 
 - `main` is **protected** - direct pushes are rejected, so `git push origin main` never
