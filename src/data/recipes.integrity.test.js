@@ -214,11 +214,25 @@ describe('recipe ids', () => {
     return walk('src').filter((f) => /\.(js|jsx)$/.test(f) && !/\.test\.(js|jsx)$/.test(f));
   };
 
+  // Strips /* … */ blocks and // … line comments so a check can look at CODE
+  // alone. `//` starts a comment only when it is NOT preceded by `:`, so the
+  // `https://` inside a string literal does not swallow the rest of its line.
+  //
+  // This is a regex, not a parser: it over-strips in corners a parser would get
+  // right (a `//` inside a non-URL string, a `/*` inside a regex literal). That
+  // is an acceptable risk ONLY because the shape patterns below run over raw,
+  // unstripped source — over-stripping can weaken the word ban, never the net
+  // underneath it. Do not reuse this to weaken the shape patterns.
+  const stripComments = (src) => src
+    .replace(/\/\*[\s\S]*?\*\//g, ' ')
+    .replace(/(^|[^:])\/\/[^\n]*/g, '$1');
+
   // The invariant is "never derive an id FROM a name", and it is enforced two
   // ways because neither catches everything on its own.
   //
-  // SHAPE PATTERNS run over EVERY shipped file, allowlisted ones included. They
-  // catch a helper whatever it is called.
+  // SHAPE PATTERNS run over EVERY shipped file, allowlisted ones included, and
+  // over RAW source with comments intact. They catch a helper whatever it is
+  // called, and prose cannot talk its way past them.
   //
   // DO NOT "tighten" the last one to any lowercase+replace: RecipeList builds a
   // DOM anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
@@ -230,10 +244,16 @@ describe('recipe ids', () => {
     /\.name[\s\S]{0,40}toLowerCase\(\)[\s\S]{0,40}replace\(/,
   ];
 
-  // WORD BAN runs over every shipped file EXCEPT these. It is the belt to the
-  // shape patterns' braces: it catches the anonymous case they cannot see —
+  // WORD BAN runs over stripComments(src) for every shipped file EXCEPT these.
+  // It is the belt to the shape patterns' braces: it catches the anonymous case
+  // they cannot see —
   // `function slug(n) { return n.toLowerCase().replace(/[^a-z0-9]+/g, '-') }`
   // has no "slugif", no name-slug word pair and no literal `.name`.
+  //
+  // It reads CODE only. A comment describing the /r/<slug>/ route is documenting
+  // the URL shape, not minting an id, and a guard that makes people write worse
+  // prose to appease it is the guard being wrong. That collision recurs every
+  // time anyone writes about the route, so the mechanism absorbs it once here.
   //
   // The two allowlisted modules transform an ID into a URL path segment and back
   // (`parent::v1` <-> `parent--v1`), which the /r/<slug>/ routes need at runtime.
@@ -252,22 +272,25 @@ describe('recipe ids', () => {
   it('ships no slug-from-name helper anywhere under src/', () => {
     const offenders = shippedSources().filter((f) => {
       const src = readFileSync(f, 'utf8');
+      // Shape patterns: RAW source, every file.
       if (SLUG_SHAPES.some((re) => re.test(src))) return true;
-      return !SLUG_WORD_ALLOWLIST.includes(f) && /\bslug/i.test(src);
+      // Word ban: code only, every file but the allowlisted two.
+      return !SLUG_WORD_ALLOWLIST.includes(f) && /\bslug/i.test(stripComments(src));
     });
     expect(offenders).toEqual([]);
   });
 
   // The modules allowed to say "slug" may only ever see an id. Checked as CODE
-  // shapes — a name property read, the name map, a call to the resolver, or any
-  // import from the data layer — not as bare words: a comment is free to name
-  // the resolver to explain who calls whom, and banning that would only teach
-  // the next editor to delete the explanation.
+  // shapes over stripped source — a name property read, the name map, a call to
+  // the resolver, or any import from the data layer. Not as bare words, and not
+  // over comments: recipeRoute.js names resolveRecipe in prose to explain who
+  // calls whom, and banning that would only teach the next editor to delete the
+  // explanation. The import check is what catches an import with no call yet.
   const NAME_LOOKUPS = [/\.name\b/, /recipesByName/, /resolveRecipe\s*\(/, /from\s+['"][^'"]*\/data\//];
 
   it('keeps the slug modules free of any name lookup', () => {
     for (const file of SLUG_WORD_ALLOWLIST) {
-      const src = readFileSync(file, 'utf8');
+      const src = stripComments(readFileSync(file, 'utf8'));
       const hits = NAME_LOOKUPS.filter((re) => re.test(src)).map(String);
       expect([file, hits]).toEqual([file, []]);
     }
