@@ -257,8 +257,9 @@ ranking and what the visitor sees can never disagree.
 Four rules, each answering a way this went wrong:
 
 1. **Rarity weighting.** Each shared tag is worth `log(N / freq)`, so a tag on
-   two recipes counts roughly ten times a tag on half the catalog. This demotes
-   `#for-review` without special-casing it.
+   two recipes counts roughly **seven** times a tag carried by half the catalog
+   (at N=216: 4.68 against 0.69), and about eight times the most common tag in
+   the set. This demotes `#for-review` without special-casing it.
 2. **Cross-section only.** A recipe's own section is excluded — those neighbours
    are one tap away in the list the visitor just left.
 3. **A floor on what counts as a match.** At least `MIN_SHARED_TAGS` (2) shared
@@ -342,6 +343,46 @@ written up as a standing rule in `AGENTS.md`.
 
 `src/utils/swUpdate.js` reloads the page once when a new worker takes control —
 never on first visit, never over an open overlay, at most once per session.
+
+### Every Build with Baker project shares one origin
+
+`buildwithbaker.github.io` hosts **all** of them — this app at
+`/bakers-recipe-list/`, Wren at `/wren/`, and others. GitHub Pages gives a user
+or org site exactly one origin, and paths do not create origins.
+
+What that does and does not separate:
+
+| | scoped by path? |
+|---|---|
+| Service worker **control** — which pages a worker intercepts | **Yes.** A worker registered at `/wren/sw.js` cannot control `/bakers-recipe-list/` pages. |
+| `navigator.serviceWorker.getRegistrations()` | **No.** Returns every registration on the origin. |
+| **Cache Storage** (`caches.keys()`) | **No.** Origin-wide. |
+| **`localStorage`** / `sessionStorage` / IndexedDB | **No.** Origin-wide, no path scoping at all. |
+
+Concretely, and verified: clearing caches from a recipe-list page,
+`caches.keys()` returned **`wren-shell-v2`** alongside this app's workbox
+precache. Wren's cache, reachable from this app's page context.
+
+**Nothing is broken today.** The precaches are separate keys, worker control is
+path-scoped, and this app's `localStorage` keys are distinctive. But two
+consequences follow and are worth knowing before they bite:
+
+1. **A storage-key collision between two projects is possible**, and would be
+   silent. `localStorage` has no path namespace — a generic key like `theme` or
+   `settings` written by two apps is one key. This app is already safe: every
+   key it writes is `brl_`-prefixed (`brl_cook_log`, `brl_dark_mode`,
+   `brl_made_v1`, `brl_pinned_v1`, `brl_recently_viewed`, `brl_shopping_list`,
+   `brl_state_version`). Keep it that way; never introduce an unprefixed key.
+2. **Clearing storage for one project clears it for the others.** The standard
+   verification dance above — `getRegistrations()` then unregister everything,
+   `caches.keys()` then delete everything — unregisters *Wren's* worker and
+   deletes *Wren's* cache too. Harmless during development against `localhost`,
+   which is a different origin; not harmless run against the live site.
+
+What actually separates them is a **different origin**: a custom domain per
+project, or moving a project to its own Cloudflare Pages host. Path prefixes
+never will. *(No hosting change is proposed here — this is recorded so the
+constraint is known.)*
 
 ---
 

@@ -132,6 +132,17 @@ The shell's own title is the cheapest tell that you are looking at the cache.
 This is the same family of trap as a probe whose write silently failed: the
 check runs, reports something, and the something is not what you think.
 
+**This rule earned itself within ten minutes of being written.** Checking the
+related-recipe card subtitles on the deployed site, the reviewer got the cached
+shell and read it as the fix having failed. The tell was exactly the one above —
+the tab said `Baker's Recipe List` instead of `Beef Stew — Baker's Recipe List`.
+After unregistering and clearing, the subtitles were correctly absent on all
+five cards. The fix had been right the whole time; the check was wrong.
+
+That is the argument for the rule. The failure mode is not "the check errors" —
+it is "the check quietly answers a different question", and the answer looks
+plausible enough to act on.
+
 ## Workflow & guardrails (from CLAUDE.md)
 
 - `main` is **protected** - direct pushes are rejected, so `git push origin main` never

@@ -11,9 +11,10 @@
 //    the 216 published recipes and #for-review on 118, while 37 of the 68 tags
 //    are on exactly one recipe. Counting shared tags equally made "shares
 //    #marinade" worth as much as "shares #cardamom". Each shared tag is
-//    weighted log(N / freq) instead, so a tag on two recipes counts about ten
-//    times a tag on 124. This also demotes #for-review — an internal workflow
-//    marker on over half the catalog — without special-casing it.
+//    weighted log(N / freq) instead, so a tag on two recipes counts about eight
+//    times a tag on 124, and about seven times one carried by half the catalog.
+//    This also demotes #for-review — an internal workflow marker on over half
+//    the catalog — without special-casing it.
 //
 // 2. CROSS-SECTION ONLY. Weighting alone did not help, because it can only
 //    re-rank candidates whose shared tag sets DIFFER, and every chicken
