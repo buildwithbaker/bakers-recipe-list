@@ -98,6 +98,40 @@ describe('relatedRecipes — cross-section only', () => {
       .toEqual(['parent::v2']);
   });
 
+  it('keeps a sibling that shares NOTHING — it is related by construction', () => {
+    const me = row('parent::v1', ['#rareA', '#rareB'], { section: 'SHARED' });
+    const sibling = row('parent::v2', ['#nothing-in-common'], { section: 'SHARED' });
+    expect(relatedRecipes(me, [me, sibling, ...pad()]).map((r) => r.id)).toEqual(['parent::v2']);
+  });
+
+  it('keeps a sibling whose only shared tags are bucket labels the floor would drop', () => {
+    const me = row('parent::v1', ['#bulkA', '#bulkB'], { section: 'SHARED' });
+    const sibling = row('parent::v2', ['#bulkA', '#bulkB'], { section: 'SHARED' });
+    const stranger = row('stranger', ['#bulkA', '#bulkB']);
+    const all = [me, sibling, stranger, ...filler(10, '#bulkA', 'a'), ...filler(10, '#bulkB', 'b'), ...pad()];
+    // The stranger shares exactly the same two bucket labels and is dropped;
+    // the sibling is not subject to that judgement at all.
+    expect(relatedRecipes(me, all).map((r) => r.id)).toEqual(['parent::v2']);
+  });
+
+  it('puts siblings ahead of a stronger inferred match, in version order', () => {
+    const me = row('parent::v2', ['#rareA', '#rareB', '#rareC'], { section: 'SHARED' });
+    const v1 = row('parent::v1', ['#rareA'], { section: 'SHARED' });
+    const v3 = row('parent::v3', ['#rareA'], { section: 'SHARED' });
+    const best = row('best-inferred', ['#rareA', '#rareB', '#rareC']);
+    // v1 and v3 share one tag each; `best-inferred` shares all three. Siblings
+    // still lead, and among themselves they stay in file (version) order.
+    expect(relatedRecipes(me, [v1, me, v3, best, ...pad()]).map((r) => r.id))
+      .toEqual(['parent::v1', 'parent::v3', 'best-inferred']);
+  });
+
+  it('still drops a BLANK sibling — the one rule siblings do not escape', () => {
+    const me = row('parent::v1', ['#rareA', '#rareB'], { section: 'SHARED' });
+    const blankSibling = row('parent::v2', ['#rareA', '#rareB'],
+      { section: 'SHARED', is_blank: true, ingredients: [], instructions: [] });
+    expect(relatedRecipes(me, [me, blankSibling, ...pad()])).toEqual([]);
+  });
+
   it('does not treat two unrelated versioned rows as siblings', () => {
     const me = row('alpha::v1', ['#rareA', '#rareB'], { section: 'SHARED' });
     const other = row('beta::v1', ['#rareA', '#rareB'], { section: 'SHARED' });

@@ -11,6 +11,7 @@ import { useId, useMemo } from 'react';
 import styles from './RelatedRecipes.module.css';
 import { displayRecipes } from '../../data/recipeIndex.js';
 import { relatedRecipes } from '../../utils/relatedRecipes.js';
+import { publicSectionLabel } from '../../data/sections.js';
 import { recipePath } from '../../utils/recipeRoute.js';
 
 // A click the browser should handle itself: new tab, new window, download,
@@ -42,7 +43,12 @@ export default function RelatedRecipes({ recipe, onNavigate }) {
               }}
             >
               <span className={styles.name}>{item.name}</span>
-              <span className={styles.category}>{item.category}</span>
+              {/* Never `category`: it holds the literal "For Review" for staged
+                  records, which is internal state and not the visitor's business.
+                  A staging section yields no subtitle at all. */}
+              {publicSectionLabel(item.section) && (
+                <span className={styles.section}>{publicSectionLabel(item.section)}</span>
+              )}
             </a>
           </li>
         ))}
