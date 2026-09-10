@@ -67,23 +67,33 @@ Closed on 2026-09-09 because the work is on `main` and live. See
 
 ## P2 — worthwhile
 
-- [ ] **Related recipes by ingredient overlap.** The parked next iteration, and
-  the real answer to the ranking problem below. Two recipes sharing gochujang and
-  fish sauce are genuinely related; two sharing `#marinade` are not. The signal
-  already exists in the data via `parseIngredient.js` and needs no hand-tagging.
-  Its own PR — see `relatedRecipes.js` and §7 of `architecture.md`.
-- [ ] **The tag vocabulary cannot carry similarity on its own.** Roughly half the
-  tags sit on exactly one recipe, so they can never be *shared*; the effective
-  matching vocabulary is about 31 tags, dominated by `#marinade`, `#for-review`
-  and `#chicken`. A scoring function cannot separate candidates whose shared tag
-  sets are identical, which is every chicken marinade. Cross-section exclusion
-  plus a distinctiveness floor made the feature worth shipping, but the ceiling
-  is the data. Either enrich the tags or go to ingredient overlap above — do not
-  expect a cleverer scorer to fix it.
-- [ ] **`autoTags.js` keyword false positives.** Lasagna picks up `#spicy`, and a
-  potato side picks up `#beef`. Harmless in search, visible in related-recipe
-  results where they produce picks no cook would make. Wants per-line context
-  rules like the existing broth/stock exclusion.
+- [x] **Related recipes by ingredient overlap.** *Shipped.* Replaced tag
+  matching entirely: several hundred ingredient tokens instead of ~31 shareable
+  tags, coverage 84.7% → 94.9%, top-10 concentration roughly halved, and it
+  finds pairs tags structurally could not (Beef Stew → Pork Stew; a chicken
+  marinade → the pork and beef versions of itself). See §7 of
+  `architecture.md`.
+- [~] **The tag vocabulary cannot carry similarity — resolved by going around
+  it.** Roughly half the tags sit on exactly one recipe and can never be
+  *shared*, leaving ~31 usable, and no scoring function can separate candidates
+  whose shared sets are identical. Rather than enrich the tags, the related
+  ranking moved to ingredient overlap. **The tags themselves are fine and need
+  no work** — they serve the tag chips and search, which is what they are for.
+  Recorded here only so the next person does not re-derive the finding.
+- [ ] **`STOPWORDS` in `relatedRecipes.js` drifts silently.** The new maintenance
+  hazard, and the one to actually watch. A brand or product word in a new recipe
+  is rare, so the rarity weighting scores it at the top, and it can pair two
+  unrelated recipes with nothing failing. Salt brands (`diamond`, `crystal`,
+  `morton`) were the first instance. `MIN_SCORE` blunts it — three maximally-rare
+  tokens are needed to clear the floor — but does not remove it. §7 of
+  `architecture.md` has the failure signature and the rule.
+- [ ] **`autoTags.js` keyword false positives — mostly closed.** The measured
+  count across the whole catalog is three, two of which are correct. The one real
+  miss, `#beef` on "pork shoulder steaks", is **fixed**: the `steak` needle now
+  skips any line naming another animal, per line, so Meatloaf still gets both
+  `#beef` and `#pork`. What remains is cosmetic and no longer affects related
+  recipes, which no longer read tags at all. Left open only in case the same
+  shape appears with another cut word.
 - [ ] **`ci.yml` only triggers on PRs based on `main`.** Both `push` and
   `pull_request` are filtered to `branches: [main]`, so a stacked PR — one
   feature branch targeting another — gets **no `verify` check at all**, and

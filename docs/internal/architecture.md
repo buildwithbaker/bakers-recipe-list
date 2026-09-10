@@ -250,51 +250,94 @@ found the `innerText` behaviour and want to fix it: don't.
 
 `src/utils/relatedRecipes.js`, rendered by `RelatedRecipes` on the **full page
 only** — in a modal, the whole list is already sitting behind the card.
+`scripts/prerender.mjs` imports the same module for the `<noscript>` links, so
+the two can never disagree. Do not fork the logic.
 
-Tags come from `getEffectiveTags`, the same source the meta line renders, so the
-ranking and what the visitor sees can never disagree.
+Scored on **ingredient overlap**, not tags. Each `type: "item"` line is
+lowercased, its parentheticals dropped, non-alpha stripped, and split on
+whitespace; tokens shorter than `TOKEN_MIN_LENGTH` (3) or present in
+`STOPWORDS` are discarded. A candidate scores the sum of `log(N / df)` over the
+tokens it shares, so `gochujang` counts for far more than `garlic`. Tokenised
+once per candidate list and cached by the array itself.
 
-Four rules, each answering a way this went wrong:
+The rules:
 
-1. **Rarity weighting.** Each shared tag is worth `log(N / freq)`, so a tag on
-   two recipes counts roughly **seven** times a tag carried by half the catalog
-   (at N=216: 4.68 against 0.69), and about eight times the most common tag in
-   the set. This demotes `#for-review` without special-casing it.
-2. **Cross-section only.** A recipe's own section is excluded — those neighbours
-   are one tap away in the list the visitor just left.
-3. **A floor on what counts as a match.** At least `MIN_SHARED_TAGS` (2) shared
-   tags, **and** at least one carried by fewer than `DISTINCTIVE_TAG_MAX_SHARE`
-   (25%) of published recipes. The cutoff is a *share*, derived from the live
-   frequency map, so it keeps meaning as the catalog grows.
-4. **Siblings sit outside all of it.** Two rows expanded from the same record
-   are related *by construction*, not by inference, so the heuristic does not
-   judge them: they skip the section exclusion, skip the floor, and sort ahead
-   of every inferred match in version order. They still count against the cap.
-   The one rule they do not escape is the blank exclusion.
+1. **Rarity weighting**, as above. The principle is inherited from the tag
+   version; the vocabulary is what changed.
+2. **A minimum score.** `MIN_SCORE` (10) — see below, it is not independent of
+   the stoplist.
+3. **Siblings sit outside all of it.** Two rows expanded from the same record
+   are related *by construction*, not by inference, so the scoring does not
+   judge them: they skip the floor entirely and sort ahead of every inferred
+   match, in version order. They still count against the cap. The one rule they
+   do not escape is the blank exclusion — a "coming soon" version has nothing
+   to show either.
+4. **No section rule of any kind.** Deliberate, and measured both ways. The old
+   tag version *excluded* a recipe's own section to break the section-listing
+   effect; ingredients do not have that failure, and the exclusion would discard
+   the single best result in the catalog — Beef Stew and Pork Stew are the same
+   dish with a different protein, and share a section. A same-section *bonus*
+   was tested at +2 and +4: it pushed same-section results from 33% to 49% and
+   64% while leaving the lists no better, and at +4 promoted a section-mate
+   above a cross-protein match. Neither direction earns its place.
 
 Capped at `RELATED_LIMIT` (6). Renders **nothing at all** when nothing clears
 the floor — an unrelated recipe presented as related is worse than an absent
 heading.
 
-### What the tag data can and cannot support
+### Why not tags
 
-Be realistic about this before extending it. Measured on 2026-09-09 — a
-snapshot, not a contract, but the *shape* is the point and it will not change on
-its own: **37 of the 68 tags sat on exactly one recipe**, and a tag on one
-recipe can never be *shared*. That left an effective matching vocabulary of
-about 31 tags, dominated by `#marinade`, `#for-review` and `#chicken`, each on
-between a third and well over half the published set.
+Worth knowing, because "just use the tags" is the obvious first idea and it was
+tried. There are ~68 tags; roughly half sit on exactly one recipe and so can
+never be *shared*, leaving an effective vocabulary of about 31, dominated by
+`#marinade`, `#for-review` and `#chicken`. A scoring function can only re-rank
+candidates whose shared sets *differ* — and every chicken marinade carries the
+identical four tags, so file order silently picked the results. Ingredients give
+several hundred tokens over the same catalog and describe the food rather than
+the drawer it lives in.
 
-A scoring function can only re-rank candidates whose shared tag sets *differ*.
-It cannot separate candidates whose sets are identical, and every chicken
-marinade carries the same four tags. Rarity weighting alone therefore barely
-moved the results; the cross-section rule and the floor are what made the
-section worth showing.
+Tags are still right for what they do: the tag chips, and search. They are not a
+similarity signal and no amount of scoring makes them one.
 
-**The parked next iteration is ingredient overlap.** Two recipes sharing
-gochujang and fish sauce are genuinely related; two sharing `#marinade` are not.
-That signal already exists in the data via `parseIngredient.js` and needs no
-hand-tagging. Not started.
+### STOPWORDS is load-bearing, and it drifts silently
+
+**This is the maintenance hazard in this feature.** The stoplist will need to
+grow as recipes are added, and the failure mode makes no noise: nothing throws,
+no test goes red, the lists just get quietly slightly wrong.
+
+**The failure signature**, so it is recognisable: two recipes that share nothing
+a cook would call related, scoring *high*, on a token that is rare in the
+catalog and says nothing about the dish. Rare and contentless is the worst
+combination there is here, because the rarity weighting hands exactly those
+tokens the top score.
+
+**The worked example**, found while tuning this: `diamond`, `crystal` and
+`morton` — salt brands. Each appeared on two recipes, so each scored at the very
+top of the range, and Pepperoncini Beef's best match was
+`crystal(4.7) diamond(4.7) morton(4.0) reserved(4.0)` — nine points for two
+recipes agreeing about which salt to buy, plus a prep verb from "reserved pasta
+water". Note that raising the threshold would have made this **worse**: the junk
+outscored the genuine matches.
+
+**The rule.** A token naming a producer, a package, a grade or a preparation
+goes in `STOPWORDS`. Then **re-sweep `MIN_SCORE`** — the tokeniser, the stoplist
+and the threshold move together and are not independent choices. The stoplist
+is grouped by the failure each block prevents; keep it that way, or it becomes
+a junk drawer nobody can review.
+
+**`MIN_SCORE` is the second line of defence.** The most a single shared token
+can be worth is `log(216/2) = 4.68`, since a token on one recipe can never be
+shared. So at 10, one rare token cannot clear the floor alone — and neither can
+two (9.36). It takes three. That is deliberate: a single leaked brand word
+cannot by itself surface an unrelated pair, which buys time to notice a stoplist
+gap before it does damage. It also means lowering `MIN_SCORE` weakens the
+stoplist, and vice versa.
+
+The threshold was chosen by sweeping 0–15 and **reading the resulting lists**,
+not by reading the aggregate metrics, which barely move below 8. Ten is the
+first value at which spice-rack matches disappear — candidates sharing only
+`chili`, `cumin`, `paprika`, `powder`, `garlic` — and the last before genuine
+cross-protein matches start dropping.
 
 ---
 
