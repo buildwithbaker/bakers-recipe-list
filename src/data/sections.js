@@ -44,3 +44,31 @@ export const SECTIONS = [
   { key: "FOR REVIEW - MARINADES - BEEF", label: "For Review: Marinades - Beef", id: "sec-FOR-REVIEW-MARINADES-BEEF", review: true },
   { key: "FOR REVIEW - MARINADES - PORK", label: "For Review: Marinades - Pork", id: "sec-FOR-REVIEW-MARINADES-PORK", review: true },
 ];
+
+// The subtitle a recipe can safely show to ANYONE — including whoever a link
+// was shared with, who has no idea this collection has a staging area.
+//
+// Recipes awaiting review are staged by overloading TWO fields: `section`
+// becomes a "FOR REVIEW ..." key and `category` becomes the literal string
+// "For Review". Both are internal workflow state. `category` was reaching a
+// related-recipe card as its subtitle, which published that state to a
+// stranger — the same leak as `#for-review` in the JSON-LD keywords, arriving
+// through a different field.
+//
+// The fix is not to filter the string but to render the right thing: a
+// section is a real classification to a reader where a staging category is
+// not. A staging bucket returns null and the caller renders NO subtitle rather
+// than a placeholder, because "For Review" and "Uncategorised" are equally
+// meaningless to a visitor.
+//
+// This is the owner-facing/visitor-facing split. The list's own section
+// headers and its "For Review" tab keep their labels on purpose — that is
+// Adam's staging view of his own collection. Anything on a shared recipe goes
+// through here.
+const SECTION_BY_KEY = new Map(SECTIONS.map((s) => [s.key, s]));
+
+export function publicSectionLabel(sectionKey) {
+  const section = SECTION_BY_KEY.get(sectionKey);
+  if (!section || section.review) return null;
+  return section.label;
+}

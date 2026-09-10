@@ -22,9 +22,10 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { SECTIONS } from '../src/data/sections.js';
+import { SECTIONS, publicSectionLabel } from '../src/data/sections.js';
 import { expandVersionedRecipe } from '../src/data/expandVersions.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
+import { relatedRecipes } from '../src/utils/relatedRecipes.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -99,13 +100,20 @@ function jsonLd(r, url) {
     description: describe(r),
     url,
     author: { '@type': 'Person', name: 'Adam Baker' },
-    recipeCategory: r.category,
   };
+  // NOT `r.category`: a staged record carries the literal "For Review" there,
+  // and publishing that as recipeCategory put an internal workflow state into
+  // the structured data a search result is built from. Same rule as the card
+  // subtitle in the app — the section is a real classification, a staging
+  // bucket yields nothing, and the property is then omitted rather than
+  // emitted empty. See publicSectionLabel in src/data/sections.js.
+  const category = publicSectionLabel(r.section);
+  if (category) ld.recipeCategory = category;
   // #for-review is an internal staging marker, not a property of the food.
   // Google's guidance is also that keywords must not restate recipeCategory.
   const keywords = (r.tags || [])
     .map((t) => t.replace(/^#/, ''))
-    .filter((t) => !INTERNAL_TAGS.has(t) && t.replace(/-/g, ' ') !== String(r.category).toLowerCase())
+    .filter((t) => !INTERNAL_TAGS.has(t) && t.replace(/-/g, ' ') !== String(category ?? '').toLowerCase())
     .map((t) => t.replace(/-/g, ' '))
     .join(', ');
   if (keywords) ld.keywords = keywords;
@@ -147,6 +155,78 @@ function addDurations(a, b) {
   return `PT${h ? `${h}H` : ''}${m ? `${m}M` : ''}`;
 }
 
+// --- the no-JavaScript fallback ------------------------------------------
+//
+// The prerendered files carry head metadata and an EMPTY <div id="root">. That
+// is enough for a link-preview crawler, which reads meta tags and stops, and
+// for Google, which renders JavaScript. It is nothing at all for a visitor with
+// JavaScript off or a crawler that does not render — they get a blank page
+// where a recipe should be.
+//
+// So the recipe is also written into the body as plain semantic HTML inside
+// <noscript>. Browsers hide that entirely when scripting is on, so it costs a
+// normal visitor nothing but bytes.
+//
+// The related links matter as much as the recipe: without them these are 216
+// pages with no path between them. With them, the same fallback that serves a
+// person with JavaScript off gives a non-rendering crawler a graph to walk.
+
+const fallbackPath = (id) => `${BASE}r/${idToSlug(id)}/`;
+
+// Renders one authored array as a list, starting a fresh list at every
+// section/header marker so a sub-heading stays a sub-heading instead of
+// becoming an item. `render` returns the already-escaped inner HTML of an <li>.
+function fallbackList(items, tag, render) {
+  const out = [];
+  let open = false;
+  const closeList = () => { if (open) { out.push(`</${tag}>`); open = false; } };
+  for (const item of items) {
+    if (item.type === 'section' || item.type === 'header') {
+      closeList();
+      out.push(`<h3>${esc(item.text ?? item.step ?? '')}</h3>`);
+      continue;
+    }
+    if (!open) { out.push(`<${tag}>`); open = true; }
+    out.push(`<li>${render(item)}</li>`);
+  }
+  closeList();
+  return out;
+}
+
+function noscriptFor(r, related) {
+  const parts = [`<h1>${esc(r.name)}</h1>`, `<p>${esc(describe(r))}</p>`];
+
+  const ingredients = r.ingredients || [];
+  if (ingredients.length) {
+    parts.push('<h2>Ingredients</h2>');
+    parts.push(...fallbackList(ingredients, 'ul', (i) => esc(i.text)));
+  }
+
+  const steps = r.instructions || [];
+  if (steps.length) {
+    parts.push('<h2>Method</h2>');
+    parts.push(...fallbackList(steps, 'ol', (st) => {
+      // Two authoring conventions (recipe.schema.json): classic carries a short
+      // title in `step` and the real text in `detail`; grouped puts everything
+      // in `step` and leaves `detail` empty. Emitting the title twice, or a
+      // bare title with no method, would both be wrong.
+      const detail = (st.detail || '').trim();
+      return detail ? `<strong>${esc(st.step)}</strong> ${esc(detail)}` : esc(st.step);
+    }));
+  }
+
+  if (related.length) {
+    parts.push('<h2>Related recipes</h2>', '<ul>');
+    for (const item of related) {
+      parts.push(`<li><a href="${esc(fallbackPath(item.id))}">${esc(item.name)}</a></li>`);
+    }
+    parts.push('</ul>');
+  }
+
+  const indented = parts.map((line) => `      ${line}`).join('\n');
+  return `<noscript>\n${indented}\n    </noscript>`;
+}
+
 function headFor(r, url) {
   const title = `${r.name} — ${SITE_NAME}`;
   const desc = describe(r);
@@ -175,7 +255,7 @@ function headFor(r, url) {
 // The shell already carries a <title> and a site-level description. Strip both
 // so the per-recipe pair is the only one on the page - a duplicate og:title is
 // resolved by the crawler in an order nobody controls.
-function pageFor(r, url) {
+function pageFor(r, url, related) {
   let html = shell
     .replace(/<title>[\s\S]*?<\/title>\s*/i, '')
     .replace(/<meta\s+name="description"[^>]*>\s*/i, '');
@@ -184,7 +264,15 @@ function pageFor(r, url) {
     console.error('✗ prerender: dist/index.html has no </head> to inject into');
     process.exit(1);
   }
-  return html.replace(/<\/head>/i, `  ${head}\n  </head>`);
+  html = html.replace(/<\/head>/i, `  ${head}\n  </head>`);
+
+  // Injected BEFORE the mount point, so a reader that runs no JavaScript meets
+  // the recipe first, and React still gets an untouched, empty #root.
+  if (!/<div id="root">/i.test(html)) {
+    console.error('✗ prerender: dist/index.html has no <div id="root"> to inject before');
+    process.exit(1);
+  }
+  return html.replace(/<div id="root">/i, `${noscriptFor(r, related)}\n    <div id="root">`);
 }
 
 // --- write -----------------------------------------------------------------
@@ -195,7 +283,11 @@ for (const r of published) {
   const url = `${ORIGIN}r/${slug}/`;
   const dir = join(dist, 'r', slug);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'index.html'), pageFor(r, url), 'utf8');
+  // The SAME ranking the app renders — imported, never reimplemented. Two
+  // copies of it would drift, and the fallback agreeing with what the app shows
+  // is the whole reason for writing it.
+  const related = relatedRecipes(r, displayRecipes);
+  writeFileSync(join(dir, 'index.html'), pageFor(r, url, related), 'utf8');
   urls.push(url);
 }
 

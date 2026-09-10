@@ -30,6 +30,14 @@
 //    render at all — an unrelated recipe presented as related is worse than an
 //    absent heading.
 //
+// SIBLINGS SIT OUTSIDE ALL OF IT. Two rows expanded from the same record are
+// related BY CONSTRUCTION, not by inference, so a heuristic built to guess at
+// relatedness has no business judging them: they skip the section exclusion,
+// skip the floor, and sort ahead of every inferred match, in version order.
+// They still count against the cap — a recipe with five versions showing four
+// of them is correct, because those genuinely are the most related things in
+// the catalog.
+//
 // This also exists to stop the prerendered pages being 216 orphans. Nothing on
 // the site linked one recipe to another; a crawler that reached one page found
 // no way to any other, and neither did a person with JavaScript off.
@@ -113,30 +121,47 @@ export function relatedRecipes(recipe, all, limit = RELATED_LIMIT) {
   all.forEach((candidate, index) => {
     if (candidate.id === recipe.id) return;
     // A "coming soon" placeholder is a dead end: no ingredients, no method, and
-    // no prerendered page behind its link.
+    // no prerendered page behind its link. This is the ONE rule a sibling does
+    // not escape — a blank version has nothing to show either.
     if (candidate.is_blank !== false) return;
-    // The visitor came from this section. Its neighbours are one tap away in
-    // the list they just left — except a sibling version, which is not.
-    if (candidate.section === recipe.section && !areSiblings(recipe.id, candidate.id)) return;
+
+    const sibling = areSiblings(recipe.id, candidate.id);
 
     // Sorted so an identical set of shared tags always sums in the same order
     // and therefore to the same float. Without that, two candidates sharing the
     // same tags could differ in the last bit and jump the file-order tie-break.
     const shared = [...new Set(getEffectiveTags(candidate))].filter((tag) => mine.has(tag)).sort();
-    if (shared.length < MIN_SHARED_TAGS) return;
-    // At least one shared tag has to actually mean something.
-    if (!shared.some((tag) => (table.freq.get(tag) || 0) < table.distinctiveBelow)) return;
-
     const score = shared.reduce((sum, tag) => sum + tagWeight(tag, table), 0);
-    if (score <= 0) return;
 
-    scored.push({ candidate, score, sameCategory: candidate.category === recipe.category, index });
+    if (!sibling) {
+      // The visitor came from this section; its neighbours are one tap away in
+      // the list they just left.
+      if (candidate.section === recipe.section) return;
+      if (shared.length < MIN_SHARED_TAGS) return;
+      // At least one shared tag has to actually mean something.
+      if (!shared.some((tag) => (table.freq.get(tag) || 0) < table.distinctiveBelow)) return;
+      if (score <= 0) return;
+    }
+
+    scored.push({
+      candidate,
+      sibling,
+      score,
+      sameCategory: candidate.category === recipe.category,
+      index,
+    });
   });
 
-  scored.sort((a, b) =>
-    b.score - a.score
-    || Number(b.sameCategory) - Number(a.sameCategory)
-    || a.index - b.index);
+  scored.sort((a, b) => {
+    // Siblings first, and among themselves in file order — which is version
+    // order, so Version 2 never lands above Version 1 because its ingredients
+    // happened to pick up one more auto-tag.
+    if (a.sibling !== b.sibling) return a.sibling ? -1 : 1;
+    if (a.sibling) return a.index - b.index;
+    return b.score - a.score
+      || Number(b.sameCategory) - Number(a.sameCategory)
+      || a.index - b.index;
+  });
 
   return scored.slice(0, limit).map((entry) => entry.candidate);
 }
