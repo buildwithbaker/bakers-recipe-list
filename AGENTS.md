@@ -93,6 +93,45 @@ Use absolute paths that the runtime itself can open — the shell and Node do no
 resolve paths the same way on Windows. Never leave probe data or probe files in
 the tree.
 
+## Anything outside this repo: ask first, do not report after
+
+Changing a file outside the working tree — a global config, an editor setting,
+anything under the user's home directory — gets **raised before you do it**, not
+mentioned afterwards.
+
+"Additive and harmless" is a judgement the owner of the machine makes, not one
+made on their behalf. A change you consider trivial may collide with something
+you cannot see, and the cost of asking is one sentence.
+
+Inside the repo, the normal branch-and-PR flow already gives him a review point.
+Outside it, there isn't one, so you are it.
+
+## Verifying prerendered output: kill the service worker first
+
+`scripts/prerender.mjs` writes a real HTML file per recipe. The app also ships a
+service worker whose `navigateFallback` serves the cached shell for any
+navigation — **including `/r/<slug>/`**. That is correct in production (a
+crawler never has a worker, and the app routes from `location.pathname`), but it
+means that once the worker is active, a browser asking for a prerendered page
+gets the generic shell instead.
+
+So **every check of prerendered output is wrong by default**. If you load a
+recipe page and read its title, tags, JSON-LD or `<noscript>` block without
+dealing with the worker, you may be reading the cache and will not be told.
+
+Before checking anything about prerendered output:
+
+1. Unregister every service-worker registration and delete every cache.
+2. Confirm it is gone — `navigator.serviceWorker.controller` should be null, and
+   the page title should be the RECIPE's, not `Baker's Recipe List`.
+3. Only then read the page. Re-check between navigations: the shell re-registers
+   the worker, and `installUpdateReload` can reload the page out from under you.
+
+The shell's own title is the cheapest tell that you are looking at the cache.
+
+This is the same family of trap as a probe whose write silently failed: the
+check runs, reports something, and the something is not what you think.
+
 ## Workflow & guardrails (from CLAUDE.md)
 
 - `main` is **protected** - direct pushes are rejected, so `git push origin main` never
