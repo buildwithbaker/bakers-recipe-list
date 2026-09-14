@@ -12,7 +12,9 @@
     "`renamed` (id -> short note). That is what keeps the integrity test passing:",
     "the exception is recorded here as evidence, never by relaxing the test."
   ],
-  "renamed": {},
+  "renamed": {
+    "dirty-rice": "Completed from placeholder; renamed to \"Dirty Rice (No-Liver, One Pan)\". ids entry stays at \"Dirty Rice\"."
+  },
   "ids": {
     "spicy-pork-patties": "Spicy Pork Patties",
     "scrambled-eggs": "Scrambled Eggs",
