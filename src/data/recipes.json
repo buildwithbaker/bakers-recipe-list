@@ -19550,17 +19550,148 @@
   },
   {
     "id": "dirty-rice",
-    "name": "Dirty Rice",
-    "section": "TO TRY --- MEXICAN",
-    "category": "Mexican",
-    "source": "http://spicysouthernkitchen.com/dirty-rice/",
+    "name": "Dirty Rice (No-Liver, One Pan)",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
     "tags": [
-      "#to-try",
-      "#rice"
+      "#american",
+      "#cajun",
+      "#rice",
+      "#beans",
+      "#one-pan",
+      "#beef",
+      "#spicy"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Cajun Blend:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp coarse black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried thyme"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp salt"
+      },
+      {
+        "type": "header",
+        "text": "Skillet:"
+      },
+      {
+        "type": "item",
+        "text": "1 lb ground beef (80/20)"
+      },
+      {
+        "type": "item",
+        "text": "1 medium yellow onion, diced (about 1 cup)"
+      },
+      {
+        "type": "item",
+        "text": "1 green bell pepper, diced (about 1 cup)"
+      },
+      {
+        "type": "item",
+        "text": "2 celery stalks, diced (about 3/4 cup)"
+      },
+      {
+        "type": "item",
+        "text": "4 cloves garlic, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 cups long-grain white rice"
+      },
+      {
+        "type": "item",
+        "text": "2 3/4 cups chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp Worcestershire sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 can (15.5 oz) kidney beans, drained and rinsed (about 1 1/2 cups)"
+      },
+      {
+        "type": "header",
+        "text": "Finish:"
+      },
+      {
+        "type": "item",
+        "text": "4 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup chopped parsley"
+      },
+      {
+        "type": "item",
+        "text": "Hot sauce, at the table"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix the Blend",
+        "detail": "Combine the paprika (1 Tbsp), cayenne (1 tsp), black pepper (2 tsp), thyme (1 tsp), oregano (1 tsp), onion powder (1 tsp), garlic powder (1 tsp) and salt (1 1/2 tsp) in a small bowl. Work half of it into the raw ground beef (1 lb) with your hands. Hold the other half back for the vegetables."
+      },
+      {
+        "step": "Brown Hard",
+        "detail": "Heat a 12-inch skillet or Dutch oven over medium-high, dry. Add the seasoned beef (1 lb), press it flat into one sheet, and leave it alone. 3 to 4 minutes per side, flipping 2 to 3 times, until there is a deep brown crust and browned bits stuck to the pan. Do not stir early and do not pile it up - the surface has to dry before it can brown at all. Water holds the surface at 212F; Maillard browning does not begin until about 266F and does not get good until 285 to 330F. The fond you build here is the entire color and depth budget of this dish."
+      },
+      {
+        "step": "Drain, Not All of It",
+        "detail": "Pour the rendered fat into a cup, then return about 2 Tbsp to the pan. Break the beef into crumbles. The rice has to toast in fat in step 5, and the seasoning rides into the grain on that fat."
+      },
+      {
+        "step": "Trinity",
+        "detail": "Add the diced onion (1 cup), bell pepper (1 cup) and celery (3/4 cup) to the fat over medium. Cook 6 to 8 minutes, until soft and the onion turns translucent heading toward gold. The water they release does the deglazing - scrape as they go and the fond lifts off the pan into the vegetables. Add the minced garlic (4 cloves) and the reserved half of the blend; cook 1 minute, until sharp and fragrant."
+      },
+      {
+        "step": "Toast the Rice",
+        "detail": "Add the rice (1 1/2 cups) dry and stir 2 minutes, until the grains turn chalky-opaque and smell nutty. Fat coating each grain slows water uptake so the grains cook through instead of blowing out - this is what keeps dirty rice from turning to mush."
+      },
+      {
+        "step": "Liquid and Lid",
+        "detail": "Add the chicken broth (2 3/4 cups) and Worcestershire (1 Tbsp), scrape the bottom once more, and bring to a hard boil. Lid on, heat to the lowest setting, 18 minutes. Do not lift the lid. The broth is 2 3/4 cups rather than a flat 2:1 because the trinity has already put about a third of a cup of its own water in the pan."
+      },
+      {
+        "step": "Beans on Top, Then Rest",
+        "detail": "Off the heat, scatter the drained and rinsed kidney beans (1 can, 15.5 oz, about 1 1/2 cups) over the surface of the rice without stirring. Lid back on, 10 minutes. They are already cooked and only need to warm through - stirred into the simmer they break down and go pasty, and the loose starch clouds the grain."
+      },
+      {
+        "step": "Fluff and Finish",
+        "detail": "Fork the rice through, folding the beans in gently as you go. Fold in the sliced green onions (4) and chopped parsley (1/4 cup). Hot sauce goes on the table, not into the pot."
+      }
+    ],
+    "is_blank": false
   },
   {
     "id": "broccoli-and-cheddar-twice-baked-potatoes",
