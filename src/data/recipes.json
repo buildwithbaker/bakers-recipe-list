@@ -1858,6 +1858,147 @@
     "is_blank": false
   },
   {
+    "id": "king-ranch-chicken-casserole",
+    "name": "King Ranch Chicken Casserole",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#casserole",
+      "#tex-mex",
+      "#make-ahead",
+      "#baked",
+      "#rotisserie",
+      "#scratch-sauce"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Sauce:"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "3 cups chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 can (10 oz) diced tomatoes with green chiles (Rotel), undrained"
+      },
+      {
+        "type": "item",
+        "text": "1 can (4 oz) diced green chiles"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup sour cream"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp chili powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp chipotle powder"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp kosher salt"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Layers:"
+      },
+      {
+        "type": "item",
+        "text": "1 rotisserie chicken, meat pulled (about 4 cups)"
+      },
+      {
+        "type": "item",
+        "text": "12 corn tortillas, torn into large pieces"
+      },
+      {
+        "type": "item",
+        "text": "1 medium onion, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "3 cups shredded sharp cheddar"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Pull The Chicken",
+        "detail": "Strip the meat off the rotisserie chicken (1 whole) in large shreds, about 4 cups. Discard skin and bones. Large shreds hold texture through the bake; chopped fine, the chicken disappears into the sauce."
+      },
+      {
+        "step": "Make The Roux",
+        "detail": "Melt the butter (4 Tbsp) in a saucepan over medium. Whisk in the flour (1/4 cup) and cook 2 to 3 minutes, whisking, until it smells nutty and turns the color of wet sand. Stop there. A darker roux tastes better on its own but thickens roughly half as well, which is the wrong trade in a casserole that has to hold its sauce."
+      },
+      {
+        "step": "Build The Veloute",
+        "detail": "Whisk the chicken broth (3 cups) in a little at a time, keeping it smooth. Simmer 3 to 4 minutes until it coats the back of a spoon. Cook it slightly thicker than looks right, because it loosens in the oven."
+      },
+      {
+        "step": "Season The Sauce",
+        "detail": "Off the heat, stir in the diced tomatoes with green chiles (10 oz, undrained), diced green chiles (4 oz), chili powder (2 tsp), ground cumin (1 tsp), garlic powder (1 tsp), chipotle powder (1 1/2 tsp), kosher salt (1 1/2 tsp) and black pepper (1/2 tsp). Cool 2 minutes, then stir in the sour cream (1/2 cup) off the heat so it does not break."
+      },
+      {
+        "step": "Layer One",
+        "detail": "Spread a thin film of sauce across the bottom of a 9x13 pan. Lay down a third of the torn corn tortillas (12 total), then half the chicken (about 2 cups), half the sliced onion (1 medium), a third of the sauce, and 1 cup of the shredded sharp cheddar (3 cups total)."
+      },
+      {
+        "step": "Layer Two",
+        "detail": "Repeat: a third of the corn tortillas (12 total), the remaining chicken (about 2 cups), the remaining sliced onion (1 medium), a third of the sauce, and 1 cup of the shredded sharp cheddar (3 cups total)."
+      },
+      {
+        "step": "Layer Three",
+        "detail": "Finish with the last third of the corn tortillas (12 total) and the last third of the sauce. Hold the final 1 cup of shredded sharp cheddar (3 cups total) back for the end of the bake."
+      },
+      {
+        "step": "Cover And Hold",
+        "detail": "Cover the pan tight with foil. Bag the remaining shredded sharp cheddar (1 cup) separately. Refrigerate, or travel in a cooler if the dish is being baked somewhere else."
+      },
+      {
+        "step": "Take The Chill Off",
+        "detail": "Pull the pan out and leave it on the counter while the oven comes to 375F, about 25 minutes. A pan straight from the refrigerator or a cooler adds 8 to 10 minutes to the bake and heats unevenly."
+      },
+      {
+        "step": "Bake Covered",
+        "detail": "Bake covered at 375F for 35 minutes."
+      },
+      {
+        "step": "Top And Brown",
+        "detail": "Uncover, scatter the remaining shredded sharp cheddar (1 cup) over the top, and bake uncovered 12 minutes until melted and browning at the edges. It is done when the center reads 165F and the edges are bubbling, so go by that rather than the clock. Do not hold it in the oven past browning; extra time only thins the sauce."
+      },
+      {
+        "step": "Rest",
+        "detail": "Rest 10 minutes before cutting so it slices instead of sliding."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "id": "ground-beef-meat",
     "name": "Ground Beef Meat",
     "section": "MEXICAN",
