@@ -3582,6 +3582,167 @@
     "is_blank": false
   },
   {
+    "id": "keema-aloo-bhuna-with-peas-carrot-and-spinach",
+    "name": "Keema Aloo Bhuna with Peas, Carrot and Spinach",
+    "section": "ASIAN",
+    "category": "Asian",
+    "source": "Original",
+    "tags": [
+      "#beef",
+      "#ground-beef",
+      "#potato",
+      "#indian",
+      "#curry",
+      "#one-pan",
+      "#weeknight"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Beef and its seasoning:"
+      },
+      {
+        "type": "item",
+        "text": "1 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 1/4 tsp table salt or Morton kosher salt (or 2 tsp Diamond Crystal)"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp ground coriander"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "3/4 tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "1/2 tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "The pan:"
+      },
+      {
+        "type": "item",
+        "text": "1 lb russet potatoes (about 2 medium), peeled and cut into 1/2-inch dice"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, halved and sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "5 cloves garlic, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp fresh ginger, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 serrano chile, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "2 medium carrots, cut into 1/4-inch dice (about 1 cup)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp tomato paste"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup water"
+      },
+      {
+        "type": "item",
+        "text": "1 cup frozen peas"
+      },
+      {
+        "type": "item",
+        "text": "5 oz fresh spinach, stacked and cut into 1/4-inch ribbons"
+      },
+      {
+        "type": "header",
+        "text": "Finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 1/2 tsp garam masala"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lime juice"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup cilantro, chopped"
+      },
+      {
+        "type": "item",
+        "text": "Plain whole-milk yogurt, for the table"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Par-Boil Potatoes",
+        "detail": "Makes 4 servings. Put the diced potatoes (1 lb, cut into 1/2-inch dice) in cold salted water, bring to a boil, and cook 7 to 8 minutes - a knife should meet slight resistance at the center. Drain and leave them in the colander to steam dry while everything else happens. Dry surfaces are what let them take a fried face later; 1/2-inch dice turns to mush well before the 20 minutes a whole potato wants."
+      },
+      {
+        "step": "Season Beef Raw",
+        "detail": "Mix the ground beef (1 lb, 80/20) by hand with the salt (1 1/4 tsp table or Morton kosher, or 2 tsp Diamond Crystal), cumin (2 tsp), coriander (2 tsp), turmeric (1 tsp), cayenne (3/4 tsp) and black pepper (1/2 tsp) until the color is even. Season before the pan, not after."
+      },
+      {
+        "step": "Brown and Drain Twice",
+        "detail": "Heat a 12-inch skillet over medium-high until a drop of water skates. Add the beef (1 lb), press it flat into one slab, and leave it 3 to 4 minutes. Flip in large pieces, press again, 3 minutes. Pour the rendered fat into a bowl. Repeat the press-and-flip once or twice more, draining a second time, until the beef is in browned crumbles with real crust - about 10 minutes total. Move the beef to a plate. Reserve the drained fat and discard about 2 Tbsp of it."
+      },
+      {
+        "step": "Onion in Beef Fat",
+        "detail": "Return 2 Tbsp of the reserved beef fat to the pan over medium heat. Add the sliced onion (1 large) and a pinch of salt; cook 7 to 8 minutes, scraping the fond up as the onion releases its water, until soft and golden at the edges. Beef fat rather than neutral oil is the point - spice flavor is fat-soluble, so the fat that carries it should already taste like the dish."
+      },
+      {
+        "step": "Aromatics, 45 Seconds",
+        "detail": "Add the garlic (5 cloves, minced), ginger (1 Tbsp, grated) and serrano (1, sliced thin). Stir constantly for 45 seconds, no longer. The onion is buffering the pan heat; minced garlic on bare hot metal burns in about that same 45 seconds and there is no recovery from it."
+      },
+      {
+        "step": "Fry Tomato Paste",
+        "detail": "Add the tomato paste (2 Tbsp) and fry it, stirring, 1 to 2 minutes, until it darkens from red to brick and fat separates at the edges. That split is the signal the raw-paste flavor is gone."
+      },
+      {
+        "step": "Carrots",
+        "detail": "Add the carrots (1 cup, cut into 1/4-inch dice) and the water (1/2 cup). Simmer uncovered, stirring now and then, 5 to 6 minutes, until the water is gone and the pan is sizzling in fat again. No lid - a lid steams the pan and costs the dry style."
+      },
+      {
+        "step": "Bhuna the Beef and Potato",
+        "detail": "Return the beef and add the par-boiled potatoes (1 lb) plus another 1 to 2 Tbsp of the reserved beef fat. Stir in the garam masala (1 1/2 tsp). Press the mixture flat and leave it 2 to 3 minutes, then turn it in sections and press again - twice more, about 8 minutes total. Browned faces on the potato, not a stir. This step is the dish."
+      },
+      {
+        "step": "Peas",
+        "detail": "Scatter the frozen peas (1 cup) over the top and fold through; 2 minutes, just to heat."
+      },
+      {
+        "step": "Spinach",
+        "detail": "Add the spinach ribbons (5 oz) in two handfuls, folding until collapsed - 60 to 90 seconds. Kill the heat."
+      },
+      {
+        "step": "Finish Off Heat",
+        "detail": "Squeeze in the lime juice (1 Tbsp) and scatter the cilantro (1/4 cup). Lime goes in off heat and after the spinach for two reasons: citric acid is volatile and dies with sustained heat, and acid turns chlorophyll to pheophytin, so lime added before the greens gives you olive-drab leaves. Taste for salt. Serve with plain whole-milk yogurt at the table."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "id": "tomato-sauce",
     "name": "Tomato Sauce",
     "section": "ITALIAN",
