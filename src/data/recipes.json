@@ -4266,6 +4266,73 @@
     "is_blank": true
   },
   {
+    "id": "wasabi-egg-salad",
+    "name": "Wasabi Egg Salad",
+    "section": "SANDWICHES",
+    "category": "Sandwiches",
+    "source": "Original",
+    "tags": [
+      "#eggs",
+      "#sandwiches",
+      "#wasabi",
+      "#no-cook",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "12 large eggs"
+      },
+      {
+        "type": "item",
+        "text": "1/2 cup mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "1/4 cup Miracle Whip"
+      },
+      {
+        "type": "item",
+        "text": "3/4 tsp wasabi paste (start at 1/2 tsp, up to 1 tsp)"
+      },
+      {
+        "type": "item",
+        "text": "Salt, to taste"
+      },
+      {
+        "type": "item",
+        "text": "Black pepper, to taste"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Steam the Eggs",
+        "detail": "Makes 6 servings, about 4 cups. Bring 1 inch of water to a rolling boil in a wide pot. Set the eggs (12 large) straight from the fridge into a steamer basket in a single layer, cover, drop to medium heat, and steam 13 minutes. Cold eggs into hot steam is what makes them peel."
+      },
+      {
+        "step": "Shock and Peel",
+        "detail": "Move the eggs (12 large) to an ice bath of 4 cups ice and 4 cups cold water for 15 minutes. Crack all over and peel. Shells should slip."
+      },
+      {
+        "step": "Cut into Strips",
+        "detail": "Halve each of the eggs (12 large) lengthwise. Lay each half flat side down and cut lengthwise into 3 or 4 strips. Do not chop - the strips are the texture of this salad."
+      },
+      {
+        "step": "Build the Dressing",
+        "detail": "In a large bowl, stir the mayonnaise (1/2 cup), Miracle Whip (1/4 cup), and wasabi paste (1/2 tsp) until smooth. Taste, then work in up to another 1/2 tsp wasabi paste. Dress first, eggs second - wasabi stirred into a bowl of eggs streaks instead of distributing."
+      },
+      {
+        "step": "Fold and Season",
+        "detail": "Fold the egg strips into the dressing with a spatula, lifting from the bottom rather than stirring, so the strips stay whole. Season with salt and black pepper to taste."
+      },
+      {
+        "step": "Rest",
+        "detail": "Chill at least 30 minutes before serving. If it sits overnight, taste again before it goes out - wasabi heat is volatile and fades; add another 1/4 tsp wasabi paste if it has gone flat."
+      }
+    ],
+    "is_blank": false
+  },
+  {
     "id": "coconut-rice",
     "name": "Coconut Rice",
     "section": "SIDES",
