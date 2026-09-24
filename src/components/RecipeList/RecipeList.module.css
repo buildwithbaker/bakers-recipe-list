@@ -110,6 +110,8 @@
 .randomBtn {
   display: inline-flex;
   align-items: center;
+  min-height: 24px;
+  box-sizing: border-box;
   gap: 5px;
   background: none;
   border: 1px solid var(--border);
@@ -131,6 +133,8 @@
 .filterBtn {
   display: inline-flex;
   align-items: center;
+  min-height: 24px;
+  box-sizing: border-box;
   background: none;
   border: 1px solid var(--border);
   border-radius: 6px;

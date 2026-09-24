@@ -76,13 +76,18 @@
     top: 84px; /* TopBar (~44px) + SearchBar (~40px) on mobile */
     font-size: 14px;
   }
-  .table thead th {
-    padding: 4px 6px;
-    font-size: 10px;
+}
+
+/* Phone: RecipeRow lays each row out as a card, which needs the table and its
+   body to stop being table boxes. The column header row means nothing once the
+   columns are gone. */
+@media (max-width: 600px) {
+  .table,
+  .table tbody {
+    display: block;
   }
-  .table tbody td {
-    padding: 8px 6px;
-    font-size: 13px;
+  .table thead {
+    display: none;
   }
 }
 

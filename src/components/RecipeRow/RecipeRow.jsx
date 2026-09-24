@@ -33,7 +33,7 @@ function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
   // "To Try" card: name + external "View source" link, no coming-soon/made/pin UI.
   if (isToTry(recipe)) {
     return (
-      <tr className={styles.toTryRow}>
+      <tr className={`${styles.row} ${styles.toTryRow}`}>
         <td className={styles.recipeName}>
           <HighlightedText text={recipe.name} query={highlightQuery} />
           <span className={styles.toTryBadge}>to try</span>
@@ -55,6 +55,7 @@ function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
   }
 
   const rowClass = [
+    styles.row,
     recipe.is_blank ? styles.blankRow : '',
     isMade          ? styles.madeRow  : '',
     isPinned        ? styles.pinnedRow : '',
@@ -103,25 +104,41 @@ function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
         )}
       </td>
       <td className={styles.recipeTags}>{tags}</td>
-      {!hideSource && <td className={styles.recipeSource}>{recipe.source || ''}</td>}
+      {/* Capped and ellipsised so one long note cannot widen its whole table;
+          the full text stays in the tooltip. */}
+      {!hideSource && (
+        <td className={styles.recipeSource}>
+          {recipe.source && <span className={styles.sourceText} title={recipe.source}>{recipe.source}</span>}
+        </td>
+      )}
       <td className={styles.actionCell}>
         {!recipe.is_blank && (
           <>
+            {/* Toggles: the state is aria-pressed and the glyph's SHAPE (outline
+                vs filled star, circle vs check), not just colour - so it
+                survives grayscale and needs no hover tooltip on a phone. The
+                name is constant and carries the recipe, so a screen reader
+                hears "Pin Pulled Pork, toggle button, pressed" rather than
+                twelve identical "Pin recipe" buttons. */}
             <button
               type="button"
               className={`${styles.pinBtn} ${isPinned ? styles.pinBtnActive : ''}`}
               onClick={() => togglePinned(recipe.id)}
-              aria-label={isPinned ? 'Unpin recipe' : 'Pin recipe'}
+              aria-pressed={isPinned}
+              aria-label={`Pin ${recipe.name}`}
               title={isPinned ? 'Pinned — click to unpin' : 'Pin for later'}
-            >★</button>
+            >
+              <span aria-hidden="true">{isPinned ? '★' : '☆'}</span>
+            </button>
             <button
               type="button"
               className={`${styles.madeBtn} ${isMade ? styles.madeBtnActive : ''}`}
               onClick={() => toggleMade(recipe.id)}
-              aria-label={isMade ? 'Mark as not made' : 'Mark as made'}
-              title={isMade ? 'Unmark' : 'Made it!'}
+              aria-pressed={isMade}
+              aria-label={`Made ${recipe.name}`}
+              title={isMade ? 'Made — click to unmark' : 'Mark as made'}
             >
-              {isMade ? '✓' : '○'}
+              <span aria-hidden="true">{isMade ? '✓' : '○'}</span>
             </button>
           </>
         )}

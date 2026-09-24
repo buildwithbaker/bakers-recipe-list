@@ -296,6 +296,20 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
   const [tagBrowserOpen, setTagBrowserOpen] = useState(false);
   const [collapsedSections, setCollapsedSections] = useState(loadCollapsed);
   const { madeSet, pinnedSet } = useCookHistoryContext();
+  const tabBarRef = useRef(null);
+
+  // On a phone the tab bar scrolls sideways. Keep the selected tab in view -
+  // by moving the bar itself, never the page (scrollIntoView would also
+  // scroll the window vertically).
+  useEffect(() => {
+    const bar = tabBarRef.current;
+    const active = bar?.querySelector('[data-active="true"]');
+    if (!bar || !active || bar.scrollWidth <= bar.clientWidth) return;
+    const left = active.offsetLeft - bar.offsetLeft;
+    const right = left + active.offsetWidth;
+    if (left < bar.scrollLeft) bar.scrollLeft = left;
+    else if (right > bar.scrollLeft + bar.clientWidth) bar.scrollLeft = right - bar.clientWidth;
+  }, [activeTab]);
 
   const hasMade   = madeSet.size > 0;
   const hasPinned = pinnedSet.size > 0;
@@ -394,12 +408,13 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
 
   return (
     <main className={isFiltering ? styles.filtering : ''}>
-      <div className={styles.tabBar}>
+      <div className={styles.tabBar} ref={tabBarRef}>
         {TABS.map((tab) => (
           <button
             key={tab.key}
             type="button"
             className={`${styles.tabBtn} ${activeTab === tab.key ? styles.tabBtnActive : ''}`}
+            data-active={activeTab === tab.key}
             onClick={() => onTabChange(tab.key)}
           >
             {tab.label}
