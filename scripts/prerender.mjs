@@ -26,6 +26,7 @@ import { SECTIONS, publicSectionLabel } from '../src/data/sections.js';
 import { expandVersionedRecipe } from '../src/data/expandVersions.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
+import { SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -37,7 +38,6 @@ const SITE = 'https://buildwithbaker.github.io';
 const BASE = '/bakers-recipe-list/';
 const ORIGIN = SITE + BASE;
 const PLACEHOLDER = `${ORIGIN}recipe-placeholder.png`;
-const SITE_NAME = "Baker's Recipe List";
 
 // Tags that describe the workflow, not the food. They stay out of public metadata.
 const INTERNAL_TAGS = new Set(['for-review']);
@@ -228,7 +228,8 @@ function noscriptFor(r, related) {
 }
 
 function headFor(r, url) {
-  const title = `${r.name} — ${SITE_NAME}`;
+  // Shared with RecipeView, which sets the same title at runtime.
+  const title = recipeDocumentTitle(r.name);
   const desc = describe(r);
   const img = imageFor(r);
   return [

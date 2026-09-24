@@ -6,6 +6,7 @@ import SectionBlock from '../SectionBlock/SectionBlock.jsx';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { getEffectiveTags } from '../../utils/autoTags.js';
+import { isComingSoon } from '../../utils/recipeKinds.js';
 import styles from './RecipeList.module.css';
 
 // ---------------------------------------------------------------------------
@@ -66,7 +67,27 @@ const PEANUT_GROUPS = (() => {
   );
 })();
 
-const PEANUT_TOTAL = peanutRecipes.length;
+// Rows each tab lists, for the count beside its name. Built from the same
+// sources the list renders, so the number always matches what is on screen
+// with no search or made/pinned filter applied. `shown` is the count with
+// coming-soon placeholders visible, `hidden` the count with them filtered out.
+function tabRowCounts(rows) {
+  const comingSoon = rows.filter(isComingSoon).length;
+  return { shown: rows.length, hidden: rows.length - comingSoon, comingSoon };
+}
+const rowsOfSections = (sections) => sections.flatMap((s) => displayedBySection.get(s.key) || []);
+const TAB_COUNTS = {
+  [TAB_RECIPES]: tabRowCounts(rowsOfSections(mainSections)),
+  [TAB_REVIEW]:  tabRowCounts(rowsOfSections(reviewSections)),
+  [TAB_TOTRY]:   tabRowCounts(rowsOfSections(toTrySections)),
+  [TAB_PEANUT]:  tabRowCounts(peanutRecipes),
+};
+const TABS = [
+  { key: TAB_RECIPES, label: 'Recipes' },
+  { key: TAB_REVIEW,  label: 'For Review' },
+  { key: TAB_TOTRY,   label: 'To Try' },
+  { key: TAB_PEANUT,  label: 'Peanut Butter' },
+];
 
 // All tags (manual + auto-derived) with counts — computed once at module scope.
 // Counted over display rows, because clicking a pill searches the display list:
@@ -208,7 +229,7 @@ function EmptyState({ query, onClear }) {
 // Toolbar
 // ---------------------------------------------------------------------------
 
-function ListToolbar({ onRandom, madeFilter, onToggleMadeFilter, hasMade, pinnedFilter, onTogglePinnedFilter, hasPinned, onOpenTags, hideBlanks, onToggleHideBlanks }) {
+function ListToolbar({ onRandom, madeFilter, onToggleMadeFilter, hasMade, pinnedFilter, onTogglePinnedFilter, hasPinned, onOpenTags, hideBlanks, onToggleHideBlanks, showBlanksToggle }) {
   return (
     <div className={styles.toolbar}>
       <button type="button" className={styles.randomBtn} onClick={onRandom} title="Open a random recipe">
@@ -244,14 +265,20 @@ function ListToolbar({ onRandom, madeFilter, onToggleMadeFilter, hasMade, pinned
           {madeFilter === 'made' ? '✓ Made' : madeFilter === 'unmade' ? '✗ Not made' : 'Filter: Made'}
         </button>
       )}
-      <button
-        type="button"
-        className={`${styles.filterBtn} ${hideBlanks ? styles.filterBtnActive : ''}`}
-        onClick={onToggleHideBlanks}
-        title={hideBlanks ? 'Show coming soon placeholders' : 'Hide coming soon placeholders'}
-      >
-        {hideBlanks ? '○ Blanks hidden' : '○ Coming soon'}
-      </button>
+      {/* One fixed label that says what the control does; its on/off state is
+          aria-pressed and the active style, never a relabel. It used to read
+          "Blanks hidden" / "Coming soon", which described the current state
+          and not the action. Shown only on a tab that has placeholders. */}
+      {showBlanksToggle && (
+        <button
+          type="button"
+          className={`${styles.filterBtn} ${!hideBlanks ? styles.filterBtnActive : ''}`}
+          onClick={onToggleHideBlanks}
+          aria-pressed={!hideBlanks}
+        >
+          Show coming-soon placeholders
+        </button>
+      )}
     </div>
   );
 }
@@ -269,6 +296,20 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
   const [tagBrowserOpen, setTagBrowserOpen] = useState(false);
   const [collapsedSections, setCollapsedSections] = useState(loadCollapsed);
   const { madeSet, pinnedSet } = useCookHistoryContext();
+  const tabBarRef = useRef(null);
+
+  // On a phone the tab bar scrolls sideways. Keep the selected tab in view -
+  // by moving the bar itself, never the page (scrollIntoView would also
+  // scroll the window vertically).
+  useEffect(() => {
+    const bar = tabBarRef.current;
+    const active = bar?.querySelector('[data-active="true"]');
+    if (!bar || !active || bar.scrollWidth <= bar.clientWidth) return;
+    const left = active.offsetLeft - bar.offsetLeft;
+    const right = left + active.offsetWidth;
+    if (left < bar.scrollLeft) bar.scrollLeft = left;
+    else if (right > bar.scrollLeft + bar.clientWidth) bar.scrollLeft = right - bar.clientWidth;
+  }, [activeTab]);
 
   const hasMade   = madeSet.size > 0;
   const hasPinned = pinnedSet.size > 0;
@@ -322,8 +363,10 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
       if (pinnedFilter) {
         matches = matches.filter((r) => r.is_blank || pinnedSet.has(r.id));
       }
+      // Coming-soon placeholders only. To Try entries are blanks too, but they
+      // are the To Try tab's whole content, not placeholders.
       if (hideBlanks) {
-        matches = matches.filter((r) => !r.is_blank);
+        matches = matches.filter((r) => !isComingSoon(r));
       }
       return matches;
     };
@@ -356,39 +399,35 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
 
   const q = deferredQuery.trim();
   const noResults = (q || madeFilter !== 'all' || pinnedFilter) && filtered.size === 0;
+  // A tab with nothing to show and no search or made/pinned filter to blame.
+  // Without this it rendered as a blank page under the toolbar and read as broken.
+  const tabEmpty = !noResults && filtered.size === 0;
+  const tabCounts = TAB_COUNTS[activeTab];
+  const hiddenPlaceholders = hideBlanks && tabCounts ? tabCounts.comingSoon : 0;
   const highlightQuery = q;
 
   return (
     <main className={isFiltering ? styles.filtering : ''}>
-      <div className={styles.tabBar}>
-        <button
-          type="button"
-          className={`${styles.tabBtn} ${activeTab === TAB_RECIPES ? styles.tabBtnActive : ''}`}
-          onClick={() => onTabChange(TAB_RECIPES)}
-        >
-          Recipes
-        </button>
-        <button
-          type="button"
-          className={`${styles.tabBtn} ${activeTab === TAB_REVIEW ? styles.tabBtnActive : ''}`}
-          onClick={() => onTabChange(TAB_REVIEW)}
-        >
-          For Review
-        </button>
-        <button
-          type="button"
-          className={`${styles.tabBtn} ${activeTab === TAB_TOTRY ? styles.tabBtnActive : ''}`}
-          onClick={() => onTabChange(TAB_TOTRY)}
-        >
-          To Try
-        </button>
-        <button
-          type="button"
-          className={`${styles.tabBtn} ${activeTab === TAB_PEANUT ? styles.tabBtnActive : ''}`}
-          onClick={() => onTabChange(TAB_PEANUT)}
-        >
-          Peanut Butter ({PEANUT_TOTAL})
-        </button>
+      {/* A view switcher, exposed as pressed buttons rather than an ARIA
+          tablist: role="tab" promises arrow-key focus movement and linked tab
+          panels, and a widget that announces a contract it does not keep is
+          worse than a plain button that says what it is. */}
+      <div className={styles.tabBar} ref={tabBarRef} role="group" aria-label="Recipe lists">
+        {TABS.map((tab) => (
+          <button
+            key={tab.key}
+            type="button"
+            className={`${styles.tabBtn} ${activeTab === tab.key ? styles.tabBtnActive : ''}`}
+            data-active={activeTab === tab.key}
+            aria-pressed={activeTab === tab.key}
+            onClick={() => onTabChange(tab.key)}
+          >
+            {tab.label}
+            <span className={styles.tabCount}>
+              {hideBlanks ? TAB_COUNTS[tab.key].hidden : TAB_COUNTS[tab.key].shown}
+            </span>
+          </button>
+        ))}
       </div>
       <ListToolbar
         onRandom={handleRandom}
@@ -401,6 +440,7 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
         onOpenTags={() => setTagBrowserOpen(true)}
         hideBlanks={hideBlanks}
         onToggleHideBlanks={handleToggleHideBlanks}
+        showBlanksToggle={!!tabCounts && tabCounts.comingSoon > 0}
       />
       {q && !noResults && (
         <div className={styles.resultCount}>
@@ -425,6 +465,23 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
             </p>
           </div>
         )
+      )}
+      {tabEmpty && (
+        <div className={styles.emptyState}>
+          <p className={styles.emptyTitle}>Nothing to show here</p>
+          {hiddenPlaceholders > 0 ? (
+            <>
+              <p className={styles.emptyHint}>
+                {hiddenPlaceholders} coming-soon placeholder{hiddenPlaceholders !== 1 ? 's are' : ' is'} hidden.
+              </p>
+              <button type="button" className={styles.clearFilterBtn} onClick={handleToggleHideBlanks}>
+                Show coming-soon placeholders
+              </button>
+            </>
+          ) : (
+            <p className={styles.emptyHint}>This list has no entries yet.</p>
+          )}
+        </div>
       )}
       {(
         activeTab === TAB_RECIPES ? mainSections :

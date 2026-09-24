@@ -28,7 +28,7 @@ function fakeStorage(seed = {}) {
 }
 
 // `sw` is the serviceWorker container, `win` the popstate target.
-function harness({ controller = {}, overlays = [], session = {} } = {}) {
+function harness({ controller = {}, overlays = [], session = {}, recipeOpen = false } = {}) {
   const sw = emitter();
   sw.controller = controller;
   const win = emitter();
@@ -36,6 +36,7 @@ function harness({ controller = {}, overlays = [], session = {} } = {}) {
   const history = { state: overlays.length ? { overlays } : null };
   const reloads = [];
   const logs = [];
+  const view = { recipeOpen };
 
   const result = installUpdateReload({
     serviceWorker: sw,
@@ -44,10 +45,11 @@ function harness({ controller = {}, overlays = [], session = {} } = {}) {
     target: win,
     reload: () => reloads.push(1),
     log: (m) => logs.push(m),
+    isRecipeOpen: () => view.recipeOpen,
   });
 
   return {
-    sw, win, storage, history, reloads, logs, result,
+    sw, win, storage, history, reloads, logs, result, view,
     // Simulate the app closing an overlay: the stack drains, then popstate.
     closeOverlays() {
       history.state = { overlays: [] };
@@ -188,5 +190,27 @@ describe('installUpdateReload', () => {
     });
     expect(() => sw.emit('controllerchange')).not.toThrow();
     expect(reloads).toHaveLength(1);
+  });
+
+  // The recipe is in the URL, not on the overlay stack, so the overlay check
+  // alone never saw it: an update could reload the page under someone cooking.
+  it('does not reload while a recipe is on screen, then reloads once back on the list', () => {
+    const h = harness({ recipeOpen: true });
+    h.sw.emit('controllerchange');
+    expect(h.reloads).toHaveLength(0);
+
+    // Back to the list: the path no longer names a recipe, and popstate fires.
+    h.view.recipeOpen = false;
+    h.win.emit('popstate');
+    expect(h.reloads).toHaveLength(1);
+  });
+
+  it('keeps deferring while a recipe stays on screen across navigations', () => {
+    const h = harness({ recipeOpen: true });
+    h.sw.emit('controllerchange');
+    // Related recipe to related recipe: still a recipe route.
+    h.win.emit('popstate');
+    h.win.emit('popstate');
+    expect(h.reloads).toHaveLength(0);
   });
 });

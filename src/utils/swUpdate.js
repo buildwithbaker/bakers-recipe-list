@@ -17,10 +17,24 @@
 //   2. Trap the user in a reload loop. Two latches — one per page life, one per
 //      browsing session — so a pathological activate/claim cycle costs at most
 //      one automatic reload per session.
-//   3. Reload out from under an open overlay. Losing the card someone is
-//      reading mid-recipe is worse than the staleness being fixed.
+//   3. Reload out from under an open overlay OR an open recipe. Losing the
+//      card someone is reading mid-recipe is worse than the staleness being
+//      fixed. The recipe is not an overlay any more - it lives in the URL
+//      (/r/<slug>/, see recipeRoute.js) - so it needs its own check; the
+//      overlay check alone stopped covering it when routing moved to the path.
+import { recipeKeyFromPath } from './recipeRoute.js';
 
 export const RELOAD_STAMP_KEY = 'brl_sw_reloaded';
+
+// Is a recipe on screen, as a card over the list or as a full page? Both are
+// the same route, so the path answers it.
+function recipeOnScreen(location) {
+  try {
+    return recipeKeyFromPath(location?.pathname ?? '') !== '';
+  } catch {
+    return false;
+  }
+}
 
 // Overlay stack recorded on the current history entry by App.jsx. Same shape
 // the app's own back-button model reads.
@@ -48,6 +62,7 @@ export function installUpdateReload({
   target = globalThis,
   reload = () => globalThis.location?.reload(),
   log = (msg) => globalThis.console?.info?.(msg),
+  isRecipeOpen = () => recipeOnScreen(globalThis.location),
 } = {}) {
   // (d) Feature-detect. Absent API, or a page no worker controls, is a clean
   // no-op — never a throw.
@@ -97,10 +112,10 @@ export function installUpdateReload({
       log('sw update: already reloaded this session, ignoring');
       return;
     }
-    // (c) Never reload over an open card, list or menu.
-    if (overlaysOpen(history)) {
+    // (c) Never reload over an open recipe, list or menu.
+    if (overlaysOpen(history) || isRecipeOpen()) {
       pendingReload = true;
-      log('sw update: overlay open, deferring reload');
+      log('sw update: recipe or overlay open, deferring reload');
       return;
     }
     performReload();
@@ -116,7 +131,7 @@ export function installUpdateReload({
   // behaviour rather than reloading at a bad moment.
   const onPopState = () => {
     if (!pendingReload) return;
-    if (overlaysOpen(history)) return;
+    if (overlaysOpen(history) || isRecipeOpen()) return;
     pendingReload = false;
     if (reloadedThisLife || reloadedThisSession()) return;
     performReload();

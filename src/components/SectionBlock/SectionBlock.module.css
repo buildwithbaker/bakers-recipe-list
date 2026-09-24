@@ -18,6 +18,25 @@
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin-top: 0;
+}
+
+/* The collapse control fills its heading and inherits the heading's look. */
+.sectionToggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 24px;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .review {
@@ -76,13 +95,18 @@
     top: 84px; /* TopBar (~44px) + SearchBar (~40px) on mobile */
     font-size: 14px;
   }
-  .table thead th {
-    padding: 4px 6px;
-    font-size: 10px;
+}
+
+/* Phone: RecipeRow lays each row out as a card, which needs the table and its
+   body to stop being table boxes. The column header row means nothing once the
+   columns are gone. */
+@media (max-width: 600px) {
+  .table,
+  .table tbody {
+    display: block;
   }
-  .table tbody td {
-    padding: 8px 6px;
-    font-size: 13px;
+  .table thead {
+    display: none;
   }
 }
 
@@ -127,7 +151,7 @@
 .sectionHeader:hover .collapseArrow {
   opacity: 0.9;
 }
-.sectionHeader:focus-visible {
+.sectionToggle:focus-visible {
   outline: 2px solid var(--blue);
   outline-offset: 2px;
 }

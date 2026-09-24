@@ -41,6 +41,11 @@ export default function RecipeModal({ recipe, onClose, onOpenFullPage, onTagClic
           titleId={titleId}
           onTagClick={onTagClick}
           onAddToList={onAddToList}
+          headingLevel={2}
+          stickyHeader
+          closeAction={
+            <button type="button" className={styles.modalClose} onClick={onClose} aria-label="Close" autoFocus>&#x2715;</button>
+          }
           extraActions={
             <>
               {onOpenFullPage && (
@@ -57,7 +62,6 @@ export default function RecipeModal({ recipe, onClose, onOpenFullPage, onTagClic
                   </svg>
                 </button>
               )}
-              <button type="button" className={styles.modalClose} onClick={onClose} aria-label="Close" autoFocus>&#x2715;</button>
             </>
           }
         />

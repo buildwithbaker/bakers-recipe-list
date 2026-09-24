@@ -3,6 +3,9 @@
  */
 
 .modalOverlay {
+  /* RecipeView's pinned title row reads this to stick flush with the top of
+     the screen instead of one padding-width below it. */
+  --modal-pad-top: 40px;
   position: fixed;
   inset: 0;
   background: rgba(4, 44, 83, 0.72);
@@ -10,7 +13,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: 40px 16px;
+  padding: var(--modal-pad-top) 16px 40px;
   overflow-y: auto;
   backdrop-filter: blur(2px);
 }
@@ -19,8 +22,12 @@
   background: var(--card-surface);
   border: 1px solid var(--card-border);
   border-radius: 12px;
-  /* Clips a hero photo to the card's rounded top corners. */
+  /* Clips a hero photo to the card's rounded top corners. `clip`, not
+     `hidden`: hidden would make the card a scroll container, and the pinned
+     title row inside it would never stick. Browsers without clip fall back to
+     hidden and simply lose the pinning. */
   overflow: hidden;
+  overflow: clip;
   width: 100%;
   max-width: 620px;
   padding: 0;
@@ -31,6 +38,12 @@
 }
 
 .modalClose {
+  min-width: 32px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   background: none;
   border: none;
   color: var(--card-muted);
@@ -50,6 +63,9 @@
 
 /* "Open full page" — same icon-button family as share/print in RecipeView. */
 .fullPageBtn {
+  min-width: 28px;
+  min-height: 28px;
+  box-sizing: border-box;
   background: none;
   border: none;
   color: var(--card-muted);
@@ -69,7 +85,13 @@
 
 @media (max-width: 600px) {
   .modalOverlay {
-    padding: 12px 6px;
+    --modal-pad-top: 12px;
+    padding: var(--modal-pad-top) 6px 12px;
+  }
+  .modalClose,
+  .fullPageBtn {
+    min-width: 44px;
+    min-height: 44px;
   }
   .modalCard {
     max-width: 100%;

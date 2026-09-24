@@ -391,6 +391,7 @@ function AppInner() {
         darkMode={darkMode}
         onToggleDark={toggleDark}
         listItemCount={uncheckedCount}
+        siteTitleIsHeading={!fullPage}
       />
       <UsdaKeyNotice />
       <TOCNav open={menuOpen} onClose={handleMenuClose} onNavigate={handleNavigateSection} activeTab={activeTab} />
