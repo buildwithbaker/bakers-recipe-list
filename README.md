@@ -22,13 +22,13 @@ automatic per-recipe macro/nutrition estimates.
 
 ## Tech stack
 
-- [Vite](https://vitejs.dev/) 5 + [React](https://react.dev/) 18
+- [Vite](https://vitejs.dev/) 8 + [React](https://react.dev/) 19
 - CSS Modules for component styling
 - Deployed as a static site to GitHub Pages
 
 ## Local setup
 
-Requires Node 20 (see `.nvmrc`).
+Requires Node 22 (see `.nvmrc`).
 
 ```bash
 git clone https://github.com/buildwithbaker/bakers-recipe-list.git

@@ -36,13 +36,13 @@ Graph metadata, `Recipe` JSON-LD, and a no-JavaScript fallback.
 
 | Layer | Choice |
 |---|---|
-| Build | [Vite](https://vitejs.dev/) 5 (+ `vite-plugin-pwa`) |
-| UI | [React](https://react.dev/) 18 |
+| Build | [Vite](https://vitejs.dev/) 8 (+ `vite-plugin-pwa`) |
+| UI | [React](https://react.dev/) 19 |
 | Styling | CSS Modules per component + `src/styles/globals.css` |
 | Data | static `src/data/recipes.json`, bundled at build |
 | Nutrition | USDA FoodData Central API |
 | Hosting | GitHub Pages via Actions |
-| Node | 20 (see `.nvmrc`) |
+| Node | 22 (see `.nvmrc`) |
 
 `vite.config.js` sets `base: '/bakers-recipe-list/'` to match the Pages project
 path. **It must stay that** — every asset URL and the whole routing model derive
