@@ -41,11 +41,20 @@
 }
 
 /* ---- Tab bar ---- */
+/* Scrolls sideways inside itself when the tabs outgrow the screen, so a
+   narrow phone never gets a page-level sideways scroll from it. */
 .tabBar {
   display: flex;
   gap: 0;
   border-bottom: 2px solid var(--border);
   margin-top: 4px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.tabBar::-webkit-scrollbar {
+  display: none;
 }
 
 .tabBtn {
@@ -71,9 +80,28 @@
   font-weight: 600;
 }
 
+/* Entry count beside each tab name. Inherits the tab's colour, so the active
+   tab's count is blue with it; plain muted text otherwise, which clears AA on
+   --bg in both themes. */
+.tabCount {
+  margin-left: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+@media (max-width: 600px) {
+  .tabBtn {
+    flex: none;
+    padding: 9px 12px;
+  }
+}
+
 /* ---- List toolbar: random recipe + made filter ---- */
 .toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   padding: 10px 0 4px;

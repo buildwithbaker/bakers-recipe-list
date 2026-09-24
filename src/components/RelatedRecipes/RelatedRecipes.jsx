@@ -13,11 +13,7 @@ import { displayRecipes } from '../../data/recipeIndex.js';
 import { relatedRecipes } from '../../utils/relatedRecipes.js';
 import { publicSectionLabel } from '../../data/sections.js';
 import { recipePath } from '../../utils/recipeRoute.js';
-
-// A click the browser should handle itself: new tab, new window, download,
-// or anything but the primary button.
-const isModifiedClick = (e) =>
-  e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey;
+import { isModifiedClick } from '../../utils/isModifiedClick.js';
 
 export default function RelatedRecipes({ recipe, onNavigate }) {
   const headingId = useId();

@@ -212,12 +212,35 @@
   .body {
     padding: 14px 16px 18px;
   }
+  /* Phone sizes are LARGER than desktop, not smaller: this is the view that
+     gets read at arm's length across a counter, mid-cook. It used to shrink to
+     12px steps and 13px ingredients. Grouped instructions keep their text in
+     .stepName, so it gets the same size as .stepDetail. */
   .ingList li {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .ingList li.ingSection,
+  .ingList li.ingHeader,
+  .ingSelectList li.ingSection,
+  .ingSelectList li.ingHeader {
+    font-size: 16px;
+  }
+  .stepList {
+    gap: 16px;
+  }
+  .stepNum {
+    width: 26px;
+    height: 26px;
     font-size: 13px;
   }
   .stepName,
   .stepDetail {
-    font-size: 12px;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  .verHeader {
+    font-size: 13px;
   }
 }
 
@@ -603,6 +626,11 @@
   user-select: none;
 }
 
+/* Matches the phone ingredient size above. Kept here, after the base rule, so
+   the cascade order lets it win. */
 @media (max-width: 600px) {
-  .ingCheckLabel { font-size: 13px; }
+  .ingCheckLabel {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }

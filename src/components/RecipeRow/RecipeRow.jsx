@@ -1,6 +1,9 @@
 import { memo } from 'react';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
+import { isToTry } from '../../utils/recipeKinds.js';
+import { isModifiedClick } from '../../utils/isModifiedClick.js';
+import { recipePath } from '../../utils/recipeRoute.js';
 import styles from './RecipeRow.module.css';
 
 function HighlightedText({ text, query }) {
@@ -15,13 +18,6 @@ function HighlightedText({ text, query }) {
       {text.slice(idx + query.length)}
     </>
   );
-}
-
-// A "To Try" backlog entry: a blank placeholder whose source is a real URL
-// (a Pinterest-style link to try later). Rendered as a source-link card rather
-// than the plain "coming soon" row.
-function isToTry(recipe) {
-  return recipe.is_blank && typeof recipe.source === 'string' && /^https?:\/\//i.test(recipe.source);
 }
 
 function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
@@ -68,7 +64,35 @@ function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
     <tr className={rowClass}>
       <td className={styles.recipeName}>
         {isMade && <span className={styles.madeDot} aria-label="Made">✓</span>}
-        <HighlightedText text={recipe.name} query={highlightQuery} />
+        {/* The name IS the way in. A real link to the recipe's own page, so
+            open-in-new-tab, middle-click and long-press-to-share all work; a
+            plain click opens the card over the list, as the old View button
+            did. On a phone the name is the obvious thing to tap - it used to
+            do nothing, and the only way in was a small button beside Made. */}
+        {/* A coming-soon placeholder has no prerendered page (prerender skips
+            blanks), so it gets no href - a link would only lead a new tab or
+            a crawler to a 404. It still opens its card. */}
+        {recipe.is_blank ? (
+          <button
+            type="button"
+            className={`${styles.nameLink} ${styles.nameBtn}`}
+            onClick={() => onViewRecipe(recipe)}
+          >
+            <HighlightedText text={recipe.name} query={highlightQuery} />
+          </button>
+        ) : (
+          <a
+            className={styles.nameLink}
+            href={recipePath(recipe.id)}
+            onClick={(e) => {
+              if (isModifiedClick(e)) return;
+              e.preventDefault();
+              onViewRecipe(recipe);
+            }}
+          >
+            <HighlightedText text={recipe.name} query={highlightQuery} />
+          </a>
+        )}
         {recipe.is_blank && <span className={styles.blankBadge}>coming soon</span>}
         {hasNotes && (
           <span className={styles.noteIcon} title="Has notes" aria-label="Has notes">
@@ -101,13 +125,6 @@ function RecipeRow({ recipe, onViewRecipe, hideSource, highlightQuery }) {
             </button>
           </>
         )}
-        <button
-          type="button"
-          className={styles.viewBtn}
-          onClick={() => onViewRecipe(recipe)}
-        >
-          View
-        </button>
       </td>
     </tr>
   );
