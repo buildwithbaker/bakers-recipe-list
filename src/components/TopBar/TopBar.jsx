@@ -1,12 +1,16 @@
 import styles from './TopBar.module.css';
 
-export default function TopBar({ onMenuToggle, onListToggle, listItemCount, darkMode, onToggleDark }) {
+// The site name is the page's h1 on the list. On a full recipe page the recipe
+// is the h1, so the site name steps down to plain text rather than making a
+// second top-level heading.
+export default function TopBar({ onMenuToggle, onListToggle, listItemCount, darkMode, onToggleDark, siteTitleIsHeading = true }) {
+  const SiteTitle = siteTitleIsHeading ? 'h1' : 'p';
   return (
-    <div className={styles.topBar}>
-      <h1 className={styles.title}>
+    <header className={styles.topBar}>
+      <SiteTitle className={styles.title}>
         Baker's Recipe List
         <small className={styles.subtitle}>· Adam's Kitchen</small>
-      </h1>
+      </SiteTitle>
       <div className={styles.actions}>
         {/* Dark mode toggle */}
         <button
@@ -63,6 +67,6 @@ export default function TopBar({ onMenuToggle, onListToggle, listItemCount, dark
           <span className={styles.bar} />
         </button>
       </div>
-    </div>
+    </header>
   );
 }

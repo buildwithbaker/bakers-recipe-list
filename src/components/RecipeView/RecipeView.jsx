@@ -15,6 +15,7 @@ import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
 import { useWakeLock } from '../../hooks/useWakeLock.js';
 import { BASE_PATH, recipePath } from '../../utils/recipeRoute.js';
+import { recipeDocumentTitle } from '../../utils/siteTitle.js';
 
 const MacroCard = lazy(() => import('../MacroCard/MacroCard.jsx'));
 
@@ -96,7 +97,7 @@ function MetaLine({ recipe, servingEstimate, onTagClick, scale, onScaleDown, onS
   );
 }
 
-function Ingredients({ items, scale, onAddToList, onListModeChange }) {
+function Ingredients({ items, scale, onAddToList, onListModeChange, SectionHeading }) {
   const [copied, setCopied] = useState(false);
   const [added, setAdded] = useState(false);
   const [selectionMode, setSelectionMode] = useState(false);
@@ -158,7 +159,7 @@ function Ingredients({ items, scale, onAddToList, onListModeChange }) {
   return (
     <>
       <div className={styles.sectionRow}>
-        <div className={styles.sectionTitle}>Ingredients</div>
+        <SectionHeading className={styles.sectionTitle}>Ingredients</SectionHeading>
         <div className={styles.ingActions}>
           {onAddToList && !selectionMode && (
             <button
@@ -249,12 +250,12 @@ function Ingredients({ items, scale, onAddToList, onListModeChange }) {
   );
 }
 
-function Instructions({ steps }) {
+function Instructions({ steps, SectionHeading }) {
   if (!steps?.length) return null;
   let stepNum = 0;
   return (
     <>
-      <div className={styles.sectionTitle}>Instructions</div>
+      <SectionHeading className={styles.sectionTitle}>Instructions</SectionHeading>
       <div className={styles.stepList}>
         {steps.map((s, i) => {
           if (s.type === 'section') { stepNum = 0; return <div key={i} className={styles.verHeader}>{s.step}</div>; }
@@ -275,7 +276,7 @@ function Instructions({ steps }) {
 }
 
 // Cook log section — history summary + notes textarea + manual log button
-function CookLogSection({ recipeId }) {
+function CookLogSection({ recipeId, SectionHeading }) {
   const { cookLog, logCook, updateNotes } = useCookHistoryContext();
   const entry = cookLog[recipeId];
   const [draft, setDraft] = useState(entry?.notes ?? '');
@@ -308,7 +309,7 @@ function CookLogSection({ recipeId }) {
   return (
     <div className={styles.cookLogSection}>
       <div className={styles.cookLogHeader}>
-        <div className={styles.sectionTitle} style={{ margin: 0, borderBottom: 'none', paddingBottom: 0 }}>My Notes</div>
+        <SectionHeading className={styles.sectionTitle} style={{ margin: 0, borderBottom: 'none', paddingBottom: 0 }}>My Notes</SectionHeading>
         <div className={styles.cookLogRight}>
           {cookCount > 0 && (
             <span className={styles.cookStat}>
@@ -358,12 +359,20 @@ function CookLogSection({ recipeId }) {
  *        never collapses (true), while a placeholder card inside a modal is just
  *        noise over a list the visitor is already looking at (false, the
  *        default). A REAL photo is always shown, in both frames.
- * @param extraActions  frame-specific header buttons, placed after Share and Print
+ * @param extraActions  frame-specific secondary buttons, placed after Share and Print
+ * @param closeAction   the frame's close control, placed beside Cook mode in the
+ *                      title row so it is always the same distance from the title
+ * @param headingLevel  1 on the full page (the recipe IS the page's subject), 2 in
+ *                      the modal (the list is the page; the card sits on it).
+ *                      Section labels are one level below.
+ * @param stickyHeader  keep the title row (name, Cook mode, Close) pinned while the
+ *                      card scrolls. The modal wants it; the page has the TopBar.
  * @param onTagClick    tag → filter the list
  * @param onAddToList   (recipeId, items, scale) → shopping list; omit to hide the button
  */
 export default function RecipeView({
-  recipe, titleId, showPlaceholderHero = false, extraActions = null, onTagClick, onAddToList,
+  recipe, titleId, showPlaceholderHero = false, extraActions = null, closeAction = null,
+  headingLevel = 2, stickyHeader = false, onTagClick, onAddToList,
 }) {
   const [scale, setScale] = useState(1);
   const [shareCopied, setShareCopied] = useState(false);
@@ -374,6 +383,18 @@ export default function RecipeView({
   const macroState = useMacroEstimate(recipe, servingEstimate);
 
   useEffect(() => { setScale(1); setListSelecting(false); }, [recipe]);
+
+  // Name the recipe in the browser tab, history and bookmarks, and put back
+  // whatever was there when the view goes away. Covers both frames, and matters
+  // most for a returning visitor on /r/<slug>/: the service worker serves them
+  // the generic shell, so the prerendered <title> never reaches them.
+  const recipeName = recipe?.name;
+  useEffect(() => {
+    if (!recipeName) return undefined;
+    const previous = document.title;
+    document.title = recipeDocumentTitle(recipeName);
+    return () => { document.title = previous; };
+  }, [recipeName]);
 
   if (!recipe) return null;
 
@@ -405,6 +426,9 @@ export default function RecipeView({
   // noise to a screen reader.
   const showHero = !!recipe.image || showPlaceholderHero;
 
+  const TitleTag = headingLevel === 1 ? 'h1' : 'h2';
+  const SectionHeading = headingLevel === 1 ? 'h2' : 'h3';
+
   return (
     <>
       {showHero && (
@@ -418,19 +442,12 @@ export default function RecipeView({
           />
         </div>
       )}
-      <div className={styles.header}>
-        <div>
-          <div id={titleId} className={styles.title}>{recipe.name}</div>
-          <MetaLine
-            recipe={recipe}
-            servingEstimate={servingEstimate}
-            onTagClick={onTagClick}
-            scale={scale}
-            onScaleDown={handleScaleDown}
-            onScaleUp={handleScaleUp}
-          />
-        </div>
-        <div className={styles.headerActions}>
+      {/* Title row: the recipe name plus the two controls a cook reaches for
+          mid-recipe. In the modal it stays pinned while the card scrolls, so
+          Cook mode and Close never scroll out of reach on a long recipe. */}
+      <div className={`${styles.header} ${stickyHeader ? styles.headerSticky : ''}`}>
+        <TitleTag id={titleId} className={styles.title}>{recipe.name}</TitleTag>
+        <div className={styles.headerPrimary}>
           {/* Cook mode. Absent entirely where the API is missing — a disabled
               button explaining that the browser is too old helps nobody. The on
               state carries a word, not just a colour: this gets read at arm's
@@ -453,6 +470,19 @@ export default function RecipeView({
               {wakeLock.active ? 'Screen on' : 'Cook mode'}
             </button>
           )}
+          {closeAction}
+        </div>
+      </div>
+      <div className={styles.subHeader}>
+        <MetaLine
+          recipe={recipe}
+          servingEstimate={servingEstimate}
+          onTagClick={onTagClick}
+          scale={scale}
+          onScaleDown={handleScaleDown}
+          onScaleUp={handleScaleUp}
+        />
+        <div className={styles.headerActions}>
           <button
             type="button"
             className={`${styles.shareBtn} ${shareCopied ? styles.shareBtnDone : ''}`}
@@ -482,19 +512,20 @@ export default function RecipeView({
         ) : (
           <>
             <Ingredients
+              SectionHeading={SectionHeading}
               items={recipe.ingredients}
               scale={scale}
               onAddToList={onAddToList ? handleAddToList : null}
               onListModeChange={setListSelecting}
             />
             <div className={listSelecting ? styles.dimmed : undefined}>
-              <Instructions steps={recipe.instructions} />
+              <Instructions steps={recipe.instructions} SectionHeading={SectionHeading} />
               <MacroErrorBoundary>
                 <Suspense fallback={null}>
                   <MacroCard {...macroState} />
                 </Suspense>
               </MacroErrorBoundary>
-              <CookLogSection recipeId={recipe.id} />
+              <CookLogSection recipeId={recipe.id} SectionHeading={SectionHeading} />
             </div>
           </>
         )}

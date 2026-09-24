@@ -33,8 +33,39 @@
 .header {
   background: var(--card-surface);
   border-radius: 12px 12px 0 0;
+  padding: 18px 22px 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Pinned title row (modal only). top: 0 is the modal overlay's scroll edge.
+   Needs the card to use overflow: clip, not hidden - hidden makes the card its
+   own scroll container and sticky would never engage. */
+.headerSticky {
+  position: sticky;
+  /* Flush with the top of the screen: the modal overlay's top padding would
+     otherwise leave a strip of scrolled text showing above the row. */
+  top: calc(-1 * var(--modal-pad-top, 0px));
+  z-index: 2;
+  padding-bottom: 8px;
+  box-shadow: 0 1px 0 var(--card-divider);
+}
+
+/* Name, Cook mode and Close. */
+.headerPrimary {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Meta line + Share / Print / Open full page. Scrolls with the recipe. */
+.subHeader {
+  background: var(--card-surface);
   border-bottom: 1px solid var(--card-divider);
-  padding: 18px 22px 14px;
+  padding: 6px 22px 12px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -42,11 +73,14 @@
 }
 
 .title {
+  margin: 0;
   color: var(--card-heading);
   font-size: 22px;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.2px;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .meta {
@@ -201,13 +235,39 @@
 
 @media (max-width: 600px) {
   .header {
-    padding: 14px 16px 12px;
+    padding: 6px 8px 0 16px;
+    align-items: center;
+  }
+  .headerSticky {
+    padding-bottom: 4px;
+  }
+  .subHeader {
+    padding: 4px 8px 10px 16px;
+    align-items: center;
   }
   .title {
     font-size: 19px;
   }
+  /* In the pinned row the name gets two lines at most, so the row stays
+     within 56px; the full name is still the heading's text. */
+  .headerSticky .title {
+    font-size: 18px;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .meta {
-    font-size: 11px;
+    font-size: 13px;
+  }
+  .scalerRow {
+    display: flex;
+    margin-top: 6px;
+  }
+  /* The scaler drops to its own line, so the separator before it would dangle. */
+  .metaSep:has(+ .scalerRow) {
+    display: none;
   }
   .body {
     padding: 14px 16px 18px;
@@ -632,5 +692,83 @@
   .ingCheckLabel {
     font-size: 16px;
     line-height: 1.5;
+  }
+}
+
+/* ---- Tap targets ----
+   Every control here clears 24x24 (WCAG 2.2 SC 2.5.8) at any width, and the
+   ones a cook uses mid-recipe are 44x44 on a phone. Kept together at the end
+   so the cascade lets them win over each control's own rule above. */
+.tagBtn {
+  /* Inline padding grows the hit box without moving the line. */
+  padding: 5px 0;
+}
+.scalerBtn,
+.shareBtn,
+.printBtn {
+  min-width: 28px;
+  min-height: 28px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.cookBtn,
+.copyBtn,
+.listBtn,
+.logCookBtn,
+.selectCancelBtn,
+.selectConfirmBtn {
+  min-height: 28px;
+  box-sizing: border-box;
+}
+.ingCheckLabel {
+  min-height: 24px;
+  align-items: center;
+}
+.ingCheckbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .tagBtn {
+    padding: 6px 0;
+  }
+  .scalerBtn,
+  .shareBtn,
+  .printBtn {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 18px;
+  }
+  .cookBtn,
+  .copyBtn,
+  .listBtn,
+  .logCookBtn,
+  .selectCancelBtn,
+  .selectConfirmBtn {
+    min-height: 44px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+  .ingSelectItem {
+    padding: 0;
+  }
+  .ingCheckLabel {
+    min-height: 44px;
+    gap: 12px;
+  }
+  .ingCheckbox {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media print {
+  .headerSticky {
+    position: static;
+    box-shadow: none;
   }
 }

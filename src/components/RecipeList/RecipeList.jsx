@@ -408,13 +408,18 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
 
   return (
     <main className={isFiltering ? styles.filtering : ''}>
-      <div className={styles.tabBar} ref={tabBarRef}>
+      {/* A view switcher, exposed as pressed buttons rather than an ARIA
+          tablist: role="tab" promises arrow-key focus movement and linked tab
+          panels, and a widget that announces a contract it does not keep is
+          worse than a plain button that says what it is. */}
+      <div className={styles.tabBar} ref={tabBarRef} role="group" aria-label="Recipe lists">
         {TABS.map((tab) => (
           <button
             key={tab.key}
             type="button"
             className={`${styles.tabBtn} ${activeTab === tab.key ? styles.tabBtnActive : ''}`}
             data-active={activeTab === tab.key}
+            aria-pressed={activeTab === tab.key}
             onClick={() => onTabChange(tab.key)}
           >
             {tab.label}

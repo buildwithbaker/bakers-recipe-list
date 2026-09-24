@@ -23,30 +23,34 @@ function SectionBlock({ section, recipes, onViewRecipe, hideSource, highlightQue
 
   const realCount = recipes.filter((r) => !r.is_blank).length;
   const totalCount = recipes.length;
+  const listId = `${section.id}-list`;
 
   return (
     <div className={styles.sectionBlock} id={section.id}>
-      <div
-        ref={headerRef}
-        className={headerClass}
-        onClick={() => onToggleCollapse?.(section.key)}
-        role="button"
-        tabIndex={0}
-        aria-expanded={!collapsed}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggleCollapse?.(section.key); } }}
-        title={collapsed ? 'Click to expand' : 'Click to collapse'}
-      >
-        <span className={styles.collapseArrow} aria-hidden="true">
-          {collapsed ? '▶' : '▼'}
-        </span>
-        {section.label}
-        <span className={styles.countBadge} aria-label={`${realCount} recipe${realCount !== 1 ? 's' : ''}`}>
-          {realCount}
-          {totalCount > realCount && <span className={styles.countTotal}> /{totalCount}</span>}
-        </span>
-      </div>
+      {/* A real heading, so a screen reader can jump section to section, with a
+          real button inside it for collapse. It used to be a div with
+          role="button", which gave neither. */}
+      <h2 ref={headerRef} className={headerClass}>
+        <button
+          type="button"
+          className={styles.sectionToggle}
+          onClick={() => onToggleCollapse?.(section.key)}
+          aria-expanded={!collapsed}
+          aria-controls={listId}
+          title={collapsed ? 'Click to expand' : 'Click to collapse'}
+        >
+          <span className={styles.collapseArrow} aria-hidden="true">
+            {collapsed ? '▶' : '▼'}
+          </span>
+          {section.label}
+          <span className={styles.countBadge} aria-label={`${realCount} recipe${realCount !== 1 ? 's' : ''}`}>
+            {realCount}
+            {totalCount > realCount && <span className={styles.countTotal}> /{totalCount}</span>}
+          </span>
+        </button>
+      </h2>
       {!collapsed && (
-        <table className={styles.table}>
+        <table className={styles.table} id={listId}>
           <thead>
             <tr>
               <th style={{ width: '40%' }}>Recipe</th>

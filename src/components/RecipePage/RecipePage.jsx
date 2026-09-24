@@ -31,6 +31,7 @@ export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToLi
         <RecipeView
           recipe={recipe}
           titleId={titleId}
+          headingLevel={1}
           showPlaceholderHero
           onTagClick={onTagClick}
           onAddToList={onAddToList}
