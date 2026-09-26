@@ -27,8 +27,6 @@ export const COLLECTIONS = [
   { key: COLL_TRY, label: 'To Try' },
 ];
 
-export const COLLECTION_LABELS = Object.fromEntries(COLLECTIONS.map((c) => [c.key, c.label]));
-
 // Reader-facing categories. A category is a label, not a section: the two For
 // Review soup buckets are one "Soups" category, and "Asian" means the same
 // thing in the Cookbook and in To Try.

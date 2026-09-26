@@ -4,8 +4,9 @@
 // middle-click and long-press-to-share work. A plain click is intercepted and
 // opens the recipe as a card over the list, the same as it always has.
 //
-// A coming-soon placeholder has no page (prerender skips blanks), so it gets a
-// button instead of a link: a new tab or a crawler following it would 404.
+// Only written recipes get a card. Coming-soon placeholders are counted on
+// their category header instead ("N more planned"), and To Try entries are
+// links (ToTryLinks).
 import { memo } from 'react';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
@@ -41,28 +42,20 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, showReviewBadg
       <div className={styles.body}>
         {showCategory && category && <p className={styles.kicker}>{category.label}</p>}
         <h3 className={styles.title}>
-          {recipe.is_blank ? (
-            <button type="button" className={styles.link} onClick={() => onViewRecipe(recipe)}>{title}</button>
-          ) : (
-            <a
-              className={styles.link}
-              href={recipePath(recipe.id)}
-              onClick={(e) => {
-                if (isModifiedClick(e)) return;
-                e.preventDefault();
-                onViewRecipe(recipe);
-              }}
-            >
-              {title}
-            </a>
-          )}
+          <a
+            className={styles.link}
+            href={recipePath(recipe.id)}
+            onClick={(e) => {
+              if (isModifiedClick(e)) return;
+              e.preventDefault();
+              onViewRecipe(recipe);
+            }}
+          >
+            {title}
+          </a>
         </h3>
         <div className={styles.meta}>
-          {recipe.is_blank ? (
-            <span>Coming soon</span>
-          ) : (
-            <span>{plural(ingredientCount(recipe), 'ingredient')} · {plural(stepCount(recipe), 'step')}</span>
-          )}
+          <span>{plural(ingredientCount(recipe), 'ingredient')} · {plural(stepCount(recipe), 'step')}</span>
           {isMade && (
             <span className={`${styles.pill} ${styles.made}`}>
               <Icon name="check" size={12} />Made
@@ -71,19 +64,17 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, showReviewBadg
           {showReviewBadge && <span className={`${styles.pill} ${styles.review}`}>For Review</span>}
         </div>
       </div>
-      {!recipe.is_blank && (
-        // Constant name carrying the recipe, state in aria-pressed and in the
-        // star's fill: "Pin Pulled Pork, toggle button, pressed".
-        <button
-          type="button"
-          className={styles.pin}
-          onClick={() => togglePinned(recipe.id)}
-          aria-pressed={isPinned}
-          aria-label={`Pin ${recipe.name}`}
-        >
-          <Icon name="star" filled={isPinned} />
-        </button>
-      )}
+      {/* Constant name carrying the recipe, state in aria-pressed and in the
+          star's fill: "Pin Pulled Pork, toggle button, pressed". */}
+      <button
+        type="button"
+        className={styles.pin}
+        onClick={() => togglePinned(recipe.id)}
+        aria-pressed={isPinned}
+        aria-label={`Pin ${recipe.name}`}
+      >
+        <Icon name="star" filled={isPinned} />
+      </button>
     </li>
   );
 }

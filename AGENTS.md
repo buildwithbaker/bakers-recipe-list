@@ -159,7 +159,7 @@ plausible enough to act on.
 ## Known tech debt — the `FOR REVIEW` sections
 
 The `FOR REVIEW ...` section keys are a staging area surfaced under the app's
-"For Review" tab (driven by `review: true` in `sections.js`, and referenced by
+"For Review" collection (driven by `review: true` in `sections.js`, and referenced by
 `autoTags.js` and `estimateServings.js`). They overload `section` to encode both
 a category and a review status, with inconsistent delimiters
 (`FOR REVIEW ---` vs `FOR REVIEW -`) and duplicate soup buckets. They are valid

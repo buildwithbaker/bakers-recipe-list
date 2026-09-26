@@ -101,9 +101,11 @@ Both render **`RecipeView`**, which owns the entire recipe body plus Share,
 Print and cook mode. There is deliberately no second renderer: a card and its
 page drift apart the moment they are two components.
 
-`RecipePage` passes `showPlaceholderHero`, so an unphotographed recipe still
-gets a hero and the page never opens on a bare title line. The modal does not —
-a placeholder card over a list the visitor is already looking at is noise.
+Both frames give `RecipeView` a sticky bar (at most 56px, so the modal's Close
+is always on screen at 390px) and put their own controls in it: the page's
+"All recipes", the modal's "Open full page" and Close. A photo shows beside the
+title only when one exists; there is no placeholder hero. The modal returns
+focus to the card that opened it when it closes.
 
 ---
 
@@ -227,7 +229,8 @@ anyone clicks.
 For every **non-blank** display row, `dist/r/<slug>/index.html`: the built shell
 with its site-level `<title>` and description stripped, and per-recipe
 `<title>`, canonical link, description, Open Graph and Twitter tags, and a
-`Recipe` JSON-LD block injected into the head. Plus `dist/sitemap.xml`,
+`Recipe` JSON-LD block injected into the head. For every recipe with a photo
+in `src/photos/`, `dist/og/<id>.jpg` (§13). Plus `dist/sitemap.xml`,
 `dist/robots.txt`, and `dist/404.html` (the shell, so an unknown path lands on
 the app; Pages returns a real 404 for it, which is correct).
 
@@ -296,7 +299,9 @@ found the `innerText` behaviour and want to fix it: don't.
 `src/utils/relatedRecipes.js`, rendered by `RelatedRecipes` on the **full page
 only** — in a modal, the whole list is already sitting behind the card.
 `scripts/prerender.mjs` imports the same module for the `<noscript>` links, so
-the two can never disagree. Do not fork the logic.
+the two can never disagree. Do not fork the logic. The app shows them as
+recipe cards under **"More like this"**, not "More <category>": the ranking
+crosses sections on purpose, so each card names its own category.
 
 Scored on **ingredient overlap**, not tags. Each `type: "item"` line is
 lowercased, its parentheticals dropped, non-alpha stripped, and split on
@@ -430,7 +435,9 @@ registration, delete every cache, and confirm — the shell's own title
 written up as a standing rule in `AGENTS.md`.
 
 `src/utils/swUpdate.js` reloads the page once when a new worker takes control —
-never on first visit, never over an open overlay, at most once per session.
+never on first visit, never over an open overlay **or an open recipe** (card or
+full page: the recipe is in the path, so `swUpdate.js` checks it separately and
+waits until you close it), at most once per session.
 
 ### Every Build with Baker project shares one origin
 
@@ -458,9 +465,12 @@ consequences follow and are worth knowing before they bite:
 1. **A storage-key collision between two projects is possible**, and would be
    silent. `localStorage` has no path namespace — a generic key like `theme` or
    `settings` written by two apps is one key. This app is already safe: every
-   key it writes is `brl_`-prefixed (`brl_cook_log`, `brl_dark_mode` (no longer read),
-   `brl_made_v1`, `brl_pinned_v1`, `brl_recently_viewed`, `brl_shopping_list`,
-   `brl_state_version`). Keep it that way; never introduce an unprefixed key.
+   key it writes is `brl_`-prefixed (`brl_cook_log`, `brl_made_v1`,
+   `brl_pinned_v1`, `brl_recently_viewed`, `brl_shopping_list`,
+   `brl_state_version`; session: `brl_ingredient_ticks`, `brl_sw_reloaded`;
+   cache: `brl-photos`). `brl_dark_mode`, `brl_hide_blanks` and
+   `brl_collapsed_sections` are no longer read. Keep it that way; never
+   introduce an unprefixed key.
 2. **Clearing storage for one project clears it for the others.** The standard
    verification dance above — `getRegistrations()` then unregister everything,
    `caches.keys()` then delete everything — unregisters *Wren's* worker and
@@ -481,7 +491,8 @@ index.html                  app entry (shell)
 vite.config.js              Vite + React + PWA, base '/bakers-recipe-list/'
 scripts/
   validate-recipes.mjs      prebuild schema + manifest + photo guard
-  prerender.mjs             per-recipe HTML, noscript block, sitemap, robots, 404
+  build-photos.mjs          prebuild/predev: src/photos/ -> card + header WebP sizes
+  prerender.mjs             per-recipe HTML, og:image JPEGs, noscript, sitemap, robots, 404
 
 src/
   main.jsx                  bootstrap: state migration, SW update hook, render
@@ -490,8 +501,8 @@ src/
   components/
     RecipeView/             ★ THE recipe body — used by BOTH frames
     RecipeModal/            modal chrome only: backdrop, dialog, close, open-full-page
-    RecipePage/             full-page frame: back link, card, placeholder hero
-    RelatedRecipes/         cross-section related list, real <a href> links
+    RecipePage/             full-page frame: back link, card, related recipes
+    RelatedRecipes/         "More like this": cross-section related cards, real <a href> links
     RecipeList/             the browser: collections, category chips, groups
     RecipeCard/ ToTryLinks/ SearchResults/ Highlight/ Icon/
     FiltersSheet/ Shelves/
@@ -502,7 +513,7 @@ src/
     useWakeLock.js          cook mode (React wrapper over utils/screenLock.js)
     useMacroEstimate.js     ★ USDA pipeline for one recipe (useReducer machine)
     useShoppingList / useCookLog / useCookHistory / usePinnedRecipes /
-    useRecentlyViewed / useFocusTrap
+    useRecentlyViewed / useFocusTrap / useIngredientTicks
 
   data/
     recipes.json            ★ the content
@@ -520,6 +531,7 @@ src/
     recipeRoute.js          path ⇄ recipe key
     recipeSlug.js           id ⇄ path segment (:: ⇄ --)
     recipePhoto.js          the ONE place a recipe's photo URL is resolved
+    photoFiles.js           rules for the src/photos/ drop folder
     colour.js               tint mixing + WCAG contrast for the category palette
     search.js               one search across all collections
     relatedRecipes.js       the related ranking (also imported by prerender.mjs)
@@ -528,6 +540,7 @@ src/
     parseIngredient / convertToGrams / fractions / scaleIngredient /
     estimateServings / estimateMacros / fetchNutrition / swUpdate
 
+  photos/                   drop folder for recipe photos (generated/ is gitignored)
   styles/tokens.css         design tokens (colour roles, type, space) — light only
   styles/globals.css        base element styles, print rules
   styles/contrast.test.js   WCAG AA check of every token text/background pair
@@ -549,6 +562,10 @@ RecipeView → useMacroEstimate(recipe, servingEstimate)
           MacroCard renders { status, macros, matchedCount, totalCount }
 ```
 
+`MacroCard` sits in a closed **"Estimated nutrition"** `<details>` after the
+method, and the disclosure is omitted when there is nothing to show. The
+estimate still runs when the recipe opens; only its presentation is folded.
+
 - `SEASONINGS` and `DOUGHS` are excluded; so are blanks, recipes with no serving
   estimate, and recipes where nothing matched.
 - `fetchNutrition.js` caches per ingredient in `sessionStorage` and consults
@@ -567,7 +584,10 @@ RecipeView → useMacroEstimate(recipe, servingEstimate)
 
 `useWakeLock()` → `{ supported, active, toggle }`, rendered in `RecipeView` so
 both frames get it. Where the API is missing the control is **absent**, not
-disabled.
+disabled. `toggle()` resolves to `'on'`, `'refused'` or `'off'`, and the view
+says which in a toast (`cookModeMessage` in `screenLock.js`): "Cook mode on:
+the screen will stay awake", or "This browser will not keep the screen awake"
+when the browser refuses.
 
 The hard part is not taking the lock. The browser **silently drops it** whenever
 the document stops being visible, and never restores it — so a naive
@@ -590,19 +610,34 @@ without a phone — see `screenLock.test.js`.
 
 ## 13. Photos and the optional schema fields
 
+**Photos come from a drop folder, not from the record.** Put
+`src/photos/<id>.jpg` in the repo (a version row uses its address:
+`chili--v2.jpg`) and build. No `recipes.json` edit.
+
+- `scripts/build-photos.mjs` (prebuild and predev, uses `sharp`) writes a
+  240×240 card thumbnail and an 800px-wide header photo, as WebP, into
+  `src/photos/generated/` (gitignored). It fails the build on a file that
+  matches no recipe id, is over 500 KB, is not a photo, or duplicates another.
+  The rules are `src/utils/photoFiles.js` (unit-tested). File names are matched
+  against the real ids, never turned into new ones.
+- `src/utils/recipePhoto.js` finds the outputs with `import.meta.glob` and is
+  the one place any component asks for a photo. Vite fingerprints them.
+- `scripts/prerender.mjs` makes `dist/og/<id>.jpg`, 1200×630 JPEG (preview
+  crawlers are unreliable with WebP), for `og:image` and the JSON-LD `image`.
+  No photo: `recipe-placeholder.png`.
+- Offline: thumbnails are precached; header photos are cached on first view
+  (Workbox runtime cache `brl-photos`).
+
+The workflow is [`adding-a-photo.md`](./adding-a-photo.md).
+
 Five **optional** fields exist on a recipe: `image`, `description`, `prepTime`,
 `cookTime`, `recipeYield`. All are validated only when present; every existing
 record stays valid without them. `recipe.schema.json` is the contract.
+`image` (a path under `public/`) is the older photo mechanism and still works
+as a fallback, but a photo in `src/photos/` wins. No record uses it today.
 
-`prepTime` and `cookTime` must be authored **together** — Google pairs them and
-a lone value reads as missing data. A referenced photo must exist and must be
-**under 500 KB**; the build fails otherwise, with the fix in the error text.
-That ceiling is not fussiness: untreated phone photos are 3–5 MB, git keeps
-every version forever, and a few hundred would push the published site toward
-the Pages 1 GB limit.
-
-The workflow for adding one is [`adding-a-photo.md`](./adding-a-photo.md) — shoot,
-resize, name after the **id**, add the `image` line, rebuild. Not restated here.
+`prepTime` and `cookTime` must be authored **together**: Google pairs them and
+a lone value reads as missing data.
 
 ---
 
@@ -663,15 +698,17 @@ keyed by **id**.
 ```bash
 npm install
 npm run dev              # Vite dev server (serves SOURCE — no prerendered files)
-npm run build            # validate → vite build → prerender
+npm run build            # validate → photos → vite build → prerender
+npm run photos           # just make the photo sizes (also runs before dev)
 npm run preview          # serve dist/ — the only way to see prerendered output locally
 npm run lint             # must pass before commit
 npm test                 # vitest, node env, pure utils + data integrity
 ```
 
-`prebuild` runs `validate-recipes.mjs`, so a schema violation, a missing id
-manifest entry, a broken photo path or an oversized photo fails the build and
-CI, and can never reach the live site.
+`prebuild` runs `validate-recipes.mjs` then `build-photos.mjs`, so a schema
+violation, a missing id manifest entry, a broken photo path, an oversized photo
+or a photo named after no recipe fails the build and CI, and can never reach
+the live site.
 
 **CI** (`.github/workflows/ci.yml`) runs lint, test and build on PRs into `main`
 as the required `verify` check. Note it triggers **only** on PRs whose base is

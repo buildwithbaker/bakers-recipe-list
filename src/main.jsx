@@ -19,7 +19,8 @@ migrateState();
 // The worker self-activates on a new deploy but the injected registration
 // script never tells an open page, so it keeps running the bundle it loaded.
 // Reload once when a new worker takes control — never on the first visit,
-// never over an open overlay, at most once per session. Runs after the
+// never over an open overlay or an open recipe (card or page; it waits until
+// you close it), at most once per session. Runs after the
 // migration above, which is idempotent and flag-gated, so a reload re-runs it
 // as a no-op.
 installUpdateReload();

@@ -53,17 +53,20 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   page and no link preview, so filling one is also what publishes it.
   *(Owner: Adam.)*
 - [ ] **README screenshot.** README still carries an `_(add a screenshot)_`
-  placeholder. Capture light + dark and drop into `docs/screenshot.png`.
+  placeholder. Capture the home and a recipe page (light only since the
+  2026-09 redesign) and drop into `docs/screenshot.png`.
 - [ ] **Confirm cook mode on a real phone.** Shipped deliberately unverified on
   hardware: Wake Lock needs a secure context, so it cannot be exercised on a LAN
   dev server over plain HTTP, and Pages has no preview environment. The
   revoke-then-return logic is unit-tested in `screenLock.test.js`; what is
   missing is one person, one phone, one screen-lock-and-wake against the live
   site. *(Owner: Adam.)*
-- [ ] **`aria-expanded` on the menu + list toggles.** `TopBar`'s buttons open the
-  TOC drawer and the shopping-list panel but still expose no open/closed state to
-  screen readers. `menuOpen` / `listOpen` already exist in `App.jsx`; pass them
-  down. Verified still missing on 2026-09-09.
+- [x] **`aria-expanded` on the menu + list toggles.** *Superseded by the
+  2026-09 redesign.* The TOC drawer and `TopBar` are gone. The shopping list
+  and the Filters sheet are now modal dialogs: focus moves in, is trapped, and
+  returns to the opener on close. A modal that takes focus announces itself,
+  so the opener needs no `aria-expanded`. The Filters button carries
+  `aria-haspopup="dialog"`.
 
 ## P2 — worthwhile
 

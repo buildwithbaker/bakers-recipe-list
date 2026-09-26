@@ -1,35 +1,3 @@
-:root {
-  /* LEGACY ALIASES. The old variable names, re-pointed at the role tokens in
-     tokens.css so components not yet restyled pick up the new palette.
-     Delete each one once nothing reads it (tracked in O10). */
-  --bg: var(--paper);
-  --border: var(--line);
-  --text: var(--ink);
-  --text-muted: var(--ink-muted);
-  --navy: var(--brand);
-  --blue: var(--brand);
-  --blue-mid: var(--brand);
-  --amber: var(--band-accent);
-  --amber-dark: var(--accent-ink);
-  --amber-deep: #412402;
-  --pill-bg: var(--accent-soft);
-  --pill-text: var(--accent-ink);
-  --hover-row-bg: var(--surface-sunk);
-  --brand-dark: var(--band);
-  --topbar-bg: var(--band);
-  --topbar-accent: var(--band-accent);
-  --topbar-subtitle: var(--band-ink-muted);
-  --card-surface: var(--surface);
-  --card-border: var(--line);
-  --card-heading: var(--accent-ink);
-  --card-tag: var(--brand);
-  --card-tag-strong: var(--brand);
-  --card-section-label: var(--brand);
-  --card-body: var(--ink);
-  --card-muted: var(--ink-muted);
-  --card-divider: var(--line);
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
