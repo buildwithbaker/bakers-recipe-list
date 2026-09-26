@@ -234,10 +234,11 @@ describe('recipe ids', () => {
   // over RAW source with comments intact. They catch a helper whatever it is
   // called, and prose cannot talk its way past them.
   //
-  // DO NOT "tighten" the last one to any lowercase+replace: RecipeList builds a
-  // DOM anchor from a SECTION KEY (`sec-peanut-${base.toLowerCase().replace(…)}`)
-  // and that is legitimate — an anchor from a section, not an id from a recipe
-  // name. It is missed on purpose, not by luck.
+  // DO NOT "tighten" the last one to any lowercase+replace: building a DOM
+  // anchor from a SECTION KEY (the retired Peanut Butter tab did
+  // `sec-peanut-${base.toLowerCase().replace(…)}`) is legitimate — an anchor
+  // from a section, not an id from a recipe name. It is missed on purpose, not
+  // by luck.
   const SLUG_SHAPES = [
     /slugif/i,
     /name[A-Za-z]*slug|slug[A-Za-z]*(from)?name/i,

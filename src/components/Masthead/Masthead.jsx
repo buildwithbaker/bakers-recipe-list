@@ -12,7 +12,7 @@ import styles from './Masthead.module.css';
 const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
 const TAGLINE = `${plural(CATALOG_COUNTS.written, 'recipe')} · ${CATALOG_COUNTS.toTry} to try`;
 
-export default function Masthead({ listItemCount, onListToggle, siteTitleIsHeading = true, slim = false, onHome, onMenuToggle }) {
+export default function Masthead({ listItemCount, onListToggle, siteTitleIsHeading = true, slim = false, onHome }) {
   const Title = siteTitleIsHeading ? 'h1' : 'p';
   const word = <>Baker’s <span className={styles.accent}>Recipe</span> List</>;
   return (
@@ -37,12 +37,6 @@ export default function Masthead({ listItemCount, onListToggle, siteTitleIsHeadi
           {!slim && <p className={styles.tagline}>{TAGLINE}</p>}
         </div>
         <div className={styles.actions}>
-          {onMenuToggle && (
-            <button type="button" className={styles.pill} onClick={onMenuToggle} aria-label="Open sections menu">
-              <Icon name="filter" />
-              <span className={styles.lbl}>Sections</span>
-            </button>
-          )}
           <button
             type="button"
             className={styles.pill}
