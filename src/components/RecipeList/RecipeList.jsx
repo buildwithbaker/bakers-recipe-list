@@ -1,144 +1,47 @@
-import { useDeferredValue, useCallback, useMemo, useRef, useState, useEffect } from 'react';
-import { displayRecipes, displayedBySection } from '../../data/recipeIndex.js';
-import { TAB_PEANUT, TAB_RECIPES, TAB_REVIEW, TAB_TOTRY } from '../../data/navSections.js';
-import { SECTIONS } from '../../data/sections.js';
-import SectionBlock from '../SectionBlock/SectionBlock.jsx';
+// The browser: pick a collection, narrow to a category, read the cards.
+//
+// Three collections (data/catalog.js): the Cookbook, For Review (Adam's staging
+// shelf, public on purpose) and To Try (links to other sites). Categories are
+// chips, and every chip's count is the number of cards that chip shows, so a
+// number can never promise rows the list does not have.
+//
+// A search replaces all of this with SearchResults, which looks across every
+// collection at once.
+import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  CATEGORY_BY_ID, COLLECTIONS, COLL_TRY, ROWS_BY_COLLECTION, groupByCategory,
+} from '../../data/catalog.js';
+import { displayRecipes } from '../../data/recipeIndex.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { getEffectiveTags } from '../../utils/autoTags.js';
 import { isComingSoon } from '../../utils/recipeKinds.js';
+import Icon from '../Icon/Icon.jsx';
+import RecipeCard from '../RecipeCard/RecipeCard.jsx';
+import ToTryLinks from '../ToTryLinks/ToTryLinks.jsx';
+import SearchResults from '../SearchResults/SearchResults.jsx';
 import styles from './RecipeList.module.css';
 
-// ---------------------------------------------------------------------------
-// Module-scope constants
-// ---------------------------------------------------------------------------
-
-const SECTION_BY_KEY = new Map(SECTIONS.map((s) => [s.key, s]));
-
-// Published Recipes tab = everything that is neither a For-Review nor a To-Try
-// staging section. The To-Try sections ("TO TRY --- <cuisine>") route to their
-// own tab, sub-headed by cuisine.
-const mainSections   = SECTIONS.filter((s) => !s.review && !s.toTry);
-const reviewSections = SECTIONS.filter((s) => !!s.review);
-const toTrySections  = SECTIONS.filter((s) => !!s.toTry);
-
-// Peanut Butter tab = a purely tag-driven view of every recipe whose `tags`
-// array contains "#peanut", regardless of which section/tab it otherwise lives
-// in. Filter on the raw tag only — NOT auto-derived tags and NOT by section.
-// Drawn from the display list so a #peanut recipe staged in a review section
-// would render the same expanded rows (and the same names) as its own section.
-const peanutRecipes = displayRecipes.filter(
-  (r) => Array.isArray(r.tags) && r.tags.includes('#peanut'),
-);
-
-// Display label for a recipe's "base" section: strip the "TO TRY --- " staging
-// prefix and reuse the declared section label where one exists (nice casing),
-// falling back to a title-cased version of the raw key.
-function baseSectionLabel(sectionKey) {
-  const base = sectionKey.replace(/^TO TRY --- /, '');
-  const declared = SECTION_BY_KEY.get(base);
-  if (declared) return declared.label;
-  return base
-    .toLowerCase()
-    .split(' ')
-    .map((w) => (w ? w[0].toUpperCase() + w.slice(1) : w))
-    .join(' ');
-}
-
-// Peanut recipes grouped by base section into synthetic sections, so the
-// Peanut Butter tab reuses the normal SectionBlock machinery. Ordered by group
-// size (largest first) for readability.
-const PEANUT_GROUPS = (() => {
-  const byBase = new Map();
-  for (const r of peanutRecipes) {
-    const base = r.section.replace(/^TO TRY --- /, '');
-    if (!byBase.has(base)) {
-      byBase.set(base, {
-        key: `__PEANUT__${base}`,
-        label: baseSectionLabel(r.section),
-        id: `sec-peanut-${base.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`,
-        recipes: [],
-      });
-    }
-    byBase.get(base).recipes.push(r);
-  }
-  return [...byBase.values()].sort(
-    (a, b) => b.recipes.length - a.recipes.length || a.label.localeCompare(b.label),
-  );
-})();
-
-// Rows each tab lists, for the count beside its name. Built from the same
-// sources the list renders, so the number always matches what is on screen
-// with no search or made/pinned filter applied. `shown` is the count with
-// coming-soon placeholders visible, `hidden` the count with them filtered out.
-function tabRowCounts(rows) {
-  const comingSoon = rows.filter(isComingSoon).length;
-  return { shown: rows.length, hidden: rows.length - comingSoon, comingSoon };
-}
-const rowsOfSections = (sections) => sections.flatMap((s) => displayedBySection.get(s.key) || []);
-const TAB_COUNTS = {
-  [TAB_RECIPES]: tabRowCounts(rowsOfSections(mainSections)),
-  [TAB_REVIEW]:  tabRowCounts(rowsOfSections(reviewSections)),
-  [TAB_TOTRY]:   tabRowCounts(rowsOfSections(toTrySections)),
-  [TAB_PEANUT]:  tabRowCounts(peanutRecipes),
-};
-const TABS = [
-  { key: TAB_RECIPES, label: 'Recipes' },
-  { key: TAB_REVIEW,  label: 'For Review' },
-  { key: TAB_TOTRY,   label: 'To Try' },
-  { key: TAB_PEANUT,  label: 'Peanut Butter' },
-];
-
-// All tags (manual + auto-derived) with counts — computed once at module scope.
-// Counted over display rows, because clicking a pill searches the display list:
-// counting raw records instead reported "#marinade 69" and then returned 128.
+// All tags (manual + auto-derived) with counts, over display rows, because a
+// tag pill searches the display list.
 const allTagCounts = (() => {
   const counts = new Map();
   displayRecipes.forEach((r) => {
     getEffectiveTags(r).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1));
   });
-  // Sort by count desc, then alphabetically.
   return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 })();
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-function normalise(s) { return (s || '').toLowerCase(); }
-
-function recipeMatchesQuery(recipe, q) {
-  if (recipe.ingredients?.some((ing) => normalise(ing.text).includes(q))) return true;
-  if (normalise(recipe.name).includes(q)) return true;
-  if (getEffectiveTags(recipe).some((t) => normalise(t).includes(q))) return true;
-  if (normalise(recipe.source).includes(q)) return true;
-  return false;
-}
-
-// sessionStorage key for collapsed sections
-const COLLAPSED_KEY = 'brl_collapsed_sections';
-
-// localStorage key for hide-blanks preference
+// Whether coming-soon placeholders are hidden. Stored since before this
+// redesign, so a returning visitor keeps their choice.
 const HIDE_BLANKS_KEY = 'brl_hide_blanks';
 function loadHideBlanks() {
   try { return localStorage.getItem(HIDE_BLANKS_KEY) === 'true'; }
   catch { return false; }
 }
 
-function loadCollapsed() {
-  try {
-    const raw = sessionStorage.getItem(COLLAPSED_KEY);
-    return raw ? new Set(JSON.parse(raw)) : new Set();
-  } catch { return new Set(); }
-}
-
-function saveCollapsed(set) {
-  try { sessionStorage.setItem(COLLAPSED_KEY, JSON.stringify([...set])); }
-  catch { /* ignore */ }
-}
-
 // ---------------------------------------------------------------------------
-// Tag browser modal
+// Tag browser
 // ---------------------------------------------------------------------------
 
 function TagBrowser({ onSelectTag, onClose }) {
@@ -146,11 +49,8 @@ function TagBrowser({ onSelectTag, onClose }) {
   const inputRef = useRef(null);
   const modalRef = useRef(null);
 
-  // Trap Tab focus inside the dialog while it's open (mirrors RecipeModal).
   useFocusTrap(modalRef, true);
-
   useEffect(() => { inputRef.current?.focus(); }, []);
-
   useEffect(() => {
     const onKey = (e) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', onKey);
@@ -163,20 +63,22 @@ function TagBrowser({ onSelectTag, onClose }) {
 
   return (
     <div className={styles.tagOverlay} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div ref={modalRef} className={styles.tagModal} role="dialog" aria-modal="true" aria-label="Browse tags">
+      <div ref={modalRef} className={styles.tagModal} role="dialog" aria-modal="true" aria-labelledby="tag-browser-title">
         <div className={styles.tagModalHeader}>
-          <span className={styles.tagModalTitle}>Browse Tags</span>
-          <button type="button" className={styles.tagModalClose} onClick={onClose} aria-label="Close">&#x2715;</button>
+          <h2 id="tag-browser-title" className={styles.tagModalTitle}>Browse tags</h2>
+          <button type="button" className={styles.iconBtn} onClick={onClose} aria-label="Close tags">
+            <Icon name="close" />
+          </button>
         </div>
         <div className={styles.tagModalSearch}>
           <input
             ref={inputRef}
             type="search"
             className={styles.tagSearchInput}
-            placeholder="Search tags…"
+            placeholder="Find a tag"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            aria-label="Search tags"
+            aria-label="Find a tag"
           />
         </div>
         <div className={styles.tagCloud}>
@@ -184,101 +86,16 @@ function TagBrowser({ onSelectTag, onClose }) {
             <button
               key={tag}
               type="button"
-              className={styles.tagPill}
+              className={styles.chip}
               onClick={() => { onSelectTag(tag); onClose(); }}
             >
               {tag}
-              <span className={styles.tagCount}>{count}</span>
+              <span className={styles.n}>{count}</span>
             </button>
           ))}
-          {filtered.length === 0 && (
-            <p className={styles.tagEmpty}>No tags match "{search}"</p>
-          )}
+          {filtered.length === 0 && <p className={styles.tagEmpty}>No tags match “{search}”</p>}
         </div>
       </div>
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Empty state
-// ---------------------------------------------------------------------------
-
-function EmptyState({ query, onClear }) {
-  return (
-    <div className={styles.emptyState}>
-      <svg className={styles.emptyIllustration} viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <ellipse cx="60" cy="52" rx="38" ry="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-        <path d="M22 52 Q22 72 60 72 Q98 72 98 52" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-        <line x1="44" y1="18" x2="52" y2="48" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-        <line x1="50" y1="16" x2="56" y2="48" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.5"/>
-        <text x="60" y="46" textAnchor="middle" fontSize="18" fill="currentColor" opacity="0.25" fontWeight="700">?</text>
-      </svg>
-      <p className={styles.emptyTitle}>Nothing found for <strong>"{query}"</strong></p>
-      <p className={styles.emptyHint}>Try a different name, tag, or cuisine type.</p>
-      {onClear && (
-        <button type="button" className={styles.clearFilterBtn} onClick={onClear}>
-          × Clear filter
-        </button>
-      )}
-    </div>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Toolbar
-// ---------------------------------------------------------------------------
-
-function ListToolbar({ onRandom, madeFilter, onToggleMadeFilter, hasMade, pinnedFilter, onTogglePinnedFilter, hasPinned, onOpenTags, hideBlanks, onToggleHideBlanks, showBlanksToggle }) {
-  return (
-    <div className={styles.toolbar}>
-      <button type="button" className={styles.randomBtn} onClick={onRandom} title="Open a random recipe">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/>
-          <polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/>
-        </svg>
-        Random
-      </button>
-      <button type="button" className={styles.randomBtn} onClick={onOpenTags} title="Browse all tags">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
-        </svg>
-        Tags
-      </button>
-      {hasPinned && (
-        <button
-          type="button"
-          className={`${styles.filterBtn} ${pinnedFilter ? styles.filterBtnPinned : ''}`}
-          onClick={onTogglePinnedFilter}
-          title={pinnedFilter ? 'Show all recipes' : 'Show only pinned'}
-        >
-          {pinnedFilter ? '★ Pinned' : '★ Pinned'}
-        </button>
-      )}
-      {hasMade && (
-        <button
-          type="button"
-          className={`${styles.filterBtn} ${madeFilter !== 'all' ? styles.filterBtnActive : ''}`}
-          onClick={onToggleMadeFilter}
-          title={madeFilter === 'all' ? 'Show only recipes you\'ve made' : 'Show all recipes'}
-        >
-          {madeFilter === 'made' ? '✓ Made' : madeFilter === 'unmade' ? '✗ Not made' : 'Filter: Made'}
-        </button>
-      )}
-      {/* One fixed label that says what the control does; its on/off state is
-          aria-pressed and the active style, never a relabel. It used to read
-          "Blanks hidden" / "Coming soon", which described the current state
-          and not the action. Shown only on a tab that has placeholders. */}
-      {showBlanksToggle && (
-        <button
-          type="button"
-          className={`${styles.filterBtn} ${!hideBlanks ? styles.filterBtnActive : ''}`}
-          onClick={onToggleHideBlanks}
-          aria-pressed={!hideBlanks}
-        >
-          Show coming-soon placeholders
-        </button>
-      )}
     </div>
   );
 }
@@ -287,45 +104,20 @@ function ListToolbar({ onRandom, madeFilter, onToggleMadeFilter, hasMade, pinned
 // Component
 // ---------------------------------------------------------------------------
 
-export default function RecipeList({ onViewRecipe, searchQuery, onSearch, activeTab, onTabChange }) {
+export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collection, onCollectionChange, category, onCategoryChange }) {
   const deferredQuery = useDeferredValue(searchQuery || '');
   const isFiltering = (searchQuery || '') !== deferredQuery;
   const [madeFilter, setMadeFilter] = useState('all');
   const [pinnedFilter, setPinnedFilter] = useState(false);
   const [hideBlanks, setHideBlanks] = useState(loadHideBlanks);
   const [tagBrowserOpen, setTagBrowserOpen] = useState(false);
-  const [collapsedSections, setCollapsedSections] = useState(loadCollapsed);
   const { madeSet, pinnedSet } = useCookHistoryContext();
-  const tabBarRef = useRef(null);
+  const chipRowRef = useRef(null);
 
-  // On a phone the tab bar scrolls sideways. Keep the selected tab in view -
-  // by moving the bar itself, never the page (scrollIntoView would also
-  // scroll the window vertically).
-  useEffect(() => {
-    const bar = tabBarRef.current;
-    const active = bar?.querySelector('[data-active="true"]');
-    if (!bar || !active || bar.scrollWidth <= bar.clientWidth) return;
-    const left = active.offsetLeft - bar.offsetLeft;
-    const right = left + active.offsetWidth;
-    if (left < bar.scrollLeft) bar.scrollLeft = left;
-    else if (right > bar.scrollLeft + bar.clientWidth) bar.scrollLeft = right - bar.clientWidth;
-  }, [activeTab]);
-
-  const hasMade   = madeSet.size > 0;
+  const isTry = collection === COLL_TRY;
+  const hasMade = madeSet.size > 0;
   const hasPinned = pinnedSet.size > 0;
 
-  const handleRandom = () => {
-    const pool = [];
-    for (const recs of filtered.values()) {
-      recs.forEach((r) => { if (!r.is_blank) pool.push(r); });
-    }
-    if (!pool.length) return;
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    onViewRecipe(pick);
-  };
-
-  const handleToggleMadeFilter = () => setMadeFilter((v) => v === 'all' ? 'made' : v === 'made' ? 'unmade' : 'all');
-  const handleTogglePinnedFilter = () => setPinnedFilter((v) => !v);
   const handleToggleHideBlanks = useCallback(() => {
     setHideBlanks((v) => {
       const next = !v;
@@ -334,77 +126,69 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
     });
   }, []);
 
-  const handleToggleCollapse = useCallback((key) => {
-    setCollapsedSections((prev) => {
-      const next = new Set(prev);
-      if (next.has(key)) next.delete(key);
-      else next.add(key);
-      saveCollapsed(next);
-      return next;
-    });
-  }, []);
+  // The collection's rows after the made / pinned / placeholder filters. The
+  // category chips are counted from THIS list, so each chip's number is what
+  // tapping it shows. To Try ignores made and pinned: links have neither.
+  const base = useMemo(() => {
+    let rows = ROWS_BY_COLLECTION[collection] ?? [];
+    if (isTry) return rows;
+    if (hideBlanks) rows = rows.filter((r) => !isComingSoon(r));
+    if (madeFilter === 'made') rows = rows.filter((r) => !r.is_blank && madeSet.has(r.id));
+    else if (madeFilter === 'unmade') rows = rows.filter((r) => !r.is_blank && !madeSet.has(r.id));
+    if (pinnedFilter) rows = rows.filter((r) => !r.is_blank && pinnedSet.has(r.id));
+    return rows;
+  }, [collection, isTry, hideBlanks, madeFilter, pinnedFilter, madeSet, pinnedSet]);
 
-  const handleSelectTag = useCallback((tag) => {
-    onSearch?.(tag);
-  }, [onSearch]);
+  const groups = useMemo(() => groupByCategory(base), [base]);
+  const shownGroups = category ? groups.filter((g) => g.category?.id === category) : groups;
+  const shownCount = shownGroups.reduce((n, g) => n + g.rows.length, 0);
 
-  const filtered = useMemo(() => {
-    const q = deferredQuery.trim().toLowerCase();
-    const out = new Map();
+  // Keep a chip for the selected category even when a filter empties it, so
+  // there is always a visible way to deselect it.
+  const chips = groups.map((g) => ({ id: g.category.id, label: g.category.label, n: g.rows.length }));
+  const selectedMissing = category && !chips.some((c) => c.id === category);
 
-    // Apply the shared query + made/pinned/blank filters to a recipe list.
-    const applyFilters = (list) => {
-      let matches = q ? list.filter((r) => recipeMatchesQuery(r, q)) : list;
-      if (madeFilter === 'made') {
-        matches = matches.filter((r) => r.is_blank || madeSet.has(r.id));
-      } else if (madeFilter === 'unmade') {
-        matches = matches.filter((r) => r.is_blank || !madeSet.has(r.id));
-      }
-      if (pinnedFilter) {
-        matches = matches.filter((r) => r.is_blank || pinnedSet.has(r.id));
-      }
-      // Coming-soon placeholders only. To Try entries are blanks too, but they
-      // are the To Try tab's whole content, not placeholders.
-      if (hideBlanks) {
-        matches = matches.filter((r) => !isComingSoon(r));
-      }
-      return matches;
-    };
+  // Counts on the collection switcher: rows each collection lists with no
+  // filter applied beyond the placeholder preference.
+  const collectionCount = (key) => {
+    const rows = ROWS_BY_COLLECTION[key] ?? [];
+    return key === COLL_TRY || !hideBlanks ? rows.length : rows.filter((r) => !isComingSoon(r)).length;
+  };
 
-    if (activeTab === TAB_PEANUT) {
-      for (const group of PEANUT_GROUPS) {
-        const matches = applyFilters(group.recipes);
-        if (matches.length > 0) out.set(group.key, matches);
-      }
-      return out;
-    }
+  // On a phone the chip row scrolls sideways: keep the pressed chip in view by
+  // moving the row, never the page.
+  useEffect(() => {
+    const row = chipRowRef.current;
+    const active = row?.querySelector('[aria-pressed="true"][data-cat]');
+    if (!row || !active || row.scrollWidth <= row.clientWidth) return;
+    const left = active.offsetLeft - row.offsetLeft;
+    const right = left + active.offsetWidth;
+    if (left < row.scrollLeft) row.scrollLeft = left - 16;
+    else if (right > row.scrollLeft + row.clientWidth) row.scrollLeft = right - row.clientWidth + 16;
+  }, [category, collection]);
 
-    const sectionsToSearch =
-      activeTab === TAB_RECIPES ? mainSections :
-      activeTab === TAB_TOTRY   ? toTrySections :
-      reviewSections;
-    for (const section of sectionsToSearch) {
-      const displayed = displayedBySection.get(section.key) || [];
-      const matches = applyFilters(displayed);
-      if (matches.length > 0) out.set(section.key, matches);
-    }
-    return out;
-  }, [deferredQuery, madeFilter, pinnedFilter, hideBlanks, madeSet, pinnedSet, activeTab]);
+  const handleRandom = () => {
+    const pool = shownGroups.flatMap((g) => g.rows).filter((r) => !r.is_blank);
+    if (!pool.length) return;
+    onViewRecipe(pool[Math.floor(Math.random() * pool.length)]);
+  };
 
-  const totalFiltered = useMemo(() => {
-    let n = 0;
-    for (const recs of filtered.values()) n += recs.length;
-    return n;
-  }, [filtered]);
+  const clearFilters = () => {
+    setMadeFilter('all');
+    setPinnedFilter(false);
+    onCategoryChange('');
+  };
 
   const q = deferredQuery.trim();
-  const noResults = (q || madeFilter !== 'all' || pinnedFilter) && filtered.size === 0;
-  // A tab with nothing to show and no search or made/pinned filter to blame.
-  // Without this it rendered as a blank page under the toolbar and read as broken.
-  const tabEmpty = !noResults && filtered.size === 0;
-  const tabCounts = TAB_COUNTS[activeTab];
-  const hiddenPlaceholders = hideBlanks && tabCounts ? tabCounts.comingSoon : 0;
-  const highlightQuery = q;
+  if (q) {
+    return (
+      <main className={isFiltering ? styles.filtering : ''}>
+        <SearchResults query={deferredQuery} onViewRecipe={onViewRecipe} onClear={() => onSearch?.('')} />
+      </main>
+    );
+  }
+
+  const madeLabel = madeFilter === 'made' ? 'Made it' : madeFilter === 'unmade' ? 'Not made yet' : 'Made';
 
   return (
     <main className={isFiltering ? styles.filtering : ''}>
@@ -412,103 +196,115 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
           tablist: role="tab" promises arrow-key focus movement and linked tab
           panels, and a widget that announces a contract it does not keep is
           worse than a plain button that says what it is. */}
-      <div className={styles.tabBar} ref={tabBarRef} role="group" aria-label="Recipe lists">
-        {TABS.map((tab) => (
+      <div className={styles.collections} role="group" aria-label="Collections">
+        {COLLECTIONS.map((c) => (
           <button
-            key={tab.key}
+            key={c.key}
             type="button"
-            className={`${styles.tabBtn} ${activeTab === tab.key ? styles.tabBtnActive : ''}`}
-            data-active={activeTab === tab.key}
-            aria-pressed={activeTab === tab.key}
-            onClick={() => onTabChange(tab.key)}
+            aria-pressed={collection === c.key}
+            onClick={() => onCollectionChange(c.key)}
           >
-            {tab.label}
-            <span className={styles.tabCount}>
-              {hideBlanks ? TAB_COUNTS[tab.key].hidden : TAB_COUNTS[tab.key].shown}
-            </span>
+            {c.label}<span className={styles.n}>{collectionCount(c.key)}</span>
           </button>
         ))}
       </div>
-      <ListToolbar
-        onRandom={handleRandom}
-        madeFilter={madeFilter}
-        onToggleMadeFilter={handleToggleMadeFilter}
-        hasMade={hasMade}
-        pinnedFilter={pinnedFilter}
-        onTogglePinnedFilter={handleTogglePinnedFilter}
-        hasPinned={hasPinned}
-        onOpenTags={() => setTagBrowserOpen(true)}
-        hideBlanks={hideBlanks}
-        onToggleHideBlanks={handleToggleHideBlanks}
-        showBlanksToggle={!!tabCounts && tabCounts.comingSoon > 0}
-      />
-      {q && !noResults && (
-        <div className={styles.resultCount}>
-          {totalFiltered} recipe{totalFiltered !== 1 ? 's' : ''} matching <strong>"{q}"</strong>
+
+      <div className={styles.chipRow} ref={chipRowRef} role="group" aria-label="Categories and filters">
+        <button
+          type="button"
+          className={styles.chip}
+          data-cat=""
+          aria-pressed={!category}
+          onClick={() => onCategoryChange('')}
+        >
+          All<span className={styles.n}>{base.length}</span>
+        </button>
+        {chips.map((c) => (
           <button
+            key={c.id}
             type="button"
-            className={styles.clearSearchBtn}
-            onClick={() => onSearch?.('')}
-            aria-label="Clear search"
-            title="Clear filter"
-          >×</button>
-        </div>
-      )}
-      {noResults && (
-        q ? <EmptyState query={q} onClear={() => onSearch?.('')} /> : (
-          <div className={styles.emptyState}>
-            <p className={styles.emptyTitle}>
-              {pinnedFilter ? 'No pinned recipes.' : madeFilter === 'made' ? 'No recipes marked as made yet.' : 'All recipes have been marked as made!'}
-            </p>
-            <p className={styles.emptyHint}>
-              {pinnedFilter ? 'Use the ★ button on any recipe to pin it.' : 'Use the ✓ buttons on any recipe to track what you\'ve cooked.'}
-            </p>
-          </div>
-        )
-      )}
-      {tabEmpty && (
-        <div className={styles.emptyState}>
-          <p className={styles.emptyTitle}>Nothing to show here</p>
-          {hiddenPlaceholders > 0 ? (
-            <>
-              <p className={styles.emptyHint}>
-                {hiddenPlaceholders} coming-soon placeholder{hiddenPlaceholders !== 1 ? 's are' : ' is'} hidden.
-              </p>
-              <button type="button" className={styles.clearFilterBtn} onClick={handleToggleHideBlanks}>
-                Show coming-soon placeholders
+            className={styles.chip}
+            data-cat={c.id}
+            aria-pressed={category === c.id}
+            onClick={() => onCategoryChange(category === c.id ? '' : c.id)}
+          >
+            {c.label}<span className={styles.n}>{c.n}</span>
+          </button>
+        ))}
+        {selectedMissing && (
+          <button type="button" className={styles.chip} data-cat={category} aria-pressed onClick={() => onCategoryChange('')}>
+            {CATEGORY_BY_ID.get(category)?.label ?? category}<span className={styles.n}>0</span>
+          </button>
+        )}
+        {!isTry && (
+          <>
+            <button type="button" className={`${styles.chip} ${styles.tool}`} onClick={handleRandom}>
+              <Icon name="shuffle" />Surprise me
+            </button>
+            <button type="button" className={`${styles.chip} ${styles.tool}`} onClick={() => setTagBrowserOpen(true)}>
+              <Icon name="tag" />Tags
+            </button>
+            {(hasPinned || pinnedFilter) && (
+              <button
+                type="button"
+                className={`${styles.chip} ${styles.tool}`}
+                aria-pressed={pinnedFilter}
+                onClick={() => setPinnedFilter((v) => !v)}
+              >
+                <Icon name="star" filled={pinnedFilter} />Pinned only
               </button>
-            </>
-          ) : (
-            <p className={styles.emptyHint}>This list has no entries yet.</p>
-          )}
+            )}
+            {(hasMade || madeFilter !== 'all') && (
+              // One button cycling Any -> Made it -> Not made yet. Its label
+              // names the current setting; aria-pressed says a filter is on.
+              <button
+                type="button"
+                className={`${styles.chip} ${styles.tool}`}
+                aria-pressed={madeFilter !== 'all'}
+                onClick={() => setMadeFilter((v) => (v === 'all' ? 'made' : v === 'made' ? 'unmade' : 'all'))}
+              >
+                <Icon name="check" />{madeLabel}
+              </button>
+            )}
+            <button
+              type="button"
+              className={`${styles.chip} ${styles.tool}`}
+              aria-pressed={!hideBlanks}
+              onClick={handleToggleHideBlanks}
+            >
+              Show coming soon
+            </button>
+          </>
+        )}
+      </div>
+
+      {shownCount === 0 && (
+        <div className={styles.empty} role="status">
+          <h2>Nothing matches</h2>
+          <p>No recipes fit these filters.</p>
+          <button type="button" className={styles.btn} onClick={clearFilters}>Clear filters</button>
         </div>
       )}
-      {(
-        activeTab === TAB_RECIPES ? mainSections :
-        activeTab === TAB_TOTRY   ? toTrySections :
-        activeTab === TAB_PEANUT  ? PEANUT_GROUPS :
-        reviewSections
-      ).map((section) => {
-        const displayed = filtered.get(section.key) || [];
-        if (displayed.length === 0) return null;
-        return (
-          <SectionBlock
-            key={section.id}
-            section={section}
-            recipes={displayed}
-            onViewRecipe={onViewRecipe}
-            hideSource={section.review}
-            highlightQuery={highlightQuery}
-            collapsed={collapsedSections.has(section.key)}
-            onToggleCollapse={handleToggleCollapse}
-          />
-        );
-      })}
+
+      {shownGroups.map((g) => (
+        <section key={g.category.id} className={styles.group} aria-labelledby={`g-${g.category.id}`}>
+          <div className={styles.groupHead}>
+            <h2 id={`g-${g.category.id}`}>
+              {g.category.label}<span className={styles.n}>{g.rows.length}</span>
+            </h2>
+          </div>
+          {isTry ? (
+            <ToTryLinks rows={g.rows} />
+          ) : (
+            <ul className={styles.grid}>
+              {g.rows.map((r) => <RecipeCard key={r.id} recipe={r} onViewRecipe={onViewRecipe} />)}
+            </ul>
+          )}
+        </section>
+      ))}
+
       {tagBrowserOpen && (
-        <TagBrowser
-          onSelectTag={handleSelectTag}
-          onClose={() => setTagBrowserOpen(false)}
-        />
+        <TagBrowser onSelectTag={(tag) => onSearch?.(tag)} onClose={() => setTagBrowserOpen(false)} />
       )}
     </main>
   );

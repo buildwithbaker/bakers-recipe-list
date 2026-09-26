@@ -3,7 +3,8 @@
 Deep reference for how Baker's Recipe List is built, how it runs, and how to
 extend it. Pairs with the root [`CLAUDE.md`](../../CLAUDE.md) (build/deploy/
 do-not-touch quick rules) and [`AGENTS.md`](../../AGENTS.md) (how an AI edits
-this repo, and the verification traps in it). Last rewritten 2026-09-09.
+this repo, and the verification traps in it). Last rewritten 2026-09-09;
+list and navigation sections updated for the 2026-09 redesign.
 
 ---
 
@@ -21,14 +22,14 @@ one place, `src/data/recordCount.js` (`EXPECTED_RECORDS`), which the integrity
 tests assert against. A number restated in prose rots silently; read it from
 there.
 
-Features: sectioned browser with a sticky TOC and Recipes / For Review / To Try
-tabs, plus a Peanut Butter tab built from a *tag* rather than from sections (so
-nothing in the drawer routes to it, and `TAB_PEANUT` is deliberately absent from
-`TAB_ORDER`) · search + auto-tagging with tag filters · a recipe card *and* a
-full page for every recipe, on one URL · serving scaler · USDA macro estimates · shopping
-list · cook log · pinned + recently viewed · dark mode · print · cook mode
-(screen wake lock) · related recipes · prerendered per-recipe pages with Open
-Graph metadata, `Recipe` JSON-LD, and a no-JavaScript fallback.
+Features: one search across every collection (names, ingredients, tags, To
+Try links) · three collections (Cookbook / For Review / To Try) narrowed by
+category chips (§3a) · a recipe card *and* a full page for every recipe, on
+one URL · serving scaler · USDA macro estimates · shopping list · cook log ·
+pinned + recently viewed · print · cook mode (screen wake lock) · related
+recipes · prerendered per-recipe pages with Open Graph metadata, `Recipe`
+JSON-LD, and a no-JavaScript fallback. Light theme only, by decision; the
+colours are role-named tokens so a dark block could be added later.
 
 ---
 
@@ -38,7 +39,8 @@ Graph metadata, `Recipe` JSON-LD, and a no-JavaScript fallback.
 |---|---|
 | Build | [Vite](https://vitejs.dev/) 8 (+ `vite-plugin-pwa`) |
 | UI | [React](https://react.dev/) 19 |
-| Styling | CSS Modules per component + `src/styles/globals.css` |
+| Styling | CSS Modules per component; design tokens in `src/styles/tokens.css`; base + print rules in `src/styles/globals.css` |
+| Type | Young Serif (headings, self-hosted via `@fontsource/young-serif`, precached) + the system sans stack |
 | Data | static `src/data/recipes.json`, bundled at build |
 | Nutrition | USDA FoodData Central API |
 | Hosting | GitHub Pages via Actions |
@@ -78,8 +80,10 @@ people's messages forever.
 
 ### The overlay model, and what is NOT in it
 
-Only the dismissable *layers* — the sections drawer and the shopping list — live
-in `history.state.overlays`. The recipe is not among them: it is in the URL.
+Only the dismissable *layer* — the shopping list — lives in
+`history.state.overlays`. (The sections drawer that used to share it was
+removed in the 2026-09 redesign; category chips replaced it.) The recipe is
+not in it: the recipe is in the URL.
 
 Each history entry also carries `state.page`, a boolean saying whether the
 recipe on that entry renders as a modal or as a full page. That is what makes
@@ -100,6 +104,32 @@ page drift apart the moment they are two components.
 `RecipePage` passes `showPlaceholderHero`, so an unphotographed recipe still
 gets a hero and the page never opens on a bare title line. The modal does not —
 a placeholder card over a list the visitor is already looking at is noise.
+
+---
+
+## 3a. The browsing model — collections and categories
+
+`src/data/catalog.js` lays a reader-facing model over the storage model in
+`sections.js`:
+
+| collection | sections | renders |
+|---|---|---|
+| Cookbook | every section without `review` / `toTry` | recipe cards |
+| For Review | `review: true` (Adam's staging shelf, public on purpose) | recipe cards |
+| To Try | `toTry: true` | external links, grouped by cuisine |
+
+Each section maps to a **category** (`SECTION_CATEGORY`, hand-written). A
+category is a label, not a section: both For Review soup buckets are one
+"Soups". `catalog.test.js` fails if a section is added without a category.
+
+The list shows one collection at a time; category chips narrow it. **Every
+chip's count is counted from the rows that chip would show**, after the
+made / pinned / placeholder filters, so a number never promises rows the list
+does not have. A search (`src/utils/search.js`) ignores the collection and
+returns grouped results from all three.
+
+Neither the collection nor the category is persisted. An old `#sec-<SECTION>`
+link from the retired drawer lands on the matching collection and category.
 
 ---
 
@@ -357,8 +387,8 @@ Everything on a **shared** surface goes through it:
 - `recipeCategory` in the prerendered `Recipe` JSON-LD, which is omitted
   entirely for a staged record
 
-The list's own section headers and its "For Review" tab keep their labels **on
-purpose** — that is Adam's staging view of his own collection.
+The list's own category headers and its "For Review" collection keep their
+labels **on purpose** — that is Adam's staging view of his own collection.
 
 **Never render `recipe.category` to a reader.** It is a staging-capable field.
 Its only legitimate runtime use is the `sameCategory` tie-break in
@@ -413,7 +443,7 @@ consequences follow and are worth knowing before they bite:
 1. **A storage-key collision between two projects is possible**, and would be
    silent. `localStorage` has no path namespace — a generic key like `theme` or
    `settings` written by two apps is one key. This app is already safe: every
-   key it writes is `brl_`-prefixed (`brl_cook_log`, `brl_dark_mode`,
+   key it writes is `brl_`-prefixed (`brl_cook_log`, `brl_dark_mode` (no longer read),
    `brl_made_v1`, `brl_pinned_v1`, `brl_recently_viewed`, `brl_shopping_list`,
    `brl_state_version`). Keep it that way; never introduce an unprefixed key.
 2. **Clearing storage for one project clears it for the others.** The standard
@@ -447,15 +477,16 @@ src/
     RecipeModal/            modal chrome only: backdrop, dialog, close, open-full-page
     RecipePage/             full-page frame: back link, card, placeholder hero
     RelatedRecipes/         cross-section related list, real <a href> links
-    RecipeList/ SectionBlock/ RecipeRow/    the browser
-    TopBar/ TOCNav/ SearchBar/ ShoppingList/ RecentlyViewed/ BackToTop/
+    RecipeList/             the browser: collections, category chips, groups
+    RecipeCard/ ToTryLinks/ SearchResults/ Highlight/ Icon/
+    Masthead/ SearchBar/ ShoppingList/ RecentlyViewed/ BackToTop/
     MacroCard/ UsdaKeyNotice/ Footer/ ErrorBoundary/
 
   hooks/
     useWakeLock.js          cook mode (React wrapper over utils/screenLock.js)
     useMacroEstimate.js     ★ USDA pipeline for one recipe (useReducer machine)
     useShoppingList / useCookLog / useCookHistory / usePinnedRecipes /
-    useRecentlyViewed / useDarkMode / useFocusTrap / useFlashOnHash
+    useRecentlyViewed / useFocusTrap
 
   data/
     recipes.json            ★ the content
@@ -465,7 +496,7 @@ src/
     recipeIndex.js          displayRecipes, lookups, resolveRecipe
     sections.js             SECTIONS + publicSectionLabel
     expandVersions.js       version expansion → parent::vN rows
-    navSections.js          tab routing for sections
+    catalog.js              collections + categories over sections (§3a)
     stateMigration.js       one-time localStorage name→id migration
     nutritionOverrides.json per-ingredient USDA overrides
 
@@ -478,7 +509,9 @@ src/
     parseIngredient / convertToGrams / fractions / scaleIngredient /
     estimateServings / estimateMacros / fetchNutrition / swUpdate
 
-  styles/globals.css        tokens, dark mode, print rules
+  styles/tokens.css         design tokens (colour roles, type, space) — light only
+  styles/globals.css        base element styles, print rules
+  styles/contrast.test.js   WCAG AA check of every token text/background pair
 ```
 
 ---

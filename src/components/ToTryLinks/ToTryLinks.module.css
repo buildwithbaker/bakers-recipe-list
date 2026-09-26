@@ -1,0 +1,67 @@
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r3);
+  box-shadow: var(--shadow-1);
+  overflow: hidden;
+}
+
+.links li + li {
+  border-top: 1px solid var(--line);
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  min-height: 52px;
+  padding: var(--s2) var(--s4);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.links a:hover {
+  background: var(--paper);
+}
+
+.links a:focus-visible {
+  outline-offset: -3px;
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+}
+
+.domain {
+  color: var(--ink-muted);
+  font-size: var(--t-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 45%;
+}
+
+.links svg {
+  width: 16px;
+  height: 16px;
+  color: var(--ink-muted);
+  flex: none;
+}
+
+/* Two columns once there is room for both. Every row carries its own top rule
+   so the first row of the second column is ruled too. */
+.cols {
+  columns: 2 380px;
+  column-gap: 0;
+}
+
+.cols li {
+  break-inside: avoid;
+  border-top: 1px solid var(--line);
+  margin-top: -1px;
+}

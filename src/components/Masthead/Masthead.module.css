@@ -1,0 +1,132 @@
+/* Navy band with a double amber rule underneath. The search box below it
+   (SearchBar) pulls itself up 32px to sit across the band's bottom edge. */
+.masthead {
+  background: var(--band);
+  color: var(--band-ink);
+  padding: var(--s5) 0 var(--s7);
+  border-bottom: 4px solid var(--band-accent);
+  box-shadow: 0 3px 0 var(--paper), 0 5px 0 var(--band-accent);
+  margin-bottom: 5px; /* room for the second rule, which is a shadow */
+}
+
+.slim {
+  padding-bottom: var(--s5);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+}
+
+.brand {
+  flex: 1;
+  min-width: 0;
+}
+
+.wordmark {
+  margin: 0;
+  padding: 6px 0;
+  font: 400 var(--t-2xl)/1.1 var(--serif);
+  letter-spacing: -0.01em;
+  color: var(--band-ink);
+}
+
+.accent {
+  color: var(--band-accent);
+}
+
+.home {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  min-height: var(--tap);
+  line-height: var(--tap);
+}
+
+.home:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--band-accent);
+  text-underline-offset: 6px;
+}
+
+.home:focus-visible {
+  outline-color: var(--band-accent);
+}
+
+.tagline {
+  margin: 2px 0 0;
+  color: var(--band-ink-muted);
+  font-size: var(--t-sm);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.pill {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2);
+  padding: 0 var(--s3);
+  border: 1px solid rgb(246 231 200 / 0.35);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.08);
+  color: var(--band-ink);
+  font: 600 var(--t-sm)/1 var(--sans);
+  cursor: pointer;
+}
+
+.pill:hover {
+  border-color: var(--band-accent);
+}
+
+.pill:focus-visible {
+  outline-color: var(--band-accent);
+}
+
+.pill svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+.badge {
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--band-accent);
+  color: var(--band);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+@media (max-width: 719px) {
+  .masthead {
+    padding: var(--s4) 0 var(--s7);
+  }
+  .slim {
+    padding-bottom: var(--s4);
+  }
+  .wordmark {
+    font-size: var(--t-xl);
+  }
+  .tagline,
+  .lbl {
+    display: none;
+  }
+}
+
+@media print {
+  .masthead {
+    display: none;
+  }
+}

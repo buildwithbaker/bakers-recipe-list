@@ -3,6 +3,10 @@ import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
 import { migrateState } from './data/stateMigration.js';
 import { installUpdateReload } from './utils/swUpdate.js';
+// Headings: Young Serif, self-hosted (latin subset, woff2 ~27 KB). Bundled from
+// our own origin so the installed app renders it offline; no Google Fonts call.
+import '@fontsource/young-serif/latin-400.css';
+import './styles/tokens.css';
 import './styles/globals.css';
 
 // Persisted state moves from name keys to id keys BEFORE the first render: the

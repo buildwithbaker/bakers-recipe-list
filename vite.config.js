@@ -17,7 +17,10 @@ export default defineConfig({
       // Extra static assets (from public/) to precache alongside the build.
       includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       workbox: {
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest}'],
+        // woff2 is the self-hosted heading font; without it an offline visit
+        // falls back to Georgia. The .woff twin is never fetched by a browser
+        // that reads woff2, so it is left out of the precache.
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff2}'],
         // The recipe data (~0.5 MB) is bundled into the main JS chunk, so the
         // precache entry can exceed the 2 MiB default. Raise the ceiling.
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
@@ -37,8 +40,8 @@ export default defineConfig({
         start_url: BASE,
         display: 'standalone',
         orientation: 'portrait-primary',
-        theme_color: '#042C53',
-        background_color: '#FEFCF5',
+        theme_color: '#1f3a5f',
+        background_color: '#f3ebdc',
         icons: [
           { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
           { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },

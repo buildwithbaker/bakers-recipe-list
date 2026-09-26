@@ -1,75 +1,87 @@
-.bar {
-  position: sticky;
-  top: 52px; /* clears the TopBar (14px padding + ~24px title + 14px padding) */
-  z-index: 100;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 20px;
+/* Pulled up across the masthead's bottom edge. The masthead leaves --s7 of
+   padding under its content; 32px of that is what the box overlaps. */
+.finder {
+  position: relative;
+  z-index: 2;
+  margin-top: -37px; /* 32px overlap + the 5px second amber rule */
+}
+
+.search {
+  position: relative;
 }
 
 .icon {
-  color: var(--text-muted);
-  flex-shrink: 0;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  color: var(--ink-muted);
+  pointer-events: none;
 }
 
 .input {
-  flex: 1;
-  border: none;
-  background: transparent;
-  font-size: 14px;
-  color: var(--text);
-  outline: none;
-  min-width: 0;
+  width: 100%;
+  height: 56px;
+  padding: 0 52px 0 48px;
+  border: 0;
+  border-radius: var(--r3);
+  background: var(--surface);
+  color: var(--ink);
+  font: 400 1.0625rem/1.2 var(--sans); /* 17px: above iOS's 16px zoom threshold */
+  box-shadow: var(--shadow-3);
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .input::placeholder {
-  color: var(--text-muted);
+  color: var(--ink-muted);
+  opacity: 1;
 }
 
-/* Remove browser default search cancel button */
-.input::-webkit-search-cancel-button {
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  -webkit-appearance: none;
   display: none;
 }
 
+/* A text field shows focus on every focus, not only keyboard focus. Navy, not
+   the prototype's amber: amber on paper is 2.1:1, under the 3:1 a focus
+   indicator needs. */
+.input:focus {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
 .clear {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--tap);
+  height: var(--tap);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
   background: none;
-  border: none;
-  color: var(--text-muted);
+  color: var(--ink-muted);
   cursor: pointer;
-  font-size: 13px;
-  padding: 2px 4px;
-  border-radius: 3px;
-  line-height: 1;
-  transition: color 0.15s;
-  flex-shrink: 0;
 }
 
 .clear:hover {
-  color: var(--text);
+  color: var(--ink);
+  background: var(--surface-sunk);
 }
 
-@media (max-width: 480px) {
-  .bar {
-    top: 44px; /* TopBar is shorter on mobile: 12px padding + ~20px title + 12px padding */
-    padding: 8px 12px;
-  }
-  .input {
-    font-size: 13px;
-  }
+.clear svg {
+  width: 20px;
+  height: 20px;
 }
 
-/* Visually hidden but accessible to screen readers */
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+@media print {
+  .finder {
+    display: none;
+  }
 }

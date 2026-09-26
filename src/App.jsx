@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { resolveRecipe } from './data/recipeIndex.js';
-import { TAB_RECIPES } from './data/navSections.js';
-import TopBar from './components/TopBar/TopBar.jsx';
+import { SECTIONS } from './data/sections.js';
+import { COLL_BOOK, SECTION_CATEGORY, collectionOfSection } from './data/catalog.js';
+import Masthead from './components/Masthead/Masthead.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
-import TOCNav from './components/TOCNav/TOCNav.jsx';
 import RecipeList from './components/RecipeList/RecipeList.jsx';
 import RecipeModal from './components/RecipeModal/RecipeModal.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
@@ -16,7 +16,6 @@ import Footer from './components/Footer/Footer.jsx';
 import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
-import { useDarkMode } from './hooks/useDarkMode.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
 import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js';
 
@@ -31,7 +30,7 @@ import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js
  *
  * Overlay history model
  * ---------------------
- * The remaining dismissable layers — shopping list, sections menu — push a
+ * The remaining dismissable layer, the shopping list, pushes a
  * history entry when they open. The entry's `history.state.overlays` array
  * records the full stack open at that entry, so Back pops exactly one layer
  * instead of leaving the site, and Forward restores it. The recipe is NOT in
@@ -43,8 +42,18 @@ import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js
  * that is what stops a single Escape from closing two stacked layers at once,
  * and it is why closing the recipe is refused while an overlay sits above it.
  */
-const MENU = 'menu';
 const LIST = 'list';
+
+// An old #sec-<SECTION> link from the retired sections drawer lands on the
+// matching collection and category rather than nowhere.
+function landingShelf() {
+  try {
+    const id = decodeURIComponent(window.location.hash.slice(1));
+    const section = id && SECTIONS.find((s) => s.id === id);
+    if (section) return { collection: collectionOfSection(section), category: SECTION_CATEGORY[section.key] ?? '' };
+  } catch { /* fall through */ }
+  return { collection: COLL_BOOK, category: '' };
+}
 
 function getParam(key) {
   try { return new URLSearchParams(window.location.search).get(key) || ''; }
@@ -125,12 +134,12 @@ function AppInner() {
   const [pageView, setPageView] = useState(() => (window.history.state ? isPageEntry() : !!landing.id));
   const [overlays, setOverlays] = useState(entryOverlays);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
-  // Which list tab is showing. Owned here, not in RecipeList, because the
-  // sections drawer can link to a section on a tab that is not the active one.
-  const [activeTab, setActiveTab] = useState(TAB_RECIPES);
-  // Section id waiting to be scrolled to once its tab has rendered and the
-  // drawer has closed.
-  const [pendingAnchor, setPendingAnchor] = useState(null);
+  // Which collection and category the list shows. Owned here so they survive
+  // the list unmounting behind a full recipe page.
+  const [shelf] = useState(landingShelf);
+  const [collection, setCollection] = useState(shelf.collection);
+  const [category, setCategory] = useState(shelf.category);
+  const handleCollectionChange = useCallback((key) => { setCollection(key); setCategory(''); }, []);
   const searchBarRef = useRef(null);
   // Mirrors `overlays` for use inside callbacks that must not re-create on every change.
   const overlaysRef = useRef(overlays);
@@ -139,11 +148,9 @@ function AppInner() {
   // Holds a tag search that must be applied after a back navigation lands.
   const pendingSearchRef = useRef(null);
   const [recentHistory, addToHistory, clearHistory] = useRecentlyViewed();
-  const [darkMode, toggleDark] = useDarkMode();
   const [listItems, addListItems, toggleListItem, removeListItem, clearChecked, clearAll] = useShoppingList();
 
   const selectedRecipe = recipeId ? resolveRecipe(recipeId) : null;
-  const menuOpen = overlays.includes(MENU);
   const listOpen = overlays.includes(LIST);
   const fullPage = !!selectedRecipe && pageView;
 
@@ -252,21 +259,6 @@ function AppInner() {
     window.scrollTo({ top: 0 });
   }, []);
 
-  const handleMenuToggle = useCallback(() => {
-    if (overlaysRef.current.includes(MENU)) closeOverlay(MENU); else openOverlay(MENU);
-  }, [openOverlay, closeOverlay]);
-  const handleMenuClose = useCallback(() => { closeOverlay(MENU); }, [closeOverlay]);
-
-  // A drawer entry may belong to another tab, so switch to the tab that renders
-  // the section first and record the anchor; the effect below does the scroll
-  // once that tab has painted and the drawer is actually gone. From the full
-  // page there is no list underneath, so this navigates to one.
-  const handleNavigateSection = useCallback((section) => {
-    setActiveTab(section.tab);
-    setPendingAnchor(section.id);
-    if (fullPage) goToList(); else closeOverlay(MENU);
-  }, [closeOverlay, fullPage, goToList]);
-
   const handleListToggle = useCallback(() => {
     if (overlaysRef.current.includes(LIST)) closeOverlay(LIST); else openOverlay(LIST);
   }, [openOverlay, closeOverlay]);
@@ -302,29 +294,6 @@ function AppInner() {
     addListItems(recipeId, texts);
     openOverlay(LIST);
   }, [addListItems, openOverlay]);
-
-  // Scroll to a section picked in the drawer. This replaces the 50ms setTimeout
-  // TOCNav used to guess with: the wait is not a fixed delay but two real
-  // conditions — the owning tab must have rendered (it has, this effect runs
-  // after commit) and the drawer must be closed, because it pins
-  // `body { overflow: hidden }` while open and closing it can take a back
-  // navigation to land. Re-runs when `menuOpen` finally flips.
-  useEffect(() => {
-    if (!pendingAnchor || menuOpen) return;
-    const el = document.getElementById(pendingAnchor);
-    setPendingAnchor(null);
-    if (!el) return;
-    el.scrollIntoView({ block: 'start' });
-    // Keep history.state (the overlay stack) and ?q= intact — a bare `#id` URL
-    // discards both and strands the Back button.
-    try {
-      window.history.replaceState(
-        window.history.state,
-        '',
-        `${window.location.pathname}${window.location.search}#${pendingAnchor}`,
-      );
-    } catch { /* ignore */ }
-  }, [pendingAnchor, menuOpen]);
 
   // Back/forward is the single source of truth for what is on screen: the path
   // says which recipe, `state.overlays` says which layers, `state.page` says
@@ -385,20 +354,18 @@ function AppInner() {
   return (
     <ErrorBoundary>
       <BackToTop />
-      <TopBar
-        onMenuToggle={handleMenuToggle}
+      <Masthead
         onListToggle={handleListToggle}
-        darkMode={darkMode}
-        onToggleDark={toggleDark}
         listItemCount={uncheckedCount}
         siteTitleIsHeading={!fullPage}
+        slim={fullPage}
+        onHome={fullPage ? goToList : undefined}
       />
-      <UsdaKeyNotice />
-      <TOCNav open={menuOpen} onClose={handleMenuClose} onNavigate={handleNavigateSection} activeTab={activeTab} />
       {fullPage ? (
         // Arrived here from a shared link: there is no list to lay a card over,
         // so the recipe IS the page. Same URL either way.
         <ErrorBoundary key={selectedRecipe.id}>
+          <UsdaKeyNotice />
           <RecipePage
             recipe={selectedRecipe}
             onBackToList={handleCloseModal}
@@ -410,6 +377,7 @@ function AppInner() {
       ) : (
         <>
           <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
+          <UsdaKeyNotice />
           <RecentlyViewed
             history={recentHistory}
             onViewRecipe={handleViewRecipe}
@@ -420,8 +388,10 @@ function AppInner() {
             onViewRecipe={handleViewRecipe}
             searchQuery={searchQuery}
             onSearch={handleSearch}
-            activeTab={activeTab}
-            onTabChange={setActiveTab}
+            collection={collection}
+            onCollectionChange={handleCollectionChange}
+            category={category}
+            onCategoryChange={setCategory}
           />
           <ErrorBoundary key={selectedRecipe?.id ?? '__none__'}>
             <RecipeModal

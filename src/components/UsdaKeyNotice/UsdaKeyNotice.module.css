@@ -1,49 +1,56 @@
+/* Shown only when the build has no USDA key (local previews, mostly). Sits in
+   the content column under the search box. */
 .notice {
-  background: #fef3e0;
-  border-bottom: 1px solid #f0d9a8;
-  color: var(--amber-deep);
-  font-size: 12px;
-  line-height: 1.5;
-  padding: 8px 16px;
+  max-width: calc(var(--maxw) - 2 * var(--s4));
+  margin: var(--s4) auto 0;
+  width: calc(100% - 2 * var(--s4));
+  padding: var(--s2) var(--s2) var(--s2) var(--s4);
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--s3);
+  background: var(--review-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--r2);
+  color: var(--ink);
+  font-size: var(--t-sm);
+  line-height: 1.5;
 }
 
 .text {
   flex: 1;
+  min-width: 0;
 }
 
 .text code {
-  background: rgba(0, 0, 0, 0.06);
+  background: rgb(0 0 0 / 0.06);
   padding: 1px 5px;
-  border-radius: 3px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 11px;
+  border-radius: var(--r1);
+  font: 0.8125rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow-wrap: anywhere;
 }
 
 .link {
-  color: var(--blue);
+  color: var(--brand);
   font-weight: 600;
   text-decoration: underline;
-}
-
-.link:hover {
-  color: var(--navy);
+  display: inline-block;
+  min-height: 24px;
 }
 
 .dismiss {
+  flex: none;
+  width: var(--tap);
+  height: var(--tap);
+  border: 0;
+  border-radius: 999px;
   background: none;
-  border: none;
-  color: var(--amber-deep);
-  font-size: 16px;
+  color: var(--ink-muted);
+  font-size: 18px;
   line-height: 1;
   cursor: pointer;
-  padding: 4px 6px;
-  flex-shrink: 0;
-  opacity: 0.6;
 }
 
 .dismiss:hover {
-  opacity: 1;
+  color: var(--ink);
+  background: var(--surface);
 }

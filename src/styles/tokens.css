@@ -1,0 +1,74 @@
+/*
+ * Design tokens: the ONE place a colour, size or font is defined.
+ *
+ * Light only, on purpose. Every colour is named for its ROLE (paper, ink,
+ * band...), never for its hue, so a dark theme would be one more block that
+ * re-points these names. None exists; do not add a toggle without asking.
+ *
+ * Contrast: every text/background pair the UI uses is listed in
+ * contrast.test.js, which reads THIS file and fails the suite below WCAG AA.
+ * Change a colour here and the test re-measures it; add a pair there when a
+ * new text colour lands on a new background.
+ */
+:root {
+  color-scheme: light;
+
+  /* ---- Surfaces ---- */
+  --paper: #f3ebdc;          /* page background, under a faint noise texture */
+  --surface: #fffbf5;        /* cards, sheets, inputs */
+  --surface-sunk: #ece3d4;   /* segmented-control track, pressed wells */
+  --line: #e0d4c1;           /* hairlines and card borders */
+  --line-strong: #c9b89f;    /* control borders; decorative only, never text */
+
+  /* ---- Text ---- */
+  --ink: #2a221c;
+  --ink-muted: #5f5349;
+
+  /* ---- Brand ---- */
+  --brand: #1f3a5f;          /* enamel navy: links, focus, primary buttons */
+  --brand-hover: #172d4a;
+  --brand-soft: #e3e9f1;
+  --band: #1f3a5f;           /* masthead background */
+  --band-ink: #f6e7c8;       /* text on the band */
+  --band-ink-muted: #c9d3e0; /* tagline on the band */
+  --band-accent: #e0a63a;    /* amber rules and badges; never body text on paper */
+  --accent: #b7791f;         /* amber icons and rules only */
+  --accent-ink: #7a4f0e;     /* amber dark enough for text */
+  --accent-soft: #f6e7c8;
+
+  /* ---- Status ---- */
+  --made: #3d6b37;
+  --made-soft: #e2eedb;
+  --review-ink: #6b4e00;
+  --review-soft: #f7ecc6;
+  --danger: #a3301f;
+
+  --focus: #1f3a5f;
+  --scrim: rgb(42 34 28 / 0.4);
+
+  /* ---- Type ---- */
+  --serif: "Young Serif", Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* 1.25 scale from 16px (plus --t-sm, the prototype's 14px UI size) */
+  --t-xs: 0.8rem;
+  --t-sm: 0.875rem;
+  --t-md: 1rem;
+  --t-lg: 1.25rem;
+  --t-xl: 1.5625rem;
+  --t-2xl: 1.953rem;
+  --t-3xl: 2.441rem;
+
+  /* ---- Space, shape, depth ---- */
+  --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px;
+  --s5: 24px; --s6: 32px; --s7: 48px; --s8: 64px;
+  --r1: 4px; --r2: 8px; --r3: 12px; --r4: 16px;
+  --shadow-1: 0 1px 2px rgb(70 45 20 / 0.06), 0 1px 1px rgb(70 45 20 / 0.04);
+  --shadow-2: 0 2px 4px rgb(70 45 20 / 0.06), 0 8px 20px rgb(70 45 20 / 0.08);
+  --shadow-3: 0 4px 8px rgb(70 45 20 / 0.08), 0 20px 40px rgb(70 45 20 / 0.14);
+
+  --tap: 44px;               /* minimum target for anything you press */
+  --maxw: 1180px;
+
+  /* Paper grain. An inline SVG so it works offline and costs no request. */
+  --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .12 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
