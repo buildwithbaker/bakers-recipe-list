@@ -1,19 +1,14 @@
 /* MacroCard lives inside the recipe modal — uses the Warm Cookbook palette. */
 
 .card {
-  margin-top: 18px;
-  background: #FAF6EE;
-  border: 1px solid var(--card-border);
-  border-radius: 8px;
-  padding: 12px 14px;
-  font-size: 13px;
-  color: var(--card-body);
+  font-size: var(--t-sm);
+  color: var(--ink);
 }
 
 .title {
-  font-size: 11px;
+  font-size: var(--t-xs);
   font-weight: 700;
-  color: var(--card-section-label);
+  color: var(--ink);
   text-transform: uppercase;
   letter-spacing: 0.6px;
   margin-bottom: 8px;
@@ -21,7 +16,7 @@
 
 .loading {
   font-size: 13px;
-  color: var(--card-muted);
+  color: var(--ink-muted);
   font-style: italic;
 }
 
@@ -53,30 +48,30 @@
 .value {
   font-weight: 700;
   font-size: 14px;
-  color: var(--card-section-label);
+  color: var(--ink);
 }
 
 .label {
-  font-size: 12px;
-  color: var(--card-muted);
+  font-size: var(--t-xs);
+  color: var(--ink-muted);
 }
 
 .footnote {
   margin-top: 10px;
-  font-size: 11px;
-  color: var(--card-muted);
+  font-size: var(--t-xs);
+  color: var(--ink-muted);
   line-height: 1.4;
 }
 
 .partial {
   margin-top: 4px;
-  font-size: 11px;
-  color: var(--card-heading);
+  font-size: var(--t-xs);
+  color: var(--accent-ink);
   font-style: italic;
 }
 
 .partial a {
-  color: var(--card-heading);
+  color: var(--accent-ink);
   text-decoration: underline;
 }
 

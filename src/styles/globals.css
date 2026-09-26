@@ -142,8 +142,15 @@ main {
     border-radius: 0 !important;
   }
 
-  [data-print-list] [data-print-hide] {
+  [data-print-list] [data-print-hide],
+  [data-print-modal] [data-print-hide] {
     display: none !important;
+  }
+
+  /* The recipe prints on white, whatever the screen shows. */
+  body:has([data-print-modal]),
+  [data-print-modal] {
+    background: #fff !important;
   }
 }
 

@@ -478,11 +478,19 @@ export default function RecipeView({
 
         {!recipe.is_blank && (
           <div className={styles.extras} data-print-hide>
-            <MacroErrorBoundary>
-              <Suspense fallback={null}>
-                <MacroCard {...macroState} />
-              </Suspense>
-            </MacroErrorBoundary>
+            {/* Closed by default: an estimate, useful on demand, not the point
+                of the page. Hidden entirely when there is nothing to estimate
+                (MacroCard renders nothing for those states either). */}
+            {macroState.status !== 'unavailable' && macroState.status !== 'error' && (
+              <details className={styles.nutrition}>
+                <summary>Estimated nutrition</summary>
+                <MacroErrorBoundary>
+                  <Suspense fallback={null}>
+                    <MacroCard {...macroState} />
+                  </Suspense>
+                </MacroErrorBoundary>
+              </details>
+            )}
             <CookLogSection recipeId={recipe.id} Heading={Heading} />
           </div>
         )}
