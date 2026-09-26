@@ -9,15 +9,15 @@ automatic per-recipe macro/nutrition estimates.
 
 ## Features
 
-- **Sectioned recipe browser** with a sticky table-of-contents nav and
-  **Recipes / For Review** tabs.
-- **Search** plus **auto-tagging** with quick tag filtering.
+- **Collections** (Cookbook / For Review / To Try) narrowed by **category chips**.
+- **One search** across every collection: names, ingredients, tags and To Try
+  links, plus **auto-tagging** with a tag browser.
 - **Recipe detail modal** with ingredients, method, and a **serving scaler**.
 - **Macro & nutrition estimates** per recipe via USDA FoodData Central lookups
   (with per-ingredient overrides and a graceful `DEMO_KEY` fallback).
 - **Ingredient parsing**, **unit-to-grams conversion**, and serving/macro estimation.
 - **Shopping list** and **cook log / history** with notes.
-- **Pinned recipes**, **recently viewed**, **dark mode**, print support, and
+- **Pinned recipes**, **recently viewed**, print support, and
   back-to-top — persisted in `localStorage`.
 
 ## Tech stack
@@ -50,17 +50,19 @@ vite.config.js          Vite config (base: /bakers-recipe-list/)
 src/
   main.jsx              React bootstrap
   App.jsx               top-level app
-  components/           UI components (CSS Modules) — TopBar, TOCNav, SearchBar,
-                       RecipeList/Row/Modal, SectionBlock, MacroCard, ShoppingList,
+  components/           UI components (CSS Modules) — Masthead, SearchBar,
+                       RecipeList, RecipeCard, SearchResults, ToTryLinks,
+                       RecipeView/Modal/Page, MacroCard, ShoppingList,
                        RecentlyViewed, BackToTop, ErrorBoundary, UsdaKeyNotice
-  hooks/               useDarkMode, useShoppingList, useCookLog/useCookHistory,
+  hooks/               useShoppingList, useCookLog/useCookHistory,
                        usePinnedRecipes, useRecentlyViewed, useMacroEstimate,
-                       useFocusTrap, useFlashOnHash
+                       useFocusTrap
   context/             CookHistoryContext
-  data/                recipes.json, recipeIndex, sections, nutritionOverrides, expandVersions
+  data/                recipes.json, recipeIndex, sections, catalog, nutritionOverrides, expandVersions
   utils/               ingredient parsing, gram conversion, macro/serving estimates,
                        USDA fetch, autoTags, fractions, scaleIngredient
-  styles/globals.css   global styles
+  styles/tokens.css    design tokens (light only)
+  styles/globals.css   base and print styles
 .github/workflows/      ci.yml (build check), deploy.yml (Pages)
 ```
 
