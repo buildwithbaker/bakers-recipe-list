@@ -1,10 +1,12 @@
 # Adding a photo to a recipe
 
-The workflow for every dish you remake and shoot. Five minutes, four steps.
+The workflow for every dish you remake and shoot. Five minutes, four steps, and
+no edit to `recipes.json`.
 
-The same file does two jobs: it is the hero at the top of the recipe page **and**
-the `og:image` in every link preview of that recipe — iMessage, Slack, Facebook,
-Discord. Shoot and crop for both.
+The same file does three jobs: the photo on the recipe's card in the list, the
+photo beside its title, **and** the `og:image` in every link preview of that
+recipe (iMessage, Slack, Facebook, Discord). The card crops it square and the
+preview crops it wide, so keep the dish in the middle of the frame.
 
 ---
 
@@ -38,60 +40,66 @@ Any of these work:
 - **Squoosh** (<https://squoosh.app>, runs locally in the browser, nothing is
   uploaded): drop the file, set MozJPEG quality 80, resize width 1600, download.
 
-## 3. Name and save it
+## 3. Drop it in `src/photos/`
 
 ```
-public/photos/<id>.jpg
+src/photos/<id>.jpg
 ```
 
-`<id>` is the record's `id` field in `src/data/recipes.json` — **not** its name,
-and not a new slug. The id is frozen; the name can change. Naming the file after
-the id keeps the pairing obvious and survives a rename.
+`<id>` is the recipe's `id` in `src/data/recipes.json`, which is also the last
+part of its address: `/r/spicy-pork-patties/` means `spicy-pork-patties.jpg`.
+Use the id, **not** the name: the id is frozen, the name can change. For one
+version of a multi-version recipe, use the version's address:
+`/r/chili--v2/` means `chili--v2.jpg`.
 
-```
-public/photos/spicy-pork-patties.jpg
-```
+`.jpg`, `.jpeg`, `.png` and `.webp` are accepted. iPhone photos are HEIC by
+default: export as JPEG first (Photos → Share → Save to Files as JPEG, or the
+resize tools in step 2, which all save JPEG).
 
-`.jpg`, `.jpeg`, `.png` and `.webp` are all accepted. Prefer `.jpg` for
-photographs — PNG of a photo is several times larger for no visible gain.
+**No edit to `recipes.json`.** That is the whole change.
 
-## 4. Point the record at it
-
-Add one line to that recipe in `src/data/recipes.json`. The path is relative to
-`public/` with **no leading slash**:
-
-```json
-{
-  "id": "spicy-pork-patties",
-  "name": "Spicy Pork Patties",
-  "image": "photos/spicy-pork-patties.jpg",
-  ...
-}
-```
-
-Then:
+## 4. Build
 
 ```bash
 npm run build
 ```
 
-`prebuild` validates first. If the path is wrong, the file is missing, or the
-photo is too heavy, the build fails and tells you which.
+Before `vite build`, `scripts/build-photos.mjs` makes the sizes the app shows,
+into `src/photos/generated/` (gitignored, rebuilt every time):
+
+| file | size | used for |
+|---|---|---|
+| `<id>-thumb.webp` | 240×240, cropped to fill | the photo slot on every card |
+| `<id>-large.webp` | 800px wide | the photo beside the title on the recipe |
+
+After `vite build`, `scripts/prerender.mjs` makes `dist/og/<id>.jpg`, 1200×630,
+for link previews (JPEG, because preview crawlers are unreliable with WebP).
+
+**The build fails, and says why, when** a file in `src/photos/` matches no
+recipe (usually a typo or the name instead of the id), is over 500 KB, is not a
+photo, or is a second photo for the same recipe. Commit the photo in
+`src/photos/`; never commit anything under `generated/`.
 
 ---
 
 ## What changes once a photo exists
 
-| | No `image` | With `image` |
+| | No photo | With a photo |
 |---|---|---|
-| Full recipe page | brand placeholder hero | the photo |
-| Modal over the list | no hero | the photo |
-| `og:image` in link previews | brand placeholder | the photo |
-| `Recipe` JSON-LD `image` | brand placeholder | the photo |
+| Card in the list | tinted slot with the dish's initial | the photo |
+| Recipe (card or page) | no photo | the photo beside the title |
+| `og:image` in link previews | brand placeholder | the photo, 1200×630 |
+| `Recipe` JSON-LD `image` | brand placeholder | the photo, 1200×630 |
 
-Nothing else has to be touched — `scripts/prerender.mjs` reads `image` straight
-off the record and writes the absolute URL into both the meta tags and the
-structured data.
+Offline, in the installed app: card thumbnails are precached with the app;
+a recipe's large photo is cached the first time you open that recipe.
+
+### The older `image` field
+
+Before 2026-09 a photo lived in `public/photos/` and was named in the record's
+optional `image` field. That still works as a fallback (no record uses it
+today), but a photo in `src/photos/` wins, and it is the only path that gets
+the sized versions. Prefer `src/photos/`.
 
 ## While you are in the record anyway
 
@@ -112,6 +120,6 @@ All are optional and validated only when present — see
 
 ## Removing a photo
 
-Delete the `"image"` line from the record and delete the file. Both the page and
-the preview fall back to the placeholder. Leaving the file without the line is
-harmless; leaving the line without the file fails the build.
+Delete the file from `src/photos/` and rebuild. Its sizes are removed from
+`generated/` automatically, and the card, the recipe and the preview fall back
+to the placeholder.

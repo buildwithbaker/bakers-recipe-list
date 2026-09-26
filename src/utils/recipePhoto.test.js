@@ -3,13 +3,13 @@ import { photoInitial, recipePhoto } from './recipePhoto.js';
 
 describe('recipe photo', () => {
   it('has no photo when the recipe names none', () => {
-    expect(recipePhoto({ id: 'x' })).toBeNull();
+    expect(recipePhoto({ id: 'no-photo-here' })).toBeNull();
   });
 
   it('resolves an image path under the app base', () => {
-    const p = recipePhoto({ image: 'images/recipes/lasagna.jpg' });
-    expect(p.thumb).toMatch(/\/images\/recipes\/lasagna\.jpg$/);
-    expect(p.thumb).not.toMatch(/\/\/images/);
+    const p = recipePhoto({ id: 'no-photo-here', image: 'photos/lasagna.jpg' });
+    expect(p.thumb).toMatch(/\/photos\/lasagna\.jpg$/);
+    expect(p.thumb).not.toMatch(/\/\/photos/);
   });
 
   it('uses the first letter of the name for the empty slot', () => {
