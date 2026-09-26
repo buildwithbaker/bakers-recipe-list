@@ -28,9 +28,16 @@ describe('photo drop folder rules', () => {
       { name: 'lasagna.png', bytes: 1000 },
     ], ids);
     expect(errors).toHaveLength(3);
-    expect(errors.join('\n')).toMatch(/over the 500 KB limit/);
+    expect(errors.join('\n')).toMatch(/over the 2 MB limit/);
     expect(errors.join('\n')).toMatch(/not a photo/);
     expect(errors.join('\n')).toMatch(/already the photo for lasagna/);
+  });
+
+  it('accepts an unresized phone photo up to 2 MB', () => {
+    const { photos, errors } = planPhotos([{ name: 'lasagna.jpg', bytes: 1.5 * 1024 * 1024 }], ids);
+    expect(errors).toEqual([]);
+    expect(photos).toHaveLength(1);
+    expect(MAX_SOURCE_BYTES).toBe(2 * 1024 * 1024);
   });
 
   it('ignores the generated folder and notes', () => {

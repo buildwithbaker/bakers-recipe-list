@@ -8,10 +8,13 @@ import { idToSlug } from './recipeSlug.js';
 
 export const PHOTO_SOURCE_EXT = /\.(jpe?g|png|webp)$/i;
 
-// Same ceiling the old photo workflow enforced, for the same reason: git keeps
-// every version of a committed file forever, and a few hundred untreated phone
-// photos would bloat the repo permanently. See docs/internal/adding-a-photo.md.
-export const MAX_SOURCE_BYTES = 500 * 1024;
+// 2 MB per original (Adam, 2026-09-26: raised from the old 500 KB so most
+// photos can be dropped in without resizing). The original never ships - only
+// the sized copies do - so this bounds the REPO, not the site: git keeps every
+// version of a committed file forever. At one photo per recipe that is up to
+// ~320 MB of history, accepted. See docs/internal/adding-a-photo.md.
+export const MAX_SOURCE_BYTES = 2 * 1024 * 1024;
+const mb = (bytes) => `${(bytes / (1024 * 1024)).toFixed(1).replace(/\.0$/, '')} MB`;
 
 // Output sizes. thumb: the 88px card slot at up to 2.7x density. large: the
 // recipe header photo (240px box) and a full-width phone header at 2x.
@@ -48,7 +51,7 @@ export function planPhotos(files, knownIds) {
       continue;
     }
     if (bytes > MAX_SOURCE_BYTES) {
-      errors.push(`src/photos/${name}: ${Math.round(bytes / 1024)} KB, over the ${MAX_SOURCE_BYTES / 1024} KB limit. Resize to about 1600px wide, JPEG quality 80.`);
+      errors.push(`src/photos/${name}: ${mb(bytes)}, over the ${mb(MAX_SOURCE_BYTES)} limit. Resize to about 1600px wide, JPEG quality 80.`);
       continue;
     }
     if (seen.has(segment)) {

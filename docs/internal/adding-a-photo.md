@@ -19,18 +19,16 @@ preview crops it wide, so keep the dish in the middle of the frame.
   centre-cropped and you lose the top and bottom of the plate.
 - Daylight beats the kitchen ceiling light. Near a window, no flash.
 
-## 2. Resize it
+## 2. Resize it, only if it is over 2 MB
 
-Target: **about 1600px wide, JPEG quality 80, under 500 KB.**
+The limit is **2 MB per photo** (raised from 500 KB on 2026-09-26). Many phone
+JPEGs fit as they are; some, especially from newer phones, do not. The site is
+never affected: only the sized copies the build makes are published. The limit
+protects the repo, because git keeps every version of a committed file forever.
 
-An untreated phone photo is 3–5 MB. Committing those is not just slow — git
-keeps every version forever, so a few hundred of them would put hundreds of
-megabytes into the repo permanently and push the published site towards the
-GitHub Pages 1 GB limit. A resized copy looks identical at the size it is
-actually displayed.
-
-**The build enforces this.** A photo over 500 KB fails `npm run build` with the
-ceiling and this fix in the error text.
+**The build enforces this.** A photo over 2 MB fails `npm run build` with the
+size and this fix in the error text. Target when resizing: **about 1600px
+wide, JPEG quality 80.**
 
 Any of these work:
 
@@ -76,7 +74,7 @@ After `vite build`, `scripts/prerender.mjs` makes `dist/og/<id>.jpg`, 1200×630,
 for link previews (JPEG, because preview crawlers are unreliable with WebP).
 
 **The build fails, and says why, when** a file in `src/photos/` matches no
-recipe (usually a typo or the name instead of the id), is over 500 KB, is not a
+recipe (usually a typo or the name instead of the id), is over 2 MB, is not a
 photo, or is a second photo for the same recipe. Commit the photo in
 `src/photos/`; never commit anything under `generated/`.
 

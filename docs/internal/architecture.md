@@ -617,7 +617,8 @@ without a phone — see `screenLock.test.js`.
 - `scripts/build-photos.mjs` (prebuild and predev, uses `sharp`) writes a
   240×240 card thumbnail and an 800px-wide header photo, as WebP, into
   `src/photos/generated/` (gitignored). It fails the build on a file that
-  matches no recipe id, is over 500 KB, is not a photo, or duplicates another.
+  matches no recipe id, is over 2 MB, is not a photo, or duplicates another.
+  Originals never ship; the 2 MB limit bounds repo history, not the site.
   The rules are `src/utils/photoFiles.js` (unit-tested). File names are matched
   against the real ids, never turned into new ones.
 - `src/utils/recipePhoto.js` finds the outputs with `import.meta.glob` and is
