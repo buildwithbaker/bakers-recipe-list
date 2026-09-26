@@ -8,7 +8,8 @@
 // button instead of a link: a new tab or a crawler following it would 404.
 import { memo } from 'react';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
-import { categoryOf } from '../../data/catalog.js';
+import { categoryOf, categoryStyle } from '../../data/catalog.js';
+import { photoInitial, recipePhoto } from '../../utils/recipePhoto.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { recipePath } from '../../utils/recipeRoute.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
@@ -22,41 +23,53 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, showReviewBadg
   const { madeSet, pinnedSet, togglePinned } = useCookHistoryContext();
   const isMade = madeSet.has(recipe.id);
   const isPinned = pinnedSet.has(recipe.id);
-  const category = showCategory ? categoryOf(recipe) : null;
+  const category = categoryOf(recipe);
+  const photo = recipePhoto(recipe);
   const title = <Highlight text={recipe.name} query={highlight} />;
 
   return (
-    <li className={styles.card}>
-      {category && <p className={styles.kicker}>{category.label}</p>}
-      <h3 className={styles.title}>
-        {recipe.is_blank ? (
-          <button type="button" className={styles.link} onClick={() => onViewRecipe(recipe)}>{title}</button>
+    <li className={styles.card} style={categoryStyle(category)}>
+      {/* Decorative: the title beside it names the dish. Width and height are
+          set so a photo arriving late cannot shift the layout. */}
+      <div className={styles.thumb} aria-hidden="true">
+        {photo ? (
+          <img src={photo.thumb} alt="" width="88" height="88" loading="lazy" decoding="async" />
         ) : (
-          <a
-            className={styles.link}
-            href={recipePath(recipe.id)}
-            onClick={(e) => {
-              if (isModifiedClick(e)) return;
-              e.preventDefault();
-              onViewRecipe(recipe);
-            }}
-          >
-            {title}
-          </a>
+          <span>{photoInitial(recipe.name)}</span>
         )}
-      </h3>
-      <div className={styles.meta}>
-        {recipe.is_blank ? (
-          <span>Coming soon</span>
-        ) : (
-          <span>{plural(ingredientCount(recipe), 'ingredient')} · {plural(stepCount(recipe), 'step')}</span>
-        )}
-        {isMade && (
-          <span className={`${styles.pill} ${styles.made}`}>
-            <Icon name="check" size={12} />Made
-          </span>
-        )}
-        {showReviewBadge && <span className={`${styles.pill} ${styles.review}`}>For Review</span>}
+      </div>
+      <div className={styles.body}>
+        {showCategory && category && <p className={styles.kicker}>{category.label}</p>}
+        <h3 className={styles.title}>
+          {recipe.is_blank ? (
+            <button type="button" className={styles.link} onClick={() => onViewRecipe(recipe)}>{title}</button>
+          ) : (
+            <a
+              className={styles.link}
+              href={recipePath(recipe.id)}
+              onClick={(e) => {
+                if (isModifiedClick(e)) return;
+                e.preventDefault();
+                onViewRecipe(recipe);
+              }}
+            >
+              {title}
+            </a>
+          )}
+        </h3>
+        <div className={styles.meta}>
+          {recipe.is_blank ? (
+            <span>Coming soon</span>
+          ) : (
+            <span>{plural(ingredientCount(recipe), 'ingredient')} · {plural(stepCount(recipe), 'step')}</span>
+          )}
+          {isMade && (
+            <span className={`${styles.pill} ${styles.made}`}>
+              <Icon name="check" size={12} />Made
+            </span>
+          )}
+          {showReviewBadge && <span className={`${styles.pill} ${styles.review}`}>For Review</span>}
+        </div>
       </div>
       {!recipe.is_blank && (
         // Constant name carrying the recipe, state in aria-pressed and in the

@@ -1,11 +1,13 @@
+/* Horizontal: photo slot, then the words. --cc / --cc-soft / --cc-mid come
+   from the card's category (catalog.js categoryStyle); the fallbacks are the
+   brand navy for anything without one. */
 .card {
   position: relative;
   display: flex;
-  flex-direction: column;
-  min-height: 112px;
-  padding: var(--s4) var(--s4) var(--s3);
+  gap: var(--s4);
+  padding: var(--s3);
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--cc-mid, var(--line));
   border-radius: var(--r3);
   box-shadow: var(--shadow-1);
   transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
@@ -13,8 +15,53 @@
 
 .card:hover {
   box-shadow: var(--shadow-2);
-  border-color: var(--line-strong);
+  border-color: var(--cc, var(--line-strong));
   transform: translateY(-1px);
+}
+
+/* ---------- Photo slot ---------- */
+.thumb {
+  position: relative;
+  flex: none;
+  width: 88px;
+  height: 88px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--r2);
+  background: var(--cc-soft, var(--surface-sunk));
+}
+
+/* No photo yet: a dashed inner frame and the dish's initial. */
+.thumb::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1.5px dashed var(--cc-mid, var(--line-strong));
+  border-radius: 6px;
+}
+
+.thumb span {
+  position: relative;
+  font: 400 2.25rem/1 var(--serif);
+  color: var(--cc, var(--brand));
+}
+
+.thumb img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 2px 0;
 }
 
 /* The whole card is the target: the link's ::after covers it. The focus ring
@@ -26,22 +73,22 @@
 
 .kicker {
   margin: 0;
-  padding-right: 40px;
+  padding-right: 36px;
   font-size: var(--t-xs);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent-ink);
+  color: var(--cc, var(--accent-ink));
 }
 
 .title {
-  margin: var(--s1) 0 var(--s2);
+  margin: 0 0 var(--s1);
   padding-right: 36px;
-  font: 400 var(--t-lg)/1.25 var(--serif);
+  font: 400 1.1875rem/1.25 var(--serif);
 }
 
 .link {
-  color: var(--ink);
+  color: var(--cc, var(--ink));
   text-decoration: none;
   /* reset for the coming-soon <button> variant */
   padding: 0;
@@ -123,4 +170,14 @@
 .pin svg {
   width: 22px;
   height: 22px;
+}
+
+@media (max-width: 719px) {
+  .thumb {
+    width: 76px;
+    height: 76px;
+  }
+  .thumb span {
+    font-size: 2rem;
+  }
 }

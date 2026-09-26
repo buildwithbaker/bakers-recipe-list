@@ -9,7 +9,7 @@
 // collection at once.
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  CATEGORY_BY_ID, COLLECTIONS, COLL_TRY, ROWS_BY_COLLECTION, groupByCategory,
+  CATEGORY_BY_ID, COLLECTIONS, COLL_TRY, ROWS_BY_COLLECTION, categoryStyle, groupByCategory,
 } from '../../data/catalog.js';
 import { displayRecipes } from '../../data/recipeIndex.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
@@ -145,7 +145,7 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
 
   // Keep a chip for the selected category even when a filter empties it, so
   // there is always a visible way to deselect it.
-  const chips = groups.map((g) => ({ id: g.category.id, label: g.category.label, n: g.rows.length }));
+  const chips = groups.map((g) => ({ category: g.category, id: g.category.id, label: g.category.label, n: g.rows.length }));
   const selectedMissing = category && !chips.some((c) => c.id === category);
 
   // Counts on the collection switcher: rows each collection lists with no
@@ -224,10 +224,12 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
             key={c.id}
             type="button"
             className={styles.chip}
+            style={categoryStyle(c.category)}
             data-cat={c.id}
             aria-pressed={category === c.id}
             onClick={() => onCategoryChange(category === c.id ? '' : c.id)}
           >
+            <span className={styles.dot} aria-hidden="true" />
             {c.label}<span className={styles.n}>{c.n}</span>
           </button>
         ))}
@@ -287,7 +289,13 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
       )}
 
       {shownGroups.map((g) => (
-        <section key={g.category.id} className={styles.group} aria-labelledby={`g-${g.category.id}`}>
+        <section
+          key={g.category.id}
+          className={styles.group}
+          style={categoryStyle(g.category)}
+          aria-labelledby={`g-${g.category.id}`}
+        >
+          {/* A recipe-box divider tab on a rule in the category colour. */}
           <div className={styles.groupHead}>
             <h2 id={`g-${g.category.id}`}>
               {g.category.label}<span className={styles.n}>{g.rows.length}</span>
