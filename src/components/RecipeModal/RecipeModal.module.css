@@ -1,99 +1,62 @@
-/* Recipe modal chrome only — the backdrop, the floating card and the buttons
- * that exist because it IS a modal. The recipe body itself is RecipeView.
+/* Recipe modal chrome only: the backdrop, the floating card, and the buttons
+ * that exist because it IS a modal. The recipe body is RecipeView.
  */
 
 .modalOverlay {
-  /* RecipeView's pinned title row reads this to stick flush with the top of
-     the screen instead of one padding-width below it. */
+  /* RecipeView's sticky bar pins to --bar-top; pulling it up by the overlay's
+     top padding makes it sit flush with the top of the screen. */
   --modal-pad-top: 40px;
   position: fixed;
   inset: 0;
-  background: rgba(4, 44, 83, 0.72);
   z-index: 500;
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  padding: var(--modal-pad-top) 16px 40px;
+  padding: var(--modal-pad-top) var(--s4) 40px;
   overflow-y: auto;
-  backdrop-filter: blur(2px);
+  background: rgb(31 58 95 / 0.72);
 }
 
 .modalCard {
-  background: var(--card-surface);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
-  /* Clips a hero photo to the card's rounded top corners. `clip`, not
-     `hidden`: hidden would make the card a scroll container, and the pinned
-     title row inside it would never stick. Browsers without clip fall back to
-     hidden and simply lose the pinning. */
+  --bar-top: calc(-1 * var(--modal-pad-top));
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  background: var(--paper);
+  border-radius: var(--r4);
+  /* Clips the header band to the rounded corners. `clip`, not `hidden`:
+     hidden would make the card a scroll container and the sticky bar inside
+     it would never stick. */
   overflow: hidden;
   overflow: clip;
-  width: 100%;
-  max-width: 620px;
-  padding: 0;
-  position: relative;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.40),
-    0 0 0 1px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--shadow-3);
 }
 
-.modalClose {
-  min-width: 32px;
-  min-height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  background: none;
-  border: none;
-  color: var(--card-muted);
-  font-size: 20px;
+.barBtn {
+  flex: none;
+  width: var(--tap);
+  height: var(--tap);
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--cc-mid, var(--line));
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
   cursor: pointer;
-  line-height: 1;
-  padding: 4px 6px;
-  border-radius: 4px;
-  flex-shrink: 0;
-  transition: background 0.15s, color 0.15s;
 }
 
-.modalClose:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--card-body);
+.barBtn:hover {
+  border-color: var(--cc, var(--brand));
 }
 
-/* "Open full page" — same icon-button family as share/print in RecipeView. */
-.fullPageBtn {
-  min-width: 28px;
-  min-height: 28px;
-  box-sizing: border-box;
-  background: none;
-  border: none;
-  color: var(--card-muted);
-  cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s, color 0.15s;
-}
-
-.fullPageBtn:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: var(--card-body);
+.barBtn svg {
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 600px) {
   .modalOverlay {
-    --modal-pad-top: 12px;
-    padding: var(--modal-pad-top) 6px 12px;
-  }
-  .modalClose,
-  .fullPageBtn {
-    min-width: 44px;
-    min-height: 44px;
-  }
-  .modalCard {
-    max-width: 100%;
+    --modal-pad-top: 8px;
+    padding: var(--modal-pad-top) 4px 8px;
   }
 }

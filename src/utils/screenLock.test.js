@@ -164,3 +164,12 @@ describe('createScreenLock', () => {
     expect(lock.isWanted()).toBe(false);
   });
 });
+
+describe('cook mode message', () => {
+  it('says what happened, including a refusal', async () => {
+    const { cookModeMessage } = await import('./screenLock.js');
+    expect(cookModeMessage('on')).toBe('Cook mode on: the screen will stay awake');
+    expect(cookModeMessage('refused')).toBe('This browser will not keep the screen awake');
+    expect(cookModeMessage('off')).toBe('Cook mode off');
+  });
+});

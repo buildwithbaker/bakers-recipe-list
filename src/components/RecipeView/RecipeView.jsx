@@ -1,12 +1,12 @@
-// The recipe itself: title, meta line, serving scaler, ingredients, method,
-// macros, cook log — plus the Share and Print actions, which belong to the
-// recipe rather than to the frame around it.
+// The recipe itself: a header band in the category colour, the actions a cook
+// reaches for, ingredients you can tick off, the numbered method, and below
+// those the tags, nutrition estimate and your own notes.
 //
 // ONE component, TWO frames. RecipeModal renders it over the list; RecipePage
 // renders it at /r/<slug>/ for someone who arrived from a shared link. They are
 // the same route, so a second renderer would be a second thing to keep correct
 // — which is exactly how a card and its page drift apart.
-import { Component, lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import { Component, lazy, Suspense, useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import styles from './RecipeView.module.css';
 import { estimateServings } from '../../utils/estimateServings.js';
 import { useMacroEstimate } from '../../hooks/useMacroEstimate.js';
@@ -14,18 +14,17 @@ import { scaleIngredientText } from '../../utils/scaleIngredient.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
 import { useWakeLock } from '../../hooks/useWakeLock.js';
-import { BASE_PATH, recipePath } from '../../utils/recipeRoute.js';
+import { useIngredientTicks } from '../../hooks/useIngredientTicks.js';
+import { cookModeMessage } from '../../utils/screenLock.js';
+import { recipePath } from '../../utils/recipeRoute.js';
 import { recipeDocumentTitle } from '../../utils/siteTitle.js';
+import { recipePhoto } from '../../utils/recipePhoto.js';
+import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
+import { categoryOf, categoryStyle } from '../../data/catalog.js';
+import { domainOf } from '../ToTryLinks/ToTryLinks.jsx';
+import Icon from '../Icon/Icon.jsx';
 
 const MacroCard = lazy(() => import('../MacroCard/MacroCard.jsx'));
-
-// Shown when a recipe has no photo yet. It is also what scripts/prerender.mjs
-// falls back to for og:image, so an unphotographed recipe looks the same in a
-// link preview as it does on its own page.
-const PLACEHOLDER_IMAGE = `${BASE_PATH}recipe-placeholder.png`;
-
-// `image` is a path under public/ with no leading slash (recipe.schema.json).
-const imageUrl = (image) => `${BASE_PATH}${String(image).replace(/^\/+/, '')}`;
 
 // Silent error boundary for the macro section — if the lazy chunk 404s after
 // a new deployment, the macro card just disappears instead of crashing the view.
@@ -36,15 +35,8 @@ class MacroErrorBoundary extends Component {
 }
 
 const SCALE_STEPS = [0.25, 0.5, 0.75, 1, 1.5, 2, 3, 4];
-
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-function isUrl(str) {
-  return typeof str === 'string' && /^https?:\/\//i.test(str);
-}
-
+const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
+const isUrl = (s) => typeof s === 'string' && /^https?:\/\//i.test(s);
 
 function formatDate(iso) {
   try {
@@ -53,246 +45,195 @@ function formatDate(iso) {
 }
 
 // ---------------------------------------------------------------------------
-// Sub-components
+// Toast: one short line at the bottom of the screen, read out by a screen
+// reader (role="status"), gone after a few seconds.
 // ---------------------------------------------------------------------------
 
-function MetaLine({ recipe, servingEstimate, onTagClick, scale, onScaleDown, onScaleUp }) {
-  const tags = getEffectiveTags(recipe);
-  const hasSource = recipe.source && recipe.source !== 'Original';
-  return (
-    <div className={styles.meta}>
-      {tags.map((tag, i) => (
-        <span key={tag}>
-          {i > 0 && <span className={styles.metaSep}> </span>}
-          <button type="button" className={styles.tagBtn} onClick={() => onTagClick?.(tag)} title={`Filter by ${tag}`}>
-            {tag}
-          </button>
-        </span>
-      ))}
-      {tags.length > 0 && <span className={styles.metaSep}> · </span>}
-      {hasSource ? (
-        <span>
-          Source:{' '}
-          {isUrl(recipe.source) ? (
-            <a href={recipe.source} target="_blank" rel="noreferrer noopener" className={styles.sourceLink}>{recipe.source}</a>
-          ) : recipe.source}
-        </span>
-      ) : (
-        <span>Original recipe</span>
-      )}
-      {servingEstimate && (
-        <>
-          <span className={styles.metaSep}> · </span>
-          <span className={styles.scalerRow}>
-            <button type="button" className={styles.scalerBtn} onClick={onScaleDown} aria-label="Fewer servings" disabled={scale <= 0.25}>−</button>
-            <span className={styles.servingEstimate} title={`${servingEstimate.basis} — actual yield may vary`}>
-              ~{Math.round(servingEstimate.servings * scale)} serving{Math.round(servingEstimate.servings * scale) !== 1 ? 's' : ''}
-              {scale !== 1 && <span className={styles.scaleTag}> ×{scale % 1 === 0 ? scale : scale.toFixed(2)}</span>}
-            </span>
-            <button type="button" className={styles.scalerBtn} onClick={onScaleUp} aria-label="More servings" disabled={scale >= 4}>+</button>
-          </span>
-        </>
-      )}
+function useToast() {
+  const [message, setMessage] = useState('');
+  const timer = useRef(null);
+  const show = useCallback((text) => {
+    clearTimeout(timer.current);
+    setMessage(text);
+    timer.current = setTimeout(() => setMessage(''), 2600);
+  }, []);
+  useEffect(() => () => clearTimeout(timer.current), []);
+  const node = (
+    <div className={styles.toastSlot} role="status" aria-live="polite">
+      {message && <div className={styles.toast}>{message}</div>}
     </div>
   );
+  return [node, show];
 }
 
-function Ingredients({ items, scale, onAddToList, onListModeChange, SectionHeading }) {
-  const [copied, setCopied] = useState(false);
-  const [added, setAdded] = useState(false);
-  const [selectionMode, setSelectionMode] = useState(false);
-  const [selectedItems, setSelectedItems] = useState(() => new Set());
+// ---------------------------------------------------------------------------
+// Ingredients
+// ---------------------------------------------------------------------------
+
+function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp, onAddToList, onListModeChange, Heading, toast }) {
+  const [ticks, toggleTick, clearTicks] = useIngredientTicks(recipeId);
+  const [selecting, setSelecting] = useState(false);
+  const [selected, setSelected] = useState(() => new Set());
 
   if (!items?.length) return null;
 
-  // Only 'item' type lines get checkboxes
-  const foodIndices = items.reduce((acc, ing, i) => {
-    if (ing.type === 'item') acc.push(i);
-    return acc;
-  }, []);
+  const itemIndices = items.reduce((acc, ing, i) => (ing.type === 'item' ? [...acc, i] : acc), []);
+  const lineText = (ing) => (ing.type === 'item' ? scaleIngredientText(ing.text, scale) : ing.text);
 
-  const handleListClick = () => {
-    // Pre-check all food items
-    setSelectedItems(new Set(foodIndices));
-    setSelectionMode(true);
+  // "Add to shopping list" opens a pick list with every ingredient ticked, so
+  // the ones already in the cupboard can be left out.
+  const startSelecting = () => {
+    setSelected(new Set(itemIndices));
+    setSelecting(true);
     onListModeChange?.(true);
   };
-
-  const handleCancelSelect = () => {
-    setSelectionMode(false);
-    setSelectedItems(new Set());
+  const stopSelecting = () => {
+    setSelecting(false);
+    setSelected(new Set());
     onListModeChange?.(false);
   };
-
-  const handleConfirmSelect = () => {
-    // Pass only the checked ingredient items (skip headers/sections)
-    const chosen = items.filter((ing, i) => ing.type === 'item' && selectedItems.has(i));
+  const confirm = () => {
+    const chosen = items.filter((ing, i) => ing.type === 'item' && selected.has(i));
     onAddToList?.(chosen, scale);
-    setSelectionMode(false);
-    setSelectedItems(new Set());
-    onListModeChange?.(false);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
+    stopSelecting();
   };
-
-  const toggleItem = (idx) => {
-    setSelectedItems((prev) => {
-      const next = new Set(prev);
-      if (next.has(idx)) next.delete(idx); else next.add(idx);
-      return next;
-    });
-  };
+  const toggleSelected = (i) => setSelected((prev) => {
+    const next = new Set(prev);
+    if (next.has(i)) next.delete(i); else next.add(i);
+    return next;
+  });
 
   const handleCopy = () => {
     const text = items
       .filter((ing) => ing.type !== 'section')
-      .map((ing) => ing.type === 'header' ? `\n${ing.text}` : scaleIngredientText(ing.text, scale))
+      .map((ing) => (ing.type === 'header' ? `\n${ing.text}` : lineText(ing)))
       .join('\n').trim();
-    navigator.clipboard?.writeText(text).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }).catch(() => {});
+    navigator.clipboard?.writeText(text)
+      .then(() => toast('Ingredients copied'))
+      .catch(() => toast('Could not copy: your browser blocked the clipboard'));
   };
 
-  const selectedCount = selectedItems.size;
+  const checked = selecting ? selected : ticks;
+  const onCheck = selecting ? toggleSelected : toggleTick;
 
   return (
-    <>
-      <div className={styles.sectionRow}>
-        <SectionHeading className={styles.sectionTitle}>Ingredients</SectionHeading>
-        <div className={styles.ingActions}>
-          {onAddToList && !selectionMode && (
-            <button
-              type="button"
-              className={`${styles.listBtn} ${added ? styles.listBtnDone : ''}`}
-              onClick={handleListClick}
-              aria-label="Select ingredients to add to shopping list"
-            >
-              {added ? (
-                <><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Added</>
-              ) : (
-                <><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg> List</>
-              )}
-            </button>
-          )}
-          {!selectionMode && (
-            <button
-              type="button"
-              className={`${styles.copyBtn} ${copied ? styles.copyBtnDone : ''}`}
-              onClick={handleCopy}
-              aria-label="Copy ingredients to clipboard"
-            >
-              {copied ? (
-                <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Copied</>
-              ) : (
-                <><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy</>
-              )}
-            </button>
-          )}
-          {selectionMode && (
-            <div className={styles.selectBar}>
-              <button type="button" className={styles.selectCancelBtn} onClick={handleCancelSelect}>
-                Cancel
-              </button>
-              <button
-                type="button"
-                className={styles.selectConfirmBtn}
-                onClick={handleConfirmSelect}
-                disabled={selectedCount === 0}
-              >
-                Add {selectedCount} item{selectedCount !== 1 ? 's' : ''}
-              </button>
-            </div>
-          )}
-        </div>
+    <section className={styles.ingredients} aria-labelledby={`${recipeId}-ing`}>
+      <div className={styles.sectionHead}>
+        <Heading id={`${recipeId}-ing`}>{selecting ? 'Add to shopping list' : 'Ingredients'}</Heading>
+        <span className={styles.n}>{itemIndices.length}</span>
+        {!selecting && ticks.size > 0 && (
+          <button type="button" className={styles.textBtn} onClick={clearTicks} data-print-hide>
+            Clear ticks
+          </button>
+        )}
       </div>
 
-      {selectionMode ? (
-        <ul className={styles.ingSelectList}>
-          {items.map((ing, i) => (
-            <li
-              key={i}
-              className={
-                ing.type === 'section' ? styles.ingSection :
-                ing.type === 'header' ? styles.ingHeader :
-                styles.ingSelectItem
-              }
-            >
-              {ing.type === 'item' ? (
-                <label className={styles.ingCheckLabel}>
-                  <input
-                    type="checkbox"
-                    className={styles.ingCheckbox}
-                    checked={selectedItems.has(i)}
-                    onChange={() => toggleItem(i)}
-                  />
-                  <span>{scaleIngredientText(ing.text, scale)}</span>
-                </label>
-              ) : (
-                ing.text
-              )}
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <ul className={styles.ingList}>
-          {items.map((ing, i) => (
-            <li key={i} className={
-              ing.type === 'section' ? styles.ingSection :
-              ing.type === 'header' ? styles.ingHeader : ''
-            }>
-              {ing.type === 'item' ? scaleIngredientText(ing.text, scale) : ing.text}
-            </li>
-          ))}
-        </ul>
+      {servings && !selecting && (
+        <div className={styles.scaler} data-print-hide>
+          <span>About {plural(Math.round(servings.servings * scale), 'serving')}{scale !== 1 && <> (×{scale % 1 === 0 ? scale : scale.toFixed(2)})</>}</span>
+          <button type="button" className={styles.stepBtn} onClick={onScaleDown} aria-label="Fewer servings" disabled={scale <= SCALE_STEPS[0]}>−</button>
+          <button type="button" className={styles.stepBtn} onClick={onScaleUp} aria-label="More servings" disabled={scale >= SCALE_STEPS.at(-1)}>+</button>
+        </div>
       )}
-    </>
-  );
-}
 
-function Instructions({ steps, SectionHeading }) {
-  if (!steps?.length) return null;
-  let stepNum = 0;
-  return (
-    <>
-      <SectionHeading className={styles.sectionTitle}>Instructions</SectionHeading>
-      <div className={styles.stepList}>
-        {steps.map((s, i) => {
-          if (s.type === 'section') { stepNum = 0; return <div key={i} className={styles.verHeader}>{s.step}</div>; }
-          stepNum++;
+      <ul className={styles.ingList}>
+        {items.map((ing, i) => {
+          if (ing.type === 'section' || ing.type === 'header') {
+            return <li key={i} className={styles.sub}>{ing.text.replace(/:$/, '')}</li>;
+          }
           return (
-            <div key={i} className={styles.stepItem}>
-              <div className={styles.stepNum}>{stepNum}</div>
-              <div>
-                <div className={styles.stepName}>{s.step}</div>
-                {s.detail && <div className={styles.stepDetail}>{s.detail}</div>}
-              </div>
-            </div>
+            <li key={i}>
+              <label className={styles.check}>
+                <input type="checkbox" checked={checked.has(i)} onChange={() => onCheck(i)} />
+                <span>{lineText(ing)}</span>
+              </label>
+            </li>
           );
         })}
+      </ul>
+
+      <div className={styles.ingActions} data-print-hide>
+        {selecting ? (
+          <>
+            <button type="button" className={`${styles.btn} ${styles.primary}`} onClick={confirm} disabled={selected.size === 0}>
+              Add {plural(selected.size, 'item')}
+            </button>
+            <button type="button" className={styles.btn} onClick={stopSelecting}>Cancel</button>
+          </>
+        ) : (
+          <>
+            {onAddToList && (
+              <button type="button" className={styles.btn} onClick={startSelecting}>
+                <Icon name="plus" />Add to shopping list
+              </button>
+            )}
+            <button type="button" className={styles.btn} onClick={handleCopy}>Copy</button>
+          </>
+        )}
       </div>
-    </>
+    </section>
   );
 }
 
-// Cook log section — history summary + notes textarea + manual log button
-function CookLogSection({ recipeId, SectionHeading }) {
+// ---------------------------------------------------------------------------
+// Method
+// ---------------------------------------------------------------------------
+
+function Method({ steps, headingId, Heading }) {
+  if (!steps?.length) return null;
+  const count = steps.filter((s) => s.type !== 'section' && s.type !== 'header').length;
+  // Numbering restarts after a version marker, so each version of a
+  // multi-version recipe counts from 1.
+  let n = 0;
+  return (
+    <section className={styles.method} aria-labelledby={headingId}>
+      <div className={styles.sectionHead}>
+        <Heading id={headingId} tabIndex={-1}>Method</Heading>
+        <span className={styles.n}>{plural(count, 'step')}</span>
+      </div>
+      <ol className={styles.steps}>
+        {steps.map((s, i) => {
+          if (s.type === 'section' || s.type === 'header') {
+            if (s.type === 'section') n = 0;
+            return <li key={i} className={styles.sub}>{s.step}</li>;
+          }
+          n += 1;
+          // Classic steps carry a short title in `step` and the text in
+          // `detail`; grouped steps carry the text in `step` alone.
+          return (
+            <li key={i} className={styles.step} data-n={n}>
+              {s.detail ? (
+                <>
+                  <span className={styles.stepTitle}>{s.step}</span>
+                  <p>{s.detail}</p>
+                </>
+              ) : (
+                <p>{s.step}</p>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Notes (cook log)
+// ---------------------------------------------------------------------------
+
+function CookLogSection({ recipeId, Heading }) {
   const { cookLog, logCook, updateNotes } = useCookHistoryContext();
   const entry = cookLog[recipeId];
   const [draft, setDraft] = useState(entry?.notes ?? '');
   const [loggedFlash, setLoggedFlash] = useState(false);
+  const notesId = useId();
 
-  // Keep draft in sync if another tab updates localStorage (edge case)
-  useEffect(() => {
-    setDraft(cookLog[recipeId]?.notes ?? '');
-  }, [recipeId, cookLog]);
+  useEffect(() => { setDraft(cookLog[recipeId]?.notes ?? ''); }, [recipeId, cookLog]);
 
   const handleBlur = () => {
     const trimmed = draft.trim();
-    // Only write if value actually changed to avoid spurious localStorage writes.
-    if (trimmed !== (entry?.notes ?? '').trim()) {
-      updateNotes(recipeId, trimmed);
-    }
+    if (trimmed !== (entry?.notes ?? '').trim()) updateNotes(recipeId, trimmed);
   };
 
   const handleLogCook = () => {
@@ -302,45 +243,30 @@ function CookLogSection({ recipeId, SectionHeading }) {
   };
 
   const cookCount = entry?.dates?.length ?? 0;
-  const lastCooked = entry?.dates?.length
-    ? formatDate(entry.dates[entry.dates.length - 1])
-    : null;
+  const lastCooked = cookCount ? formatDate(entry.dates[cookCount - 1]) : null;
 
   return (
-    <div className={styles.cookLogSection}>
-      <div className={styles.cookLogHeader}>
-        <SectionHeading className={styles.sectionTitle} style={{ margin: 0, borderBottom: 'none', paddingBottom: 0 }}>My Notes</SectionHeading>
-        <div className={styles.cookLogRight}>
-          {cookCount > 0 && (
-            <span className={styles.cookStat}>
-              Cooked {cookCount}×
-              {lastCooked && <> · Last {lastCooked}</>}
-            </span>
-          )}
-          <button
-            type="button"
-            className={`${styles.logCookBtn} ${loggedFlash ? styles.logCookBtnDone : ''}`}
-            onClick={handleLogCook}
-            title="Record a cook session"
-          >
-            {loggedFlash ? (
-              <><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Logged</>
-            ) : (
-              <>+ Log cook</>
-            )}
-          </button>
-        </div>
+    <section className={styles.notes} data-print-hide>
+      <div className={styles.sectionHead}>
+        <Heading>My notes</Heading>
+        {cookCount > 0 && (
+          <span className={styles.n}>Cooked {cookCount}×{lastCooked && <> · last {lastCooked}</>}</span>
+        )}
+        <button type="button" className={`${styles.btn} ${styles.push}`} onClick={handleLogCook}>
+          {loggedFlash ? <><Icon name="check" />Logged</> : <><Icon name="plus" />Log a cook</>}
+        </button>
       </div>
+      <label htmlFor={notesId} className="sr-only">Your notes on this recipe</label>
       <textarea
+        id={notesId}
         className={styles.notesArea}
         value={draft}
         onChange={(e) => setDraft(e.target.value)}
         onBlur={handleBlur}
-        placeholder="Your notes — substitutions, tweaks, how it went…"
+        placeholder="Substitutions, tweaks, how it went…"
         rows={3}
-        aria-label="Recipe notes"
       />
-    </div>
+    </section>
   );
 }
 
@@ -351,35 +277,32 @@ function CookLogSection({ recipeId, SectionHeading }) {
 /**
  * The recipe, with no opinion about the frame around it.
  *
- * @param recipe        the display row to render; null renders nothing
- * @param titleId       id put on the title, so a dialog frame can aria-labelledby it
- * @param showPlaceholderHero
- *        what to do when the recipe has NO photo yet. The frame decides, because
- *        the answer differs: the full page always wants a hero so its layout
- *        never collapses (true), while a placeholder card inside a modal is just
- *        noise over a list the visitor is already looking at (false, the
- *        default). A REAL photo is always shown, in both frames.
- * @param extraActions  frame-specific secondary buttons, placed after Share and Print
- * @param closeAction   the frame's close control, placed beside Cook mode in the
- *                      title row so it is always the same distance from the title
- * @param headingLevel  1 on the full page (the recipe IS the page's subject), 2 in
- *                      the modal (the list is the page; the card sits on it).
- *                      Section labels are one level below.
- * @param stickyHeader  keep the title row (name, Cook mode, Close) pinned while the
- *                      card scrolls. The modal wants it; the page has the TopBar.
- * @param onTagClick    tag → filter the list
- * @param onAddToList   (recipeId, items, scale) → shopping list; omit to hide the button
+ * @param recipe       the display row to render; null renders nothing
+ * @param titleId      id put on the title, so a dialog frame can aria-labelledby it
+ * @param headingLevel 1 on the full page (the recipe IS the page's subject), 2 in
+ *                     the modal (the list is the page). Sections are one below.
+ * @param barStart     frame controls at the start of the sticky bar (the page's
+ *                     "All recipes")
+ * @param barEnd       frame controls at the end of the sticky bar (the modal's
+ *                     "Open full page" and Close)
+ * @param onTagClick   tag -> search the list
+ * @param onAddToList  (recipeId, items, scale) -> shopping list; omit to hide
+ * @param footer       extra content after the notes (the page's related recipes)
  */
 export default function RecipeView({
-  recipe, titleId, showPlaceholderHero = false, extraActions = null, closeAction = null,
-  headingLevel = 2, stickyHeader = false, onTagClick, onAddToList,
+  recipe, titleId, headingLevel = 2, barStart = null, barEnd = null,
+  onTagClick, onAddToList, footer = null,
 }) {
   const [scale, setScale] = useState(1);
-  const [shareCopied, setShareCopied] = useState(false);
   const [listSelecting, setListSelecting] = useState(false);
+  const [stuck, setStuck] = useState(false);
   const wakeLock = useWakeLock();
+  const { madeSet, toggleMade, pinnedSet, togglePinned } = useCookHistoryContext();
+  const [toastNode, toast] = useToast();
+  const titleRef = useRef(null);
+  const localId = useId();
 
-  const servingEstimate = useMemo(() => recipe ? estimateServings(recipe) : null, [recipe]);
+  const servingEstimate = useMemo(() => (recipe ? estimateServings(recipe) : null), [recipe]);
   const macroState = useMacroEstimate(recipe, servingEstimate);
 
   useEffect(() => { setScale(1); setListSelecting(false); }, [recipe]);
@@ -396,140 +319,176 @@ export default function RecipeView({
     return () => { document.title = previous; };
   }, [recipeName]);
 
+  // The sticky bar shows the recipe's name once the title itself has scrolled
+  // up under it.
+  useEffect(() => {
+    const el = titleRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return undefined;
+    const io = new IntersectionObserver(([e]) => setStuck(!e.isIntersecting), { rootMargin: '-56px 0px 0px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [recipe]);
+
   if (!recipe) return null;
 
+  const category = categoryOf(recipe);
+  const photo = recipePhoto(recipe);
+  const isMade = madeSet.has(recipe.id);
+  const isPinned = pinnedSet.has(recipe.id);
+  const methodId = `${localId}-method`;
+  const TitleTag = headingLevel === 1 ? 'h1' : 'h2';
+  const Heading = headingLevel === 1 ? 'h2' : 'h3';
+  const tags = getEffectiveTags(recipe);
+  const hasSource = recipe.source && recipe.source !== 'Original';
+
   const scaleIdx = SCALE_STEPS.indexOf(scale);
-  const handleScaleDown = () => { if (scaleIdx > 0) setScale(SCALE_STEPS[scaleIdx - 1]); };
-  const handleScaleUp   = () => { if (scaleIdx < SCALE_STEPS.length - 1) setScale(SCALE_STEPS[scaleIdx + 1]); };
+  const scaleDown = () => { if (scaleIdx > 0) setScale(SCALE_STEPS[scaleIdx - 1]); };
+  const scaleUp = () => { if (scaleIdx < SCALE_STEPS.length - 1) setScale(SCALE_STEPS[scaleIdx + 1]); };
+
+  const handleCook = async () => { toast(cookModeMessage(await wakeLock.toggle())); };
 
   const handleShare = () => {
-    // The recipe's own page. Built from the id, which survives a rename where
-    // the name does not, and it is the one URL with a prerendered file behind
-    // it — so what a crawler fetches is this recipe, not the generic shell.
+    // The recipe's own page, built from the id (which survives a rename). It is
+    // the one URL with a prerendered file behind it, so a link preview shows
+    // this recipe and not the generic shell.
     const url = `${window.location.origin}${recipePath(recipe.id)}`;
     if (navigator.share) {
       navigator.share({ title: recipe.name, url }).catch(() => {});
     } else {
-      navigator.clipboard?.writeText(url).then(() => {
-        setShareCopied(true);
-        setTimeout(() => setShareCopied(false), 2000);
-      }).catch(() => {});
+      navigator.clipboard?.writeText(url)
+        .then(() => toast('Link copied'))
+        .catch(() => toast('Could not copy the link'));
     }
   };
 
-  const handleAddToList = (items, sc) => {
-    onAddToList?.(recipe.id, items, sc);
+  // In-page jump that does not touch the URL: the path is the route, and a
+  // #fragment would add a history entry to step back through.
+  const jumpToMethod = (e) => {
+    e.preventDefault();
+    const target = document.getElementById(methodId);
+    target?.scrollIntoView({ block: 'start' });
+    target?.focus({ preventScroll: true });
   };
 
-  // alt="" is correct, not lazy: the photo is decorative here. The dish is
-  // already named by the title directly beneath it, so describing it again is
-  // noise to a screen reader.
-  const showHero = !!recipe.image || showPlaceholderHero;
-
-  const TitleTag = headingLevel === 1 ? 'h1' : 'h2';
-  const SectionHeading = headingLevel === 1 ? 'h2' : 'h3';
+  const cookButton = (className, withLabel) => wakeLock.supported && (
+    <button
+      type="button"
+      className={className}
+      onClick={handleCook}
+      aria-pressed={wakeLock.active}
+      aria-label={withLabel ? undefined : 'Cook mode'}
+    >
+      <Icon name="sun" />{withLabel && 'Cook mode'}
+    </button>
+  );
 
   return (
-    <>
-      {showHero && (
-        <div className={styles.hero}>
-          <img
-            className={styles.heroImg}
-            src={recipe.image ? imageUrl(recipe.image) : PLACEHOLDER_IMAGE}
-            alt=""
-            width="1200"
-            height="630"
-          />
-        </div>
-      )}
-      {/* Title row: the recipe name plus the two controls a cook reaches for
-          mid-recipe. In the modal it stays pinned while the card scrolls, so
-          Cook mode and Close never scroll out of reach on a long recipe. */}
-      <div className={`${styles.header} ${stickyHeader ? styles.headerSticky : ''}`}>
-        <TitleTag id={titleId} className={styles.title}>{recipe.name}</TitleTag>
-        <div className={styles.headerPrimary}>
-          {/* Cook mode. Absent entirely where the API is missing — a disabled
-              button explaining that the browser is too old helps nobody. The on
-              state carries a word, not just a colour: this gets read at arm's
-              length across a counter. */}
-          {wakeLock.supported && (
-            <button
-              type="button"
-              className={`${styles.cookBtn} ${wakeLock.active ? styles.cookBtnOn : ''}`}
-              onClick={wakeLock.toggle}
-              aria-pressed={wakeLock.active}
-              title={wakeLock.active ? 'Screen staying awake — tap to turn off' : 'Keep the screen awake while you cook'}
-            >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="4"/>
-                <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
-                <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
-                <line x1="4.9" y1="4.9" x2="7" y2="7"/><line x1="17" y1="17" x2="19.1" y2="19.1"/>
-                <line x1="4.9" y1="19.1" x2="7" y2="17"/><line x1="17" y1="7" x2="19.1" y2="4.9"/>
-              </svg>
-              {wakeLock.active ? 'Screen on' : 'Cook mode'}
-            </button>
-          )}
-          {closeAction}
-        </div>
+    <div className={styles.view} style={categoryStyle(category)}>
+      {/* Sticky bar: the frame's own controls, plus the name and Cook mode
+          once the header has scrolled away. Stays at most 56px tall so Close
+          is always on screen, even at 390px. */}
+      <div className={`${styles.bar} ${stuck ? styles.stuck : ''}`} data-print-hide>
+        {barStart}
+        <span className={styles.barTitle} aria-hidden="true">{recipe.name}</span>
+        {stuck && cookButton(styles.iconBtn, false)}
+        {barEnd}
       </div>
-      <div className={styles.subHeader}>
-        <MetaLine
-          recipe={recipe}
-          servingEstimate={servingEstimate}
-          onTagClick={onTagClick}
-          scale={scale}
-          onScaleDown={handleScaleDown}
-          onScaleUp={handleScaleUp}
-        />
-        <div className={styles.headerActions}>
-          <button
-            type="button"
-            className={`${styles.shareBtn} ${shareCopied ? styles.shareBtnDone : ''}`}
-            onClick={handleShare}
-            aria-label="Share recipe"
-            title={shareCopied ? 'Link copied!' : 'Share recipe'}
-          >
-            {shareCopied ? (
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            ) : (
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+
+      <header className={styles.top}>
+        <div className={styles.head}>
+          <div className={styles.headText}>
+            {/* The reader-facing category, never the staging state: this page
+                is what a shared link opens (architecture.md §8). */}
+            {category && <p className={styles.kicker}>{category.label}</p>}
+            <TitleTag id={titleId} ref={titleRef} className={styles.title}>{recipe.name}</TitleTag>
+            {!recipe.is_blank && (
+              <p className={styles.facts}>
+                <span><b>{ingredientCount(recipe)}</b> ingredients</span>
+                <a href={`#${methodId}`} onClick={jumpToMethod} data-print-hide>
+                  <b>{stepCount(recipe)}</b> steps · jump to method
+                </a>
+                <span>
+                  Source:{' '}
+                  {hasSource ? (
+                    isUrl(recipe.source)
+                      ? <a href={recipe.source} target="_blank" rel="noreferrer noopener">{domainOf(recipe.source) || recipe.source}</a>
+                      : recipe.source
+                  ) : 'Original recipe'}
+                </span>
+              </p>
             )}
-          </button>
-          <button type="button" className={styles.printBtn} onClick={() => window.print()} aria-label="Print recipe" title="Print recipe">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <polyline points="6 9 6 2 18 2 18 9"/>
-              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
-              <rect x="6" y="14" width="12" height="8"/>
-            </svg>
-          </button>
-          {extraActions}
+            <div className={styles.actions} data-print-hide>
+              {!recipe.is_blank && cookButton(`${styles.btn} ${styles.primary}`, true)}
+              {!recipe.is_blank && (
+                <>
+                  <button type="button" className={`${styles.btn} ${styles.pinBtn}`} aria-pressed={isPinned} onClick={() => togglePinned(recipe.id)}>
+                    <Icon name="star" filled={isPinned} />Pin
+                  </button>
+                  <button type="button" className={`${styles.btn} ${styles.madeBtn}`} aria-pressed={isMade} onClick={() => toggleMade(recipe.id)}>
+                    <Icon name="check" />Made it
+                  </button>
+                </>
+              )}
+              <button type="button" className={styles.btn} onClick={handleShare}><Icon name="share" />Share</button>
+              <button type="button" className={styles.btn} onClick={() => window.print()}><Icon name="print" />Print</button>
+            </div>
+          </div>
+          {/* Only a real photo. alt="" because the title beside it names the
+              dish; describing it again is noise to a screen reader. */}
+          {photo && (
+            <div className={styles.photo}>
+              <img src={photo.large} alt="" width="800" height="600" />
+            </div>
+          )}
         </div>
-      </div>
+      </header>
+
       <div className={styles.body}>
         {recipe.is_blank ? (
-          <div className={styles.comingSoon}>🍳 Recipe coming soon — this one is on the list!</div>
+          <p className={styles.comingSoon}>Recipe coming soon. This one is on the list.</p>
         ) : (
-          <>
+          <div className={styles.columns}>
             <Ingredients
-              SectionHeading={SectionHeading}
+              recipeId={recipe.id}
               items={recipe.ingredients}
               scale={scale}
-              onAddToList={onAddToList ? handleAddToList : null}
+              servings={servingEstimate}
+              onScaleDown={scaleDown}
+              onScaleUp={scaleUp}
+              onAddToList={onAddToList ? (items, sc) => onAddToList(recipe.id, items, sc) : null}
               onListModeChange={setListSelecting}
+              Heading={Heading}
+              toast={toast}
             />
             <div className={listSelecting ? styles.dimmed : undefined}>
-              <Instructions steps={recipe.instructions} SectionHeading={SectionHeading} />
-              <MacroErrorBoundary>
-                <Suspense fallback={null}>
-                  <MacroCard {...macroState} />
-                </Suspense>
-              </MacroErrorBoundary>
-              <CookLogSection recipeId={recipe.id} SectionHeading={SectionHeading} />
+              <Method steps={recipe.instructions} headingId={methodId} Heading={Heading} />
             </div>
-          </>
+          </div>
         )}
+
+        {tags.length > 0 && (
+          <section className={styles.tags} data-print-hide aria-label="Tags">
+            {tags.map((tag) => (
+              <button key={tag} type="button" className={styles.tag} onClick={() => onTagClick?.(tag)}>
+                {tag}
+              </button>
+            ))}
+          </section>
+        )}
+
+        {!recipe.is_blank && (
+          <div className={styles.extras} data-print-hide>
+            <MacroErrorBoundary>
+              <Suspense fallback={null}>
+                <MacroCard {...macroState} />
+              </Suspense>
+            </MacroErrorBoundary>
+            <CookLogSection recipeId={recipe.id} Heading={Heading} />
+          </div>
+        )}
+        {footer}
       </div>
-    </>
+      {toastNode}
+    </div>
   );
 }

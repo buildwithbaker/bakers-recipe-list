@@ -69,6 +69,7 @@ describe('category colour contrast (WCAG AA)', () => {
   //   white on colour        divider-tab names, pressed chips, step circles
   //   colour on soft tint    recipe header band: kicker text, h1
   //   ink-muted on soft tint recipe header facts line
+  //   brand, ink on soft     facts-line links and bold counts
   //   colour on soft tint    photo-slot letter (large, 3:1)
   it.each(CATEGORIES.map((c) => [c.label, c]))('%s', (_, c) => {
     const r = (x) => Math.round(x * 100) / 100;
@@ -76,5 +77,7 @@ describe('category colour contrast (WCAG AA)', () => {
     expect(r(contrast('#ffffff', c.color))).toBeGreaterThanOrEqual(4.5);
     expect(r(contrast(c.color, c.soft))).toBeGreaterThanOrEqual(4.5);
     expect(r(contrast(resolve('ink-muted'), c.soft))).toBeGreaterThanOrEqual(4.5);
+    expect(r(contrast(resolve('brand'), c.soft))).toBeGreaterThanOrEqual(4.5);   // facts-line links
+    expect(r(contrast(resolve('ink'), c.soft))).toBeGreaterThanOrEqual(4.5);     // bold counts
   });
 });

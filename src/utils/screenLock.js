@@ -89,3 +89,12 @@ export function createScreenLock(nav, doc, onChange = () => {}) {
     },
   };
 }
+
+// What to tell the cook after they press Cook mode. A refusal is said out
+// loud: a button that looks on over a screen that still sleeps is the one
+// failure cook mode must not have.
+export function cookModeMessage(result) {
+  if (result === 'on') return 'Cook mode on: the screen will stay awake';
+  if (result === 'off') return 'Cook mode off';
+  return 'This browser will not keep the screen awake';
+}

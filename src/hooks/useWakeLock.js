@@ -34,10 +34,13 @@ export function useWakeLock() {
     };
   }, []);
 
-  const toggle = useCallback(() => {
+  // Resolves to what happened, so the view can say it out loud:
+  // 'on' (the lock was granted), 'refused' (the browser said no), 'off'.
+  const toggle = useCallback(async () => {
     const lock = lockRef.current;
-    if (!lock) return;
-    if (lock.isWanted()) lock.disable(); else lock.enable();
+    if (!lock) return 'refused';
+    if (lock.isWanted()) { await lock.disable(); return 'off'; }
+    return (await lock.enable()) ? 'on' : 'refused';
   }, []);
 
   return { supported: SUPPORTED, active, toggle };
