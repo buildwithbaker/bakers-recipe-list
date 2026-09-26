@@ -9,7 +9,6 @@ import RecipeModal from './components/RecipeModal/RecipeModal.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import SearchBar from './components/SearchBar/SearchBar.jsx';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
-import RecentlyViewed from './components/RecentlyViewed/RecentlyViewed.jsx';
 import BackToTop from './components/BackToTop/BackToTop.jsx';
 import ShoppingList from './components/ShoppingList/ShoppingList.jsx';
 import Footer from './components/Footer/Footer.jsx';
@@ -378,12 +377,6 @@ function AppInner() {
         <>
           <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
           <UsdaKeyNotice />
-          <RecentlyViewed
-            history={recentHistory}
-            onViewRecipe={handleViewRecipe}
-            onClear={clearHistory}
-            searchQuery={searchQuery}
-          />
           <RecipeList
             onViewRecipe={handleViewRecipe}
             searchQuery={searchQuery}
@@ -392,6 +385,8 @@ function AppInner() {
             onCollectionChange={handleCollectionChange}
             category={category}
             onCategoryChange={setCategory}
+            recentHistory={recentHistory}
+            onClearRecent={clearHistory}
           />
           <ErrorBoundary key={selectedRecipe?.id ?? '__none__'}>
             <RecipeModal

@@ -1,0 +1,148 @@
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: var(--scrim);
+}
+
+.sheet {
+  position: fixed;
+  z-index: 21;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 85vh;
+  overflow: auto;
+  padding: var(--s4) var(--s4) calc(var(--s6) + env(safe-area-inset-bottom));
+  background: var(--surface);
+  border-radius: var(--r4) var(--r4) 0 0;
+  box-shadow: var(--shadow-3);
+}
+
+@media (min-width: 720px) {
+  .sheet {
+    left: auto;
+    top: 0;
+    width: 380px;
+    max-height: none;
+    border-radius: var(--r4) 0 0 var(--r4);
+    padding-top: var(--s5);
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--s2);
+}
+
+.head h2 {
+  margin: 0;
+  font: 400 var(--t-xl)/1.2 var(--serif);
+}
+
+.close {
+  margin-left: auto;
+  width: var(--tap);
+  height: var(--tap);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--surface-sunk);
+  color: var(--ink);
+}
+
+.close svg {
+  width: 22px;
+  height: 22px;
+}
+
+.sheet h3 {
+  margin: var(--s5) 0 var(--s2);
+  font: 700 var(--t-xs)/1.2 var(--sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.wraps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+/* Pinned to the bottom of the sheet so the result count stays in view while
+   the tag list scrolls. */
+.foot {
+  position: sticky;
+  bottom: calc(-1 * (var(--s6) + env(safe-area-inset-bottom)));
+  margin: var(--s6) calc(-1 * var(--s4)) 0;
+  padding: var(--s3) var(--s4) calc(var(--s3) + env(safe-area-inset-bottom));
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+
+.btn,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: var(--tap);
+  padding: 0 var(--s4);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r2);
+  background: var(--surface);
+  color: var(--ink);
+  font: 600 var(--t-sm)/1 var(--sans);
+  cursor: pointer;
+}
+
+.chip {
+  border-radius: 999px;
+  padding: 0 14px;
+}
+
+.btn:hover,
+.chip:hover {
+  border-color: var(--brand);
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn[aria-pressed="true"],
+.chip[aria-pressed="true"] {
+  background: var(--brand-soft);
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.pin[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+.primary:hover {
+  background: var(--brand-hover);
+}
+
+.n {
+  font-weight: 400;
+  color: var(--ink-muted);
+}
