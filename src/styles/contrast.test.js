@@ -6,6 +6,8 @@
 // background, add the pair here in the same change.
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
+import { contrast, mix } from '../utils/colour.js';
+import { CATEGORIES, SURFACE } from '../data/catalog.js';
 
 const TOKENS = readFileSync('src/styles/tokens.css', 'utf8');
 
@@ -15,17 +17,6 @@ function tokenColours(css) {
   const out = new Map();
   for (const m of css.matchAll(/--([a-z0-9-]+):\s*(#[0-9a-f]{6})\b/gi)) out.set(m[1], m[2].toLowerCase());
   return out;
-}
-
-export function luminance(hex) {
-  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255)
-    .map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-}
-
-export function contrast(a, b) {
-  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
-  return (hi + 0.05) / (lo + 0.05);
 }
 
 const colours = tokenColours(TOKENS);
@@ -47,6 +38,7 @@ const PAIRS = [
   ['band-ink', 'band', 4.5], ['band-ink-muted', 'band', 4.5],
   ['band', 'band-accent', 4.5],        // shopping-list badge: navy digits on amber
   ['band-accent', 'band', 3],          // amber "Recipe" in the large serif wordmark
+  ['accent', 'surface', 3],            // filled star of a pinned card (graphic)
 ];
 
 describe('token contrast (WCAG AA)', () => {
@@ -58,5 +50,31 @@ describe('token contrast (WCAG AA)', () => {
   it.each(PAIRS)('%s on %s is at least %s:1', (fg, bg, min) => {
     const ratio = contrast(resolve(fg), resolve(bg));
     expect(Math.round(ratio * 100) / 100).toBeGreaterThanOrEqual(min);
+  });
+});
+
+// Category colours (data/catalog.js) and the tints mixed from them.
+describe('category colour contrast (WCAG AA)', () => {
+  it('mixes tints over the real surface token', () => {
+    expect(SURFACE).toBe(resolve('surface'));
+  });
+
+  it('mixes like color-mix(in srgb)', () => {
+    expect(mix('#000000', '#ffffff', 0.5)).toBe('#808080');
+    expect(mix('#1f3a5f', '#fffbf5', 1)).toBe('#1f3a5f');
+  });
+
+  // Where each category colour is used as text or under text:
+  //   colour on surface      card titles, kickers, method headings (body size)
+  //   white on colour        divider-tab names, pressed chips, step circles
+  //   colour on soft tint    recipe header band: kicker text, h1
+  //   ink-muted on soft tint recipe header facts line
+  //   colour on soft tint    photo-slot letter (large, 3:1)
+  it.each(CATEGORIES.map((c) => [c.label, c]))('%s', (_, c) => {
+    const r = (x) => Math.round(x * 100) / 100;
+    expect(r(contrast(c.color, SURFACE))).toBeGreaterThanOrEqual(4.5);
+    expect(r(contrast('#ffffff', c.color))).toBeGreaterThanOrEqual(4.5);
+    expect(r(contrast(c.color, c.soft))).toBeGreaterThanOrEqual(4.5);
+    expect(r(contrast(resolve('ink-muted'), c.soft))).toBeGreaterThanOrEqual(4.5);
   });
 });

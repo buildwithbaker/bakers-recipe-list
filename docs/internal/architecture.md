@@ -122,11 +122,26 @@ Each section maps to a **category** (`SECTION_CATEGORY`, hand-written). A
 category is a label, not a section: both For Review soup buckets are one
 "Soups". `catalog.test.js` fails if a section is added without a category.
 
-The list shows one collection at a time; category chips narrow it. **Every
-chip's count is counted from the rows that chip would show**, after the
-made / pinned / placeholder filters, so a number never promises rows the list
-does not have. A search (`src/utils/search.js`) ignores the collection and
-returns grouped results from all three.
+The list shows one collection at a time; category chips narrow it and the
+Filters sheet (pinned only, made, top-24 tags) narrows further. **Every chip's
+count is counted from the rows that chip would show**, after the filters, so a
+number never promises rows the list does not have. A search
+(`src/utils/search.js`) ignores the collection and the filters and returns
+grouped results from all three.
+
+**Coming-soon placeholders are never listed.** Each category header says
+"N more planned" instead (`plannedByCategory`). They still have a URL and
+still open in the app if someone has one; they just are not browsable.
+
+**Category colour.** Each category owns one colour (`CATEGORIES[].color`).
+Its 13% and 30% tints are mixed in JavaScript (`src/utils/colour.js`) and
+passed as `--cc`, `--cc-soft` and `--cc-mid` via `categoryStyle()`, not with
+CSS `color-mix()`: iOS before 16.2 lacks it, and a custom property holding an
+unsupported value goes invalid instead of falling back. `contrast.test.js`
+measures every category colour against the surface, under white text and on
+its own tint.
+
+**Pinned and Recently viewed** shelves show on the plain Cookbook view only.
 
 Neither the collection nor the category is persisted. An old `#sec-<SECTION>`
 link from the retired drawer lands on the matching collection and category.
@@ -479,7 +494,8 @@ src/
     RelatedRecipes/         cross-section related list, real <a href> links
     RecipeList/             the browser: collections, category chips, groups
     RecipeCard/ ToTryLinks/ SearchResults/ Highlight/ Icon/
-    Masthead/ SearchBar/ ShoppingList/ RecentlyViewed/ BackToTop/
+    FiltersSheet/ Shelves/
+    Masthead/ SearchBar/ ShoppingList/ BackToTop/
     MacroCard/ UsdaKeyNotice/ Footer/ ErrorBoundary/
 
   hooks/
@@ -503,6 +519,9 @@ src/
   utils/
     recipeRoute.js          path ⇄ recipe key
     recipeSlug.js           id ⇄ path segment (:: ⇄ --)
+    recipePhoto.js          the ONE place a recipe's photo URL is resolved
+    colour.js               tint mixing + WCAG contrast for the category palette
+    search.js               one search across all collections
     relatedRecipes.js       the related ranking (also imported by prerender.mjs)
     screenLock.js           wake-lock lifecycle, injectable nav/doc so it is testable
     autoTags.js             derived tags from section + ingredients

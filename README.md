@@ -9,7 +9,8 @@ automatic per-recipe macro/nutrition estimates.
 
 ## Features
 
-- **Collections** (Cookbook / For Review / To Try) narrowed by **category chips**.
+- **Collections** (Cookbook / For Review / To Try) narrowed by colour-coded
+  **category chips** and a **Filters** sheet (pinned, made, tags).
 - **One search** across every collection: names, ingredients, tags and To Try
   links, plus **auto-tagging** with a tag browser.
 - **Recipe detail modal** with ingredients, method, and a **serving scaler**.
@@ -52,8 +53,8 @@ src/
   App.jsx               top-level app
   components/           UI components (CSS Modules) — Masthead, SearchBar,
                        RecipeList, RecipeCard, SearchResults, ToTryLinks,
-                       RecipeView/Modal/Page, MacroCard, ShoppingList,
-                       RecentlyViewed, BackToTop, ErrorBoundary, UsdaKeyNotice
+                       FiltersSheet, Shelves, RecipeView/Modal/Page, MacroCard,
+                       ShoppingList, BackToTop, ErrorBoundary, UsdaKeyNotice
   hooks/               useShoppingList, useCookLog/useCookHistory,
                        usePinnedRecipes, useRecentlyViewed, useMacroEstimate,
                        useFocusTrap

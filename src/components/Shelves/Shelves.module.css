@@ -1,0 +1,91 @@
+.shelf {
+  margin-top: var(--s5);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  margin-bottom: var(--s1);
+}
+
+.head h2 {
+  margin: 0;
+  font: 700 var(--t-sm)/1.2 var(--sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.clear {
+  min-height: var(--tap);
+  padding: 0 var(--s2);
+  border: 0;
+  background: none;
+  color: var(--brand);
+  font: 600 var(--t-sm)/1 var(--sans);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* One row that scrolls sideways, running to the screen edge on a phone. */
+.shelf ul {
+  display: flex;
+  gap: var(--s3);
+  margin: 0 calc(-1 * var(--s4));
+  padding: var(--s1) var(--s4) var(--s3);
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-width: none;
+}
+
+.shelf ul::-webkit-scrollbar {
+  display: none;
+}
+
+.shelf li {
+  flex: none;
+}
+
+.shelf a {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 52px;
+  max-width: 280px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cc, var(--accent));
+  border-radius: var(--r2);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+  color: var(--cc, var(--ink));
+  font: 400 1.0625rem/1.2 var(--serif);
+  text-decoration: none;
+}
+
+.shelf a:hover {
+  box-shadow: var(--shadow-2);
+}
+
+.shelf a span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.shelf a svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+}
+
+@media (min-width: 720px) {
+  .shelf ul {
+    margin: 0;
+    padding: var(--s1) 0 var(--s3);
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+}

@@ -9,135 +9,74 @@
 // collection at once.
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  CATEGORY_BY_ID, COLLECTIONS, COLL_TRY, ROWS_BY_COLLECTION, groupByCategory,
+  CATEGORY_BY_ID, COLLECTIONS, COLL_BOOK, COLL_REVIEW, COLL_TRY, categoryStyle, groupByCategory, listedRows, plannedByCategory,
 } from '../../data/catalog.js';
-import { displayRecipes } from '../../data/recipeIndex.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
-import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { getEffectiveTags } from '../../utils/autoTags.js';
-import { isComingSoon } from '../../utils/recipeKinds.js';
 import Icon from '../Icon/Icon.jsx';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import ToTryLinks from '../ToTryLinks/ToTryLinks.jsx';
 import SearchResults from '../SearchResults/SearchResults.jsx';
+import FiltersSheet from '../FiltersSheet/FiltersSheet.jsx';
+import Shelves from '../Shelves/Shelves.jsx';
+
+// The Filters sheet offers this many of a collection's most-used tags.
+const TOP_TAGS = 24;
 import styles from './RecipeList.module.css';
-
-// All tags (manual + auto-derived) with counts, over display rows, because a
-// tag pill searches the display list.
-const allTagCounts = (() => {
-  const counts = new Map();
-  displayRecipes.forEach((r) => {
-    getEffectiveTags(r).forEach((t) => counts.set(t, (counts.get(t) ?? 0) + 1));
-  });
-  return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-})();
-
-// Whether coming-soon placeholders are hidden. Stored since before this
-// redesign, so a returning visitor keeps their choice.
-const HIDE_BLANKS_KEY = 'brl_hide_blanks';
-function loadHideBlanks() {
-  try { return localStorage.getItem(HIDE_BLANKS_KEY) === 'true'; }
-  catch { return false; }
-}
-
-// ---------------------------------------------------------------------------
-// Tag browser
-// ---------------------------------------------------------------------------
-
-function TagBrowser({ onSelectTag, onClose }) {
-  const [search, setSearch] = useState('');
-  const inputRef = useRef(null);
-  const modalRef = useRef(null);
-
-  useFocusTrap(modalRef, true);
-  useEffect(() => { inputRef.current?.focus(); }, []);
-  useEffect(() => {
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [onClose]);
-
-  const filtered = search.trim()
-    ? allTagCounts.filter(([tag]) => tag.toLowerCase().includes(search.toLowerCase()))
-    : allTagCounts;
-
-  return (
-    <div className={styles.tagOverlay} onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
-      <div ref={modalRef} className={styles.tagModal} role="dialog" aria-modal="true" aria-labelledby="tag-browser-title">
-        <div className={styles.tagModalHeader}>
-          <h2 id="tag-browser-title" className={styles.tagModalTitle}>Browse tags</h2>
-          <button type="button" className={styles.iconBtn} onClick={onClose} aria-label="Close tags">
-            <Icon name="close" />
-          </button>
-        </div>
-        <div className={styles.tagModalSearch}>
-          <input
-            ref={inputRef}
-            type="search"
-            className={styles.tagSearchInput}
-            placeholder="Find a tag"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            aria-label="Find a tag"
-          />
-        </div>
-        <div className={styles.tagCloud}>
-          {filtered.map(([tag, count]) => (
-            <button
-              key={tag}
-              type="button"
-              className={styles.chip}
-              onClick={() => { onSelectTag(tag); onClose(); }}
-            >
-              {tag}
-              <span className={styles.n}>{count}</span>
-            </button>
-          ))}
-          {filtered.length === 0 && <p className={styles.tagEmpty}>No tags match “{search}”</p>}
-        </div>
-      </div>
-    </div>
-  );
-}
 
 // ---------------------------------------------------------------------------
 // Component
 // ---------------------------------------------------------------------------
 
-export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collection, onCollectionChange, category, onCategoryChange }) {
+export default function RecipeList({
+  onViewRecipe, searchQuery, onSearch, collection, onCollectionChange, category, onCategoryChange,
+  recentHistory = [], onClearRecent,
+}) {
   const deferredQuery = useDeferredValue(searchQuery || '');
   const isFiltering = (searchQuery || '') !== deferredQuery;
   const [madeFilter, setMadeFilter] = useState('all');
   const [pinnedFilter, setPinnedFilter] = useState(false);
-  const [hideBlanks, setHideBlanks] = useState(loadHideBlanks);
-  const [tagBrowserOpen, setTagBrowserOpen] = useState(false);
+  const [tagFilter, setTagFilter] = useState(() => new Set());
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const { madeSet, pinnedSet } = useCookHistoryContext();
   const chipRowRef = useRef(null);
+  const filtersBtnRef = useRef(null);
 
   const isTry = collection === COLL_TRY;
-  const hasMade = madeSet.size > 0;
-  const hasPinned = pinnedSet.size > 0;
+  const activeFilters = (pinnedFilter ? 1 : 0) + (madeFilter !== 'all' ? 1 : 0) + tagFilter.size;
 
-  const handleToggleHideBlanks = useCallback(() => {
-    setHideBlanks((v) => {
-      const next = !v;
-      try { localStorage.setItem(HIDE_BLANKS_KEY, String(next)); } catch { /* ignore */ }
-      return next;
-    });
-  }, []);
+  // Tags filter per collection: a tag chosen in the Cookbook means nothing in
+  // For Review, so switching collection clears them.
+  useEffect(() => { setTagFilter(new Set()); }, [collection]);
 
-  // The collection's rows after the made / pinned / placeholder filters. The
-  // category chips are counted from THIS list, so each chip's number is what
-  // tapping it shows. To Try ignores made and pinned: links have neither.
+  // The collection's most-used tags, counted over everything it lists. A tag
+  // on a single recipe is not worth a filter; search finds it.
+  const topTags = useMemo(() => {
+    const counts = new Map();
+    for (const r of listedRows(collection)) {
+      for (const t of getEffectiveTags(r)) counts.set(t, (counts.get(t) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+      .filter(([, n]) => n > 1)
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .slice(0, TOP_TAGS);
+  }, [collection]);
+
+  // The collection's rows after the made / pinned filters. Coming-soon
+  // placeholders are never listed: each category header says how many more
+  // are planned instead. The category chips are counted from THIS list, so
+  // each chip's number is what tapping it shows. To Try ignores made and
+  // pinned: links have neither.
   const base = useMemo(() => {
-    let rows = ROWS_BY_COLLECTION[collection] ?? [];
+    let rows = listedRows(collection);
     if (isTry) return rows;
-    if (hideBlanks) rows = rows.filter((r) => !isComingSoon(r));
-    if (madeFilter === 'made') rows = rows.filter((r) => !r.is_blank && madeSet.has(r.id));
-    else if (madeFilter === 'unmade') rows = rows.filter((r) => !r.is_blank && !madeSet.has(r.id));
-    if (pinnedFilter) rows = rows.filter((r) => !r.is_blank && pinnedSet.has(r.id));
+    if (madeFilter === 'made') rows = rows.filter((r) => madeSet.has(r.id));
+    else if (madeFilter === 'unmade') rows = rows.filter((r) => !madeSet.has(r.id));
+    if (pinnedFilter) rows = rows.filter((r) => pinnedSet.has(r.id));
+    for (const tag of tagFilter) rows = rows.filter((r) => getEffectiveTags(r).includes(tag));
     return rows;
-  }, [collection, isTry, hideBlanks, madeFilter, pinnedFilter, madeSet, pinnedSet]);
+  }, [collection, isTry, madeFilter, pinnedFilter, tagFilter, madeSet, pinnedSet]);
+  const planned = useMemo(() => plannedByCategory(collection), [collection]);
 
   const groups = useMemo(() => groupByCategory(base), [base]);
   const shownGroups = category ? groups.filter((g) => g.category?.id === category) : groups;
@@ -145,15 +84,11 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
 
   // Keep a chip for the selected category even when a filter empties it, so
   // there is always a visible way to deselect it.
-  const chips = groups.map((g) => ({ id: g.category.id, label: g.category.label, n: g.rows.length }));
+  const chips = groups.map((g) => ({ category: g.category, id: g.category.id, label: g.category.label, n: g.rows.length }));
   const selectedMissing = category && !chips.some((c) => c.id === category);
 
-  // Counts on the collection switcher: rows each collection lists with no
-  // filter applied beyond the placeholder preference.
-  const collectionCount = (key) => {
-    const rows = ROWS_BY_COLLECTION[key] ?? [];
-    return key === COLL_TRY || !hideBlanks ? rows.length : rows.filter((r) => !isComingSoon(r)).length;
-  };
+  // Counts on the collection switcher: what each collection lists, unfiltered.
+  const collectionCount = (key) => listedRows(key).length;
 
   // On a phone the chip row scrolls sideways: keep the pressed chip in view by
   // moving the row, never the page.
@@ -168,16 +103,34 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
   }, [category, collection]);
 
   const handleRandom = () => {
-    const pool = shownGroups.flatMap((g) => g.rows).filter((r) => !r.is_blank);
+    const pool = shownGroups.flatMap((g) => g.rows);
     if (!pool.length) return;
     onViewRecipe(pool[Math.floor(Math.random() * pool.length)]);
   };
 
-  const clearFilters = () => {
+  const clearFilters = useCallback(() => {
     setMadeFilter('all');
     setPinnedFilter(false);
-    onCategoryChange('');
-  };
+    setTagFilter(new Set());
+  }, []);
+
+  const toggleTag = useCallback((tag) => {
+    setTagFilter((prev) => {
+      const next = new Set(prev);
+      if (next.has(tag)) next.delete(tag); else next.add(tag);
+      return next;
+    });
+  }, []);
+
+  const closeFilters = useCallback(() => setFiltersOpen(false), []);
+
+  // Tags chosen but outside the top list stay visible in the sheet, so a
+  // filter that is on can always be turned off.
+  const sheetTags = [
+    ...[...tagFilter].filter((t) => !topTags.some(([x]) => x === t)).map((t) => [t, 0]),
+    ...topTags,
+  ];
+  const showShelves = collection === COLL_BOOK && !category && activeFilters === 0;
 
   const q = deferredQuery.trim();
   if (q) {
@@ -187,8 +140,6 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
       </main>
     );
   }
-
-  const madeLabel = madeFilter === 'made' ? 'Made it' : madeFilter === 'unmade' ? 'Not made yet' : 'Made';
 
   return (
     <main className={isFiltering ? styles.filtering : ''}>
@@ -224,10 +175,12 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
             key={c.id}
             type="button"
             className={styles.chip}
+            style={categoryStyle(c.category)}
             data-cat={c.id}
             aria-pressed={category === c.id}
             onClick={() => onCategoryChange(category === c.id ? '' : c.id)}
           >
+            <span className={styles.dot} aria-hidden="true" />
             {c.label}<span className={styles.n}>{c.n}</span>
           </button>
         ))}
@@ -238,63 +191,62 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
         )}
         {!isTry && (
           <>
-            <button type="button" className={`${styles.chip} ${styles.tool}`} onClick={handleRandom}>
-              <Icon name="shuffle" />Surprise me
-            </button>
-            <button type="button" className={`${styles.chip} ${styles.tool}`} onClick={() => setTagBrowserOpen(true)}>
-              <Icon name="tag" />Tags
-            </button>
-            {(hasPinned || pinnedFilter) && (
-              <button
-                type="button"
-                className={`${styles.chip} ${styles.tool}`}
-                aria-pressed={pinnedFilter}
-                onClick={() => setPinnedFilter((v) => !v)}
-              >
-                <Icon name="star" filled={pinnedFilter} />Pinned only
-              </button>
-            )}
-            {(hasMade || madeFilter !== 'all') && (
-              // One button cycling Any -> Made it -> Not made yet. Its label
-              // names the current setting; aria-pressed says a filter is on.
-              <button
-                type="button"
-                className={`${styles.chip} ${styles.tool}`}
-                aria-pressed={madeFilter !== 'all'}
-                onClick={() => setMadeFilter((v) => (v === 'all' ? 'made' : v === 'made' ? 'unmade' : 'all'))}
-              >
-                <Icon name="check" />{madeLabel}
-              </button>
-            )}
             <button
+              ref={filtersBtnRef}
               type="button"
               className={`${styles.chip} ${styles.tool}`}
-              aria-pressed={!hideBlanks}
-              onClick={handleToggleHideBlanks}
+              aria-haspopup="dialog"
+              aria-pressed={activeFilters > 0}
+              onClick={() => setFiltersOpen(true)}
             >
-              Show coming soon
+              <Icon name="filter" />{activeFilters ? `Filters · ${activeFilters}` : 'Filters'}
+            </button>
+            <button type="button" className={`${styles.chip} ${styles.tool}`} onClick={handleRandom}>
+              <Icon name="shuffle" />Surprise me
             </button>
           </>
         )}
       </div>
 
+      {showShelves && (
+        <Shelves pinnedIds={pinnedSet} recent={recentHistory} onViewRecipe={onViewRecipe} onClearRecent={onClearRecent} />
+      )}
+
+      {collection === COLL_REVIEW && (
+        <p className={styles.note}>For Review holds written recipes that have not been cooked and signed off yet.</p>
+      )}
+      {isTry && (
+        <p className={styles.note}>To Try is a reading list: links to other sites, saved to cook later. They open in a new tab.</p>
+      )}
+
       {shownCount === 0 && (
         <div className={styles.empty} role="status">
           <h2>Nothing matches</h2>
           <p>No recipes fit these filters.</p>
-          <button type="button" className={styles.btn} onClick={clearFilters}>Clear filters</button>
+          <button type="button" className={styles.btn} onClick={() => { clearFilters(); onCategoryChange(''); }}>
+            Clear filters
+          </button>
         </div>
       )}
 
       {shownGroups.map((g) => (
-        <section key={g.category.id} className={styles.group} aria-labelledby={`g-${g.category.id}`}>
+        <section
+          key={g.category.id}
+          className={styles.group}
+          style={categoryStyle(g.category)}
+          aria-labelledby={`g-${g.category.id}`}
+        >
+          {/* A recipe-box divider tab on a rule in the category colour. */}
           <div className={styles.groupHead}>
             <h2 id={`g-${g.category.id}`}>
               {g.category.label}<span className={styles.n}>{g.rows.length}</span>
             </h2>
+            {planned.get(g.category.id) > 0 && (
+              <span className={styles.soon}>{planned.get(g.category.id)} more planned</span>
+            )}
           </div>
           {isTry ? (
-            <ToTryLinks rows={g.rows} />
+            <ToTryLinks rows={g.rows} columns />
           ) : (
             <ul className={styles.grid}>
               {g.rows.map((r) => <RecipeCard key={r.id} recipe={r} onViewRecipe={onViewRecipe} />)}
@@ -303,8 +255,20 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
         </section>
       ))}
 
-      {tagBrowserOpen && (
-        <TagBrowser onSelectTag={(tag) => onSearch?.(tag)} onClose={() => setTagBrowserOpen(false)} />
+      {filtersOpen && (
+        <FiltersSheet
+          onClose={closeFilters}
+          returnFocusRef={filtersBtnRef}
+          resultCount={shownCount}
+          pinnedOnly={pinnedFilter}
+          onTogglePinned={() => setPinnedFilter((v) => !v)}
+          made={madeFilter}
+          onMadeChange={setMadeFilter}
+          tags={sheetTags}
+          selectedTags={tagFilter}
+          onToggleTag={toggleTag}
+          onClearAll={clearFilters}
+        />
       )}
     </main>
   );
