@@ -451,7 +451,7 @@
 }
 
 .cookBtnOn:hover {
-  background: var(--amber-dark);
+  background: var(--accent-soft);
   border-color: var(--amber-dark);
   color: var(--amber-deep);
 }

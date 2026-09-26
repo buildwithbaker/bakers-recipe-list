@@ -16,7 +16,6 @@ import Footer from './components/Footer/Footer.jsx';
 import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
-import { useDarkMode } from './hooks/useDarkMode.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
 import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js';
 
@@ -139,7 +138,6 @@ function AppInner() {
   // Holds a tag search that must be applied after a back navigation lands.
   const pendingSearchRef = useRef(null);
   const [recentHistory, addToHistory, clearHistory] = useRecentlyViewed();
-  const [darkMode, toggleDark] = useDarkMode();
   const [listItems, addListItems, toggleListItem, removeListItem, clearChecked, clearAll] = useShoppingList();
 
   const selectedRecipe = recipeId ? resolveRecipe(recipeId) : null;
@@ -388,8 +386,6 @@ function AppInner() {
       <TopBar
         onMenuToggle={handleMenuToggle}
         onListToggle={handleListToggle}
-        darkMode={darkMode}
-        onToggleDark={toggleDark}
         listItemCount={uncheckedCount}
         siteTitleIsHeading={!fullPage}
       />

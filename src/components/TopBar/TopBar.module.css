@@ -118,22 +118,4 @@
 }
 
 /* Generic icon action button (dark mode toggle etc) */
-.iconAction {
-  background: none;
-  border: none;
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  padding: 0;
-  border-radius: 6px;
-  color: rgba(255, 255, 255, 0.65);
-  transition: background 0.15s, color 0.15s;
-  flex-shrink: 0;
-}
-.iconAction:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--amber);
-}
+
