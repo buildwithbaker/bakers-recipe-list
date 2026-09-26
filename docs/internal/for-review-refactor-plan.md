@@ -23,19 +23,23 @@ its review state, by prefixing the section name with `FOR REVIEW`. This causes:
   review-soup section, so promoting a recipe out of review means renaming its
   section (and it loses its place).
 
-## Current wiring (the blast radius — 5 files)
+## Current wiring (the blast radius)
+
+*Updated 2026-09-26 for the UI redesign: SectionBlock and TOCNav no longer
+exist; the review view is the For Review collection in `data/catalog.js`.*
 
 Review state today is derived entirely from the section key via `review: true`
 in `sections.js`. Touching this touches:
 
 1. `src/data/sections.js` — the 6 `FOR REVIEW ...` entries carry `review: true`.
-2. `src/components/RecipeList/RecipeList.jsx` — `mainSections` / `reviewSections`
-   split (lines ~26-27), the Recipes/For-Review tab (lines ~278, ~363),
-   `hideSource={section.review}` (~372), and `expandVersionedRecipe` only on
-   review sections (~33).
-3. `src/components/SectionBlock/SectionBlock.jsx` — green "review" header style
-   (~20).
-4. `src/components/TOCNav/TOCNav.jsx` — green review link style (~68).
+2. `src/data/catalog.js` — `collectionOfSection` puts `review: true` sections
+   in the For Review collection, and `SECTION_CATEGORY` maps each
+   `FOR REVIEW ...` key to a reader-facing category (both soup buckets to
+   Soups). `catalog.test.js` fails if a section has no category.
+3. `src/data/recipeIndex.js` / `expandVersions.js` — version expansion runs only
+   on review sections.
+4. `src/components/SearchResults/SearchResults.jsx` — the "For Review" badge on
+   review hits.
 5. `src/utils/autoTags.js` — strips the literal `FOR REVIEW --- ` prefix (~82).
 6. `src/utils/estimateServings.js` — per-section serving defaults keyed on the
    6 `FOR REVIEW ...` strings (~33-38).

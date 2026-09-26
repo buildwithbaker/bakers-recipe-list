@@ -1,109 +1,96 @@
 # Baker's Recipe List — Color System
 
-The single reference for the app's palette. All colors are CSS custom properties
-defined in [`src/styles/globals.css`](../../src/styles/globals.css) — components
-reference tokens, never raw hex. Last updated 2026-06-02.
+The single reference for the app's palette. Last rewritten 2026-09-26 for the
+warm-cookbook redesign (prototype v2).
 
-> This file replaces the old `card_color_schemes.md` reference that `globals.css`
-> used to point at (the file no longer existed). The warm-cookbook card palette
-> is documented in the "Recipe card / modal palette" section below.
+- **Tokens:** [`src/styles/tokens.css`](../../src/styles/tokens.css). Components
+  reference tokens, never raw hex.
+- **Category colours:** `CATEGORIES` in
+  [`src/data/catalog.js`](../../src/data/catalog.js).
+- **Contrast is tested, not asserted:**
+  [`src/styles/contrast.test.js`](../../src/styles/contrast.test.js) reads
+  `tokens.css` and the category list and fails the suite below WCAG AA. Change a
+  colour and `npm test` re-measures it. Add a pair there when a new text colour
+  lands on a new background.
+
+**Light only, by decision.** Every colour is named for its role, not its hue,
+so a dark theme would be one more block re-pointing the same names. There is no
+toggle; do not add one without asking.
 
 ---
 
 ## The idea
 
-A **warm cookbook** look: a cream page, white surfaces, deep-navy chrome, and an
-amber accent. Navy + amber on cream reads editorial and food-friendly rather than
-the generic "SaaS blue on stark white." Dark mode keeps the same hues, just
-brighter, on a deep-navy background.
+A recipe box on a kitchen counter:
 
-Accent discipline (60-30-10): cream/white is the dominant 60%, navy chrome and
-borders are the ~30%, **amber is the ~10% accent** — used for the brand mark,
-the title, primary affordances, and pills. Don't spread amber across large fills
-or it stops signalling "act here."
+- **Paper:** cream page with a faint grain.
+- **Band:** an enamel-navy masthead with a double amber rule.
+- **Cards:** off-white.
+- **Category colour:** each category's colour carries through its chips, its
+  divider-tab header, its cards and its recipe page, so you always know which
+  drawer you are in.
 
----
+Amber is an accent: rules, badges, the pinned star. It is never body text on
+paper; use `--accent-ink` for amber-coloured text.
 
-## Core tokens (light mode)
-
-| Token | Value | Role |
-|---|---|---|
-| `--bg` | `#FEFCF5` | Page background (warm off-white, not stark `#fff`) |
-| `--surface` | `#ffffff` | Cards / panels — advance off the cream page |
-| `--border` | `#ede9dc` | Hairline borders |
-| `--text` | `#2C2C2A` | Body text — 13.6:1 on `--bg` |
-| `--text-muted` | `#6E6D66` | Secondary text — ~5.1:1 on `--bg` (AA) |
-| `--navy` | `#042C53` | Brand navy (text/icons). **Flips light in dark mode** |
-| `--blue` | `#0C447C` | Links / blue accents — 9.6:1 on `--bg` |
-| `--blue-mid` | `#185FA5` | Secondary blue |
-| `--amber` | `#EF9F27` | Primary accent |
-| `--amber-dark` | `#BA7517` | Amber on light surfaces (needs more contrast) |
-| `--amber-deep` | `#412402` | Text on amber pills |
-| `--pill-bg` / `--pill-text` | `#EF9F27` / `#412402` | Tag pills |
-| `--hover-row-bg` | `#fef8ec` | Row hover wash |
-
-## Brand "dark fill" tokens
-
-These exist so header chrome stays dark in **both** themes. `--navy` cannot be
-used for this because dark mode redefines `--navy` to a *light* tone (for use as
-text), which previously made the top-bar title ~1.4:1 contrast.
+## Role tokens
 
 | Token | Value | Role |
 |---|---|---|
-| `--brand-dark` | `#042C53` | Dark fill for chrome that must stay dark in dark mode |
-| `--topbar-bg` | → `--brand-dark` | Top-bar background |
-| `--topbar-accent` | `#EF9F27` | Top-bar title |
-| `--topbar-subtitle` | `#85B7EB` | Top-bar subtitle |
+| `--paper` | `#f3ebdc` | page background (plus `--paper-texture`) |
+| `--surface` | `#fffbf5` | cards, sheets, inputs |
+| `--surface-sunk` | `#ece3d4` | segmented-control track |
+| `--line` / `--line-strong` | `#e0d4c1` / `#c9b89f` | hairlines / control borders (never text) |
+| `--ink` / `--ink-muted` | `#2a221c` / `#5f5349` | text / secondary text |
+| `--brand` | `#1f3a5f` | links, focus ring, primary buttons |
+| `--band` / `--band-ink` / `--band-accent` | `#1f3a5f` / `#f6e7c8` / `#e0a63a` | masthead background / its text / its amber |
+| `--accent` / `--accent-ink` / `--accent-soft` | `#b7791f` / `#7a4f0e` / `#f6e7c8` | amber graphic / amber text / amber wash |
+| `--made` / `--made-soft` | `#3d6b37` / `#e2eedb` | the Made state |
+| `--review-ink` / `--review-soft` | `#6b4e00` / `#f7ecc6` | the For Review badge |
+| `--danger` | `#a3301f` | destructive text (Clear all) |
 
-Used by: top bar, shopping-list header, and the dark hover state of the
-back-to-top, view, and confirm buttons.
+## Category colours
 
-## Recipe card / modal palette (warm cookbook)
+Twenty-one categories share ten colours, per the approved SOW. Neighbours can
+repeat, so the colour is a wayfinding cue and never the only signal: every
+category is also named in text.
 
-Scoped to the recipe modal. Slightly warmer headings, cooler blue tags.
+| Colour | Categories |
+|---|---|
+| `#8a5a00` | Breakfast, Bread, Curry |
+| `#8b3a1a` | Slow Cooker, Marinades · Beef |
+| `#56662a` | Seasonings, Sides |
+| `#9a4a12` | Doughs, Snacks |
+| `#1f3a5f` | American |
+| `#a63d24` | Mexican, Italian, Marinades · Chicken |
+| `#1d6663` | Asian |
+| `#6b3a5e` | Middle Eastern, Desserts, Marinades · Pork |
+| `#3e4f7a` | Sandwiches, Soups |
+| `#46644f` | Marinades, Smoothies |
 
-| Token | Light | Role |
+Each colour gets two tints, **mixed in JavaScript** (`src/utils/colour.js`) and
+set on the element as custom properties by `categoryStyle()`:
+
+| Property | Value | Used for |
 |---|---|---|
-| `--card-surface` | `#FFFFFF` | Modal surface |
-| `--card-border` | `#E5DFCF` | Modal borders |
-| `--card-heading` | `#B5631F` | Recipe title (large/bold) |
-| `--card-tag` | `#5E7196` | Tag text (AA for small text on white) |
-| `--card-tag-strong` | `#5A6B8E` | Active/strong tag |
-| `--card-section-label` | `#1A2B4A` | "Ingredients" / "Method" labels |
-| `--card-body` | `#1C1C1C` | Method/body copy |
-| `--card-muted` | `#6B7280` | De-emphasized card text |
-| `--card-divider` | `#C9D3E0` | Section dividers |
+| `--cc` | the colour | titles, kicker, divider tab, step circles, checked boxes, Cook mode |
+| `--cc-soft` | 13% over `--surface` | photo slot, recipe header band, sticky bar |
+| `--cc-mid` | 30% over `--surface` | card border, dashed photo frame, method line |
 
-## Dark mode
+**Why not CSS `color-mix()`?** iOS before 16.2 does not support it. A custom
+property holding an unsupported value does not fall back to an earlier
+declaration; it goes invalid and the background vanishes. Precomputed hex works
+everywhere.
 
-Toggled by `[data-theme="dark"]` on `<html>` (defaults OFF regardless of system
-preference — see `useDarkMode.js`). The dark block in `globals.css` redefines the
-core tokens onto a deep-navy background (`--bg: #141A22`, `--surface: #1C2430`)
-and brightens amber/blue. The `--brand-dark` / `--topbar-*` tokens are **not**
-overridden, so they persist as the dark navy chrome.
+Every category colour is tested at 4.5:1 or better:
 
----
+- as text on `--surface`
+- under white text
+- as text on its own `--cc-soft`
+- with `--ink`, `--ink-muted` and `--brand` text on its `--cc-soft`
 
-## Contrast — verified 2026-06-02 (WCAG 2.2 AA)
+## Focus
 
-Targets: 4.5:1 normal text, 3:1 large/bold text and UI components.
-
-| Pair | Ratio | Status |
-|---|---|---|
-| `--text` on `--bg` | 13.6:1 | AAA |
-| `--text-muted` on `--bg` | ~5.1:1 | AA ✅ (was 3.51:1 — fixed) |
-| Top-bar title amber on `--brand-dark` | 6.5:1 | AA ✅ (was 1.4:1 in dark mode — fixed) |
-| Top-bar subtitle on `--brand-dark` | 6.7:1 | AA |
-| `--blue` link on `--bg` | 9.6:1 | AAA |
-| Pill text `--amber-deep` on `--amber` | 6.5:1 | AA |
-| `--card-heading` on white (heading) | 4.4:1 | AA (large) |
-| `--card-tag` on white | ~4.6:1 | AA ✅ (was 4.05:1 — nudged) |
-
-## Rules when editing colors
-
-1. **Reference tokens, never raw hex** in component CSS.
-2. **Never use `--navy` as a background** — it flips light in dark mode. Use
-   `--brand-dark` for dark chrome.
-3. **Re-check contrast** for any text/background change against the table above
-   (4.5:1 normal, 3:1 large). Pure `#000`/`#fff` pairs are banned — they read harsh.
-4. **Keep amber to ~10%** of any given view.
+Focus is a 3px `--focus` (navy) outline, offset 2px, everywhere. That includes
+the search box, where the prototype showed an amber ring: amber on paper is
+2.1:1, below the 3:1 a focus indicator needs.

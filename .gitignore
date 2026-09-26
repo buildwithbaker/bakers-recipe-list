@@ -1,5 +1,7 @@
 node_modules
 dist
+# Photo sizes made from src/photos/ by scripts/build-photos.mjs
+src/photos/generated/
 dist-ssr
 *.local
 .vite

@@ -1,5 +1,14 @@
+// The shopping list: a sheet over whatever is on screen (the list, or a recipe
+// card, since "Add to shopping list" opens it on top of the card).
+//
+// A modal dialog: focus moves in and is trapped, Escape or the scrim closes
+// it, and focus returns to what opened it. Print uses print-only CSS
+// (globals.css [data-print-list]) rather than a popup window, which popup
+// blockers break.
 import { useEffect, useRef } from 'react';
 import { resolveRecipe } from '../../data/recipeIndex.js';
+import { useFocusTrap } from '../../hooks/useFocusTrap.js';
+import Icon from '../Icon/Icon.jsx';
 import styles from './ShoppingList.module.css';
 
 // Items are keyed by recipe id; the heading needs a name. Falls back to the
@@ -21,110 +30,103 @@ function groupByRecipe(items) {
 
 export default function ShoppingList({ items, open, onClose, onToggle, onRemove, onClearChecked, onClearAll }) {
   const panelRef = useRef(null);
+  const closeRef = useRef(null);
+  const onCloseRef = useRef(onClose);
+  useEffect(() => { onCloseRef.current = onClose; });
+  useFocusTrap(panelRef, open);
+
   const checkedCount = items.filter((it) => it.checked).length;
   const totalCount = items.length;
   const groups = groupByRecipe(items);
 
-  // Trap focus inside the panel when open; close on Escape.
+  // Focus in on open, back to the opener on close; Escape closes; the page
+  // behind does not scroll while the list is up.
   useEffect(() => {
-    if (!open) return;
-    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    if (!open) return undefined;
+    const opener = document.activeElement;
+    closeRef.current?.focus({ preventScroll: true });
+    const onKey = (e) => { if (e.key === 'Escape') onCloseRef.current(); };
     document.addEventListener('keydown', onKey);
-    return () => document.removeEventListener('keydown', onKey);
-  }, [open, onClose]);
-
-  // Lock body scroll when panel is open.
-  useEffect(() => {
-    if (!open) return;
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prevOverflow;
+      if (opener?.isConnected) opener.focus({ preventScroll: true });
+    };
   }, [open]);
 
   if (!open) return null;
 
-  // Print via print-only CSS (see globals.css [data-print-list]) rather than
-  // opening a popup window — popups are blocker-fragile. The @media print rules
-  // hide everything except the list and strip the interactive chrome.
-  const handlePrint = () => window.print();
-
   return (
     <>
       <div className={styles.overlay} onClick={onClose} aria-hidden="true" />
-      <aside
+      <div
         ref={panelRef}
         className={styles.panel}
-        role="complementary"
-        aria-label="Shopping list"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="shopping-list-title"
         data-print-list
       >
-        {/* Header */}
         <div className={styles.header}>
-          <h2 className={styles.title}>
-            Shopping List
-            {totalCount > 0 && (
-              <span className={styles.countChip}>{totalCount - checkedCount} left</span>
-            )}
-          </h2>
+          <h2 id="shopping-list-title" className={styles.title}>Shopping list</h2>
+          {totalCount > 0 && <span className={styles.count}>{totalCount - checkedCount} left</span>}
           <div className={styles.headerActions} data-print-hide>
             {totalCount > 0 && (
-              <button type="button" className={styles.iconBtn} onClick={handlePrint} title="Print list" aria-label="Print list">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
-                </svg>
+              <button type="button" className={styles.iconBtn} onClick={() => window.print()} aria-label="Print list">
+                <Icon name="print" />
               </button>
             )}
-            <button type="button" className={styles.closeBtn} onClick={onClose} aria-label="Close shopping list">&#x2715;</button>
+            <button ref={closeRef} type="button" className={styles.iconBtn} onClick={onClose} aria-label="Close shopping list">
+              <Icon name="close" />
+            </button>
           </div>
         </div>
 
-        {/* Empty state */}
         {totalCount === 0 && (
           <div className={styles.emptyState}>
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className={styles.emptyIcon}>
-              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
-            </svg>
+            <Icon name="list" className={styles.emptyIcon} />
             <p>Your list is empty.</p>
-            <p className={styles.emptyHint}>Open a recipe and tap <strong>List</strong> to add ingredients.</p>
+            <p className={styles.emptyHint}>Open a recipe and choose <strong>Add to shopping list</strong>.</p>
           </div>
         )}
 
-        {/* Item groups */}
         {totalCount > 0 && (
           <div className={styles.body}>
             {[...groups.entries()].map(([recipe, rItems]) => (
-              <div key={recipe} className={styles.group}>
-                <div className={styles.groupLabel}>{recipeLabel(recipe)}</div>
+              <section key={recipe} className={styles.group}>
+                <h3 className={styles.groupLabel}>{recipeLabel(recipe)}</h3>
                 <ul className={styles.itemList}>
                   {rItems.map((item) => (
                     <li key={item.id} className={`${styles.item} ${item.checked ? styles.itemChecked : ''}`}>
+                      {/* The whole row toggles; the box is its visible state. */}
                       <button
                         type="button"
-                        className={styles.checkbox}
+                        className={styles.check}
                         onClick={() => onToggle(item.id)}
-                        aria-label={item.checked ? 'Uncheck' : 'Check off'}
                         aria-pressed={item.checked}
                       >
-                        {item.checked ? (
-                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                        ) : null}
+                        <span className={styles.box} aria-hidden="true">{item.checked && <Icon name="check" />}</span>
+                        <span className={styles.itemText}>{item.text}</span>
                       </button>
-                      <span className={styles.itemText}>{item.text}</span>
                       <button
                         type="button"
                         className={styles.removeBtn}
                         onClick={() => onRemove(item.id)}
-                        aria-label="Remove item"
+                        aria-label={`Remove ${item.text}`}
                         data-print-hide
-                      >×</button>
+                      >
+                        <Icon name="close" />
+                      </button>
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
             ))}
           </div>
         )}
 
-        {/* Footer actions */}
         {totalCount > 0 && (
           <div className={styles.footer} data-print-hide>
             {checkedCount > 0 && (
@@ -132,12 +134,12 @@ export default function ShoppingList({ items, open, onClose, onToggle, onRemove,
                 Remove checked ({checkedCount})
               </button>
             )}
-            <button type="button" className={`${styles.footerBtn} ${styles.footerBtnDanger}`} onClick={onClearAll}>
+            <button type="button" className={`${styles.footerBtn} ${styles.danger}`} onClick={onClearAll}>
               Clear all
             </button>
           </div>
         )}
-      </aside>
+      </div>
     </>
   );
 }

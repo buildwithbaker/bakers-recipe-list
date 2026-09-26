@@ -1,51 +1,49 @@
-/* Frame for the full-page recipe view. The body inside it is RecipeView, so
- * everything here is the page's own furniture: width, the card, the back link.
- */
+/* Frame for the full-page recipe. The body is RecipeView; everything here is
+   the page's own furniture: width, the card, the way back. */
 
 .page {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 20px 20px 60px;
-}
-
-.backLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: none;
-  color: var(--text-muted);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 13px;
-  padding: 4px 0;
-  margin-bottom: 10px;
-  transition: color 0.15s;
-}
-
-.backLink:hover {
-  color: var(--blue-mid);
+  max-width: var(--maxw);
+  margin: var(--s4) auto 0;
+  padding: 0 var(--s4) var(--s8);
 }
 
 .card {
   display: block;
-  background: var(--card-surface);
-  border: 1px solid var(--card-border);
-  border-radius: 12px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r4);
+  /* clip, not hidden: hidden would stop the sticky bar sticking */
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  overflow: clip;
+  box-shadow: var(--shadow-1);
+}
+
+.back {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s1);
+  min-height: var(--tap);
+  padding: 0 var(--s2) 0 0;
+  border: 0;
+  background: none;
+  color: var(--brand);
+  font: 600 var(--t-sm)/1 var(--sans);
+  cursor: pointer;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+.back svg {
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 600px) {
   .page {
-    padding: 14px 12px 48px;
-  }
-}
-
-/* The back control is navigation, not part of the recipe. (The hero is hidden
-   on print by RecipeView, which owns it.) */
-@media print {
-  .backLink {
-    display: none !important;
+    margin-top: var(--s3);
+    padding: 0 var(--s2) var(--s7);
   }
 }

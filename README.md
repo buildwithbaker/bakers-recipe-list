@@ -13,7 +13,11 @@ automatic per-recipe macro/nutrition estimates.
   **category chips** and a **Filters** sheet (pinned, made, tags).
 - **One search** across every collection: names, ingredients, tags and To Try
   links, plus **auto-tagging** with a tag browser.
-- **Recipe detail modal** with ingredients, method, and a **serving scaler**.
+- **Recipe card and full page** themed to the recipe's category: tickable
+  ingredients, a numbered method, **cook mode** (keeps the screen awake), a
+  **serving scaler**, pin / made, share and print.
+- **Photos:** drop `src/photos/<id>.jpg` and the build makes the card, page and
+  link-preview sizes (see `docs/internal/adding-a-photo.md`).
 - **Macro & nutrition estimates** per recipe via USDA FoodData Central lookups
   (with per-ingredient overrides and a graceful `DEMO_KEY` fallback).
 - **Ingredient parsing**, **unit-to-grams conversion**, and serving/macro estimation.

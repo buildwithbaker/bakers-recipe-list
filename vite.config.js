@@ -20,7 +20,17 @@ export default defineConfig({
         // woff2 is the self-hosted heading font; without it an offline visit
         // falls back to Georgia. The .woff twin is never fetched by a browser
         // that reads woff2, so it is left out of the precache.
-        globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff2}'],
+        // Card thumbnails (src/photos/ via build-photos.mjs) are ~15 KB each, so
+        // they are precached and the list looks right offline. The 800px
+        // recipe photos are cached the first time each is viewed instead.
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff2}', '**/*-thumb-*.webp'],
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.pathname.startsWith(`${BASE}assets/`) && /-large-[^/]*\.webp$/.test(url.pathname),
+            handler: 'CacheFirst',
+            options: { cacheName: 'brl-photos', expiration: { maxEntries: 300 } },
+          },
+        ],
         // The recipe data (~0.5 MB) is bundled into the main JS chunk, so the
         // precache entry can exceed the 2 MiB default. Raise the ceiling.
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,

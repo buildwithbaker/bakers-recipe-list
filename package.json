@@ -8,14 +8,16 @@
     "node": ">=22.12"
   },
   "scripts": {
+    "predev": "node scripts/build-photos.mjs",
     "dev": "vite",
-    "prebuild": "node scripts/validate-recipes.mjs",
+    "prebuild": "node scripts/validate-recipes.mjs && node scripts/build-photos.mjs",
     "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "validate:recipes": "node scripts/validate-recipes.mjs"
+    "validate:recipes": "node scripts/validate-recipes.mjs",
+    "photos": "node scripts/build-photos.mjs"
   },
   "dependencies": {
     "@fontsource/young-serif": "^5.3.0",
@@ -28,6 +30,7 @@
     "eslint": "^10.4.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.6.0",
+    "sharp": "^0.35.4",
     "vite": "^8.3.0",
     "vite-plugin-pwa": "^1.3.0",
     "vitest": "^5.0.1"

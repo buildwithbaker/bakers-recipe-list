@@ -19,7 +19,8 @@
 // unambiguous and reversible. src/utils/recipeSlug.js owns both directions and
 // the app must resolve incoming paths through it.
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
+import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SECTIONS, publicSectionLabel } from '../src/data/sections.js';
@@ -88,8 +89,33 @@ function describe(r) {
   return `${r.name} from ${SITE_NAME}.`;
 }
 
-// A real photo when one has been shot, the shared placeholder until then.
-const imageFor = (r) => (r.image ? `${ORIGIN}${String(r.image).replace(/^\/+/, '')}` : PLACEHOLDER);
+// Link-preview images. A photo dropped in src/photos/ (see
+// scripts/build-photos.mjs) becomes a 1200x630 JPEG at dist/og/<segment>.jpg:
+// JPEG because preview crawlers are unreliable with WebP, 1200x630 because
+// that is the card every major one draws. The legacy `image` field is next,
+// and the shared placeholder until either exists.
+const PHOTO_SRC = join(root, 'src', 'photos');
+const photoSources = new Map(
+  (existsSync(PHOTO_SRC) ? readdirSync(PHOTO_SRC) : [])
+    .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
+    .map((f) => [f.replace(/\.[^.]+$/, ''), join(PHOTO_SRC, f)]),
+);
+const ogMade = new Set();
+if (photoSources.size) mkdirSync(join(dist, 'og'), { recursive: true });
+for (const r of published) {
+  const segment = idToSlug(r.id);
+  const src = photoSources.get(segment);
+  if (!src) continue;
+  await sharp(src).rotate().resize(1200, 630, { fit: 'cover' }).jpeg({ quality: 80 }).toFile(join(dist, 'og', `${segment}.jpg`));
+  ogMade.add(segment);
+}
+
+const imageFor = (r) => {
+  const segment = idToSlug(r.id);
+  if (ogMade.has(segment)) return `${ORIGIN}og/${segment}.jpg`;
+  if (r.image) return `${ORIGIN}${String(r.image).replace(/^\/+/, '')}`;
+  return PLACEHOLDER;
+};
 
 function jsonLd(r, url) {
   const ld = {
@@ -322,5 +348,6 @@ if (appRows < recipes.length) {
 console.log(
   `✓ prerender - ${published.length} recipe pages from ${displayRecipes.length} display rows ` +
   `(${recipes.length} records, ${displayRecipes.length - published.length} blank/skipped), ` +
+  `${ogMade.size} photo preview${ogMade.size === 1 ? '' : 's'}, ` +
   `sitemap + robots.txt + 404.html written`,
 );

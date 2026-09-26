@@ -90,13 +90,6 @@
 .link {
   color: var(--cc, var(--ink));
   text-decoration: none;
-  /* reset for the coming-soon <button> variant */
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  text-align: left;
-  cursor: pointer;
 }
 
 .link::after {
