@@ -85,15 +85,9 @@ a {
 }
 
 main {
-  max-width: 900px;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 24px 20px 60px;
-}
-
-@media (max-width: 480px) {
-  main {
-    padding: 16px 12px 60px;
-  }
+  padding: 0 var(--s4) var(--s8);
 }
 
 /* ============================================================
@@ -151,4 +145,19 @@ main {
   [data-print-list] [data-print-hide] {
     display: none !important;
   }
+}
+
+/* Centred content column shared by the masthead, the finder and the list. */
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--s4);
+}
+
+/* A search hit inside a recipe name or link. */
+mark.search-hit {
+  background: var(--accent-soft);
+  color: inherit;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px var(--accent-soft);
 }

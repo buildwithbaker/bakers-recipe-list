@@ -1,0 +1,126 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 112px;
+  padding: var(--s4) var(--s4) var(--s3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r3);
+  box-shadow: var(--shadow-1);
+  transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-2);
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+}
+
+/* The whole card is the target: the link's ::after covers it. The focus ring
+   moves to the card so it outlines what you are about to open. */
+.card:has(.link:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.kicker {
+  margin: 0;
+  padding-right: 40px;
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.title {
+  margin: var(--s1) 0 var(--s2);
+  padding-right: 36px;
+  font: 400 var(--t-lg)/1.25 var(--serif);
+}
+
+.link {
+  color: var(--ink);
+  text-decoration: none;
+  /* reset for the coming-soon <button> variant */
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r3);
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.meta {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  color: var(--ink-muted);
+  font-size: var(--t-sm);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.made {
+  background: var(--made-soft);
+  color: var(--made);
+}
+
+.review {
+  background: var(--review-soft);
+  color: var(--review-ink);
+}
+
+/* Sits above the card link (z-index) so it is its own target. */
+.pin {
+  position: absolute;
+  z-index: 1;
+  top: 4px;
+  right: 4px;
+  width: var(--tap);
+  height: var(--tap);
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.pin:hover {
+  color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+
+.pin[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+.pin svg {
+  width: 22px;
+  height: 22px;
+}

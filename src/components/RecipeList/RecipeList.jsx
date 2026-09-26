@@ -3,6 +3,7 @@ import { displayRecipes, displayedBySection } from '../../data/recipeIndex.js';
 import { TAB_PEANUT, TAB_RECIPES, TAB_REVIEW, TAB_TOTRY } from '../../data/navSections.js';
 import { SECTIONS } from '../../data/sections.js';
 import SectionBlock from '../SectionBlock/SectionBlock.jsx';
+import SearchResults from '../SearchResults/SearchResults.jsx';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { getEffectiveTags } from '../../utils/autoTags.js';
@@ -405,6 +406,16 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, active
   const tabCounts = TAB_COUNTS[activeTab];
   const hiddenPlaceholders = hideBlanks && tabCounts ? tabCounts.comingSoon : 0;
   const highlightQuery = q;
+
+  // A search looks across every collection, so the tabs and their filters step
+  // aside while it is showing (SearchResults groups hits by collection).
+  if (q) {
+    return (
+      <main className={isFiltering ? styles.filtering : ''}>
+        <SearchResults query={deferredQuery} onViewRecipe={onViewRecipe} onClear={() => onSearch?.('')} />
+      </main>
+    );
+  }
 
   return (
     <main className={isFiltering ? styles.filtering : ''}>

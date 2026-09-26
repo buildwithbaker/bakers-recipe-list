@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { resolveRecipe } from './data/recipeIndex.js';
 import { TAB_RECIPES } from './data/navSections.js';
-import TopBar from './components/TopBar/TopBar.jsx';
+import Masthead from './components/Masthead/Masthead.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
 import TOCNav from './components/TOCNav/TOCNav.jsx';
 import RecipeList from './components/RecipeList/RecipeList.jsx';
@@ -383,18 +383,20 @@ function AppInner() {
   return (
     <ErrorBoundary>
       <BackToTop />
-      <TopBar
+      <Masthead
         onMenuToggle={handleMenuToggle}
         onListToggle={handleListToggle}
         listItemCount={uncheckedCount}
         siteTitleIsHeading={!fullPage}
+        slim={fullPage}
+        onHome={fullPage ? goToList : undefined}
       />
-      <UsdaKeyNotice />
       <TOCNav open={menuOpen} onClose={handleMenuClose} onNavigate={handleNavigateSection} activeTab={activeTab} />
       {fullPage ? (
         // Arrived here from a shared link: there is no list to lay a card over,
         // so the recipe IS the page. Same URL either way.
         <ErrorBoundary key={selectedRecipe.id}>
+          <UsdaKeyNotice />
           <RecipePage
             recipe={selectedRecipe}
             onBackToList={handleCloseModal}
@@ -406,6 +408,7 @@ function AppInner() {
       ) : (
         <>
           <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
+          <UsdaKeyNotice />
           <RecentlyViewed
             history={recentHistory}
             onViewRecipe={handleViewRecipe}

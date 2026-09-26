@@ -1,43 +1,47 @@
 import { forwardRef, useId, useImperativeHandle, useRef } from 'react';
+import Icon from '../Icon/Icon.jsx';
 import styles from './SearchBar.module.css';
 
+// The one search box. It searches every collection (see utils/search.js), sits
+// across the bottom edge of the masthead, and uses 17px text so iOS Safari does
+// not zoom the page when it takes focus. The native clear button is hidden in
+// favour of ours, which is a real 44px target in every browser.
 const SearchBar = forwardRef(function SearchBar({ value, onChange }, ref) {
   const inputRef = useRef(null);
-  const labelId = useId();
+  const inputId = useId();
 
   useImperativeHandle(ref, () => ({
     focus() { inputRef.current?.focus(); },
   }), []);
 
   return (
-    <div className={styles.bar}>
-      {/* Visually-hidden label improves screen-reader + password-manager association */}
-      <label htmlFor={labelId} className={styles.srOnly}>Search recipes</label>
-      <svg className={styles.icon} width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="11" cy="11" r="8"/>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-      <input
-        id={labelId}
-        ref={inputRef}
-        type="search"
-        className={styles.input}
-        placeholder="Search recipes, tags… (press / to focus)"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        autoComplete="off"
-        spellCheck="false"
-      />
-      {value && (
-        <button
-          type="button"
-          className={styles.clear}
-          onClick={() => { onChange(''); inputRef.current?.focus(); }}
-          aria-label="Clear search"
-        >
-          &#x2715;
-        </button>
-      )}
+    <div className={`wrap ${styles.finder}`}>
+      <div className={styles.search} role="search">
+        <label htmlFor={inputId} className="sr-only">Search recipes and ingredients</label>
+        <Icon name="search" className={styles.icon} />
+        <input
+          id={inputId}
+          ref={inputRef}
+          type="search"
+          className={styles.input}
+          placeholder="Find a recipe or ingredient"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          autoComplete="off"
+          spellCheck="false"
+          enterKeyHint="search"
+        />
+        {value && (
+          <button
+            type="button"
+            className={styles.clear}
+            onClick={() => { onChange(''); inputRef.current?.focus(); }}
+            aria-label="Clear search"
+          >
+            <Icon name="close" />
+          </button>
+        )}
+      </div>
     </div>
   );
 });
