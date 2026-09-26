@@ -3,7 +3,7 @@ import { SECTIONS } from './sections.js';
 import { displayRecipes } from './recipeIndex.js';
 import {
   CATEGORIES, CATEGORY_BY_ID, SECTION_CATEGORY, COLLECTIONS, ROWS_BY_COLLECTION,
-  CATALOG_COUNTS, categoryOf, collectionOf, groupByCategory, isWritten,
+  CATALOG_COUNTS, categoryOf, collectionOf, groupByCategory, isWritten, listedRows, plannedByCategory,
   COLL_BOOK, COLL_REVIEW, COLL_TRY,
 } from './catalog.js';
 import { isToTry, isComingSoon } from '../utils/recipeKinds.js';
@@ -66,5 +66,15 @@ describe('catalog: sections -> collections and categories', () => {
 
   it('uses unique category ids', () => {
     expect(new Set(CATEGORIES.map((c) => c.id)).size).toBe(CATEGORIES.length);
+  });
+
+  it('lists no placeholder and counts every one as planned', () => {
+    for (const c of COLLECTIONS) {
+      const listed = listedRows(c.key);
+      expect(listed.some(isComingSoon)).toBe(false);
+      const planned = [...plannedByCategory(c.key).values()].reduce((a, b) => a + b, 0);
+      expect(listed.length + planned).toBe(ROWS_BY_COLLECTION[c.key].length);
+    }
+    expect(listedRows(COLL_TRY)).toHaveLength(CATALOG_COUNTS.toTry);
   });
 });

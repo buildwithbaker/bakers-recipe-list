@@ -58,6 +58,7 @@
 .cols {
   columns: 2 380px;
   column-gap: 0;
+  column-rule: 1px solid var(--line);
 }
 
 .cols li {

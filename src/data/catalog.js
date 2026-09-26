@@ -173,3 +173,20 @@ export function groupByCategory(rows) {
   }
   return [...groups.values()];
 }
+
+// Coming-soon placeholders, per category, in one collection. The list hides
+// placeholder cards and says "N more planned" on the category header instead.
+export function plannedByCategory(collection) {
+  const out = new Map();
+  for (const r of ROWS_BY_COLLECTION[collection] ?? []) {
+    if (!isComingSoon(r)) continue;
+    const id = categoryOf(r)?.id ?? '';
+    out.set(id, (out.get(id) ?? 0) + 1);
+  }
+  return out;
+}
+
+// What a collection lists: written recipes, or links for To Try.
+export function listedRows(collection) {
+  return (ROWS_BY_COLLECTION[collection] ?? []).filter((r) => !isComingSoon(r));
+}

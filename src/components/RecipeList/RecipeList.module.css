@@ -134,6 +134,16 @@
   }
 }
 
+/* A one-line explanation of what a collection is. */
+.note {
+  margin: var(--s5) 0 0;
+  padding: var(--s3) var(--s4);
+  background: var(--brand-soft);
+  border-radius: var(--r2);
+  color: var(--brand);
+  font-size: var(--t-sm);
+}
+
 /* ---------- Groups ---------- */
 .group {
   margin-top: var(--s7);

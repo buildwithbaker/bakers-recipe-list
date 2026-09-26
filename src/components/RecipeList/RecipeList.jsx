@@ -7,15 +7,14 @@
 //
 // A search replaces all of this with SearchResults, which looks across every
 // collection at once.
-import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  CATEGORY_BY_ID, COLLECTIONS, COLL_TRY, ROWS_BY_COLLECTION, categoryStyle, groupByCategory,
+  CATEGORY_BY_ID, COLLECTIONS, COLL_REVIEW, COLL_TRY, categoryStyle, groupByCategory, listedRows, plannedByCategory,
 } from '../../data/catalog.js';
 import { displayRecipes } from '../../data/recipeIndex.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 import { getEffectiveTags } from '../../utils/autoTags.js';
-import { isComingSoon } from '../../utils/recipeKinds.js';
 import Icon from '../Icon/Icon.jsx';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import ToTryLinks from '../ToTryLinks/ToTryLinks.jsx';
@@ -31,14 +30,6 @@ const allTagCounts = (() => {
   });
   return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 })();
-
-// Whether coming-soon placeholders are hidden. Stored since before this
-// redesign, so a returning visitor keeps their choice.
-const HIDE_BLANKS_KEY = 'brl_hide_blanks';
-function loadHideBlanks() {
-  try { return localStorage.getItem(HIDE_BLANKS_KEY) === 'true'; }
-  catch { return false; }
-}
 
 // ---------------------------------------------------------------------------
 // Tag browser
@@ -109,7 +100,6 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
   const isFiltering = (searchQuery || '') !== deferredQuery;
   const [madeFilter, setMadeFilter] = useState('all');
   const [pinnedFilter, setPinnedFilter] = useState(false);
-  const [hideBlanks, setHideBlanks] = useState(loadHideBlanks);
   const [tagBrowserOpen, setTagBrowserOpen] = useState(false);
   const { madeSet, pinnedSet } = useCookHistoryContext();
   const chipRowRef = useRef(null);
@@ -118,26 +108,20 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
   const hasMade = madeSet.size > 0;
   const hasPinned = pinnedSet.size > 0;
 
-  const handleToggleHideBlanks = useCallback(() => {
-    setHideBlanks((v) => {
-      const next = !v;
-      try { localStorage.setItem(HIDE_BLANKS_KEY, String(next)); } catch { /* ignore */ }
-      return next;
-    });
-  }, []);
-
-  // The collection's rows after the made / pinned / placeholder filters. The
-  // category chips are counted from THIS list, so each chip's number is what
-  // tapping it shows. To Try ignores made and pinned: links have neither.
+  // The collection's rows after the made / pinned filters. Coming-soon
+  // placeholders are never listed: each category header says how many more
+  // are planned instead. The category chips are counted from THIS list, so
+  // each chip's number is what tapping it shows. To Try ignores made and
+  // pinned: links have neither.
   const base = useMemo(() => {
-    let rows = ROWS_BY_COLLECTION[collection] ?? [];
+    let rows = listedRows(collection);
     if (isTry) return rows;
-    if (hideBlanks) rows = rows.filter((r) => !isComingSoon(r));
-    if (madeFilter === 'made') rows = rows.filter((r) => !r.is_blank && madeSet.has(r.id));
-    else if (madeFilter === 'unmade') rows = rows.filter((r) => !r.is_blank && !madeSet.has(r.id));
-    if (pinnedFilter) rows = rows.filter((r) => !r.is_blank && pinnedSet.has(r.id));
+    if (madeFilter === 'made') rows = rows.filter((r) => madeSet.has(r.id));
+    else if (madeFilter === 'unmade') rows = rows.filter((r) => !madeSet.has(r.id));
+    if (pinnedFilter) rows = rows.filter((r) => pinnedSet.has(r.id));
     return rows;
-  }, [collection, isTry, hideBlanks, madeFilter, pinnedFilter, madeSet, pinnedSet]);
+  }, [collection, isTry, madeFilter, pinnedFilter, madeSet, pinnedSet]);
+  const planned = useMemo(() => plannedByCategory(collection), [collection]);
 
   const groups = useMemo(() => groupByCategory(base), [base]);
   const shownGroups = category ? groups.filter((g) => g.category?.id === category) : groups;
@@ -148,12 +132,8 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
   const chips = groups.map((g) => ({ category: g.category, id: g.category.id, label: g.category.label, n: g.rows.length }));
   const selectedMissing = category && !chips.some((c) => c.id === category);
 
-  // Counts on the collection switcher: rows each collection lists with no
-  // filter applied beyond the placeholder preference.
-  const collectionCount = (key) => {
-    const rows = ROWS_BY_COLLECTION[key] ?? [];
-    return key === COLL_TRY || !hideBlanks ? rows.length : rows.filter((r) => !isComingSoon(r)).length;
-  };
+  // Counts on the collection switcher: what each collection lists, unfiltered.
+  const collectionCount = (key) => listedRows(key).length;
 
   // On a phone the chip row scrolls sideways: keep the pressed chip in view by
   // moving the row, never the page.
@@ -168,7 +148,7 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
   }, [category, collection]);
 
   const handleRandom = () => {
-    const pool = shownGroups.flatMap((g) => g.rows).filter((r) => !r.is_blank);
+    const pool = shownGroups.flatMap((g) => g.rows);
     if (!pool.length) return;
     onViewRecipe(pool[Math.floor(Math.random() * pool.length)]);
   };
@@ -268,17 +248,16 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
                 <Icon name="check" />{madeLabel}
               </button>
             )}
-            <button
-              type="button"
-              className={`${styles.chip} ${styles.tool}`}
-              aria-pressed={!hideBlanks}
-              onClick={handleToggleHideBlanks}
-            >
-              Show coming soon
-            </button>
           </>
         )}
       </div>
+
+      {collection === COLL_REVIEW && (
+        <p className={styles.note}>For Review holds written recipes that have not been cooked and signed off yet.</p>
+      )}
+      {isTry && (
+        <p className={styles.note}>To Try is a reading list: links to other sites, saved to cook later. They open in a new tab.</p>
+      )}
 
       {shownCount === 0 && (
         <div className={styles.empty} role="status">
@@ -300,9 +279,12 @@ export default function RecipeList({ onViewRecipe, searchQuery, onSearch, collec
             <h2 id={`g-${g.category.id}`}>
               {g.category.label}<span className={styles.n}>{g.rows.length}</span>
             </h2>
+            {planned.get(g.category.id) > 0 && (
+              <span className={styles.soon}>{planned.get(g.category.id)} more planned</span>
+            )}
           </div>
           {isTry ? (
-            <ToTryLinks rows={g.rows} />
+            <ToTryLinks rows={g.rows} columns />
           ) : (
             <ul className={styles.grid}>
               {g.rows.map((r) => <RecipeCard key={r.id} recipe={r} onViewRecipe={onViewRecipe} />)}
