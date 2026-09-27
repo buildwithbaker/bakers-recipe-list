@@ -10,11 +10,20 @@
     "",
     "When a recipe is renamed, its `ids` entry STAYS as-is and its id is added to",
     "`renamed` (id -> short note). That is what keeps the integrity test passing:",
-    "the exception is recorded here as evidence, never by relaxing the test."
+    "the exception is recorded here as evidence, never by relaxing the test.",
+    "",
+    "When a recipe is REMOVED, its `ids` entry STAYS as-is and its id is added to",
+    "`removed`: { \"<id>\": { \"to\": \"<successor id>\" | null, \"note\": \"<why>\" } },",
+    "plus an optional \"versions\": N when the removed record displayed as N versions.",
+    "Old links, `?recipe=` keys and saved state then resolve to the successor; with",
+    "`to: null` they resolve to nothing. `to` must name a live record, never another",
+    "removed one. Remove the record, add it here and decrement EXPECTED_RECORDS in",
+    "src/data/recordCount.js, all in the same commit."
   ],
   "renamed": {
     "dirty-rice": "Completed from placeholder; renamed to \"Dirty Rice (No-Liver, One Pan)\". ids entry stays at \"Dirty Rice\"."
   },
+  "removed": {},
   "ids": {
     "spicy-pork-patties": "Spicy Pork Patties",
     "scrambled-eggs": "Scrambled Eggs",
