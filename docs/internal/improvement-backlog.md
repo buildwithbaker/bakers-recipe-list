@@ -39,7 +39,7 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   that stay dark in both themes.
 - [x] **`--text-muted` failed WCAG AA** (3.51:1) — darkened to ~5.1:1.
 - [x] **Color system documented** — `docs/internal/color-system.md`.
-- [x] **Blank-recipe worklist** — `docs/internal/blank-recipes-worklist.md`.
+- [x] **Blank-recipe worklist** — retired; the blanks are the `is_blank: true` records in `src/data/recipes.json`.
 
 ---
 
@@ -47,9 +47,8 @@ Closed on 2026-09-09 because the work is on `main` and live. See
 
 - [ ] **Fill the blank recipes.** Still the biggest content gap by a wide margin:
   most records are `is_blank: true` placeholders. Worklist:
-  [`blank-recipes-worklist.md`](./blank-recipes-worklist.md) — note that file's
-  own count is older than the catalog, so derive the current number from
-  `recipes.json` rather than trusting either document. Blanks get no prerendered
+  the `is_blank: true` records in [`recipes.json`](../../src/data/recipes.json);
+  count them there for the current number. Blanks get no prerendered
   page and no link preview, so filling one is also what publishes it.
   *(Owner: Adam.)*
 - [ ] **README screenshot.** README still carries an `_(add a screenshot)_`
