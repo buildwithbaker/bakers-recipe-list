@@ -23,7 +23,7 @@ Generated 2026-06-02. Counts: **145 complete / 87 blank / 232 total.** The
   "source": "Original",
   "tags": ["#beef", "#italian"],
   "ingredients": [
-    { "type": "section", "text": "Sauce" },
+    { "type": "header", "text": "Sauce" },
     { "type": "item", "text": "1 lb ground beef" },
     { "type": "item", "text": "1 (28 oz) can crushed tomatoes" }
   ],
@@ -37,8 +37,9 @@ Generated 2026-06-02. Counts: **145 complete / 87 blank / 232 total.** The
 
 **Rules that matter:**
 
-- `ingredients[].type` is `"item"` for an ingredient or `"section"` for a
-  sub-heading (e.g. "Sauce", "For the topping"). Use `"section"` to group long lists.
+- `ingredients[].type` is `"item"` for an ingredient or `"header"` for a
+  sub-heading (e.g. "Sauce", "For the topping"). Use `"header"` to group long lists.
+  `"section"` is only for multi-version entries (it splits the record into versions).
 - Each instruction is `{ "step": "Short title", "detail": "What to do." }`.
 - Write quantities like `1 lb`, `2 tsp`, `¼ cup` — the unit/fraction parser and
   the macro estimator read these (`utils/parseIngredient.js`, `convertToGrams.js`).
