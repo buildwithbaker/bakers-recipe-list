@@ -13,7 +13,7 @@
 // deleted or renamed out from under the user; dropping it would silently
 // destroy their notes.
 import idManifest from './recipes.ids.json';
-import { displayRecipes } from './recipeIndex.js';
+import { displayRecipes, recipesById, removedSuccessorId } from './recipeIndex.js';
 
 export const STATE_VERSION_KEY = 'brl_state_version';
 export const TARGET_VERSION = 2;
@@ -180,4 +180,145 @@ export function migrateState({ storage = globalThis.localStorage, records, manif
   }
 
   return { status: 'migrated', migrated: pending.map(([k]) => k) };
+}
+
+// ---------------------------------------------------------------------------
+// Removed-record rekey (recipes.ids.json `removed`).
+//
+// The components read state by `recipe.id` directly (madeSet.has(recipe.id),
+// cookLog[recipe.id]), so a key saved under a removed id would never show on
+// its successor. This pass moves every such key - the removed id, a
+// `<removed>::vN` child id, or its legacy manifest name - to the successor's
+// display-row id, MERGING with whatever the successor already holds. A removed
+// id with `to: null` is left untouched: it resolves to nothing and shows
+// nowhere, and dropping it would destroy notes for no gain.
+//
+// Not flag-gated like migrateState: it is idempotent by construction (after
+// one run no removed key remains, so a second run finds nothing to move), and
+// a new removal in a later deploy has to be picked up by users who already
+// ran it. A no-op, with no reads, while `removed` is empty.
+// ---------------------------------------------------------------------------
+
+export function rekeyNameArray(value, toSuccessor) {
+  if (!Array.isArray(value)) return value;
+  const seen = new Set();
+  const out = [];
+  for (const key of value) {
+    const id = toSuccessor(key) ?? key;
+    if (seen.has(id)) continue;   // union: the successor may already be in the set
+    seen.add(id);
+    out.push(id);
+  }
+  return out;
+}
+
+const byDate = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+
+export function rekeyCookLog(value, toSuccessor) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return value;
+  const out = {};
+  // Live keys first, so a merged entry keeps the successor's own notes first.
+  const entries = Object.entries(value).sort(
+    ([a], [b]) => Number(toSuccessor(a) !== null) - Number(toSuccessor(b) !== null),
+  );
+  for (const [key, entry] of entries) {
+    const successor = toSuccessor(key);
+    const id = successor ?? key;
+    const prev = out[id];
+    if (!prev) {
+      out[id] = successor && entry && Array.isArray(entry.dates)
+        ? { ...entry, dates: [...entry.dates].sort(byDate) }
+        : entry;
+      continue;
+    }
+    out[id] = {
+      ...prev,
+      dates: [...(prev.dates ?? []), ...(entry?.dates ?? [])].sort(byDate),
+      notes: [prev.notes, entry?.notes].filter(Boolean).join('\n\n'),
+    };
+  }
+  // Keep the stored key order stable for keys that did not move, so an
+  // untouched log serialises byte-identically and is not rewritten.
+  const ordered = {};
+  for (const key of Object.keys(value)) {
+    const id = toSuccessor(key) ?? key;
+    if (id in out && !(id in ordered)) ordered[id] = out[id];
+  }
+  return ordered;
+}
+
+export function rekeyRecentlyViewed(value, toSuccessor) {
+  if (!Array.isArray(value)) return value;
+  const moved = value.map((item) =>
+    item && typeof item === 'object' ? toSuccessor(item.id ?? item.name) : null,
+  );
+  // Only ids a move landed on can now appear twice; dedupe those alone, keeping
+  // the most recent (first) occurrence. Every other entry passes through as-is.
+  const targets = new Set(moved.filter(Boolean));
+  const seen = new Set();
+  const out = [];
+  value.forEach((item, i) => {
+    const next = moved[i] ? { ...item, id: moved[i] } : item;
+    const id = next && typeof next === 'object' ? next.id : undefined;
+    if (id && targets.has(id)) {
+      if (seen.has(id)) return;
+      seen.add(id);
+    }
+    out.push(next);
+  });
+  return out;
+}
+
+export function rekeyShoppingList(value, toSuccessor) {
+  if (!Array.isArray(value)) return value;
+  return value.map((item) => {
+    if (!item || typeof item !== 'object') return item;
+    const successor = toSuccessor(item.recipe);
+    return successor ? { ...item, recipe: successor } : item;
+  });
+}
+
+const REKEYS = [
+  [STORES.made, rekeyNameArray],
+  [STORES.pinned, rekeyNameArray],
+  [STORES.cookLog, rekeyCookLog],
+  [STORES.recent, rekeyRecentlyViewed],
+  [STORES.shopping, rekeyShoppingList],
+];
+
+/**
+ * Moves saved state off removed ids onto their successors. Safe on every boot;
+ * never throws out to the caller.
+ *
+ * @returns {{status: string, rekeyed?: string[], reason?: string}}
+ */
+export function rekeyRemovedState({
+  storage = globalThis.localStorage,
+  manifest = idManifest,
+  rowsById = recipesById,
+} = {}) {
+  if (!storage) return { status: 'skipped', reason: 'no storage' };
+  if (!manifest?.removed || Object.keys(manifest.removed).length === 0) {
+    return { status: 'nothing-removed' };
+  }
+  const toSuccessor = (key) =>
+    typeof key === 'string' ? removedSuccessorId(key, manifest, rowsById) : null;
+
+  // Same order as migrateState: transform everything in memory, then write.
+  const pending = [];
+  for (const [key, transform] of REKEYS) {
+    let raw;
+    try { raw = storage.getItem(key); } catch { return { status: 'aborted', reason: `unreadable ${key}` }; }
+    if (raw === null || raw === undefined) continue;
+    let parsed;
+    try { parsed = JSON.parse(raw); } catch { continue; }
+    const next = JSON.stringify(transform(parsed, toSuccessor));
+    if (next !== raw) pending.push([key, next]);
+  }
+  try {
+    for (const [key, value] of pending) storage.setItem(key, value);
+  } catch (err) {
+    return { status: 'failed', reason: String(err && err.message ? err.message : err) };
+  }
+  return { status: pending.length ? 'rekeyed' : 'already-current', rekeyed: pending.map(([k]) => k) };
 }

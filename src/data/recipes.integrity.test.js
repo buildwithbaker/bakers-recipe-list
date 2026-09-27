@@ -155,10 +155,12 @@ describe('recipe ids', () => {
   // The drift guard proper: an id, once assigned, never changes and never
   // disappears. This is what makes "renamed the recipe, regenerated the id"
   // unmergeable — the old id would vanish from recipes.json.
+  // The one exit is `removed`: a deliberate removal declared with its successor.
   it('still holds every id in the frozen manifest', () => {
     const byId = new Map(recipes.map((r) => [r.id, r]));
+    const removed = idManifest.removed ?? {};
     const gone = Object.entries(idManifest.ids)
-      .filter(([id]) => !byId.has(id))
+      .filter(([id]) => !byId.has(id) && !(id in removed))
       .map(([id, name]) => `${id}: gone from recipes.json (was "${name}")`);
     expect(gone).toEqual([]);
   });
@@ -193,14 +195,17 @@ describe('recipe ids', () => {
   });
 
   it('keeps the manifest append-only in shape', () => {
-    expect(Object.keys(idManifest)).toEqual(['_doc', 'renamed', 'ids']);
+    expect(Object.keys(idManifest)).toEqual(['_doc', 'renamed', 'removed', 'ids']);
     expect(Array.isArray(idManifest._doc)).toBe(true);
   });
 
   it('gives every record a manifest entry', () => {
     const unlisted = recipes.filter((r) => !(r.id in idManifest.ids)).map((r) => `${r.name} (${r.id})`);
     expect(unlisted).toEqual([]);
-    expect(Object.keys(idManifest.ids)).toHaveLength(recipes.length);
+    // A removed id keeps its `ids` entry, so the manifest outgrows the catalog
+    // by exactly the number of removals.
+    const removedCount = Object.keys(idManifest.removed ?? {}).length;
+    expect(Object.keys(idManifest.ids)).toHaveLength(recipes.length + removedCount);
   });
 
   // Ids are frozen, so the slug function must not be reachable at runtime — its

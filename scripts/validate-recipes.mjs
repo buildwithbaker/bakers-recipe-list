@@ -229,19 +229,30 @@ if (idDups.length) {
 const FIX_HINT =
   'Do NOT relax this check and do NOT edit recipes.ids.json `ids` — that entry is ' +
   "the localStorage key users already hold, and rewriting it orphans that recipe's " +
-  'saved state. Add the id to the `renamed` allowlist in recipes.ids.json instead.';
+  'saved state. Add the id to the `renamed` allowlist in recipes.ids.json instead ' +
+  '(or, for a deliberate removal, to `removed` with its successor).';
 
 const manifestIds = idManifest && typeof idManifest === 'object' ? idManifest.ids : null;
 const renamedAllowlist =
   idManifest && typeof idManifest === 'object' && idManifest.renamed ? idManifest.renamed : {};
 
+// Removed records: { id: { to: successorId | null, note, versions? } }. A removed
+// id keeps its `ids` entry forever; this map is what lets it leave recipes.json.
+const removedRaw = idManifest && typeof idManifest === 'object' ? idManifest.removed : undefined;
+const removedMap =
+  removedRaw && typeof removedRaw === 'object' && !Array.isArray(removedRaw) ? removedRaw : {};
+if (removedRaw !== undefined && removedMap !== removedRaw) {
+  errors.push('recipes.ids.json `removed` must be an object ({ id: { to, note } })');
+}
+
 if (!manifestIds || typeof manifestIds !== 'object') {
-  errors.push('recipes.ids.json is missing its `ids` map (expected { _doc, renamed, ids })');
+  errors.push('recipes.ids.json is missing its `ids` map (expected { _doc, renamed, removed, ids })');
 } else {
   const byId = new Map(recipes.filter((r) => typeof r?.id === 'string').map((r) => [r.id, r]));
 
-  // 1. An id, once assigned, never disappears.
+  // 1. An id, once assigned, never disappears - unless it is declared in `removed`.
   for (const [id, assignedName] of Object.entries(manifestIds)) {
+    if (id in removedMap) continue;
     if (!byId.has(id)) {
       errors.push(
         `manifest id "${id}" (assigned to "${assignedName}") is gone from recipes.json. ` +
@@ -284,6 +295,43 @@ if (!manifestIds || typeof manifestIds !== 'object') {
       );
     }
   }
+
+  // 5. Removed ids. Each one is really gone, still has its frozen `ids` entry,
+  //    and points at a live successor (or null). No chains: a successor that is
+  //    itself removed would need a second hop nobody resolves.
+  for (const [id, entry] of Object.entries(removedMap)) {
+    const where = `removed entry "${id}"`;
+    if (entry === null || typeof entry !== 'object' || Array.isArray(entry)) {
+      errors.push(`${where} must be an object { to, note }`);
+      continue;
+    }
+    if (byId.has(id)) {
+      errors.push(`${where} is still in recipes.json. Remove the record, or remove it from \`removed\`.`);
+    }
+    if (!(id in manifestIds)) {
+      errors.push(
+        `${where} is not in recipes.ids.json \`ids\`. A removed id keeps its \`ids\` entry forever.`,
+      );
+    }
+    if (!('to' in entry)) {
+      errors.push(`${where} is missing \`to\` (a successor id, or null)`);
+    } else if (entry.to !== null) {
+      if (typeof entry.to !== 'string' || !byId.has(entry.to)) {
+        errors.push(`${where} has successor ${JSON.stringify(entry.to)}, which is not a recipe id in recipes.json`);
+      } else if (entry.to in removedMap) {
+        errors.push(`${where} has successor "${entry.to}", which is itself removed (no chains)`);
+      }
+    }
+    if (typeof entry.note !== 'string' || entry.note.trim() === '') {
+      errors.push(`${where} needs a non-empty \`note\` saying why it was removed`);
+    }
+    if ('versions' in entry && !(Number.isInteger(entry.versions) && entry.versions > 0)) {
+      errors.push(`${where} has versions ${JSON.stringify(entry.versions)}; it must be a positive integer`);
+    }
+    for (const k of Object.keys(entry)) {
+      if (!['to', 'note', 'versions'].includes(k)) errors.push(`${where} has unknown field "${k}"`);
+    }
+  }
 }
 
 // duplicate names
@@ -304,5 +352,6 @@ if (errors.length) {
 
 console.log(
   `✓ recipes.json OK — ${recipes.length} records, ${seen.size} unique names, ${seenIds.size} unique ids, ` +
-    `${manifestIds ? Object.keys(manifestIds).length : 0} manifest entries, validated against recipe.schema.json`,
+    `${manifestIds ? Object.keys(manifestIds).length : 0} manifest entries, ` +
+    `${Object.keys(removedMap).length} removed, validated against recipe.schema.json`,
 );

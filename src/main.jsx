@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
-import { migrateState } from './data/stateMigration.js';
+import { migrateState, rekeyRemovedState } from './data/stateMigration.js';
 import { installUpdateReload } from './utils/swUpdate.js';
 // Headings: Young Serif, self-hosted (latin subset, woff2 ~27 KB). Bundled from
 // our own origin so the installed app renders it offline; no Google Fonts call.
@@ -15,6 +15,10 @@ import './styles/globals.css';
 // never throws — a failed migration retries next boot rather than blocking the
 // app from starting.
 migrateState();
+// Then saved state under a REMOVED recipe (the manifest's `removed` map) moves to
+// its successor, merged with what the successor already holds. Idempotent, and
+// a no-op while nothing has been removed.
+rekeyRemovedState();
 
 // The worker self-activates on a new deploy but the injected registration
 // script never tells an open page, so it keeps running the bundle it loaded.

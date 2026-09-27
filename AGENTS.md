@@ -48,6 +48,22 @@ as the npm `prebuild` hook. A recipe that violates the schema **fails
 5. Commit on a branch and open a PR (see below) - `main` is protected, so a PR is the
    only way in. Do not edit `dist/`.
 
+## Removing a recipe
+
+An id is permanent, so a record never just disappears. To remove one, in the
+same commit:
+
+1. Delete the record from `src/data/recipes.json`.
+2. Add its id to `removed` in `src/data/recipes.ids.json` with a successor:
+   `"<id>": { "to": "<successor id>", "note": "<why>" }`. Use `"to": null` only
+   when nothing replaces it. Add `"versions": N` if the record displayed as N
+   versions. Leave its `ids` entry exactly as it is.
+3. Decrement `EXPECTED_RECORDS` in `src/data/recordCount.js`.
+
+Old links, `?recipe=` keys and saved state (made, pinned, cook log, shopping
+list, Recently Viewed) then land on the successor. `to` must be a live record,
+never another removed one; the validator enforces all of this.
+
 ## Two instruction conventions (both valid)
 
 `instructions` is an array of step objects. The collection uses two shapes — the

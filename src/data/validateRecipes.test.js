@@ -6,6 +6,7 @@ import { join } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { EXPECTED_RECORDS } from './recordCount.js';
+import idManifest from './recipes.ids.json';
 
 // Tests for scripts/validate-recipes.mjs itself.
 //
@@ -59,8 +60,11 @@ const clone = (v) => JSON.parse(JSON.stringify(v));
 // The validator's summary line, built from a record count. The count itself is
 // hand-authored once in src/data/recordCount.js - this only formats it, so a
 // catalog change is a one-line bump there and nothing to remember here.
-const summaryLine = (n) =>
-  new RegExp(`${n} records, ${n} unique names, ${n} unique ids, ${n} manifest entries`);
+// A removed id keeps its manifest entry, so the manifest holds n + removed.
+const summaryLine = (n, removed = 0) =>
+  new RegExp(
+    `${n} records, ${n} unique names, ${n} unique ids, ${n + removed} manifest entries, ${removed} removed`,
+  );
 
 // Mirrors the repo layout the validator resolves against: it reads
 // <root>/src/data/* relative to its own file, and imports sections.js. The
@@ -101,7 +105,7 @@ describe('validate-recipes.mjs', () => {
   it('passes the real src/data, so the fixtures exercise the production path', () => {
     const { code, output } = runValidator(repoRoot);
     expect(code).toBe(0);
-    expect(output).toMatch(summaryLine(EXPECTED_RECORDS));
+    expect(output).toMatch(summaryLine(EXPECTED_RECORDS, Object.keys(idManifest.removed ?? {}).length));
   });
 
   it('fails when an id is changed', () => {
@@ -159,5 +163,79 @@ describe('validate-recipes.mjs', () => {
     expect(code).not.toBe(0);
     expect(output).toMatch(/id "gamma-recipe"\) has no entry in recipes\.ids\.json/);
     expect(output).toMatch(/append-only/);
+  });
+
+  // --- removal path (recipes.ids.json `removed`) ---------------------------
+
+  // alpha removed, beta its successor: the record is gone, its `ids` entry stays.
+  const removal = (entry = { to: 'beta-recipe', note: 'merged into beta' }) => {
+    const manifest = clone(BASE_MANIFEST);
+    manifest.removed = { 'alpha-recipe': entry };
+    return { records: [clone(BASE_RECORDS[1])], manifest };
+  };
+
+  it('passes a declared removal with a live successor', () => {
+    const { code, output } = runValidator(fixture(removal()));
+    expect(code).toBe(0);
+    expect(output).toMatch(summaryLine(1, 1));
+  });
+
+  it('passes a declared removal with a null successor and a versions count', () => {
+    const { code, output } = runValidator(fixture(removal({ to: null, note: 'dropped', versions: 3 })));
+    expect(code).toBe(0);
+    expect(output).toMatch(/recipes\.json OK/);
+  });
+
+  it('still fails an undeclared removal', () => {
+    const { code, output } = runValidator(fixture({ records: [clone(BASE_RECORDS[1])] }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/manifest id "alpha-recipe" .* is gone from recipes\.json/);
+  });
+
+  it('fails a removed id that is still in recipes.json', () => {
+    const { manifest } = removal();
+    const { code, output } = runValidator(fixture({ manifest }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/removed entry "alpha-recipe" is still in recipes\.json/);
+  });
+
+  it('fails a removed id that has no ids entry', () => {
+    const { records, manifest } = removal();
+    delete manifest.ids['alpha-recipe'];
+    const { code, output } = runValidator(fixture({ records, manifest }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/removed entry "alpha-recipe" is not in recipes\.ids\.json `ids`/);
+  });
+
+  it('fails a successor that is not a recipe id', () => {
+    const { code, output } = runValidator(fixture(removal({ to: 'no-such-recipe', note: 'x' })));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/removed entry "alpha-recipe" has successor "no-such-recipe", which is not a recipe id/);
+  });
+
+  it('fails a successor that is live but also listed as removed (no chains)', () => {
+    const manifest = clone(BASE_MANIFEST);
+    manifest.ids['gamma-recipe'] = 'Gamma Recipe';
+    manifest.removed = {
+      'gamma-recipe': { to: 'beta-recipe', note: 'removed' },
+      'beta-recipe': { to: null, note: 'also removed' },
+    };
+    const { code, output } = runValidator(fixture({ manifest }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/removed entry "gamma-recipe" has successor "beta-recipe", which is itself removed/);
+  });
+
+  it('fails a removed entry with no `to`, no note, or an unknown field', () => {
+    const { code, output } = runValidator(fixture(removal({ successor: 'beta-recipe' })));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/removed entry "alpha-recipe" is missing `to`/);
+    expect(output).toMatch(/removed entry "alpha-recipe" needs a non-empty `note`/);
+    expect(output).toMatch(/removed entry "alpha-recipe" has unknown field "successor"/);
+  });
+
+  it.each([0, -1, 1.5, '2'])('fails versions %j (must be a positive integer)', (versions) => {
+    const { code, output } = runValidator(fixture(removal({ to: 'beta-recipe', note: 'x', versions })));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/removed entry "alpha-recipe" has versions .*; it must be a positive integer/);
   });
 });

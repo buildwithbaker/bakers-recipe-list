@@ -20,6 +20,7 @@
 // the app must resolve incoming paths through it.
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, readdirSync } from 'node:fs';
+import process from 'node:process';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
@@ -29,7 +30,9 @@ import { idToSlug } from '../src/utils/recipeSlug.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
 import { SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+// BRL_PRERENDER_ROOT points the script at a fixture tree (dist/ + src/data/)
+// for tests. Unset in every real build.
+const root = process.env.BRL_PRERENDER_ROOT || join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 
 // Absolute URLs are mandatory: nothing obliges a crawler to resolve a relative
@@ -50,6 +53,7 @@ if (!existsSync(join(dist, 'index.html'))) {
 
 const shell = readFileSync(join(dist, 'index.html'), 'utf8');
 const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'utf8'));
+const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json'), 'utf8'));
 
 const REVIEW_KEYS = new Set(SECTIONS.filter((s) => s.review).map((s) => s.key));
 
@@ -318,6 +322,63 @@ for (const r of published) {
   urls.push(url);
 }
 
+// --- redirects for removed records ---------------------------------------
+//
+// A removed id (recipes.ids.json `removed`) keeps its old URL working: its
+// /r/<slug>/ becomes a redirect to the successor's page, or to the site root
+// when `to` is null. A record that displayed as N versions also had
+// /r/<id>--v1..N/ pages, so those redirect too when `versions` says how many.
+// An expanded successor has no page under its own id and lands on its first
+// version, the same rule resolveRecipe applies in the app. Redirect pages are
+// noindex and never go in the sitemap.
+
+function redirectPage(target) {
+  const t = esc(target);
+  return [
+    '<!doctype html>',
+    '<html lang="en">',
+    '<head>',
+    '  <meta charset="utf-8">',
+    `  <title>${esc(SITE_NAME)}</title>`,
+    '  <meta name="robots" content="noindex">',
+    `  <link rel="canonical" href="${t}">`,
+    `  <meta http-equiv="refresh" content="0; url=${t}">`,
+    // `target` is ORIGIN + an [a-z0-9-] slug, so it can never contain `</`.
+    `  <script>location.replace(${JSON.stringify(target)})</script>`,
+    '</head>',
+    '<body>',
+    `  <p>This recipe has moved. <a href="${t}">Continue</a>.</p>`,
+    '</body>',
+    '</html>',
+    '',
+  ].join('\n');
+}
+
+const displayIds = new Set(displayRecipes.map((r) => r.id));
+let redirects = 0;
+for (const [removedId, entry] of Object.entries(idManifest.removed ?? {})) {
+  const to = entry?.to ?? null;
+  const landing = !to ? null : displayIds.has(to) ? to : displayIds.has(`${to}::v1`) ? `${to}::v1` : null;
+  if (to && !landing) {
+    console.error(`✗ prerender: removed "${removedId}" names successor "${to}", which has no display row`);
+    process.exit(1);
+  }
+  const target = landing ? `${ORIGIN}r/${idToSlug(landing)}/` : ORIGIN;
+  const ids = [removedId];
+  const versions = Number.isInteger(entry?.versions) ? entry.versions : 0;
+  for (let n = 1; n <= versions; n++) ids.push(`${removedId}::v${n}`);
+  for (const id of ids) {
+    const dir = join(dist, 'r', idToSlug(id));
+    if (existsSync(join(dir, 'index.html'))) {
+      console.error(`✗ prerender: redirect for removed "${id}" would overwrite a live page`);
+      process.exit(1);
+    }
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'index.html'), redirectPage(target), 'utf8');
+    redirects++;
+  }
+}
+
 // Deep links that miss a prerendered file (a blank recipe, a stale id) land on
 // the app instead of a dead end. GitHub Pages serves 404.html for any path that
 // is not a real file, and it returns HTTP 404 - which is correct for an unknown
@@ -349,5 +410,5 @@ console.log(
   `✓ prerender - ${published.length} recipe pages from ${displayRecipes.length} display rows ` +
   `(${recipes.length} records, ${displayRecipes.length - published.length} blank/skipped), ` +
   `${ogMade.size} photo preview${ogMade.size === 1 ? '' : 's'}, ` +
-  `sitemap + robots.txt + 404.html written`,
+  `${redirects} redirect${redirects === 1 ? '' : 's'}, sitemap + robots.txt + 404.html written`,
 );

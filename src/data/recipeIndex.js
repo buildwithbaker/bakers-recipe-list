@@ -66,9 +66,76 @@ export const recipesByName = (() => {
   return map;
 })();
 
-// The one resolution entry point: id first, then any name alias. Everything
-// that turns a stored string back into a recipe goes through this.
+// ---------------------------------------------------------------------------
+// Removed records (recipes.ids.json `removed`).
+//
+// A removed id keeps its frozen `ids` entry and gains { to, note, versions? }.
+// Everything a user could still hold for it - the id, a `<id>::vN` child id if
+// it was a versioned record, or its legacy manifest name - resolves to the
+// successor's display row. `to: null` resolves to null, the normal not-found
+// path. Pure over its inputs so tests can drive it with a fixture manifest.
+// ---------------------------------------------------------------------------
+
+// The display row a record id lands on. An expanded (versioned) record has no
+// row under its own id, only `<id>::v1..N`, so it lands on its first version.
+export function successorRow(to, rowsById) {
+  if (!to) return null;
+  return rowsById.get(to) ?? rowsById.get(`${to}::v1`) ?? null;
+}
+
+// The removed id a stored key names, or null. Matches the id itself and any
+// `<id>::vN` child id it had while it was a versioned record.
+export function removedIdForKey(key, removed) {
+  if (typeof key !== 'string' || !removed) return null;
+  if (Object.hasOwn(removed, key)) return key;
+  const child = /^(.+)::v\d+$/.exec(key);
+  return child && Object.hasOwn(removed, child[1]) ? child[1] : null;
+}
+
+// Builds the two removed-key lookups. Each returns `undefined` when the key is
+// not a removed key at all (so the caller carries on), else the successor row
+// or null.
+export function createRemovedLookup(manifest, rowsById) {
+  const removed = manifest?.removed ?? {};
+  const byLegacyName = new Map();
+  for (const id of Object.keys(removed)) {
+    const legacy = manifest?.ids?.[id];
+    if (legacy) byLegacyName.set(legacy, id);
+  }
+  const land = (id) => successorRow(removed[id]?.to ?? null, rowsById);
+  return {
+    byId(key) {
+      const id = removedIdForKey(key, removed);
+      return id === null ? undefined : land(id);
+    },
+    byName(key) {
+      return byLegacyName.has(key) ? land(byLegacyName.get(key)) : undefined;
+    },
+  };
+}
+
+const removedLookup = createRemovedLookup(idManifest, recipesById);
+
+// The successor display-row id for a stored key that names a removed record,
+// or null when the key is not removed or its successor is null. Used by the
+// state rekey pass in stateMigration.js.
+export function removedSuccessorId(key, manifest = idManifest, rowsById = recipesById) {
+  const lookup = manifest === idManifest && rowsById === recipesById
+    ? removedLookup
+    : createRemovedLookup(manifest, rowsById);
+  const hit = lookup.byId(key) ?? lookup.byName(key);
+  return hit ? hit.id : null;
+}
+
+// The one resolution entry point: id first, then a removed id, then any name
+// alias, then a removed record's legacy name (a live name always wins that
+// tie). Everything that turns a stored string back into a recipe goes through
+// this.
 export function resolveRecipe(key) {
   if (!key) return null;
-  return recipesById.get(key) ?? recipesByName.get(key) ?? null;
+  const live = recipesById.get(key);
+  if (live) return live;
+  const removedHit = removedLookup.byId(key);
+  if (removedHit !== undefined) return removedHit;
+  return recipesByName.get(key) ?? removedLookup.byName(key) ?? null;
 }
