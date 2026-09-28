@@ -4869,7 +4869,7 @@
   },
   {
     "id": "protein-balls-1",
-    "name": "Protein Balls 1",
+    "name": "Oat Flour Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
@@ -4922,7 +4922,7 @@
   },
   {
     "id": "protein-balls-2",
-    "name": "Protein Balls 2",
+    "name": "Honey Butter Oat Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
@@ -4983,7 +4983,7 @@
   },
   {
     "id": "protein-balls-3",
-    "name": "Protein Balls 3",
+    "name": "Peanut Butter Flax Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
@@ -5040,7 +5040,7 @@
   },
   {
     "id": "protein-balls-4",
-    "name": "Protein Balls 4",
+    "name": "Cottage Cheese Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
@@ -5113,7 +5113,7 @@
   },
   {
     "id": "protein-balls-5",
-    "name": "Protein Balls 5",
+    "name": "Almond Butter Greek Yogurt Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
@@ -5174,7 +5174,7 @@
   },
   {
     "id": "pumpkin-protein-balls-1",
-    "name": "Pumpkin Protein Balls 1",
+    "name": "Pumpkin Almond Butter Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
@@ -5231,7 +5231,7 @@
   },
   {
     "id": "pumpkin-protein-balls-2",
-    "name": "Pumpkin Protein Balls 2",
+    "name": "Pumpkin Peanut Butter Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
@@ -5751,7 +5751,7 @@
   },
   {
     "id": "chicken-marinade-lemon-herb",
-    "name": "Chicken Marinade - Lemon Herb",
+    "name": "Chicken Marinade - Lemon Herb Yogurt",
     "section": "MARINADES",
     "category": "Marinades",
     "source": "Original",
@@ -17298,20 +17298,6 @@
     "is_blank": true
   },
   {
-    "id": "salt-and-pepper-chicken-2",
-    "name": "Salt And Pepper Chicken",
-    "section": "TO TRY --- AMERICAN",
-    "category": "American",
-    "source": "https://sites.google.com/view/jho-recipes/recipes/salt-and-pepper-chicken",
-    "tags": [
-      "#to-try",
-      "#chicken"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
     "id": "sheet-pan-lemon-chicken-with-parmesan-roasted-broccoli",
     "name": "Sheet Pan Lemon Chicken With Parmesan Roasted Broccoli",
     "section": "TO TRY --- SIDES",
@@ -18306,20 +18292,6 @@
     "is_blank": true
   },
   {
-    "id": "crispy-slow-cooker-pork-carnitas",
-    "name": "Crispy Slow Cooker Pork Carnitas",
-    "section": "TO TRY --- SLOW COOKER",
-    "category": "Slow Cooker",
-    "source": "http://chefsavvy.com/crispy-slow-cooker-pork-carnitas/",
-    "tags": [
-      "#to-try",
-      "#slow-cooker"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
     "id": "crock-pot-chicken-and-stuffing",
     "name": "Crock Pot Chicken And Stuffing",
     "section": "TO TRY --- SLOW COOKER",
@@ -18460,20 +18432,6 @@
     "is_blank": true
   },
   {
-    "id": "slow-cooker-carnitas",
-    "name": "Slow Cooker Carnitas",
-    "section": "TO TRY --- SLOW COOKER",
-    "category": "Slow Cooker",
-    "source": "http://selfproclaimedfoodie.com/slow-cooker-carnitas/",
-    "tags": [
-      "#to-try",
-      "#slow-cooker"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
     "id": "slow-cooker-chicken-adobo",
     "name": "Slow Cooker Chicken Adobo",
     "section": "TO TRY --- SLOW COOKER",
@@ -18559,7 +18517,7 @@
   },
   {
     "id": "slow-cooker-cuban-mojo-pork-alt",
-    "name": "Slow Cooker Cuban Mojo Pork (alt)",
+    "name": "Slow Cooker Cuban Mojo Pork (lemonblossoms.com)",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
     "source": "http://www.lemonblossoms.com/blog/slow-cooker-cuban-mojo-pork/",
@@ -18657,7 +18615,7 @@
   },
   {
     "id": "slow-cooker-honey-garlic-chicken-alt",
-    "name": "Slow Cooker Honey Garlic Chicken (alt)",
+    "name": "Slow Cooker Honey Garlic Chicken (chefsavvy.com)",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
     "source": "http://chefsavvy.com/slow-cooker-honey-garlic-chicken/",
@@ -18896,7 +18854,7 @@
   },
   {
     "id": "slow-cooker-thai-peanut-chicken-alt",
-    "name": "Slow Cooker Thai Peanut Chicken (alt)",
+    "name": "Slow Cooker Thai Peanut Chicken (dinnerthendessert.com)",
     "section": "TO TRY --- SLOW COOKER",
     "category": "Slow Cooker",
     "source": "http://dinnerthendessert.com/slow-cooker-thai-peanut-chicken/",
@@ -19247,7 +19205,7 @@
   },
   {
     "id": "amish-country-casserole-alt",
-    "name": "Amish Country Casserole (alt)",
+    "name": "Amish Country Casserole (withablast.net)",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
     "source": "http://www.withablast.net/2013/09/amish-country-casserole.html",
@@ -21229,7 +21187,7 @@
   },
   {
     "id": "sweet-sour-chicken-alt",
-    "name": "Sweet & Sour Chicken (alt)",
+    "name": "Sweet & Sour Chicken (dinnerthendessert.com)",
     "section": "TO TRY --- AMERICAN",
     "category": "American",
     "source": "http://dinnerthendessert.com/sweet-sour-chicken/",
@@ -21275,20 +21233,6 @@
     "section": "TO TRY --- ASIAN",
     "category": "Asian",
     "source": "http://rasamalaysia.com/thai-sweet-chili-chicken/",
-    "tags": [
-      "#to-try",
-      "#asian"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
-    "id": "gochujang-recipes-roundup",
-    "name": "Gochujang Recipes (roundup)",
-    "section": "TO TRY --- ASIAN",
-    "category": "Asian",
-    "source": "https://slimmingviolet.com/gochujang-recipes/",
     "tags": [
       "#to-try",
       "#asian"
@@ -21387,20 +21331,6 @@
     "section": "TO TRY --- MEXICAN",
     "category": "Mexican",
     "source": "http://www.ourbestbites.com/2014/09/green-chile-chicken-rice/",
-    "tags": [
-      "#to-try",
-      "#mexican"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
-    "id": "mexican-coleslaw-lemontreedwelling-com",
-    "name": "Mexican Coleslaw (lemontreedwelling.com)",
-    "section": "TO TRY --- MEXICAN",
-    "category": "Mexican",
-    "source": "http://www.lemontreedwelling.com/2017/05/mexican-coleslaw.html",
     "tags": [
       "#to-try",
       "#mexican"
@@ -21670,20 +21600,6 @@
     "tags": [
       "#to-try",
       "#mediterranean"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
-    "id": "fruit-infused-water-6-ways",
-    "name": "Fruit Infused Water — 6 Ways",
-    "section": "TO TRY --- SMOOTHIES",
-    "category": "Smoothies",
-    "source": "http://www.sheuncovered.com/2015/05/fruit-infused-water-6-ways/",
-    "tags": [
-      "#to-try",
-      "#beverage"
     ],
     "ingredients": [],
     "instructions": [],
@@ -22377,20 +22293,6 @@
     "is_blank": true
   },
   {
-    "id": "energy-bites-9-recipes",
-    "name": "Energy Bites (9 Recipes)",
-    "section": "TO TRY --- DESSERTS",
-    "category": "Desserts",
-    "source": "http://www.blessthismessplease.com/2016/07/9-energy-bites-recipes.html",
-    "tags": [
-      "#to-try",
-      "#desserts"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
     "id": "20-minute-thai-basil-beef-rolls",
     "name": "20 Minute Thai Basil Beef Rolls",
     "section": "TO TRY --- ASIAN",
@@ -23021,20 +22923,6 @@
     "is_blank": true
   },
   {
-    "id": "persian-chicken-simplecooktips-com",
-    "name": "Persian Chicken (simplecooktips.com)",
-    "section": "TO TRY --- MIDDLE EASTERN",
-    "category": "Middle Eastern",
-    "source": "https://simplecooktips.com/persian-chicken-an-amazing-ultimate-recipe-you-must-try/",
-    "tags": [
-      "#to-try",
-      "#middle-eastern"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
     "id": "chicken-vesuvio",
     "name": "Chicken Vesuvio",
     "section": "TO TRY --- ITALIAN",
@@ -23469,20 +23357,6 @@
     "is_blank": true
   },
   {
-    "id": "taco-pasta-thecozycook-com",
-    "name": "Taco Pasta (thecozycook.com)",
-    "section": "TO TRY --- MEXICAN",
-    "category": "Mexican",
-    "source": "https://thecozycook.com/taco-pasta/",
-    "tags": [
-      "#to-try",
-      "#mexican"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
     "id": "one-skillet-mexican-rice-casserole",
     "name": "One Skillet Mexican Rice Casserole",
     "section": "TO TRY --- MEXICAN",
@@ -23527,21 +23401,6 @@
     "is_blank": true
   },
   {
-    "id": "best-peanut-butter-dessert-recipes",
-    "name": "Best Peanut Butter Dessert Recipes",
-    "section": "TO TRY --- DESSERTS",
-    "category": "Desserts",
-    "source": "https://www.crazylaura.com/best-peanut-butter-dessert-recipes/",
-    "tags": [
-      "#to-try",
-      "#desserts",
-      "#peanut"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
     "id": "thai-cucumber-salad-with-chicken",
     "name": "Thai Cucumber Salad With Chicken",
     "section": "TO TRY --- ASIAN",
@@ -23550,21 +23409,6 @@
     "tags": [
       "#to-try",
       "#asian",
-      "#peanut"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
-    "id": "the-best-peanut-butter-recipes",
-    "name": "The Best Peanut Butter Recipes",
-    "section": "TO TRY --- DESSERTS",
-    "category": "Desserts",
-    "source": "https://gypsyplate.com/the-best-peanut-butter-recipes/",
-    "tags": [
-      "#to-try",
-      "#desserts",
       "#peanut"
     ],
     "ingredients": [],
@@ -23652,21 +23496,6 @@
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
     "source": "https://www.savorylotus.com/3-ingredient-peanut-butter-and-jelly-cups-no-refined-sugar/",
-    "tags": [
-      "#to-try",
-      "#desserts",
-      "#peanut"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
-    "id": "36-recipes-that-start-with-a-tub-of-peanut-butter",
-    "name": "36 Recipes That Start With A Tub Of Peanut Butter",
-    "section": "TO TRY --- DESSERTS",
-    "category": "Desserts",
-    "source": "https://www.gourmandize.com/article-7658-36-recipes-that-start-with-a-tub-of-peanut-butter.htm",
     "tags": [
       "#to-try",
       "#desserts",
@@ -23937,21 +23766,6 @@
     "section": "TO TRY --- DESSERTS",
     "category": "Desserts",
     "source": "https://thealmondeater.com/chocolate-peanut-butter-chickpea-cookies/",
-    "tags": [
-      "#to-try",
-      "#desserts",
-      "#peanut"
-    ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
-  },
-  {
-    "id": "no-bake-desserts-you-can-make-in-10-minutes-or-less",
-    "name": "No Bake Desserts You Can Make In 10 Minutes Or Less",
-    "section": "TO TRY --- DESSERTS",
-    "category": "Desserts",
-    "source": "https://healthaily.com/index.php/2025/12/12/no-bake-desserts-you-can-make-in-10-minutes-or-less/",
     "tags": [
       "#to-try",
       "#desserts",
