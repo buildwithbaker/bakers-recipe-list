@@ -12,6 +12,11 @@ describe('recipe photo', () => {
     expect(p.thumb).not.toMatch(/\/\/photos/);
   });
 
+  it('carries the AI credit with the photo, and none for a photo without an entry', () => {
+    expect(recipePhoto({ id: 'lasagna', image: 'photos/lasagna.jpg' })).toMatchObject({ ai: true, alt: expect.stringMatching(/^AI-generated/) });
+    expect(recipePhoto({ id: 'no-photo-here', image: 'photos/x.jpg' })).toMatchObject({ ai: false, alt: '' });
+  });
+
   it('uses the first letter of the name for the empty slot', () => {
     expect(photoInitial('Lasagna')).toBe('L');
     expect(photoInitial('3 Ingredient Cups')).toBe('I');

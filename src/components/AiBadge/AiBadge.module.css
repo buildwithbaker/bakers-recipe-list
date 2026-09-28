@@ -1,0 +1,23 @@
+/* Navy and cream from the masthead (--band / --band-ink, tested in
+   contrast.test.js), so it reads over any photo at 88px. */
+.badge {
+  position: absolute;
+  z-index: 2;
+  right: 4px;
+  bottom: 4px;
+  padding: 2px 5px;
+  border-radius: var(--r1);
+  background: var(--band);
+  color: var(--band-ink);
+  font: 700 0.6875rem/1 var(--sans);
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 0 1px var(--band-ink);
+  pointer-events: none;
+}
+
+.lg {
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 7px;
+  font-size: var(--t-xs);
+}

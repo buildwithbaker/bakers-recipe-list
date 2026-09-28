@@ -538,7 +538,8 @@ src/
     recipeRoute.js          path ⇄ recipe key
     recipeSlug.js           id ⇄ path segment (:: ⇄ --)
     recipePhoto.js          the ONE place a recipe's photo URL is resolved
-    photoFiles.js           rules for the src/photos/ drop folder
+    photoFiles.js           rules for the src/photos/ drop folder (+ photoCredits.json guard)
+    photoCredit.js          AI-photo credits (data/photoCredits.json); also imported by prerender.mjs
     colour.js               tint mixing + WCAG contrast for the category palette
     search.js               one search across all collections
     relatedRecipes.js       the related ranking (also imported by prerender.mjs)

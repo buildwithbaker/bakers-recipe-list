@@ -22,6 +22,7 @@ import { recipePhoto } from '../../utils/recipePhoto.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
 import { domainOf } from '../ToTryLinks/ToTryLinks.jsx';
+import AiBadge from '../AiBadge/AiBadge.jsx';
 import Icon from '../Icon/Icon.jsx';
 
 const MacroCard = lazy(() => import('../MacroCard/MacroCard.jsx'));
@@ -434,11 +435,19 @@ export default function RecipeView({
             </div>
           </div>
           {/* Only a real photo. alt="" because the title beside it names the
-              dish; describing it again is noise to a screen reader. */}
+              dish; describing it again is noise to a screen reader. An AI
+              image is the exception: its alt says what it is, and it carries
+              the badge and a caption (src/data/photoCredits.json). */}
           {photo && (
-            <div className={styles.photo}>
-              <img src={photo.large} alt="" width="800" height="600" />
-            </div>
+            <figure className={styles.photoFigure}>
+              <div className={styles.photo}>
+                <img src={photo.large} alt={photo.ai ? photo.alt : ''} width="800" height="600" />
+                {photo.ai && <AiBadge size="lg" />}
+              </div>
+              {photo.ai && (
+                <figcaption className={styles.photoCaption}>AI-generated image, not a photo of this recipe as cooked.</figcaption>
+              )}
+            </figure>
           )}
         </div>
       </header>

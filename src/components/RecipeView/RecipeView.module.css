@@ -142,8 +142,14 @@ h2.title {
   text-underline-offset: 3px;
 }
 
-.photo {
+/* The photo and, for an AI image, its caption. */
+.photoFigure {
   width: 240px;
+  margin: 0;
+}
+
+.photo {
+  position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: var(--r3);
@@ -156,6 +162,13 @@ h2.title {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* ink-muted on the header's --cc-soft band: tested per category in contrast.test.js. */
+.photoCaption {
+  margin-top: var(--s2);
+  color: var(--ink-muted);
+  font: 400 var(--t-xs)/1.35 var(--sans);
 }
 
 /* ---------- Buttons ---------- */
@@ -602,7 +615,7 @@ h2.title {
   .head {
     grid-template-columns: 1fr;
   }
-  .photo {
+  .photoFigure {
     width: 100%;
     order: -1;
   }

@@ -10,7 +10,9 @@ export default [
     files: ['src/**/*.{js,jsx}'],
     ...js.configs.recommended,
     languageOptions: {
-      ecmaVersion: 2022,
+      // 2025 for JSON import attributes (`with { type: 'json' }`), which
+      // src/utils/photoCredit.js needs so Node (prerender) can load it too.
+      ecmaVersion: 2025,
       sourceType: 'module',
       globals: { ...globals.browser },
       parserOptions: { ecmaFeatures: { jsx: true } },
