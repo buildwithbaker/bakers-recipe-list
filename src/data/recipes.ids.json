@@ -21,12 +21,77 @@
     "src/data/recordCount.js, all in the same commit."
   ],
   "renamed": {
-    "dirty-rice": "Completed from placeholder; renamed to \"Dirty Rice (No-Liver, One Pan)\". ids entry stays at \"Dirty Rice\"."
+    "dirty-rice": "Completed from placeholder; renamed to \"Dirty Rice (No-Liver, One Pan)\". ids entry stays at \"Dirty Rice\".",
+    "protein-balls-1": "Renamed to \"Oat Flour Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 1\".",
+    "protein-balls-2": "Renamed to \"Honey Butter Oat Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 2\".",
+    "protein-balls-3": "Renamed to \"Peanut Butter Flax Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 3\".",
+    "protein-balls-4": "Renamed to \"Cottage Cheese Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 4\".",
+    "protein-balls-5": "Renamed to \"Almond Butter Greek Yogurt Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 5\".",
+    "pumpkin-protein-balls-1": "Renamed to \"Pumpkin Almond Butter Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Pumpkin Protein Balls 1\".",
+    "pumpkin-protein-balls-2": "Renamed to \"Pumpkin Peanut Butter Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Pumpkin Protein Balls 2\".",
+    "chicken-marinade-lemon-herb": "Renamed to \"Chicken Marinade - Lemon Herb Yogurt\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Chicken Marinade - Lemon Herb\".",
+    "slow-cooker-cuban-mojo-pork-alt": "Renamed to \"Slow Cooker Cuban Mojo Pork (lemonblossoms.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Slow Cooker Cuban Mojo Pork (alt)\".",
+    "slow-cooker-honey-garlic-chicken-alt": "Renamed to \"Slow Cooker Honey Garlic Chicken (chefsavvy.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Slow Cooker Honey Garlic Chicken (alt)\".",
+    "slow-cooker-thai-peanut-chicken-alt": "Renamed to \"Slow Cooker Thai Peanut Chicken (dinnerthendessert.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Slow Cooker Thai Peanut Chicken (alt)\".",
+    "amish-country-casserole-alt": "Renamed to \"Amish Country Casserole (withablast.net)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Amish Country Casserole (alt)\".",
+    "sweet-sour-chicken-alt": "Renamed to \"Sweet & Sour Chicken (dinnerthendessert.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Sweet & Sour Chicken (alt)\"."
   },
   "removed": {
     "pork-carnitas-spice-rub": {
       "to": "slow-cooker-pork-carnitas",
       "note": "Duplicate of Slow Cooker Pork Carnitas (RecipeTin Eats base); merged 2026-09-27"
+    },
+    "salt-and-pepper-chicken-2": {
+      "to": "salt-and-pepper-chicken",
+      "note": "To Try duplicate of the Cookbook recipe (audit F11); removed 2026-09-27"
+    },
+    "taco-pasta-thecozycook-com": {
+      "to": "taco-pasta",
+      "note": "To Try duplicate of the Cookbook recipe (audit P2-14); removed 2026-09-27"
+    },
+    "persian-chicken-simplecooktips-com": {
+      "to": "persian-chicken",
+      "note": "To Try duplicate of the Cookbook recipe (audit P2-14); removed 2026-09-27"
+    },
+    "mexican-coleslaw-lemontreedwelling-com": {
+      "to": "mexican-coleslaw",
+      "note": "To Try duplicate of the Cookbook recipe (audit P2-14); removed 2026-09-27"
+    },
+    "slow-cooker-carnitas": {
+      "to": "slow-cooker-pork-carnitas",
+      "note": "To Try duplicate of the Cookbook recipe (audit P2-14); removed 2026-09-27"
+    },
+    "crispy-slow-cooker-pork-carnitas": {
+      "to": "slow-cooker-pork-carnitas",
+      "note": "To Try duplicate of the Cookbook recipe (audit P2-14); removed 2026-09-27"
+    },
+    "gochujang-recipes-roundup": {
+      "to": null,
+      "note": "Roundup link, not a recipe (audit P2-14); removed 2026-09-27"
+    },
+    "energy-bites-9-recipes": {
+      "to": null,
+      "note": "Roundup link, not a recipe (audit P2-14); removed 2026-09-27"
+    },
+    "best-peanut-butter-dessert-recipes": {
+      "to": null,
+      "note": "Roundup link, not a recipe (audit P2-14); removed 2026-09-27"
+    },
+    "the-best-peanut-butter-recipes": {
+      "to": null,
+      "note": "Roundup link, not a recipe (audit P2-14); removed 2026-09-27"
+    },
+    "36-recipes-that-start-with-a-tub-of-peanut-butter": {
+      "to": null,
+      "note": "Roundup link, not a recipe (audit P2-14); removed 2026-09-27"
+    },
+    "no-bake-desserts-you-can-make-in-10-minutes-or-less": {
+      "to": null,
+      "note": "Roundup link, not a recipe (audit P2-14); removed 2026-09-27"
+    },
+    "fruit-infused-water-6-ways": {
+      "to": null,
+      "note": "Roundup link, not a recipe (audit P2-14); removed 2026-09-27"
     }
   },
   "ids": {
