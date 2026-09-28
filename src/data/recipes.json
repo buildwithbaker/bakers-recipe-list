@@ -58,7 +58,7 @@
     "instructions": [
       {
         "step": "Mix Ingredients",
-        "detail": "Put all ingredients (1 lb ground pork, 1 egg, ¼ cup breadcrumbs, all seasonings) in a bowl. Mix thoroughly."
+        "detail": "Put the ground pork (1 lb), egg (1), breadcrumbs (¼ cup), onion powder (2 tsp), garlic powder (2 tsp), paprika (1 tsp), chili powder (1 tsp), cumin (½ tsp), oregano (½ tsp), cayenne pepper (1 tsp), and red pepper flakes (1 tsp) in a bowl. Mix thoroughly."
       },
       {
         "step": "Shape Patties",
@@ -734,7 +734,7 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine all ingredients in a bowl and whisk until the brown sugar is broken up and the blend is uniform in color."
+        "detail": "Combine the brown sugar (½ cup), paprika (2 Tbsp), garlic powder (1 Tbsp), onion powder (1 Tbsp), seasoned salt (1 Tbsp), chili powder (1 tsp), black pepper (1 tsp), white pepper (½ tsp), nutmeg (½ tsp), and coriander (½ tsp) in a bowl and whisk until the brown sugar is broken up and the blend is uniform in color."
       },
       {
         "step": "Apply",
@@ -873,6 +873,10 @@
       "#bread"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "Dough"
+      },
       {
         "type": "item",
         "text": "1 cup water, warmed to ~110°F"
@@ -1140,6 +1144,10 @@
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Meatloaf"
+      },
+      {
         "type": "item",
         "text": "2 lb ground beef"
       },
@@ -1279,7 +1287,7 @@
     "instructions": [
       {
         "step": "Marinate",
-        "detail": "Combine all marinade ingredients. Add chicken drumsticks (2 lb) and marinate for 4-8 hours."
+        "detail": "Combine the honey (2 Tbsp), soy sauce (2 Tbsp), Worcestershire sauce (2 Tbsp), lime juice (1 Tbsp), hoisin sauce (1 Tbsp), olive oil (¼ cup), garlic (5 cloves, minced), onion powder (1 Tbsp), garlic powder (1 Tbsp), and salt and pepper. Add chicken drumsticks (2 lb) and marinate for 4-8 hours."
       },
       {
         "step": "Preheat Oven",
@@ -2435,7 +2443,7 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine all ingredients in a large bowl."
+        "detail": "Combine the slaw mix (16 oz bag), lime juice (2 limes), olive oil (3 Tbsp), honey (2 Tbsp), dried oregano (1 tsp), mayo (¼ cup), Greek yogurt (¼ cup), and salt and pepper to taste in a large bowl."
       },
       {
         "step": "Chill",
@@ -2487,7 +2495,7 @@
     "ingredients": [
       {
         "type": "header",
-        "text": "Main:"
+        "text": "Chicken and Vegetables:"
       },
       {
         "type": "item",
@@ -2992,7 +3000,7 @@
     "ingredients": [
       {
         "type": "header",
-        "text": "Main:"
+        "text": "Fried Rice:"
       },
       {
         "type": "item",
@@ -3061,7 +3069,7 @@
         "detail": "Add garlic (2 cloves) and onion (½). Cook for 1 minute."
       },
       {
-        "step": "Cook Capsicum",
+        "step": "Cook Bell Pepper",
         "detail": "Add red bell pepper (½) and cook for 1 minute."
       },
       {
@@ -3070,7 +3078,7 @@
       },
       {
         "step": "Cook Rice",
-        "detail": "Add day-old rice (3 cups) and all sauce ingredients (oyster sauce, fish sauce, sugar, soy sauce, Thai seasoning). Cook, stirring constantly, for 2 minutes until rice is caramelized."
+        "detail": "Add day-old rice (3 cups), oyster sauce (1 Tbsp), fish sauce (1½ Tbsp), sugar (½ tsp), soy sauce (1½ Tbsp), and Thai seasoning (1 Tbsp). Cook, stirring constantly, for 2 minutes until rice is caramelized."
       },
       {
         "step": "Add Pineapple",
@@ -3250,6 +3258,10 @@
       "#weeknight"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "For the stir fry:"
+      },
       {
         "type": "item",
         "text": "8 oz egg noodles"
@@ -3579,7 +3591,7 @@
       },
       {
         "type": "header",
-        "text": "The pan:"
+        "text": "Potatoes and Vegetables:"
       },
       {
         "type": "item",
@@ -4321,7 +4333,7 @@
     "instructions": [
       {
         "step": "Combine",
-        "detail": "Add all ingredients to a mixing bowl and combine."
+        "detail": "Add the cucumber (1 large, finely diced), yogurt (1 cup), ground mint (½ tsp, heaping), garlic (1 clove, crushed), and salt (½ tsp) to a mixing bowl and combine."
       },
       {
         "step": "Season & Serve",
@@ -4477,6 +4489,10 @@
       "#asian"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "Rice:"
+      },
       {
         "type": "item",
         "text": "2 cups jasmine rice"
@@ -4850,7 +4866,7 @@
     "instructions": [
       {
         "step": "Mix Dressing",
-        "detail": "Whisk together mayo, apple cider vinegar, Dijon mustard, maple syrup, celery seeds, salt, garlic powder, onion powder, and black pepper until smooth."
+        "detail": "Whisk together the mayo (scant ¾ cup), apple cider vinegar (2 Tbsp), Dijon mustard (1 Tbsp), maple syrup (1 Tbsp), celery seeds (¾ tsp), salt (¼ tsp), garlic powder (1 tsp), onion powder (1 tsp), and black pepper to taste until smooth."
       },
       {
         "step": "Dress Coleslaw",
@@ -4907,7 +4923,7 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine all ingredients in a bowl until a dough forms."
+        "detail": "Combine the protein powder (¾ cup), oat or almond flour (½ cup), peanut or almond butter (⅓ cup), maple syrup or honey (3 Tbsp), Greek yogurt (1½ Tbsp), and salt (¼ tsp, skip if using salted peanut butter) in a bowl until a dough forms."
       },
       {
         "step": "Roll",
@@ -4972,7 +4988,7 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine all ingredients in a bowl until a dough forms."
+        "detail": "Combine the nut butter (5 Tbsp), brown rice syrup or honey (2 Tbsp), Greek yogurt (2 Tbsp), vanilla protein powder (1½ scoops), melted butter (1 Tbsp), vanilla extract (1 tsp), brown sugar substitute (1 Tbsp), rolled oats (1 cup), and any chocolate chips, nuts, or dried fruit in a bowl until a dough forms."
       },
       {
         "step": "Roll & Chill",
@@ -5029,7 +5045,7 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine all ingredients. If mixture is too dry, add a splash of water."
+        "detail": "Combine the rolled oats (1½ cups), peanut butter (1 cup), ground flaxseed (¼ cup), honey (¼ cup), protein powder (2 scoops, ¼ cup unflavored), vanilla extract (1 tsp), mini chocolate chips (6 Tbsp), and shredded coconut (¼ cup, optional). If the mixture is too dry, add a splash of water."
       },
       {
         "step": "Chill",
@@ -5050,6 +5066,10 @@
       "#protein"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "Base"
+      },
       {
         "type": "item",
         "text": "1 cup low-fat cottage cheese"
@@ -5098,7 +5118,7 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Blend cottage cheese (1 cup) until smooth. Combine with all other ingredients."
+        "detail": "Blend the cottage cheese (1 cup) until smooth. Combine it with the protein powder (1 cup), nut butter (2 Tbsp), honey or maple syrup (1-2 Tbsp), vanilla extract (1 tsp, optional), and salt (pinch)."
       },
       {
         "step": "Add Mix-Ins",
@@ -5163,7 +5183,7 @@
     "instructions": [
       {
         "step": "Mix & Roll",
-        "detail": "Combine all ingredients. Roll into 1-inch balls, adding a splash of water if mixture is too dry."
+        "detail": "Combine the almond butter (1 cup), Greek yogurt (½ cup), rolled oats (1 cup), ground flax seeds (¼ cup), shredded coconut (⅓ cup), mini chocolate chips (¼ cup), honey or maple syrup (1 Tbsp), and vanilla extract (1 tsp). Roll into 1-inch balls, adding a splash of water if the mixture is too dry."
       },
       {
         "step": "Chill",
@@ -5220,7 +5240,7 @@
     "instructions": [
       {
         "step": "Mix & Roll",
-        "detail": "Combine all ingredients. Roll into 1-inch balls."
+        "detail": "Combine the rolled oats (1 cup), vanilla protein powder (2 scoops), pumpkin pie spice (1 tsp), almond butter (½ cup), pumpkin puree (⅓ cup), honey or maple syrup (¼ cup), dried cranberries (2 Tbsp), and mini chocolate chips (2 Tbsp). Roll into 1-inch balls."
       },
       {
         "step": "Chill",
@@ -5284,8 +5304,8 @@
     ],
     "instructions": [
       {
-        "step": "Mix. Chill. Ball.",
-        "detail": "Combine all ingredients. Chill dough for 15 minutes. Roll into 1-inch balls. Refrigerate until firm."
+        "step": "Mix, Chill and Roll",
+        "detail": "Combine the rolled oats (1¼ cups), peanut butter (⅔ cup), vanilla protein powder (½ cup), pumpkin puree (¼ cup), mini chocolate chips (¼ cup), dried cranberries (¼ cup), maple syrup or honey (3 Tbsp), ground flaxseed (1 Tbsp), pumpkin pie spice (2 tsp), and salt (⅛ tsp). Chill the dough for 15 minutes. Roll into 1-inch balls. Refrigerate until firm."
       }
     ],
     "is_blank": false
@@ -5329,7 +5349,7 @@
       },
       {
         "step": "Mix",
-        "detail": "Add all ingredients to a bowl and mix well."
+        "detail": "Add the Greek yogurt (1 cup), egg (1), cocoa powder (⅓ cup), protein powder (½ cup), and coconut sugar or sweetener (⅓ cup) to a bowl and mix well."
       },
       {
         "step": "Bake",
@@ -5696,7 +5716,7 @@
     "instructions": [
       {
         "step": "Blend & Marinate",
-        "detail": "Blend all ingredients together. Coat chicken and marinate for at least 1-2 hours before cooking."
+        "detail": "Blend the Greek yogurt (½ cup), jalapeño (1, seeds removed), cilantro (⅓ cup), honey (1 Tbsp), lime juice (1 lime), olive oil (1 Tbsp), garlic (1 clove), and salt and pepper together. Coat the chicken (1½ lb) and marinate for at least 1-2 hours before cooking."
       }
     ],
     "is_blank": false
@@ -5744,7 +5764,7 @@
     "instructions": [
       {
         "step": "Mix & Marinate",
-        "detail": "Whisk all ingredients together. Coat chicken and marinate for at least 1 hour before cooking."
+        "detail": "Whisk the Dijon mustard (¼ cup), maple syrup (2 Tbsp), olive oil (1 Tbsp), apple cider vinegar (1 Tbsp), garlic powder (1 tsp), paprika (½ tsp), and cayenne (½ tsp) together. Coat the chicken (1½ lb) and marinate for at least 1 hour before cooking."
       }
     ],
     "is_blank": false
@@ -5796,7 +5816,7 @@
     "instructions": [
       {
         "step": "Mix & Marinate",
-        "detail": "Whisk all ingredients together. Coat chicken and marinate for at least 1 hour before cooking."
+        "detail": "Whisk the Greek yogurt (½ cup), lemon juice (2 Tbsp), olive oil (1 Tbsp), garlic (2 cloves), parsley (1 Tbsp), oregano (1 tsp), onion powder (1 tsp), and salt and pepper to taste together. Coat the chicken (1½ lb) and marinate for at least 1 hour before cooking."
       }
     ],
     "is_blank": false
@@ -5848,7 +5868,7 @@
     "instructions": [
       {
         "step": "Mix & Marinate",
-        "detail": "Combine all ingredients. Toss with sliced chicken and marinate for 15-30 minutes before stir-frying (velveting technique)."
+        "detail": "Combine the soy sauce (1 Tbsp), water (1 Tbsp), egg white (½), and cornstarch (2 Tbsp). Toss with sliced chicken (1 lb) and marinate for 15-30 minutes before stir-frying (velveting technique)."
       }
     ],
     "is_blank": false
