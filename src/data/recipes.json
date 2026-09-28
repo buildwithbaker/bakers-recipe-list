@@ -3835,6 +3835,112 @@
     "recipeYield": "4 servings"
   },
   {
+    "id": "honey-garlic-soy-glazed-chicken-tenderloins",
+    "name": "Honey-Garlic Soy Glazed Chicken Tenderloins",
+    "section": "ASIAN",
+    "category": "Asian",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#weeknight",
+      "#one-pan",
+      "#asian"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "1 lb chicken tenderloins, tendons pulled"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp cornstarch"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "header",
+        "text": "For the glaze:"
+      },
+      {
+        "type": "item",
+        "text": "2½ Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp cooking sherry"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp water"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp rice vinegar (any vinegar works)"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp red pepper flakes"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp toasted sesame oil"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "Cooked rice, for serving"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Prep",
+        "detail": "Pull the tendons from the chicken (1 lb): pin the end of the white tendon with a paper towel and slide a fork down it. Pat the pieces very dry. Toss with the cornstarch (2 Tbsp) and black pepper (¼ tsp) to a thin, even coat. In a small bowl, whisk the soy sauce (2½ Tbsp), honey (3 Tbsp), cooking sherry (2 Tbsp), water (2 Tbsp), rice vinegar (1 tsp) and red pepper flakes (½ tsp). The soy is trimmed from the usual 3 to 4 Tbsp because cooking sherry is already salted."
+      },
+      {
+        "step": "Sear",
+        "detail": "Heat a 12-inch skillet over medium-high heat, add the neutral oil (1½ Tbsp) and wait for it to shimmer. Lay the chicken in a single layer with space between pieces. Cook 2 to 3 minutes, until golden and it releases from the pan. Flip and cook 2 minutes more. It does not need to be cooked through yet. Move it to a plate."
+      },
+      {
+        "step": "Garlic",
+        "detail": "Turn the heat down to medium. Add the garlic (4 cloves, minced) to the oil left in the pan and stir for 30 seconds, until fragrant but not browned."
+      },
+      {
+        "step": "Glaze",
+        "detail": "Stir the glaze mixture and pour it in. Simmer 1 to 2 minutes, scraping up the browned bits, until it turns syrupy. The cornstarch that came off the chicken is what thickens it, so no slurry is needed. Return the chicken and any juices and toss 1 to 2 minutes, until glossy and the thickest piece reads 165°F. Keep the heat at medium: honey scorches fast. If the glaze gets too thick before the chicken is done, add a splash of water."
+      },
+      {
+        "step": "Finish",
+        "detail": "Take the pan off the heat. Stir in the toasted sesame oil (1 tsp) and scatter the green onions (2, sliced) over the top. Serve over rice."
+      }
+    ],
+    "is_blank": false,
+    "description": "Cornstarch-dusted chicken tenderloins seared hard, then tossed in a quick honey, garlic and soy glaze in the same skillet. Serve over rice.",
+    "prepTime": "PT10M",
+    "cookTime": "PT10M",
+    "recipeYield": "3 servings"
+  },
+  {
     "id": "tomato-sauce",
     "name": "Tomato Sauce",
     "section": "ITALIAN",
