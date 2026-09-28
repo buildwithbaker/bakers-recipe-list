@@ -173,20 +173,24 @@
       {
         "type": "item",
         "text": "3 cups frozen fruit"
+      },
+      {
+        "type": "item",
+        "text": "Jelly or fresh fruit, for serving (optional)"
       }
     ],
     "instructions": [
       {
         "step": "Combine",
-        "detail": "Add milk (7 cups), oats (2 cups), honey/syrup (2 Tbsp), and salt (2 tsp) to a slow cooker."
+        "detail": "Add the milk (7 cups), water (1 cup), oats (2 cups), maple syrup or honey (2 Tbsp) and salt (2 tsp) to a slow cooker."
       },
       {
         "step": "Cook",
-        "detail": "Set on low for 8 hours. Stir every 2 hours if possible."
+        "detail": "Cook on low for 8 hours. Stir every 2 hours if possible."
       },
       {
         "step": "Add Fruit",
-        "detail": "When 2 hours remain, add frozen fruit (3 cups) after stirring."
+        "detail": "When 2 hours remain, stir, then add the frozen fruit (3 cups)."
       },
       {
         "step": "Serve",
@@ -744,114 +748,6 @@
     "is_blank": false
   },
   {
-    "id": "pork-carnitas-spice-rub",
-    "name": "Pork Carnitas Spice Rub",
-    "section": "MEXICAN",
-    "category": "Mexican",
-    "source": "Original",
-    "tags": [
-      "#pork",
-      "#mexican"
-    ],
-    "ingredients": [
-      {
-        "type": "item",
-        "text": "2 kg / 4 lb pork shoulder (boneless, skinless)"
-      },
-      {
-        "type": "item",
-        "text": "2½ tsp salt"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp black pepper"
-      },
-      {
-        "type": "item",
-        "text": "1 onion, chopped"
-      },
-      {
-        "type": "item",
-        "text": "1 jalapeño, deseeded and chopped"
-      },
-      {
-        "type": "item",
-        "text": "4 cloves garlic, minced"
-      },
-      {
-        "type": "item",
-        "text": "¾ cup orange juice (approx. 2 oranges)"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp lime juice"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp cumin"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp oregano"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp chili powder"
-      },
-      {
-        "type": "item",
-        "text": "½ tsp chili flakes"
-      },
-      {
-        "type": "header",
-        "text": "Meat Rub"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp dried oregano"
-      },
-      {
-        "type": "item",
-        "text": "2 tsp ground cumin"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp olive oil"
-      }
-    ],
-    "instructions": [
-      {
-        "step": "Prep Pork",
-        "detail": "Rinse and dry pork shoulder (4 lb). Rub all over with salt (2½ tsp) and pepper (1 tsp)."
-      },
-      {
-        "step": "Apply Rub",
-        "detail": "Combine Meat Rub ingredients (1 Tbsp dried oregano, 2 tsp cumin, 1 Tbsp olive oil), then rub all over the pork."
-      },
-      {
-        "step": "Load Slow Cooker",
-        "detail": "Place pork fat-cap-up in slow cooker. Top with chopped onion, jalapeño, minced garlic (4 cloves), and squeeze over orange juice (¾ cup)."
-      },
-      {
-        "step": "Slow Cook",
-        "detail": "Cook on low for 10 hours or high for 7 hours."
-      },
-      {
-        "step": "Shred",
-        "detail": "Remove pork and let cool slightly. Shred with two forks. Skim fat from remaining juices. Reduce juices to about 2 cups if needed."
-      },
-      {
-        "step": "Crisp",
-        "detail": "Heat 1 Tbsp oil in a large skillet over high heat. Spread pork and drizzle with juices. Wait for juices to evaporate and bottom to brown and crisp. Turn briefly to sear other side. Remove and repeat in batches."
-      },
-      {
-        "step": "Serve",
-        "detail": "Drizzle with remaining juices just before serving. Stuff in tacos or serve over rice."
-      }
-    ],
-    "is_blank": false
-  },
-  {
     "id": "noodle-dough",
     "name": "Noodle Dough",
     "section": "DOUGHS",
@@ -1107,49 +1003,13 @@
     "name": "Garlic Butter Chicken and Potatoes Skillet",
     "section": "AMERICAN",
     "category": "American",
-    "source": "Original",
+    "source": "https://www.eatwell101.com/garlic-butter-chicken-and-potatoes-skillet",
     "tags": [
       "#chicken",
       "#one-pan",
       "#american"
     ],
     "ingredients": [
-      {
-        "type": "item",
-        "text": "1½ lb (650g) chicken breast, cut into strips"
-      },
-      {
-        "type": "item",
-        "text": "1½ lb (650g) baby yellow potatoes, quartered"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp olive oil (plus extra)"
-      },
-      {
-        "type": "item",
-        "text": "3 Tbsp butter, divided"
-      },
-      {
-        "type": "item",
-        "text": "5 garlic cloves, minced"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp each fresh thyme, rosemary, and oregano, chopped"
-      },
-      {
-        "type": "item",
-        "text": "Salt and fresh cracked pepper"
-      },
-      {
-        "type": "item",
-        "text": "Crushed red chili pepper flakes (optional)"
-      },
-      {
-        "type": "item",
-        "text": "1 cup shredded spinach"
-      },
       {
         "type": "header",
         "text": "Marinade"
@@ -1168,33 +1028,101 @@
       },
       {
         "type": "item",
-        "text": "Fresh cracked pepper"
+        "text": "Pinch of fresh cracked pepper"
+      },
+      {
+        "type": "header",
+        "text": "Skillet"
+      },
+      {
+        "type": "item",
+        "text": "1½ lb chicken breast, cut into strips"
+      },
+      {
+        "type": "item",
+        "text": "1½ lb baby yellow potatoes, quartered"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil (plus extra)"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp butter, divided"
+      },
+      {
+        "type": "item",
+        "text": "5 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "Crushed red pepper flakes, to taste (optional)"
+      },
+      {
+        "type": "header",
+        "text": "Finish"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried sage"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fresh thyme, chopped"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fresh rosemary, chopped"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fresh oregano, chopped"
+      },
+      {
+        "type": "item",
+        "text": "1 cup shredded spinach"
+      },
+      {
+        "type": "item",
+        "text": "½ cup grated Parmesan"
+      },
+      {
+        "type": "item",
+        "text": "Salt and fresh cracked pepper, to taste"
       }
     ],
     "instructions": [
       {
         "step": "Marinate Chicken",
-        "detail": "Combine chicken (1½ lb strips) with soy sauce (¼ cup), olive oil (2 Tbsp), hot sauce (2 Tbsp), and a pinch of pepper. Toss well and set aside while you prepare potatoes."
+        "detail": "Toss the chicken strips (1½ lb) with soy sauce (¼ cup), olive oil (2 Tbsp), hot sauce (2 Tbsp) and a pinch of pepper. Set aside while you do the potatoes."
       },
       {
         "step": "Parboil Potatoes",
-        "detail": "Bring a pot of salted water to a boil. Add quartered potatoes (1½ lb) and boil for 8 minutes. Drain."
+        "detail": "Boil the quartered potatoes (1½ lb) in salted water for 8 minutes. Drain."
       },
       {
         "step": "Cook Potatoes",
-        "detail": "Heat 1 Tbsp olive oil and 1 Tbsp butter in a large skillet over medium-high heat. Add drained potatoes and sauté 4 minutes, then stir and cook another 4-5 minutes until golden and fork-tender. Transfer to a plate."
+        "detail": "Heat olive oil (1 Tbsp) and butter (1 Tbsp) in a large skillet over medium-high. Sauté the potatoes 4 minutes, stir, then 4-5 minutes more until golden and fork-tender. Move to a plate."
       },
       {
         "step": "Cook Chicken",
-        "detail": "Using same skillet, reduce heat to medium. Add remaining 2 Tbsp butter. Add marinated chicken (drain and reserve marinade), minced garlic (5 cloves), and optional chili flakes. Cook 1 minute per side until lightly browned."
+        "detail": "Drop to medium and add the remaining butter (2 Tbsp). Lift the chicken from the marinade (keep the marinade) and lay it in the skillet with the garlic (5 cloves) and chili flakes if using. Cook 1 minute per side until lightly browned."
       },
       {
-        "step": "Finish with Sauce",
-        "detail": "Pour reserved marinade into skillet and simmer for a few minutes until thickened and chicken is cooked through. Stir in 1 tsp each sage, onion powder, and garlic powder."
+        "step": "Finish the Sauce",
+        "detail": "Pour in the reserved marinade and simmer a few minutes, until it thickens and the chicken reaches 165°F. Stir in dried sage (1 tsp), onion powder (1 tsp) and garlic powder (1 tsp)."
       },
       {
         "step": "Combine and Serve",
-        "detail": "Return potatoes to skillet. Toss to combine and heat through 1-2 minutes. Adjust seasoning with salt and pepper. Remove from heat, add cheese and spinach (1 cup), and serve."
+        "detail": "Return the potatoes with thyme (1 tsp), rosemary (1 tsp) and oregano (1 tsp); toss and heat through 1-2 minutes. Season with salt and pepper. Off the heat, fold in the spinach (1 cup), scatter the Parmesan (½ cup) over and serve."
       }
     ],
     "is_blank": false
@@ -2359,37 +2287,13 @@
     "name": "Slow Cooker Pork Carnitas",
     "section": "MEXICAN",
     "category": "Mexican",
-    "source": "Original",
+    "source": "https://www.recipetineats.com/pork-carnitas/",
     "tags": [
       "#pork",
       "#slow-cooker",
       "#mexican"
     ],
     "ingredients": [
-      {
-        "type": "item",
-        "text": "4 lb pork shoulder (boneless, skinless)"
-      },
-      {
-        "type": "item",
-        "text": "¼ tsp cayenne pepper"
-      },
-      {
-        "type": "item",
-        "text": "1 onion, chopped"
-      },
-      {
-        "type": "item",
-        "text": "1 jalapeño, deseeded and chopped"
-      },
-      {
-        "type": "item",
-        "text": "4 cloves garlic, minced"
-      },
-      {
-        "type": "item",
-        "text": "¾ cup orange juice (approx. 2 oranges)"
-      },
       {
         "type": "header",
         "text": "Rub"
@@ -2417,32 +2321,68 @@
       {
         "type": "item",
         "text": "1 Tbsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp cayenne pepper"
+      },
+      {
+        "type": "header",
+        "text": "Pork"
+      },
+      {
+        "type": "item",
+        "text": "4 lb pork shoulder (boneless, skinless)"
+      },
+      {
+        "type": "item",
+        "text": "1 onion, chopped"
+      },
+      {
+        "type": "item",
+        "text": "1 jalapeño, deseeded and chopped"
+      },
+      {
+        "type": "item",
+        "text": "4 cloves garlic, minced"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup orange juice (about 2 oranges)"
+      },
+      {
+        "type": "header",
+        "text": "To Crisp"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil"
       }
     ],
     "instructions": [
       {
-        "step": "Prep & Rub",
-        "detail": "Rinse and dry pork shoulder (4 lb). Mix all Rub ingredients together, then rub all over the pork."
+        "step": "Prep and Rub",
+        "detail": "Rinse and dry the pork shoulder (4 lb). Mix olive oil (1 Tbsp), salt (2 tsp), cumin (2 tsp), chili powder (2 tsp), black pepper (1 tsp), oregano (1 Tbsp) and cayenne (¼ tsp); rub all over the pork."
       },
       {
         "step": "Load Slow Cooker",
-        "detail": "Place pork fat-cap-up in slow cooker. Top with chopped onion, jalapeño, minced garlic (4 cloves), and squeeze over orange juice (¾ cup)."
+        "detail": "Place the pork fat-cap-up in the slow cooker. Top with the onion (1), jalapeño (1) and garlic (4 cloves); pour over the orange juice (¾ cup)."
       },
       {
         "step": "Slow Cook",
-        "detail": "Cook on low for 10 hours or high for 7 hours until pork is tender enough to shred."
+        "detail": "Cook on low for 10 hours or high for 7 hours, until tender enough to shred."
       },
       {
         "step": "Shred",
-        "detail": "Remove pork and let cool slightly. Shred with two forks. Skim fat from remaining juices. If more than 2 cups of liquid remain, reduce down."
+        "detail": "Rest the pork briefly, then shred with two forks. Skim the fat from the juices. If more than 2 cups remain, reduce to about 2 cups."
       },
       {
         "step": "Crisp",
-        "detail": "Heat 1 Tbsp oil in a large skillet over high heat. Spread pork in pan and drizzle with juices. Wait until juices evaporate and bottom side is golden and crusty. Turn and briefly sear other side. Work in batches - do not crowd the pan."
+        "detail": "Heat olive oil (1 Tbsp) in a large skillet over high heat. Spread the pork and drizzle with juices; let the juices evaporate and the bottom turn golden and crusty. Turn and briefly sear the other side. Work in batches - do not crowd the pan."
       },
       {
         "step": "Serve",
-        "detail": "Drizzle with remaining juices just before serving. Serve hot in tacos."
+        "detail": "Drizzle with the remaining juices just before serving. Serve hot in tacos."
       }
     ],
     "is_blank": false
@@ -2536,7 +2476,7 @@
     "name": "Broccoli Chicken Stir Fry",
     "section": "ASIAN",
     "category": "Asian",
-    "source": "Source unknown",
+    "source": "Original",
     "tags": [
       "#chicken",
       "#broccoli",
@@ -2761,8 +2701,8 @@
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "16 oz brown rice noodles"
+        "type": "header",
+        "text": "Chicken"
       },
       {
         "type": "item",
@@ -2770,23 +2710,27 @@
       },
       {
         "type": "item",
-        "text": "1 package shredded cabbage"
+        "text": "1 Tbsp cornstarch"
       },
       {
         "type": "item",
-        "text": "2 medium carrots"
+        "text": "2 Tbsp water"
       },
       {
         "type": "item",
-        "text": "1 bunch green onion"
+        "text": "½ tsp salt"
       },
       {
         "type": "item",
-        "text": "3-5 cloves garlic"
+        "text": "1 Tbsp oyster sauce"
       },
       {
         "type": "item",
-        "text": "1 Tbsp oil"
+        "text": "¼ tsp white pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
       },
       {
         "type": "header",
@@ -2849,62 +2793,66 @@
         "text": "½ tsp black pepper"
       },
       {
-        "type": "item",
-        "text": "1-2 Tbsp reserved noodle water"
-      },
-      {
         "type": "header",
-        "text": "Chicken Marinade"
+        "text": "Noodles and Vegetables"
       },
       {
         "type": "item",
-        "text": "1 Tbsp cornstarch"
+        "text": "16 oz brown rice noodles"
       },
       {
         "type": "item",
-        "text": "2 Tbsp water"
+        "text": "¼ cup reserved noodle water"
       },
       {
         "type": "item",
-        "text": "½ tsp salt"
+        "text": "1 Tbsp oil"
       },
       {
         "type": "item",
-        "text": "1 Tbsp oyster sauce"
+        "text": "2 medium carrots, julienned"
       },
       {
         "type": "item",
-        "text": "¼ tsp white pepper"
+        "text": "1 package shredded cabbage"
+      },
+      {
+        "type": "item",
+        "text": "3-5 cloves garlic, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 bunch green onion, sliced"
       }
     ],
     "instructions": [
       {
-        "step": "Marinate & Cook Chicken",
-        "detail": "Toss chicken in marinade ingredients. Cook through in a pan with oil, then slice or shred."
+        "step": "Marinate and Cook Chicken",
+        "detail": "Toss the chicken breasts (2) with cornstarch (1 Tbsp), water (2 Tbsp), salt (½ tsp), oyster sauce (1 Tbsp) and white pepper (¼ tsp). Heat neutral oil (1 Tbsp) in a wok or large skillet and cook the chicken through to 165°F, then slice or shred."
       },
       {
         "step": "Make Sauce",
-        "detail": "Whisk all sauce ingredients together. Set aside."
+        "detail": "Whisk peanut butter (1 cup), soy sauce (¼ cup), water or chicken broth (¼ cup), rice vinegar (2 Tbsp), toasted sesame oil (1 Tbsp), oyster sauce (2 Tbsp), sriracha (2 Tbsp), honey (2 Tbsp), onion powder (2 tsp), garlic powder (2 tsp), ground ginger (2 tsp), red pepper flakes (½ tsp), white pepper (½ tsp) and black pepper (½ tsp). Set aside."
       },
       {
         "step": "Cook Noodles",
-        "detail": "Cook brown rice noodles per package directions. Drain and rinse under cold water to prevent overcooking. Reserve ¼ cup noodle water."
+        "detail": "Cook the brown rice noodles (16 oz) per package directions. Scoop out ¼ cup of the noodle water, then drain and rinse under cold water to stop the cooking."
       },
       {
         "step": "Cook Vegetables",
-        "detail": "Add carrots (2, julienned) and oil (1 Tbsp) to a hot wok or large skillet. Cook for 3-4 minutes."
+        "detail": "Heat oil (1 Tbsp) in the wok over high heat. Add the carrots (2, julienned) and cabbage (1 package) and cook 3-4 minutes."
       },
       {
         "step": "Add Aromatics",
-        "detail": "Add garlic (3-5 cloves, minced) and green onions in the last 1-2 minutes."
+        "detail": "Add the garlic (3-5 cloves) and green onions (1 bunch) for the last 1-2 minutes."
       },
       {
         "step": "Combine",
-        "detail": "Add noodles, cooked chicken, and sauce. Add a splash of reserved noodle water as needed to loosen."
+        "detail": "Add the noodles, chicken and sauce and toss, loosening with the reserved noodle water (up to ¼ cup) as needed."
       },
       {
         "step": "Serve",
-        "detail": "Stir, heat through, and serve immediately."
+        "detail": "Heat through and serve immediately."
       }
     ],
     "is_blank": false
@@ -3424,7 +3372,7 @@
     "name": "Sticky Chinese Pork Belly",
     "section": "ASIAN",
     "category": "Asian",
-    "source": "Modified from Emma",
+    "source": "Original",
     "tags": [
       "#pork",
       "#asian",
@@ -4048,38 +3996,6 @@
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "1½ cups basmati rice"
-      },
-      {
-        "type": "item",
-        "text": "6 pieces bone-in, skin-on chicken"
-      },
-      {
-        "type": "item",
-        "text": "3 Tbsp olive oil"
-      },
-      {
-        "type": "item",
-        "text": "1 red onion, chopped"
-      },
-      {
-        "type": "item",
-        "text": "4 garlic cloves"
-      },
-      {
-        "type": "item",
-        "text": "2 cups water"
-      },
-      {
-        "type": "item",
-        "text": "¼ tsp turmeric"
-      },
-      {
-        "type": "item",
-        "text": "Almonds (for garnishing)"
-      },
-      {
         "type": "header",
         "text": "Spice Blend"
       },
@@ -4118,36 +4034,80 @@
       {
         "type": "item",
         "text": "¼ tsp ground cloves"
+      },
+      {
+        "type": "header",
+        "text": "Chicken and Rice"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups basmati rice"
+      },
+      {
+        "type": "item",
+        "text": "6 boneless chicken thighs"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "1 red onion, chopped"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves"
+      },
+      {
+        "type": "item",
+        "text": "2 cups water"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp turmeric"
+      },
+      {
+        "type": "header",
+        "text": "Garnish"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup sliced almonds, toasted"
       }
     ],
     "instructions": [
       {
         "step": "Soak Rice",
-        "detail": "Soak basmati rice (1½ cups) in a big bowl of water for at least 30 minutes."
+        "detail": "Soak the basmati rice (1½ cups) in a big bowl of water for at least 30 minutes."
+      },
+      {
+        "step": "Mix Spice Blend",
+        "detail": "Mix salt (1 tsp), cinnamon (1½ tsp), cumin (1 tsp), coriander (1 tsp), black pepper (1 tsp), cardamom (½ tsp), allspice (½ tsp), nutmeg (¼ tsp) and cloves (¼ tsp). This makes about 7 tsp; you will use it in thirds of about 2⅓ tsp."
       },
       {
         "step": "Coat Chicken",
-        "detail": "Coat chicken with salt and the full spice blend. Reserve extra spice blend."
+        "detail": "Coat the chicken thighs (6) with one third of the spice blend (about 2⅓ tsp)."
       },
       {
         "step": "Sauté Aromatics",
-        "detail": "Add oil (3 Tbsp) to a pan and heat up. Add garlic (4 cloves) and onion (1 red). Season with salt, pepper, and half the reserved spice mix. Sauté well, then set aside."
+        "detail": "Heat olive oil (3 Tbsp) in a large pan. Add the garlic (4 cloves) and red onion (1), season with the second third of the spice blend (about 2⅓ tsp) and sauté until soft and browned. Set aside for the garnish."
       },
       {
         "step": "Cook Chicken",
-        "detail": "In the same pan, add marinated chicken and cook for about 5 minutes each side. Set chicken aside."
+        "detail": "In the same pan, cook the chicken about 5 minutes per side, until it reaches 175°F. Set aside."
       },
       {
         "step": "Cook Rice",
-        "detail": "Add water (2 cups) to pan and bring to a boil. Add soaked rice. Add turmeric (¼ tsp) and remaining spice mix."
+        "detail": "Add the water (2 cups) to the pan and bring to a boil. Drain the soaked rice and add it with the turmeric (¼ tsp) and the last third of the spice blend (about 2⅓ tsp)."
       },
       {
         "step": "Simmer",
-        "detail": "Simmer on low heat for 15-20 minutes until rice is cooked."
+        "detail": "Cover and simmer on low for 15-20 minutes, until the rice is cooked."
       },
       {
         "step": "Serve",
-        "detail": "Add chicken back on top of rice. Garnish with fried onions, garlic, and almonds."
+        "detail": "Set the chicken on top of the rice. Garnish with the sautéed onions and garlic and the almonds (¼ cup)."
       }
     ],
     "is_blank": false
@@ -4166,7 +4126,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "750g potatoes"
+        "text": "1⅔ lb potatoes"
       },
       {
         "type": "item",
@@ -4204,7 +4164,7 @@
     "instructions": [
       {
         "step": "Cook Potatoes",
-        "detail": "Place washed potatoes in a large pot, cover with cold water by about 2 inches. Bring to a gentle boil over high heat, then reduce to medium. Cook until fork-tender - do not overcook."
+        "detail": "Place the washed potatoes (1⅔ lb) in a large pot, cover with cold water by about 2 inches. Bring to a gentle boil over high heat, then reduce to medium. Cook until fork-tender - do not overcook."
       },
       {
         "step": "Cool & Cut",
@@ -4237,32 +4197,44 @@
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Meat and Aromatics"
+      },
+      {
         "type": "item",
         "text": "2 lb ground beef (85/15)"
       },
       {
         "type": "item",
-        "text": "1 cup parsley"
+        "text": "1 medium onion, finely chopped"
       },
       {
         "type": "item",
-        "text": "1 medium onion"
+        "text": "1 cup parsley, finely chopped"
       },
       {
         "type": "item",
-        "text": "1 Tbsp fresh mint"
+        "text": "1 Tbsp fresh mint, finely chopped"
       },
       {
         "type": "item",
         "text": "3 cloves garlic"
       },
       {
+        "type": "header",
+        "text": "Spices"
+      },
+      {
         "type": "item",
-        "text": "1 tsp cayenne"
+        "text": "2 tsp kosher salt"
       },
       {
         "type": "item",
         "text": "2 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cayenne"
       },
       {
         "type": "item",
@@ -4291,24 +4263,24 @@
     ],
     "instructions": [
       {
-        "step": "Blend Aromatics",
-        "detail": "Blend onion, parsley, and mint in a food processor until smooth."
+        "step": "Chop Aromatics",
+        "detail": "Finely chop the onion (1 medium), parsley (1 cup) and mint (1 Tbsp), by hand or by pulsing in a food processor. Stop before it turns to paste."
       },
       {
         "step": "Prep Garlic",
-        "detail": "Crush garlic into a paste."
+        "detail": "Crush the garlic (3 cloves) into a paste."
       },
       {
-        "step": "Mix & Rest",
-        "detail": "Add all spices. Mix with ground beef (2 lb). Let sit for 1-24 hours."
+        "step": "Mix and Rest",
+        "detail": "In a large bowl, combine the ground beef (2 lb) with the chopped onion, parsley and mint, the garlic paste, kosher salt (2 tsp), black pepper (2 tsp), cayenne (1 tsp), and allspice, cinnamon, cloves, coriander, cumin and nutmeg (½ tsp each). Mix well, then cover and refrigerate for 1-24 hours."
       },
       {
         "step": "Shape",
-        "detail": "Form meat onto skewers, no more than 1 inch in diameter."
+        "detail": "Form the meat onto skewers, no more than 1 inch in diameter."
       },
       {
         "step": "Grill",
-        "detail": "Cook on grill over medium heat until internal temp reaches 145°F."
+        "detail": "Grill over medium heat until the internal temperature reaches 160°F."
       }
     ],
     "is_blank": false
@@ -5537,6 +5509,10 @@
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Soup"
+      },
+      {
         "type": "item",
         "text": "1 whole chicken, raw"
       },
@@ -5582,7 +5558,7 @@
       },
       {
         "type": "item",
-        "text": "½ cup white wine vinegar"
+        "text": "1 Tbsp white wine vinegar"
       },
       {
         "type": "item",
@@ -5590,7 +5566,7 @@
       },
       {
         "type": "header",
-        "text": "Slurry:"
+        "text": "Slurry"
       },
       {
         "type": "item",
@@ -5604,27 +5580,27 @@
     "instructions": [
       {
         "step": "Cook Chicken",
-        "detail": "Simmer chicken in broth (6 cups) and water (2 cups). Remove, cool, and shred."
+        "detail": "Simmer the chicken (1 whole) in broth (6 cups) and water (2 cups) until the thickest part of the thigh reads 165°F. Remove, cool and shred."
       },
       {
         "step": "Add Vegetables",
-        "detail": "Add onion (1), celery (3 stalks), garlic (3 cloves), and sun-dried tomatoes (½ cup) to broth. Simmer 10 minutes."
+        "detail": "Add onion (1), celery (3 stalks), garlic (3 cloves) and sun-dried tomatoes (½ cup) to the broth. Simmer 10 minutes."
       },
       {
         "step": "Add Pasta",
-        "detail": "Add pasta shells (8 oz) and cook until al dente."
+        "detail": "Add the pasta shells (8 oz) and cook until al dente."
       },
       {
         "step": "Add Cream",
-        "detail": "Stir in heavy cream (1 cup), Parmesan (1 cup), and white wine vinegar (½ cup). Add shredded chicken back."
+        "detail": "Stir in heavy cream (1 cup) and Parmesan (1 cup). Return the shredded chicken."
       },
       {
         "step": "Thicken",
-        "detail": "Mix cornstarch (2 tsp) with water (2 tsp). Stir into soup to thicken. Add spinach (2 cups) and cook 2 more minutes."
+        "detail": "Mix cornstarch (2 tsp) with water (2 tsp) and stir in to thicken. Add spinach (2 cups) and cook 2 more minutes."
       },
       {
-        "step": "Season & Serve",
-        "detail": "Season with salt and pepper. Serve hot."
+        "step": "Season and Serve",
+        "detail": "Take the pot off the heat and stir in white wine vinegar (1 Tbsp). Season with salt and pepper. Serve hot."
       }
     ],
     "is_blank": false
@@ -5999,7 +5975,7 @@
     "name": "Butter Chicken (Murgh Makhani)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#chicken",
       "#curry",
@@ -6096,7 +6072,7 @@
     "name": "Chana Masala (Chickpea Curry)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#vegetarian",
       "#curry"
@@ -6176,7 +6152,7 @@
     "name": "Lamb Rogan Josh",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#lamb",
       "#curry"
@@ -6260,7 +6236,7 @@
     "name": "Thai Green Curry (Vegetarian)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#vegetarian",
       "#curry",
@@ -6325,7 +6301,7 @@
     "name": "Beef Madras",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#beef",
       "#curry"
@@ -6409,7 +6385,7 @@
     "name": "Japanese Curry (Kare Raisu)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#chicken",
       "#curry",
@@ -6474,7 +6450,7 @@
     "name": "Saag Paneer (Spinach Curry)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#vegetarian",
       "#curry"
@@ -6554,7 +6530,7 @@
     "name": "Goan Fish Curry (Tomato Base)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#seafood",
       "#curry"
@@ -6638,7 +6614,7 @@
     "name": "Sri Lankan Dhal Curry",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#vegetarian",
       "#curry"
@@ -6718,7 +6694,7 @@
     "name": "South African Bunny Chow (Chicken Curry in Bread)",
     "section": "FOR REVIEW --- CURRY",
     "category": "For Review",
-    "source": "Original",
+    "source": "Adapted - source not recorded",
     "tags": [
       "#chicken",
       "#curry"
@@ -13811,6 +13787,10 @@
       },
       {
         "type": "item",
+        "text": "2 lb beef"
+      },
+      {
+        "type": "item",
         "text": "6 scallions, chopped"
       },
       {
@@ -13856,6 +13836,10 @@
       {
         "type": "section",
         "text": "Version 2 - Food Fidelity"
+      },
+      {
+        "type": "item",
+        "text": "2 lb beef"
       },
       {
         "type": "item",
@@ -13914,12 +13898,12 @@
       },
       {
         "type": "item",
-        "step": "Blend scallions (6), scotch bonnet (1), garlic (4 cloves), thyme (1 Tbsp), allspice (2 tsp), brown sugar (1 Tbsp), soy sauce (2 Tbsp), lime juice (2 Tbsp), oil (2 Tbsp), salt (1 tsp), and pepper (½ tsp).",
+        "step": "Blend scallions (6), scotch bonnet (1), garlic (4 cloves), thyme (1 Tbsp), allspice (2 tsp), brown sugar (1 Tbsp), soy sauce (2 Tbsp), lime juice (2 Tbsp), oil (2 Tbsp), salt (1 tsp) and pepper (½ tsp).",
         "detail": ""
       },
       {
         "type": "item",
-        "step": "Marinate beef for (2-12 hours), then grill.",
+        "step": "Marinate the beef (2 lb) for 2-12 hours, then grill.",
         "detail": ""
       },
       {
@@ -13929,12 +13913,12 @@
       },
       {
         "type": "item",
-        "step": "Puree all ingredients until smooth and marinate beef (2-8 hours).",
+        "step": "Purée scallions (4), habanero or scotch bonnet (1), garlic (3 cloves), ginger (1 tsp), thyme (1 Tbsp), allspice (2 tsp), cinnamon (½ tsp), brown sugar (1 Tbsp), soy sauce (2 Tbsp), orange juice (2 Tbsp), lime juice (2 Tbsp) and salt (1 tsp) until smooth. Marinate the beef (2 lb) for 2-8 hours.",
         "detail": ""
       },
       {
         "type": "item",
-        "step": "Grill over medium-high heat; rest (5 minutes).",
+        "step": "Grill over medium-high heat; rest 5 minutes.",
         "detail": ""
       }
     ],
@@ -15790,7 +15774,11 @@
       },
       {
         "type": "item",
-        "text": "Pimentos (allspice berries) (2 tsp, ground)"
+        "text": "2 lb pork shoulder, strips or chunks"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp ground allspice (pimento berries)"
       },
       {
         "type": "item",
@@ -15826,7 +15814,7 @@
       },
       {
         "type": "item",
-        "text": "1.5 tsp kosher salt"
+        "text": "1½ tsp kosher salt"
       },
       {
         "type": "item",
@@ -15861,7 +15849,7 @@
       },
       {
         "type": "item",
-        "step": "Purée all ingredients to a paste; coat pork (2 lb) thoroughly and marinate 8-24 hours.",
+        "step": "Purée allspice (2 tsp), thyme (1 Tbsp), scotch bonnet (1), garlic (5 cloves), ginger (1 tsp), brown sugar (1 Tbsp), soy sauce (2 Tbsp), lime juice (2 Tbsp), oil (2 Tbsp), salt (1½ tsp) and black pepper (½ tsp) to a paste. Coat the pork (2 lb) thoroughly and marinate 8-24 hours.",
         "detail": ""
       },
       {

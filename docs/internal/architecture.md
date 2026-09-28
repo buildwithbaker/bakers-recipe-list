@@ -164,6 +164,12 @@ wrong and was the source of real bugs.
   manifest plus a `renamed` allowlist. `scripts/validate-recipes.mjs` enforces
   that an id never disappears, every record is listed, and a rename is declared
   rather than hidden by editing the manifest.
+- Its **`removed`** map (`{ id: { to, note, versions? } }`) is the one way a
+  record leaves the catalog. The id keeps its `ids` entry; `to` names a live
+  successor (never another removed id) or is `null`. A removed id, its
+  `<id>::vN` rows and its legacy name resolve to the successor; `rekeyRemovedState`
+  in `stateMigration.js` moves saved state onto it at load; prerender writes a
+  redirect page for its old URLs. Rule and steps: `AGENTS.md`, "Removing a recipe".
 
 `src/data/recipeIndex.js` builds the lookups once at module load:
 
@@ -174,7 +180,8 @@ displayedBySection  display rows grouped by section key
 recipesById         id → row, over DISPLAY rows
 recipesByName       name → row; the alias layer, seeded in ascending precedence:
                       legacy manifest names, then raw names, then display names (which win)
-resolveRecipe(key)  THE resolution entry point: id first, then any name alias
+resolveRecipe(key)  THE resolution entry point: id first, then a removed id (-> its
+                      successor, or null), then any name alias
 ```
 
 Everything that turns a stored string back into a recipe goes through
