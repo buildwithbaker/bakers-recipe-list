@@ -116,8 +116,37 @@ All are optional and validated only when present — see
   This is separate from the runtime serving estimate that drives the scaler:
   only an authored yield is ever published as fact.
 
+## AI-generated photos
+
+An AI-generated image is never live without its label. Every AI photo in
+`src/photos/` needs an entry in **`src/data/photoCredits.json`**, keyed by
+recipe id, in the same PR as the photo:
+
+```json
+"lasagna": { "ai": true, "alt": "AI-generated image of a square slice of meat lasagna on a white plate, ..." }
+```
+
+The file is separate from `recipes.json` on purpose, so the recipe schema is
+untouched. Keep it out of `src/photos/`: the build rejects non-photo files there.
+`src/utils/recipePhoto.js` reads it, so `recipePhoto()` returns `ai` and `alt`
+alongside the image URLs.
+
+What the entry does:
+
+| | Real photo (no entry) | AI photo (`"ai": true`) |
+|---|---|---|
+| Card thumbnail | the photo, `alt=""` | the photo plus a small navy **AI** badge in the corner, announced as "AI-generated image"; the img stays `alt=""` |
+| Recipe header | the photo, `alt=""` | the badge, the entry's `alt` on the img, and the caption "AI-generated image, not a photo of this recipe as cooked." |
+| `og:image` | the photo | the photo, unmarked (a burned-in mark is still an open decision) |
+
+`src/utils/photoCredits.test.js` fails the suite when an entry names an id
+that is not a recipe or has no photo in `src/photos/`, or when an `"ai": true`
+entry lacks an `alt` that starts with `AI-generated`. When you replace an AI
+image with a real photo of the dish, delete its entry in the same change.
+
 ## Removing a photo
 
-Delete the file from `src/photos/` and rebuild. Its sizes are removed from
+Delete the file from `src/photos/` (and its `photoCredits.json` entry, if it
+has one; the tests fail otherwise) and rebuild. Its sizes are removed from
 `generated/` automatically, and the card, the recipe and the preview fall back
 to the placeholder.

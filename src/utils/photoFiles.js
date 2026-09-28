@@ -63,3 +63,29 @@ export function planPhotos(files, knownIds) {
   }
   return { photos, errors };
 }
+
+/**
+ * Checks src/data/photoCredits.json. Every AI photo carries a label, so an
+ * entry must point at a real photo of a real recipe, and an AI entry must
+ * describe the image as AI-generated in its alt text.
+ * @param credits   the parsed credits file, keyed by recipe id
+ * @param segments  Set of photo segments in src/photos/ (file names, no extension)
+ * @param knownIds  Set of display-row ids
+ * @returns {string[]} errors
+ */
+export function checkPhotoCredits(credits, segments, knownIds) {
+  const errors = [];
+  for (const [id, credit] of Object.entries(credits)) {
+    const where = `photoCredits.json "${id}"`;
+    if (!knownIds.has(id)) {
+      errors.push(`${where}: no recipe has this id.`);
+      continue;
+    }
+    if (!segments.has(idToSlug(id))) errors.push(`${where}: no photo in src/photos/ for this recipe.`);
+    if (credit?.ai === true) {
+      const alt = typeof credit.alt === 'string' ? credit.alt.trim() : '';
+      if (!alt.startsWith('AI-generated')) errors.push(`${where}: an AI photo needs alt text that starts with "AI-generated".`);
+    }
+  }
+  return errors;
+}

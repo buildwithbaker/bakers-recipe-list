@@ -41,7 +41,7 @@
   border-radius: 6px;
 }
 
-.thumb span {
+.initial {
   position: relative;
   font: 400 2.25rem/1 var(--serif);
   color: var(--cc, var(--brand));
@@ -170,7 +170,7 @@
     width: 76px;
     height: 76px;
   }
-  .thumb span {
+  .initial {
     font-size: 2rem;
   }
 }
