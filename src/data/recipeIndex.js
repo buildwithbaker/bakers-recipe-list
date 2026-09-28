@@ -15,7 +15,7 @@
 import recipes from './recipes.json';
 import idManifest from './recipes.ids.json';
 import { SECTIONS } from './sections.js';
-import { expandVersionedRecipe } from './expandVersions.js';
+import { expandVersionedRecipe, legacyRowNames } from './expandVersions.js';
 
 const REVIEW_SECTION_KEYS = new Set(
   SECTIONS.filter((s) => s.review).map((s) => s.key),
@@ -46,17 +46,45 @@ export const displayedBySection = (() => {
 // lookup: `id` is what state keys and `?recipe=` links carry.
 export const recipesById = new Map(displayRecipes.map((r) => [r.id, r]));
 
+// Old display name -> child id, for every expanded row renamed by the
+// 2026-09-27 display rule (expandVersions.js, legacyShortenName). Generated
+// from the frozen old rule, never by hand. Old `?recipe=` links and
+// pre-migration saved state carry these names, so they stay resolvable at the
+// LOWEST precedence. Two rows claiming one old name is a data error: the
+// first keeps it and the clash is listed in legacyDisplayAliasCollisions,
+// which recipes.integrity.test.js requires to be empty.
+export const legacyDisplayAliasCollisions = [];
+export const legacyDisplayAliases = (() => {
+  const map = new Map();
+  for (const recipe of recipes) {
+    if (!REVIEW_SECTION_KEYS.has(recipe.section)) continue;
+    for (const { name, id } of legacyRowNames(recipe)) {
+      if (map.has(name) && map.get(name) !== id) {
+        legacyDisplayAliasCollisions.push(`"${name}" -> ${map.get(name)} and ${id}`);
+        continue;
+      }
+      map.set(name, id);
+    }
+  }
+  return map;
+})();
+
 // Name→recipe: the ALIAS LAYER. Names stay resolvable forever, so no link or
 // stored entry ever dies, but they are no longer the identity.
 //
 // Seeded in ASCENDING precedence — each pass overwrites the last, so the
 // listed-first source wins:
+//   4. old display names (legacyDisplayAliases) - lowest, lose every tie
 //   3. legacy names from the frozen manifest (what a pre-migration link held)
 //   2. raw pre-expansion names from recipes.json
 //   1. display names — canonical, written last, win every tie
 export const recipesByName = (() => {
   const byId = new Map(recipes.map((r) => [r.id, r]));
   const map = new Map();
+  for (const [legacyName, id] of legacyDisplayAliases) {
+    const row = recipesById.get(id);
+    if (row) map.set(legacyName, row);
+  }
   for (const [id, legacyName] of Object.entries(idManifest.ids)) {
     const record = byId.get(id);
     if (record) map.set(legacyName, record);

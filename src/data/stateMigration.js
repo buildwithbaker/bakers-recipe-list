@@ -13,7 +13,7 @@
 // deleted or renamed out from under the user; dropping it would silently
 // destroy their notes.
 import idManifest from './recipes.ids.json';
-import { displayRecipes, recipesById, removedSuccessorId } from './recipeIndex.js';
+import { displayRecipes, legacyDisplayAliases, recipesById, removedSuccessorId } from './recipeIndex.js';
 
 export const STATE_VERSION_KEY = 'brl_state_version';
 export const TARGET_VERSION = 2;
@@ -35,8 +35,17 @@ export const STORES = {
  * Throws if it is not injective. Two records sharing a name would collapse two
  * users' worth of state onto one id, and silently — better to abort and leave
  * every store untouched.
+ *
+ * Old display names (legacyDisplayAliases, from the pre-2026-09-27 marinade
+ * naming rule) are added LAST and only for names nothing above claims, so a
+ * live name always wins and an alias can never trip the injectivity abort.
+ * They default to the real aliases only with the real records.
  */
-export function buildNameToId(records = displayRecipes, manifest = idManifest) {
+export function buildNameToId(
+  records = displayRecipes,
+  manifest = idManifest,
+  aliases = records === displayRecipes ? legacyDisplayAliases : new Map(),
+) {
   const pairs = [];
   const byId = new Map(records.map((r) => [r.id, r]));
   for (const [id, legacyName] of Object.entries(manifest.ids ?? {})) {
@@ -55,6 +64,9 @@ export function buildNameToId(records = displayRecipes, manifest = idManifest) {
     throw new Error(
       `name→id map is not injective (${conflicts.length}): ${conflicts.slice(0, 5).join('; ')}`,
     );
+  }
+  for (const [name, id] of aliases) {
+    if (!map.has(name) && byId.has(id)) map.set(name, id);
   }
   return map;
 }
