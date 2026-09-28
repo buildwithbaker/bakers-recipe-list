@@ -73,7 +73,11 @@
         "detail": "Add the patties and cook to an internal temp of 160°F, flipping halfway. About 7 minutes per side."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Homemade breakfast sausage patties from ground pork, egg and breadcrumbs, seasoned hot with cayenne, chili powder and red pepper flakes.",
+    "prepTime": "PT10M",
+    "cookTime": "PT15M",
+    "recipeYield": "8 patties"
   },
   {
     "id": "scrambled-eggs",
@@ -109,7 +113,11 @@
         "detail": "Pour into a non-stick pan over medium-low heat. Gently fold the eggs with a spatula until just set."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Soft scrambled eggs made with 2% milk and a shake of Tony's seasoning.",
+    "prepTime": "PT2M",
+    "cookTime": "PT3M",
+    "recipeYield": "1 serving"
   },
   {
     "id": "breakfast-burrito",
@@ -197,7 +205,11 @@
         "detail": "Serve with jelly or fresh fruit for added sweetness."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Steel-cut oats cooked in milk and water, sweetened with maple syrup or honey and topped with frozen fruit.",
+    "prepTime": "PT5M",
+    "cookTime": "PT8H",
+    "recipeYield": "8 servings"
   },
   {
     "id": "pulled-pork",
@@ -273,7 +285,11 @@
         "detail": "Remove the fat cap, shred the pork, mix it back into the juices, and add extra barbecue sauce until slightly wet."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Bone-in pork shoulder rubbed with seasoned salt, slow cooked, then shredded into a tangy mustard, vinegar and barbecue sauce.",
+    "prepTime": "PT15M",
+    "cookTime": "PT9H",
+    "recipeYield": "12 servings"
   },
   {
     "id": "pepperoncini-beef",
@@ -349,7 +365,7 @@
     "instructions": [
       {
         "step": "Dry Brine",
-        "detail": "Makes 6 servings. The night before, pat the chuck roast (3½ lb) dry and season every surface with the salt (1 Tbsp Diamond Crystal, or 2 tsp Morton, or 2½ tsp table) - about 1% of the roast's weight. Set on a rack over a sheet pan and refrigerate uncovered 8 to 24 hours. Uncovered is the point: it dries the surface for the sear. Use 1%, not the 1.25 to 1.5% an oven braise wants, because a jar of brine, soy sauce (2 Tbsp), and Worcestershire (3 Tbsp) are all going in and nothing will evaporate to give you room later."
+        "detail": "The night before, pat the chuck roast (3½ lb) dry and season every surface with the salt (1 Tbsp Diamond Crystal, or 2 tsp Morton, or 2½ tsp table) - about 1% of the roast's weight. Set on a rack over a sheet pan and refrigerate uncovered 8 to 24 hours. Uncovered is the point: it dries the surface for the sear. Use 1%, not the 1.25 to 1.5% an oven braise wants, because a jar of brine, soy sauce (2 Tbsp), and Worcestershire (3 Tbsp) are all going in and nothing will evaporate to give you room later."
       },
       {
         "step": "Sear",
@@ -376,7 +392,11 @@
         "detail": "Off the heat, stir in the last 1 Tbsp of reserved brine and taste for salt for the first time. That final off-heat acid is what keeps ten hours of braise from reading heavy and flat, and it only works if it has not been boiled. Shred or slice the beef, return it to the sauce to warm through without boiling, and serve with the pepperoncini. For more heat than the peppers give, ground cayenne or hot sauce goes in during the last hour of the cook, never at the start - both turn bitter over a long hold."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Chuck roast slow cooked with a whole jar of pepperoncini and its brine, onion, garlic and tomato paste until it shreds.",
+    "prepTime": "PT20M",
+    "cookTime": "PT10H30M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "orange-chicken-and-broccoli",
@@ -455,7 +475,11 @@
         "detail": "Return the cubed beef to the cooker, stir everything together, and finish the last hour."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Slow cooker beef stew with chuck, potatoes, carrots, celery and onion, seasoned with onion soup mix and steak sauce.",
+    "prepTime": "PT20M",
+    "cookTime": "PT8H",
+    "recipeYield": "6 servings"
   },
   {
     "id": "pork-stew",
@@ -520,7 +544,11 @@
         "detail": "Return the medallions to the stew and serve."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Slow cooker pork tenderloin stew with potatoes, carrots, celery and onion, sweetened with apple juice concentrate.",
+    "prepTime": "PT20M",
+    "cookTime": "PT5H",
+    "recipeYield": "6 servings"
   },
   {
     "id": "corned-beef-and-cabbage",
@@ -576,7 +604,11 @@
         "detail": "Discard the seasoning packet, slice the corned beef against the grain, and serve with the vegetables."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Corned beef brisket slow cooked in apple juice with potatoes, carrots, onion and cabbage wedges.",
+    "prepTime": "PT15M",
+    "cookTime": "PT9H",
+    "recipeYield": "6 servings"
   },
   {
     "id": "tortellini-soup",
@@ -745,7 +777,11 @@
         "detail": "Keep leftover rub in an airtight container away from heat and light. Makes about ¾ cup; keeps for several months."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A sweet, smoky dry rub for ribs: brown sugar and paprika with garlic, onion, chili powder, two peppers, nutmeg and coriander.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "about ¾ cup"
   },
   {
     "id": "noodle-dough",
@@ -831,7 +867,11 @@
         "detail": "Use all-purpose flour (3 cups) rather than a high-gluten or semolina-heavy blend: protein content drives elastic recoil, and the 10 to 12 percent range of all-purpose is what makes a hand-rolled sheet cooperate. Brand matters within that range, so add the full water (2 Tbsp) if your flour runs high in protein. The olive oil (1 Tbsp) and the extra yolk (1) both work by coating flour particles and interfering with gluten formation, buying extensibility and tenderness at a dose small enough to keep the structure the sheet needs to survive the blanch. Blanching is worth the step because it rinses off surface starch that otherwise sets into a gluey seam between layers, and it pre-gelatinizes the sheet so the bake is about melting and setting rather than cooking raw pasta."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Fresh egg noodle dough from all-purpose flour, whole eggs, an extra yolk and olive oil, rolled thin for cutting into noodles.",
+    "prepTime": "PT40M",
+    "cookTime": "PT5M",
+    "recipeYield": "about 1½ lb fresh noodles, 6 servings"
   },
   {
     "id": "biscuit-dough",
@@ -972,7 +1012,11 @@
         "detail": "Remove from oven and cool for a few minutes in pan on a cooling rack before slicing."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A honey whole wheat sandwich loaf enriched with milk and butter, baked in a 9x5 pan with an optional oat topping.",
+    "prepTime": "PT30M",
+    "cookTime": "PT40M",
+    "recipeYield": "1 loaf (9x5)"
   },
   {
     "id": "burger",
@@ -1129,7 +1173,11 @@
         "detail": "Return the potatoes with thyme (1 tsp), rosemary (1 tsp) and oregano (1 tsp); toss and heat through 1-2 minutes. Season with salt and pepper. Off the heat, fold in the spinach (1 cup), scatter the Parmesan (½ cup) over and serve."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Chicken breast and baby potatoes seared in one skillet and finished in garlic butter with fresh herbs and spinach.",
+    "prepTime": "PT15M",
+    "cookTime": "PT25M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "meatloaf",
@@ -1218,7 +1266,11 @@
         "detail": "Let rest 10 minutes before slicing."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Beef and pork meatloaf seasoned with onion soup mix and Worcestershire, baked under a sweet ketchup and brown sugar glaze.",
+    "prepTime": "PT15M",
+    "cookTime": "PT1H",
+    "recipeYield": "8 servings"
   },
   {
     "id": "marinated-chicken-drumsticks",
@@ -1302,7 +1354,11 @@
         "detail": "Broil for 3-5 minutes until skin is crispy."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Chicken drumsticks marinated in honey, soy, Worcestershire, hoisin and lime, then roasted on a rack and broiled crisp.",
+    "prepTime": "PT10M",
+    "cookTime": "PT40M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "soy-garlic-paprika-drumsticks",
@@ -1381,7 +1437,7 @@
     "instructions": [
       {
         "step": "Dry Brine (5-6 hr Ahead)",
-        "detail": "Makes 4 servings, 2 drumsticks each. Pat the drumsticks (8, about 2½ lb) completely dry. Rub kosher salt (2 tsp) over all sides. Set on a wire rack over a sheet pan and refrigerate uncovered 5 to 6 hours. Uncovered is load-bearing - airflow dries the skin while the salt migrates inward. This step, not the marinade, is what makes the skin crisp."
+        "detail": "Pat the drumsticks (8, about 2½ lb) completely dry. Rub kosher salt (2 tsp) over all sides. Set on a wire rack over a sheet pan and refrigerate uncovered 5 to 6 hours. Uncovered is load-bearing - airflow dries the skin while the salt migrates inward. This step, not the marinade, is what makes the skin crisp."
       },
       {
         "step": "Bloom the Spices",
@@ -1416,7 +1472,11 @@
         "detail": "The sweet-soy glaze wants something plain and crisp across from it - a roasted potato side and a sharp green vegetable both work. Roast a side on a lower rack while these are on the upper one; anything that runs at 425 F shares the oven without adjustment."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Dry-brined chicken drumsticks seasoned with soy sauce, grated garlic, smoked paprika and oregano.",
+    "prepTime": "PT15M",
+    "cookTime": "PT40M",
+    "recipeYield": "4 servings, 2 drumsticks each"
   },
   {
     "id": "seared-chicken-breast-with-cranberry-thyme-pan-sauce",
@@ -1551,7 +1611,11 @@
         "detail": "Serve with mashed potatoes or stuffing and the green beans or another green vegetable such as brussels sprouts."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Pan-seared chicken breast with a quick pan sauce of chicken stock, onion, dried cranberries, thyme and sage.",
+    "prepTime": "PT15M",
+    "cookTime": "PT15M",
+    "recipeYield": "2 servings"
   },
   {
     "id": "skillet-beef-and-potato-hash-with-fried-eggs",
@@ -1664,7 +1728,7 @@
     "instructions": [
       {
         "step": "Boil the Potatoes",
-        "detail": "Makes 4 servings. Peel the potatoes (2 lb) and cut into ½-inch dice. Boil in well-salted water for 20 minutes, until a knife slides in with no resistance. Drain and let them sit in the colander 2-3 minutes to steam-dry. A wet potato surface is pinned at 212F and cannot brown, so this pause is doing real work."
+        "detail": "Peel the potatoes (2 lb) and cut into ½-inch dice. Boil in well-salted water for 20 minutes, until a knife slides in with no resistance. Drain and let them sit in the colander 2-3 minutes to steam-dry. A wet potato surface is pinned at 212F and cannot brown, so this pause is doing real work."
       },
       {
         "step": "Season the Raw Beef",
@@ -1703,7 +1767,11 @@
         "detail": "Slide the eggs onto the hash and serve immediately with steak sauce, ketchup, or barbecue sauce. This is not a garnish - the hash reads dry without one."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Spiced ground beef and diced potatoes cooked in one skillet and topped with fried eggs.",
+    "prepTime": "PT15M",
+    "cookTime": "PT50M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "sheet-pan-paprika-chicken-thighs-with-potatoes",
@@ -1791,7 +1859,11 @@
         "detail": "Rest 5 minutes on the pan so the potatoes pick up the rendered fat, then squeeze the lemon (1, cut into wedges) over everything."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Boneless chicken thighs and baby Yukon Golds roasted on one sheet pan with smoked paprika, garlic, oregano and cayenne.",
+    "prepTime": "PT10M",
+    "cookTime": "PT45M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "king-ranch-chicken-casserole",
@@ -1932,7 +2004,11 @@
         "detail": "Rest 10 minutes before cutting so it slices instead of sliding."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Tex-Mex chicken casserole in a scratch roux sauce with diced tomatoes, green chiles and sour cream, baked until bubbling.",
+    "prepTime": "PT30M",
+    "cookTime": "PT55M",
+    "recipeYield": "8 servings (one 9x13)"
   },
   {
     "id": "ground-beef-meat",
@@ -2183,7 +2259,11 @@
         "detail": "Serve warm with flour tortillas and rice."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Ground beef simmered with potato, green bell pepper, onion and garlic in tomato sauce and beef broth.",
+    "prepTime": "PT10M",
+    "cookTime": "PT30M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "taco-pasta",
@@ -2288,7 +2368,11 @@
         "detail": "Sauce will thicken as it stands. Serve once desired consistency is reached."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Taco pasta with seasoned ground beef in a three-cheese sauce of cheddar, Monterey Jack and Velveeta.",
+    "prepTime": "PT10M",
+    "cookTime": "PT30M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "slow-cooker-pork-carnitas",
@@ -2393,7 +2477,11 @@
         "detail": "Drizzle with the remaining juices just before serving. Serve hot in tacos."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Pork shoulder slow cooked with orange, lime, onion, jalapeño, garlic and cumin, then shredded and crisped.",
+    "prepTime": "PT15M",
+    "cookTime": "PT10H",
+    "recipeYield": "8 servings"
   },
   {
     "id": "mexican-coleslaw",
@@ -2450,7 +2538,11 @@
         "detail": "Refrigerate for 1+ hours before serving."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A light slaw of bagged coleslaw mix in a lime, honey and oregano dressing with mayo and Greek yogurt.",
+    "prepTime": "PT10M",
+    "cookTime": "PT0M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "stir-fry",
@@ -2640,7 +2732,11 @@
         "detail": "Add garlic (2 cloves), ginger (1 Tbsp), green onion whites (¼ cup), and carrot (¼ cup) to the hot wok; stir fry 30-40 sec until fragrant. Crank heat to high. Add broccoli and cooking wine (1 tsp); stir fry 1½-2 min. Return chicken; stir fry 30 sec. Pour sauce into the wok center; toss 15-20 sec. Taste - add sugar (½ tsp) if needed. Drizzle in slurry while stirring, ~30 sec, until glossy and lightly coated. Finish with sesame oil (1 tsp), toss once, kill the heat. Plate immediately."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Restaurant-style stir fry of velveted chicken and blanched broccoli in a light oyster and soy sauce.",
+    "prepTime": "PT25M",
+    "cookTime": "PT10M",
+    "recipeYield": "3 servings"
   },
   {
     "id": "stir-fry-pork",
@@ -2863,7 +2959,11 @@
         "detail": "Heat through and serve immediately."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Brown rice noodles with chicken, cabbage and carrots tossed in a peanut butter and soy sauce.",
+    "prepTime": "PT20M",
+    "cookTime": "PT25M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "katsu-fried-chicken",
@@ -2985,7 +3085,11 @@
         "detail": "Return fried chicken to pan. Toss with salt (½ tsp) and pepper (½ tsp) to taste. Garnish with chopped green onions (2 Tbsp) and serve hot."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Bite-size chicken coated in egg and cornstarch, fried crisp and tossed with garlic, green onion, salt and pepper.",
+    "prepTime": "PT15M",
+    "cookTime": "PT15M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "thai-pineapple-fried-rice",
@@ -3089,7 +3193,11 @@
         "detail": "Stir through green onions (½ cup) and serve immediately."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Day-old jasmine rice stir fried with pineapple, peas, bell pepper and onion in oyster, fish and soy sauce.",
+    "prepTime": "PT10M",
+    "cookTime": "PT8M",
+    "recipeYield": "3 servings"
   },
   {
     "id": "asian-spinach-salad",
@@ -3162,7 +3270,11 @@
         "detail": "Toss spinach (3 cups) with cranberries (½ cup) and walnuts (½ cup). Drizzle with dressing and serve."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Spinach with dried cranberries and walnuts in a rice vinegar, sesame and soy dressing.",
+    "prepTime": "PT10M",
+    "cookTime": "PT0M",
+    "recipeYield": "2 servings"
   },
   {
     "id": "pork-char-siu",
@@ -3175,6 +3287,10 @@
       "#asian"
     ],
     "ingredients": [
+      {
+        "type": "item",
+        "text": "2 lb pork shoulder (Boston butt)"
+      },
       {
         "type": "item",
         "text": "1 Tbsp garlic salt"
@@ -3207,7 +3323,7 @@
     "instructions": [
       {
         "step": "Prepare the Pork",
-        "detail": "Slice pork into 1-inch strips."
+        "detail": "Slice the pork shoulder (2 lb) into 1-inch strips."
       },
       {
         "step": "Tenderize the Meat",
@@ -3242,7 +3358,11 @@
         "detail": "Slice and serve over rice with steamed vegetables and sauce of your choice."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Chinese barbecue pork in a sweet glaze of hoisin, oyster sauce, soy, brown sugar and mirin.",
+    "prepTime": "PT20M",
+    "cookTime": "PT55M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "sesame-beef-and-noodles",
@@ -3377,7 +3497,11 @@
         "detail": "Remove from heat. Add the fresh spinach (3 cups) and let sit 2 minutes off heat to steam and wilt. Toss to incorporate and serve."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Ground beef and egg noodles with broccoli, carrots and spinach in a sweet-spicy sesame, soy and Sriracha sauce.",
+    "prepTime": "PT15M",
+    "cookTime": "PT20M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "sticky-chinese-pork-belly",
@@ -3539,7 +3663,11 @@
         "detail": "Serve over cooked white rice topped with chopped spring onions and chopped red chilies."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Pork belly braised in chicken stock with ginger, garlic and rice wine, then cooked down to a sticky glaze.",
+    "prepTime": "PT20M",
+    "cookTime": "PT2H20M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "keema-aloo-bhuna-with-peas-carrot-and-spinach",
@@ -3657,7 +3785,7 @@
     "instructions": [
       {
         "step": "Par-Boil Potatoes",
-        "detail": "Makes 4 servings. Put the diced potatoes (1 lb, cut into ½-inch dice) in cold salted water, bring to a boil, and cook 7 to 8 minutes - a knife should meet slight resistance at the center. Drain and leave them in the colander to steam dry while everything else happens. Dry surfaces are what let them take a fried face later; ½-inch dice turns to mush well before the 20 minutes a whole potato wants."
+        "detail": "Put the diced potatoes (1 lb, cut into ½-inch dice) in cold salted water, bring to a boil, and cook 7 to 8 minutes - a knife should meet slight resistance at the center. Drain and leave them in the colander to steam dry while everything else happens. Dry surfaces are what let them take a fried face later; ½-inch dice turns to mush well before the 20 minutes a whole potato wants."
       },
       {
         "step": "Season Beef Raw",
@@ -3700,7 +3828,11 @@
         "detail": "Squeeze in the lime juice (1 Tbsp) and scatter the cilantro (¼ cup). Lime goes in off heat and after the spinach for two reasons: citric acid is volatile and dies with sustained heat, and acid turns chlorophyll to pheophytin, so lime added before the greens gives you olive-drab leaves. Taste for salt. Serve with plain whole-milk yogurt at the table."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Dry-style ground beef and potato curry with peas, carrot and spinach, fried in its own fat and finished with lime.",
+    "prepTime": "PT15M",
+    "cookTime": "PT45M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "tomato-sauce",
@@ -3898,7 +4030,7 @@
     "instructions": [
       {
         "step": "Drain The Ricotta",
-        "detail": "Makes 8 servings in one 9x13 pan. Set the whole-milk ricotta (15 oz) in a fine-mesh sieve over a bowl and leave it 30 minutes while you build the sauce. Whole-milk ricotta carries enough free water to turn the bottom of the pan to soup, and there is no fixing it after the bake."
+        "detail": "Set the whole-milk ricotta (15 oz) in a fine-mesh sieve over a bowl and leave it 30 minutes while you build the sauce. Whole-milk ricotta carries enough free water to turn the bottom of the pan to soup, and there is no fixing it after the bake."
       },
       {
         "step": "Season The Raw Meat",
@@ -3953,7 +4085,11 @@
         "detail": "Shred the mozzarella (1 lb) from a block rather than buying it pre-shredded, which is dusted with cellulose to stop clumping and melts grainy. Mozzarella is a long-protein, high-melt cheese that stretches; Parmigiano-Reggiano is the opposite, high in protein and low in moisture, and it breaks if melted into a sauce, which is why it goes into the filling and onto the top as a dry crust instead. The sauce is better on day two, since soluble flavor compounds keep diffusing at refrigerator temperature long after the cook, so make the sauce a day ahead if you want to split the work. Cool it in containers no deeper than 2 inches, uncovered in an ice bath for 20 minutes, then refrigerate uncovered before lidding; do not put a hot covered pot straight into the refrigerator."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Beef and hot Italian sausage lasagna with a whole-milk ricotta layer, built in one 9x13 pan.",
+    "prepTime": "PT45M",
+    "cookTime": "PT3H",
+    "recipeYield": "8 servings (one 9x13)"
   },
   {
     "id": "stuffed-meatballs",
@@ -4122,7 +4258,11 @@
         "detail": "Set the chicken on top of the rice. Garnish with the sautéed onions and garlic and the almonds (¼ cup)."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Bone-in chicken with turmeric, onion and garlic, served over basmati rice and garnished with almonds.",
+    "prepTime": "PT15M",
+    "cookTime": "PT40M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "lebanese-potato-salad",
@@ -4195,7 +4335,11 @@
         "detail": "Pour dressing over potato mixture and gently toss to combine. Taste and adjust seasoning. Serve warm or chilled."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Mayo-free potato salad dressed with olive oil and lemon, with parsley, spring onion and dried mint.",
+    "prepTime": "PT15M",
+    "cookTime": "PT25M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "lebanese-kafta-ground-beef-skewers",
@@ -4295,7 +4439,11 @@
         "detail": "Grill over medium heat until the internal temperature reaches 160°F."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Lebanese ground beef skewers with onion, parsley, mint, allspice and cinnamon, grilled to 160°F.",
+    "prepTime": "PT20M",
+    "cookTime": "PT12M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "lebanese-cucumber-salad",
@@ -4340,7 +4488,11 @@
         "detail": "Adjust salt if needed. Serve cold."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Cool yogurt and cucumber salad with garlic and dried mint.",
+    "prepTime": "PT10M",
+    "cookTime": "PT0M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "grilled-cheese",
@@ -4452,7 +4604,7 @@
     "instructions": [
       {
         "step": "Steam the Eggs",
-        "detail": "Makes 6 servings, about 4 cups. Bring 1 inch of water to a rolling boil in a wide pot. Set the eggs (12 large) straight from the fridge into a steamer basket in a single layer, cover, drop to medium heat, and steam 13 minutes. Cold eggs into hot steam is what makes them peel."
+        "detail": "Bring 1 inch of water to a rolling boil in a wide pot. Set the eggs (12 large) straight from the fridge into a steamer basket in a single layer, cover, drop to medium heat, and steam 13 minutes. Cold eggs into hot steam is what makes them peel."
       },
       {
         "step": "Shock and Peel",
@@ -4475,7 +4627,11 @@
         "detail": "Chill at least 30 minutes before serving. If it sits overnight, taste again before it goes out - wasabi heat is volatile and fades; add another ¼ tsp wasabi paste if it has gone flat."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Egg salad with the eggs cut into strips, dressed with mayo, Miracle Whip and a kick of wasabi.",
+    "prepTime": "PT15M",
+    "cookTime": "PT15M",
+    "recipeYield": "6 servings, about 4 cups"
   },
   {
     "id": "coconut-rice",
@@ -4556,7 +4712,11 @@
         "detail": "Pull the pan and rest, still covered in foil, for 15 minutes - don't skip it. The rice finishes cooking and reabsorbs surface moisture, leaving it fluffy. Fluff, discard the leaf, and garnish with toasted desiccated coconut (1 Tbsp) if using."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Oven-baked jasmine rice cooked in coconut milk, scented with pandan or kaffir lime leaves.",
+    "prepTime": "PT10M",
+    "cookTime": "PT1H",
+    "recipeYield": "6 servings"
   },
   {
     "id": "brown-rice",
@@ -4747,7 +4907,7 @@
     "instructions": [
       {
         "step": "Preheat the Pan",
-        "detail": "Makes 4 servings. Set a rack in the lower third and heat the oven to 450 F with a bare half sheet pan inside holding the tallow (¼ cup). No foil, no parchment - foil is a poor conductor and reflects radiant heat, so potatoes on foil brown noticeably less than on bare aluminum. The pan and fat must be at temperature before the potatoes land; that first contact is where the crust starts."
+        "detail": "Set a rack in the lower third and heat the oven to 450 F with a bare half sheet pan inside holding the tallow (¼ cup). No foil, no parchment - foil is a poor conductor and reflects radiant heat, so potatoes on foil brown noticeably less than on bare aluminum. The pan and fat must be at temperature before the potatoes land; that first contact is where the crust starts."
       },
       {
         "step": "Cut",
@@ -4782,7 +4942,11 @@
         "detail": "Turn out into a warm bowl, add rice vinegar (1 Tbsp), toss once, then scatter the scallion greens (3) and flaky salt (½ tsp). Serve immediately. Vinegar on the sheet pan would steam the crust; in the bowl it flashes off the hot surfaces and leaves the sharpness behind."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Parboiled russet chunks roasted crisp in tallow or duck fat with onion and coarse black pepper, finished with vinegar.",
+    "prepTime": "PT15M",
+    "cookTime": "PT1H",
+    "recipeYield": "4 servings"
   },
   {
     "id": "honey-carrots",
@@ -4881,7 +5045,11 @@
         "detail": "Keep refrigerated until ready to serve."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A creamy coleslaw dressing of mayo, cider vinegar, Dijon and maple syrup with celery seed.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 1 cup, dresses 6-8 cups slaw"
   },
   {
     "id": "protein-balls-1",
@@ -4934,7 +5102,11 @@
         "detail": "Refrigerate for 30 minutes before serving."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "No-bake protein balls of vanilla protein powder, oat flour and peanut butter, bound with maple syrup and Greek yogurt.",
+    "prepTime": "PT10M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 12 balls"
   },
   {
     "id": "protein-balls-2",
@@ -4995,7 +5167,11 @@
         "detail": "Roll into balls and refrigerate until firm."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "No-bake oat protein balls with nut butter, melted butter, honey and Greek yogurt, plus optional chocolate chips or fruit.",
+    "prepTime": "PT10M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 12 balls"
   },
   {
     "id": "protein-balls-3",
@@ -5052,7 +5228,11 @@
         "detail": "Refrigerate for 30 minutes. Roll into 1-inch balls. Store at room temperature (shelf stable)."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "No-bake balls of rolled oats, peanut butter, flaxseed and honey with protein powder and mini chocolate chips.",
+    "prepTime": "PT15M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 24 balls"
   },
   {
     "id": "protein-balls-4",
@@ -5129,7 +5309,11 @@
         "detail": "Roll into balls and refrigerate until firm."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "High-protein balls made from blended cottage cheese, protein powder and nut butter, with your choice of mix-ins.",
+    "prepTime": "PT15M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 16 balls"
   },
   {
     "id": "protein-balls-5",
@@ -5190,7 +5374,11 @@
         "detail": "Refrigerate until firm."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "No-bake balls of almond butter, Greek yogurt, oats, flax and coconut with mini chocolate chips.",
+    "prepTime": "PT15M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 24 balls"
   },
   {
     "id": "pumpkin-protein-balls-1",
@@ -5247,7 +5435,11 @@
         "detail": "Refrigerate for at least 30 minutes before serving."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Pumpkin pie spiced protein balls with oats, almond butter, pumpkin puree, cranberries and chocolate chips.",
+    "prepTime": "PT10M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 16 balls"
   },
   {
     "id": "pumpkin-protein-balls-2",
@@ -5308,7 +5500,11 @@
         "detail": "Combine the rolled oats (1¼ cups), peanut butter (⅔ cup), vanilla protein powder (½ cup), pumpkin puree (¼ cup), mini chocolate chips (¼ cup), dried cranberries (¼ cup), maple syrup or honey (3 Tbsp), ground flaxseed (1 Tbsp), pumpkin pie spice (2 tsp), and salt (⅛ tsp). Chill the dough for 15 minutes. Roll into 1-inch balls. Refrigerate until firm."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Pumpkin pie spiced protein balls with oats, peanut butter, pumpkin puree, flaxseed, cranberries and chocolate chips.",
+    "prepTime": "PT15M",
+    "cookTime": "PT0M",
+    "recipeYield": "about 20 balls"
   },
   {
     "id": "greek-yogurt-brownies",
@@ -5360,7 +5556,11 @@
         "detail": "Let cool completely. Top with flaky sea salt and enjoy."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Protein brownies made with Greek yogurt, cocoa powder, protein powder and a single egg.",
+    "prepTime": "PT5M",
+    "cookTime": "PT25M",
+    "recipeYield": "9 squares"
   },
   {
     "id": "greek-yogurt-cookie-dough",
@@ -5424,7 +5624,11 @@
         "detail": "Enjoy chilled. Store leftovers in an airtight container in the fridge for up to 3 days."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Edible cookie dough of Greek yogurt, nut butter, oat flour and chocolate chips.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "2 servings"
   },
   {
     "id": "chicken-noodle-soup",
@@ -5500,7 +5704,11 @@
         "detail": "Season with salt and pepper to taste. Serve hot."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Chicken noodle soup built from a whole chicken with carrots, celery, onion, garlic and egg noodles.",
+    "prepTime": "PT20M",
+    "cookTime": "PT1H30M",
+    "recipeYield": "8 servings"
   },
   {
     "id": "chicken-wild-rice-soup",
@@ -5623,7 +5831,11 @@
         "detail": "Take the pot off the heat and stir in white wine vinegar (1 Tbsp). Season with salt and pepper. Serve hot."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Whole-chicken soup with spinach, sun-dried tomatoes and small pasta shells, brightened with white wine vinegar.",
+    "prepTime": "PT20M",
+    "cookTime": "PT1H25M",
+    "recipeYield": "8 servings"
   },
   {
     "id": "cheesy-chicken-tortilla-soup",
@@ -5719,7 +5931,11 @@
         "detail": "Blend the Greek yogurt (½ cup), jalapeño (1, seeds removed), cilantro (⅓ cup), honey (1 Tbsp), lime juice (1 lime), olive oil (1 Tbsp), garlic (1 clove), and salt and pepper together. Coat the chicken (1½ lb) and marinate for at least 1-2 hours before cooking."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A blended Greek yogurt marinade for chicken with jalapeño, cilantro, lime, honey and garlic.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "enough for 1½ lb chicken"
   },
   {
     "id": "chicken-marinade-spicy-maple-mustard",
@@ -5767,7 +5983,11 @@
         "detail": "Whisk the Dijon mustard (¼ cup), maple syrup (2 Tbsp), olive oil (1 Tbsp), apple cider vinegar (1 Tbsp), garlic powder (1 tsp), paprika (½ tsp), and cayenne (½ tsp) together. Coat the chicken (1½ lb) and marinate for at least 1 hour before cooking."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A Dijon and maple syrup chicken marinade with cider vinegar, paprika and cayenne heat.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "enough for 1½ lb chicken"
   },
   {
     "id": "chicken-marinade-lemon-herb",
@@ -5819,7 +6039,11 @@
         "detail": "Whisk the Greek yogurt (½ cup), lemon juice (2 Tbsp), olive oil (1 Tbsp), garlic (2 cloves), parsley (1 Tbsp), oregano (1 tsp), onion powder (1 tsp), and salt and pepper to taste together. Coat the chicken (1½ lb) and marinate for at least 1 hour before cooking."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A Greek yogurt chicken marinade with lemon, garlic, parsley and oregano.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "enough for 1½ lb chicken"
   },
   {
     "id": "stir-fry-marinade-beef",
@@ -5871,7 +6095,11 @@
         "detail": "Combine the soy sauce (1 Tbsp), water (1 Tbsp), egg white (½), and cornstarch (2 Tbsp). Toss with sliced chicken (1 lb) and marinate for 15-30 minutes before stir-frying (velveting technique)."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A simple velveting marinade of soy sauce, egg white and cornstarch for tender stir-fried chicken.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "enough for 1 lb chicken"
   },
   {
     "id": "stir-fry-marinade-pork",
@@ -5974,7 +6202,11 @@
         "detail": "Lower the lactose by swapping the whole milk (½ cup) for lactose-free milk or by cutting it to ¼ cup and loosening with water - the Greek yogurt (⅓ cup) is already strained and low in lactose, so the milk is where most of it sits. Mango (¼ cup frozen) can stand in for the blueberries (¼ cup) but pushes the drink sweeter and drops the vitamin C. Unsweetened cocoa powder (1 Tbsp) adds magnesium and pairs with the peanut butter (1 heaping Tbsp), but fights the berries - use it only if you drop the strawberries (½ cup) and blueberries (¼ cup) and lean on the banana."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "A spinach, strawberry and blueberry smoothie with banana, Greek yogurt, peanut butter, flax and fresh ginger.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "1 smoothie (about 16 oz)"
   },
   {
     "id": "bread",
@@ -9585,7 +9817,11 @@
         "detail": ""
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Chicken drumsticks marinated in yogurt, lemon, garlic, ginger, turmeric and Kashmiri chili.",
+    "prepTime": "PT10M",
+    "cookTime": "PT35M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "tandoori-chicken-marinade-serious-eats",
@@ -9656,7 +9892,11 @@
         "detail": ""
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "Bone-in chicken thighs in a Greek yogurt marinade with garam masala, coriander, paprika and cayenne.",
+    "prepTime": "PT10M",
+    "cookTime": "PT40M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "honey-mustard-chicken-marinade",
@@ -19885,7 +20125,11 @@
         "detail": "Fork the rice through, folding the beans in gently as you go. Fold in the sliced green onions (4) and chopped parsley (¼ cup). Hot sauce goes on the table, not into the pot."
       }
     ],
-    "is_blank": false
+    "is_blank": false,
+    "description": "One-pan dirty rice made with ground beef instead of chicken livers and seasoned with a Cajun-style spice blend.",
+    "prepTime": "PT15M",
+    "cookTime": "PT50M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "broccoli-and-cheddar-twice-baked-potatoes",
