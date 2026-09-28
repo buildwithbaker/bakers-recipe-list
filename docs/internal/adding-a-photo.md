@@ -128,8 +128,9 @@ recipe id, in the same PR as the photo:
 
 The file is separate from `recipes.json` on purpose, so the recipe schema is
 untouched. Keep it out of `src/photos/`: the build rejects non-photo files there.
-`src/utils/recipePhoto.js` reads it, so `recipePhoto()` returns `ai` and `alt`
-alongside the image URLs.
+`src/utils/photoCredit.js` is the one reader: `recipePhoto()` returns `ai` and
+`alt` alongside the image URLs, and `scripts/prerender.mjs` uses the same helper
+for the link preview's `og:image:alt`.
 
 What the entry does:
 
@@ -137,7 +138,7 @@ What the entry does:
 |---|---|---|
 | Card thumbnail | the photo, `alt=""` | the photo plus a small navy **AI** badge in the corner, announced as "AI-generated image"; the img stays `alt=""` |
 | Recipe header | the photo, `alt=""` | the badge, the entry's `alt` on the img, and the caption "AI-generated image, not a photo of this recipe as cooked." |
-| `og:image` | the photo | the photo, unmarked (a burned-in mark is still an open decision) |
+| `og:image` | the photo; `og:image:alt` is the recipe name | the photo, unmarked (a burned-in mark is still an open decision); `og:image:alt` is the entry's `alt` |
 
 `src/utils/photoCredits.test.js` fails the suite when an entry names an id
 that is not a recipe or has no photo in `src/photos/`, or when an `"ai": true`

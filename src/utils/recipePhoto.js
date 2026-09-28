@@ -12,9 +12,11 @@
 // photo is always labelled: `ai` puts the badge (and, on the recipe, the
 // caption) on it, and `alt` describes it. No entry means a real photo, shown
 // as before: no badge, alt="". photoCredits.test.js guards the file.
-import PHOTO_CREDITS from '../data/photoCredits.json';
+import { photoCredit } from './photoCredit.js';
 import { BASE_PATH } from './recipeRoute.js';
 import { idToSlug } from './recipeSlug.js';
+
+export { photoCredit };
 
 const glob = (files) => {
   const bySegment = new Map();
@@ -27,12 +29,6 @@ const glob = (files) => {
 
 const THUMBS = glob(import.meta.glob('../photos/generated/*-thumb.webp', { eager: true, query: '?url', import: 'default' }));
 const LARGES = glob(import.meta.glob('../photos/generated/*-large.webp', { eager: true, query: '?url', import: 'default' }));
-
-/** @returns {{ ai: boolean, alt: string }} */
-export function photoCredit(id) {
-  const credit = Object.hasOwn(PHOTO_CREDITS, id) ? PHOTO_CREDITS[id] : null;
-  return { ai: credit?.ai === true, alt: credit?.alt ?? '' };
-}
 
 /** @returns {{ thumb: string, large: string, ai: boolean, alt: string } | null} */
 export function recipePhoto(recipe) {

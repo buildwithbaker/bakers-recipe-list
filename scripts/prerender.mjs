@@ -27,6 +27,7 @@ import { dirname, join } from 'node:path';
 import { SECTIONS, publicSectionLabel } from '../src/data/sections.js';
 import { expandVersionedRecipe } from '../src/data/expandVersions.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
+import { ogImageAlt } from '../src/utils/photoCredit.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
 import { SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
 
@@ -120,6 +121,8 @@ const imageFor = (r) => {
   if (r.image) return `${ORIGIN}${String(r.image).replace(/^\/+/, '')}`;
   return PLACEHOLDER;
 };
+// An AI photo's preview is labelled in its alt text (src/data/photoCredits.json).
+const imageAltFor = (r) => ogImageAlt(r, imageFor(r) !== PLACEHOLDER);
 
 function jsonLd(r, url) {
   const ld = {
@@ -274,7 +277,7 @@ function headFor(r, url) {
     `<meta property="og:image" content="${esc(img)}">`,
     `<meta property="og:image:width" content="1200">`,
     `<meta property="og:image:height" content="630">`,
-    `<meta property="og:image:alt" content="${esc(r.name)}">`,
+    `<meta property="og:image:alt" content="${esc(imageAltFor(r))}">`,
     `<meta name="twitter:card" content="summary_large_image">`,
     `<meta name="twitter:title" content="${esc(r.name)}">`,
     `<meta name="twitter:description" content="${esc(desc)}">`,

@@ -4,7 +4,8 @@ import credits from '../data/photoCredits.json';
 import recipes from '../data/recipes.json';
 import { expandVersionedRecipe } from '../data/expandVersions.js';
 import { PHOTO_SOURCE_EXT, checkPhotoCredits } from './photoFiles.js';
-import { photoCredit } from './recipePhoto.js';
+import { ogImageAlt, photoCredit } from './photoCredit.js';
+import { photoCredit as viaRecipePhoto } from './recipePhoto.js';
 
 // Guards src/data/photoCredits.json: no AI photo is ever live without its label.
 const knownIds = new Set(recipes.flatMap((r) => expandVersionedRecipe(r).map((row) => row.id)));
@@ -45,5 +46,18 @@ describe('photo credits rules', () => {
     expect(photoCredit('lasagna')).toEqual({ ai: true, alt: credits.lasagna.alt });
     expect(photoCredit('no-photo-here')).toEqual({ ai: false, alt: '' });
     expect(photoCredit('constructor')).toEqual({ ai: false, alt: '' });
+  });
+
+  it('is the same helper the app reads through recipePhoto.js', () => {
+    expect(viaRecipePhoto).toBe(photoCredit);
+  });
+
+  it('labels a credited photo in its link preview alt, and nothing else', () => {
+    for (const id of Object.keys(credits)) {
+      expect(ogImageAlt({ id, name: 'Dish' }, true)).toBe(credits[id].alt);
+      expect(ogImageAlt({ id, name: 'Dish' }, true)).toMatch(/^AI-generated/);
+    }
+    expect(ogImageAlt({ id: 'lasagna', name: 'Lasagna' }, false)).toBe('Lasagna');   // placeholder
+    expect(ogImageAlt({ id: 'no-photo-here', name: 'Stew' }, true)).toBe('Stew');     // real photo
   });
 });
