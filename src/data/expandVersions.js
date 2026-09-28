@@ -21,27 +21,63 @@ function splitByVersion(arr, textField) {
   return versions;
 }
 
-// Strips the redundant "— Chicken Marinade" / "— Beef Marinade" suffix
-// since the section header already conveys that context.
-function shortenName(name) {
+// Keeps the protein in the displayed base name (audit P2-13):
+//   "X - Chicken Marinade"          -> "X Chicken Marinade" (same for Pork, Beef)
+//   "X Marinade - Beef Marinade"    -> "X Beef Marinade" (no doubled "Marinade")
+// Anything else displays as it is.
+export function shortenName(name) {
+  const doubled = /^(.*?)\s+Marinade\s*[-—–]\s*(\S+)\s+Marinade\s*$/i.exec(name);
+  if (doubled) return `${doubled[1].trim()} ${doubled[2]} Marinade`;
+  const suffixed = /^(.*?)\s*[-—–]\s*(\S+)\s+Marinade\s*$/i.exec(name);
+  if (suffixed) return `${suffixed[1].trim()} ${suffixed[2]} Marinade`;
+  return name.trim();
+}
+
+// The naming rule as it was until 2026-09-27 (main f628cef): it stripped the
+// "- Chicken Marinade" suffix entirely. FROZEN. The names it produced are what
+// old `?recipe=` links and pre-migration saved state carry, so recipeIndex.js
+// and stateMigration.js keep them resolvable as aliases. Never edit this to
+// match shortenName; it has to keep producing yesterday's names.
+export function legacyShortenName(name) {
   return name.replace(/\s*[-—–]\s*\S+\s+Marinade\s*$/i, '').trim();
 }
 
-export function expandVersionedRecipe(recipe) {
+const rowName = (base, i, count) => (count > 1 ? `${base} (Version ${i + 1})` : base);
+
+function versionLabels(recipe) {
   const ingHasSection = recipe.ingredients?.some((i) => i.type === 'section');
   const stepHasSection = recipe.instructions?.some((s) => s.type === 'section');
-  if (!ingHasSection && !stepHasSection) return [recipe];
-
+  if (!ingHasSection && !stepHasSection) return null;
   const ingVersions = splitByVersion(recipe.ingredients, 'text');
   const stepVersions = splitByVersion(recipe.instructions, 'step');
   const labels = (ingHasSection ? ingVersions : stepVersions).map((v) => v.label);
+  return { labels, ingVersions, stepVersions };
+}
+
+// Old display name -> derived child id, for every row of this record whose
+// display name changed with shortenName. Empty for a record that does not
+// expand or whose name is unaffected.
+export function legacyRowNames(recipe) {
+  const v = versionLabels(recipe);
+  if (!v) return [];
+  const oldBase = legacyShortenName(recipe.name);
+  const newBase = shortenName(recipe.name);
+  const n = v.labels.length;
+  return v.labels
+    .map((_, i) => ({ name: rowName(oldBase, i, n), id: `${recipe.id}::v${i + 1}`, current: rowName(newBase, i, n) }))
+    .filter((row) => row.name !== row.current)
+    .map(({ name, id }) => ({ name, id }));
+}
+
+export function expandVersionedRecipe(recipe) {
+  const v = versionLabels(recipe);
+  if (!v) return [recipe];
+  const { labels, ingVersions, stepVersions } = v;
   const baseName = shortenName(recipe.name);
 
   return labels.map((label, i) => {
     const sourceFromLabel = label.replace(/^Version\s*\d+\s*[-—–]\s*/i, '').trim();
-    const displayName = labels.length > 1
-      ? `${baseName} (Version ${i + 1})`
-      : baseName;
+    const displayName = rowName(baseName, i, labels.length);
     return {
       ...recipe,
       // Child id, DERIVED and never persisted: n is 1-based from marker order
