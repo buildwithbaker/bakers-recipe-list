@@ -1,35 +1,48 @@
-/* Navy band with a double amber rule underneath. The search box below it
-   (SearchBar) pulls itself up 32px to sit across the band's bottom edge. */
+/* The sticky row: the only part of the band that stays on screen. */
 .masthead {
+  position: sticky;
+  top: 0;
+  z-index: 400;                /* over the list; under the recipe modal (500) */
   background: var(--band);
   color: var(--band-ink);
-  padding: var(--s5) 0 var(--s7);
+  padding-top: var(--masthead-pad-top);
+}
+
+/* The amber rule, once the foot (which carries it at rest) has scrolled away.
+   A shadow, so it takes no space and nothing below it moves. */
+.stuck {
+  box-shadow: 0 4px 0 var(--band-accent), 0 6px 10px rgb(70 45 20 / 0.12);
+}
+
+/* The rest of the band: tagline, then room for the search box (SearchBar
+   pulls itself up 32px across this edge), then the double amber rule. */
+.foot {
+  background: var(--band);
+  padding-bottom: var(--s7);
   border-bottom: 4px solid var(--band-accent);
   box-shadow: 0 3px 0 var(--paper), 0 5px 0 var(--band-accent);
   margin-bottom: 5px; /* room for the second rule, which is a shadow */
 }
 
 .slim {
-  padding-bottom: var(--s5);
+  padding-bottom: var(--s4);
 }
 
 .inner {
   display: flex;
   align-items: center;
   gap: var(--s3);
-}
-
-.brand {
-  flex: 1;
-  min-width: 0;
+  min-height: var(--masthead-row);
 }
 
 .wordmark {
+  flex: 1;
+  min-width: 0;
   margin: 0;
-  padding: 6px 0;
   font: 400 var(--t-2xl)/1.1 var(--serif);
   letter-spacing: -0.01em;
   color: var(--band-ink);
+  white-space: nowrap;
 }
 
 .accent {
@@ -55,78 +68,49 @@
 }
 
 .tagline {
-  margin: 2px 0 0;
+  margin-top: 2px;
   color: var(--band-ink-muted);
   font-size: var(--t-sm);
 }
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: var(--s2);
-}
-
-.pill {
-  min-width: var(--tap);
-  min-height: var(--tap);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--s2);
-  padding: 0 var(--s3);
+.about {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  display: inline-grid;
+  place-items: center;
   border: 1px solid rgb(246 231 200 / 0.35);
   border-radius: 999px;
   background: rgb(255 255 255 / 0.08);
   color: var(--band-ink);
-  font: 600 var(--t-sm)/1 var(--sans);
   cursor: pointer;
 }
 
-.pill:hover {
+.about:hover {
   border-color: var(--band-accent);
 }
 
-.pill:focus-visible {
+.about:focus-visible {
   outline-color: var(--band-accent);
 }
 
-.pill svg {
-  width: 20px;
-  height: 20px;
-  flex: none;
-}
-
-.badge {
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
-  border-radius: 999px;
-  background: var(--band-accent);
-  color: var(--band);
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 20px;
-  text-align: center;
+.about svg {
+  width: 22px;
+  height: 22px;
 }
 
 @media (max-width: 719px) {
-  .masthead {
-    padding: var(--s4) 0 var(--s7);
-  }
-  .slim {
-    padding-bottom: var(--s4);
+  .tagline {
+    display: none;
   }
   .wordmark {
     font-size: var(--t-xl);
   }
-  .tagline,
-  .lbl {
-    display: none;
-  }
 }
 
 @media print {
-  .masthead {
+  .masthead,
+  .foot {
     display: none;
   }
 }

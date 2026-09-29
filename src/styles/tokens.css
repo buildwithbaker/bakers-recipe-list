@@ -71,8 +71,25 @@
   --shadow-3: 0 4px 8px rgb(70 45 20 / 0.08), 0 20px 40px rgb(70 45 20 / 0.14);
 
   --tap: 44px;               /* minimum target for anything you press */
+
+  /* Sticky masthead: the row that stays on screen, below the notch in an
+     installed app. RecipePage pins its bar at --masthead-stuck. */
+  --masthead-pad-top: max(var(--s4), env(safe-area-inset-top));
+  --masthead-row: 48px;
+  --masthead-stuck: calc(var(--masthead-pad-top) + var(--masthead-row) + 4px);
+
+  /* Phone tab bar (TabBar). --tabbar-space is what it covers at the bottom of
+     the screen: set in globals.css, 0 wherever the bar is not showing. */
+  --tabbar-h: 56px;
+  --tabbar-space: 0px;
   --maxw: 1180px;
 
   /* Paper grain. An inline SVG so it works offline and costs no request. */
   --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .35 0 0 0 0 .25 0 0 0 0 .12 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (min-width: 720px) {
+  :root {
+    --masthead-pad-top: max(var(--s5), env(safe-area-inset-top));
+  }
 }

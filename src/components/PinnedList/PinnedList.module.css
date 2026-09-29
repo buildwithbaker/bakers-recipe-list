@@ -1,0 +1,45 @@
+.pinned {
+  padding-top: var(--s5);
+  padding-bottom: var(--s7);
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  margin: 0 0 var(--s4);
+  font: 400 var(--t-xl)/1.2 var(--serif);
+  color: var(--brand);
+}
+
+.count {
+  color: var(--ink-muted);
+  font: 600 var(--t-sm)/1 var(--sans);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--s4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s3);
+  padding: var(--s7) var(--s4);
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--r3);
+  color: var(--ink-muted);
+  text-align: center;
+}
+
+.empty svg {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+}

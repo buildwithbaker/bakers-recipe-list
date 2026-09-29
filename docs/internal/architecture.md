@@ -80,14 +80,38 @@ people's messages forever.
 
 ### The overlay model, and what is NOT in it
 
-Only the dismissable *layer* — the shopping list — lives in
-`history.state.overlays`. (The sections drawer that used to share it was
+Only the dismissable *layers* — the shopping list and the About sheet — live
+in `history.state.overlays`. (The sections drawer that used to share it was
 removed in the 2026-09 redesign; category chips replaced it.) The recipe is
 not in it: the recipe is in the URL.
 
 Each history entry also carries `state.page`, a boolean saying whether the
-recipe on that entry renders as a modal or as a full page. That is what makes
-Back, Forward **and reload** all restore what was actually on screen.
+recipe on that entry renders as a modal or as a full page, and `state.tab`,
+the main view underneath (`recipes` or `pinned`). That is what makes Back,
+Forward **and reload** all restore what was actually on screen.
+
+### Tabs (2026-09 mobile navigation)
+
+Three destinations: **Recipes** (the list), **Pinned** (`PinnedList`, every
+pinned recipe as cards) and **Shopping** (opens the shopping list layer, and
+shows as the current tab while it is on top). `TabBar` is a fixed bottom bar
+below 720px and sits in the masthead above it; App renders it twice and CSS
+shows one, because the sticky masthead is its own stacking context and a bar
+inside it could not rise above the shopping list's scrim. Anything that
+should hide the phone bar (the recipe modal, the Filters sheet, About) marks
+itself `data-hides-tabbar`; `globals.css` also zeroes `--tabbar-space` then.
+
+A tab switch pushes an entry, only from the tap. A tap on the current tab
+scrolls to the top (this replaced the back-to-top button). A tab tapped over
+the shopping list *replaces* the list's entry, so Back from the new tab goes to
+where the list was opened. The decisions and the entry shape live in
+`src/utils/navHistory.js`, which takes `history` as an argument and is tested
+against a fake history in `navHistory.test.js`.
+
+The masthead is two siblings: a sticky row (wordmark, header tabs, the (i)
+for About) and a foot (tagline, the search-box overlap, the double rule) that
+scrolls away. `--masthead-stuck` is the row's height; `RecipePage` pins its
+bar there and `scroll-padding-top` keeps anchor jumps clear of it.
 
 ### Modal vs page: one route, two frames
 
@@ -513,8 +537,8 @@ src/
     RecipeList/             the browser: collections, category chips, groups
     RecipeCard/ ToTryLinks/ SearchResults/ Highlight/ Icon/
     FiltersSheet/ Shelves/
-    Masthead/ SearchBar/ ShoppingList/ BackToTop/
-    MacroCard/ UsdaKeyNotice/ Footer/ ErrorBoundary/
+    Masthead/ TabBar/ PinnedList/ AboutSheet/ AiBadge/
+    SearchBar/ ShoppingList/ MacroCard/ UsdaKeyNotice/ ErrorBoundary/
 
   hooks/
     useWakeLock.js          cook mode (React wrapper over utils/screenLock.js)
@@ -540,6 +564,8 @@ src/
     recipePhoto.js          the ONE place a recipe's photo URL is resolved
     photoFiles.js           rules for the src/photos/ drop folder (+ photoCredits.json guard)
     photoCredit.js          AI-photo credits (data/photoCredits.json); also imported by prerender.mjs
+    photoCaption.js         the caption under an AI photo (Cookbook adds the tested sentence)
+    navHistory.js           tab + layer history rules, injectable history (tested)
     colour.js               tint mixing + WCAG contrast for the category palette
     search.js               one search across all collections
     relatedRecipes.js       the related ranking (also imported by prerender.mjs)

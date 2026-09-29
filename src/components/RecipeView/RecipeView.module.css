@@ -575,7 +575,7 @@ h2.title {
 .toastSlot {
   position: fixed;
   left: 50%;
-  bottom: calc(var(--s4) + env(safe-area-inset-bottom));
+  bottom: calc(var(--s4) + max(var(--tabbar-space), env(safe-area-inset-bottom)));
   z-index: 700;
   transform: translateX(-50%);
   pointer-events: none;
@@ -599,7 +599,7 @@ h2.title {
   .ingredients {
     position: sticky;
     top: calc(var(--bar-top, 0px) + 72px);
-    max-height: calc(100vh - 92px);
+    max-height: calc(100vh - 92px - max(0px, var(--bar-top, 0px)));
     overflow: auto;
   }
   .head {

@@ -11,7 +11,7 @@ import styles from './Shelves.module.css';
 // Stored entries resolve through the alias layer, so a renamed recipe or an
 // entry saved before the id migration still finds its recipe. Anything that
 // no longer resolves, or has no page, is skipped rather than shown broken.
-function resolveAll(keys) {
+export function resolveAll(keys) {
   const seen = new Set();
   const out = [];
   for (const key of keys) {

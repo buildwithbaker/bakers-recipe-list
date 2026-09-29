@@ -20,6 +20,22 @@ html {
 
 html {
   -webkit-text-size-adjust: 100%;
+  /* An anchor jump lands below the sticky masthead, not under it. */
+  scroll-padding-top: calc(var(--masthead-stuck) + var(--s2));
+}
+
+/* The phone tab bar is fixed over the bottom of the page: keep the page's
+   end clear of it. Modals and sheets hide the bar (data-hides-tabbar). */
+@media (max-width: 719px) {
+  :root {
+    --tabbar-space: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
+  }
+  :root:has([data-hides-tabbar]) {
+    --tabbar-space: 0px;
+  }
+  body {
+    padding-bottom: var(--tabbar-space);
+  }
 }
 
 body {

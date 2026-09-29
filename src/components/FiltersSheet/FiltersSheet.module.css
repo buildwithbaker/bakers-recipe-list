@@ -1,13 +1,13 @@
 .scrim {
   position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 450;              /* over the sticky masthead (400) */
   background: var(--scrim);
 }
 
 .sheet {
   position: fixed;
-  z-index: 21;
+  z-index: 451;
   left: 0;
   right: 0;
   bottom: 0;

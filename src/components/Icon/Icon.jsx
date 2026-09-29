@@ -17,6 +17,9 @@ const PATHS = {
   list: <><path d="M9 6h11M9 12h11M9 18h11" /><path d="M4 6h.01M4 12h.01M4 18h.01" /></>,
   close: <path d="M6 6l12 12M18 6 6 18" />,
   tag: <><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z" /><path d="M7.5 7.5h.01" /></>,
+  book: <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21a2 2 0 0 1 2-2h13v2M9 7h6" />,
+  basket: <><path d="M3 10h18l-2 10H5z" /><path d="m8 10 3-6M16 10l-3-6M9 14v2M15 14v2" /></>,
+  info: <><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></>,
 };
 
 export default function Icon({ name, filled = false, size, className }) {

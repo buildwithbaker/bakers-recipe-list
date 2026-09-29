@@ -2,6 +2,7 @@
    the page's own furniture: width, the card, the way back. */
 
 .page {
+  --bar-top: var(--masthead-stuck);   /* RecipeView's bar pins below the sticky masthead */
   max-width: var(--maxw);
   margin: var(--s4) auto 0;
   padding: 0 var(--s4) var(--s8);

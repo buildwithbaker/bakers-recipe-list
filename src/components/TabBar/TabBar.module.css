@@ -1,0 +1,128 @@
+/* ---------- Phone: a fixed bar along the bottom ---------- */
+.bottom {
+  position: fixed;
+  z-index: 650;              /* above the shopping list (600) so Shopping stays reachable */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  height: var(--tabbar-space);
+  padding-bottom: env(safe-area-inset-bottom);
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -2px 8px rgb(70 45 20 / 0.06);
+}
+
+@media (max-width: 719px) {
+  .bottom {
+    display: flex;
+  }
+  /* Hidden under a modal or sheet: they mark themselves data-hides-tabbar. */
+  :global(:root:has([data-hides-tabbar])) .bottom {
+    display: none;
+  }
+}
+
+.bottom .tab {
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 48px;
+  height: var(--tabbar-h);
+  color: var(--ink-muted);
+  font: 600 var(--t-xs)/1.1 var(--sans);
+}
+
+.bottom .tab[aria-current="page"] {
+  color: var(--brand);
+}
+
+.bottom .tab[aria-current="page"] .icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  width: 24px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--band-accent);
+  transform: translateX(-50%);
+}
+
+/* ---------- 720px up: inline in the masthead ---------- */
+.header {
+  display: none;
+  gap: var(--s2);
+}
+
+@media (min-width: 720px) {
+  .header {
+    display: flex;
+  }
+}
+
+.header .tab {
+  gap: var(--s2);
+  min-height: 48px;
+  padding: 0 var(--s3);
+  border: 1px solid rgb(246 231 200 / 0.35);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.08);
+  color: var(--band-ink);
+  font: 600 var(--t-sm)/1 var(--sans);
+}
+
+.header .tab:hover {
+  border-color: var(--band-accent);
+}
+
+.header .tab[aria-current="page"] {
+  background: var(--band-ink);
+  border-color: var(--band-ink);
+  color: var(--band);
+}
+
+.header .tab:focus-visible {
+  outline-color: var(--band-accent);
+}
+
+/* ---------- Shared ---------- */
+.tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.icon {
+  position: relative;
+  display: inline-flex;
+}
+
+.icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  left: 14px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--band-accent);
+  color: var(--band);
+  font: 700 11px/18px var(--sans);
+  text-align: center;
+}
+
+@media print {
+  .bar {
+    display: none !important;
+  }
+}
