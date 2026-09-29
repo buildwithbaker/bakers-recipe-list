@@ -14,7 +14,6 @@ import { photoInitial, recipePhoto } from '../../utils/recipePhoto.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { recipePath } from '../../utils/recipeRoute.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
-import AiBadge from '../AiBadge/AiBadge.jsx';
 import Icon from '../Icon/Icon.jsx';
 import Highlight from '../Highlight/Highlight.jsx';
 import styles from './RecipeCard.module.css';
@@ -32,15 +31,14 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, showReviewBadg
   return (
     <li className={styles.card} style={categoryStyle(category)}>
       {/* Decorative: the title beside it names the dish. Width and height are
-          set so a photo arriving late cannot shift the layout. The AI badge is
-          the one part a screen reader hears. */}
+          set so a photo arriving late cannot shift the layout. No AI badge
+          here: an AI photo is labelled on its recipe (RecipeView). */}
       <div className={styles.thumb}>
         {photo ? (
           <img src={photo.thumb} alt="" width="88" height="88" loading="lazy" decoding="async" />
         ) : (
           <span className={styles.initial} aria-hidden="true">{photoInitial(recipe.name)}</span>
         )}
-        {photo?.ai && <AiBadge />}
       </div>
       <div className={styles.body}>
         {showCategory && category && <p className={styles.kicker}>{category.label}</p>}

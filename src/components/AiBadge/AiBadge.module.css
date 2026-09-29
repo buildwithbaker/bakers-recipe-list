@@ -1,23 +1,18 @@
-/* Navy and cream from the masthead (--band / --band-ink, tested in
-   contrast.test.js), so it reads over any photo at 88px. */
+/* Navy and cream from the masthead, faded to --ai-badge-opacity (tokens.css).
+   Decorative at that opacity: exempt from contrast.test.js, because the
+   figcaption carries the AI label in tested colours. */
 .badge {
   position: absolute;
   z-index: 2;
-  right: 4px;
-  bottom: 4px;
-  padding: 2px 5px;
-  border-radius: var(--r1);
-  background: var(--band);
-  color: var(--band-ink);
-  font: 700 0.6875rem/1 var(--sans);
-  letter-spacing: 0.04em;
-  box-shadow: 0 0 0 1px var(--band-ink);
-  pointer-events: none;
-}
-
-.lg {
   right: 8px;
   bottom: 8px;
   padding: 3px 7px;
-  font-size: var(--t-xs);
+  border-radius: var(--r1);
+  background: var(--band);
+  color: var(--band-ink);
+  font: 700 var(--t-xs)/1 var(--sans);
+  letter-spacing: 0.04em;
+  box-shadow: 0 0 0 1px var(--band-ink);
+  opacity: var(--ai-badge-opacity);
+  pointer-events: none;
 }

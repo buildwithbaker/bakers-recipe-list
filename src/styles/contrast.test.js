@@ -35,7 +35,8 @@ const PAIRS = [
   ['ink', 'review-soft', 4.5], ['brand', 'review-soft', 4.5],   // USDA notice
   ['ink', 'accent-soft', 4.5],         // search-hit highlight
   ['danger', 'surface', 4.5],
-  ['band-ink', 'band', 4.5], ['band-ink-muted', 'band', 4.5],   // also the AI photo badge (AiBadge)
+  ['band-ink', 'band', 4.5], ['band-ink-muted', 'band', 4.5],
+  // Exempt: AiBadge. Decorative at 25% opacity; the figcaption carries the AI label in tested colours.
   ['band', 'band-accent', 4.5],        // shopping-list badge: navy digits on amber
   ['band-accent', 'band', 3],          // amber "Recipe" in the large serif wordmark
   ['accent', 'surface', 3],            // filled star of a pinned card (graphic)

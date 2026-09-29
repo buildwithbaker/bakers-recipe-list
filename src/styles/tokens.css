@@ -44,6 +44,10 @@
   --danger: #a3301f;
 
   --focus: #1f3a5f;
+
+  /* The AI badge on a recipe photo: 0.25 = 75% see-through. Decorative; the
+     caption under the photo is the label (see AiBadge.module.css). */
+  --ai-badge-opacity: 0.25;
   --scrim: rgb(42 34 28 / 0.4);
 
   /* ---- Type ---- */
