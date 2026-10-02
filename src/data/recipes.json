@@ -224,19 +224,35 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "7 lb bone-in pork shoulder"
+        "text": "3-4 lb boneless pork shoulder, cut into 2-3 large pieces"
       },
       {
         "type": "item",
-        "text": "Seasoned salt, to coat"
+        "text": "2 tsp seasoned salt (1 tsp if the pork was dry-brined)"
       },
       {
         "type": "item",
-        "text": "1 cup barbecue sauce, plus more to finish"
+        "text": "½ tsp black pepper"
       },
       {
         "type": "item",
-        "text": "½ tsp yellow mustard"
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "1 yellow onion, thickly sliced"
+      },
+      {
+        "type": "header",
+        "text": "For the sauce:"
+      },
+      {
+        "type": "item",
+        "text": "½ cup barbecue sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp yellow mustard"
       },
       {
         "type": "item",
@@ -244,52 +260,64 @@
       },
       {
         "type": "item",
-        "text": "2 Tbsp brown sugar"
+        "text": "1 Tbsp brown sugar"
       },
       {
         "type": "item",
-        "text": "1 Tbsp soy sauce"
+        "text": "1½ tsp soy sauce"
       },
       {
         "type": "item",
-        "text": "1 tsp salt"
+        "text": "1 Tbsp onion powder"
       },
       {
         "type": "item",
-        "text": "1 tsp pepper"
+        "text": "1 Tbsp garlic powder"
       },
       {
         "type": "item",
-        "text": "2 Tbsp onion powder"
+        "text": "2 Tbsp water, for the skillet"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
       },
       {
         "type": "item",
-        "text": "2 Tbsp garlic powder"
+        "text": "About ½ cup barbecue sauce"
       }
     ],
     "instructions": [
       {
-        "step": "Rub",
-        "detail": "Coat the pork shoulder (7 lb) all over with seasoned salt."
+        "step": "Season",
+        "detail": "Pat the pork (3-4 lb) dry and coat all over with the seasoned salt (2 tsp) and pepper (½ tsp)."
       },
       {
-        "step": "Build the sauce",
-        "detail": "Set the pork in the slow cooker. Top with barbecue sauce (1 cup), mustard (½ tsp), white vinegar (1 Tbsp), brown sugar (2 Tbsp), soy sauce (1 Tbsp), salt (1 tsp), pepper (1 tsp), onion powder (2 Tbsp), and garlic powder (2 Tbsp)."
+        "step": "Sear",
+        "detail": "Heat the oil (1 Tbsp) in a large skillet over medium-high until it shimmers. Brown the pork hard on every side, 7-10 min total. This is the only browning the dish gets - nothing browns inside a slow cooker."
+      },
+      {
+        "step": "Build the pot",
+        "detail": "Spread the onion (1, sliced) over the bottom of the slow cooker. Whisk the barbecue sauce (½ cup), mustard (1 Tbsp), vinegar (1 Tbsp), brown sugar (1 Tbsp), soy sauce (1½ tsp), onion powder (1 Tbsp) and garlic powder (1 Tbsp). Pour the water (2 Tbsp) into the hot skillet, scrape up the fond and whisk it into the sauce. Set the pork on the onions and pour the sauce over."
       },
       {
         "step": "Cook",
-        "detail": "Cook on low 8-10 hours."
+        "detail": "Lid on. High for 1 hour, then Low for about 6-7 hours. Done at 195-205°F, when it pulls apart with no resistance. Don't lift the lid before then."
       },
       {
-        "step": "Shred & finish",
-        "detail": "Remove the fat cap, shred the pork, mix it back into the juices, and add extra barbecue sauce until slightly wet."
+        "step": "Defat and reduce",
+        "detail": "Lift the pork out to rest. Skim the fat off the juices. Reduce the juices by about half: lid off on High for 30-45 min, or faster in a wide skillet at a hard simmer, about 10 min."
+      },
+      {
+        "step": "Shred and sauce",
+        "detail": "Shred the pork and discard the fatty seams. Toss with the reduced juices, then add barbecue sauce (about ½ cup) until slightly wet."
       }
     ],
     "is_blank": false,
-    "description": "Bone-in pork shoulder rubbed with seasoned salt, slow cooked, then shredded into a tangy mustard, vinegar and barbecue sauce.",
-    "prepTime": "PT15M",
-    "cookTime": "PT9H",
-    "recipeYield": "12 servings"
+    "description": "Seared boneless pork shoulder slow cooked in a tangy mustard, vinegar and barbecue sauce, then shredded into its own reduced juices.",
+    "prepTime": "PT20M",
+    "cookTime": "PT7H30M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "pepperoncini-beef",
