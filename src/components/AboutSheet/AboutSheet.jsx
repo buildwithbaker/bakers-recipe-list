@@ -51,7 +51,7 @@ export default function AboutSheet({ open, onClose }) {
         </div>
         <p>Every recipe in the Cookbook was cooked and tested by me before I posted it, and I only post the ones I like.</p>
         <p>Some recipe photos are AI-generated. Each one is labeled on its recipe and shows the dish as the recipe describes it.</p>
-        <p>Nutrition numbers are estimated from USDA FoodData Central. These are estimates only. For medically relevant dietary planning, consult a registered dietician.</p>
+        <p>Nutrition numbers are estimated from USDA FoodData Central. These are estimates only. For medically relevant dietary planning, consult a registered dietitian.</p>
         <p className={styles.install}>On iPhone: tap Share, then Add to Home Screen.</p>
         <p className={styles.maker}>
           <a href="https://buildwithbaker.io" target="_blank" rel="noopener noreferrer">Made by Build with Baker</a>
