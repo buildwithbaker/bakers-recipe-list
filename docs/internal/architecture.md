@@ -734,9 +734,9 @@ violation, a missing id manifest entry, a broken photo path, an oversized photo
 or a photo named after no recipe fails the build and CI, and can never reach
 the live site.
 
-**CI** (`.github/workflows/ci.yml`) runs lint, test and build on PRs into `main`
-as the required `verify` check. Note it triggers **only** on PRs whose base is
-`main`, so a stacked PR gets no check until it is retargeted — see the backlog.
+**CI** (`.github/workflows/ci.yml`) runs lint, test and build
+as the required `verify` check. It runs on every PR whatever its base, so a
+stacked PR is checked too, and on pushes to `main`.
 
 **Deploy** (`.github/workflows/deploy.yml`) builds and publishes `dist/` to
 GitHub Pages on merge to `main`, injecting `USDA_API_KEY` as
