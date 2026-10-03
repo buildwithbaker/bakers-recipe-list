@@ -37,7 +37,8 @@ const PAIRS = [
   ['danger', 'surface', 4.5],
   ['band-ink', 'band', 4.5], ['band-ink-muted', 'band', 4.5],
   // Exempt: AiBadge. Decorative at 25% opacity; the figcaption carries the AI label in tested colours.
-  ['band', 'band-accent', 4.5],        // shopping-list badge: navy digits on amber
+  ['band', 'band-accent', 4.5],        // shopping badge (tab bar, list): navy digits on amber
+  ['band', 'band-ink', 4.5],           // current tab in the desktop header: navy on cream
   ['band-accent', 'band', 3],          // amber "Recipe" in the large serif wordmark
   ['accent', 'surface', 3],            // filled star of a pinned card (graphic)
 ];

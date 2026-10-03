@@ -49,7 +49,7 @@ export default function RecipeModal({ recipe, onClose, onOpenFullPage, onTagClic
   const handleOverlayClick = (e) => { if (e.target === e.currentTarget) onClose(); };
 
   return (
-    <div className={styles.modalOverlay} onClick={handleOverlayClick}>
+    <div className={styles.modalOverlay} onClick={handleOverlayClick} data-hides-tabbar>
       <div ref={modalCardRef} className={styles.modalCard} role="dialog" aria-modal="true" aria-labelledby={titleId} data-print-modal>
         <RecipeView
           recipe={recipe}

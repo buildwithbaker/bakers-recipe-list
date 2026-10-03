@@ -22,8 +22,10 @@ automatic per-recipe macro/nutrition estimates.
   (with per-ingredient overrides and a graceful `DEMO_KEY` fallback).
 - **Ingredient parsing**, **unit-to-grams conversion**, and serving/macro estimation.
 - **Shopping list** and **cook log / history** with notes.
-- **Pinned recipes**, **recently viewed**, print support, and
-  back-to-top — persisted in `localStorage`.
+- **Pinned recipes** (their own tab), **recently viewed** and print support;
+  pins and history persist in `localStorage`.
+- **Navigation:** Recipes / Pinned / Shopping as a bottom tab bar on a phone
+  (in the header on wider screens), a sticky compact header, and an About sheet.
 
 ## Tech stack
 
@@ -58,7 +60,8 @@ src/
   components/           UI components (CSS Modules) — Masthead, SearchBar,
                        RecipeList, RecipeCard, SearchResults, ToTryLinks,
                        FiltersSheet, Shelves, RecipeView/Modal/Page, MacroCard,
-                       ShoppingList, BackToTop, ErrorBoundary, UsdaKeyNotice
+                       ShoppingList, TabBar, PinnedList, AboutSheet,
+                       ErrorBoundary, UsdaKeyNotice
   hooks/               useShoppingList, useCookLog/useCookHistory,
                        usePinnedRecipes, useRecentlyViewed, useMacroEstimate,
                        useFocusTrap

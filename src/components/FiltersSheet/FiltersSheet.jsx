@@ -43,7 +43,7 @@ export default function FiltersSheet({
   return (
     <>
       <div className={styles.scrim} onClick={onClose} aria-hidden="true" />
-      <div ref={sheetRef} className={styles.sheet} role="dialog" aria-modal="true" aria-labelledby="filters-title">
+      <div ref={sheetRef} className={styles.sheet} role="dialog" aria-modal="true" aria-labelledby="filters-title" data-hides-tabbar>
         <div className={styles.head}>
           <h2 id="filters-title">Filters</h2>
           <button type="button" className={styles.close} onClick={onClose} aria-label="Close filters">

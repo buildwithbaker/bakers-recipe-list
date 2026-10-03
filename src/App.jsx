@@ -9,14 +9,19 @@ import RecipeModal from './components/RecipeModal/RecipeModal.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import SearchBar from './components/SearchBar/SearchBar.jsx';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
-import BackToTop from './components/BackToTop/BackToTop.jsx';
 import ShoppingList from './components/ShoppingList/ShoppingList.jsx';
-import Footer from './components/Footer/Footer.jsx';
+import TabBar from './components/TabBar/TabBar.jsx';
+import PinnedList from './components/PinnedList/PinnedList.jsx';
+import AboutSheet from './components/AboutSheet/AboutSheet.jsx';
 import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
 import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js';
+import {
+  ABOUT, LIST, TAB_RECIPES,
+  activeTab, entryIsPage, entryOverlays as overlaysOf, entryTab, goToTab, makeEntry, popOverlay, pushOverlay, tabTapAction,
+} from './utils/navHistory.js';
 
 /*
  * Routing model
@@ -29,7 +34,7 @@ import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js
  *
  * Overlay history model
  * ---------------------
- * The remaining dismissable layer, the shopping list, pushes a
+ * The dismissable layers, the shopping list and the About sheet, push a
  * history entry when they open. The entry's `history.state.overlays` array
  * records the full stack open at that entry, so Back pops exactly one layer
  * instead of leaving the site, and Forward restores it. The recipe is NOT in
@@ -40,8 +45,14 @@ import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js
  * Only the topmost layer responds to Back / Escape / its own close button —
  * that is what stops a single Escape from closing two stacked layers at once,
  * and it is why closing the recipe is refused while an overlay sits above it.
+ *
+ * Tabs
+ * ----
+ * Recipes and Pinned are views; Shopping opens the shopping list layer. Each
+ * entry records its `tab`, and a tab switch pushes an entry, only from the
+ * tap itself, so Back returns to the previous tab. The rules, and the state
+ * shape every entry carries, live in utils/navHistory.js (unit-tested).
  */
-const LIST = 'list';
 
 // An old #sec-<SECTION> link from the retired sections drawer lands on the
 // matching collection and category rather than nowhere.
@@ -94,15 +105,17 @@ function setParam(key, value) {
 
 // The overlay stack recorded on the current history entry.
 function entryOverlays() {
-  try {
-    const list = window.history.state?.overlays;
-    return Array.isArray(list) ? list : [];
-  } catch { return []; }
+  try { return overlaysOf(window.history.state); } catch { return []; }
 }
 
 // Whether the current history entry renders its recipe as a full page.
 function isPageEntry() {
-  try { return !!window.history.state?.page; } catch { return false; }
+  try { return entryIsPage(window.history.state); } catch { return false; }
+}
+
+// The tab recorded on the current history entry.
+function currentEntryTab() {
+  try { return entryTab(window.history.state); } catch { return TAB_RECIPES; }
 }
 
 // Nothing but the recipe is mirrored into the URL, so opening or closing an
@@ -132,6 +145,7 @@ function AppInner() {
   // means a page, because there is no list behind it to lay a card over.
   const [pageView, setPageView] = useState(() => (window.history.state ? isPageEntry() : !!landing.id));
   const [overlays, setOverlays] = useState(entryOverlays);
+  const [tab, setTab] = useState(currentEntryTab);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
   // Which collection and category the list shows. Owned here so they survive
   // the list unmounting behind a full recipe page.
@@ -144,6 +158,8 @@ function AppInner() {
   const overlaysRef = useRef(overlays);
   // Same, for the open recipe — closeRecipe must not be rebuilt per navigation.
   const recipeIdRef = useRef(recipeId);
+  // Same, for the tab: every entry written records it.
+  const tabRef = useRef(tab);
   // Holds a tag search that must be applied after a back navigation lands.
   const pendingSearchRef = useRef(null);
   const [recentHistory, addToHistory, clearHistory] = useRecentlyViewed();
@@ -151,6 +167,7 @@ function AppInner() {
 
   const selectedRecipe = recipeId ? resolveRecipe(recipeId) : null;
   const listOpen = overlays.includes(LIST);
+  const aboutOpen = overlays.includes(ABOUT);
   const fullPage = !!selectedRecipe && pageView;
 
   const applyOverlays = useCallback((next) => {
@@ -163,32 +180,31 @@ function AppInner() {
     setRecipeId(id);
   }, []);
 
+  const applyTab = useCallback((next) => {
+    tabRef.current = next;
+    setTab(next);
+  }, []);
+
   // Opening a layer PUSHES a history entry, so Back pops the layer, not the site.
   // The URL does not change: only the recipe is mirrored into it. `page` rides
   // along so that popping back to this entry restores the same rendering.
   const openOverlay = useCallback((token) => {
-    if (overlaysRef.current.includes(token)) return;
-    const next = [...overlaysRef.current, token];
     try {
-      window.history.pushState({ overlays: next, page: isPageEntry() }, '', currentUrl());
+      applyOverlays(pushOverlay(window.history, overlaysRef.current, token, { page: isPageEntry(), tab: tabRef.current, url: currentUrl() }));
     } catch { /* ignore */ }
-    applyOverlays(next);
   }, [applyOverlays]);
 
   // Closing the topmost layer steps Back through its entry, keeping the stack in sync.
   // Returns true when a back navigation is in flight (popstate will finish the close).
+  // A layer buried under another is refused: the topmost layer owns Back and
+  // Escape. If history.state was lost (e.g. an external replaceState), it
+  // closes without navigating.
   const closeOverlay = useCallback((token) => {
-    const stack = overlaysRef.current;
-    // Not open, or buried under another layer: the topmost layer owns Back and Escape.
-    if (stack[stack.length - 1] !== token) return false;
-    if (entryOverlays().length === stack.length) {
-      window.history.back();
-      return true;
-    }
-    // history.state was lost (e.g. an external replaceState) — close without navigating.
-    const next = stack.slice(0, -1);
-    try { window.history.replaceState({ overlays: next, page: isPageEntry() }, '', currentUrl()); } catch { /* ignore */ }
-    applyOverlays(next);
+    try {
+      const r = popOverlay(window.history, overlaysRef.current, token, { page: isPageEntry(), tab: tabRef.current, url: currentUrl() });
+      if (r.navigating) return true;
+      if (!r.refused) applyOverlays(r.next);
+    } catch { /* ignore */ }
     return false;
   }, [applyOverlays]);
 
@@ -197,7 +213,7 @@ function AppInner() {
   // them. No overlay bookkeeping for the card itself — Back pops the path.
   const openRecipe = useCallback((recipe, asPage) => {
     try {
-      window.history.pushState({ overlays: overlaysRef.current, page: asPage }, '', urlForRecipe(recipe.id));
+      window.history.pushState(makeEntry(overlaysRef.current, asPage, tabRef.current), '', urlForRecipe(recipe.id));
     } catch { /* ignore */ }
     applyRecipe(recipe.id);
     setPageView(asPage);
@@ -219,12 +235,14 @@ function AppInner() {
   // Leaves the recipe for the list WITHOUT a back navigation — used when the
   // destination is the list plus something else (a section anchor, a tag
   // search), where stepping back would land on an entry we then have to fight.
+  // Lands on the Recipes tab, where search and the categories live.
   const goToList = useCallback(() => {
-    try { window.history.pushState({ overlays: [], page: false }, '', listUrl()); } catch { /* ignore */ }
+    try { window.history.pushState(makeEntry([], false, TAB_RECIPES), '', listUrl()); } catch { /* ignore */ }
     applyOverlays([]);
     applyRecipe('');
+    applyTab(TAB_RECIPES);
     setPageView(false);
-  }, [applyOverlays, applyRecipe]);
+  }, [applyOverlays, applyRecipe, applyTab]);
 
   // Returns true when a back navigation is in flight (popstate finishes the close).
   const closeRecipe = useCallback(() => {
@@ -238,7 +256,7 @@ function AppInner() {
       window.history.back();
       return true;
     }
-    try { window.history.replaceState({ overlays: [], page: false }, '', listUrl()); } catch { /* ignore */ }
+    try { window.history.replaceState(makeEntry([], false, tabRef.current), '', listUrl()); } catch { /* ignore */ }
     applyRecipe('');
     setPageView(false);
     return false;
@@ -252,16 +270,34 @@ function AppInner() {
   // to the page rather than to a card.
   const handleOpenFullPage = useCallback(() => {
     try {
-      window.history.replaceState({ overlays: overlaysRef.current, page: true }, '', currentUrl());
+      window.history.replaceState(makeEntry(overlaysRef.current, true, tabRef.current), '', currentUrl());
     } catch { /* ignore */ }
     setPageView(true);
     window.scrollTo({ top: 0 });
   }, []);
 
-  const handleListToggle = useCallback(() => {
-    if (overlaysRef.current.includes(LIST)) closeOverlay(LIST); else openOverlay(LIST);
-  }, [openOverlay, closeOverlay]);
   const handleListClose = useCallback(() => { closeOverlay(LIST); }, [closeOverlay]);
+  const handleAboutOpen = useCallback(() => { openOverlay(ABOUT); }, [openOverlay]);
+  const handleAboutClose = useCallback(() => { closeOverlay(ABOUT); }, [closeOverlay]);
+
+  // A tab tap: the only place a tab switch writes history.
+  const handleTab = useCallback((tapped) => {
+    const action = tabTapAction({
+      tapped,
+      tab: tabRef.current,
+      overlays: overlaysRef.current,
+      onRecipePage: !!recipeIdRef.current,
+    });
+    if (action.type === 'scrollTop') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    if (action.type === 'openList') { openOverlay(LIST); return; }
+    if (action.type === 'closeList') { closeOverlay(LIST); return; }
+    try { goToTab(window.history, action, listUrl()); } catch { /* ignore */ }
+    applyOverlays([]);
+    applyRecipe('');
+    setPageView(false);
+    applyTab(action.tab);
+    window.scrollTo({ top: 0 });
+  }, [openOverlay, closeOverlay, applyOverlays, applyRecipe, applyTab]);
 
   const handleSearch = useCallback((query) => {
     setSearchQuery(query);
@@ -272,7 +308,9 @@ function AppInner() {
   // navigation the search is deferred until the pop lands, otherwise the popstate
   // handler would overwrite the URL and drop `q`.
   const handleTagClick = useCallback((tag) => {
-    if (fullPage) {
+    // Search lives on the Recipes tab: from a page, or from a card over
+    // Pinned, go there instead of stepping Back to a view without it.
+    if (fullPage || tabRef.current !== TAB_RECIPES) {
       goToList();
       handleSearch(tag);
       return;
@@ -304,6 +342,7 @@ function AppInner() {
       const recipe = key ? resolveRecipe(key) : null;
       applyRecipe(recipe ? recipe.id : '');
       setPageView(isPageEntry());
+      applyTab(currentEntryTab());
       const pending = pendingSearchRef.current;
       if (pending !== null) {
         pendingSearchRef.current = null;
@@ -313,7 +352,7 @@ function AppInner() {
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
-  }, [applyOverlays, applyRecipe]);
+  }, [applyOverlays, applyRecipe, applyTab]);
 
   // A shared link — /r/spicy-pork-patties/ or the legacy ?recipe=Chili — opens
   // straight into a recipe with nothing behind it. Rewrite that first entry to
@@ -328,9 +367,9 @@ function AppInner() {
   useEffect(() => {
     if (!landing.key || window.history.state) return;
     try {
-      window.history.replaceState({ overlays: [], page: false }, '', listUrl());
+      window.history.replaceState(makeEntry([], false, TAB_RECIPES), '', listUrl());
       if (!landing.id) return;
-      window.history.pushState({ overlays: [], page: true }, '', urlForRecipe(landing.id));
+      window.history.pushState(makeEntry([], true, TAB_RECIPES), '', urlForRecipe(landing.id));
     } catch { /* ignore */ }
   }, [landing]);
 
@@ -350,14 +389,16 @@ function AppInner() {
 
   const uncheckedCount = listItems.filter((it) => !it.checked).length;
 
+  const pinnedView = tab !== TAB_RECIPES;
+  const navProps = { active: activeTab(tab, overlays), onTab: handleTab, listCount: uncheckedCount };
+
   return (
     <ErrorBoundary>
-      <BackToTop />
       <Masthead
-        onListToggle={handleListToggle}
-        listItemCount={uncheckedCount}
+        nav={<TabBar placement="header" {...navProps} />}
+        onAbout={handleAboutOpen}
         siteTitleIsHeading={!fullPage}
-        slim={fullPage}
+        slim={fullPage || pinnedView}
         onHome={fullPage ? goToList : undefined}
       />
       {fullPage ? (
@@ -375,19 +416,25 @@ function AppInner() {
         </ErrorBoundary>
       ) : (
         <>
-          <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
-          <UsdaKeyNotice />
-          <RecipeList
-            onViewRecipe={handleViewRecipe}
-            searchQuery={searchQuery}
-            onSearch={handleSearch}
-            collection={collection}
-            onCollectionChange={handleCollectionChange}
-            category={category}
-            onCategoryChange={setCategory}
-            recentHistory={recentHistory}
-            onClearRecent={clearHistory}
-          />
+          {pinnedView ? (
+            <PinnedList onViewRecipe={handleViewRecipe} />
+          ) : (
+            <>
+              <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
+              <UsdaKeyNotice />
+              <RecipeList
+                onViewRecipe={handleViewRecipe}
+                searchQuery={searchQuery}
+                onSearch={handleSearch}
+                collection={collection}
+                onCollectionChange={handleCollectionChange}
+                category={category}
+                onCategoryChange={setCategory}
+                recentHistory={recentHistory}
+                onClearRecent={clearHistory}
+              />
+            </>
+          )}
           <ErrorBoundary key={selectedRecipe?.id ?? '__none__'}>
             <RecipeModal
               recipe={selectedRecipe}
@@ -408,7 +455,8 @@ function AppInner() {
         onClearChecked={clearChecked}
         onClearAll={clearAll}
       />
-      <Footer />
+      <AboutSheet open={aboutOpen} onClose={handleAboutClose} />
+      <TabBar placement="bottom" {...navProps} />
     </ErrorBoundary>
   );
 }

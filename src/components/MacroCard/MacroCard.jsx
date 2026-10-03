@@ -55,7 +55,7 @@ export default function MacroCard({ status, macros, matchedCount, totalCount }) 
           ))}
         </div>
         <div className={styles.footnote}>
-          Estimates only · {matchedCount} of {totalCount} ingredients matched · Not dietician-verified
+          Estimates only · {matchedCount} of {totalCount} ingredients matched · Not dietitian-verified
         </div>
         {showPartialNote && (
           <div className={styles.partial}>
