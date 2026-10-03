@@ -142,9 +142,9 @@ What the entry does:
 
 The caption is the label (the faint badge is decorative, and exempt from
 `contrast.test.js`). It reads "AI-generated image, not a photo of this recipe as
-cooked." For a Cookbook recipe it adds "Every Cookbook recipe is cooked and
-tested by a real person before it's posted."; For Review and To Try recipes do
-not get that sentence. The rule is `src/utils/photoCaption.js`.
+cooked." It adds "Every Cookbook recipe is cooked and tested by a real person
+before it's posted.", since every recipe on the site is a Cookbook recipe. The
+caption is `src/utils/photoCaption.js`.
 
 `src/utils/photoCredits.test.js` fails the suite when an entry names an id
 that is not a recipe or has no photo in `src/photos/`, or when an `"ai": true`
