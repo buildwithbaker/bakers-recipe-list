@@ -46,25 +46,25 @@ paper; use `--accent-ink` for amber-coloured text.
 | `--band` / `--band-ink` / `--band-accent` | `#1f3a5f` / `#f6e7c8` / `#e0a63a` | masthead background / its text / its amber |
 | `--accent` / `--accent-ink` / `--accent-soft` | `#b7791f` / `#7a4f0e` / `#f6e7c8` | amber graphic / amber text / amber wash |
 | `--made` / `--made-soft` | `#3d6b37` / `#e2eedb` | the Made state |
-| `--review-ink` / `--review-soft` | `#6b4e00` / `#f7ecc6` | the For Review badge |
+| `--notice-soft` | `#f7ecc6` | the USDA notice background |
 | `--danger` | `#a3301f` | destructive text (Clear all) |
 
 ## Category colours
 
-Twenty-one categories share ten colours, per the approved SOW. Neighbours can
+Seventeen categories share ten colours, per the approved SOW. Neighbours can
 repeat, so the colour is a wayfinding cue and never the only signal: every
 category is also named in text.
 
 | Colour | Categories |
 |---|---|
-| `#8a5a00` | Breakfast, Bread, Curry |
-| `#8b3a1a` | Slow Cooker, Marinades · Beef |
+| `#8a5a00` | Breakfast, Bread |
+| `#8b3a1a` | Slow Cooker |
 | `#56662a` | Seasonings, Sides |
 | `#9a4a12` | Doughs, Snacks |
 | `#1f3a5f` | American |
-| `#a63d24` | Mexican, Italian, Marinades · Chicken |
+| `#a63d24` | Mexican, Italian |
 | `#1d6663` | Asian |
-| `#6b3a5e` | Middle Eastern, Desserts, Marinades · Pork |
+| `#6b3a5e` | Middle Eastern, Desserts |
 | `#3e4f7a` | Sandwiches, Soups |
 | `#46644f` | Marinades, Smoothies |
 

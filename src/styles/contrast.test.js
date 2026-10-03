@@ -31,8 +31,7 @@ const PAIRS = [
   ['#ffffff', 'brand', 4.5], ['#ffffff', 'brand-hover', 4.5],
   ['accent-ink', 'paper', 4.5], ['accent-ink', 'surface', 4.5], ['accent-ink', 'accent-soft', 4.5],
   ['made', 'surface', 4.5], ['made', 'made-soft', 4.5], ['#ffffff', 'made', 4.5],
-  ['review-ink', 'review-soft', 4.5], ['review-ink', 'surface', 4.5],
-  ['ink', 'review-soft', 4.5], ['brand', 'review-soft', 4.5],   // USDA notice
+  ['ink', 'notice-soft', 4.5], ['brand', 'notice-soft', 4.5],   // USDA notice
   ['ink', 'accent-soft', 4.5],         // search-hit highlight
   ['danger', 'surface', 4.5],
   ['band-ink', 'band', 4.5], ['band-ink-muted', 'band', 4.5],

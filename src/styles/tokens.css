@@ -39,8 +39,7 @@
   /* ---- Status ---- */
   --made: #3d6b37;
   --made-soft: #e2eedb;
-  --review-ink: #6b4e00;
-  --review-soft: #f7ecc6;
+  --notice-soft: #f7ecc6;    /* USDA notice background */
   --danger: #a3301f;
 
   --focus: #1f3a5f;

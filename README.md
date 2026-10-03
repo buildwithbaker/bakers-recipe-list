@@ -3,7 +3,9 @@
 A fast, single-page React app for browsing a personal recipe collection with
 automatic per-recipe macro/nutrition estimates.
 
-> **Screenshot:** _(UI app — add a screenshot or GIF here, e.g. `docs/screenshot.png`, once captured.)_
+![The recipe list and the Lasagna recipe page on a phone](docs/screenshot.png)
+
+_The Cookbook list and a recipe page (Lasagna), at phone size._
 
 **Live:** https://buildwithbaker.github.io/bakers-recipe-list/
 

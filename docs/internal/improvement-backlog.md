@@ -31,6 +31,24 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   referenced from `index.html`; `pwa-192x192.png`, `pwa-512x512.png` and
   `maskable-512x512.png` ship alongside the SVG favicon.
 
+### 2026-09-29 to 2026-10-03
+
+- [x] **#86** AI label follow-up: no card badge, a faint badge on the recipe
+  photo, and the Cookbook "tested" sentence in the caption.
+- [x] **#87** Mobile navigation: Recipes / Pinned / Shopping tab bar, Pinned
+  view, sticky header, About sheet.
+- [x] **#88, #89, #90** Dependabot bumps for vite, vitest and sharp, closed
+  unmerged: shipped together in #93.
+- [x] **#91** Pulled Pork v2 (3–4 lb boneless, sear, trimmed salt, defat and
+  reduce).
+- [x] **#92** Mobile UI follow-ups: Filters chip first, touch baseline with a
+  pressed state on every control, sticky category headers.
+- [x] **#93** One dependency update for eslint, globals, vite, vitest and sharp
+  (patch/minor only).
+- [x] **#94** Cookbook only: the To Try and For Review collections removed (622
+  records, all declared in `removed`), archived outside the repo and in git
+  history at `d58c4db`.
+
 ### Earlier, from the 2026-06-02 session
 
 - [~] **Logo — skipped.** A whisk mark was prototyped then removed. `theme-color`
@@ -51,9 +69,8 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   count them there for the current number. Blanks get no prerendered
   page and no link preview, so filling one is also what publishes it.
   *(Owner: Adam.)*
-- [ ] **README screenshot.** README still carries an `_(add a screenshot)_`
-  placeholder. Capture the home and a recipe page (light only since the
-  2026-09 redesign) and drop into `docs/screenshot.png`.
+- [x] **README screenshot.** *Done in #98:* `docs/screenshot.png` shows the
+  list and the Lasagna page at 390x844, light only.
 - [ ] **Confirm cook mode on a real phone.** Shipped deliberately unverified on
   hardware: Wake Lock needs a secure context, so it cannot be exercised on a LAN
   dev server over plain HTTP, and Pages has no preview environment. The
@@ -96,14 +113,18 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   `#beef` and `#pork`. What remains is cosmetic and no longer affects related
   recipes, which no longer read tags at all. Left open only in case the same
   shape appears with another cut word.
-- [ ] **`ci.yml` only triggers on PRs based on `main`.** Both `push` and
+- [x] **`ci.yml` only triggers on PRs based on `main`.** *Done in #95:*
+  `pull_request` now runs `verify` on every PR whatever its base, proven on a
+  stacked draft PR. Original note: both `push` and
   `pull_request` are filtered to `branches: [main]`, so a stacked PR — one
   feature branch targeting another — gets **no `verify` check at all**, and
   "checks green" becomes unsatisfiable without retargeting it. This bit during
   the PR 60/61 stack. Either add the feature-branch pattern or accept that
   stacked PRs must target `main` and carry their parent's diff until the parent
   merges.
-- [ ] **`FOR REVIEW` sections → a dedicated `status` field.** Known tech debt,
+- [x] **`FOR REVIEW` sections → a dedicated `status` field.** *Moot since #94:*
+  the For Review collection and its sections are gone, so there is nothing
+  left to refactor. Original note: known tech debt,
   now with a second cost attached: because staging is encoded in `section` *and*
   `category`, two separate surfaces leaked the label to visitors before
   `publicSectionLabel` was introduced. A real `status` field removes the whole
@@ -112,16 +133,19 @@ Closed on 2026-09-09 because the work is on `main` and live. See
 
 ## P3 — nice-to-have
 
-- [ ] **Component/UI tests.** The suite covers pure utils and data integrity in a
+- [x] **Component/UI tests.** *Done in #97:* jsdom + Testing Library tests for
+  `RecipeView` and `RecipeList` (`*.dom.test.jsx`, opted in per file; the rest
+  of the suite stays in node). Original note: the suite covers pure utils and data integrity in a
   node environment. A couple of render tests for `RecipeView` in both frames, and
   for search/tab filtering in `RecipeList`, would need `jsdom`. Note `useWakeLock`
   is already covered indirectly: its lifecycle lives in `utils/screenLock.js`
   precisely so it could be tested without a DOM.
-- [ ] **Bundle growth plan.** `recipes.json` is bundled eagerly and has roughly
-  doubled since this item was written. Still acceptable, but if the catalog keeps
-  growing consider lazy-loading the data or splitting it by section. The
-  prerendered pages add about 1.2 MB to `dist/`, a quarter of which is the
-  `<noscript>` fallback.
+- [x] **Bundle growth plan — not needed now.** As of 2026-10-03 (#94),
+  `recipes.json` holds 123 records and is 205 KB, down from 659 KB at
+  `d58c4db`; the main JS bundle fell from 867 KB to about 600 KB. Revisit only
+  if the Cookbook grows several-fold. Original note: `recipes.json` is bundled
+  eagerly; if the catalog keeps growing consider lazy-loading the data or
+  splitting it by section.
 - [ ] **Prerender output size.** One file per published recipe, each carrying the
   full shell head. If that ever becomes a problem, the `<noscript>` block is the
   compressible part — but read §6 of `architecture.md` before touching it.
