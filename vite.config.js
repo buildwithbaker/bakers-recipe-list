@@ -65,8 +65,10 @@ export default defineConfig({
     }),
   ],
   test: {
-    // The suite covers pure utils + a data-integrity check — no DOM needed.
+    // Node by default: utils, data integrity, server-rendered components.
+    // Component tests (*.test.jsx) opt in to a DOM per file with a
+    // `// @vitest-environment jsdom` comment.
     environment: 'node',
-    include: ['src/**/*.test.js'],
+    include: ['src/**/*.test.js', 'src/**/*.test.jsx'],
   },
 });
