@@ -5,8 +5,7 @@
 // opens the recipe as a card over the list, the same as it always has.
 //
 // Only written recipes get a card. Coming-soon placeholders are counted on
-// their category header instead ("N more planned"), and To Try entries are
-// links (ToTryLinks).
+// their category header instead ("N more planned").
 import { memo } from 'react';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
@@ -20,7 +19,7 @@ import styles from './RecipeCard.module.css';
 
 const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
 
-function RecipeCard({ recipe, onViewRecipe, showCategory = false, showReviewBadge = false, highlight = '' }) {
+function RecipeCard({ recipe, onViewRecipe, showCategory = false, highlight = '' }) {
   const { madeSet, pinnedSet, togglePinned } = useCookHistoryContext();
   const isMade = madeSet.has(recipe.id);
   const isPinned = pinnedSet.has(recipe.id);
@@ -62,7 +61,6 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, showReviewBadg
               <Icon name="check" size={12} />Made
             </span>
           )}
-          {showReviewBadge && <span className={`${styles.pill} ${styles.review}`}>For Review</span>}
         </div>
       </div>
       {/* Constant name carrying the recipe, state in aria-pressed and in the

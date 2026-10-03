@@ -9,10 +9,10 @@ automatic per-recipe macro/nutrition estimates.
 
 ## Features
 
-- **Collections** (Cookbook / For Review / To Try) narrowed by colour-coded
-  **category chips** and a **Filters** sheet (pinned, made, tags).
-- **One search** across every collection: names, ingredients, tags and To Try
-  links, plus **auto-tagging** with a tag browser.
+- **The Cookbook**, narrowed by colour-coded **category chips** and a
+  **Filters** sheet (pinned, made, tags).
+- **One search**: names, ingredients and tags, plus **auto-tagging** with a
+  tag browser.
 - **Recipe card and full page** themed to the recipe's category: tickable
   ingredients, a numbered method, **cook mode** (keeps the screen awake), a
   **serving scaler**, pin / made, share and print.
@@ -58,7 +58,7 @@ src/
   main.jsx              React bootstrap
   App.jsx               top-level app
   components/           UI components (CSS Modules) — Masthead, SearchBar,
-                       RecipeList, RecipeCard, SearchResults, ToTryLinks,
+                       RecipeList, RecipeCard, SearchResults,
                        FiltersSheet, Shelves, RecipeView/Modal/Page, MacroCard,
                        ShoppingList, TabBar, PinnedList, AboutSheet,
                        ErrorBoundary, UsdaKeyNotice
@@ -66,7 +66,7 @@ src/
                        usePinnedRecipes, useRecentlyViewed, useMacroEstimate,
                        useFocusTrap
   context/             CookHistoryContext
-  data/                recipes.json, recipeIndex, sections, catalog, nutritionOverrides, expandVersions
+  data/                recipes.json, recipeIndex, sections, catalog, nutritionOverrides
   utils/               ingredient parsing, gram conversion, macro/serving estimates,
                        USDA fetch, autoTags, fractions, scaleIngredient
   styles/tokens.css    design tokens (light only)

@@ -10,41 +10,7 @@
   color: var(--ink-muted);
 }
 
-/* ---------- Collections: a segmented control ---------- */
-.collections {
-  display: flex;
-  gap: var(--s1);
-  width: fit-content;
-  max-width: 100%;
-  margin-top: var(--s5);
-  padding: var(--s1);
-  background: var(--surface-sunk);
-  border-radius: var(--r3);
-}
-
-.collections button {
-  min-height: var(--tap);
-  padding: 0 var(--s4);
-  border: 0;
-  border-radius: var(--r2);
-  background: none;
-  color: var(--ink-muted);
-  font: 600 var(--t-sm)/1 var(--sans);
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.collections button:hover {
-  color: var(--ink);
-}
-
-.collections button[aria-pressed="true"] {
-  background: var(--surface);
-  color: var(--ink);
-  box-shadow: var(--shadow-1);
-}
-
-/* ---------- Category chips (and, for now, the list tools) ---------- */
+/* ---------- Category chips (and the list tools) ---------- */
 /* Scrolls sideways on a phone. The negative margin lets it run to the screen
    edge; the padding keeps the first chip aligned with the content column. */
 .chipRow {
@@ -141,16 +107,6 @@
   }
 }
 
-/* A one-line explanation of what a collection is. */
-.note {
-  margin: var(--s5) 0 0;
-  padding: var(--s3) var(--s4);
-  background: var(--brand-soft);
-  border-radius: var(--r2);
-  color: var(--brand);
-  font-size: var(--t-sm);
-}
-
 /* ---------- Groups ---------- */
 .group {
   margin-top: var(--s7);
@@ -211,25 +167,6 @@
 }
 
 @media (max-width: 719px) {
-  .collections {
-    width: 100%;
-  }
-  /* Three labels and three counts do not fit one line at 390px: stack the
-     count under its label so nothing is clipped. */
-  .collections button {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-    padding: var(--s1) var(--s1);
-    white-space: normal;
-  }
-  .collections .n {
-    margin-left: 0;
-    font-size: var(--t-xs);
-  }
   .grid {
     grid-template-columns: 1fr;
     gap: var(--s3);

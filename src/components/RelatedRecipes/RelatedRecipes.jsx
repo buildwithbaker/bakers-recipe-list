@@ -26,8 +26,7 @@ export default function RelatedRecipes({ recipe, onNavigate }) {
   return (
     <nav className={styles.related} aria-labelledby={headingId} data-print-hide>
       <h2 id={headingId} className={styles.heading}>More like this</h2>
-      {/* Cards show the reader-facing category label, never the staging
-          state: no "For Review" badge on a page a shared link opens. */}
+      {/* Cards show the reader-facing category label. */}
       <ul className={styles.grid}>
         {items.map((item) => (
           <RecipeCard key={item.id} recipe={item} onViewRecipe={(r) => onNavigate?.(r)} showCategory />

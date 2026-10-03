@@ -147,19 +147,6 @@ function tokenWeight(token, { df, published }) {
   return Math.log(published / seen);
 }
 
-// A versioned child carries a derived id like `parent::v1` (expandVersions.js).
-const parentOf = (id) => {
-  const marker = String(id).indexOf('::');
-  return marker === -1 ? null : String(id).slice(0, marker);
-};
-
-// Two rows expanded from the SAME record: related by construction rather than
-// by inference, so the scoring does not judge them at all.
-function areSiblings(a, b) {
-  const parent = parentOf(a);
-  return parent !== null && parent === parentOf(b);
-}
-
 /**
  * @param recipe    the display row being viewed
  * @param all       every display row, IN FILE ORDER — the order is the final
@@ -183,36 +170,25 @@ export function relatedRecipes(recipe, all, limit = RELATED_LIMIT, minScore = MI
   all.forEach((candidate, index) => {
     if (candidate.id === recipe.id) return;
     // A "coming soon" placeholder is a dead end: no ingredients, no method and
-    // no prerendered page behind its link. The one rule siblings do not escape.
+    // no prerendered page behind its link.
     if (candidate.is_blank !== false) return;
 
-    const sibling = areSiblings(recipe.id, candidate.id);
+    if (mine.size === 0) return;
+    const theirs = model.tokensById.get(candidate.id);
+    if (!theirs || theirs.size === 0) return;
+    // Sorted so an identical set of shared tokens always sums in the same
+    // order, and therefore to the same float. Without that, two candidates
+    // sharing the same tokens could differ in the last bit and jump the
+    // file-order tie-break that is supposed to make this reproducible.
+    const shared = [...theirs].filter((token) => mine.has(token)).sort();
+    if (shared.length === 0) return;
+    const score = shared.reduce((sum, token) => sum + tokenWeight(token, model), 0);
+    if (score < minScore) return;
 
-    let score = 0;
-    if (!sibling) {
-      if (mine.size === 0) return;
-      const theirs = model.tokensById.get(candidate.id);
-      if (!theirs || theirs.size === 0) return;
-      // Sorted so an identical set of shared tokens always sums in the same
-      // order, and therefore to the same float. Without that, two candidates
-      // sharing the same tokens could differ in the last bit and jump the
-      // file-order tie-break that is supposed to make this reproducible.
-      const shared = [...theirs].filter((token) => mine.has(token)).sort();
-      if (shared.length === 0) return;
-      score = shared.reduce((sum, token) => sum + tokenWeight(token, model), 0);
-      if (score < minScore) return;
-    }
-
-    scored.push({ candidate, sibling, score, index });
+    scored.push({ candidate, score, index });
   });
 
-  scored.sort((a, b) => {
-    // Siblings first, and among themselves in file order — which is version
-    // order, so Version 2 never lands above Version 1 on an ingredient accident.
-    if (a.sibling !== b.sibling) return a.sibling ? -1 : 1;
-    if (a.sibling) return a.index - b.index;
-    return b.score - a.score || a.index - b.index;
-  });
+  scored.sort((a, b) => b.score - a.score || a.index - b.index);
 
   return scored.slice(0, limit).map((entry) => entry.candidate);
 }

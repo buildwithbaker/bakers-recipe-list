@@ -7,7 +7,9 @@ exact, enforced way to add or edit recipes. Pairs with
 
 ## What this repo is
 
-A static React (Vite) single-page app that renders a personal recipe collection.
+A static React (Vite) single-page app that renders a personal cookbook: the
+Cookbook collection only. (To Try and For Review were removed on 2026-10-02; see
+the end of this file.)
 All recipe content lives in **one file**: `src/data/recipes.json` (a JSON array).
 There is no database and no CMS — editing recipes means editing that JSON file,
 and the live site updates only when the change is merged to `main` (GitHub Pages
@@ -71,10 +73,12 @@ schema and validator accept both:
 
 - **Classic:** `{ "step": "<short title>", "detail": "<full instruction>" }`.
   Use this for new recipes. `detail` carries the real text.
-- **Grouped** (used by multi-version marinades): `{ "type": "...", "step":
-  "<full content>", "detail": "" }`, where `type: "section"` / `"header"` is a
-  sub-heading like `"Version 1 - Food Network"` and `type: "item"` is a step.
-  Here the content lives in `step` and `detail` is empty.
+- **Grouped** (used by the two Tandoori marinade records): `{ "type": "...",
+  "step": "<full content>", "detail": "" }`, where `type: "section"` / `"header"`
+  is a sub-heading like `"Glaze"` and `type: "item"` is a step. Here the content
+  lives in `step` and `detail` is empty. A `"Version N ..."` sub-heading is not
+  allowed: nothing splits versions into separate rows any more, so they would
+  render mashed into one card (`recipes.integrity.test.js` fails on one).
 
 Rule the validator enforces: `step` is always non-empty; `detail` is required but
 may be empty; `type`, when present, is `item`, `section`, or `header`.
@@ -172,13 +176,15 @@ plausible enough to act on.
 - Root is locked: new CSS → `src/styles/`, new component → `src/components/`,
   new util → `src/utils/`, build script → `scripts/`, planning doc → `docs/internal/`.
 
-## Known tech debt — the `FOR REVIEW` sections
+## Cookbook only — no To Try or For Review
 
-The `FOR REVIEW ...` section keys are a staging area surfaced under the app's
-"For Review" collection (driven by `review: true` in `sections.js`, and referenced by
-`autoTags.js` and `estimateServings.js`). They overload `section` to encode both
-a category and a review status, with inconsistent delimiters
-(`FOR REVIEW ---` vs `FOR REVIEW -`) and duplicate soup buckets. They are valid
-for now (locked in the schema enum) but are slated for a refactor to a dedicated
-`status` field. **Do not add new recipes under a `FOR REVIEW` section** unless you
-are deliberately staging something for review.
+The site has one collection, the Cookbook. The To Try links and the For Review
+staging shelf were removed on 2026-10-02: 622 records, every one declared in
+`recipes.ids.json` `removed` (two dirty-rice placeholders point at `dirty-rice`,
+the rest at `null`). They are archived outside the repo and stay in git history
+at `d58c4db`.
+
+There is no `TO TRY ...` or `FOR REVIEW ...` section any more: `sections.js` and
+the schema enum no longer list them, so the validator rejects a record filed
+under one. To stage a recipe that is not ready, use `is_blank: true` (a "coming
+soon" placeholder) rather than inventing a new section.

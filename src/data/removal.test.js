@@ -12,12 +12,12 @@ import { rekeyRemovedState, STORES } from './stateMigration.js';
 // No test here depends on a real removal: the live manifest's `removed` may be
 // empty, and a later batch that removes a record must not change these.
 
-// A fixture catalog: beta is a plain record, multi is a versioned record that
-// only exists as multi::v1 / multi::v2 display rows.
+// A fixture catalog of plain records. old-multi and gone-multi were versioned
+// records (they displayed as <id>::v1..N rows, the For Review shape removed on
+// 2026-10-02): their ::vN keys must still resolve.
 const ROWS = [
   { id: 'beta-recipe', name: 'Beta Recipe' },
-  { id: 'multi-recipe::v1', name: 'Multi (Version 1)' },
-  { id: 'multi-recipe::v2', name: 'Multi (Version 2)' },
+  { id: 'multi-recipe', name: 'Multi Recipe' },
 ];
 const ROWS_BY_ID = new Map(ROWS.map((r) => [r.id, r]));
 const MANIFEST = {
@@ -27,13 +27,15 @@ const MANIFEST = {
     'alpha-recipe': { to: 'beta-recipe', note: 'merged into beta' },
     'gone-recipe': { to: null, note: 'dropped' },
     'old-multi': { to: 'multi-recipe', note: 'folded into multi', versions: 2 },
+    'gone-multi': { to: null, note: 'collection removed', versions: 2 },
   },
   ids: {
     'alpha-recipe': 'Alpha Recipe',
     'beta-recipe': 'Beta Recipe',
     'gone-recipe': 'Gone Recipe',
     'old-multi': 'Old Multi - Chicken Marinade',
-    'multi-recipe': 'Multi - Chicken Marinade',
+    'gone-multi': 'Gone Multi - Beef Marinade',
+    'multi-recipe': 'Multi Recipe',
   },
 };
 
@@ -54,18 +56,25 @@ describe('removed-id resolution', () => {
   });
 
   it('resolves <removed>::vN to the successor', () => {
-    expect(lookup.byId('old-multi::v1')?.id).toBe('multi-recipe::v1');
-    expect(lookup.byId('old-multi::v2')?.id).toBe('multi-recipe::v1');
+    expect(lookup.byId('old-multi::v1')?.id).toBe('multi-recipe');
+    expect(lookup.byId('old-multi::v2')?.id).toBe('multi-recipe');
   });
 
-  it('lands an expanded successor on its first display row', () => {
-    expect(successorRow('multi-recipe', ROWS_BY_ID)?.id).toBe('multi-recipe::v1');
+  it('resolves <removed>::vN with to: null to null, not to "not removed"', () => {
+    expect(lookup.byId('gone-multi')).toBeNull();
+    expect(lookup.byId('gone-multi::v2')).toBeNull();
+    expect(lookup.byName('Gone Multi - Beef Marinade')).toBeNull();
+  });
+
+  it("lands on the successor's own row", () => {
+    expect(successorRow('multi-recipe', ROWS_BY_ID)?.id).toBe('multi-recipe');
     expect(successorRow('beta-recipe', ROWS_BY_ID)?.id).toBe('beta-recipe');
+    expect(successorRow('not-a-row', ROWS_BY_ID)).toBeNull();
     expect(successorRow(null, ROWS_BY_ID)).toBeNull();
   });
 
   it('leaves every key that is not a removed key alone', () => {
-    for (const key of ['beta-recipe', 'multi-recipe::v1', 'Beta Recipe', 'alpha-recipe-2', 'alpha']) {
+    for (const key of ['beta-recipe', 'multi-recipe', 'multi-recipe::v1', 'Beta Recipe', 'alpha-recipe-2', 'alpha']) {
       expect(lookup.byId(key)).toBeUndefined();
       expect(lookup.byName(key)).toBeUndefined();
     }
@@ -73,7 +82,8 @@ describe('removed-id resolution', () => {
 
   it('gives the successor id for rekeying, and null for to: null', () => {
     expect(removedSuccessorId('alpha-recipe', MANIFEST, ROWS_BY_ID)).toBe('beta-recipe');
-    expect(removedSuccessorId('old-multi::v2', MANIFEST, ROWS_BY_ID)).toBe('multi-recipe::v1');
+    expect(removedSuccessorId('old-multi::v2', MANIFEST, ROWS_BY_ID)).toBe('multi-recipe');
+    expect(removedSuccessorId('gone-multi::v1', MANIFEST, ROWS_BY_ID)).toBeNull();
     expect(removedSuccessorId('gone-recipe', MANIFEST, ROWS_BY_ID)).toBeNull();
     expect(removedSuccessorId('beta-recipe', MANIFEST, ROWS_BY_ID)).toBeNull();
   });
@@ -128,7 +138,7 @@ describe('rekeyRemovedState', () => {
     expect(run(storage).status).toBe('rekeyed');
 
     // Sets take the union: beta was already made, so alpha folds into it once.
-    expect(storage.get(STORES.made)).toEqual(['beta-recipe', 'gone-recipe', 'multi-recipe::v1']);
+    expect(storage.get(STORES.made)).toEqual(['beta-recipe', 'gone-recipe', 'multi-recipe']);
     expect(storage.get(STORES.pinned)).toEqual(['beta-recipe', 'other-recipe']);
 
     // The cook log keeps every entry from both keys, ordered by date.
@@ -149,7 +159,7 @@ describe('rekeyRemovedState', () => {
     expect(storage.get(STORES.shopping).map((i) => i.recipe)).toEqual([
       'beta-recipe',
       'gone-recipe',
-      'multi-recipe::v1',
+      'multi-recipe',
     ]);
   });
 
@@ -243,22 +253,7 @@ function prerenderFixture() {
   writeFileSync(join(root, 'dist', 'index.html'), SHELL);
   const records = [
     recordFixture('beta-recipe', 'Beta Recipe'),
-    recordFixture('multi-recipe', 'Multi - Chicken Marinade', {
-      section: 'FOR REVIEW --- CURRY',
-      category: 'For Review',
-      ingredients: [
-        { type: 'section', text: 'Version 1 - One' },
-        { type: 'item', text: '1 lemon' },
-        { type: 'section', text: 'Version 2 - Two' },
-        { type: 'item', text: '1 lime' },
-      ],
-      instructions: [
-        { type: 'section', step: 'Version 1 - One', detail: '' },
-        { type: 'item', step: 'Squeeze the lemon.', detail: '' },
-        { type: 'section', step: 'Version 2 - Two', detail: '' },
-        { type: 'item', step: 'Squeeze the lime.', detail: '' },
-      ],
-    }),
+    recordFixture('multi-recipe', 'Multi Recipe'),
   ];
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(MANIFEST, null, 2));
@@ -283,7 +278,8 @@ describe('prerender redirects for removed ids', () => {
   it('runs cleanly against the fixture', () => {
     expect(`${res.stdout}${res.stderr}`).toMatch(/✓ prerender/);
     expect(res.status).toBe(0);
-    expect(res.stdout).toMatch(/5 redirects/);
+    // alpha, gone, and old-multi / gone-multi with their two version pages each.
+    expect(res.stdout).toMatch(/8 redirects/);
   });
 
   it("redirects a removed id to its successor's page", () => {
@@ -294,17 +290,23 @@ describe('prerender redirects for removed ids', () => {
     expectRedirect(page('gone-recipe'), ORIGIN);
   });
 
-  it("redirects a removed versioned record and each version page to the successor's first row", () => {
+  it("redirects a removed versioned record and each version page to the successor's page", () => {
     for (const slug of ['old-multi', 'old-multi--v1', 'old-multi--v2']) {
-      expectRedirect(page(slug), `${ORIGIN}r/multi-recipe--v1/`);
+      expectRedirect(page(slug), `${ORIGIN}r/multi-recipe/`);
     }
     expect(existsSync(join(root, 'dist', 'r', 'old-multi--v3'))).toBe(false);
+  });
+
+  it('redirects a removed versioned record with to: null, and its version pages, to the site root', () => {
+    for (const slug of ['gone-multi', 'gone-multi--v1', 'gone-multi--v2']) {
+      expectRedirect(page(slug), ORIGIN);
+    }
   });
 
   it('keeps redirect pages out of the sitemap', () => {
     const sitemap = readFileSync(join(root, 'dist', 'sitemap.xml'), 'utf8');
     expect(sitemap).toContain(`${ORIGIN}r/beta-recipe/`);
-    for (const slug of ['alpha-recipe', 'gone-recipe', 'old-multi']) {
+    for (const slug of ['alpha-recipe', 'gone-recipe', 'old-multi', 'gone-multi']) {
       expect(sitemap).not.toContain(`/r/${slug}`);
     }
   });

@@ -284,7 +284,10 @@ if (!manifestIds || typeof manifestIds !== 'object') {
 
   // 4. The allowlist is not a junk drawer: every exemption must name a real id
   //    that really was renamed, or it is a blanket waiver hiding a future bug.
+  //    A removed id keeps its exemption, as it keeps its `ids` entry: the
+  //    manifest is append-only, and the rename is still part of its history.
   for (const id of Object.keys(renamedAllowlist)) {
+    if (id in removedMap) continue;
     const record = byId.get(id);
     if (!record) {
       errors.push(`renamed allowlist lists "${id}", which is not a recipe id in recipes.json`);

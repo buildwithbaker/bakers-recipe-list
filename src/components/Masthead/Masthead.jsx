@@ -20,7 +20,7 @@ import Icon from '../Icon/Icon.jsx';
 import styles from './Masthead.module.css';
 
 const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
-const TAGLINE = `${plural(CATALOG_COUNTS.written, 'recipe')} · ${CATALOG_COUNTS.toTry} to try`;
+const TAGLINE = plural(CATALOG_COUNTS.written, 'recipe');
 
 export default function Masthead({ nav, onAbout, siteTitleIsHeading = true, slim = false, onHome }) {
   const Title = siteTitleIsHeading ? 'h1' : 'p';

@@ -1,6 +1,6 @@
 // The recipe as a real page, for a visitor who landed on /r/<slug>/ from a
 // shared link with no list behind them. Same route and same body as the modal
-// (RecipeView). The difference is the frame: a way back to the collection, and
+// (RecipeView). The difference is the frame: a way back to the list, and
 // related recipes underneath.
 //
 // data-print-modal is deliberate and must stay: globals.css keys its print

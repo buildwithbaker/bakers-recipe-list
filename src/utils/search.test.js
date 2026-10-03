@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { displayRecipes } from '../data/recipeIndex.js';
-import { COLL_BOOK, COLL_REVIEW, COLL_TRY } from '../data/catalog.js';
 import { isComingSoon } from './recipeKinds.js';
 import { normaliseText, recipeMatchesQuery, searchCatalog } from './search.js';
 
@@ -25,21 +24,26 @@ describe('search', () => {
   });
 
   it('returns nothing for a blank query', () => {
-    expect(searchCatalog(displayRecipes, '   ').total).toBe(0);
+    expect(searchCatalog(displayRecipes, '   ')).toEqual([]);
   });
 
-  it('searches every collection at once: "chicken" hits all three', () => {
+  it('returns every written row that matches, in the order given', () => {
     const res = searchCatalog(displayRecipes, 'chicken');
-    expect(res[COLL_BOOK].length).toBeGreaterThan(0);
-    expect(res[COLL_REVIEW].length).toBeGreaterThan(0);
-    expect(res[COLL_TRY].length).toBeGreaterThan(0);
-    expect(res.total).toBe(res[COLL_BOOK].length + res[COLL_REVIEW].length + res[COLL_TRY].length);
+    expect(res.length).toBeGreaterThan(0);
+    const expected = displayRecipes.filter((r) => !isComingSoon(r) && recipeMatchesQuery(r, 'chicken'));
+    expect(res.map((r) => r.id)).toEqual(expected.map((r) => r.id));
   });
 
   it('never returns a coming-soon placeholder', () => {
     const planned = displayRecipes.find(isComingSoon);
+    expect(planned).toBeTruthy();
     const res = searchCatalog(displayRecipes, planned.name);
-    const all = [...res[COLL_BOOK], ...res[COLL_REVIEW], ...res[COLL_TRY]];
-    expect(all.some(isComingSoon)).toBe(false);
+    expect(res.some(isComingSoon)).toBe(false);
+  });
+
+  // The To Try and For Review collections were removed on 2026-10-02: a
+  // recipe that only lived there finds nothing.
+  it('finds nothing for a removed To Try or For Review recipe', () => {
+    expect(searchCatalog(displayRecipes, 'Cajun Dirty Rice')).toEqual([]);
   });
 });

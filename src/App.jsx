@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { resolveRecipe } from './data/recipeIndex.js';
 import { SECTIONS } from './data/sections.js';
-import { COLL_BOOK, SECTION_CATEGORY, collectionOfSection } from './data/catalog.js';
+import { SECTION_CATEGORY } from './data/catalog.js';
 import Masthead from './components/Masthead/Masthead.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
 import RecipeList from './components/RecipeList/RecipeList.jsx';
@@ -55,14 +55,16 @@ import {
  */
 
 // An old #sec-<SECTION> link from the retired sections drawer lands on the
-// matching collection and category rather than nowhere.
-function landingShelf() {
+// matching category rather than nowhere. A link to a removed To Try or For
+// Review section (#sec-TO-TRY-*, #sec-FOR-REVIEW-*) matches nothing and lands
+// on the whole Cookbook list.
+function landingCategory() {
   try {
     const id = decodeURIComponent(window.location.hash.slice(1));
     const section = id && SECTIONS.find((s) => s.id === id);
-    if (section) return { collection: collectionOfSection(section), category: SECTION_CATEGORY[section.key] ?? '' };
+    if (section) return SECTION_CATEGORY[section.key] ?? '';
   } catch { /* fall through */ }
-  return { collection: COLL_BOOK, category: '' };
+  return '';
 }
 
 function getParam(key) {
@@ -147,12 +149,9 @@ function AppInner() {
   const [overlays, setOverlays] = useState(entryOverlays);
   const [tab, setTab] = useState(currentEntryTab);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
-  // Which collection and category the list shows. Owned here so they survive
-  // the list unmounting behind a full recipe page.
-  const [shelf] = useState(landingShelf);
-  const [collection, setCollection] = useState(shelf.collection);
-  const [category, setCategory] = useState(shelf.category);
-  const handleCollectionChange = useCallback((key) => { setCollection(key); setCategory(''); }, []);
+  // Which category the list shows. Owned here so it survives the list
+  // unmounting behind a full recipe page.
+  const [category, setCategory] = useState(landingCategory);
   const searchBarRef = useRef(null);
   // Mirrors `overlays` for use inside callbacks that must not re-create on every change.
   const overlaysRef = useRef(overlays);
@@ -363,7 +362,7 @@ function AppInner() {
   // `history.state` is the "this entry is ours" marker: a reload preserves it,
   // so re-running would duplicate the entry. A link that resolves to nothing
   // (a stale id, a renamed recipe) just gets its URL cleaned back to the list —
-  // being shown the collection beats being shown an error.
+  // being shown the list beats being shown an error.
   useEffect(() => {
     if (!landing.key || window.history.state) return;
     try {
@@ -426,8 +425,6 @@ function AppInner() {
                 onViewRecipe={handleViewRecipe}
                 searchQuery={searchQuery}
                 onSearch={handleSearch}
-                collection={collection}
-                onCollectionChange={handleCollectionChange}
                 category={category}
                 onCategoryChange={setCategory}
                 recentHistory={recentHistory}

@@ -14,7 +14,6 @@ import { readFileSync, readdirSync, statSync, mkdirSync, existsSync, unlinkSync 
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import sharp from 'sharp';
-import { expandVersionedRecipe } from '../src/data/expandVersions.js';
 import { PHOTO_SIZES, generatedName, planPhotos } from '../src/utils/photoFiles.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -22,7 +21,7 @@ const SRC = join(root, 'src', 'photos');
 const OUT = join(SRC, 'generated');
 
 const recipes = JSON.parse(readFileSync(join(root, 'src', 'data', 'recipes.json'), 'utf8'));
-const knownIds = new Set(recipes.flatMap((r) => expandVersionedRecipe(r).map((row) => row.id)));
+const knownIds = new Set(recipes.map((r) => r.id));
 
 const files = existsSync(SRC)
   ? readdirSync(SRC).map((name) => ({ name, bytes: statSync(join(SRC, name)).size }))
