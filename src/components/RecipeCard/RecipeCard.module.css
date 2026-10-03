@@ -138,11 +138,6 @@
   color: var(--made);
 }
 
-.review {
-  background: var(--review-soft);
-  color: var(--review-ink);
-}
-
 /* Sits above the card link (z-index) so it is its own target. */
 .pin {
   position: absolute;

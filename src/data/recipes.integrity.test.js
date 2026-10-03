@@ -77,12 +77,11 @@ describe('recipes.json integrity', () => {
   });
 });
 
-// The rendered list and the name→recipe lookup must agree. Recipes in a
-// `review: true` section are RENAMED at display time by expandVersionedRecipe,
-// so a row can emit a name that is not in recipes.json. When the lookup was
-// built from the raw file, all 121 expanded marinade rows resolved to null and
-// clicking one silently rendered an empty card — nothing threw, so the
-// ErrorBoundary never fired. These tests are that invariant.
+// The rendered list and the name→recipe lookup must agree. When they were
+// built from different sources (the old For Review version expansion renamed
+// rows at display time), 121 rows resolved to null and clicking one silently
+// rendered an empty card — nothing threw, so the ErrorBoundary never fired.
+// These tests are that invariant.
 describe('display list ↔ lookup identity', () => {
   it('resolves every name reachable from the rendered display list', () => {
     const unresolvable = displayRecipes
@@ -187,9 +186,12 @@ describe('recipe ids', () => {
   it('keeps the renamed allowlist honest', () => {
     const byId = new Map(recipes.map((r) => [r.id, r]));
     // An allowlist entry must name a real id that HAS actually been renamed —
-    // otherwise it is a blanket exemption waiting to hide a future mistake.
+    // otherwise it is a blanket exemption waiting to hide a future mistake. A
+    // removed id keeps its exemption (the manifest is append-only), the same
+    // rule validate-recipes.mjs applies.
+    const removed = idManifest.removed ?? {};
     const stale = Object.keys(idManifest.renamed ?? {}).filter(
-      (id) => !byId.has(id) || byId.get(id).name === idManifest.ids[id],
+      (id) => !(id in removed) && (!byId.has(id) || byId.get(id).name === idManifest.ids[id]),
     );
     expect(stale).toEqual([]);
   });
@@ -324,20 +326,18 @@ describe('recipe ids', () => {
   });
 });
 
-// The #40 / #43 bug class, pinned. Version markers are meaningful only where
-// expansion runs (review: true sections). A record outside one that carries a
-// "Version N" marker renders every version mashed into a single card — which is
-// exactly what "Tandoori - Chicken Marinade" did until it was split in #43.
-// Semantic sub-group headers ("Glaze", "Rub", "Sauce") are correct and are NOT
-// what this guards against.
-describe('version markers stay inside review sections', () => {
+// The #40 / #43 bug class, pinned. Nothing expands "Version N" markers into
+// separate rows any more (that ran for For Review sections only, removed
+// 2026-10-02), so a record carrying one renders every version mashed into a
+// single card — which is exactly what "Tandoori - Chicken Marinade" did until
+// it was split in #43. Semantic sub-group headers ("Glaze", "Rub", "Sauce")
+// are correct and are NOT what this guards against.
+describe('no version markers', () => {
   const VERSION_LABEL = /^Version\s*\d/;
-  const reviewKeys = new Set(SECTIONS.filter((s) => s.review).map((s) => s.key));
 
-  it('has no version-labelled marker outside a review section', () => {
+  it('has no version-labelled marker in any record', () => {
     const offenders = [];
     for (const recipe of recipes) {
-      if (reviewKeys.has(recipe.section)) continue;
       for (const ing of recipe.ingredients ?? []) {
         if (ing.type === 'section' && VERSION_LABEL.test(ing.text ?? '')) {
           offenders.push(`${recipe.name} [${recipe.section}] ingredient: "${ing.text}"`);

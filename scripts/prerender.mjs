@@ -10,8 +10,9 @@
 // It writes dist/r/<slug>/index.html per recipe. GitHub Pages serves
 // <dir>/index.html for <dir>/, so those become clean URLs with no server.
 //
-// SLUG vs ID: a versioned child row carries a derived id like `parent::v1`
-// (see expandVersions.js). A colon is a legal URL character but an ILLEGAL
+// SLUG vs ID: a removed record that displayed as versions had derived ids like
+// `parent::v1`, and its old /r/ URLs still get redirect pages (below). A colon
+// is a legal URL character but an ILLEGAL
 // Windows filename character, so `mkdir dist/r/parent::v1` fails on Windows
 // while succeeding in CI - a local-only build break. The path segment therefore
 // swaps `::` for `--`. No authored id contains `--` (the id pattern is
@@ -24,8 +25,7 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { SECTIONS, publicSectionLabel } from '../src/data/sections.js';
-import { expandVersionedRecipe } from '../src/data/expandVersions.js';
+import { publicSectionLabel } from '../src/data/sections.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { ogImageAlt } from '../src/utils/photoCredit.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
@@ -44,9 +44,6 @@ const BASE = '/bakers-recipe-list/';
 const ORIGIN = SITE + BASE;
 const PLACEHOLDER = `${ORIGIN}recipe-placeholder.png`;
 
-// Tags that describe the workflow, not the food. They stay out of public metadata.
-const INTERNAL_TAGS = new Set(['for-review']);
-
 if (!existsSync(join(dist, 'index.html'))) {
   console.error('✗ prerender: dist/index.html not found - run `vite build` first');
   process.exit(1);
@@ -56,14 +53,8 @@ const shell = readFileSync(join(dist, 'index.html'), 'utf8');
 const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'utf8'));
 const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json'), 'utf8'));
 
-const REVIEW_KEYS = new Set(SECTIONS.filter((s) => s.review).map((s) => s.key));
-
-// The rows the app actually renders - review records expand into one row per
-// version. Mirrors displayRecipes in recipeIndex.js; kept in sync by the count
-// assertion at the end of this file.
-const displayRecipes = recipes.flatMap((r) =>
-  REVIEW_KEYS.has(r.section) ? expandVersionedRecipe(r) : [r],
-);
+// The rows the app renders: one per record (displayRecipes in recipeIndex.js).
+const displayRecipes = recipes;
 
 // Blanks are placeholder rows with no ingredients and no method. Publishing
 // them would be the thin-content pattern search engines penalise and a dead
@@ -134,19 +125,14 @@ function jsonLd(r, url) {
     url,
     author: { '@type': 'Person', name: 'Adam Baker' },
   };
-  // NOT `r.category`: a staged record carries the literal "For Review" there,
-  // and publishing that as recipeCategory put an internal workflow state into
-  // the structured data a search result is built from. Same rule as the card
-  // subtitle in the app — the section is a real classification, a staging
-  // bucket yields nothing, and the property is then omitted rather than
-  // emitted empty. See publicSectionLabel in src/data/sections.js.
+  // The section's label, the same subtitle the app shows (publicSectionLabel
+  // in src/data/sections.js); omitted rather than emitted empty.
   const category = publicSectionLabel(r.section);
   if (category) ld.recipeCategory = category;
-  // #for-review is an internal staging marker, not a property of the food.
-  // Google's guidance is also that keywords must not restate recipeCategory.
+  // Google's guidance is that keywords must not restate recipeCategory.
   const keywords = (r.tags || [])
     .map((t) => t.replace(/^#/, ''))
-    .filter((t) => !INTERNAL_TAGS.has(t) && t.replace(/-/g, ' ') !== String(category ?? '').toLowerCase())
+    .filter((t) => t.replace(/-/g, ' ') !== String(category ?? '').toLowerCase())
     .map((t) => t.replace(/-/g, ' '))
     .join(', ');
   if (keywords) ld.keywords = keywords;
@@ -331,9 +317,7 @@ for (const r of published) {
 // /r/<slug>/ becomes a redirect to the successor's page, or to the site root
 // when `to` is null. A record that displayed as N versions also had
 // /r/<id>--v1..N/ pages, so those redirect too when `versions` says how many.
-// An expanded successor has no page under its own id and lands on its first
-// version, the same rule resolveRecipe applies in the app. Redirect pages are
-// noindex and never go in the sitemap.
+// Redirect pages are noindex and never go in the sitemap.
 
 function redirectPage(target) {
   const t = esc(target);
@@ -361,7 +345,7 @@ const displayIds = new Set(displayRecipes.map((r) => r.id));
 let redirects = 0;
 for (const [removedId, entry] of Object.entries(idManifest.removed ?? {})) {
   const to = entry?.to ?? null;
-  const landing = !to ? null : displayIds.has(to) ? to : displayIds.has(`${to}::v1`) ? `${to}::v1` : null;
+  const landing = to && displayIds.has(to) ? to : null;
   if (to && !landing) {
     console.error(`✗ prerender: removed "${removedId}" names successor "${to}", which has no display row`);
     process.exit(1);
@@ -399,15 +383,6 @@ writeFileSync(
   `User-agent: *\nAllow: /\nSitemap: ${ORIGIN}sitemap.xml\n`,
   'utf8',
 );
-
-// Drift guard, same family as the checks in validate-recipes.mjs: if this
-// script's copy of the expansion ever stops matching the app's, the page count
-// silently diverges from what the app can route to. Fail loudly instead.
-const appRows = displayRecipes.length;
-if (appRows < recipes.length) {
-  console.error(`✗ prerender: expansion produced ${appRows} rows from ${recipes.length} records - expected at least as many`);
-  process.exit(1);
-}
 
 console.log(
   `✓ prerender - ${published.length} recipe pages from ${displayRecipes.length} display rows ` +

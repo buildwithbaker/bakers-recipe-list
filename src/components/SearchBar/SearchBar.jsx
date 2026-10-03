@@ -2,7 +2,7 @@ import { forwardRef, useId, useImperativeHandle, useRef } from 'react';
 import Icon from '../Icon/Icon.jsx';
 import styles from './SearchBar.module.css';
 
-// The one search box. It searches every collection (see utils/search.js), sits
+// The one search box. It searches the Cookbook (see utils/search.js), sits
 // across the bottom edge of the masthead, and uses 17px text so iOS Safari does
 // not zoom the page when it takes focus. The native clear button is hidden in
 // favour of ours, which is a real 44px target in every browser.

@@ -9,7 +9,6 @@
 // line, match searches, and populate the tag browser counts.
 
 // Maps a section key to a single cuisine/type tag.
-// FOR REVIEW sections carry their underlying type tag (e.g. CURRY → #curry #asian).
 const SECTION_TAG_MAP = {
   'AMERICAN':                     ['#american'],
   'MEXICAN':                      ['#mexican'],
@@ -27,19 +26,12 @@ const SECTION_TAG_MAP = {
   'MARINADES':                    ['#marinade'],
   'SEASONINGS':                   ['#seasoning'],
   'DOUGHS':                       ['#dough'],
-  // FOR REVIEW sections resolve to their underlying type — see normaliseSection.
-  'CURRY':                        ['#curry', '#asian'],
 };
 
 // SANDWICHES and BREAD above look dead — no published recipe reaches them,
 // because every record in those sections is currently a blank placeholder and
 // getAutoTags returns nothing for a blank. They are NOT dead: fill one of those
 // recipes in and the key becomes live and correct. Do not "tidy" them away.
-//
-// Four keys that WERE dead have been removed: 'SOUPS-MORE', 'MARINADES-CHICKEN',
-// 'MARINADES-BEEF' and 'MARINADES-PORK' were written in a hyphen-joined form
-// that no section key uses and that normaliseSection never produced, so nothing
-// could ever have matched them.
 
 // Ingredient substrings that signal #spicy.
 const SPICY_NEEDLES = [
@@ -89,33 +81,13 @@ const PROTEIN_RULES = [
   { needles: ['turkey'],                                                                tag: '#turkey'  },
 ];
 
-// A review section key reduced to the type it is staging.
-//
-// The keys use TWO delimiter forms — "FOR REVIEW --- CURRY" and
-// "FOR REVIEW - MARINADES - CHICKEN" — and the old strip only handled the
-// three-dash one, so four sections covering most of the catalog silently got no
-// section tag at all. Both forms are handled here, and any remaining " - "
-// qualifier is dropped so the protein-specific marinade sections land on
-// MARINADES rather than on a key that does not exist.
-//
-// COSMETIC IN PRACTICE: every recipe this now reaches already carries
-// #marinade or #soup as an AUTHORED tag, so almost no output changes. It is
-// fixed because a silently-dead branch is worse than a redundant one.
-export function normaliseSection(section) {
-  return String(section ?? '')
-    .replace(/^FOR REVIEW\s*-+\s*/, '')
-    .split(/\s+-\s+/)[0]
-    .trim();
-}
-
 export function getAutoTags(recipe) {
   if (!recipe || recipe.is_blank) return [];
 
   const result = new Set();
 
   // ── 1. Section tags ──────────────────────────────────────────────────────
-  const sectionKey = normaliseSection(recipe.section);
-  const sectionTags = SECTION_TAG_MAP[sectionKey];
+  const sectionTags = SECTION_TAG_MAP[recipe.section];
   if (sectionTags) sectionTags.forEach((t) => result.add(t));
 
   // ── 2. Ingredient-derived tags ───────────────────────────────────────────

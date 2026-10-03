@@ -11,7 +11,7 @@ vi.mock('./recipes.ids.json', async (importOriginal) => {
       removed: {
         'fixture-removed-plain': { to: 'spicy-pork-patties', note: 'fixture' },
         'fixture-removed-null': { to: null, note: 'fixture' },
-        'fixture-removed-versioned': { to: 'lemon-herb-chicken-marinade', note: 'fixture', versions: 2 },
+        'fixture-removed-versioned': { to: 'beef-stew', note: 'fixture', versions: 2 },
       },
       ids: {
         ...real.ids,
@@ -36,15 +36,14 @@ describe('resolveRecipe with removed ids', () => {
     expect(resolveRecipe('Fixture Removed Null')).toBeNull();
   });
 
-  it('resolves <removed>::vN, and lands an expanded successor on ::v1', () => {
-    expect(resolveRecipe('fixture-removed-versioned')?.id).toBe('lemon-herb-chicken-marinade::v1');
-    expect(resolveRecipe('fixture-removed-versioned::v2')?.id).toBe('lemon-herb-chicken-marinade::v1');
+  it('resolves a removed versioned id and each <removed>::vN to the successor', () => {
+    expect(resolveRecipe('fixture-removed-versioned')?.id).toBe('beef-stew');
+    expect(resolveRecipe('fixture-removed-versioned::v2')?.id).toBe('beef-stew');
   });
 
   it('still resolves live ids and names exactly as before', () => {
     expect(resolveRecipe('spicy-pork-patties')?.id).toBe('spicy-pork-patties');
     expect(resolveRecipe('Spicy Pork Patties')?.id).toBe('spicy-pork-patties');
-    expect(resolveRecipe('lemon-herb-chicken-marinade::v2')?.id).toBe('lemon-herb-chicken-marinade::v2');
     expect(resolveRecipe('no-such-recipe')).toBeNull();
   });
 });

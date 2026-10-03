@@ -107,33 +107,14 @@ describe('relatedRecipes — ingredient overlap', () => {
   });
 });
 
-describe('relatedRecipes — siblings', () => {
-  it('puts siblings first, ahead of a stronger inferred match, in version order', () => {
-    const me = row('parent::v2', ['gochujang', 'ginger'], { section: 'SHARED' });
-    const v1 = row('parent::v1', ['rice'], { section: 'SHARED' });
-    const v3 = row('parent::v3', ['rice'], { section: 'SHARED' });
-    const best = row('best', ['gochujang', 'ginger']);
-    expect(relatedRecipes(me, [v1, me, v3, best, ...filler(20, 'rice')], 6, 0).map((r) => r.id))
-      .toEqual(['parent::v1', 'parent::v3', 'best']);
-  });
-
-  it('keeps a sibling that shares no ingredients at all', () => {
+// Until 2026-10-02 For Review records rendered as version rows (`parent::vN`)
+// that were related to each other by construction. That collection is gone;
+// every row is now scored on ingredients alone, whatever its id looks like.
+describe('relatedRecipes — no sibling rule', () => {
+  it('scores rows that share an id prefix like any other pair', () => {
     const me = row('parent::v1', ['gochujang']);
-    const sibling = row('parent::v2', ['nothing', 'alike']);
-    expect(relatedRecipes(me, [me, sibling, ...filler(20, 'rice')]).map((r) => r.id))
-      .toEqual(['parent::v2']);
-  });
-
-  it('does not treat two unrelated versioned rows as siblings', () => {
-    const me = row('alpha::v1', ['gochujang']);
-    const other = row('beta::v1', ['unrelated']);
-    expect(relatedRecipes(me, [me, other, ...filler(20, 'rice')])).toEqual([]);
-  });
-
-  it('still drops a BLANK sibling — the one rule siblings do not escape', () => {
-    const me = row('parent::v1', ['gochujang']);
-    const blank = row('parent::v2', [], { is_blank: true, ingredients: [], instructions: [] });
-    expect(relatedRecipes(me, [me, blank, ...filler(20, 'rice')])).toEqual([]);
+    const lookalike = row('parent::v2', ['nothing', 'alike']);
+    expect(relatedRecipes(me, [me, lookalike, ...filler(20, 'rice')])).toEqual([]);
   });
 });
 
@@ -202,12 +183,6 @@ describe('relatedRecipes — against the real catalog', () => {
   it('finds Pork Stew for Beef Stew — the pair tags structurally could not', () => {
     const beefStew = displayRecipes.find((r) => r.id === 'beef-stew');
     expect(relatedRecipes(beefStew, displayRecipes).map((r) => r.name)[0]).toBe('Pork Stew');
-  });
-
-  it('reaches the beef and pork versions of a chicken marinade', () => {
-    const chipotle = displayRecipes.find((r) => r.id === 'chipotle-lime-chicken-marinade::v1');
-    const names = relatedRecipes(chipotle, displayRecipes).map((r) => r.name).join(' | ');
-    expect(names).toMatch(/Chipotle-Lime/);
   });
 
   it('is deterministic — the same call twice gives the same order', () => {

@@ -1,4 +1,4 @@
-// Filters for the Cookbook and For Review: pinned only, made, and tags.
+// Filters for the Cookbook: pinned only, made, and tags.
 //
 // A bottom sheet on a phone, a side sheet on a wider screen. It is a modal
 // dialog: focus moves in on open and is trapped, Escape or the scrim closes

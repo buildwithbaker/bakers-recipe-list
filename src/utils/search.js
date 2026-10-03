@@ -1,4 +1,4 @@
-// Search: one query across all three collections.
+// Search: one query across the Cookbook.
 //
 // A row matches when the query appears in its name, any ingredient line, any
 // tag (manual or auto-derived), its source, or its category label. Matching is
@@ -8,7 +8,7 @@
 // so a result that opens onto "coming soon" answers nothing.
 import { getEffectiveTags } from './autoTags.js';
 import { isComingSoon } from './recipeKinds.js';
-import { categoryOf, collectionOf, COLL_BOOK, COLL_REVIEW, COLL_TRY } from '../data/catalog.js';
+import { categoryOf } from '../data/catalog.js';
 
 export function normaliseText(s) {
   return String(s ?? '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -26,17 +26,8 @@ export function recipeMatchesQuery(recipe, query) {
   return false;
 }
 
-/**
- * @returns {{ book: object[], review: object[], try: object[], total: number }}
- */
+/** @returns {object[]} the matching rows, in the order given; [] for a blank query */
 export function searchCatalog(rows, query) {
-  const out = { [COLL_BOOK]: [], [COLL_REVIEW]: [], [COLL_TRY]: [], total: 0 };
-  if (!normaliseText(query).trim()) return out;
-  for (const r of rows) {
-    if (isComingSoon(r)) continue;
-    if (!recipeMatchesQuery(r, query)) continue;
-    out[collectionOf(r)].push(r);
-    out.total += 1;
-  }
-  return out;
+  if (!normaliseText(query).trim()) return [];
+  return rows.filter((r) => !isComingSoon(r) && recipeMatchesQuery(r, query));
 }

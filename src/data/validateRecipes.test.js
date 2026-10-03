@@ -192,6 +192,17 @@ describe('validate-recipes.mjs', () => {
     expect(output).toMatch(/manifest id "alpha-recipe" .* is gone from recipes\.json/);
   });
 
+  // The manifest is append-only, so a renamed record that is later removed
+  // keeps its `renamed` exemption. Only an id that is neither live nor
+  // removed is junk (previous case).
+  it('passes a removed id that keeps its renamed exemption', () => {
+    const { records, manifest } = removal();
+    manifest.renamed['alpha-recipe'] = 'renamed before it was removed';
+    const { code, output } = runValidator(fixture({ records, manifest }));
+    expect(code).toBe(0);
+    expect(output).toMatch(summaryLine(1, 1));
+  });
+
   it('fails a removed id that is still in recipes.json', () => {
     const { manifest } = removal();
     const { code, output } = runValidator(fixture({ manifest }));

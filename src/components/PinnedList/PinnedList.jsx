@@ -1,4 +1,4 @@
-// The Pinned tab: every recipe you have starred, from any collection, as the
+// The Pinned tab: every recipe you have starred, as the
 // same cards the list uses. "Pinned only" in the Filters sheet still narrows
 // the Recipes tab; this is the view for when the pins are the point.
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';

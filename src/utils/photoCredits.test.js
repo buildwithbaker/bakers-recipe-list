@@ -2,13 +2,12 @@ import { readdirSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import credits from '../data/photoCredits.json';
 import recipes from '../data/recipes.json';
-import { expandVersionedRecipe } from '../data/expandVersions.js';
 import { PHOTO_SOURCE_EXT, checkPhotoCredits } from './photoFiles.js';
 import { ogImageAlt, photoCredit } from './photoCredit.js';
 import { photoCredit as viaRecipePhoto } from './recipePhoto.js';
 
 // Guards src/data/photoCredits.json: no AI photo is ever live without its label.
-const knownIds = new Set(recipes.flatMap((r) => expandVersionedRecipe(r).map((row) => row.id)));
+const knownIds = new Set(recipes.map((r) => r.id));
 const segments = new Set(readdirSync('src/photos').filter((n) => PHOTO_SOURCE_EXT.test(n)).map((n) => n.replace(PHOTO_SOURCE_EXT, '')));
 
 describe('photo credits file', () => {

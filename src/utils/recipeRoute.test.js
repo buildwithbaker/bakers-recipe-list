@@ -56,6 +56,7 @@ describe('every recipe survives the round trip', () => {
     for (const id of recipesById.keys()) {
       expect(recipeKeyFromPath(recipePath(id, BASE), BASE)).toBe(id);
     }
-    expect(recipesById.size).toBeGreaterThan(rawRecipes.length);
+    // One row per record: every record is routable.
+    expect(recipesById.size).toBe(rawRecipes.length);
   });
 });

@@ -10,9 +10,13 @@ list and navigation sections updated for the 2026-09 redesign.
 
 ## 1. What it is
 
-A static React (Vite) app for browsing a personal recipe collection, with
-automatic per-recipe macro estimates, and **one real HTML file per recipe on
-disk** so shared links get a proper preview.
+A static React (Vite) app for browsing a personal cookbook, with automatic
+per-recipe macro estimates, and **one real HTML file per recipe on disk** so
+shared links get a proper preview.
+
+The site is the **Cookbook only**. The To Try and For Review collections were
+removed on 2026-10-02; they are archived outside the repo and in git history at
+`d58c4db`.
 
 - **Live:** https://buildwithbaker.github.io/bakers-recipe-list/
 - A Build with Baker product. MIT-licensed code; recipe content is the author's own.
@@ -22,8 +26,7 @@ one place, `src/data/recordCount.js` (`EXPECTED_RECORDS`), which the integrity
 tests assert against. A number restated in prose rots silently; read it from
 there.
 
-Features: one search across every collection (names, ingredients, tags, To
-Try links) · three collections (Cookbook / For Review / To Try) narrowed by
+Features: one search (names, ingredients, tags) · the Cookbook narrowed by
 category chips (§3a) · a recipe card *and* a full page for every recipe, on
 one URL · serving scaler · USDA macro estimates · shopping list · cook log ·
 pinned + recently viewed · print · cook mode (screen wake lock) · related
@@ -133,30 +136,22 @@ focus to the card that opened it when it closes.
 
 ---
 
-## 3a. The browsing model — collections and categories
+## 3a. The browsing model — categories
 
 `src/data/catalog.js` lays a reader-facing model over the storage model in
-`sections.js`:
+`sections.js`: each section maps to one **category** (`SECTION_CATEGORY`,
+hand-written). `catalog.test.js` fails if a section is added without a
+category, or a category is declared that no section uses.
 
-| collection | sections | renders |
-|---|---|---|
-| Cookbook | every section without `review` / `toTry` | recipe cards |
-| For Review | `review: true` (Adam's staging shelf, public on purpose) | recipe cards |
-| To Try | `toTry: true` | external links, grouped by cuisine |
-
-Each section maps to a **category** (`SECTION_CATEGORY`, hand-written). A
-category is a label, not a section: both For Review soup buckets are one
-"Soups". `catalog.test.js` fails if a section is added without a category.
-
-The list shows one collection at a time; category chips narrow it and the
+The list shows the Cookbook (`LISTED_ROWS`); category chips narrow it and the
 Filters sheet (pinned only, made, top-24 tags) narrows further. **Every chip's
 count is counted from the rows that chip would show**, after the filters, so a
 number never promises rows the list does not have. A search
-(`src/utils/search.js`) ignores the collection and the filters and returns
-grouped results from all three.
+(`src/utils/search.js`) ignores the chips and the filters and returns one flat
+list of matching cards.
 
 **Coming-soon placeholders are never listed.** Each category header says
-"N more planned" instead (`plannedByCategory`). They still have a URL and
+"N more planned" instead (`PLANNED_BY_CATEGORY`). They still have a URL and
 still open in the app if someone has one; they just are not browsable.
 
 **Category colour.** Each category owns one colour (`CATEGORIES[].color`).
@@ -167,10 +162,12 @@ unsupported value goes invalid instead of falling back. `contrast.test.js`
 measures every category colour against the surface, under white text and on
 its own tint.
 
-**Pinned and Recently viewed** shelves show on the plain Cookbook view only.
+**Pinned and Recently viewed** shelves show on the unfiltered list only.
 
-Neither the collection nor the category is persisted. An old `#sec-<SECTION>`
-link from the retired drawer lands on the matching collection and category.
+The category is not persisted. An old `#sec-<SECTION>` link from the retired
+drawer lands on the matching category; one for a removed To Try or For Review
+section (`#sec-TO-TRY-*`, `#sec-FOR-REVIEW-*`) matches nothing and lands on the
+whole list.
 
 ---
 
@@ -190,8 +187,9 @@ wrong and was the source of real bugs.
   rather than hidden by editing the manifest.
 - Its **`removed`** map (`{ id: { to, note, versions? } }`) is the one way a
   record leaves the catalog. The id keeps its `ids` entry; `to` names a live
-  successor (never another removed id) or is `null`. A removed id, its
-  `<id>::vN` rows and its legacy name resolve to the successor; `rekeyRemovedState`
+  successor (never another removed id) or is `null`. A removed id, the
+  `<id>::vN` keys it had if it displayed as versions, and its legacy name
+  resolve to the successor; a removed id also keeps its `renamed` exemption; `rekeyRemovedState`
   in `stateMigration.js` moves saved state onto it at load; prerender writes a
   redirect page for its old URLs. Rule and steps: `AGENTS.md`, "Removing a recipe".
 
@@ -199,11 +197,11 @@ wrong and was the source of real bugs.
 
 ```
 rawRecipes          the stored catalog, file order
-displayRecipes      every row the app renders — review records expanded to one row per version
+displayRecipes      every row the app renders: one per record
 displayedBySection  display rows grouped by section key
-recipesById         id → row, over DISPLAY rows
+recipesById         id → row
 recipesByName       name → row; the alias layer, seeded in ascending precedence:
-                      legacy manifest names, then raw names, then display names (which win)
+                      legacy manifest names, then current names (which win)
 resolveRecipe(key)  THE resolution entry point: id first, then a removed id (-> its
                       successor, or null), then any name alias
 ```
@@ -211,17 +209,19 @@ resolveRecipe(key)  THE resolution entry point: id first, then a removed id (-> 
 Everything that turns a stored string back into a recipe goes through
 `resolveRecipe`. Do not re-derive lookups in a component.
 
-### Versioned rows
+### Versioned rows (removed records only)
 
-A record in a `review: true` section whose ingredients/instructions contain
-`type: "section"` markers is expanded by `expandVersions.js` into one row per
-version, with a **derived** child id `parent::v1`, `parent::v2`. Those ids are
-never persisted — `n` is 1-based from marker order *within that record alone*,
-so an unrelated record changing cannot renumber siblings.
+Until 2026-10-02, For Review records with "Version N" markers were expanded
+into one row per version with a derived id `parent::v1`, `parent::v2`. That
+collection was removed and nothing expands any more: every record is one row,
+and `recipes.integrity.test.js` fails on a "Version N" marker. The `::vN` keys
+survive only for the removed records, whose `versions` count keeps their old
+links and saved state resolving.
 
 ### The `::` ↔ `--` slug transform
 
-`src/utils/recipeSlug.js` is the one place this lives.
+`src/utils/recipeSlug.js` is the one place this lives. It still matters for the
+redirect pages of removed versioned records (`/r/parent--v2/`).
 
 A colon is legal in a URL but **illegal in a Windows filename**, so
 `mkdir dist/r/parent::v1` fails locally while succeeding in CI — a build that
@@ -347,12 +347,10 @@ The rules:
    version; the vocabulary is what changed.
 2. **A minimum score.** `MIN_SCORE` (10) — see below, it is not independent of
    the stoplist.
-3. **Siblings sit outside all of it.** Two rows expanded from the same record
-   are related *by construction*, not by inference, so the scoring does not
-   judge them: they skip the floor entirely and sort ahead of every inferred
-   match, in version order. They still count against the cap. The one rule they
-   do not escape is the blank exclusion — a "coming soon" version has nothing
-   to show either.
+3. **Blanks never appear.** A "coming soon" placeholder has nothing to show.
+   (Until 2026-10-02 version rows of one record were "siblings" that skipped
+   scoring; the For Review collection that produced them is gone, and so is
+   that rule.)
 4. **No section rule of any kind.** Deliberate, and measured both ways. The old
    tag version *excluded* a recipe's own section to break the section-listing
    effect; ingredients do not have that failure, and the exclusion would discard
@@ -422,29 +420,22 @@ cross-protein matches start dropping.
 
 ---
 
-## 8. Owner-facing vs visitor-facing labels
+## 8. The label a shared surface shows
 
-Recipes awaiting review are staged by overloading **two** fields: `section`
-becomes a `FOR REVIEW …` key and `category` becomes the literal string
-`"For Review"`. Both are internal workflow state.
-
-`publicSectionLabel(sectionKey)` in `src/data/sections.js` is the gate. It
-returns a real section's label, and **`null` for a staging bucket** — callers
-then render no subtitle at all rather than a placeholder that says nothing.
+`publicSectionLabel(sectionKey)` in `src/data/sections.js` gives a section's
+label, or `null` for a key that is not a section — callers then render no
+subtitle at all rather than a placeholder that says nothing.
 
 Everything on a **shared** surface goes through it:
 
 - the related-recipe card subtitle in `RelatedRecipes`
-- `recipeCategory` in the prerendered `Recipe` JSON-LD, which is omitted
-  entirely for a staged record
+- `recipeCategory` in the prerendered `Recipe` JSON-LD, omitted when null
 
-The list's own category headers and its "For Review" collection keep their
-labels **on purpose** — that is Adam's staging view of his own collection.
-
-**Never render `recipe.category` to a reader.** It is a staging-capable field.
-Its only legitimate runtime use is the `sameCategory` tie-break in
-`relatedRecipes.js`, which compares without displaying. `#for-review` is
-likewise stripped from JSON-LD keywords by `INTERNAL_TAGS` in `prerender.mjs`.
+**Never render `recipe.category` to a reader.** Use the section's label. Its
+only legitimate runtime use is the `sameCategory` tie-break in
+`relatedRecipes.js`, which compares without displaying. (This rule was written
+when For Review records carried the staging value "For Review" in `category`;
+that collection was removed on 2026-10-02, and the rule stays.)
 
 ---
 
@@ -534,8 +525,8 @@ src/
     RecipeModal/            modal chrome only: backdrop, dialog, close, open-full-page
     RecipePage/             full-page frame: back link, card, related recipes
     RelatedRecipes/         "More like this": cross-section related cards, real <a href> links
-    RecipeList/             the browser: collections, category chips, groups
-    RecipeCard/ ToTryLinks/ SearchResults/ Highlight/ Icon/
+    RecipeList/             the browser: category chips, filters, groups
+    RecipeCard/ SearchResults/ Highlight/ Icon/
     FiltersSheet/ Shelves/
     Masthead/ TabBar/ PinnedList/ AboutSheet/ AiBadge/
     SearchBar/ ShoppingList/ MacroCard/ UsdaKeyNotice/ ErrorBoundary/
@@ -553,8 +544,7 @@ src/
     recordCount.js          EXPECTED_RECORDS — the ONE hand-authored count
     recipeIndex.js          displayRecipes, lookups, resolveRecipe
     sections.js             SECTIONS + publicSectionLabel
-    expandVersions.js       version expansion → parent::vN rows
-    catalog.js              collections + categories over sections (§3a)
+    catalog.js              categories over sections, list rows and counts (§3a)
     stateMigration.js       one-time localStorage name→id migration
     nutritionOverrides.json per-ingredient USDA overrides
 
@@ -567,7 +557,7 @@ src/
     photoCaption.js         the caption under an AI photo (Cookbook adds the tested sentence)
     navHistory.js           tab + layer history rules, injectable history (tested)
     colour.js               tint mixing + WCAG contrast for the category palette
-    search.js               one search across all collections
+    search.js               one search across the Cookbook
     relatedRecipes.js       the related ranking (also imported by prerender.mjs)
     screenLock.js           wake-lock lifecycle, injectable nav/doc so it is testable
     autoTags.js             derived tags from section + ingredients
@@ -645,8 +635,7 @@ without a phone — see `screenLock.test.js`.
 ## 13. Photos and the optional schema fields
 
 **Photos come from a drop folder, not from the record.** Put
-`src/photos/<id>.jpg` in the repo (a version row uses its address:
-`chili--v2.jpg`) and build. No `recipes.json` edit.
+`src/photos/<id>.jpg` in the repo and build. No `recipes.json` edit.
 
 - `scripts/build-photos.mjs` (prebuild and predev, uses `sharp`) writes a
   240×240 card thumbnail and an 800px-wide header photo, as WebP, into
@@ -682,7 +671,8 @@ a lone value reads as missing data.
 `recipes.json`, append an id-manifest entry, bump `EXPECTED_RECORDS`, run
 `npm run validate:recipes`. Full rules in [`AGENTS.md`](../../AGENTS.md).
 
-**Add a section** → `{ key, label, id, review?, toTry? }` in `sections.js`, and
+**Add a section** → `{ key, label, id }` in `sections.js`, add its category in
+`catalog.js` `SECTION_CATEGORY`, and
 mirror the key into the schema's `section.enum` — the validator fails if they
 drift.
 
@@ -721,10 +711,9 @@ keyed by **id**.
 - **The USDA key in the bundle is intentional** and low-risk.
 - **Verifying prerendered output requires killing the service worker first.**
   See §9 and `AGENTS.md`.
-- **`FOR REVIEW` sections are known tech debt.** They overload `section` to
-  encode a category *and* a review status, with inconsistent delimiters. Valid
-  for now, slated for a dedicated `status` field. Do not add new recipes under
-  one unless you are deliberately staging.
+- **Cookbook only.** There are no To Try or For Review sections (removed
+  2026-10-02; archived outside the repo and in git history at `d58c4db`). Do not
+  re-add one: a recipe that is not ready is an `is_blank: true` placeholder.
 
 ---
 

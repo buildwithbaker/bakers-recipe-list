@@ -1,37 +1,21 @@
 import { describe, it, expect } from 'vitest';
-import { isToTry, isComingSoon } from './recipeKinds.js';
+import { isComingSoon } from './recipeKinds.js';
 import { isModifiedClick } from './isModifiedClick.js';
 import { displayRecipes } from '../data/recipeIndex.js';
-import { SECTIONS } from '../data/sections.js';
 
-const toTryKeys = new Set(SECTIONS.filter((s) => s.toTry).map((s) => s.key));
-
-describe('isToTry / isComingSoon', () => {
-  it('a blank with a URL source is a To Try entry, not a coming-soon placeholder', () => {
-    const r = { is_blank: true, source: 'https://example.com/pin/1' };
-    expect(isToTry(r)).toBe(true);
-    expect(isComingSoon(r)).toBe(false);
-  });
-
-  it('a blank without a URL is a coming-soon placeholder', () => {
-    for (const source of ['Original', '', undefined, 'www.example.com']) {
-      const r = { is_blank: true, source };
-      expect(isComingSoon(r)).toBe(true);
-      expect(isToTry(r)).toBe(false);
+describe('isComingSoon', () => {
+  it('a blank record is a coming-soon placeholder, whatever its source', () => {
+    for (const source of ['Original', '', undefined, 'https://example.com/pin/1']) {
+      expect(isComingSoon({ is_blank: true, source })).toBe(true);
     }
   });
 
-  it('a real recipe is neither, even with a URL source', () => {
-    const r = { is_blank: false, source: 'https://example.com/recipe' };
-    expect(isToTry(r)).toBe(false);
-    expect(isComingSoon(r)).toBe(false);
+  it('a real recipe is not, even with a URL source', () => {
+    expect(isComingSoon({ is_blank: false, source: 'https://example.com/recipe' })).toBe(false);
   });
 
-  // The To Try tab is built from the TO TRY sections. If a record there were a
-  // coming-soon placeholder, the placeholder filter would empty part of it again.
-  it('no record in a To Try section is a coming-soon placeholder', () => {
-    const offenders = displayRecipes.filter((r) => toTryKeys.has(r.section) && isComingSoon(r));
-    expect(offenders.map((r) => r.name)).toEqual([]);
+  it('agrees with is_blank on every record', () => {
+    expect(displayRecipes.filter((r) => isComingSoon(r) !== r.is_blank).map((r) => r.id)).toEqual([]);
   });
 });
 

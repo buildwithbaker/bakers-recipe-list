@@ -20,7 +20,7 @@
     },
     "section": {
       "type": "string",
-      "description": "Display group. MUST be one of the keys defined in src/data/sections.js (the validator drift-guards this enum against that file). The `FOR REVIEW ...` keys are a staging area surfaced under the app's For-Review tab; they are known tech debt pending a status-field refactor — do not add new recipes there unless intentionally staging for review.",
+      "description": "Display group. MUST be one of the keys defined in src/data/sections.js (the validator drift-guards this enum against that file). Cookbook sections only: the To Try and For Review collections were removed on 2026-10-02.",
       "enum": [
         "BREAKFAST",
         "SLOW COOKER",
@@ -38,27 +38,7 @@
         "MARINADES",
         "SMOOTHIES",
         "BREAD",
-        "DESSERTS",
-        "TO TRY --- AMERICAN",
-        "TO TRY --- MEXICAN",
-        "TO TRY --- ASIAN",
-        "TO TRY --- ITALIAN",
-        "TO TRY --- MIDDLE EASTERN",
-        "TO TRY --- SIDES",
-        "TO TRY --- SOUPS",
-        "TO TRY --- SANDWICHES",
-        "TO TRY --- SLOW COOKER",
-        "TO TRY --- MARINADES",
-        "TO TRY --- SNACKS",
-        "TO TRY --- SMOOTHIES",
-        "TO TRY --- DESSERTS",
-        "TO TRY --- BREAD",
-        "FOR REVIEW --- CURRY",
-        "FOR REVIEW --- SOUPS",
-        "FOR REVIEW - SOUPS",
-        "FOR REVIEW - MARINADES - CHICKEN",
-        "FOR REVIEW - MARINADES - BEEF",
-        "FOR REVIEW - MARINADES - PORK"
+        "DESSERTS"
       ]
     },
     "category": {
@@ -71,7 +51,6 @@
         "Breakfast",
         "Desserts",
         "Doughs",
-        "For Review",
         "Italian",
         "Marinades",
         "Mexican",
@@ -82,8 +61,7 @@
         "Slow Cooker",
         "Smoothies",
         "Snacks",
-        "Soups",
-        "To Try"
+        "Soups"
       ]
     },
     "source": {

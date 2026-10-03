@@ -19,10 +19,10 @@ import { cookModeMessage } from '../../utils/screenLock.js';
 import { recipePath } from '../../utils/recipeRoute.js';
 import { recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
-import { aiPhotoCaption } from '../../utils/photoCaption.js';
+import { AI_PHOTO_CAPTION } from '../../utils/photoCaption.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
-import { domainOf } from '../ToTryLinks/ToTryLinks.jsx';
+import { domainOf } from '../../utils/domainOf.js';
 import AiBadge from '../AiBadge/AiBadge.jsx';
 import Icon from '../Icon/Icon.jsx';
 
@@ -446,7 +446,7 @@ export default function RecipeView({
                 {photo.ai && <AiBadge />}
               </div>
               {photo.ai && (
-                <figcaption className={styles.photoCaption}>{aiPhotoCaption(recipe)}</figcaption>
+                <figcaption className={styles.photoCaption}>{AI_PHOTO_CAPTION}</figcaption>
               )}
             </figure>
           )}

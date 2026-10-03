@@ -1,12 +1,9 @@
 // The caption under an AI-generated recipe photo (RecipeView).
 //
-// The "cooked and tested" promise is made for Cookbook recipes only (Adam,
-// 2026-09-28): For Review and To Try entries have not been through it.
-import { COLL_BOOK, collectionOf } from '../data/catalog.js';
-
+// Every recipe on the site is a Cookbook recipe, so every caption carries the
+// "cooked and tested" promise (Adam, 2026-09-28). Until 2026-10-02 For Review
+// and To Try entries got the plain caption; those collections were removed.
 export const AI_CAPTION = 'AI-generated image, not a photo of this recipe as cooked.';
 export const COOKBOOK_TESTED = "Every Cookbook recipe is cooked and tested by a real person before it's posted.";
 
-export function aiPhotoCaption(recipe) {
-  return collectionOf(recipe) === COLL_BOOK ? `${AI_CAPTION} ${COOKBOOK_TESTED}` : AI_CAPTION;
-}
+export const AI_PHOTO_CAPTION = `${AI_CAPTION} ${COOKBOOK_TESTED}`;
