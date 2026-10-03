@@ -59,6 +59,31 @@ a {
   outline-offset: 2px;
 }
 
+/* ---------- Touch baseline ----------
+   No grey/blue flash on tap, and no double-tap-to-zoom delay on a control.
+   The flash goes only because the pressed state below replaces it: a tap
+   must always show that it landed. Text stays selectable everywhere, so an
+   ingredient or a step can still be copied. */
+a, button, input, select, textarea, summary, label, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Pressed state: a control dips while it is held. A transform, not a colour,
+   so no text/background pair changes and contrast.test.js has nothing new to
+   measure. :where() keeps it at zero specificity: a control that already
+   positions itself with a transform sets its own pressed state instead
+   (SearchBar's clear button). An inline text link cannot transform, so it
+   thickens its underline. */
+:where(a, button, summary, [role="button"], input[type="checkbox"], input[type="radio"]):not(:disabled):active {
+  transform: scale(0.96);
+}
+
+:where(a):active {
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

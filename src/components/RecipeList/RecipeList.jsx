@@ -91,14 +91,16 @@ export default function RecipeList({
   const collectionCount = (key) => listedRows(key).length;
 
   // On a phone the chip row scrolls sideways: keep the pressed chip in view by
-  // moving the row, never the page.
+  // moving the row, never the page. "All" sits right after Filters, so going
+  // back to All returns the row to its start and Filters with it.
   useEffect(() => {
     const row = chipRowRef.current;
     const active = row?.querySelector('[aria-pressed="true"][data-cat]');
     if (!row || !active || row.scrollWidth <= row.clientWidth) return;
     const left = active.offsetLeft - row.offsetLeft;
     const right = left + active.offsetWidth;
-    if (left < row.scrollLeft) row.scrollLeft = left - 16;
+    if (!active.dataset.cat) row.scrollLeft = 0;
+    else if (left < row.scrollLeft) row.scrollLeft = left - 16;
     else if (right > row.scrollLeft + row.clientWidth) row.scrollLeft = right - row.clientWidth + 16;
   }, [category, collection]);
 
@@ -161,6 +163,20 @@ export default function RecipeList({
       </div>
 
       <div className={styles.chipRow} ref={chipRowRef} role="group" aria-label="Categories and filters">
+        {/* Filters leads the row: it is the control people go looking for, and
+            at the end of a sideways-scrolling row it started off-screen. */}
+        {!isTry && (
+          <button
+            ref={filtersBtnRef}
+            type="button"
+            className={`${styles.chip} ${styles.tool}`}
+            aria-haspopup="dialog"
+            aria-pressed={activeFilters > 0}
+            onClick={() => setFiltersOpen(true)}
+          >
+            <Icon name="filter" />{activeFilters ? `Filters · ${activeFilters}` : 'Filters'}
+          </button>
+        )}
         <button
           type="button"
           className={styles.chip}
@@ -190,21 +206,9 @@ export default function RecipeList({
           </button>
         )}
         {!isTry && (
-          <>
-            <button
-              ref={filtersBtnRef}
-              type="button"
-              className={`${styles.chip} ${styles.tool}`}
-              aria-haspopup="dialog"
-              aria-pressed={activeFilters > 0}
-              onClick={() => setFiltersOpen(true)}
-            >
-              <Icon name="filter" />{activeFilters ? `Filters · ${activeFilters}` : 'Filters'}
-            </button>
-            <button type="button" className={`${styles.chip} ${styles.tool}`} onClick={handleRandom}>
-              <Icon name="shuffle" />Surprise me
-            </button>
-          </>
+          <button type="button" className={`${styles.chip} ${styles.tool}`} onClick={handleRandom}>
+            <Icon name="shuffle" />Surprise me
+          </button>
         )}
       </div>
 
