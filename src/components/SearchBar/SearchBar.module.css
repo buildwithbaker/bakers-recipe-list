@@ -70,6 +70,12 @@
   cursor: pointer;
 }
 
+/* Its centring transform outranks the global pressed dip (globals.css), so
+   it dips here, on top of the centring. */
+.clear:active {
+  transform: translateY(-50%) scale(0.92);
+}
+
 .clear:hover {
   color: var(--ink);
   background: var(--surface-sunk);

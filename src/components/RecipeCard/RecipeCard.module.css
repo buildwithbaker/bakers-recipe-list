@@ -19,6 +19,15 @@
   transform: translateY(-1px);
 }
 
+/* Pressed: the link's ::after covers the card, so a press anywhere on it
+   (thumbnail, title, meta) presses the card. It sinks rather than lifts.
+   The pin is a separate button and dips on its own (globals.css). */
+.card:has(.link:active) {
+  box-shadow: none;
+  border-color: var(--cc, var(--line-strong));
+  transform: scale(0.98);
+}
+
 /* ---------- Photo slot ---------- */
 .thumb {
   position: relative;

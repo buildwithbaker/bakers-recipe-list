@@ -85,6 +85,13 @@
   border-color: var(--brand);
 }
 
+/* Held down: the sunk well under the dip. ink and ink-muted on surface-sunk
+   are already measured in contrast.test.js. A selected chip keeps its colour
+   and only dips. */
+.chip:active:not([aria-pressed="true"]) {
+  background: var(--surface-sunk);
+}
+
 .chip[aria-pressed="true"] {
   background: var(--brand);
   border-color: var(--brand);
@@ -149,13 +156,23 @@
   margin-top: var(--s7);
 }
 
-/* Divider tab: the heading sits on the rule and overlaps it by its width. */
+/* Divider tab: the heading sits on the rule and overlaps it by its width.
+   It sticks under the masthead while its own group scrolls past. Sticky is
+   bounded by the <section>, so the next group's header pushes it off: only
+   one is ever pinned. The paper background stops cards showing through.
+   z-index 3 clears the card internals (pin 1, photo 1, AI badge 2) and stays
+   under the masthead (400), the Filters sheet (450) and the recipe modal (500). */
 .groupHead {
+  position: sticky;
+  top: var(--masthead-stuck);
+  z-index: 3;
   display: flex;
   align-items: flex-end;
   gap: var(--s3);
   margin: 0 0 var(--s4);
+  padding-top: var(--s2);
   border-bottom: 3px solid var(--cc, var(--line));
+  background: var(--paper) var(--paper-texture);
 }
 
 .groupHead h2 {
