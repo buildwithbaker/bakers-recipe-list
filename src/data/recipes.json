@@ -3969,6 +3969,114 @@
     "recipeYield": "3 servings"
   },
   {
+    "id": "spicy-peanut-chicken",
+    "name": "Spicy Peanut Chicken",
+    "section": "ASIAN",
+    "category": "Asian",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#peanut",
+      "#weeknight",
+      "#one-pan",
+      "#spicy",
+      "#asian"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "1½ lb boneless skinless chicken breast (about 2 large), cut into 1-inch pieces"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp cornstarch"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp neutral oil (avocado or canola)"
+      },
+      {
+        "type": "header",
+        "text": "For the sauce:"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup natural peanut butter, stirred well first"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp lime juice (about 1 lime)"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp chili crisp (or 2 Tbsp sriracha)"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup hot water"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Cooked rice, for serving"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup roasted peanuts, chopped (optional)"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced (optional)"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Prep",
+        "detail": "Start the rice first; everything else fits inside its cook time. Pat the chicken (1½ lb, cut into 1-inch pieces) dry and toss it with the soy sauce (1 Tbsp) and cornstarch (1 Tbsp). Let it sit while you make the sauce. The cornstarch gives the sauce something to grip and helps keep the peanut-oil-and-water sauce from separating."
+      },
+      {
+        "step": "Sauce",
+        "detail": "In a bowl, whisk the peanut butter (⅓ cup), soy sauce (2 Tbsp), lime juice (2 Tbsp), honey (1 Tbsp), garlic (3 cloves, grated) and chili crisp (2 Tbsp). Whisk in the hot water (⅓ cup) a splash at a time. It looks broken and stiff at first, then turns smooth and pourable. The soy is the salt here, so there is no separate salt; if your chili crisp is a salty brand, cut the soy in the sauce to 1½ Tbsp."
+      },
+      {
+        "step": "Sear",
+        "detail": "Heat a 12-inch skillet over medium-high heat until the neutral oil (1 Tbsp) shimmers. Add half the chicken in a single layer and leave it alone for 2 minutes to brown, then toss and cook 2 minutes more, until the biggest piece reads 165°F. Move it to a plate. Repeat with the remaining neutral oil (1 Tbsp) and chicken. Two batches matter: a full load drops the pan below browning temperature and the chicken poaches gray in its own juice."
+      },
+      {
+        "step": "Toss",
+        "detail": "Turn the burner down to low and return all the chicken to the pan. Pour in the sauce and toss 30 to 60 seconds, until glossy and coating every piece. Keep it on low: peanut butter scorches fast and tightens on heat. If the sauce gets too thick, loosen it with hot water, 1 Tbsp at a time."
+      },
+      {
+        "step": "Serve",
+        "detail": "Spoon over the rice and top with the roasted peanuts (¼ cup, chopped) and green onions (2, sliced), if using."
+      }
+    ],
+    "is_blank": false,
+    "description": "Bite-size chicken breast seared hard in two batches, then tossed on low in a quick natural peanut butter, soy, lime, honey, garlic and chili crisp sauce. Serve over rice.",
+    "prepTime": "PT15M",
+    "cookTime": "PT10M",
+    "recipeYield": "4 servings"
+  },
+  {
     "id": "tomato-sauce",
     "name": "Tomato Sauce",
     "section": "ITALIAN",
