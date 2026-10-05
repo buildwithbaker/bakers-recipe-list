@@ -17,7 +17,7 @@ import { useWakeLock } from '../../hooks/useWakeLock.js';
 import { useIngredientTicks } from '../../hooks/useIngredientTicks.js';
 import { cookModeMessage } from '../../utils/screenLock.js';
 import { recipePath } from '../../utils/recipeRoute.js';
-import { recipeDocumentTitle } from '../../utils/siteTitle.js';
+import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
 import { AI_PHOTO_CAPTION } from '../../utils/photoCaption.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
@@ -309,16 +309,21 @@ export default function RecipeView({
 
   useEffect(() => { setScale(1); setListSelecting(false); }, [recipe]);
 
-  // Name the recipe in the browser tab, history and bookmarks, and put back
-  // whatever was there when the view goes away. Covers both frames, and matters
-  // most for a returning visitor on /r/<slug>/: the service worker serves them
-  // the generic shell, so the prerendered <title> never reaches them.
+  // Name the recipe in the browser tab, history and bookmarks. Covers both
+  // frames, and matters most for a returning visitor on /r/<slug>/: the service
+  // worker serves them the generic shell, so the prerendered <title> never
+  // reaches them.
+  //
+  // On the way out the tab goes to the site's own name, not back to whatever
+  // was there on arrival: after a direct load of /r/<slug>/ that was this
+  // recipe's own prerendered title, which would then sit on the list Back
+  // lands on. Moving to another recipe runs this cleanup first, then the next
+  // recipe's effect names it.
   const recipeName = recipe?.name;
   useEffect(() => {
     if (!recipeName) return undefined;
-    const previous = document.title;
     document.title = recipeDocumentTitle(recipeName);
-    return () => { document.title = previous; };
+    return () => { document.title = SITE_NAME; };
   }, [recipeName]);
 
   // The sticky bar shows the recipe's name once the title itself has scrolled

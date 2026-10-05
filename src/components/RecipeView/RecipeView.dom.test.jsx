@@ -24,6 +24,23 @@ afterEach(() => {
 });
 
 describe('RecipeView', () => {
+  it('names the recipe in the tab, and hands the tab back to the site name on the way out', () => {
+    // A direct load of /r/lasagna/: the prerendered file already carries the
+    // recipe's own title. Back then lands on the list, which must not keep it.
+    document.title = "Lasagna — Baker's Recipe List";
+    const { unmount } = render(<RecipeView recipe={lasagna} headingLevel={1} />);
+    expect(document.title).toBe("Lasagna — Baker's Recipe List");
+    unmount();
+    expect(document.title).toBe("Baker's Recipe List");
+  });
+
+  it('retitles the tab when the view moves to another recipe', () => {
+    const other = displayRecipes.find((r) => r.id !== 'lasagna' && !r.is_blank);
+    const { rerender } = render(<RecipeView recipe={lasagna} headingLevel={1} />);
+    rerender(<RecipeView recipe={other} headingLevel={1} />);
+    expect(document.title).toBe(`${other.name} — Baker's Recipe List`);
+  });
+
   it('shows the recipe title as the page heading', () => {
     render(<RecipeView recipe={lasagna} headingLevel={1} />);
     expect(screen.getByRole('heading', { level: 1, name: 'Lasagna' })).toBeTruthy();
