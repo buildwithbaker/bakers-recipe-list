@@ -12,7 +12,7 @@ import RecipeView from '../RecipeView/RecipeView.jsx';
 import RelatedRecipes from '../RelatedRecipes/RelatedRecipes.jsx';
 import Icon from '../Icon/Icon.jsx';
 
-export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToList, onViewRelated }) {
+export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToList, onViewRelated, onAbout }) {
   const titleId = useId();
   if (!recipe) return null;
 
@@ -24,6 +24,7 @@ export default function RecipePage({ recipe, onBackToList, onTagClick, onAddToLi
           titleId={titleId}
           headingLevel={1}
           onTagClick={onTagClick}
+          onAbout={onAbout}
           onAddToList={onAddToList}
           barStart={
             <button type="button" className={styles.back} onClick={onBackToList}>

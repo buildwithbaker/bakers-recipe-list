@@ -1,8 +1,9 @@
 // @vitest-environment jsdom
 // The recipe as a reader sees it: its title, ingredients and method, and an AI
-// photo labelled twice (a faint badge on the image, the caption under it).
+// photo labelled twice (a faint badge on the image, the caption under it). The
+// caption links to the About page's photos question; the badge is only a label.
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { displayRecipes } from '../../data/recipeIndex.js';
 import { AI_PHOTO_CAPTION } from '../../utils/photoCaption.js';
 import RecipeView from './RecipeView.jsx';
@@ -65,9 +66,33 @@ describe('RecipeView', () => {
 
   it('labels the AI photo with the caption, Cookbook sentence included', () => {
     render(<RecipeView recipe={lasagna} headingLevel={1} />);
-    const caption = screen.getByText(AI_PHOTO_CAPTION);
-    expect(caption.tagName).toBe('FIGCAPTION');
+    const caption = screen.getByText(AI_PHOTO_CAPTION).closest('figcaption');
+    expect(caption).toBeTruthy();
+    expect(caption.textContent).toBe(AI_PHOTO_CAPTION);
     expect(caption.textContent).toContain('Every Cookbook recipe is cooked and tested');
+    expect(caption.closest('figure').querySelector('img')).toBeTruthy();
+  });
+
+  it('links the caption to the photos question on the About page', () => {
+    render(<RecipeView recipe={lasagna} headingLevel={1} />);
+    const link = screen.getByRole('link', { name: AI_PHOTO_CAPTION });
+    expect(link.closest('figcaption')).toBeTruthy();
+    expect(link.getAttribute('href')).toMatch(/\/about\/#photos$/);
+  });
+
+  it('goes to About in-app on a plain click, and leaves a modified click to the browser', () => {
+    const onAbout = vi.fn();
+    render(<RecipeView recipe={lasagna} headingLevel={1} onAbout={onAbout} />);
+    const link = screen.getByRole('link', { name: AI_PHOTO_CAPTION });
+
+    const plain = new MouseEvent('click', { bubbles: true, cancelable: true, button: 0 });
+    link.dispatchEvent(plain);
+    expect(plain.defaultPrevented).toBe(true);
+    expect(onAbout).toHaveBeenCalledWith('photos');
+
+    onAbout.mockClear();
+    fireEvent.click(link, { ctrlKey: true });
+    expect(onAbout).not.toHaveBeenCalled();
   });
 
   it('marks the photo itself with the faint AI badge', () => {
@@ -75,5 +100,7 @@ describe('RecipeView', () => {
     const badge = screen.getByRole('img', { name: 'AI-generated image' });
     expect(badge.textContent).toBe('AI');
     expect(badge.closest('figure')).toBe(screen.getByText(AI_PHOTO_CAPTION).closest('figure'));
+    // A label, not a control: the caption is the link.
+    expect(badge.closest('a, button')).toBeNull();
   });
 });

@@ -34,3 +34,16 @@ export function recipeKeyFromPath(pathname, base = BASE_PATH) {
   const match = /^r\/([^/]+)\/?$/.exec(path.slice(prefix.length));
   return match ? slugToId(match[1]) : '';
 }
+
+// The About page lives at <base>/about/, a real file prerendered like a recipe
+// page (scripts/prerender.mjs writes dist/about/index.html). `hash` names a
+// question on it, e.g. 'photos' for the AI photo caption's link.
+export function aboutPath(base = BASE_PATH, hash = '') {
+  return `${withTrailingSlash(base)}about/${hash ? `#${hash}` : ''}`;
+}
+
+export function isAboutPath(pathname, base = BASE_PATH) {
+  const path = String(pathname ?? '');
+  const prefix = withTrailingSlash(base);
+  return path.startsWith(prefix) && /^about\/?$/.test(path.slice(prefix.length));
+}

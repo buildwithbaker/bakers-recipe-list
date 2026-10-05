@@ -68,6 +68,7 @@ thing most likely to surprise you if you last read the old docs.
 | `BASE_PATH` | `import.meta.env.BASE_URL` — `/bakers-recipe-list/` in dev *and* prod |
 | `recipePath(id)` | id → `/bakers-recipe-list/r/<slug>/` |
 | `recipeKeyFromPath(pathname)` | pathname → recipe key, or `''` when it is not a recipe route |
+| `aboutPath(base, hash)` / `isAboutPath(pathname)` | the About page at `/bakers-recipe-list/about/` |
 
 `App.jsx` reads the path on first paint and on every `popstate`, resolves it
 through `resolveRecipe`, and renders. Opening a recipe from the list is a real
@@ -83,10 +84,11 @@ people's messages forever.
 
 ### The overlay model, and what is NOT in it
 
-Only the dismissable *layers* — the shopping list and the About sheet — live
-in `history.state.overlays`. (The sections drawer that used to share it was
-removed in the 2026-09 redesign; category chips replaced it.) The recipe is
-not in it: the recipe is in the URL.
+Only the dismissable *layer* — the shopping list — lives in
+`history.state.overlays`. The sections drawer that used to share it was
+removed in the 2026-09 redesign (category chips replaced it), and the About
+sheet became a page at `/about/`; `entryOverlays` drops the retired `about`
+token from old entries. The recipe is not in it: the recipe is in the URL.
 
 Each history entry also carries `state.page`, a boolean saying whether the
 recipe on that entry renders as a modal or as a full page, and `state.tab`,
@@ -101,7 +103,7 @@ shows as the current tab while it is on top). `TabBar` is a fixed bottom bar
 below 720px and sits in the masthead above it; App renders it twice and CSS
 shows one, because the sticky masthead is its own stacking context and a bar
 inside it could not rise above the shopping list's scrim. Anything that
-should hide the phone bar (the recipe modal, the Filters sheet, About) marks
+should hide the phone bar (the recipe modal, the Filters sheet) marks
 itself `data-hides-tabbar`; `globals.css` also zeroes `--tabbar-space` then.
 
 A tab switch pushes an entry, only from the tap. A tap on the current tab
@@ -111,10 +113,19 @@ where the list was opened. The decisions and the entry shape live in
 `src/utils/navHistory.js`, which takes `history` as an argument and is tested
 against a fake history in `navHistory.test.js`.
 
-The masthead is two siblings: a sticky row (wordmark, header tabs, the (i)
-for About) and a foot (tagline, the search-box overlap, the double rule) that
+The masthead is two siblings: a sticky row (wordmark, header tabs, the (i),
+a real link to `/about/`) and a foot (tagline, the search-box overlap, the double rule) that
 scrolls away. `--masthead-stuck` is the row's height; `RecipePage` pins its
 bar there and `scroll-padding-top` keeps anchor jumps clear of it.
+
+### The About page
+
+`/about/` is the one route besides the list and the recipes. Going there is a
+push, so Back returns to whatever was on screen (list, tab, card or page); a
+direct load is a real prerendered file. `AboutPage` renders the copy in
+`aboutCopy.js`, which `prerender.mjs` imports for the head and `<noscript>`, so
+the words live in one place. The AI photo caption on every AI recipe photo
+links to `about/#photos`.
 
 ### Modal vs page: one route, two frames
 
@@ -262,6 +273,7 @@ with its site-level `<title>` and description stripped, and per-recipe
 `<title>`, canonical link, description, Open Graph and Twitter tags, and a
 `Recipe` JSON-LD block injected into the head. For every recipe with a photo
 in `src/photos/`, `dist/og/<id>.jpg` (§13). Plus `dist/sitemap.xml`,
+`dist/about/index.html` (the About page, also in the sitemap),
 `dist/robots.txt`, and `dist/404.html` (the shell, so an unknown path lands on
 the app; Pages returns a real 404 for it, which is correct).
 
@@ -514,7 +526,7 @@ vite.config.js              Vite + React + PWA, base '/bakers-recipe-list/'
 scripts/
   validate-recipes.mjs      prebuild schema + manifest + photo guard
   build-photos.mjs          prebuild/predev: src/photos/ -> card + header WebP sizes
-  prerender.mjs             per-recipe HTML, og:image JPEGs, noscript, sitemap, robots, 404
+  prerender.mjs             per-recipe HTML, the About page, og:image JPEGs, noscript, sitemap, robots, 404
 
 src/
   main.jsx                  bootstrap: state migration, SW update hook, render
@@ -528,7 +540,7 @@ src/
     RecipeList/             the browser: category chips, filters, groups
     RecipeCard/ SearchResults/ Highlight/ Icon/
     FiltersSheet/ Shelves/
-    Masthead/ TabBar/ PinnedList/ AboutSheet/ AiBadge/
+    Masthead/ TabBar/ PinnedList/ AboutPage/ AiBadge/
     SearchBar/ ShoppingList/ MacroCard/ UsdaKeyNotice/ ErrorBoundary/
 
   hooks/

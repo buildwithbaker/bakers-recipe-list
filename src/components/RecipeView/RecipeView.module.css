@@ -171,6 +171,18 @@ h2.title {
   font: 400 var(--t-xs)/1.35 var(--sans);
 }
 
+/* The caption is a link to About's photos question. Same colour as before, so
+   the contrast pair above still holds; the underline says it is a link. */
+.photoCaption a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.photoCaption a:hover {
+  color: var(--ink);
+}
+
 /* ---------- Buttons ---------- */
 .actions {
   display: flex;

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { recipePath, recipeKeyFromPath } from './recipeRoute.js';
+import { aboutPath, isAboutPath, recipePath, recipeKeyFromPath } from './recipeRoute.js';
 import { rawRecipes, recipesById } from '../data/recipeIndex.js';
 
 // The tests pass `base` explicitly: import.meta.env.BASE_URL is '/' under
@@ -58,5 +58,29 @@ describe('every recipe survives the round trip', () => {
     }
     // One row per record: every record is routable.
     expect(recipesById.size).toBe(rawRecipes.length);
+  });
+});
+
+describe('aboutPath / isAboutPath', () => {
+  it('builds the About path under the base, with an optional question anchor', () => {
+    expect(aboutPath(BASE)).toBe('/bakers-recipe-list/about/');
+    expect(aboutPath(BASE, 'photos')).toBe('/bakers-recipe-list/about/#photos');
+    expect(aboutPath('/bakers-recipe-list')).toBe('/bakers-recipe-list/about/');
+  });
+
+  it('recognises the About path, with or without its trailing slash', () => {
+    expect(isAboutPath('/bakers-recipe-list/about/', BASE)).toBe(true);
+    expect(isAboutPath('/bakers-recipe-list/about', BASE)).toBe(true);
+  });
+
+  it('is not fooled by a recipe, the list, or another site at the same path', () => {
+    expect(isAboutPath('/bakers-recipe-list/', BASE)).toBe(false);
+    expect(isAboutPath('/bakers-recipe-list/r/about/', BASE)).toBe(false);
+    expect(isAboutPath('/bakers-recipe-list/about/more/', BASE)).toBe(false);
+    expect(isAboutPath('/about/', BASE)).toBe(false);
+  });
+
+  it('does not read About as a recipe key', () => {
+    expect(recipeKeyFromPath('/bakers-recipe-list/about/', BASE)).toBe('');
   });
 });
