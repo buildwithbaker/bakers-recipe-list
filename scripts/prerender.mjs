@@ -315,12 +315,12 @@ function aboutHead(url) {
     `<meta name="description" content="${esc(ABOUT_DESCRIPTION)}">`,
     `<meta property="og:type" content="website">`,
     `<meta property="og:site_name" content="${esc(SITE_NAME)}">`,
-    `<meta property="og:title" content="${esc(ABOUT_HEADING)}">`,
+    `<meta property="og:title" content="${esc(ABOUT_DOCUMENT_TITLE)}">`,
     `<meta property="og:description" content="${esc(ABOUT_DESCRIPTION)}">`,
     `<meta property="og:url" content="${esc(url)}">`,
     `<meta property="og:image" content="${esc(PLACEHOLDER)}">`,
     `<meta name="twitter:card" content="summary">`,
-    `<meta name="twitter:title" content="${esc(ABOUT_HEADING)}">`,
+    `<meta name="twitter:title" content="${esc(ABOUT_DOCUMENT_TITLE)}">`,
     `<meta name="twitter:description" content="${esc(ABOUT_DESCRIPTION)}">`,
   ].join('\n    ');
 }

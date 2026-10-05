@@ -6,17 +6,20 @@
 // The words live in aboutCopy.js, shared with scripts/prerender.mjs, which
 // writes dist/about/index.html so a direct load or a refresh works.
 import { useEffect } from 'react';
-import { ABOUT_DOCUMENT_TITLE } from '../../utils/siteTitle.js';
+import { ABOUT_DOCUMENT_TITLE, SITE_NAME } from '../../utils/siteTitle.js';
 import {
   ABOUT_FAQ, ABOUT_FAQ_HEADING, ABOUT_HEADING, ABOUT_INSTALL, ABOUT_INTRO, ABOUT_MAKER,
 } from './aboutCopy.js';
 import styles from './AboutPage.module.css';
 
 export default function AboutPage() {
+  // On the way out the tab goes back to the site's own name, not to whatever
+  // was there on arrival: after a direct load that was this page's own
+  // prerendered title, which would then sit on the list Back lands on. A
+  // recipe page Back lands on sets its own title after this runs.
   useEffect(() => {
-    const previous = document.title;
     document.title = ABOUT_DOCUMENT_TITLE;
-    return () => { document.title = previous; };
+    return () => { document.title = SITE_NAME; };
   }, []);
 
   // Arriving on a question (about/#photos from an AI photo caption) lands on

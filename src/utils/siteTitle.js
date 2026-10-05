@@ -9,6 +9,7 @@ export function recipeDocumentTitle(name) {
   return `${name} — ${SITE_NAME}`;
 }
 
-// The About page's title. prerender.mjs writes it into dist/about/index.html
-// and AboutPage sets it at runtime.
-export const ABOUT_DOCUMENT_TITLE = `About - ${SITE_NAME}`;
+// The About page's title, built the same way as a recipe's. prerender.mjs
+// writes it into dist/about/index.html (title and og:title) and AboutPage sets
+// it at runtime.
+export const ABOUT_DOCUMENT_TITLE = recipeDocumentTitle('About');

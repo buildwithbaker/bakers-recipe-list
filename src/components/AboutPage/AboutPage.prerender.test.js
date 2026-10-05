@@ -54,7 +54,8 @@ describe('prerendered About page', () => {
 
   it('writes dist/about/index.html with its own title and description, and only those', () => {
     const html = read('about', 'index.html');
-    expect(html).toContain("<title>About - Baker&#39;s Recipe List</title>");
+    expect(html).toContain("<title>About — Baker&#39;s Recipe List</title>");
+    expect(html).toContain('<meta property="og:title" content="About — Baker&#39;s Recipe List">');
     expect(html).not.toContain('<title>Shell</title>');
     expect(html.match(/<title>/g)).toHaveLength(1);
     expect(html).toContain(`<meta name="description" content="${ABOUT_DESCRIPTION.replace(/'/g, '&#39;')}">`);

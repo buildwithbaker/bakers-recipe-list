@@ -404,6 +404,20 @@ function AppInner() {
     } catch { /* ignore */ }
   }, [landing]);
 
+  // The same rule for a direct load of /about/: the list goes in behind it, so
+  // Back lands on the recipes rather than off the site. The About URL is kept
+  // whole (query and #photos). Same "this entry is ours" marker as above, so a
+  // reload or an in-app arrival never adds a second entry.
+  const [landedOnAbout] = useState(() => isAboutPath(window.location.pathname));
+  useEffect(() => {
+    if (!landedOnAbout || window.history.state) return;
+    try {
+      const aboutUrl = currentUrl();
+      window.history.replaceState(makeEntry([], false, TAB_RECIPES), '', listUrl());
+      window.history.pushState(makeEntry([], false, TAB_RECIPES), '', aboutUrl);
+    } catch { /* ignore */ }
+  }, [landedOnAbout]);
+
   // "/" focuses the search bar when nothing is layered over the list.
   useEffect(() => {
     const onKey = (e) => {

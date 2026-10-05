@@ -20,15 +20,17 @@ describe('AboutPage', () => {
   it('is titled as the page heading and in the document title', () => {
     render(<AboutPage />);
     expect(screen.getByRole('heading', { level: 1, name: "About Baker's Recipe List" })).toBeTruthy();
-    expect(document.title).toBe("About - Baker's Recipe List");
-    expect(ABOUT_DOCUMENT_TITLE).toBe("About - Baker's Recipe List");
+    expect(document.title).toBe("About — Baker's Recipe List");
+    expect(ABOUT_DOCUMENT_TITLE).toBe("About — Baker's Recipe List");
   });
 
-  it('restores the previous document title on the way out', () => {
-    document.title = 'Before';
+  // Not "whatever was there before": after a direct load of /about/ that was
+  // About's own prerendered title, and Back now lands on the list.
+  it('hands the tab back to the site name on the way out, even after a direct load', () => {
+    document.title = "About — Baker's Recipe List";
     const { unmount } = render(<AboutPage />);
     unmount();
-    expect(document.title).toBe('Before');
+    expect(document.title).toBe("Baker's Recipe List");
   });
 
   it('shows every intro paragraph and every answer, with nothing folded away', () => {
