@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  ABOUT, LIST, TAB_PINNED, TAB_RECIPES, TAB_SHOPPING,
+  LIST, TAB_PINNED, TAB_RECIPES, TAB_SHOPPING,
   activeTab, entryOverlays, entryTab, goToTab, makeEntry, popOverlay, pushOverlay, tabTapAction,
 } from './navHistory.js';
 
@@ -77,30 +77,39 @@ describe('Back through tabs and layers never leaves the site', () => {
     expect(h.index).toBe(0);
   });
 
-  it('opens About on its own entry; Back (or Close) pops only About', () => {
+  it('opens a layer on its own entry; Back (or Close) pops only that layer', () => {
     const h = fakeHistory(makeEntry([], false, TAB_PINNED));
-    const stack = pushOverlay(h, [], ABOUT, { page: false, tab: TAB_PINNED, url: '/' });
-    expect(h.state).toEqual(makeEntry([ABOUT], false, TAB_PINNED));
-    expect(pushOverlay(h, stack, ABOUT, { page: false, tab: TAB_PINNED, url: '/' })).toBe(stack); // no double push
+    const stack = pushOverlay(h, [], LIST, { page: false, tab: TAB_PINNED, url: '/' });
+    expect(h.state).toEqual(makeEntry([LIST], false, TAB_PINNED));
+    expect(pushOverlay(h, stack, LIST, { page: false, tab: TAB_PINNED, url: '/' })).toBe(stack); // no double push
 
     let popped = false;
     h.onpop = () => { popped = true; };
-    expect(popOverlay(h, stack, ABOUT, { page: false, tab: TAB_PINNED, url: '/' })).toEqual({ navigating: true });
+    expect(popOverlay(h, stack, LIST, { page: false, tab: TAB_PINNED, url: '/' })).toEqual({ navigating: true });
     expect(popped).toBe(true);
     expect(h.state).toEqual(makeEntry([], false, TAB_PINNED));
   });
 
+  // The shopping list is the only layer the app has now (About became a page),
+  // so the rule is exercised with a second, test-only token on top of it.
   it('refuses to close a layer that is not on top', () => {
-    const h = fakeHistory(makeEntry([LIST, ABOUT], false, TAB_RECIPES));
-    expect(popOverlay(h, [LIST, ABOUT], LIST, { page: false, tab: TAB_RECIPES, url: '/' }).refused).toBe(true);
+    const h = fakeHistory(makeEntry([LIST, 'upper'], false, TAB_RECIPES));
+    expect(popOverlay(h, [LIST, 'upper'], LIST, { page: false, tab: TAB_RECIPES, url: '/' }).refused).toBe(true);
     expect(h.index).toBe(0);
   });
 
   it('closes without navigating when the entry lost its state', () => {
     const h = fakeHistory(null);
-    const r = popOverlay(h, [ABOUT], ABOUT, { page: false, tab: TAB_RECIPES, url: '/' });
+    const r = popOverlay(h, [LIST], LIST, { page: false, tab: TAB_RECIPES, url: '/' });
     expect(r).toEqual({ navigating: false, next: [] });
     expect(h.index).toBe(0);
     expect(h.state).toEqual(makeEntry([], false, TAB_RECIPES));
+  });
+
+  // An entry written while the old About sheet was open still says 'about'.
+  // Read back as a layer, it would be invisible and would own Back and Escape.
+  it('ignores a layer token the app no longer has', () => {
+    expect(entryOverlays(makeEntry(['about'], false, TAB_RECIPES))).toEqual([]);
+    expect(entryOverlays(makeEntry([LIST, 'about'], false, TAB_RECIPES))).toEqual([LIST]);
   });
 });

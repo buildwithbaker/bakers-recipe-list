@@ -27,7 +27,8 @@ _The Cookbook list and a recipe page (Lasagna), at phone size._
 - **Pinned recipes** (their own tab), **recently viewed** and print support;
   pins and history persist in `localStorage`.
 - **Navigation:** Recipes / Pinned / Shopping as a bottom tab bar on a phone
-  (in the header on wider screens), a sticky compact header, and an About sheet.
+  (in the header on wider screens), a sticky compact header, and an About page
+  at `/about/`.
 
 ## Tech stack
 
@@ -62,7 +63,7 @@ src/
   components/           UI components (CSS Modules) — Masthead, SearchBar,
                        RecipeList, RecipeCard, SearchResults,
                        FiltersSheet, Shelves, RecipeView/Modal/Page, MacroCard,
-                       ShoppingList, TabBar, PinnedList, AboutSheet,
+                       ShoppingList, TabBar, PinnedList, AboutPage,
                        ErrorBoundary, UsdaKeyNotice
   hooks/               useShoppingList, useCookLog/useCookHistory,
                        usePinnedRecipes, useRecentlyViewed, useMacroEstimate,

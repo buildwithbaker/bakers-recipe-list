@@ -9,14 +9,17 @@
 // Back therefore pops exactly one step: a layer, a recipe, or a tab switch.
 
 export const LIST = 'list';     // the shopping list layer
-export const ABOUT = 'about';   // the About sheet
+// Every layer the app still has. An entry written by an older build can carry
+// a token that no longer exists ('about', before About became a page at
+// /about/); kept, it would be an invisible layer that swallows Back and Escape.
+const LAYERS = [LIST];
 
 export const TAB_RECIPES = 'recipes';
 export const TAB_PINNED = 'pinned';
 export const TAB_SHOPPING = 'shopping';
 const VIEW_TABS = [TAB_RECIPES, TAB_PINNED];
 
-export const entryOverlays = (state) => (Array.isArray(state?.overlays) ? state.overlays : []);
+export const entryOverlays = (state) => (Array.isArray(state?.overlays) ? state.overlays.filter((t) => LAYERS.includes(t)) : []);
 export const entryIsPage = (state) => !!state?.page;
 export const entryTab = (state) => (VIEW_TABS.includes(state?.tab) ? state.tab : TAB_RECIPES);
 

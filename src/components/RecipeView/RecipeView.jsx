@@ -16,7 +16,8 @@ import { getEffectiveTags } from '../../utils/autoTags.js';
 import { useWakeLock } from '../../hooks/useWakeLock.js';
 import { useIngredientTicks } from '../../hooks/useIngredientTicks.js';
 import { cookModeMessage } from '../../utils/screenLock.js';
-import { recipePath } from '../../utils/recipeRoute.js';
+import { aboutPath, recipePath } from '../../utils/recipeRoute.js';
+import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
 import { AI_PHOTO_CAPTION } from '../../utils/photoCaption.js';
@@ -290,10 +291,13 @@ function CookLogSection({ recipeId, Heading }) {
  * @param onTagClick   tag -> search the list
  * @param onAddToList  (recipeId, items, scale) -> shopping list; omit to hide
  * @param footer       extra content after the notes (the page's related recipes)
+ * @param onAbout      (hash) -> the About page in-app; the AI photo caption
+ *                     links to about/#photos and falls back to a plain
+ *                     navigation without it
  */
 export default function RecipeView({
   recipe, titleId, headingLevel = 2, barStart = null, barEnd = null,
-  onTagClick, onAddToList, footer = null,
+  onTagClick, onAddToList, footer = null, onAbout,
 }) {
   const [scale, setScale] = useState(1);
   const [listSelecting, setListSelecting] = useState(false);
@@ -443,7 +447,9 @@ export default function RecipeView({
           {/* Only a real photo. alt="" because the title beside it names the
               dish; describing it again is noise to a screen reader. An AI
               image is the exception: its alt says what it is, and it carries
-              the badge and a caption (src/data/photoCredits.json). */}
+              the badge and a caption (src/data/photoCredits.json). The
+              caption links to the About page's photos question; the badge
+              stays a plain label. */}
           {photo && (
             <figure className={styles.photoFigure}>
               <div className={styles.photo}>
@@ -451,7 +457,18 @@ export default function RecipeView({
                 {photo.ai && <AiBadge />}
               </div>
               {photo.ai && (
-                <figcaption className={styles.photoCaption}>{AI_PHOTO_CAPTION}</figcaption>
+                <figcaption className={styles.photoCaption}>
+                  <a
+                    href={aboutPath(undefined, 'photos')}
+                    onClick={(e) => {
+                      if (isModifiedClick(e) || !onAbout) return;
+                      e.preventDefault();
+                      onAbout('photos');
+                    }}
+                  >
+                    {AI_PHOTO_CAPTION}
+                  </a>
+                </figcaption>
               )}
             </figure>
           )}

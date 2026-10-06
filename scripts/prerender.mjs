@@ -7,8 +7,9 @@
 // head at runtime. The only fix on static hosting is to have the right HTML
 // already on disk before anyone clicks. That is this script.
 //
-// It writes dist/r/<slug>/index.html per recipe. GitHub Pages serves
-// <dir>/index.html for <dir>/, so those become clean URLs with no server.
+// It writes dist/r/<slug>/index.html per recipe, and dist/about/index.html for
+// the About page. GitHub Pages serves <dir>/index.html for <dir>/, so those
+// become clean URLs with no server.
 //
 // SLUG vs ID: a removed record that displayed as versions had derived ids like
 // `parent::v1`, and its old /r/ URLs still get redirect pages (below). A colon
@@ -29,7 +30,10 @@ import { publicSectionLabel } from '../src/data/sections.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { ogImageAlt } from '../src/utils/photoCredit.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
-import { SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
+import { ABOUT_DOCUMENT_TITLE, SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
+import {
+  ABOUT_DESCRIPTION, ABOUT_FAQ, ABOUT_FAQ_HEADING, ABOUT_HEADING, ABOUT_INSTALL, ABOUT_INTRO, ABOUT_MAKER,
+} from '../src/components/AboutPage/aboutCopy.js';
 
 // BRL_PRERENDER_ROOT points the script at a fixture tree (dist/ + src/data/)
 // for tests. Unset in every real build.
@@ -273,13 +277,12 @@ function headFor(r, url) {
 }
 
 // The shell already carries a <title> and a site-level description. Strip both
-// so the per-recipe pair is the only one on the page - a duplicate og:title is
+// so the page's own pair is the only one on the page - a duplicate og:title is
 // resolved by the crawler in an order nobody controls.
-function pageFor(r, url, related) {
+function injectIntoShell(head, noscript) {
   let html = shell
     .replace(/<title>[\s\S]*?<\/title>\s*/i, '')
     .replace(/<meta\s+name="description"[^>]*>\s*/i, '');
-  const head = headFor(r, url);
   if (!/<\/head>/i.test(html)) {
     console.error('✗ prerender: dist/index.html has no </head> to inject into');
     process.exit(1);
@@ -287,13 +290,59 @@ function pageFor(r, url, related) {
   html = html.replace(/<\/head>/i, `  ${head}\n  </head>`);
 
   // Injected BEFORE the mount point, so a reader that runs no JavaScript meets
-  // the recipe first, and React still gets an untouched, empty #root.
+  // the page first, and React still gets an untouched, empty #root.
   if (!/<div id="root">/i.test(html)) {
     console.error('✗ prerender: dist/index.html has no <div id="root"> to inject before');
     process.exit(1);
   }
-  return html.replace(/<div id="root">/i, `${noscriptFor(r, related)}\n    <div id="root">`);
+  return html.replace(/<div id="root">/i, `${noscript}\n    <div id="root">`);
 }
+
+function pageFor(r, url, related) {
+  return injectIntoShell(headFor(r, url), noscriptFor(r, related));
+}
+
+// --- the About page --------------------------------------------------------
+//
+// /about/ is a route in the app, so a direct load or a refresh needs a real
+// file the same way /r/<slug>/ does. The words come from aboutCopy.js, the
+// module AboutPage renders, so the file and the app say the same thing.
+
+function aboutHead(url) {
+  return [
+    `<title>${esc(ABOUT_DOCUMENT_TITLE)}</title>`,
+    `<link rel="canonical" href="${esc(url)}">`,
+    `<meta name="description" content="${esc(ABOUT_DESCRIPTION)}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta property="og:site_name" content="${esc(SITE_NAME)}">`,
+    `<meta property="og:title" content="${esc(ABOUT_DOCUMENT_TITLE)}">`,
+    `<meta property="og:description" content="${esc(ABOUT_DESCRIPTION)}">`,
+    `<meta property="og:url" content="${esc(url)}">`,
+    `<meta property="og:image" content="${esc(PLACEHOLDER)}">`,
+    `<meta name="twitter:card" content="summary">`,
+    `<meta name="twitter:title" content="${esc(ABOUT_DOCUMENT_TITLE)}">`,
+    `<meta name="twitter:description" content="${esc(ABOUT_DESCRIPTION)}">`,
+  ].join('\n    ');
+}
+
+function aboutNoscript() {
+  const parts = [`<h1>${esc(ABOUT_HEADING)}</h1>`];
+  for (const p of ABOUT_INTRO) parts.push(`<p>${esc(p)}</p>`);
+  parts.push(`<h2>${esc(ABOUT_FAQ_HEADING)}</h2>`);
+  for (const { id, q, a } of ABOUT_FAQ) {
+    parts.push(id ? `<h3 id="${esc(id)}">${esc(q)}</h3>` : `<h3>${esc(q)}</h3>`, `<p>${esc(a)}</p>`);
+  }
+  parts.push(
+    `<p>${esc(ABOUT_INSTALL)}</p>`,
+    `<p><a href="${esc(ABOUT_MAKER.href)}" target="_blank" rel="noopener noreferrer">${esc(ABOUT_MAKER.text)}</a></p>`,
+  );
+  const indented = parts.map((line) => `      ${line}`).join('\n');
+  return `<noscript>\n${indented}\n    </noscript>`;
+}
+
+const ABOUT_URL = `${ORIGIN}about/`;
+mkdirSync(join(dist, 'about'), { recursive: true });
+writeFileSync(join(dist, 'about', 'index.html'), injectIntoShell(aboutHead(ABOUT_URL), aboutNoscript()), 'utf8');
 
 // --- write -----------------------------------------------------------------
 
@@ -375,7 +424,7 @@ writeFileSync(join(dist, '404.html'), shell, 'utf8');
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  [ORIGIN, ...urls].map((u) => `  <url><loc>${esc(u)}</loc></url>`).join('\n') +
+  [ORIGIN, ABOUT_URL, ...urls].map((u) => `  <url><loc>${esc(u)}</loc></url>`).join('\n') +
   '\n</urlset>\n';
 writeFileSync(join(dist, 'sitemap.xml'), sitemap, 'utf8');
 writeFileSync(
@@ -388,5 +437,5 @@ console.log(
   `✓ prerender - ${published.length} recipe pages from ${displayRecipes.length} display rows ` +
   `(${recipes.length} records, ${displayRecipes.length - published.length} blank/skipped), ` +
   `${ogMade.size} photo preview${ogMade.size === 1 ? '' : 's'}, ` +
-  `${redirects} redirect${redirects === 1 ? '' : 's'}, sitemap + robots.txt + 404.html written`,
+  `${redirects} redirect${redirects === 1 ? '' : 's'}, about page, sitemap + robots.txt + 404.html written`,
 );

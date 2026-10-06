@@ -12,14 +12,14 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
 import ShoppingList from './components/ShoppingList/ShoppingList.jsx';
 import TabBar from './components/TabBar/TabBar.jsx';
 import PinnedList from './components/PinnedList/PinnedList.jsx';
-import AboutSheet from './components/AboutSheet/AboutSheet.jsx';
+import AboutPage from './components/AboutPage/AboutPage.jsx';
 import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
-import { BASE_PATH, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js';
+import { BASE_PATH, aboutPath, isAboutPath, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js';
 import {
-  ABOUT, LIST, TAB_RECIPES,
+  LIST, TAB_RECIPES,
   activeTab, entryIsPage, entryOverlays as overlaysOf, entryTab, goToTab, makeEntry, popOverlay, pushOverlay, tabTapAction,
 } from './utils/navHistory.js';
 
@@ -32,10 +32,14 @@ import {
  * string could never have carried this. `?recipe=` still resolves forever; a
  * legacy link is rewritten to its path on load.
  *
+ * /about/ is the one other page, prerendered the same way. Going there is a
+ * push like opening a recipe, so Back returns to whatever was on screen
+ * before: the list, a tab, a card, a recipe page.
+ *
  * Overlay history model
  * ---------------------
- * The dismissable layers, the shopping list and the About sheet, push a
- * history entry when they open. The entry's `history.state.overlays` array
+ * The dismissable layer, the shopping list, pushes a history entry when it
+ * opens. The entry's `history.state.overlays` array
  * records the full stack open at that entry, so Back pops exactly one layer
  * instead of leaving the site, and Forward restores it. The recipe is NOT in
  * that array: it is in the URL, so Back pops it for free.
@@ -146,6 +150,8 @@ function AppInner() {
   // a fresh arrival has no state to read, and arriving on /r/<slug>/ itself
   // means a page, because there is no list behind it to lay a card over.
   const [pageView, setPageView] = useState(() => (window.history.state ? isPageEntry() : !!landing.id));
+  // The About page: read off the path, like the recipe.
+  const [aboutView, setAboutView] = useState(() => isAboutPath(window.location.pathname));
   const [overlays, setOverlays] = useState(entryOverlays);
   const [tab, setTab] = useState(currentEntryTab);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
@@ -159,6 +165,8 @@ function AppInner() {
   const recipeIdRef = useRef(recipeId);
   // Same, for the tab: every entry written records it.
   const tabRef = useRef(tab);
+  // Same, for About: a tab tap from it has to leave it.
+  const aboutRef = useRef(aboutView);
   // Holds a tag search that must be applied after a back navigation lands.
   const pendingSearchRef = useRef(null);
   const [recentHistory, addToHistory, clearHistory] = useRecentlyViewed();
@@ -166,7 +174,6 @@ function AppInner() {
 
   const selectedRecipe = recipeId ? resolveRecipe(recipeId) : null;
   const listOpen = overlays.includes(LIST);
-  const aboutOpen = overlays.includes(ABOUT);
   const fullPage = !!selectedRecipe && pageView;
 
   const applyOverlays = useCallback((next) => {
@@ -182,6 +189,11 @@ function AppInner() {
   const applyTab = useCallback((next) => {
     tabRef.current = next;
     setTab(next);
+  }, []);
+
+  const applyAbout = useCallback((on) => {
+    aboutRef.current = on;
+    setAboutView(on);
   }, []);
 
   // Opening a layer PUSHES a history entry, so Back pops the layer, not the site.
@@ -239,9 +251,10 @@ function AppInner() {
     try { window.history.pushState(makeEntry([], false, TAB_RECIPES), '', listUrl()); } catch { /* ignore */ }
     applyOverlays([]);
     applyRecipe('');
+    applyAbout(false);
     applyTab(TAB_RECIPES);
     setPageView(false);
-  }, [applyOverlays, applyRecipe, applyTab]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyTab]);
 
   // Returns true when a back navigation is in flight (popstate finishes the close).
   const closeRecipe = useCallback(() => {
@@ -276,8 +289,24 @@ function AppInner() {
   }, []);
 
   const handleListClose = useCallback(() => { closeOverlay(LIST); }, [closeOverlay]);
-  const handleAboutOpen = useCallback(() => { openOverlay(ABOUT); }, [openOverlay]);
-  const handleAboutClose = useCallback(() => { closeOverlay(ABOUT); }, [closeOverlay]);
+  // The masthead's (i), and the AI photo caption (with `hash` 'photos'): a
+  // real navigation to /about/, so Back returns to where it was opened from.
+  // Already there: only the anchor changes, on the same entry.
+  const handleAbout = useCallback((hash = '') => {
+    try {
+      const url = `${aboutPath()}${searchWithoutRecipe()}${hash ? `#${hash}` : ''}`;
+      if (aboutRef.current) window.history.replaceState(window.history.state, '', url);
+      else window.history.pushState(makeEntry([], false, tabRef.current), '', url);
+    } catch { /* ignore */ }
+    applyOverlays([]);
+    applyRecipe('');
+    setPageView(false);
+    if (aboutRef.current) {
+      const target = hash && document.getElementById(hash);
+      if (target) target.scrollIntoView(); else window.scrollTo({ top: 0 });
+    }
+    applyAbout(true);
+  }, [applyOverlays, applyRecipe, applyAbout]);
 
   // A tab tap: the only place a tab switch writes history.
   const handleTab = useCallback((tapped) => {
@@ -285,7 +314,8 @@ function AppInner() {
       tapped,
       tab: tabRef.current,
       overlays: overlaysRef.current,
-      onRecipePage: !!recipeIdRef.current,
+      // About is a page of its own: any tab leaves it, the current one too.
+      onRecipePage: !!recipeIdRef.current || aboutRef.current,
     });
     if (action.type === 'scrollTop') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     if (action.type === 'openList') { openOverlay(LIST); return; }
@@ -293,10 +323,11 @@ function AppInner() {
     try { goToTab(window.history, action, listUrl()); } catch { /* ignore */ }
     applyOverlays([]);
     applyRecipe('');
+    applyAbout(false);
     setPageView(false);
     applyTab(action.tab);
     window.scrollTo({ top: 0 });
-  }, [openOverlay, closeOverlay, applyOverlays, applyRecipe, applyTab]);
+  }, [openOverlay, closeOverlay, applyOverlays, applyRecipe, applyAbout, applyTab]);
 
   const handleSearch = useCallback((query) => {
     setSearchQuery(query);
@@ -340,6 +371,7 @@ function AppInner() {
       const key = recipeKeyFromPath(window.location.pathname);
       const recipe = key ? resolveRecipe(key) : null;
       applyRecipe(recipe ? recipe.id : '');
+      applyAbout(isAboutPath(window.location.pathname));
       setPageView(isPageEntry());
       applyTab(currentEntryTab());
       const pending = pendingSearchRef.current;
@@ -351,7 +383,7 @@ function AppInner() {
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
-  }, [applyOverlays, applyRecipe, applyTab]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyTab]);
 
   // A shared link — /r/spicy-pork-patties/ or the legacy ?recipe=Chili — opens
   // straight into a recipe with nothing behind it. Rewrite that first entry to
@@ -371,6 +403,20 @@ function AppInner() {
       window.history.pushState(makeEntry([], true, TAB_RECIPES), '', urlForRecipe(landing.id));
     } catch { /* ignore */ }
   }, [landing]);
+
+  // The same rule for a direct load of /about/: the list goes in behind it, so
+  // Back lands on the recipes rather than off the site. The About URL is kept
+  // whole (query and #photos). Same "this entry is ours" marker as above, so a
+  // reload or an in-app arrival never adds a second entry.
+  const [landedOnAbout] = useState(() => isAboutPath(window.location.pathname));
+  useEffect(() => {
+    if (!landedOnAbout || window.history.state) return;
+    try {
+      const aboutUrl = currentUrl();
+      window.history.replaceState(makeEntry([], false, TAB_RECIPES), '', listUrl());
+      window.history.pushState(makeEntry([], false, TAB_RECIPES), '', aboutUrl);
+    } catch { /* ignore */ }
+  }, [landedOnAbout]);
 
   // "/" focuses the search bar when nothing is layered over the list.
   useEffect(() => {
@@ -395,12 +441,17 @@ function AppInner() {
     <ErrorBoundary>
       <Masthead
         nav={<TabBar placement="header" {...navProps} />}
-        onAbout={handleAboutOpen}
-        siteTitleIsHeading={!fullPage}
-        slim={fullPage || pinnedView}
-        onHome={fullPage ? goToList : undefined}
+        onAbout={handleAbout}
+        aboutCurrent={aboutView}
+        siteTitleIsHeading={!fullPage && !aboutView}
+        slim={fullPage || pinnedView || aboutView}
+        onHome={fullPage || aboutView ? goToList : undefined}
       />
-      {fullPage ? (
+      {aboutView ? (
+        <ErrorBoundary key="__about__">
+          <AboutPage />
+        </ErrorBoundary>
+      ) : fullPage ? (
         // Arrived here from a shared link: there is no list to lay a card over,
         // so the recipe IS the page. Same URL either way.
         <ErrorBoundary key={selectedRecipe.id}>
@@ -411,6 +462,7 @@ function AppInner() {
             onTagClick={handleTagClick}
             onAddToList={handleAddToList}
             onViewRelated={handleViewRelated}
+            onAbout={handleAbout}
           />
         </ErrorBoundary>
       ) : (
@@ -439,6 +491,7 @@ function AppInner() {
               onOpenFullPage={handleOpenFullPage}
               onTagClick={handleTagClick}
               onAddToList={handleAddToList}
+              onAbout={handleAbout}
             />
           </ErrorBoundary>
         </>
@@ -452,7 +505,6 @@ function AppInner() {
         onClearChecked={clearChecked}
         onClearAll={clearAll}
       />
-      <AboutSheet open={aboutOpen} onClose={handleAboutClose} />
       <TabBar placement="bottom" {...navProps} />
     </ErrorBoundary>
   );
