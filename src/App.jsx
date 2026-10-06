@@ -308,6 +308,17 @@ function AppInner() {
     applyAbout(true);
   }, [applyOverlays, applyRecipe, applyAbout]);
 
+  // The masthead's (i) toggles: on About it closes the page by stepping Back,
+  // exactly like the browser's Back. Every way in leaves an in-site entry
+  // behind (an in-app push, or the list entry put behind a direct load), so
+  // Back lands inside the site. If this entry's state is missing anyway, go to
+  // the list rather than off the site (the same guard as closeRecipe).
+  const handleAboutButton = useCallback(() => {
+    if (!aboutRef.current) { handleAbout(); return; }
+    if (window.history.state) { window.history.back(); return; }
+    goToList();
+  }, [handleAbout, goToList]);
+
   // A tab tap: the only place a tab switch writes history.
   const handleTab = useCallback((tapped) => {
     const action = tabTapAction({
@@ -441,7 +452,7 @@ function AppInner() {
     <ErrorBoundary>
       <Masthead
         nav={<TabBar placement="header" {...navProps} />}
-        onAbout={handleAbout}
+        onAbout={handleAboutButton}
         aboutCurrent={aboutView}
         siteTitleIsHeading={!fullPage && !aboutView}
         slim={fullPage || pinnedView || aboutView}

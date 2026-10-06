@@ -90,6 +90,13 @@
   border-color: var(--band-accent);
 }
 
+/* On About: the same filled treatment as the current header tab (TabBar). */
+.about[aria-current="page"] {
+  background: var(--band-ink);
+  border-color: var(--band-ink);
+  color: var(--band);
+}
+
 .about:focus-visible {
   outline-color: var(--band-accent);
 }
