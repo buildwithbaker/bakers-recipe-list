@@ -125,7 +125,9 @@ push, so Back returns to whatever was on screen (list, tab, card or page); a
 direct load is a real prerendered file. `AboutPage` renders the copy in
 `aboutCopy.js`, which `prerender.mjs` imports for the head and `<noscript>`, so
 the words live in one place. The AI photo caption on every AI recipe photo
-links to `about/#photos`.
+links to `about/#photos`. On About the masthead (i) is marked current and
+closes the page by stepping Back; every way in leaves an in-site entry behind
+(an in-app push, or the list entry put behind a direct load).
 
 ### Modal vs page: one route, two frames
 

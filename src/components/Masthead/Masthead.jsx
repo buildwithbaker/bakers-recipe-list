@@ -2,7 +2,8 @@
 // destinations (from 720px up; a phone has the bottom TabBar), and an (i)
 // that goes to the About page. The (i) is a real link to /about/, so a
 // modified click opens a new tab and it works with JavaScript off; a plain
-// click goes there in-app through onAbout.
+// click goes through onAbout, which opens About, or on About (aboutCurrent)
+// closes it again. On About it is marked current and labelled to say so.
 //
 // Two pieces, so only the compact part sticks:
 //   <header>  the wordmark row, sticky at the top (--masthead-stuck tall)
@@ -67,7 +68,7 @@ export default function Masthead({ nav, onAbout, aboutCurrent = false, siteTitle
           <a
             className={styles.about}
             href={aboutPath()}
-            aria-label="About this site"
+            aria-label={aboutCurrent ? 'Close About page' : 'About this site'}
             aria-current={aboutCurrent ? 'page' : undefined}
             onClick={(e) => {
               if (isModifiedClick(e) || !onAbout) return;
