@@ -54,16 +54,19 @@ describe('recipes.json integrity', () => {
   // ("serve with mashed potatoes") does not trip on the recipe titled
   // "Mashed Potatoes". A name also present in this recipe's own ingredient list
   // is a sub-recipe it makes or uses (e.g. Taco Seasoning) and is allowed.
-  it('has no recipe whose steps depend on another recipe by name', () => {
+  it('has no recipe whose steps, why notes or notes depend on another recipe by name', () => {
     const distinctive = recipes
       .map((r) => r.name)
       .filter((n) => n.length >= 14 && n.includes(' '));
 
     const offenders = [];
     for (const recipe of recipes) {
-      const steps = (recipe.instructions ?? [])
-        .map((s) => `${s.step ?? ''} ${s.detail ?? ''}`)
-        .join(' ');
+      // The why notes and the recipe notes are read at the stove too, so they
+      // are held to the same rule as the steps themselves.
+      const steps = [
+        ...(recipe.instructions ?? []).map((s) => `${s.step ?? ''} ${s.detail ?? ''} ${s.why ?? ''}`),
+        ...(recipe.notes ?? []),
+      ].join(' ');
       const ingredients = (recipe.ingredients ?? []).map((i) => i.text ?? '').join(' ');
       for (const name of distinctive) {
         if (name === recipe.name) continue;

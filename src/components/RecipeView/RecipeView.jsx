@@ -22,6 +22,7 @@ import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
 import { AI_PHOTO_CAPTION } from '../../utils/photoCaption.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
+import { gatherWhyNotes, hasWhy, loadShowWhy, saveShowWhy, stepNumbers } from '../../utils/whyNotes.js';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
 import { domainOf } from '../../utils/domainOf.js';
 import AiBadge from '../AiBadge/AiBadge.jsx';
@@ -182,41 +183,75 @@ function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp,
 // Method
 // ---------------------------------------------------------------------------
 
-function Method({ steps, headingId, Heading }) {
+function Method({ steps, headingId, Heading, showWhy, onShowWhyChange }) {
+  const toggleId = useId();
   if (!steps?.length) return null;
   const count = steps.filter((s) => s.type !== 'section' && s.type !== 'header').length;
   // Numbering restarts after a version marker, so each version of a
   // multi-version recipe counts from 1.
-  let n = 0;
+  const numbers = stepNumbers(steps);
+  // The why sits in the step's own paragraph, after a space, as its own
+  // element: unticking the box removes it and nothing else.
+  const why = (s) => showWhy && s.why && <>{' '}<span className={styles.why}>{s.why}</span></>;
   return (
     <section className={styles.method} aria-labelledby={headingId}>
       <div className={styles.sectionHead}>
         <Heading id={headingId} tabIndex={-1}>Method</Heading>
         <span className={styles.n}>{plural(count, 'step')}</span>
       </div>
+      {hasWhy(steps) && (
+        <label htmlFor={toggleId} className={`${styles.check} ${styles.whyToggle}`} data-print-hide>
+          <input id={toggleId} type="checkbox" checked={showWhy} onChange={(e) => onShowWhyChange(e.target.checked)} />
+          <span>Show why notes</span>
+        </label>
+      )}
       <ol className={styles.steps}>
         {steps.map((s, i) => {
-          if (s.type === 'section' || s.type === 'header') {
-            if (s.type === 'section') n = 0;
+          if (numbers[i] === null) {
             return <li key={i} className={styles.sub}>{s.step}</li>;
           }
-          n += 1;
           // Classic steps carry a short title in `step` and the text in
           // `detail`; grouped steps carry the text in `step` alone.
           return (
-            <li key={i} className={styles.step} data-n={n}>
+            <li key={i} className={styles.step} data-n={numbers[i]}>
               {s.detail ? (
                 <>
                   <span className={styles.stepTitle}>{s.step}</span>
-                  <p>{s.detail}</p>
+                  <p>{s.detail}{why(s)}</p>
                 </>
               ) : (
-                <p>{s.step}</p>
+                <p>{s.step}{why(s)}</p>
               )}
             </li>
           );
         })}
       </ol>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Recipe notes: the recipe's own notes, plus the why notes while they are
+// hidden from the method. Renders nothing when there is neither.
+// ---------------------------------------------------------------------------
+
+function RecipeNotes({ notes, steps, showWhy, Heading }) {
+  const headingId = useId();
+  const gathered = showWhy ? [] : gatherWhyNotes(steps);
+  if (!notes?.length && !gathered.length) return null;
+  return (
+    <section className={styles.recipeNotes} aria-labelledby={headingId}>
+      <div className={styles.sectionHead}>
+        <Heading id={headingId}>Notes</Heading>
+      </div>
+      <ul className={styles.noteList}>
+        {(notes ?? []).map((note, i) => <li key={`note-${i}`}>{note}</li>)}
+        {gathered.map((g) => (
+          <li key={`why-${g.n}-${g.label}`}>
+            <span className={styles.noteStep}>{g.label}:</span> {g.why}
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }
@@ -302,6 +337,7 @@ export default function RecipeView({
   const [scale, setScale] = useState(1);
   const [listSelecting, setListSelecting] = useState(false);
   const [stuck, setStuck] = useState(false);
+  const [showWhy, setShowWhy] = useState(loadShowWhy);
   const wakeLock = useWakeLock();
   const { madeSet, toggleMade, pinnedSet, togglePinned } = useCookHistoryContext();
   const [toastNode, toast] = useToast();
@@ -355,6 +391,8 @@ export default function RecipeView({
   const scaleIdx = SCALE_STEPS.indexOf(scale);
   const scaleDown = () => { if (scaleIdx > 0) setScale(SCALE_STEPS[scaleIdx - 1]); };
   const scaleUp = () => { if (scaleIdx < SCALE_STEPS.length - 1) setScale(SCALE_STEPS[scaleIdx + 1]); };
+
+  const changeShowWhy = (show) => { setShowWhy(show); saveShowWhy(show); };
 
   const handleCook = async () => { toast(cookModeMessage(await wakeLock.toggle())); };
 
@@ -493,7 +531,14 @@ export default function RecipeView({
               toast={toast}
             />
             <div className={listSelecting ? styles.dimmed : undefined}>
-              <Method steps={recipe.instructions} headingId={methodId} Heading={Heading} />
+              <Method
+                steps={recipe.instructions}
+                headingId={methodId}
+                Heading={Heading}
+                showWhy={showWhy}
+                onShowWhyChange={changeShowWhy}
+              />
+              <RecipeNotes notes={recipe.notes} steps={recipe.instructions} showWhy={showWhy} Heading={Heading} />
             </div>
           </div>
         )}

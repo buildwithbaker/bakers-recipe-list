@@ -473,6 +473,40 @@ h2.title {
   margin-bottom: var(--s4);
 }
 
+/* The why after a step: same paragraph, quieter voice. */
+.why {
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+/* "Show why notes": the ingredient tick style, without the row rule. */
+.whyToggle {
+  display: inline-flex;
+  border-bottom: 0;
+  margin-bottom: var(--s3);
+}
+
+/* ---------- Recipe notes ---------- */
+.recipeNotes {
+  max-width: 68ch;
+  margin-top: var(--s2);
+}
+
+.noteList {
+  margin: 0;
+  padding-left: 1.25em;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+.noteList li + li {
+  margin-top: var(--s2);
+}
+
+.noteStep {
+  font-weight: 700;
+}
+
 .dimmed {
   opacity: 0.4;
   pointer-events: none;
