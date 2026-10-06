@@ -4876,6 +4876,148 @@
     "recipeYield": "6 servings, about 4 cups"
   },
   {
+    "id": "hot-honey-chicken-sandwiches",
+    "name": "Hot Honey Chicken Sandwiches",
+    "section": "SANDWICHES",
+    "category": "Sandwiches",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#sandwiches",
+      "#hot-honey",
+      "#rotisserie"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "1 rotisserie chicken (about 3 cups meat)"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp butter, for crisping"
+      },
+      {
+        "type": "header",
+        "text": "Hot honey butter:"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 garlic clove, grated"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup honey"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp Frank's RedHot (or similar)"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp red pepper flakes"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp apple cider vinegar"
+      },
+      {
+        "type": "header",
+        "text": "Slaw:"
+      },
+      {
+        "type": "item",
+        "text": "½ bag coleslaw mix (from a 14 oz bag)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp + 2 tsp mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp apple cider vinegar"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp honey"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp celery seed"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp kosher salt"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "To build:"
+      },
+      {
+        "type": "item",
+        "text": "3 brioche buns"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp butter, for the buns"
+      },
+      {
+        "type": "item",
+        "text": "½ cup dill pickle chips"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Make the Slaw",
+        "detail": "Whisk the mayo (2 Tbsp + 2 tsp), cider vinegar (1 Tbsp), honey (1½ tsp), celery seed (¼ tsp), kosher salt (¼ tsp) and black pepper (⅛ tsp). Toss with the coleslaw mix (½ bag) and chill. It holds up to 4 hours because the dressing is vinegar-forward, not heavy mayo."
+      },
+      {
+        "step": "Shred",
+        "detail": "Pull the meat off the rotisserie chicken (1), discard the skin and bones, and shred it into bite-size pieces. You should have about 3 cups."
+      },
+      {
+        "step": "Hot Honey Butter",
+        "detail": "In a small saucepan, melt the butter (3 Tbsp) over low heat. Add the garlic (1 clove) for 1 minute, then stir in the honey (¼ cup), hot sauce (2 Tbsp), red pepper flakes (1 tsp), cayenne (½ tsp) and cider vinegar (1½ tsp). Simmer gently 1 to 2 minutes to pull the chili into the fat; a batch this small scorches fast, so watch it. No salt, because the chicken is already seasoned. For milder heat, halve the cayenne."
+      },
+      {
+        "step": "Crisp",
+        "detail": "Melt the butter (1 Tbsp) in a 12-inch skillet over medium-high heat. Spread the chicken (3 cups) in a single layer and leave it untouched 3 to 4 minutes, until the edges brown. Three cups usually fits in one batch; split it if the pan is crowded. Rotisserie meat is soft, and these browned edges are the only real texture the filling gets."
+      },
+      {
+        "step": "Sauce",
+        "detail": "Drop the heat to medium-low, pour the hot honey butter over the chicken and toss until glossy and the chicken reads 165°F. Keep the heat low: honey scorches well before the chicken would."
+      },
+      {
+        "step": "Toast the Buns",
+        "detail": "Butter the cut sides of the buns (3) with the butter (1 Tbsp total) and toast them cut-side down in the skillet 1 to 2 minutes. A toasted crumb resists the sauce."
+      },
+      {
+        "step": "Build",
+        "detail": "Layer each bottom bun with hot chicken, pickles (½ cup total), slaw and the top bun. Build right before eating so the bun stays crisp."
+      }
+    ],
+    "is_blank": false,
+    "description": "Rotisserie chicken crisped in a hot skillet, tossed in garlicky hot honey butter, and piled on toasted brioche with vinegar slaw and dill pickles.",
+    "prepTime": "PT20M",
+    "cookTime": "PT10M",
+    "recipeYield": "3 sandwiches"
+  },
+  {
     "id": "coconut-rice",
     "name": "Coconut Rice",
     "section": "SIDES",
