@@ -1846,7 +1846,7 @@
       },
       {
         "type": "item",
-        "text": "2 tsp kosher salt"
+        "text": "1½ tsp table salt"
       },
       {
         "type": "item",
@@ -1860,15 +1860,16 @@
     "instructions": [
       {
         "step": "Heat the Oven",
-        "detail": "Heat the oven to 425F with a rack in the middle position."
+        "detail": "Heat the oven to 425°F with a rack in the middle position."
       },
       {
         "step": "Mix the Seasoning",
-        "detail": "In a small bowl, stir together the smoked paprika (1 Tbsp), garlic powder (2 tsp), dried oregano (1 tsp), cayenne (½ to 1 tsp), kosher salt (2 tsp), and black pepper (1 tsp)."
+        "detail": "In a small bowl, stir together the smoked paprika (1 Tbsp), garlic powder (2 tsp), dried oregano (1 tsp), cayenne (½ to 1 tsp), table salt (1½ tsp), and black pepper (1 tsp)."
       },
       {
         "step": "Start the Potatoes Alone",
-        "detail": "On a rimmed sheet pan, toss the halved potatoes (1½ lb) with olive oil (2 Tbsp) and about a third of the seasoning mix. Spread them cut-side down. Roast 20 minutes by themselves - boneless thighs cook in roughly half the time bone-in do, so the potatoes need the head start."
+        "detail": "On a rimmed sheet pan, toss the halved potatoes (1½ lb) with olive oil (2 Tbsp) and about a third of the seasoning mix. Spread them cut-side down. Roast 20 minutes by themselves.",
+        "why": "Boneless thighs cook in roughly half the time bone-in do, so the potatoes need the head start."
       },
       {
         "step": "Season the Chicken",
@@ -1876,15 +1877,18 @@
       },
       {
         "step": "Add the Chicken",
-        "detail": "Pull the pan out, push the potatoes to the edges, and lay the thighs (2 lb) in the middle, smooth side up and not touching. Roast another 18-20 minutes, until the thighs read 175F. Do not crowd the pan - touching thighs steam instead of roast."
+        "detail": "Pull the pan out, push the potatoes to the edges, and lay the thighs (2 lb) in the middle, smooth side up and not touching. Roast another 18-20 minutes, until the thighs read 175°F.",
+        "why": "Do not crowd the pan - touching thighs steam instead of roast."
       },
       {
         "step": "Brown It",
-        "detail": "Broil 2-3 minutes at the end. Boneless skinless thighs have no skin or bone fat to self-baste, so they come out pale and flat without this step."
+        "detail": "Broil 2-3 minutes at the end.",
+        "why": "Boneless skinless thighs have no skin or bone fat to self-baste, so they come out pale and flat without this step."
       },
       {
         "step": "Serve",
-        "detail": "Rest 5 minutes on the pan so the potatoes pick up the rendered fat, then squeeze the lemon (1, cut into wedges) over everything."
+        "detail": "Rest 5 minutes on the pan, then squeeze the lemon (1, cut into wedges) over everything.",
+        "why": "Resting on the pan lets the potatoes pick up the rendered fat."
       }
     ],
     "is_blank": false,

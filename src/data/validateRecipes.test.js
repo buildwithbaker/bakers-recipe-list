@@ -165,6 +165,41 @@ describe('validate-recipes.mjs', () => {
     expect(output).toMatch(/append-only/);
   });
 
+  // --- optional why (per step) and notes (per recipe) ----------------------
+
+  it('passes a step with a why and a recipe with notes', () => {
+    const records = clone(BASE_RECORDS);
+    records[0].instructions[0].why = 'So it cooks evenly.';
+    records[0].notes = ['Keeps three days in the fridge.'];
+    const { code, output } = runValidator(fixture({ records }));
+    expect(code).toBe(0);
+    expect(output).toMatch(/recipes\.json OK/);
+  });
+
+  it.each(['', '   ', 42])('fails a why of %j', (why) => {
+    const records = clone(BASE_RECORDS);
+    records[0].instructions[0].why = why;
+    const { code, output } = runValidator(fixture({ records }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/instruction #0 why must be a non-empty string when present/);
+  });
+
+  it.each([[[]], ['a string'], [null]])('fails notes of %j', (notes) => {
+    const records = clone(BASE_RECORDS);
+    records[0].notes = notes;
+    const { code, output } = runValidator(fixture({ records }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/notes must be a non-empty array when present/);
+  });
+
+  it.each(['', '  ', 7])('fails a note of %j', (note) => {
+    const records = clone(BASE_RECORDS);
+    records[0].notes = ['A fine note.', note];
+    const { code, output } = runValidator(fixture({ records }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/note #1 must be a non-empty string/);
+  });
+
   // --- removal path (recipes.ids.json `removed`) ---------------------------
 
   // alpha removed, beta its successor: the record is gone, its `ids` entry stays.

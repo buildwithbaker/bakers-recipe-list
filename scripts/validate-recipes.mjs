@@ -191,10 +191,27 @@ recipes.forEach((r, i) => {
       if ('type' in st && !ingTypeEnum.includes(st.type)) {
         errors.push(`${where} instruction #${j} has invalid type ${JSON.stringify(st.type)}`);
       }
+      if ('why' in st && (typeof st.why !== 'string' || st.why.trim() === '')) {
+        errors.push(`${where} instruction #${j} why must be a non-empty string when present`);
+      }
       Object.keys(st).forEach((k) => {
         if (!instrKeys.includes(k)) errors.push(`${where} instruction #${j} has unknown field "${k}"`);
       });
     });
+  }
+
+  // notes - optional; when present, a non-empty array of non-empty strings.
+  // An empty array is rejected rather than tolerated: omit the field instead.
+  if ('notes' in r) {
+    if (!Array.isArray(r.notes) || r.notes.length === 0) {
+      errors.push(`${where} notes must be a non-empty array when present`);
+    } else {
+      r.notes.forEach((note, j) => {
+        if (typeof note !== 'string' || note.trim() === '') {
+          errors.push(`${where} note #${j} must be a non-empty string`);
+        }
+      });
+    }
   }
 
   // non-blank recipes must actually have content

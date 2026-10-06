@@ -100,9 +100,20 @@
         "properties": {
           "step": { "type": "string", "minLength": 1 },
           "detail": { "type": "string" },
-          "type": { "type": "string", "enum": ["item", "section", "header"] }
+          "type": { "type": "string", "enum": ["item", "section", "header"] },
+          "why": {
+            "type": "string",
+            "minLength": 1,
+            "description": "OPTIONAL. One short sentence on why the step is done this way. Rendered in muted italic after the step's detail, hideable with the page's \"Show why notes\" checkbox. Never indexed by search and never published in the JSON-LD."
+          }
         }
       }
+    },
+    "notes": {
+      "type": "array",
+      "minItems": 1,
+      "description": "OPTIONAL. Recipe-level notes, shown under a \"Notes\" heading after the method. Omit the field rather than leaving it empty. Never indexed by search and never published in the JSON-LD.",
+      "items": { "type": "string", "minLength": 1 }
     },
     "is_blank": {
       "type": "boolean",
