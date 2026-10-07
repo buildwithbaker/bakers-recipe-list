@@ -502,8 +502,9 @@ consequences follow and are worth knowing before they bite:
    silent. `localStorage` has no path namespace — a generic key like `theme` or
    `settings` written by two apps is one key. This app is already safe: every
    key it writes is `brl_`-prefixed (`brl_cook_log`, `brl_made_v1`,
-   `brl_pinned_v1`, `brl_recently_viewed`, `brl_show_why` ("Show why notes",
-   `'0'` when turned off), `brl_shopping_list`, `brl_state_version`; session: `brl_ingredient_ticks`, `brl_sw_reloaded`;
+   `brl_pinned_v1`, `brl_recently_viewed`, `brl_show_why` and
+   `brl_step_amounts` (the Display settings, `'0'` when turned off),
+   `brl_shopping_list`, `brl_state_version`; session: `brl_ingredient_ticks`, `brl_sw_reloaded`;
    cache: `brl-photos`). `brl_dark_mode`, `brl_hide_blanks` and
    `brl_collapsed_sections` are no longer read. Keep it that way; never
    introduce an unprefixed key.

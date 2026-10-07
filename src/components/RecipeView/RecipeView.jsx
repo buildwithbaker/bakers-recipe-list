@@ -20,9 +20,12 @@ import { aboutPath, recipePath } from '../../utils/recipeRoute.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
-import { AI_PHOTO_CAPTION } from '../../utils/photoCaption.js';
+import { AI_PHOTO_CAPTION, CAPTION_LINK_TEXT } from '../../utils/photoCaption.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
-import { gatherWhyNotes, hasWhy, loadShowWhy, saveShowWhy, stepNumbers } from '../../utils/whyNotes.js';
+import { gatherWhyNotes, hasWhy, stepNumbers } from '../../utils/whyNotes.js';
+import { hasStepAmounts, stripStepAmounts } from '../../utils/stepAmounts.js';
+import { loadDisplaySettings, saveDisplaySetting } from '../../utils/displaySettings.js';
+import DisplaySettings from '../DisplaySettings/DisplaySettings.jsx';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
 import { domainOf } from '../../utils/domainOf.js';
 import AiBadge from '../AiBadge/AiBadge.jsx';
@@ -183,27 +186,33 @@ function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp,
 // Method
 // ---------------------------------------------------------------------------
 
-function Method({ steps, headingId, Heading, showWhy, onShowWhyChange }) {
-  const toggleId = useId();
+function Method({ steps, headingId, Heading, settings, onSettingChange, scaled }) {
   if (!steps?.length) return null;
   const count = steps.filter((s) => s.type !== 'section' && s.type !== 'header').length;
   // Numbering restarts after a version marker, so each version of a
   // multi-version recipe counts from 1.
   const numbers = stepNumbers(steps);
+  const withWhy = hasWhy(steps);
+  const withAmounts = hasStepAmounts(steps);
+  // "Amounts in steps" off is a display transform only; the why is never
+  // touched by it.
+  const text = (t) => (settings.amounts ? t : stripStepAmounts(t));
   // The why sits in the step's own paragraph, after a space, as its own
-  // element: unticking the box removes it and nothing else.
-  const why = (s) => showWhy && s.why && <>{' '}<span className={styles.why}>{s.why}</span></>;
+  // element: turning it off removes it and nothing else.
+  const why = (s) => settings.why && s.why && <>{' '}<span className={styles.why}>{s.why}</span></>;
   return (
     <section className={styles.method} aria-labelledby={headingId}>
       <div className={styles.sectionHead}>
         <Heading id={headingId} tabIndex={-1}>Method</Heading>
         <span className={styles.n}>{plural(count, 'step')}</span>
+        {(withWhy || withAmounts) && (
+          <DisplaySettings settings={settings} onChange={onSettingChange} showWhyRow={withWhy} />
+        )}
       </div>
-      {hasWhy(steps) && (
-        <label htmlFor={toggleId} className={`${styles.check} ${styles.whyToggle}`} data-print-hide>
-          <input id={toggleId} type="checkbox" checked={showWhy} onChange={(e) => onShowWhyChange(e.target.checked)} />
-          <span>Show why notes</span>
-        </label>
+      {/* The step amounts are written for the original yield; the scaler
+          only rescales the ingredient list. */}
+      {scaled && settings.amounts && withAmounts && (
+        <p className={styles.scaledHint}>Amounts in steps are for the original recipe.</p>
       )}
       <ol className={styles.steps}>
         {steps.map((s, i) => {
@@ -216,11 +225,11 @@ function Method({ steps, headingId, Heading, showWhy, onShowWhyChange }) {
             <li key={i} className={styles.step} data-n={numbers[i]}>
               {s.detail ? (
                 <>
-                  <span className={styles.stepTitle}>{s.step}</span>
-                  <p>{s.detail}{why(s)}</p>
+                  <span className={styles.stepTitle}>{text(s.step)}</span>
+                  <p>{text(s.detail)}{why(s)}</p>
                 </>
               ) : (
-                <p>{s.step}{why(s)}</p>
+                <p>{text(s.step)}{why(s)}</p>
               )}
             </li>
           );
@@ -235,9 +244,9 @@ function Method({ steps, headingId, Heading, showWhy, onShowWhyChange }) {
 // hidden from the method. Renders nothing when there is neither.
 // ---------------------------------------------------------------------------
 
-function RecipeNotes({ notes, steps, showWhy, Heading }) {
+function RecipeNotes({ notes, steps, settings, Heading }) {
   const headingId = useId();
-  const gathered = showWhy ? [] : gatherWhyNotes(steps);
+  const gathered = settings.why ? [] : gatherWhyNotes(steps, settings.amounts ? undefined : stripStepAmounts);
   if (!notes?.length && !gathered.length) return null;
   return (
     <section className={styles.recipeNotes} aria-labelledby={headingId}>
@@ -337,7 +346,8 @@ export default function RecipeView({
   const [scale, setScale] = useState(1);
   const [listSelecting, setListSelecting] = useState(false);
   const [stuck, setStuck] = useState(false);
-  const [showWhy, setShowWhy] = useState(loadShowWhy);
+  const [display, setDisplay] = useState(loadDisplaySettings);
+  const [cardBusy, setCardBusy] = useState(false);
   const wakeLock = useWakeLock();
   const { madeSet, toggleMade, pinnedSet, togglePinned } = useCookHistoryContext();
   const [toastNode, toast] = useToast();
@@ -392,7 +402,24 @@ export default function RecipeView({
   const scaleDown = () => { if (scaleIdx > 0) setScale(SCALE_STEPS[scaleIdx - 1]); };
   const scaleUp = () => { if (scaleIdx < SCALE_STEPS.length - 1) setScale(SCALE_STEPS[scaleIdx + 1]); };
 
-  const changeShowWhy = (show) => { setShowWhy(show); saveShowWhy(show); };
+  const changeDisplay = (name, on) => {
+    setDisplay((prev) => ({ ...prev, [name]: on }));
+    saveDisplaySetting(name, on);
+  };
+
+  // The card is a PDF built in the browser. pdf-lib and the card fonts load
+  // only now, on the tap, so none of it weighs on the page.
+  const handleCard = async () => {
+    setCardBusy(true);
+    try {
+      const { downloadRecipeCard } = await import('../../utils/recipeCard.js');
+      await downloadRecipeCard(recipe, display);
+    } catch {
+      toast('Could not make the card. Check your connection and try again');
+    } finally {
+      setCardBusy(false);
+    }
+  };
 
   const handleCook = async () => { toast(cookModeMessage(await wakeLock.toggle())); };
 
@@ -427,7 +454,7 @@ export default function RecipeView({
       aria-pressed={wakeLock.active}
       aria-label={withLabel ? undefined : 'Cook mode'}
     >
-      <Icon name="sun" />{withLabel && 'Cook mode'}
+      <Icon name="sun" />{withLabel && (wakeLock.active ? 'Cook mode on' : 'Start cook mode')}
     </button>
   );
 
@@ -466,20 +493,28 @@ export default function RecipeView({
                 </span>
               </p>
             )}
+            {/* Cook mode first, then four equal tiles. Card replaced Print
+                (Adam, 2026-10-06); the print stylesheet still serves Ctrl+P. */}
             <div className={styles.actions} data-print-hide>
-              {!recipe.is_blank && cookButton(`${styles.btn} ${styles.primary}`, true)}
-              {!recipe.is_blank && (
-                <>
-                  <button type="button" className={`${styles.btn} ${styles.pinBtn}`} aria-pressed={isPinned} onClick={() => togglePinned(recipe.id)}>
-                    <Icon name="star" filled={isPinned} />Pin
+              {!recipe.is_blank && cookButton(`${styles.btn} ${styles.primary} ${styles.cookBtn}`, true)}
+              <div className={styles.tiles}>
+                {!recipe.is_blank && (
+                  <>
+                    <button type="button" className={`${styles.btn} ${styles.tile} ${styles.pinBtn}`} aria-pressed={isPinned} onClick={() => togglePinned(recipe.id)}>
+                      <Icon name="star" filled={isPinned} />{isPinned ? 'Pinned' : 'Pin'}
+                    </button>
+                    <button type="button" className={`${styles.btn} ${styles.tile} ${styles.madeBtn}`} aria-pressed={isMade} onClick={() => toggleMade(recipe.id)}>
+                      <Icon name="check" />Made it
+                    </button>
+                  </>
+                )}
+                <button type="button" className={`${styles.btn} ${styles.tile}`} onClick={handleShare}><Icon name="share" />Share</button>
+                {!recipe.is_blank && (
+                  <button type="button" className={`${styles.btn} ${styles.tile}`} onClick={handleCard} disabled={cardBusy} aria-label="Download recipe card (PDF)">
+                    <Icon name="download" />Card
                   </button>
-                  <button type="button" className={`${styles.btn} ${styles.madeBtn}`} aria-pressed={isMade} onClick={() => toggleMade(recipe.id)}>
-                    <Icon name="check" />Made it
-                  </button>
-                </>
-              )}
-              <button type="button" className={styles.btn} onClick={handleShare}><Icon name="share" />Share</button>
-              <button type="button" className={styles.btn} onClick={() => window.print()}><Icon name="print" />Print</button>
+                )}
+              </div>
             </div>
           </div>
           {/* Only a real photo. alt="" because the title beside it names the
@@ -496,6 +531,7 @@ export default function RecipeView({
               </div>
               {photo.ai && (
                 <figcaption className={styles.photoCaption}>
+                  {AI_PHOTO_CAPTION}{' '}
                   <a
                     href={aboutPath(undefined, 'photos')}
                     onClick={(e) => {
@@ -504,7 +540,7 @@ export default function RecipeView({
                       onAbout('photos');
                     }}
                   >
-                    {AI_PHOTO_CAPTION}
+                    {CAPTION_LINK_TEXT}
                   </a>
                 </figcaption>
               )}
@@ -535,10 +571,11 @@ export default function RecipeView({
                 steps={recipe.instructions}
                 headingId={methodId}
                 Heading={Heading}
-                showWhy={showWhy}
-                onShowWhyChange={changeShowWhy}
+                settings={display}
+                onSettingChange={changeDisplay}
+                scaled={scale !== 1}
               />
-              <RecipeNotes notes={recipe.notes} steps={recipe.instructions} showWhy={showWhy} Heading={Heading} />
+              <RecipeNotes notes={recipe.notes} steps={recipe.instructions} settings={display} Heading={Heading} />
             </div>
           </div>
         )}
