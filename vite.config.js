@@ -24,6 +24,7 @@ export default defineConfig({
         // they are precached and the list looks right offline. The 800px
         // recipe photos are cached the first time each is viewed instead.
         globPatterns: ['**/*.{js,css,html,svg,png,ico,webmanifest,woff2}', '**/*-thumb-*.webp'],
+        globIgnores: ['**/recipeCard-*.js'],
         runtimeCaching: [
           {
             urlPattern: ({ url }) => url.pathname.startsWith(`${BASE}assets/`) && /-large-[^/]*\.webp$/.test(url.pathname),
