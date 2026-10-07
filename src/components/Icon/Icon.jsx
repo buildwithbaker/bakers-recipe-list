@@ -20,6 +20,8 @@ const PATHS = {
   book: <path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 21a2 2 0 0 1 2-2h13v2M9 7h6" />,
   basket: <><path d="M3 10h18l-2 10H5z" /><path d="m8 10 3-6M16 10l-3-6M9 14v2M15 14v2" /></>,
   info: <><circle cx="12" cy="12" r="9" /><path d="M12 11v5M12 8h.01" /></>,
+  sliders: <><path d="M4 7h9M17 7h3M4 17h3M11 17h9" /><circle cx="15" cy="7" r="2" /><circle cx="9" cy="17" r="2" /></>,
+  download: <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />,
 };
 
 export default function Icon({ name, filled = false, size, className }) {

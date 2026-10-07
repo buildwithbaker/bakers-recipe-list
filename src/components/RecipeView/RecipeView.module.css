@@ -171,10 +171,11 @@ h2.title {
   font: 400 var(--t-xs)/1.35 var(--sans);
 }
 
-/* The caption is a link to About's photos question. Same colour as before, so
-   the contrast pair above still holds; the underline says it is a link. */
+/* "Why?" links to About's photos question; the rest of the caption is text.
+   The brand navy is the site's link colour and clears AA on every band. */
 .photoCaption a {
-  color: inherit;
+  color: var(--brand);
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -184,10 +185,45 @@ h2.title {
 }
 
 /* ---------- Buttons ---------- */
+/* Cook mode first and full width, then one row of four equal tiles (icon
+   above a short label). Fits a 320px screen without wrapping. */
 .actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: var(--s2);
+  max-width: 30rem;
+}
+
+.btn.cookBtn {
+  justify-content: center;
+  width: 100%;
+  min-height: 52px;
+  font-size: 1rem;
+}
+
+.btn.cookBtn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s2);
+}
+
+.btn.tile {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 60px;
+  padding: var(--s2) 2px;
+  font-size: var(--t-xs);
+}
+
+.btn.tile svg {
+  width: 20px;
+  height: 20px;
 }
 
 .btn {
@@ -479,11 +515,11 @@ h2.title {
   font-style: italic;
 }
 
-/* "Show why notes": the ingredient tick style, without the row rule. */
-.whyToggle {
-  display: inline-flex;
-  border-bottom: 0;
-  margin-bottom: var(--s3);
+/* Under the Method heading while the servings are scaled. */
+.scaledHint {
+  margin: 0 0 var(--s3);
+  color: var(--ink-muted);
+  font-size: var(--t-sm);
 }
 
 /* ---------- Recipe notes ---------- */
@@ -671,19 +707,8 @@ h2.title {
   h2.title {
     font-size: var(--t-xl);
   }
-  /* One row that scrolls sideways, edge to edge. */
   .actions {
-    flex-wrap: nowrap;
-    margin: 0 calc(-1 * var(--s4));
-    padding: 0 var(--s4) var(--s1);
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  .actions::-webkit-scrollbar {
-    display: none;
-  }
-  .actions .btn {
-    flex: none;
+    max-width: none;
   }
   .step {
     padding-left: 50px;

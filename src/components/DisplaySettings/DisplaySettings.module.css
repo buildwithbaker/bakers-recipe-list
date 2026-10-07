@@ -1,0 +1,174 @@
+/* The Display control: a labelled button, then a bottom sheet (phone) or a
+   dropdown (wider). Targets are 48px, a notch above --tap, per the brief. */
+.wrap {
+  position: relative;
+  margin-left: auto;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 48px;
+  padding: 0 var(--s4);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 600 var(--t-sm)/1 var(--sans);
+  cursor: pointer;
+}
+
+.trigger:hover,
+.trigger[aria-expanded="true"] {
+  border-color: var(--brand);
+}
+
+.trigger svg {
+  width: 20px;
+  height: 20px;
+}
+
+.title {
+  margin: 0 0 var(--s2);
+  font: 400 var(--t-xl)/1.2 var(--serif);
+  color: var(--ink);
+}
+
+.rows {
+  display: grid;
+}
+
+/* One row, one target: label and hint on the left, the switch on the right. */
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  width: 100%;
+  min-height: 64px;
+  padding: var(--s3) 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  color: var(--ink);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.row:last-child {
+  border-bottom: 0;
+}
+
+.rowText {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+}
+
+.rowLabel {
+  font: 600 1rem/1.3 var(--sans);
+}
+
+.rowHint {
+  font-size: var(--t-sm);
+  line-height: 1.35;
+  color: var(--ink-muted);
+}
+
+.track {
+  flex: none;
+  position: relative;
+  width: 44px;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--line-strong);
+  transition: background 0.15s;
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+  transition: transform 0.15s;
+}
+
+.row[aria-checked="true"] .track {
+  background: var(--brand);
+}
+
+.row[aria-checked="true"] .thumb {
+  transform: translateX(18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .thumb {
+    transition: none;
+  }
+}
+
+/* ---------- Phone: bottom sheet ---------- */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 600;              /* over the recipe modal (500) */
+  background: var(--scrim);
+}
+
+.sheet {
+  position: fixed;
+  z-index: 601;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 85vh;
+  overflow: auto;
+  padding: var(--s2) var(--s4) calc(var(--s4) + env(safe-area-inset-bottom));
+  background: var(--surface);
+  border-radius: var(--r4) var(--r4) 0 0;
+  box-shadow: var(--shadow-3);
+}
+
+.handle {
+  width: 40px;
+  height: 5px;
+  margin: 0 auto var(--s3);
+  border-radius: 999px;
+  background: var(--line-strong);
+}
+
+.done {
+  width: 100%;
+  min-height: 48px;
+  margin-top: var(--s3);
+  border: 1px solid var(--brand);
+  border-radius: var(--r2);
+  background: var(--brand);
+  color: #fff;
+  font: 600 1rem/1 var(--sans);
+  cursor: pointer;
+}
+
+.done:hover {
+  background: var(--brand-hover);
+}
+
+/* ---------- Wider: dropdown under the button ---------- */
+.dropdown {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + var(--s2));
+  right: 0;
+  width: 320px;
+  padding: var(--s4) var(--s4) var(--s2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r3);
+  box-shadow: var(--shadow-3);
+}
