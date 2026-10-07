@@ -1079,7 +1079,7 @@
     "name": "Garlic Butter Chicken and Potatoes Skillet",
     "section": "AMERICAN",
     "category": "American",
-    "source": "https://www.eatwell101.com/garlic-butter-chicken-and-potatoes-skillet",
+    "source": "Original",
     "tags": [
       "#chicken",
       "#one-pan",
@@ -1088,39 +1088,39 @@
     "ingredients": [
       {
         "type": "header",
-        "text": "Marinade"
+        "text": "Potatoes"
       },
       {
         "type": "item",
-        "text": "¼ cup low-sodium soy sauce (or coconut aminos)"
+        "text": "1½ lb baby yellow potatoes, halved"
       },
       {
         "type": "item",
-        "text": "2 Tbsp olive oil"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp hot sauce (Sriracha works great)"
-      },
-      {
-        "type": "item",
-        "text": "Pinch of fresh cracked pepper"
+        "text": "1 Tbsp table salt, for the cooking water"
       },
       {
         "type": "header",
-        "text": "Skillet"
+        "text": "Chicken"
       },
       {
         "type": "item",
-        "text": "1½ lb chicken breast, cut into strips"
+        "text": "1½ lb boneless skinless chicken thighs, cut into 1½-inch pieces"
       },
       {
         "type": "item",
-        "text": "1½ lb baby yellow potatoes, quartered"
+        "text": "1 tsp table salt"
       },
       {
         "type": "item",
-        "text": "1 Tbsp olive oil (plus extra)"
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp neutral oil, divided"
+      },
+      {
+        "type": "header",
+        "text": "Garlic butter"
       },
       {
         "type": "item",
@@ -1128,83 +1128,59 @@
       },
       {
         "type": "item",
-        "text": "5 garlic cloves, minced"
+        "text": "6 garlic cloves, thinly sliced"
       },
       {
         "type": "item",
-        "text": "Crushed red pepper flakes, to taste (optional)"
-      },
-      {
-        "type": "header",
-        "text": "Finish"
+        "text": "½ cup chicken stock"
       },
       {
         "type": "item",
-        "text": "1 tsp dried sage"
+        "text": "1 tsp fresh thyme leaves"
       },
       {
         "type": "item",
-        "text": "1 tsp onion powder"
+        "text": "1 Tbsp lemon juice"
       },
       {
         "type": "item",
-        "text": "1 tsp garlic powder"
+        "text": "2 cups baby spinach (optional)"
       },
       {
         "type": "item",
-        "text": "1 tsp fresh thyme, chopped"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp fresh rosemary, chopped"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp fresh oregano, chopped"
-      },
-      {
-        "type": "item",
-        "text": "1 cup shredded spinach"
-      },
-      {
-        "type": "item",
-        "text": "½ cup grated Parmesan"
-      },
-      {
-        "type": "item",
-        "text": "Salt and fresh cracked pepper, to taste"
+        "text": "2 Tbsp chopped parsley"
       }
     ],
     "instructions": [
       {
-        "step": "Marinate Chicken",
-        "detail": "Toss the chicken strips (1½ lb) with soy sauce (¼ cup), olive oil (2 Tbsp), hot sauce (2 Tbsp) and a pinch of pepper. Set aside while you do the potatoes."
+        "step": "Parboil the Potatoes",
+        "detail": "Put the halved potatoes (1½ lb) in a pot with about 2 quarts of cold water and the table salt (1 Tbsp). Bring to a boil and simmer until a knife slides in with slight resistance, 6-8 minutes after the boil. Drain and let them steam-dry in the colander 3 minutes.",
+        "why": "Starting cold cooks them evenly to the center, and the dry surface is what lets them brown."
       },
       {
-        "step": "Parboil Potatoes",
-        "detail": "Boil the quartered potatoes (1½ lb) in salted water for 8 minutes. Drain."
+        "step": "Sear the Potatoes",
+        "detail": "Heat the oil (1 Tbsp) in a 12-inch skillet over medium-high until it shimmers. Lay the potatoes cut-side down and leave them alone 5-6 minutes, until deep golden. Add butter (1 Tbsp), toss 1 minute, and move them to a plate."
       },
       {
-        "step": "Cook Potatoes",
-        "detail": "Heat olive oil (1 Tbsp) and butter (1 Tbsp) in a large skillet over medium-high. Sauté the potatoes 4 minutes, stir, then 4-5 minutes more until golden and fork-tender. Move to a plate."
+        "step": "Sear the Chicken",
+        "detail": "Pat the chicken (1½ lb) dry and season with the table salt (1 tsp) and black pepper (½ tsp). Add the remaining oil (1 Tbsp) to the skillet and lay the chicken in a single layer, in two batches if the pieces would touch. Sear untouched 3-4 minutes, turn, and cook 3 minutes more, until it reads 175°F. Move it to the plate with the potatoes.",
+        "why": "Salt right before it hits the pan; salting 10 to 30 minutes ahead pulls water to the surface and stalls the browning."
       },
       {
-        "step": "Cook Chicken",
-        "detail": "Drop to medium and add the remaining butter (2 Tbsp). Lift the chicken from the marinade (keep the marinade) and lay it in the skillet with the garlic (5 cloves) and chili flakes if using. Cook 1 minute per side until lightly browned."
+        "step": "Make the Garlic Butter",
+        "detail": "Drop the heat to medium-low and pour off all but a thin film of fat. Add the remaining butter (2 Tbsp) and the sliced garlic (6 cloves) and cook 1-2 minutes, until the garlic is pale gold. Pour in the chicken stock (½ cup), scrape up the browned bits, and simmer 2-3 minutes, until reduced by about half.",
+        "why": "Garlic cooked gently in butter turns sweet and nutty; on high heat it goes bitter in seconds."
       },
       {
-        "step": "Finish the Sauce",
-        "detail": "Pour in the reserved marinade and simmer a few minutes, until it thickens and the chicken reaches 165°F. Stir in dried sage (1 tsp), onion powder (1 tsp) and garlic powder (1 tsp)."
-      },
-      {
-        "step": "Combine and Serve",
-        "detail": "Return the potatoes with thyme (1 tsp), rosemary (1 tsp) and oregano (1 tsp); toss and heat through 1-2 minutes. Season with salt and pepper. Off the heat, fold in the spinach (1 cup), scatter the Parmesan (½ cup) over and serve."
+        "step": "Bring It Together",
+        "detail": "Return the chicken, potatoes and any juices to the pan with the thyme (1 tsp) and toss 1-2 minutes, until glossy and hot. Off the heat, stir in the lemon juice (1 Tbsp), the spinach (2 cups) if using, and the parsley (2 Tbsp). Taste, and add salt only if it needs it.",
+        "why": "The lemon goes in off the heat so it stays bright."
       }
     ],
     "is_blank": false,
-    "description": "Chicken breast and baby potatoes seared in one skillet and finished in garlic butter with fresh herbs and spinach.",
+    "description": "Chicken thighs and baby potatoes seared in one skillet and finished in a lemony garlic butter pan sauce.",
     "prepTime": "PT15M",
-    "cookTime": "PT25M",
+    "cookTime": "PT35M",
     "recipeYield": "4 servings"
   },
   {
@@ -1245,6 +1221,10 @@
       },
       {
         "type": "item",
+        "text": "½ cup milk"
+      },
+      {
+        "type": "item",
         "text": "2 Tbsp Worcestershire sauce"
       },
       {
@@ -1275,29 +1255,32 @@
       },
       {
         "step": "Mix Meatloaf",
-        "detail": "Combine ground beef (2 lb), ground pork (1 lb), onion soup mix (2 packets), eggs (2), panko (1 cup), and Worcestershire sauce (2 Tbsp). Mix until just combined."
+        "detail": "Stir the panko (1 cup) into the milk (½ cup) and let it soak 5 minutes, then combine with the ground beef (2 lb), ground pork (1 lb), onion soup mix (2 packets), eggs (2) and Worcestershire sauce (2 Tbsp). Mix until just combined.",
+        "why": "The salt in the soup mix turns the meat proteins sticky as you work it, and past that point the loaf bakes up dense and springy."
       },
       {
         "step": "Make Glaze",
-        "detail": "Mix ketchup (½ cup), brown sugar (¼ cup), lemon juice (1 Tbsp), and mustard (2 tsp) in a small bowl."
+        "detail": "Mix ketchup (½ cup), brown sugar (¼ cup), lemon juice (1 Tbsp), and mustard (2 tsp) in a small bowl.",
+        "why": "The lemon and mustard are there to cut the sugar, so the glaze reads tangy rather than candied."
       },
       {
         "step": "Shape & Glaze",
-        "detail": "Shape meat mixture into a loaf in a baking pan. Spread half the glaze on top."
+        "detail": "Shape the meat mixture into a free-form loaf on a rimmed sheet pan (not a loaf pan). Spread half the glaze on top."
       },
       {
         "step": "Bake",
-        "detail": "Bake for 1 hour. Apply remaining glaze during the last 15 minutes. Internal temperature should reach 160°F."
+        "detail": "Bake about 1 hour to 1 hour 15 minutes, until the center reads 155°F. Apply the remaining glaze during the last 15 minutes."
       },
       {
         "step": "Rest & Serve",
-        "detail": "Let rest 10 minutes before slicing."
+        "detail": "Let rest 10 minutes before slicing; carryover takes the center to 160°F.",
+        "why": "The juices need that time to settle back into the egg and panko; cut it straight from the oven and the slices crumble."
       }
     ],
     "is_blank": false,
     "description": "Beef and pork meatloaf seasoned with onion soup mix and Worcestershire, baked under a sweet ketchup and brown sugar glaze.",
     "prepTime": "PT15M",
-    "cookTime": "PT1H",
+    "cookTime": "PT1H15M",
     "recipeYield": "8 servings"
   },
   {
@@ -1361,25 +1344,33 @@
       },
       {
         "type": "item",
-        "text": "Salt and pepper"
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
       }
     ],
     "instructions": [
       {
         "step": "Marinate",
-        "detail": "Combine the honey (2 Tbsp), soy sauce (2 Tbsp), Worcestershire sauce (2 Tbsp), lime juice (1 Tbsp), hoisin sauce (1 Tbsp), olive oil (¼ cup), garlic (5 cloves, minced), onion powder (1 Tbsp), garlic powder (1 Tbsp), and salt and pepper. Add chicken drumsticks (2 lb) and marinate for 4-8 hours."
+        "detail": "Combine the honey (2 Tbsp), soy sauce (2 Tbsp), Worcestershire sauce (2 Tbsp), lime juice (1 Tbsp), hoisin sauce (1 Tbsp), olive oil (¼ cup), garlic (5 cloves, minced), onion powder (1 Tbsp), garlic powder (1 Tbsp), table salt (½ tsp) and black pepper (½ tsp). Add chicken drumsticks (2 lb) and marinate for 4-8 hours.",
+        "why": "The salt in the soy and Worcestershire needs those hours to work its way into the meat, and the lime is too little to turn the surface mushy inside 8 hours."
       },
       {
         "step": "Preheat Oven",
-        "detail": "Preheat oven to 425°F. Set a wire rack over a baking pan."
+        "detail": "Preheat oven to 425°F. Line a baking pan with foil and set a wire rack over it.",
+        "why": "The rack keeps the drumsticks above their drippings so the undersides roast instead of simmering, and the foil keeps the honey drippings from baking onto the pan."
       },
       {
         "step": "Roast",
-        "detail": "Place drumsticks on wire rack. Cook for 30-35 minutes, flipping halfway through."
+        "detail": "Lift the drumsticks from the marinade, let the excess drip off, and pat the skin dry with paper towels. Place drumsticks on wire rack. Cook for 30-35 minutes, flipping halfway through, until the thickest part reads 175-185°F away from the bone.",
+        "why": "That is where the collagen softens, well past the 165°F safe point."
       },
       {
         "step": "Broil",
-        "detail": "Broil for 3-5 minutes until skin is crispy."
+        "detail": "Move the pan to a rack about 6 inches below the broiler and broil 3-5 minutes until the skin is crispy. Stay at the oven door.",
+        "why": "The honey in the marinade goes from glossy to burnt in well under a minute."
       }
     ],
     "is_blank": false,
@@ -1590,7 +1581,7 @@
       },
       {
         "type": "item",
-        "text": "Small splash of vinegar or lemon juice"
+        "text": "½ tsp vinegar or lemon juice"
       },
       {
         "type": "header",
@@ -1616,19 +1607,23 @@
     "instructions": [
       {
         "step": "Soak the sauce base (make ahead)",
-        "detail": "Simmer the chicken stock (⅔ cup) with the dried cranberries (¼ cup), sliced onion (¼ small), Dijon (1 tsp), maple syrup (1 tsp), thyme (½ tsp), and a pinch of salt and pepper for 2-3 minutes. Pull off heat, cover, and let sit several hours so the cranberries rehydrate. Hold the butter and acid until service - they break down if added now."
+        "detail": "Simmer the chicken stock (⅔ cup) with the dried cranberries (¼ cup), sliced onion (¼ small), Dijon (1 tsp), maple syrup (1 tsp), thyme (½ tsp), and a pinch of salt and pepper for 2-3 minutes. Pull off heat, cover, and let sit several hours. Hold the butter and acid until service.",
+        "why": "The long soak rehydrates the cranberries; butter and acid added now would break down."
       },
       {
         "step": "Butterfly and season",
-        "detail": "Butterfly each chicken breast (2, about 6 oz each) to an even thickness. Season both sides with table salt (½ tsp), black pepper (½ tsp), fresh thyme (1 tsp), and rubbed sage (½ tsp). Let it sit while the pan heats - even 15 minutes of dry-brining seasons deeper than surface salt does."
+        "detail": "Butterfly each chicken breast (2, about 6 oz each) to an even thickness. Season both sides with table salt (½ tsp), black pepper (½ tsp), fresh thyme (1 tsp), and rubbed sage (½ tsp). Salt it either right before it goes in the pan or at least 45 minutes ahead (uncovered in the fridge is best).",
+        "why": "In between, the salt has pulled water to the surface but not yet carried it back in."
       },
       {
         "step": "Sear (stovetop, no oven)",
-        "detail": "Pat the breasts dry - dry meat is what gives you a real sear. Heat the oil (1 Tbsp) in a skillet over medium-high until shimmering. Cook 4-5 minutes per side until deep golden, pulling the chicken at an internal temperature of about 157F. Rest 5 minutes. Chicken breast is pasteurized by time at temperature, not by hitting 165F instantly - held near 157F it reaches the same safety in under a minute, and it stays juicy. Past 165F in the pan is where breast turns to sawdust."
+        "detail": "Pat the breasts dry. Heat the oil (1 Tbsp) in a skillet over medium-high until shimmering. Cook 4-5 minutes per side until deep golden, pulling the chicken at an internal temperature of about 157°F. Rest 5 minutes.",
+        "why": "Dry meat is what gives you a real sear. Breast is pasteurized by time at temperature, not by hitting 165°F instantly: held near 157°F it reaches the same safety in under a minute and stays juicy, while past 165°F in the pan it turns to sawdust."
       },
       {
         "step": "Finish the sauce",
-        "detail": "Reheat the cranberry base and simmer 2 minutes to a light nappe, loosening with a splash of stock if it thickened while soaking. Off heat, swirl in the cold butter (1 Tbsp) and a small splash of vinegar or lemon juice. Spoon over the rested chicken."
+        "detail": "Pour off any excess oil from the chicken skillet, leaving the browned bits. Over medium, add the cranberry base to that skillet and scrape the bottom until nothing is stuck, then simmer 2 minutes to a light nappe, loosening with a splash of stock if it thickened while soaking. Off heat, swirl in the cold butter (1 Tbsp) and vinegar or lemon juice (½ tsp). Spoon over the rested chicken.",
+        "why": "Cold butter swirled in off the heat emulsifies into a glossy sauce; butter boiled in the pan just separates into grease."
       },
       {
         "step": "Green beans (optional)",
@@ -1650,7 +1645,7 @@
     "name": "Skillet Beef and Potato Hash with Fried Eggs",
     "section": "AMERICAN",
     "category": "American",
-    "source": "Original - Adam",
+    "source": "Original",
     "tags": [
       "#beef",
       "#potato",
@@ -1702,7 +1697,7 @@
       },
       {
         "type": "item",
-        "text": "2 lb russet or Yukon Gold potatoes, peeled and cut into ½-inch dice"
+        "text": "2 lb Yukon Gold potatoes, peeled and cut into ½-inch dice"
       },
       {
         "type": "item",
@@ -1756,23 +1751,28 @@
     "instructions": [
       {
         "step": "Boil the Potatoes",
-        "detail": "Peel the potatoes (2 lb) and cut into ½-inch dice. Boil in well-salted water for 20 minutes, until a knife slides in with no resistance. Drain and let them sit in the colander 2-3 minutes to steam-dry. A wet potato surface is pinned at 212F and cannot brown, so this pause is doing real work."
+        "detail": "Peel the potatoes (2 lb) and cut into ½-inch dice. Start them in cold, well-salted water, bring to a boil, then simmer until a knife slides in with no resistance, about 5-8 minutes after the boil. Drain and let them sit in the colander 2-3 minutes to steam-dry.",
+        "why": "A wet potato surface is pinned at 212°F and cannot brown, so this pause is doing real work."
       },
       {
         "step": "Season the Raw Beef",
-        "detail": "In a bowl, mix the ground beef (1 lb, 80/20) with paprika (1½ tsp), garlic powder (1 tsp), onion powder (1 tsp), chili powder (½ tsp), ground cumin (½ tsp), salt (1 tsp), and black pepper (½ tsp). Season before it hits the pan, not after - the spices are fat-soluble and bloom in the fat as it renders."
+        "detail": "In a bowl, mix the ground beef (1 lb, 80/20) with paprika (1½ tsp), garlic powder (1 tsp), onion powder (1 tsp), chili powder (½ tsp), ground cumin (½ tsp), salt (1 tsp), and black pepper (½ tsp). Season it before it hits the pan, not after.",
+        "why": "The spices are fat-soluble and bloom in the fat as it renders."
       },
       {
         "step": "Brown and Drain Twice",
-        "detail": "Cook the seasoned beef (1 lb) in a 12-inch skillet over medium-high, breaking it up. As fat and juice pool, tip it off into a heatproof cup and reserve. Drain a second time once more renders. 80/20 gives up more fat than the pan can use, and beef sitting in liquid is held at 212F and will not brown. Do not discard the fat - it is the cooking medium for everything that follows."
+        "detail": "Cook the seasoned beef (1 lb) in a 12-inch skillet over medium-high, breaking it up. As fat and juice pool, tip it off into a heatproof cup and reserve. Drain a second time once more renders. Do not discard the fat - it is the cooking medium for everything that follows.",
+        "why": "80/20 gives up more fat than the pan can use, and beef sitting in liquid is held at 212°F and will not brown."
       },
       {
         "step": "Fry the Beef in Its Own Fat",
-        "detail": "Return a spoonful of the reserved beef fat to the pan. Press the beef flat and leave it alone 3-4 minutes, then flip; repeat 2-3 times, adding reserved fat a spoonful at a time whenever the surface goes dry and dull. You are frying it now, not steaming it. Move it to a plate."
+        "detail": "Return a spoonful of the reserved beef fat to the pan. Press the beef flat and leave it alone 3-4 minutes, then flip; repeat 2-3 times, adding reserved fat a spoonful at a time whenever the surface goes dry and dull. Move it to a plate.",
+        "why": "You are frying it now, not steaming it."
       },
       {
         "step": "Brown the Onion",
-        "detail": "Add about 2 Tbsp of the reserved beef fat and the sliced onion (1 large). Cook 8-10 minutes over medium-high until the edges are deep brown. Sliced, not minced - it holds its texture through the rest of the cook."
+        "detail": "Add about 2 Tbsp of the reserved beef fat and the sliced onion (1 large). Cook 8-10 minutes over medium-high until the edges are deep brown.",
+        "why": "Sliced, not minced, so it holds its texture through the rest of the cook."
       },
       {
         "step": "Add the Potatoes",
@@ -1780,7 +1780,8 @@
       },
       {
         "step": "Crisp It All Together",
-        "detail": "Return the beef to the pan. Press the whole thing flat, leave it 4 minutes without stirring, flip in sections, and go another 4 minutes. Two or three passes total. Add reserved beef fat a spoonful at a time any time the pan looks dry - dry means the crust stops forming."
+        "detail": "Return the beef to the pan. Press the whole thing flat, leave it 4 minutes without stirring, flip in sections, and go another 4 minutes. Two or three passes total. Add reserved beef fat a spoonful at a time any time the pan looks dry.",
+        "why": "A dry pan means the crust stops forming."
       },
       {
         "step": "Melt the Cheese",
@@ -1788,11 +1789,13 @@
       },
       {
         "step": "Fry the Eggs",
-        "detail": "In a separate pan, fry the eggs (4 large) in a spoonful of the reserved beef fat, seasoned with salt, black pepper, and paprika. Yolk sets at about 158F and white does not fully set until about 185F, so cover the pan for 1-2 minutes to set the whites by steam and pull while the yolks are still loose. Cooking the eggs directly on top of the hash works but the hash keeps feeding them heat and they overshoot."
+        "detail": "In a separate pan, fry the eggs (4 large) in a spoonful of the reserved beef fat, seasoned with salt, black pepper, and paprika. Cover the pan for 1-2 minutes to set the whites by steam, and pull them while the yolks are still loose. Keep them off the hash while they cook.",
+        "why": "The yolk sets at about 158°F and the white not until about 185°F, so steam finishes the whites first; on top of the hash, the heat underneath keeps cooking them and they overshoot."
       },
       {
         "step": "Serve With Sauce",
-        "detail": "Slide the eggs onto the hash and serve immediately with steak sauce, ketchup, or barbecue sauce. This is not a garnish - the hash reads dry without one."
+        "detail": "Slide the eggs onto the hash and serve immediately with steak sauce, ketchup, or barbecue sauce.",
+        "why": "This is not a garnish - the hash reads dry without one."
       }
     ],
     "is_blank": false,
