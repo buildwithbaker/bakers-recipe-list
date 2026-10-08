@@ -393,31 +393,37 @@
     "instructions": [
       {
         "step": "Dry Brine",
-        "detail": "The night before, pat the chuck roast (3½ lb) dry and season every surface with the table salt (2½ tsp) - about 1% of the roast's weight. Set on a rack over a sheet pan and refrigerate uncovered 8 to 24 hours. Uncovered is the point: it dries the surface for the sear. Use 1%, not the 1.25 to 1.5% an oven braise wants, because a jar of brine, soy sauce (2 Tbsp), and Worcestershire (3 Tbsp) are all going in and nothing will evaporate to give you room later."
+        "detail": "The night before, pat the chuck roast (3½ lb) dry and season every surface with the table salt (2½ tsp), about 1% of the roast's weight. Set on a rack over a sheet pan and refrigerate uncovered 8 to 24 hours.",
+        "why": "Uncovered dries the surface for the sear. Stay at 1%, not the 1.25 to 1.5% an oven braise wants: the brine, soy and Worcestershire all go in, and nothing evaporates later to give you room."
       },
       {
         "step": "Sear",
-        "detail": "Blot the roast (3½ lb) bone dry. Heat the neutral oil (2 Tbsp) in a heavy skillet over medium-high until it shimmers and the first thread of smoke appears. Sear 3 to 4 minutes per face until genuinely dark brown, not tan - 7 to 10 minutes total. Transfer to the slow cooker. Not optional: nothing inside a slow cooker ever reaches the roughly 300F browning threshold, so unlike an oven braise there is no second chance from surfaces above the liquid line."
+        "detail": "Blot the roast (3½ lb) bone dry. Heat the neutral oil (2 Tbsp) in a heavy skillet over medium-high until it shimmers and the first thread of smoke appears. Sear 3 to 4 minutes per face until genuinely dark brown, not tan - 7 to 10 minutes total. Transfer to the slow cooker.",
+        "why": "Nothing inside a slow cooker reaches the roughly 300°F browning threshold, so this is the only chance at a crust."
       },
       {
         "step": "Build the Base",
-        "detail": "Pour off all but about 1 Tbsp of fat. Drop to medium, add the sliced onion (1 large) and cook 6 to 8 minutes until translucent with browned edges. Add the smashed garlic (6 cloves) for the last 30 seconds. Add the tomato paste (2 Tbsp) and stir constantly 60 to 90 seconds, until it darkens from bright red to brick and smells nutty instead of tinny. Deglaze with the brine from the pepperoncini jar, scraping the pan floor with a flat wooden spatula until the fond releases and the floor goes bare."
+        "detail": "Pour off all but about 1 Tbsp of fat. Drop to medium, add the sliced onion (1 large) and cook 6 to 8 minutes until translucent with browned edges. Add the smashed garlic (6 cloves) for the last 30 seconds. Add the tomato paste (2 Tbsp) and stir constantly 60 to 90 seconds, until it darkens from bright red to brick and smells nutty instead of tinny. Deglaze with the rest of the brine from the jar (everything but the reserved ¼ cup), scraping the pan floor with a flat wooden spatula until the fond releases and the floor goes bare."
       },
       {
         "step": "Load and Cook",
-        "detail": "Scrape the whole pan - onions, fond, brine - over the roast. Add the pepperoncini from the jar, the Worcestershire (3 Tbsp), the soy sauce (2 Tbsp), and the chiles de arbol (4 whole). Add no stock, no broth, and no water. It will look like far too little liquid. It is not: the roast releases 1 to 2 cups of its own and a sealed cooker evaporates almost none of it, so the pot finishes with more liquid than it started with. Adding stock here is the single most common way to ruin this dish. Lid on, Low for 9 to 10 hours, first hour on High if you can. Root vegetables, if you use them, go quartered on the bottom and against the sides before the meat - the element is a wire belt around the lower side wall, not a disc underneath, and roots cook slower than the beef."
+        "detail": "Scrape the whole pan - onions, fond, brine - over the roast. Add the pepperoncini from the jar, the Worcestershire (3 Tbsp), the soy sauce (2 Tbsp), and the chiles de arbol (4 whole). Add no stock, no broth, and no water; it will look like far too little liquid. Lid on, Low for 9 to 10 hours, first hour on High if you can. Root vegetables, if you use them, go quartered on the bottom and against the sides before the meat.",
+        "why": "The roast releases 1 to 2 cups of its own liquid and a sealed cooker evaporates almost none, so the pot finishes wetter than it started; added stock is the most common way to ruin this dish. Roots go against the walls because the element wraps the lower side wall and they cook slower than the beef."
       },
       {
         "step": "Check by Feel",
-        "detail": "At 9 hours, push a thin metal skewer or paring knife tip into the thickest part. It should slide in and, more importantly, slide back out with zero grip - like pushing into cold butter. Any resistance means another 45 to 60 minutes. Internal lands at 195 to 205F, but temperature only tells you when to start testing. Do not stretch it to 12 hours: past the window the collagen holding the fiber bundles together has dissolved and the roast goes shredded and stringy at the same time."
+        "detail": "At 9 hours, push a thin metal skewer or paring knife tip into the thickest part. It should slide in and slide back out with zero grip, like pushing into cold butter. Any resistance means another 45 to 60 minutes. Internal lands at 195 to 205°F, but use temperature only to know when to start testing. Do not stretch it to 12 hours.",
+        "why": "Past the window the collagen holding the fiber bundles together is gone, and the roast goes shredded and stringy at the same time."
       },
       {
         "step": "Defat and Reduce",
-        "detail": "Lift the beef out and hold it under foil. Let the liquid settle 10 minutes and skim the fat off with a ladle - there will be a lot, and a slow cooker never boils it back into the sauce the way a hard simmer would. Stir in 3 Tbsp of the reserved brine, then reduce with the lid off, cooker on High, 30 to 45 minutes, until it coats the back of a spoon. Do not salt before this step - whatever is in there concentrates now."
+        "detail": "Lift the beef out and hold it under foil. Let the liquid settle 10 minutes and skim the fat off with a ladle; there will be a lot. Stir in 3 Tbsp of the reserved brine, then reduce with the lid off, cooker on High, 30 to 45 minutes, until it coats the back of a spoon. Do not salt before this step.",
+        "why": "A slow cooker never boils the fat back into the sauce the way a hard simmer would, and whatever salt is in there concentrates as it reduces."
       },
       {
         "step": "Finish and Serve",
-        "detail": "Off the heat, stir in the last 1 Tbsp of reserved brine and taste for salt for the first time. That final off-heat acid is what keeps ten hours of braise from reading heavy and flat, and it only works if it has not been boiled. Shred or slice the beef, return it to the sauce to warm through without boiling, and serve with the pepperoncini. For more heat than the peppers give, ground cayenne or hot sauce goes in during the last hour of the cook, never at the start - both turn bitter over a long hold."
+        "detail": "Off the heat, stir in the last 1 Tbsp of reserved brine and taste for salt for the first time. Shred or slice the beef, return it to the sauce to warm through without boiling, and serve with the pepperoncini. For more heat, add ground cayenne or hot sauce during the last hour of the cook, never at the start.",
+        "why": "The final off-heat acid keeps ten hours of braise from reading heavy and flat, and it only works unboiled. Cayenne and hot sauce turn bitter over a long hold."
       }
     ],
     "is_blank": false,
@@ -860,46 +866,52 @@
     "instructions": [
       {
         "step": "Mix To Shaggy",
-        "detail": "Makes about 1¼ lb dough, enough for 12 to 14 lasagna sheets or 4 servings of cut noodles. Mound the all-purpose flour (3 cups) on a board or in a wide bowl and make a well in the center. Add the eggs (4), the egg yolk (1), the olive oil (1 Tbsp), and the salt (1 tsp). Break the yolks with a fork and pull flour in from the walls of the well until you have a shaggy, uneven mass with no dry pockets left. Add the water (1 to 2 Tbsp) only if flour refuses to take up. Do not knead yet."
+        "detail": "Mound the all-purpose flour (3 cups) on a board or in a wide bowl and make a well in the center. Add the eggs (4), the egg yolk (1), the olive oil (1 Tbsp), and the salt (1 tsp). Break the yolks with a fork and pull flour in from the walls of the well until you have a shaggy, uneven mass with no dry pockets left. Add the water (1 to 2 Tbsp) only if flour refuses to take up. Do not knead yet."
       },
       {
         "step": "Rest Before Kneading",
-        "detail": "Cover with an inverted bowl and leave it 30 minutes. This is a modified autolyse: enzymes naturally present in the flour begin breaking weak protein bonds while the flour hydrates fully, which makes the dough measurably more extensible and cuts the kneading needed to reach the same gluten development. It is the highest-leverage step in the recipe if you are rolling by hand."
+        "detail": "Cover with an inverted bowl and leave it 30 minutes. If you are rolling by hand, this is the step that matters most.",
+        "why": "Enzymes in the flour start breaking weak protein bonds while it hydrates, so the dough comes out more extensible and needs less kneading."
       },
       {
         "step": "Knead Briefly",
-        "detail": "Knead 6 to 8 minutes, pushing with the heel of your hand, folding, and giving the dough a quarter turn each time. Stop when it is smooth and slightly tacky. Do not chase a windowpane. Overworking builds the elastic snap-back that fights a rolling pin."
+        "detail": "Knead 6 to 8 minutes, pushing with the heel of your hand, folding, and giving the dough a quarter turn each time. Stop when it is smooth and slightly tacky; do not chase a windowpane.",
+        "why": "Overworking builds the elastic snap-back that fights a rolling pin."
       },
       {
         "step": "Rest Again",
-        "detail": "Wrap tightly in plastic and rest at room temperature at least 1 hour. This is stress relaxation in the gluten network, and skipping it means the sheet retracts every time you lift the pin. The dough holds overnight in the refrigerator; bring it back to room temperature before rolling."
+        "detail": "Wrap tightly in plastic and rest at room temperature at least 1 hour. The dough holds overnight in the refrigerator; bring it back to room temperature before rolling.",
+        "why": "The gluten network relaxes; skip it and the sheet retracts every time you lift the pin."
       },
       {
         "step": "Divide And Roll",
-        "detail": "Cut the dough into 4 pieces and keep three covered. On a lightly floured surface, flatten one piece and roll from the center outward, rotating the sheet a quarter turn every two or three passes so it thins evenly rather than going long and narrow. If it starts pushing back, set it down, cover it, and give it 10 minutes before continuing."
+        "detail": "Cut the dough into 4 pieces and keep three covered. On a lightly floured surface, flatten one piece and roll from the center outward, rotating the sheet a quarter turn every two or three passes so it thins evenly. If it starts pushing back, set it down, cover it, and give it 10 minutes before continuing."
       },
       {
         "step": "Judge Thickness",
-        "detail": "Roll to about 1/16 inch for lasagna, thinner for cut noodles. To gauge it without a machine dial, lay the sheet over a printed page: you should be able to read the text through it, but the letters should look soft-edged rather than sharp. Sharp text means too thin for lasagna and the sheet will dissolve into the sauce. Fully opaque means too thick and the layers will read as bready."
+        "detail": "Roll to about 1/16 inch for lasagna, thinner for cut noodles. To gauge it without a machine dial, lay the sheet over a printed page: you should be able to read the text through it, with soft-edged letters. Sharp text means too thin; fully opaque means too thick.",
+        "why": "Too thin dissolves into the sauce, and too thick makes the layers read as bready."
       },
       {
         "step": "Cut And Hold",
-        "detail": "For lasagna, cut each sheet into rectangles roughly 4½ inches wide by 9 inches long, which lays three across a 9x13 pan. For noodles, flour the sheet well, roll it loosely, and slice to the width you want. Dust the cut pieces on both faces with semolina, which is coarse enough that it does not hydrate and turn to glue, and stack them on a towel-lined sheet pan with parchment between layers."
+        "detail": "For lasagna, cut each sheet into rectangles roughly 4½ inches wide by 9 inches long, which lays three across a 9x13 pan. For noodles, flour the sheet well, roll it loosely, and slice to the width you want. Dust the cut pieces on both faces with semolina and stack them on a towel-lined sheet pan with parchment between layers.",
+        "why": "Semolina is coarse enough that it does not hydrate and turn to glue."
       },
       {
         "step": "Blanch",
-        "detail": "Bring 4 quarts of water to a rolling boil and salt it at 1 percent by weight: 2 Tbsp table salt. Work in batches of 3 or 4 sheets for 45 to 60 seconds each, then lift straight into a bowl of cold water to stop the cooking. Lay flat on damp towels in a single layer, barely oiled, until you are ready to build. Cut noodles for serving need 90 seconds to 2 minutes and no shock."
-      },
-      {
-        "step": "Why These Choices",
-        "detail": "Use all-purpose flour (3 cups) rather than a high-gluten or semolina-heavy blend: protein content drives elastic recoil, and the 10 to 12 percent range of all-purpose is what makes a hand-rolled sheet cooperate. Brand matters within that range, so add the full water (2 Tbsp) if your flour runs high in protein. The olive oil (1 Tbsp) and the extra yolk (1) both work by coating flour particles and interfering with gluten formation, buying extensibility and tenderness at a dose small enough to keep the structure the sheet needs to survive the blanch. Blanching is worth the step because it rinses off surface starch that otherwise sets into a gluey seam between layers, and it pre-gelatinizes the sheet so the bake is about melting and setting rather than cooking raw pasta."
+        "detail": "Bring 4 quarts of water to a rolling boil and salt it with table salt (2 Tbsp). Work in batches of 3 or 4 sheets for 45 to 60 seconds each, then lift straight into a bowl of cold water to stop the cooking. Lay flat on damp towels in a single layer, barely oiled, until you are ready to build. Cut noodles for serving need 90 seconds to 2 minutes and no shock."
       }
     ],
     "is_blank": false,
     "description": "Fresh egg noodle dough from all-purpose flour, whole eggs, an extra yolk and olive oil, rolled thin for cutting into noodles.",
     "prepTime": "PT40M",
     "cookTime": "PT5M",
-    "recipeYield": "about 1½ lb fresh noodles, 6 servings"
+    "recipeYield": "about 1¼ lb, 12 to 14 lasagna sheets or 4 servings of cut noodles",
+    "notes": [
+      "All-purpose flour, on purpose. Its 10 to 12 percent protein is what makes a hand-rolled sheet cooperate; high-gluten or semolina-heavy blends snap back. If your flour runs high in protein, use the full water (2 Tbsp).",
+      "The oil and the extra yolk tenderize. Both coat the flour and limit gluten, at a dose small enough to keep the sheet strong enough for the blanch.",
+      "Blanching pays for itself. It rinses off surface starch that would set into a gluey seam between layers, and it pre-cooks the sheet so the bake only has to melt and set."
+    ]
   },
   {
     "id": "biscuit-dough",
@@ -1456,46 +1468,51 @@
     "instructions": [
       {
         "step": "Dry Brine (5-6 hr Ahead)",
-        "detail": "Pat the drumsticks (8, about 2½ lb) completely dry. Rub table salt (1½ tsp) over all sides. Set on a wire rack over a sheet pan and refrigerate uncovered 5 to 6 hours. Uncovered is load-bearing - airflow dries the skin while the salt migrates inward. This step, not the marinade, is what makes the skin crisp."
+        "detail": "Pat the drumsticks (8, about 2½ lb) completely dry. Rub table salt (1½ tsp) over all sides. Set on a wire rack over a sheet pan and refrigerate uncovered 5 to 6 hours.",
+        "why": "Uncovered airflow dries the skin while the salt migrates inward; this step, not the marinade, is what makes the skin crisp."
       },
       {
         "step": "Bloom the Spices",
-        "detail": "About 1 hour before cooking, warm olive oil (3 Tbsp) to roughly 325 F. Off the heat, stir in grated garlic (4 cloves), smoked paprika (1 Tbsp), crushed red pepper flakes (2 tsp), dried oregano (1 tsp), and coarse black pepper (1 tsp). Cool to room temperature. Capsaicin and the paprika carotenoids are both fat-soluble and barely dissolve in cold oil; thirty seconds in hot fat releases multiples more of both."
+        "detail": "About 1 hour before cooking, warm olive oil (3 Tbsp) to roughly 325°F. Off the heat, stir in grated garlic (4 cloves), smoked paprika (1 Tbsp), crushed red pepper flakes (2 tsp), dried oregano (1 tsp), and coarse black pepper (1 tsp). Cool to room temperature.",
+        "why": "Capsaicin and paprika color are fat-soluble and barely dissolve in cold oil; a short time in hot fat releases far more of both."
       },
       {
         "step": "Finish the Paste",
-        "detail": "Into the cooled oil, stir soy sauce (2 Tbsp), brown sugar (1 Tbsp), and lemon juice (1 Tbsp). Soy is cut from ¼ cup because the dry brine already salted the meat - at full volume with the brine this comes out aggressively salty."
+        "detail": "Into the cooled oil, stir soy sauce (2 Tbsp), brown sugar (1 Tbsp), and lemon juice (1 Tbsp).",
+        "why": "The soy is cut from ¼ cup because the dry brine already salted the meat; at full volume it comes out aggressively salty."
       },
       {
         "step": "Coat Late",
-        "detail": "Rub the paste over the drumsticks 60 minutes before cooking, no earlier. The paste is a surface coat; left on for hours it only re-wets the skin the dry brine spent all afternoon drying out."
+        "detail": "Rub the paste over the drumsticks 60 minutes before cooking, no earlier.",
+        "why": "Left on for hours, the paste re-wets the skin the dry brine spent all afternoon drying."
       },
       {
         "step": "Blot Dry",
-        "detail": "Wipe off standing liquid with paper towels; leave the clinging garlic and paprika. Surface water must boil off before the skin can brown, and the sugar will not caramelize through a wet film."
+        "detail": "Wipe off standing liquid with paper towels; leave the clinging garlic and paprika."
       },
       {
         "step": "Roast",
-        "detail": "Heat oven to 425 F. Space the drumsticks on a wire rack set over a sheet pan. Roast 35 to 40 minutes, turning once at the halfway point. The rack keeps them out of their own rendered fat, which would steam the undersides gray."
+        "detail": "Heat oven to 425°F. Space the drumsticks on a wire rack set over a sheet pan. Roast 35 to 40 minutes, turning once at the halfway point."
       },
       {
         "step": "Check Doneness",
-        "detail": "Pull at 170 to 175 F at the thickest point, probe angled away from the bone. Rest 5 minutes. Dark meat should run past the 165 F safety line - collagen breaks down in the higher band and texture improves rather than drying out."
+        "detail": "Pull at 170 to 175°F at the thickest point, probe angled away from the bone. Rest 5 minutes.",
+        "why": "Dark meat should run past the 165°F safety line; collagen breaks down in the higher band and the texture improves rather than drying out."
       },
       {
         "step": "Grill Variation (Optional)",
-        "detail": "Skin side up over indirect heat until the thickest part reads 170 F, then blot the paste off and finish skin-side down over the coals 2 to 3 minutes. Blotting is not optional here - sugary, oily surface coatings are the standard flare-up ignition source, and sustained flame turns the skin acrid."
-      },
-      {
-        "step": "Serving Note",
-        "detail": "The sweet-soy glaze wants something plain and crisp across from it - a roasted potato side and a sharp green vegetable both work. Roast a side on a lower rack while these are on the upper one; anything that runs at 425 F shares the oven without adjustment."
+        "detail": "Skin side up over indirect heat until the thickest part reads 170°F, then blot the paste off and finish skin-side down over the coals 2 to 3 minutes.",
+        "why": "Sugary, oily coatings are the usual flare-up source, and sustained flame turns the skin acrid."
       }
     ],
     "is_blank": false,
     "description": "Dry-brined chicken drumsticks seasoned with soy sauce, grated garlic, smoked paprika and oregano.",
     "prepTime": "PT15M",
     "cookTime": "PT40M",
-    "recipeYield": "4 servings, 2 drumsticks each"
+    "recipeYield": "4 servings, 2 drumsticks each",
+    "notes": [
+      "Serve it with something plain and crisp: a roasted potato side and a sharp green vegetable both work. Anything that roasts at 425°F can share the oven on a lower rack."
+    ]
   },
   {
     "id": "seared-chicken-breast-with-cranberry-thyme-pan-sauce",
@@ -1992,19 +2009,22 @@
     "instructions": [
       {
         "step": "Pull The Chicken",
-        "detail": "Strip the meat off the rotisserie chicken (1 whole) in large shreds, about 4 cups. Discard skin and bones. Large shreds hold texture through the bake; chopped fine, the chicken disappears into the sauce."
+        "detail": "Strip the meat off the rotisserie chicken (1 whole) in large shreds, about 4 cups. Discard skin and bones.",
+        "why": "Large shreds hold their texture through the bake; chopped fine, the chicken disappears into the sauce."
       },
       {
         "step": "Make The Roux",
-        "detail": "Melt the butter (4 Tbsp) in a saucepan over medium. Whisk in the flour (¼ cup) and cook 2 to 3 minutes, whisking, until it smells nutty and turns the color of wet sand. Stop there. A darker roux tastes better on its own but thickens roughly half as well, which is the wrong trade in a casserole that has to hold its sauce."
+        "detail": "Melt the butter (4 Tbsp) in a saucepan over medium. Whisk in the flour (¼ cup) and cook 2 to 3 minutes, whisking, until it smells nutty and turns the color of wet sand. Stop there.",
+        "why": "A darker roux tastes better on its own but thickens roughly half as well, the wrong trade in a casserole that has to hold its sauce."
       },
       {
         "step": "Build The Veloute",
-        "detail": "Whisk the chicken broth (3 cups) in a little at a time, keeping it smooth. Simmer 3 to 4 minutes until it coats the back of a spoon. Cook it slightly thicker than looks right, because it loosens in the oven."
+        "detail": "Whisk the chicken broth (3 cups) in a little at a time, keeping it smooth. Simmer 3 to 4 minutes until it coats the back of a spoon, a little thicker than looks right.",
+        "why": "It loosens in the oven."
       },
       {
         "step": "Season The Sauce",
-        "detail": "Off the heat, stir in the diced tomatoes with green chiles (10 oz, undrained), diced green chiles (4 oz), chili powder (2 tsp), ground cumin (1 tsp), garlic powder (1 tsp), chipotle powder (1½ tsp), table salt (1 tsp) and black pepper (½ tsp). Cool 2 minutes, then stir in the sour cream (½ cup) off the heat so it does not break."
+        "detail": "Off the heat, stir in the diced tomatoes with green chiles (10 oz, undrained), diced green chiles (4 oz), chili powder (2 tsp), ground cumin (1 tsp), garlic powder (1 tsp), chipotle powder (1½ tsp), table salt (1 tsp) and black pepper (½ tsp). Cool 2 minutes, then stir in the sour cream (½ cup) off the heat."
       },
       {
         "step": "Layer One",
@@ -2024,15 +2044,17 @@
       },
       {
         "step": "Take The Chill Off",
-        "detail": "Pull the pan out and leave it on the counter while the oven comes to 375F, about 25 minutes. A pan straight from the refrigerator or a cooler adds 8 to 10 minutes to the bake and heats unevenly."
+        "detail": "Pull the pan out and leave it on the counter while the oven comes to 375°F, about 25 minutes.",
+        "why": "A pan straight from the refrigerator or a cooler adds 8 to 10 minutes to the bake and heats unevenly."
       },
       {
         "step": "Bake Covered",
-        "detail": "Bake covered at 375F for 35 minutes."
+        "detail": "Bake covered at 375°F for 35 minutes."
       },
       {
         "step": "Top And Brown",
-        "detail": "Uncover, scatter the remaining shredded sharp cheddar (1 cup) over the top, and bake uncovered 12 minutes until melted and browning at the edges. It is done when the center reads 165F and the edges are bubbling, so go by that rather than the clock. Do not hold it in the oven past browning; extra time only thins the sauce."
+        "detail": "Uncover, scatter the remaining shredded sharp cheddar (1 cup) over the top, and bake uncovered 12 minutes until melted and browning at the edges. It is done when the center reads 165°F and the edges are bubbling, so go by that rather than the clock. Pull it once it browns.",
+        "why": "Extra time in the oven only thins the sauce."
       },
       {
         "step": "Rest",
@@ -4279,11 +4301,12 @@
     "instructions": [
       {
         "step": "Drain The Ricotta",
-        "detail": "Set the whole-milk ricotta (15 oz) in a fine-mesh sieve over a bowl and leave it 30 minutes while you build the sauce. Whole-milk ricotta carries enough free water to turn the bottom of the pan to soup, and there is no fixing it after the bake."
+        "detail": "Set the whole-milk ricotta (15 oz) in a fine-mesh sieve over a bowl and leave it 30 minutes while you build the sauce.",
+        "why": "Whole-milk ricotta carries enough free water to turn the bottom of the pan to soup, and there is no fixing it after the bake."
       },
       {
         "step": "Season The Raw Meat",
-        "detail": "In a bowl, work the dried oregano (1½ tsp), crushed fennel seed (1 tsp), crushed red pepper (1½ tsp), black pepper (1 tsp), and salt (1 tsp) into the ground beef (1½ lb) with your hands. Leave the Italian sausage (½ lb) unseasoned; it is already salted and spiced, and stacking salt on salt is how this gets away from you."
+        "detail": "In a bowl, work the dried oregano (1½ tsp), crushed fennel seed (1 tsp), crushed red pepper (1½ tsp), black pepper (1 tsp), and salt (1 tsp) into the ground beef (1½ lb) with your hands. Leave the Italian sausage (½ lb) unseasoned; it is already salted and spiced."
       },
       {
         "step": "Brown The Beef",
@@ -4291,7 +4314,7 @@
       },
       {
         "step": "Brown The Sausage",
-        "detail": "Add the Italian sausage (½ lb) to the same pan, break it into rough chunks, and brown hard for 5 to 6 minutes. Transfer it to the bowl with the beef. Leave the browned fond on the pan floor; it is concentrated Maillard product and it carries the sauce's bass notes."
+        "detail": "Add the Italian sausage (½ lb) to the same pan, break it into rough chunks, and brown hard for 5 to 6 minutes. Transfer it to the bowl with the beef. Leave the browned fond on the pan floor."
       },
       {
         "step": "Build The Soffritto",
@@ -4299,46 +4322,54 @@
       },
       {
         "step": "Bloom The Paste",
-        "detail": "Add the tomato paste (3 Tbsp) and stir constantly for 60 to 90 seconds, until it darkens from bright red to brick and smells nutty instead of tinny. Under-blooming it leaves a raw metallic note that survives the entire simmer."
+        "detail": "Add the tomato paste (3 Tbsp) and stir constantly for 60 to 90 seconds, until it darkens from bright red to brick and smells nutty instead of tinny."
       },
       {
         "step": "Deglaze And Reduce",
-        "detail": "Add the dry red wine (1 cup) and scrape the pan floor with a flat wooden spatula while it boils, pushing rather than stirring, until the floor goes bare. Let the wine reduce by half, 4 to 5 minutes. Do not shortcut this: wine added and never reduced leaves a sharp boozy edge that 90 minutes of simmering will not remove."
+        "detail": "Add the dry red wine (1 cup) and scrape the pan floor with a flat wooden spatula while it boils, pushing rather than stirring, until the floor goes bare. Let the wine reduce by half, 4 to 5 minutes.",
+        "why": "Wine that never reduces leaves a sharp boozy edge that 90 minutes of simmering will not remove."
       },
       {
         "step": "Simmer The Sauce",
-        "detail": "Return the beef and sausage with any collected juices. Add the hand-crushed whole tomatoes (28 oz can), crushed tomatoes (15 oz can), whole milk (½ cup), Parmigiano-Reggiano rind (1 piece), and bay leaves (2). Bring it to a full simmer, meaning steady streams of small bubbles breaking the surface roughly one to three per second rather than a boil, then drop to a bare simmer and cook uncovered 1 hour 30 minutes, stirring every 20 minutes. It should reduce to a thick sauce that mounds on a spoon. If it is still loose at 90 minutes, raise the heat and keep going, because a wet sauce is the leading cause of a lasagna that will not slice."
+        "detail": "Return the beef and sausage with any collected juices. Add the hand-crushed whole tomatoes (28 oz can), crushed tomatoes (15 oz can), whole milk (½ cup), Parmigiano-Reggiano rind (1 piece), and bay leaves (2). Bring it to a full simmer, meaning steady streams of small bubbles breaking the surface roughly one to three per second rather than a boil, then drop to a bare simmer and cook uncovered 1 hour 30 minutes, stirring every 20 minutes. It should reduce to a thick sauce that mounds on a spoon. If it is still loose at 90 minutes, raise the heat and keep going.",
+        "why": "A wet sauce is the leading cause of a lasagna that will not slice."
       },
       {
         "step": "Finish The Sauce",
-        "detail": "Pull the Parmigiano rind (1 piece) and bay leaves (2). Off heat, stir in the red wine vinegar (2 tsp). The tomato and wine were cooked-in acid building depth; this late addition is for brightness, and it is what keeps a long-simmered meat sauce from tasting heavy and flat. Taste and correct the salt now, after the reduction, never before it."
+        "detail": "Pull the Parmigiano rind (1 piece) and bay leaves (2). Off heat, stir in the red wine vinegar (2 tsp). Taste and correct the salt now, after the reduction, never before it.",
+        "why": "The tomato and wine built depth over the simmer; this late acid is for brightness, and it keeps a long-simmered meat sauce from tasting heavy and flat."
       },
       {
         "step": "Mix The Filling",
-        "detail": "Combine the drained ricotta (15 oz), egg (1), grated Parmigiano-Reggiano (¾ cup), parsley (⅓ cup), black pepper (½ tsp), nutmeg (¼ tsp), and salt (½ tsp). The egg is doing structural work: its proteins coagulate in the oven and hold the filling as a distinct layer instead of letting it slump into the sauce."
+        "detail": "Combine the drained ricotta (15 oz), egg (1), grated Parmigiano-Reggiano (¾ cup), parsley (⅓ cup), black pepper (½ tsp), nutmeg (¼ tsp), and salt (½ tsp).",
+        "why": "The egg sets in the oven and holds the filling as its own layer instead of letting it slump into the sauce."
       },
       {
         "step": "Assemble",
-        "detail": "Heat the oven to 375F. Spread about 1 cup of the meat sauce across the bottom of a 9x13 pan. Lay 3 blanched pasta sheets crosswise with the edges just overlapping. Spread a third of the ricotta filling, scatter a quarter of the shredded mozzarella (1 lb total), then about 1½ cups of meat sauce. Repeat that sequence twice more. Finish with a fourth layer of sheets, the remaining meat sauce, the remaining mozzarella, and the grated Parmigiano-Reggiano (¾ cup)."
+        "detail": "Heat the oven to 375°F. Spread about 1 cup of the meat sauce across the bottom of a 9x13 pan. Lay 3 blanched pasta sheets crosswise with the edges just overlapping. Spread a third of the ricotta filling, scatter a quarter of the shredded mozzarella (1 lb total), then about 1½ cups of meat sauce. Repeat that sequence twice more. Finish with a fourth layer of sheets, the remaining meat sauce, the remaining mozzarella, and the grated Parmigiano-Reggiano (¾ cup)."
       },
       {
         "step": "Bake Covered Then Open",
-        "detail": "Tent foil over the pan so it does not touch the cheese and bake 40 minutes. Remove the foil and bake another 20 to 25 minutes, until the top is browned in patches and the edges are bubbling. The uncovering is the entire browning step: under foil the surface is parked at 212F by trapped steam, and nothing browns at 212F. If it is still pale at 25 minutes, run the broiler 2 to 3 minutes and watch it continuously."
+        "detail": "Tent foil over the pan so it does not touch the cheese and bake 40 minutes. Remove the foil and bake another 20 to 25 minutes, until the top is browned in patches and the edges are bubbling. If it is still pale at 25 minutes, run the broiler 2 to 3 minutes and watch it continuously.",
+        "why": "Under foil, trapped steam parks the surface at 212°F, and nothing browns at 212°F. Uncovering is the whole browning step."
       },
       {
         "step": "Rest Before Slicing",
-        "detail": "Rest 30 minutes out of the oven before cutting. This is not optional. Cut into it hot and you get a plate of slurry, because the starch and egg matrix has to cool and set before it will hold a slice. Scatter the torn basil (¼ cup) at service."
-      },
-      {
-        "step": "Notes And Make-Ahead",
-        "detail": "Shred the mozzarella (1 lb) from a block rather than buying it pre-shredded, which is dusted with cellulose to stop clumping and melts grainy. Mozzarella is a long-protein, high-melt cheese that stretches; Parmigiano-Reggiano is the opposite, high in protein and low in moisture, and it breaks if melted into a sauce, which is why it goes into the filling and onto the top as a dry crust instead. The sauce is better on day two, since soluble flavor compounds keep diffusing at refrigerator temperature long after the cook, so make the sauce a day ahead if you want to split the work. Cool it in containers no deeper than 2 inches, uncovered in an ice bath for 20 minutes, then refrigerate uncovered before lidding; do not put a hot covered pot straight into the refrigerator."
+        "detail": "Rest 30 minutes out of the oven before cutting. Scatter the torn basil (¼ cup) at service.",
+        "why": "Cut it hot and you get a plate of slurry; the starch and egg have to cool and set before it will hold a slice."
       }
     ],
     "is_blank": false,
     "description": "Beef and hot Italian sausage lasagna with a whole-milk ricotta layer, built in one 9x13 pan.",
     "prepTime": "PT45M",
     "cookTime": "PT3H",
-    "recipeYield": "8 servings (one 9x13)"
+    "recipeYield": "8 servings (one 9x13)",
+    "notes": [
+      "Shred your own mozzarella. Pre-shredded is dusted with cellulose to stop clumping, and it melts grainy.",
+      "Parmigiano goes in the filling and on top for a reason. It is high in protein and low in moisture and breaks if melted into a sauce, so it works as seasoning and a dry crust instead.",
+      "Make the sauce a day ahead to split the work. It is better on day two, since flavor keeps diffusing in the cold. Cool it in containers no deeper than 2 inches, uncovered in an ice bath for 20 minutes, then refrigerate uncovered before lidding. Never put a hot covered pot straight into the refrigerator.",
+      "Using no-boil sheets? They cook by pulling water out of the sauce. Stop the reduction while the sauce is still a little loose, or stir in ½ cup water, and make sure sauce reaches every edge, or the corners bake up leathery."
+    ]
   },
   {
     "id": "stuffed-meatballs",
@@ -4991,7 +5022,7 @@
     "instructions": [
       {
         "step": "Make the Slaw",
-        "detail": "Whisk the mayo (2 Tbsp + 2 tsp), cider vinegar (1 Tbsp), honey (1½ tsp), celery seed (¼ tsp), table salt (⅛ tsp) and black pepper (⅛ tsp). Toss with the coleslaw mix (½ bag) and chill. It holds up to 4 hours because the dressing is vinegar-forward, not heavy mayo."
+        "detail": "Whisk the mayo (2 Tbsp + 2 tsp), cider vinegar (1 Tbsp), honey (1½ tsp), celery seed (¼ tsp), table salt (⅛ tsp) and black pepper (⅛ tsp). Toss with the coleslaw mix (½ bag) and chill. It holds up to 4 hours."
       },
       {
         "step": "Shred",
@@ -4999,19 +5030,22 @@
       },
       {
         "step": "Hot Honey Butter",
-        "detail": "In a small saucepan, melt the butter (3 Tbsp) over low heat. Add the garlic (1 clove) for 1 minute, then stir in the honey (¼ cup), hot sauce (2 Tbsp), red pepper flakes (1 tsp), cayenne (½ tsp) and cider vinegar (1½ tsp). Simmer gently 1 to 2 minutes to pull the chili into the fat; a batch this small scorches fast, so watch it. No salt, because the chicken is already seasoned. For milder heat, halve the cayenne."
+        "detail": "In a small saucepan, melt the butter (3 Tbsp) over low heat. Add the garlic (1 clove) for 1 minute, then stir in the honey (¼ cup), hot sauce (2 Tbsp), red pepper flakes (1 tsp), cayenne (½ tsp) and cider vinegar (1½ tsp). Simmer gently 1 to 2 minutes; a batch this small scorches fast, so watch it. Do not salt it. For milder heat, halve the cayenne.",
+        "why": "The simmer pulls the chili into the fat, and the rotisserie chicken already brings the salt."
       },
       {
         "step": "Crisp",
-        "detail": "Melt the butter (1 Tbsp) in a 12-inch skillet over medium-high heat. Spread the chicken (3 cups) in a single layer and leave it untouched 3 to 4 minutes, until the edges brown. Three cups usually fits in one batch; split it if the pan is crowded. Rotisserie meat is soft, and these browned edges are the only real texture the filling gets."
+        "detail": "Melt the butter (1 Tbsp) in a 12-inch skillet over medium-high heat. Spread the chicken (3 cups) in a single layer and leave it untouched 3 to 4 minutes, until the edges brown. Three cups usually fits in one batch; split it if the pan is crowded.",
+        "why": "Rotisserie meat is soft, and these browned edges are the only real texture the filling gets."
       },
       {
         "step": "Sauce",
-        "detail": "Drop the heat to medium-low, pour the hot honey butter over the chicken and toss until glossy and the chicken reads 165°F. Keep the heat low: honey scorches well before the chicken would."
+        "detail": "Drop the heat to medium-low, pour the hot honey butter over the chicken and toss until glossy and the chicken reads 165°F. Keep the heat low.",
+        "why": "Honey scorches well before the chicken would."
       },
       {
         "step": "Toast the Buns",
-        "detail": "Butter the cut sides of the buns (3) with the butter (1 Tbsp total) and toast them cut-side down in the skillet 1 to 2 minutes. A toasted crumb resists the sauce."
+        "detail": "Butter the cut sides of the buns (3) with the butter (1 Tbsp total) and toast them cut-side down in the skillet 1 to 2 minutes."
       },
       {
         "step": "Build",
@@ -6845,7 +6879,7 @@
       },
       {
         "type": "item",
-        "text": "2¾ cups chicken broth"
+        "text": "2¼ cups chicken broth"
       },
       {
         "type": "item",
@@ -6879,27 +6913,32 @@
       },
       {
         "step": "Brown Hard",
-        "detail": "Heat a 12-inch skillet or Dutch oven over medium-high, dry. Add the seasoned beef (1 lb), press it flat into one sheet, and leave it alone. 3 to 4 minutes per side, flipping 2 to 3 times, until there is a deep brown crust and browned bits stuck to the pan. Do not stir early and do not pile it up - the surface has to dry before it can brown at all. Water holds the surface at 212F; Maillard browning does not begin until about 266F and does not get good until 285 to 330F. The fond you build here is the entire color and depth budget of this dish."
+        "detail": "Heat a 12-inch skillet or Dutch oven over medium-high, dry. Add the seasoned beef (1 lb), press it flat into one sheet, and leave it alone. 3 to 4 minutes per side, flipping 2 to 3 times, until there is a deep brown crust and browned bits stuck to the pan. Do not stir early and do not pile it up.",
+        "why": "The surface has to dry before it can brown: water holds it at 212°F, and browning does not get good until about 285 to 330°F. The fond built here is the whole color and depth budget of this dish."
       },
       {
         "step": "Drain, Not All of It",
-        "detail": "Pour the rendered fat into a cup, then return about 2 Tbsp to the pan. Break the beef into crumbles. The rice has to toast in fat in step 5, and the seasoning rides into the grain on that fat."
+        "detail": "Pour the rendered fat into a cup, then return about 2 Tbsp to the pan. Break the beef into crumbles."
       },
       {
         "step": "Trinity",
-        "detail": "Add the diced onion (1 cup), bell pepper (1 cup) and celery (¾ cup) to the fat over medium. Cook 6 to 8 minutes, until soft and the onion turns translucent heading toward gold. The water they release does the deglazing - scrape as they go and the fond lifts off the pan into the vegetables. Add the minced garlic (4 cloves) and the reserved half of the blend; cook 1 minute, until sharp and fragrant."
+        "detail": "Add the diced onion (1 cup), bell pepper (1 cup) and celery (¾ cup) to the fat over medium. Cook 6 to 8 minutes, scraping as they go, until soft and the onion turns translucent heading toward gold. Add the minced garlic (4 cloves) and the reserved half of the blend; cook 1 minute, until sharp and fragrant.",
+        "why": "The water the vegetables release does the deglazing, lifting the fond off the pan and into them."
       },
       {
         "step": "Toast the Rice",
-        "detail": "Add the rice (1½ cups) dry and stir 2 minutes, until the grains turn chalky-opaque and smell nutty. Fat coating each grain slows water uptake so the grains cook through instead of blowing out - this is what keeps dirty rice from turning to mush."
+        "detail": "Add the rice (1½ cups) dry and stir 2 minutes, until the grains turn chalky-opaque and smell nutty.",
+        "why": "Fat coating each grain slows water uptake so the grains cook through instead of blowing out; this is what keeps dirty rice from turning to mush."
       },
       {
         "step": "Liquid and Lid",
-        "detail": "Add the chicken broth (2¾ cups) and Worcestershire (1 Tbsp), scrape the bottom once more, and bring to a hard boil. Lid on, heat to the lowest setting, 18 minutes. Do not lift the lid. The broth is 2¾ cups rather than a flat 2:1 because the trinity has already put about a third of a cup of its own water in the pan."
+        "detail": "Add the chicken broth (2¼ cups) and Worcestershire (1 Tbsp), scrape the bottom once more, and bring to a hard boil. Lid on, heat to the lowest setting, 18 minutes. Do not lift the lid.",
+        "why": "Long-grain white rice wants about 1½ cups of liquid per cup of rice with the lid on. More than that, on top of the water the vegetables already put in the pan, turns it soft."
       },
       {
         "step": "Beans on Top, Then Rest",
-        "detail": "Off the heat, scatter the drained and rinsed kidney beans (1 can, 15.5 oz, about 1½ cups) over the surface of the rice without stirring. Lid back on, 10 minutes. They are already cooked and only need to warm through - stirred into the simmer they break down and go pasty, and the loose starch clouds the grain."
+        "detail": "Off the heat, scatter the drained and rinsed kidney beans (1 can, 15.5 oz, about 1½ cups) over the surface of the rice without stirring. Lid back on, 10 minutes.",
+        "why": "They are already cooked and only need to warm through; stirred into the simmer they break down and go pasty, and the loose starch clouds the grain."
       },
       {
         "step": "Fluff and Finish",

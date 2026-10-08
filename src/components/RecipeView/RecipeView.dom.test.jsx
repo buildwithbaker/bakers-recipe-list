@@ -226,8 +226,13 @@ describe('RecipeView display settings', () => {
   });
 
   it('hides the Why notes row on a recipe with no why, and keeps Amounts in steps', () => {
-    expect(lasagna.instructions.some((s) => s.why)).toBe(false);
-    render(<RecipeView recipe={lasagna} headingLevel={1} />);
+    // Stripped here rather than relying on a recipe that happens to have no
+    // why today: data batches keep adding them.
+    const noWhy = {
+      ...lasagna,
+      instructions: lasagna.instructions.map((s) => { const step = { ...s }; delete step.why; return step; }),
+    };
+    render(<RecipeView recipe={noWhy} headingLevel={1} />);
     openDisplay();
     expect(screen.queryByRole('switch', { name: 'Why notes' })).toBeNull();
     expect(sw('Amounts in steps')).toBeTruthy();
