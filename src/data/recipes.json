@@ -24,6 +24,10 @@
       },
       {
         "type": "item",
+        "text": "¾ tsp table salt"
+      },
+      {
+        "type": "item",
         "text": "2 tsp onion powder"
       },
       {
@@ -58,11 +62,12 @@
     "instructions": [
       {
         "step": "Mix Ingredients",
-        "detail": "Put the ground pork (1 lb), egg (1), breadcrumbs (¼ cup), onion powder (2 tsp), garlic powder (2 tsp), paprika (1 tsp), chili powder (1 tsp), cumin (½ tsp), oregano (½ tsp), cayenne pepper (1 tsp), and red pepper flakes (1 tsp) in a bowl. Mix thoroughly."
+        "detail": "Put the ground pork (1 lb), egg (1), breadcrumbs (¼ cup), table salt (¾ tsp), onion powder (2 tsp), garlic powder (2 tsp), paprika (1 tsp), chili powder (1 tsp), cumin (½ tsp), oregano (½ tsp), cayenne pepper (1 tsp), and red pepper flakes (1 tsp) in a bowl. Mix thoroughly."
       },
       {
         "step": "Shape Patties",
-        "detail": "Form into 8-9 balls and flatten into a patty shape, approximately 10-15% larger than your bread."
+        "detail": "Form into 8-9 balls and flatten into a patty shape, approximately 10-15% larger than your bread.",
+        "why": "The meat tightens and the fat renders out as they cook, so the patties shrink back to size."
       },
       {
         "step": "Heat Pan",
@@ -70,7 +75,7 @@
       },
       {
         "step": "Cook Patties",
-        "detail": "Add the patties and cook to an internal temp of 160°F, flipping halfway. About 7 minutes per side."
+        "detail": "Add the patties and cook about 3-4 minutes per side, until the center reads 160°F."
       }
     ],
     "is_blank": false,
@@ -78,46 +83,6 @@
     "prepTime": "PT10M",
     "cookTime": "PT15M",
     "recipeYield": "8 patties"
-  },
-  {
-    "id": "scrambled-eggs",
-    "name": "Scrambled Eggs",
-    "section": "BREAKFAST",
-    "category": "Breakfast",
-    "source": "Original",
-    "tags": [
-      "#eggs",
-      "#breakfast"
-    ],
-    "ingredients": [
-      {
-        "type": "item",
-        "text": "2 eggs"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp 2% milk"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp Tony's seasoning"
-      }
-    ],
-    "instructions": [
-      {
-        "step": "Whisk",
-        "detail": "Crack 2 eggs into a bowl, add 1 Tbsp milk and 1 tsp Tony's seasoning. Whisk until combined."
-      },
-      {
-        "step": "Cook",
-        "detail": "Pour into a non-stick pan over medium-low heat. Gently fold the eggs with a spatula until just set."
-      }
-    ],
-    "is_blank": false,
-    "description": "Soft scrambled eggs made with 2% milk and a shake of Tony's seasoning.",
-    "prepTime": "PT2M",
-    "cookTime": "PT3M",
-    "recipeYield": "1 serving"
   },
   {
     "id": "breakfast-burrito",
@@ -176,7 +141,7 @@
       },
       {
         "type": "item",
-        "text": "2 tsp salt"
+        "text": "2 tsp table salt"
       },
       {
         "type": "item",
@@ -190,11 +155,12 @@
     "instructions": [
       {
         "step": "Combine",
-        "detail": "Add the milk (7 cups), water (1 cup), oats (2 cups), maple syrup or honey (2 Tbsp) and salt (2 tsp) to a slow cooker."
+        "detail": "Add the milk (7 cups), water (1 cup), oats (2 cups), maple syrup or honey (2 Tbsp) and table salt (2 tsp) to a 4- to 5-quart slow cooker."
       },
       {
         "step": "Cook",
-        "detail": "Cook on low for 8 hours. Stir every 2 hours if possible."
+        "detail": "Cook on low for 8 hours. Stir every 2 hours if possible.",
+        "why": "The oats and milk solids settle and catch on the crock's lower walls, which is where a slow cooker's heat comes from."
       },
       {
         "step": "Add Fruit",
@@ -285,6 +251,10 @@
       {
         "type": "item",
         "text": "About ½ cup barbecue sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp white vinegar, to finish"
       }
     ],
     "instructions": [
@@ -294,11 +264,13 @@
       },
       {
         "step": "Sear",
-        "detail": "Heat the oil (1 Tbsp) in a large skillet over medium-high until it shimmers. Brown the pork hard on every side, 7-10 min total. This is the only browning the dish gets - nothing browns inside a slow cooker."
+        "detail": "Heat the oil (1 Tbsp) in a large skillet over medium-high until it shimmers. Brown the pork hard on every side, 7-10 min total.",
+        "why": "This is the only browning the dish gets; nothing browns inside a slow cooker."
       },
       {
         "step": "Build the pot",
-        "detail": "Spread the onion (1, sliced) over the bottom of the slow cooker. Whisk the barbecue sauce (½ cup), mustard (1 Tbsp), vinegar (1 Tbsp), brown sugar (1 Tbsp), soy sauce (1½ tsp), onion powder (1 Tbsp) and garlic powder (1 Tbsp). Pour the water (2 Tbsp) into the hot skillet, scrape up the fond and whisk it into the sauce. Set the pork on the onions and pour the sauce over."
+        "detail": "Spread the onion (1, sliced) over the bottom of the slow cooker. Whisk the barbecue sauce (½ cup), mustard (1 Tbsp), vinegar (1 Tbsp), brown sugar (1 Tbsp), soy sauce (1½ tsp), onion powder (1 Tbsp) and garlic powder (1 Tbsp). Pour the water (2 Tbsp) into the hot skillet, scrape up the fond and whisk it into the sauce. Set the pork on the onions and pour the sauce over.",
+        "why": "The heat comes from the lower side wall, so the onions soften into the sauce down there and keep the pork off the floor."
       },
       {
         "step": "Cook",
@@ -306,11 +278,13 @@
       },
       {
         "step": "Defat and reduce",
-        "detail": "Lift the pork out to rest. Skim the fat off the juices. Reduce the juices by about half: lid off on High for 30-45 min, or faster in a wide skillet at a hard simmer, about 10 min."
+        "detail": "Lift the pork out to rest. Skim the fat off the juices. Reduce the juices by about half: lid off on High for 30-45 min, or faster in a wide skillet at a hard simmer, about 10 min.",
+        "why": "The sealed lid returns every drop of condensation and the pork adds its own water, so the juices come out thin and need this to carry flavor."
       },
       {
         "step": "Shred and sauce",
-        "detail": "Shred the pork and discard the fatty seams. Toss with the reduced juices, then add barbecue sauce (about ½ cup) until slightly wet."
+        "detail": "Shred the pork and discard the fatty seams. Toss with the reduced juices, then add barbecue sauce (about ½ cup) until slightly wet. Taste, and stir in the white vinegar (1 tsp) if it reads heavy.",
+        "why": "Eight hours in a sealed pot dulls flavor and the reduction concentrates the sweet sauce; fresh acid off the heat wakes it back up."
       }
     ],
     "is_blank": false,
@@ -488,25 +462,32 @@
       },
       {
         "type": "item",
-        "text": "Salt and pepper, to coat"
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
       }
     ],
     "instructions": [
       {
         "step": "Season & sear",
-        "detail": "Pat the chuck roast (2.5 lb) dry, coat both sides with salt and pepper, and sear in a hot pan on the stove about 2 minutes per side."
+        "detail": "Pat the chuck roast (2.5 lb) dry, coat both sides with the table salt (½ tsp) and black pepper (1 tsp), and sear in a hot pan on the stove until deep brown on every side, 7-10 minutes total.",
+        "why": "Nothing inside a slow cooker reaches browning temperature, so the sear is the stew's only roasted depth. The salt stays light because the soup mix and steak sauce carry plenty, and nothing reduces in the crock."
       },
       {
         "step": "Load the cooker",
-        "detail": "Add the carrots (5), onion (1, quartered), celery (5 stalks), and potatoes (5) to the slow cooker. Nestle the seared beef on top, then add the onion soup mix (2 packets) and steak sauce (1 cup). Cook on low 8 hours."
+        "detail": "Add the carrots (5), onion (1, quartered), celery (5 stalks), and potatoes (5) to the slow cooker. Nestle the seared beef on top, then add the onion soup mix (2 packets) and steak sauce (1 cup). Cook on low 8 hours, first hour on high if you can.",
+        "why": "The vegetables go underneath because a slow cooker heats from the lower sides, and the roots need that heat to finish with the beef."
       },
       {
         "step": "Pull & cube",
-        "detail": "At the 7-hour mark, lift out the beef and stir the vegetables. Let the beef cool, then cut into cubes."
+        "detail": "At the 7-hour mark, lift out the beef and stir the vegetables. Let the beef cool, then cut into cubes.",
+        "why": "Braised chuck this tender only cuts cleanly once it firms up a little; hot, it falls apart under the knife."
       },
       {
         "step": "Finish",
-        "detail": "Return the cubed beef to the cooker, stir everything together, and finish the last hour."
+        "detail": "Return the cubed beef to the cooker, stir everything together, and finish the last hour. If the liquid is thin, mash a few potato chunks against the side of the pot and stir them in."
       }
     ],
     "is_blank": false,
@@ -529,7 +510,7 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "2.5 lb pork tenderloin (about 2 tenderloins)"
+        "text": "2.5 lb boneless pork shoulder (Boston butt), cut into 2 large pieces"
       },
       {
         "type": "item",
@@ -557,31 +538,42 @@
       },
       {
         "type": "item",
-        "text": "Salt and pepper, to coat"
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp cider vinegar, to finish"
       }
     ],
     "instructions": [
       {
         "step": "Season & sear",
-        "detail": "Coat the pork tenderloin (2.5 lb) on both sides with salt and pepper and sear about 2 minutes per side on the stove."
+        "detail": "Pat the pork shoulder (2.5 lb) dry, coat it with the table salt (½ tsp) and black pepper (1 tsp), and sear in a hot pan on the stove until deep brown on every side, 7-10 minutes total.",
+        "why": "Nothing inside a slow cooker reaches browning temperature, so the sear is the stew's only roasted depth."
       },
       {
         "step": "Load the cooker",
-        "detail": "Add the carrots (5), onion (1, quartered), celery (5 stalks), and potatoes (5) to the slow cooker. Set the tenderloin on top, then add the onion soup mix (1 packet) and frozen apple juice concentrate (1 can). Cook on low 5 hours."
+        "detail": "Add the carrots (5), onion (1, quartered), celery (5 stalks), and potatoes (5) to the slow cooker. Set the pork on top, then add the onion soup mix (1 packet) and frozen apple juice concentrate (1 can). Cook on low 8 hours, first hour on high if you can.",
+        "why": "The vegetables go underneath because a slow cooker heats from the lower sides, and the roots need that heat to finish with the pork."
       },
       {
-        "step": "Pull & rest",
-        "detail": "About 1 hour before the end (around the 4-hour mark), lift out the tenderloin and stir the vegetables. Let the pork rest at least 5 minutes, then slice into medallions."
+        "step": "Pull & cube",
+        "detail": "At the 7-hour mark, lift out the pork and stir the vegetables. Let the pork cool a few minutes, then cut it into chunks, discarding any hard fat."
       },
       {
         "step": "Finish",
-        "detail": "Return the medallions to the stew and serve."
+        "detail": "Return the pork to the cooker for the last hour. Taste, and stir in the cider vinegar (1 Tbsp) if it reads too sweet, then adjust the salt.",
+        "why": "A can of concentrate cooked all day turns flat and sweet; a little fresh acid off the long cook balances it."
       }
     ],
     "is_blank": false,
-    "description": "Slow cooker pork tenderloin stew with potatoes, carrots, celery and onion, sweetened with apple juice concentrate.",
+    "description": "Slow cooker pork shoulder stew with potatoes, carrots, celery and onion, sweetened with apple juice concentrate.",
     "prepTime": "PT20M",
-    "cookTime": "PT5H",
+    "cookTime": "PT8H",
     "recipeYield": "6 servings"
   },
   {
@@ -623,15 +615,18 @@
     "instructions": [
       {
         "step": "Prep the spices",
-        "detail": "Remove the seasoning packet from the corned beef and tie it into a tea strainer so the spices flavor the liquid but stay contained."
+        "detail": "Remove the seasoning packet from the corned beef and tie it into a tea strainer.",
+        "why": "The spices flavor the liquid but stay contained."
       },
       {
         "step": "Load the cooker",
-        "detail": "Add the corned beef (3 lb), carrots (5), onion (1, quartered), and potatoes (5) to the slow cooker with the frozen apple juice concentrate (1 can) and the strained seasoning packet. Cook on low 8-10 hours."
+        "detail": "Put the carrots (5), onion (1, quartered), and potatoes (5) in the bottom of the slow cooker, set the corned beef (3 lb) on top, and add the frozen apple juice concentrate (1 can) and the strained seasoning packet. Cook on low 8-10 hours, first hour on high if you can, until a skewer slides into the thickest part with no grip.",
+        "why": "Roots go underneath because a slow cooker heats from the lower sides. The clock only tells you when to start checking; the skewer tells you when it is done."
       },
       {
         "step": "Add cabbage",
-        "detail": "Add the cabbage wedges (1 head) for the last 1-2 hours so they soften without turning to mush."
+        "detail": "Add the cabbage wedges (1 head) for the last 1-2 hours.",
+        "why": "Late, they soften without turning to mush."
       },
       {
         "step": "Serve",
@@ -2255,7 +2250,7 @@
       },
       {
         "type": "item",
-        "text": "2 cups potato, peeled and diced"
+        "text": "2 cups potato, peeled and cut into ½-inch dice"
       },
       {
         "type": "item",
@@ -2263,7 +2258,7 @@
       },
       {
         "type": "item",
-        "text": "8-16 oz tomato sauce"
+        "text": "1 can (8 oz) tomato sauce"
       },
       {
         "type": "item",
@@ -2271,7 +2266,7 @@
       },
       {
         "type": "item",
-        "text": "1 tsp salt"
+        "text": "1 tsp table salt"
       },
       {
         "type": "item",
@@ -2293,15 +2288,22 @@
     "instructions": [
       {
         "step": "Brown Beef",
-        "detail": "Heat a large skillet over medium heat. Add ground beef (1 lb) and cook, breaking up the meat, until mostly browned. Drain grease and return to heat."
+        "detail": "Heat a large skillet over medium-high. Add the ground beef (1 lb), press it into a flat layer and leave it 3 to 4 minutes until the underside browns, then break it up and cook until browned all over. Pour off all but about 1 Tbsp of the fat.",
+        "why": "At medium heat the beef throws off liquid faster than the pan can boil it away, and it simmers gray instead of browning."
       },
       {
         "step": "Add Vegetables",
-        "detail": "Add diced onion (½ cup), green bell pepper (1), and potatoes (2 cups). Continue cooking over medium heat until onion and peppers are softened. Add garlic (4 cloves) and cook an additional 30 seconds."
+        "detail": "Drop to medium. Add the diced onion (½ cup), green bell pepper (1) and potatoes (2 cups) and cook 5 to 6 minutes, until the onion and pepper soften. Add the garlic (4 cloves), cumin (1 tsp) and coriander (1 tsp) and cook 30 seconds.",
+        "why": "Ground spices stirred straight into tomato sauce stay raw and dusty; 30 seconds in the fat first wakes them up."
+      },
+      {
+        "step": "Start the Potatoes",
+        "detail": "Pour in the beef broth (½ cup) and scrape up the browned bits. Cover and cook 8 minutes, until a fork meets only slight resistance in the potatoes.",
+        "why": "Acid from the tomato slows potatoes softening, so they get a head start in plain broth."
       },
       {
         "step": "Add Sauce",
-        "detail": "Pour in tomato sauce (8-16 oz) and beef broth (½ cup). Add salt (1 tsp), pepper (¼ tsp), cumin (1 tsp), coriander (1 tsp), and bay leaf (1). Stir to combine."
+        "detail": "Stir in the tomato sauce (8 oz), table salt (1 tsp), black pepper (¼ tsp) and bay leaf (1)."
       },
       {
         "step": "Simmer Covered",
@@ -2309,17 +2311,17 @@
       },
       {
         "step": "Finish",
-        "detail": "Remove lid, stir, and continue cooking uncovered for 10 minutes until potatoes are soft and most liquid is gone."
+        "detail": "Remove the lid, stir, and cook uncovered 10 minutes, until the potatoes are soft and most of the liquid is gone. If the pan goes dry before the potatoes are soft, add a splash of water."
       },
       {
         "step": "Serve",
-        "detail": "Serve warm with flour tortillas and rice."
+        "detail": "Pull the bay leaf. Serve warm with flour tortillas and rice."
       }
     ],
     "is_blank": false,
     "description": "Ground beef simmered with potato, green bell pepper, onion and garlic in tomato sauce and beef broth.",
     "prepTime": "PT10M",
-    "cookTime": "PT30M",
+    "cookTime": "PT40M",
     "recipeYield": "4 servings"
   },
   {
@@ -2344,7 +2346,7 @@
       },
       {
         "type": "item",
-        "text": "4 oz Velveeta, cut into cubes (can sub ¾ cup shredded cheese)"
+        "text": "4 oz Velveeta, cut into cubes (or ¾ cup more shredded cheese, though the sauce is more likely to turn grainy)"
       },
       {
         "type": "item",
@@ -2388,13 +2390,14 @@
       },
       {
         "type": "item",
-        "text": "½ lb medium pasta shells"
+        "text": "¾ lb medium pasta shells"
       }
     ],
     "instructions": [
       {
         "step": "Prep Cheese",
-        "detail": "Shred cheddar and Monterey Jack from a block. Let cheese come to near room temperature before adding to sauce."
+        "detail": "Shred cheddar and Monterey Jack from a block. Let cheese come to near room temperature before adding to sauce.",
+        "why": "Pre-shredded cheese is coated in anti-caking starch and melts grainy, and cold cheese dropped into hot sauce tends to seize and leak fat."
       },
       {
         "step": "Cook Ground Beef",
@@ -2410,7 +2413,8 @@
       },
       {
         "step": "Cook Pasta",
-        "detail": "Bring to a gentle boil. Add pasta shells (½ lb) and submerge. Cover and cook according to package instructions, stirring halfway through."
+        "detail": "Bring to a gentle boil. Add pasta shells (¾ lb) and submerge. Cover and cook according to package instructions, stirring halfway through.",
+        "why": "Keep it gentle: whole milk with the acidic Rotel curdles at a hard boil. The starch the shells shed stays in the pot and thickens the sauce."
       },
       {
         "step": "Check Pasta",
@@ -2418,7 +2422,8 @@
       },
       {
         "step": "Melt Cheese",
-        "detail": "Turn heat to low. Gradually stir in all three cheeses until melted."
+        "detail": "Turn heat to low. Stir in the Velveeta (4 oz) first until melted, then the cheddar (1 cup) and Monterey Jack (1 cup) a handful at a time.",
+        "why": "Velveeta's emulsifying salts go in first and keep the aged cheddar from breaking as it melts."
       },
       {
         "step": "Serve",
@@ -2436,7 +2441,7 @@
     "name": "Slow Cooker Pork Carnitas",
     "section": "MEXICAN",
     "category": "Mexican",
-    "source": "https://www.recipetineats.com/pork-carnitas/",
+    "source": "Original",
     "tags": [
       "#pork",
       "#slow-cooker",
@@ -2445,15 +2450,15 @@
     "ingredients": [
       {
         "type": "header",
-        "text": "Rub"
+        "text": "Dry Brine"
       },
       {
         "type": "item",
-        "text": "1 Tbsp olive oil"
+        "text": "4 lb boneless pork shoulder"
       },
       {
         "type": "item",
-        "text": "2 tsp salt"
+        "text": "1 Tbsp table salt"
       },
       {
         "type": "item",
@@ -2461,83 +2466,94 @@
       },
       {
         "type": "item",
-        "text": "2 tsp chili powder"
+        "text": "1 Tbsp dried oregano (Mexican if you have it)"
       },
       {
         "type": "item",
         "text": "1 tsp black pepper"
       },
       {
-        "type": "item",
-        "text": "1 Tbsp dried oregano"
+        "type": "header",
+        "text": "Pot"
       },
       {
         "type": "item",
-        "text": "¼ tsp cayenne pepper"
+        "text": "1 large yellow onion, quartered"
+      },
+      {
+        "type": "item",
+        "text": "6 cloves garlic, smashed"
+      },
+      {
+        "type": "item",
+        "text": "1 orange"
+      },
+      {
+        "type": "item",
+        "text": "1 cinnamon stick"
+      },
+      {
+        "type": "item",
+        "text": "2 bay leaves"
+      },
+      {
+        "type": "item",
+        "text": "1 jalapeño, halved lengthwise"
       },
       {
         "type": "header",
-        "text": "Pork"
+        "text": "Finish"
       },
       {
         "type": "item",
-        "text": "4 lb pork shoulder (boneless, skinless)"
+        "text": "2 Tbsp fat skimmed from the cooking liquid (or neutral oil)"
       },
       {
         "type": "item",
-        "text": "1 onion, chopped"
+        "text": "1 lime, cut into wedges"
       },
       {
         "type": "item",
-        "text": "1 jalapeño, deseeded and chopped"
-      },
-      {
-        "type": "item",
-        "text": "4 cloves garlic, minced"
-      },
-      {
-        "type": "item",
-        "text": "¾ cup orange juice (about 2 oranges)"
-      },
-      {
-        "type": "header",
-        "text": "To Crisp"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp olive oil"
+        "text": "Warm corn tortillas, for serving"
       }
     ],
     "instructions": [
       {
-        "step": "Prep and Rub",
-        "detail": "Rinse and dry the pork shoulder (4 lb). Mix olive oil (1 Tbsp), salt (2 tsp), cumin (2 tsp), chili powder (2 tsp), black pepper (1 tsp), oregano (1 Tbsp) and cayenne (¼ tsp); rub all over the pork."
+        "step": "Dry Brine",
+        "detail": "The night before, or at least 4 hours ahead, cut the pork shoulder (4 lb) into 4 large pieces, trimming only hard, thick fat. Mix the table salt (1 Tbsp), cumin (2 tsp), oregano (1 Tbsp) and black pepper (1 tsp) and rub it over every surface. Refrigerate uncovered on a rack over a plate."
       },
       {
-        "step": "Load Slow Cooker",
-        "detail": "Place the pork fat-cap-up in the slow cooker. Top with the onion (1), jalapeño (1) and garlic (4 cloves); pour over the orange juice (¾ cup)."
+        "step": "Load the Cooker",
+        "detail": "Lay the quartered onion (1) and smashed garlic (6 cloves) in the slow cooker and set the pork on top. Squeeze the orange (1) over the pork, about ⅓ cup juice, and tuck the squeezed halves in around it with the cinnamon stick (1), bay leaves (2) and halved jalapeño (1). Add no other liquid.",
+        "why": "Pork shoulder gives up plenty of its own juice and a sealed crock evaporates almost none, so tested slow cooker recipes use only about ⅓ cup for this much pork."
       },
       {
         "step": "Slow Cook",
-        "detail": "Cook on low for 10 hours or high for 7 hours, until tender enough to shred."
+        "detail": "Lid on. Cook on High for the first hour, then Low for 8 to 9 more hours, until a fork twists a piece apart with no resistance (195 to 205°F inside).",
+        "why": "USDA prefers the first hour on High to move a cold load through the danger zone faster."
+      },
+      {
+        "step": "Defat and Reduce",
+        "detail": "Lift the pork into a bowl. Strain the liquid into a tall container, discard the solids, and let it settle 5 minutes. Spoon the fat off into a cup and keep it. Boil the juice in a saucepan until about 1 cup remains."
       },
       {
         "step": "Shred",
-        "detail": "Rest the pork briefly, then shred with two forks. Skim the fat from the juices. If more than 2 cups remain, reduce to about 2 cups."
+        "detail": "Pull the pork into bite-size pieces with two forks, discarding any gristle, and toss it with ½ cup of the reduced juice."
       },
       {
-        "step": "Crisp",
-        "detail": "Heat olive oil (1 Tbsp) in a large skillet over high heat. Spread the pork and drizzle with juices; let the juices evaporate and the bottom turn golden and crusty. Turn and briefly sear the other side. Work in batches - do not crowd the pan."
+        "step": "Broil Until Crisp",
+        "detail": "Set a rack 4 inches below the broiler and heat it. Spread the pork on a sheet pan in one layer and drizzle with the reserved fat (2 Tbsp). Broil 5 to 7 minutes, until the edges brown and crackle, then stir and broil 3 to 4 minutes more. Work in two pans if one is crowded.",
+        "why": "Nothing in a slow cooker climbs much past 209°F, so all the browning happens here, and it only starts once the juice on the pan has cooked off and the pork is frying in its own fat."
       },
       {
         "step": "Serve",
-        "detail": "Drizzle with the remaining juices just before serving. Serve hot in tacos."
+        "detail": "Drizzle the remaining juice (½ cup) over the pork right before serving. Serve with the lime wedges (1 lime) and warm corn tortillas."
       }
     ],
     "is_blank": false,
-    "description": "Pork shoulder slow cooked with orange, lime, onion, jalapeño, garlic and cumin, then shredded and crisped.",
-    "prepTime": "PT15M",
-    "cookTime": "PT10H",
+    "description": "Pork shoulder dry-brined with cumin and oregano, slow cooked with orange, cinnamon and garlic, then shredded and broiled until the edges crackle.",
+    "prepTime": "PT20M",
+    "cookTime": "PT10H15M",
     "recipeYield": "8 servings"
   },
   {
@@ -2574,7 +2590,11 @@
       },
       {
         "type": "item",
-        "text": "Salt and pepper to taste"
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
       },
       {
         "type": "item",
@@ -2588,11 +2608,13 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine the slaw mix (16 oz bag), lime juice (2 limes), olive oil (3 Tbsp), honey (2 Tbsp), dried oregano (1 tsp), mayo (¼ cup), Greek yogurt (¼ cup), and salt and pepper to taste in a large bowl."
+        "detail": "Whisk the lime juice (2 limes), olive oil (3 Tbsp), honey (2 Tbsp), dried oregano (1 tsp), mayo (¼ cup), Greek yogurt (¼ cup), table salt (½ tsp) and black pepper (¼ tsp) in a large bowl until smooth, then toss in the slaw mix (16 oz bag).",
+        "why": "Whisking first works the oil into the mayo and dissolves the honey, so every shred gets the same dressing instead of some getting oil and others yogurt."
       },
       {
         "step": "Chill",
-        "detail": "Refrigerate for 1+ hours before serving."
+        "detail": "Refrigerate for 1+ hours before serving. Stir again before it goes out.",
+        "why": "The salt and lime draw water out of the cabbage as it sits, softening it a little and loosening the dressing."
       }
     ],
     "is_blank": false,
@@ -2676,7 +2698,7 @@
       },
       {
         "type": "item",
-        "text": "1 tsp salt + 2 tsp oil (blanching)"
+        "text": "1 tsp table salt + 2 tsp oil (blanching)"
       },
       {
         "type": "item",
@@ -2766,7 +2788,8 @@
       },
       {
         "step": "Marinate Chicken",
-        "detail": "Slice chicken breast (12 oz) thin. Combine cornstarch (1 Tbsp), water (2 Tbsp), salt (½ tsp), oyster sauce (1 Tbsp), and white pepper (¼ tsp); mix until cornstarch dissolves, then squeeze the marinade into the chicken with your hand. Set aside."
+        "detail": "Slice chicken breast (12 oz) thin. Combine cornstarch (1 Tbsp), water (2 Tbsp), salt (½ tsp), oyster sauce (1 Tbsp), and white pepper (¼ tsp); mix until cornstarch dissolves, then squeeze the marinade into the chicken with your hand until the liquid is absorbed. Set aside.",
+        "why": "The cornstarch coat holds the meat's moisture and keeps thin breast slices silky at wok heat."
       },
       {
         "step": "Prep Aromatics",
@@ -2778,15 +2801,17 @@
       },
       {
         "step": "Blanch Broccoli",
-        "detail": "Bring water (8 cups) to a rolling boil. Add salt (1 tsp) and oil (2 tsp) - keeps the broccoli bright green. Add broccoli; the moment water returns to a boil, pull it out (4-5 min max). Shock in ice water 1 min, drain, set aside."
+        "detail": "Bring water (8 cups) to a rolling boil and add the table salt (1 tsp) and oil (2 tsp). Blanch the broccoli in two batches, letting the water come back to a rolling boil between them: about 90 seconds to 2 minutes per batch. Shock in ice water 1 minute, then drain well, spreading the florets on a towel.",
+        "why": "The green comes from the short, hard boil and the ice bath; the salt seasons and the oil gives a sheen. Dry florets fry in the wok instead of steaming."
       },
       {
         "step": "Stir Fry Chicken",
-        "detail": "Heat wok on high until smoking. Add oil (2 Tbsp), drop heat to low. Lay chicken in a single layer; let it brown undisturbed ~30 sec before flipping. Stir fry until just cooked through, ~2 min total. Remove and set aside."
+        "detail": "Heat wok on high until smoking. Add oil (2 Tbsp) and keep the heat at medium-high. Lay chicken in a single layer; let it brown undisturbed ~30 sec before flipping. Stir fry until just cooked through, ~2 min total. Remove and set aside, and turn the heat to low."
       },
       {
         "step": "Bring It Together",
-        "detail": "Add garlic (2 cloves), ginger (1 Tbsp), green onion whites (¼ cup), and carrot (¼ cup) to the hot wok; stir fry 30-40 sec until fragrant. Crank heat to high. Add broccoli and cooking wine (1 tsp); stir fry 1½-2 min. Return chicken; stir fry 30 sec. Pour sauce into the wok center; toss 15-20 sec. Taste - add sugar (½ tsp) if needed. Drizzle in slurry while stirring, ~30 sec, until glossy and lightly coated. Finish with sesame oil (1 tsp), toss once, kill the heat. Plate immediately."
+        "detail": "Add garlic (2 cloves), ginger (1 Tbsp), green onion whites (¼ cup), and carrot (¼ cup) to the hot wok; stir fry 30-40 sec until fragrant. Crank heat to high. Add broccoli and cooking wine (1 tsp); stir fry 1½-2 min. Return chicken; stir fry 30 sec. Pour sauce into the wok center; toss 15-20 sec. Taste - add sugar (½ tsp) if needed. Drizzle in slurry while stirring, ~30 sec, until it bubbles and turns glossy and lightly coated. Finish with sesame oil (1 tsp), toss once, kill the heat. Plate immediately.",
+        "why": "Cornstarch only reaches full thickness once it bubbles."
       }
     ],
     "is_blank": false,
@@ -2989,7 +3014,7 @@
     "instructions": [
       {
         "step": "Marinate and Cook Chicken",
-        "detail": "Toss the chicken breasts (2) with cornstarch (1 Tbsp), water (2 Tbsp), salt (½ tsp), oyster sauce (1 Tbsp) and white pepper (¼ tsp). Heat neutral oil (1 Tbsp) in a wok or large skillet and cook the chicken through to 165°F, then slice or shred."
+        "detail": "Slice the chicken breasts (2) thin, then toss with cornstarch (1 Tbsp), water (2 Tbsp), salt (½ tsp), oyster sauce (1 Tbsp) and white pepper (¼ tsp). Heat neutral oil (1 Tbsp) in a wok or large skillet and cook the chicken in a single layer, in two batches if it crowds the pan, about 2 minutes a side, to 165°F."
       },
       {
         "step": "Make Sauce",
@@ -2997,7 +3022,8 @@
       },
       {
         "step": "Cook Noodles",
-        "detail": "Cook the brown rice noodles (16 oz) per package directions. Scoop out ¼ cup of the noodle water, then drain and rinse under cold water to stop the cooking."
+        "detail": "Cook the brown rice noodles (16 oz) per package directions. Scoop out ¼ cup of the noodle water, then drain and rinse under cold water.",
+        "why": "Rinsing stops the cooking and washes off the surface starch that would glue rice noodles into a mat."
       },
       {
         "step": "Cook Vegetables",
@@ -3009,7 +3035,8 @@
       },
       {
         "step": "Combine",
-        "detail": "Add the noodles, chicken and sauce and toss, loosening with the reserved noodle water (up to ¼ cup) as needed."
+        "detail": "Turn the heat to low. Add the noodles, chicken and sauce and toss, loosening with the reserved noodle water (up to ¼ cup) as needed.",
+        "why": "Peanut butter scorches and tightens over high heat. The noodle water's starch helps the sauce cling as a glossy coat instead of separating."
       },
       {
         "step": "Serve",
@@ -3057,31 +3084,7 @@
       },
       {
         "type": "header",
-        "text": "Coating:"
-      },
-      {
-        "type": "item",
-        "text": "1 egg"
-      },
-      {
-        "type": "item",
-        "text": "¾ cup cornstarch"
-      },
-      {
-        "type": "item",
-        "text": "¼ tsp baking soda"
-      },
-      {
-        "type": "item",
-        "text": "Vegetable oil (for frying)"
-      },
-      {
-        "type": "header",
-        "text": "Sauce:"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp green onions, chopped"
+        "text": "Marinade:"
       },
       {
         "type": "item",
@@ -3105,7 +3108,31 @@
       },
       {
         "type": "item",
+        "text": "¼ tsp baking soda"
+      },
+      {
+        "type": "item",
         "text": "2 Tbsp soy sauce"
+      },
+      {
+        "type": "header",
+        "text": "Coating:"
+      },
+      {
+        "type": "item",
+        "text": "1 egg"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup cornstarch"
+      },
+      {
+        "type": "item",
+        "text": "About 2 cups vegetable oil, for frying"
+      },
+      {
+        "type": "header",
+        "text": "To Finish:"
       },
       {
         "type": "item",
@@ -3114,12 +3141,17 @@
       {
         "type": "item",
         "text": "½ tsp pepper"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp green onions, chopped"
       }
     ],
     "instructions": [
       {
         "step": "Make Marinade",
-        "detail": "Combine garlic (3 cloves, minced), salt (1 tsp), brown sugar (2 tsp), water (2 Tbsp), rice wine (1 Tbsp), baking soda (¼ tsp), and soy sauce (2 Tbsp). Stir to dissolve sugar."
+        "detail": "Combine garlic (3 cloves, minced), salt (1 tsp), brown sugar (2 tsp), water (2 Tbsp), rice wine (1 Tbsp), baking soda (¼ tsp), and soy sauce (2 Tbsp). Stir to dissolve sugar.",
+        "why": "The pinch of baking soda raises the meat's pH, which keeps it tender and helps the crust brown. Much more and you taste soap."
       },
       {
         "step": "Marinate Chicken",
@@ -3131,15 +3163,17 @@
       },
       {
         "step": "Coat Chicken",
-        "detail": "Drain chicken from marinade. Dip each piece in egg wash, then coat thoroughly in cornstarch."
+        "detail": "Drain chicken from marinade. Dip each piece in egg wash, then coat thoroughly in cornstarch.",
+        "why": "Straight cornstarch has no gluten, so it fries into a hard, glassy shell that stays crisp longer than flour."
       },
       {
         "step": "Fry Chicken",
-        "detail": "Heat vegetable oil in a wok or large skillet over medium-high heat. Fry chicken in batches (do not overcrowd), about 4-5 minutes per batch until golden and crispy. Drain on paper towels."
+        "detail": "Heat the vegetable oil (about 2 cups, enough for ½ inch in the pan) in a wok or large skillet to 350°F. Fry chicken in batches (do not overcrowd), about 4-5 minutes per batch, until golden and crispy and the thickest piece reads 165°F. Drain each batch on a wire rack over a sheet pan and sprinkle it with its share of the salt (½ tsp) right away.",
+        "why": "Paper towels trap steam and soften the bottom crust. Salt only sticks in the first seconds out of the oil, while the surface is still slick."
       },
       {
         "step": "Season and Serve",
-        "detail": "Return fried chicken to pan. Toss with salt (½ tsp) and pepper (½ tsp) to taste. Garnish with chopped green onions (2 Tbsp) and serve hot."
+        "detail": "Toss all the chicken in a large bowl with the pepper (½ tsp). Garnish with chopped green onions (2 Tbsp) and serve hot."
       }
     ],
     "is_blank": false,
@@ -3155,7 +3189,9 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#pork",
+      "#rice",
+      "#pineapple",
+      "#thai",
       "#asian"
     ],
     "ingredients": [
@@ -3193,6 +3229,10 @@
       },
       {
         "type": "item",
+        "text": "1 lime, cut into wedges"
+      },
+      {
+        "type": "item",
         "text": "½ cup green onion, sliced"
       },
       {
@@ -3217,7 +3257,7 @@
       },
       {
         "type": "item",
-        "text": "1 Tbsp Thai seasoning (Gold Mountain)"
+        "text": "1 Tbsp Thai seasoning sauce (Golden Mountain)"
       }
     ],
     "instructions": [
@@ -3239,15 +3279,17 @@
       },
       {
         "step": "Cook Rice",
-        "detail": "Add day-old rice (3 cups), oyster sauce (1 Tbsp), fish sauce (1½ Tbsp), sugar (½ tsp), soy sauce (1½ Tbsp), and Thai seasoning (1 Tbsp). Cook, stirring constantly, for 2 minutes until rice is caramelized."
+        "detail": "Add the day-old rice (3 cups) and toss it alone about 1 minute, pressing it against the wok. Then pour the oyster sauce (1 Tbsp), fish sauce (1½ Tbsp), sugar (½ tsp), soy sauce (1½ Tbsp), and Thai seasoning sauce (1 Tbsp) around the edge of the wok rather than onto the rice. Cook, stirring constantly, for 2 minutes until the rice is caramelized.",
+        "why": "Day-old grains are dry on the surface, so they fry instead of steaming into paste. Sauce hitting the hot edge cooks down fast; poured onto the rice, five liquids hold the wok at 212°F and eat the caramelizing time."
       },
       {
         "step": "Add Pineapple",
-        "detail": "Add pineapple pieces (1½ cups) and stir for 30 seconds to warm through."
+        "detail": "Add pineapple pieces (1½ cups) and stir for 30 seconds to warm through.",
+        "why": "It goes in last because its juice would wet the rice and stop it frying."
       },
       {
         "step": "Serve",
-        "detail": "Stir through green onions (½ cup) and serve immediately."
+        "detail": "Stir through green onions (½ cup) and serve immediately, with the lime wedges (1 lime)."
       }
     ],
     "is_blank": false,
@@ -4874,17 +4916,18 @@
       },
       {
         "type": "item",
-        "text": "Salt, to taste"
+        "text": "½ tsp table salt, plus more to taste"
       },
       {
         "type": "item",
-        "text": "Black pepper, to taste"
+        "text": "¼ tsp black pepper"
       }
     ],
     "instructions": [
       {
         "step": "Steam the Eggs",
-        "detail": "Bring 1 inch of water to a rolling boil in a wide pot. Set the eggs (12 large) straight from the fridge into a steamer basket in a single layer, cover, drop to medium heat, and steam 13 minutes. Cold eggs into hot steam is what makes them peel."
+        "detail": "Bring 1 inch of water to a rolling boil in a wide pot. Set the eggs (12 large) straight from the fridge into a steamer basket in a single layer, cover, drop to medium heat, and steam 13 minutes.",
+        "why": "Cold eggs into hot steam is what makes them peel."
       },
       {
         "step": "Shock and Peel",
@@ -4892,19 +4935,22 @@
       },
       {
         "step": "Cut into Strips",
-        "detail": "Halve each of the eggs (12 large) lengthwise. Lay each half flat side down and cut lengthwise into 3 or 4 strips. Do not chop - the strips are the texture of this salad."
+        "detail": "Halve each of the eggs (12 large) lengthwise. Lay each half flat side down and cut lengthwise into 3 or 4 strips. Do not chop.",
+        "why": "The strips are the texture of this salad."
       },
       {
         "step": "Build the Dressing",
-        "detail": "In a large bowl, stir the mayonnaise (½ cup), Miracle Whip (¼ cup), and wasabi paste (½ tsp) until smooth. Taste, then work in up to another ½ tsp wasabi paste. Dress first, eggs second - wasabi stirred into a bowl of eggs streaks instead of distributing."
+        "detail": "In a large bowl, stir the mayonnaise (½ cup), Miracle Whip (¼ cup), and wasabi paste (½ tsp) until smooth. Taste, then work in up to another ½ tsp wasabi paste.",
+        "why": "Dress first, eggs second: wasabi stirred into a bowl of eggs streaks instead of spreading evenly."
       },
       {
         "step": "Fold and Season",
-        "detail": "Fold the egg strips into the dressing with a spatula, lifting from the bottom rather than stirring, so the strips stay whole. Season with salt and black pepper to taste."
+        "detail": "Fold the egg strips into the dressing with a spatula, lifting from the bottom rather than stirring, so the strips stay whole. Season with the table salt (½ tsp) and black pepper (¼ tsp), then taste and add more salt if it needs it."
       },
       {
         "step": "Rest",
-        "detail": "Chill at least 30 minutes before serving. If it sits overnight, taste again before it goes out - wasabi heat is volatile and fades; add another ¼ tsp wasabi paste if it has gone flat."
+        "detail": "Chill at least 30 minutes before serving. If it sits overnight, taste again before it goes out and add another ¼ tsp wasabi paste if it has gone flat.",
+        "why": "Wasabi heat is volatile and fades as it sits."
       }
     ],
     "is_blank": false,
@@ -6084,7 +6130,7 @@
       },
       {
         "type": "item",
-        "text": "3 cloves garlic"
+        "text": "3 cloves garlic, minced"
       },
       {
         "type": "item",
@@ -6108,13 +6154,18 @@
       },
       {
         "type": "item",
-        "text": "Salt and pepper to taste"
+        "text": "½ tsp table salt, plus more to taste"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
       }
     ],
     "instructions": [
       {
         "step": "Cook Chicken",
-        "detail": "Simmer whole chicken in broth (6 cups) and water (2 cups) until cooked through. Remove chicken, cool, and shred meat."
+        "detail": "Simmer the whole chicken in broth (6 cups) and water (2 cups) until the thickest part of the thigh reads 165°F. Keep it at a simmer, not a boil. Remove chicken, cool, and shred meat.",
+        "why": "A hard boil toughens the breast meat and churns the fat into the broth until it goes cloudy."
       },
       {
         "step": "Cook Vegetables",
@@ -6126,14 +6177,17 @@
       },
       {
         "step": "Season & Serve",
-        "detail": "Season with salt and pepper to taste. Serve hot."
+        "detail": "Season with the table salt (½ tsp) and black pepper (¼ tsp), then taste and add more salt if it needs it. Serve hot."
       }
     ],
     "is_blank": false,
     "description": "Chicken noodle soup built from a whole chicken with carrots, celery, onion, garlic and egg noodles.",
     "prepTime": "PT20M",
     "cookTime": "PT1H30M",
-    "recipeYield": "8 servings"
+    "recipeYield": "8 servings",
+    "notes": [
+      "Planning on leftovers? Cook the noodles separately and add them to each bowl. They keep soaking up broth in the fridge, and day-two soup turns to soft noodles with little liquid."
+    ]
   },
   {
     "id": "chicken-wild-rice-soup",
@@ -6215,7 +6269,11 @@
       },
       {
         "type": "item",
-        "text": "Salt and pepper to taste"
+        "text": "¼ tsp table salt, plus more to taste"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
       },
       {
         "type": "header",
@@ -6223,17 +6281,18 @@
       },
       {
         "type": "item",
-        "text": "2 tsp cornstarch"
+        "text": "1 Tbsp cornstarch"
       },
       {
         "type": "item",
-        "text": "2 tsp water"
+        "text": "1 Tbsp water"
       }
     ],
     "instructions": [
       {
         "step": "Cook Chicken",
-        "detail": "Simmer the chicken (1 whole) in broth (6 cups) and water (2 cups) until the thickest part of the thigh reads 165°F. Remove, cool and shred."
+        "detail": "Simmer the chicken (1 whole) in broth (6 cups) and water (2 cups) until the thickest part of the thigh reads 165°F. Keep it at a simmer, not a boil. Remove, cool and shred.",
+        "why": "A hard boil toughens the breast meat and clouds the broth."
       },
       {
         "step": "Add Vegetables",
@@ -6244,23 +6303,28 @@
         "detail": "Add the pasta shells (8 oz) and cook until al dente."
       },
       {
-        "step": "Add Cream",
-        "detail": "Stir in heavy cream (1 cup) and Parmesan (1 cup). Return the shredded chicken."
+        "step": "Thicken",
+        "detail": "Mix the cornstarch (1 Tbsp) with the water (1 Tbsp), stir it in, and bring the soup to a full bubble for 1 minute.",
+        "why": "Cornstarch only reaches full thickness at a boil, and once the Parmesan is in, a boil turns it grainy, so the thickening happens first."
       },
       {
-        "step": "Thicken",
-        "detail": "Mix cornstarch (2 tsp) with water (2 tsp) and stir in to thicken. Add spinach (2 cups) and cook 2 more minutes."
+        "step": "Add Cream",
+        "detail": "Drop to low. Stir in the heavy cream (1 cup) and Parmesan (1 cup), return the shredded chicken, add the spinach (2 cups) and cook 2 more minutes without boiling."
       },
       {
         "step": "Season and Serve",
-        "detail": "Take the pot off the heat and stir in white wine vinegar (1 Tbsp). Season with salt and pepper. Serve hot."
+        "detail": "Take the pot off the heat and stir in white wine vinegar (1 Tbsp). Season with the table salt (¼ tsp) and black pepper (¼ tsp), then taste and add more salt if it needs it. Serve hot.",
+        "why": "The acid keeps the cream and Parmesan from tasting heavy, and heavy cream takes it without curdling where milk would not."
       }
     ],
     "is_blank": false,
     "description": "Whole-chicken soup with spinach, sun-dried tomatoes and small pasta shells, brightened with white wine vinegar.",
     "prepTime": "PT20M",
     "cookTime": "PT1H25M",
-    "recipeYield": "8 servings"
+    "recipeYield": "8 servings",
+    "notes": [
+      "Planning on leftovers? Cook the pasta separately and add it to each bowl. It keeps soaking up the soup in the fridge, and day two turns thick and pasty."
+    ]
   },
   {
     "id": "cheesy-chicken-tortilla-soup",
