@@ -4148,6 +4148,158 @@
     "recipeYield": "4 servings"
   },
   {
+    "id": "gochujang-honey-chicken-rice-bowls",
+    "name": "Gochujang-Honey Chicken Rice Bowls",
+    "section": "ASIAN",
+    "category": "Asian",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#korean",
+      "#weeknight",
+      "#rice-bowl"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Sauce (divided):"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup gochujang"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp toasted sesame oil"
+      },
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "1½ lb boneless skinless chicken breast (about 2 large), cut into 1-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil, divided"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp water"
+      },
+      {
+        "type": "header",
+        "text": "Skillet vegetables:"
+      },
+      {
+        "type": "item",
+        "text": "1 medium yellow onion, cut into ½-inch wedges"
+      },
+      {
+        "type": "item",
+        "text": "2 medium carrots, sliced ⅛ inch thick on the bias"
+      },
+      {
+        "type": "item",
+        "text": "½ Tbsp neutral oil"
+      },
+      {
+        "type": "header",
+        "text": "Broccoli:"
+      },
+      {
+        "type": "item",
+        "text": "1 large head broccoli, cut into florets (about 4 cups)"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Cooked rice, for serving"
+      },
+      {
+        "type": "item",
+        "text": "2 scallions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp sesame seeds"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Sauce",
+        "detail": "Whisk the gochujang (¼ cup), honey (3 Tbsp), soy sauce (2 Tbsp), garlic (4 cloves, grated) and toasted sesame oil (1 Tbsp). Set aside ¼ cup in a separate dish for the glaze.",
+        "why": "The reserved portion never touches raw chicken, so it can go straight onto the cooked meat."
+      },
+      {
+        "step": "Marinate",
+        "detail": "Toss the chicken (1½ lb, cut into 1-inch chunks) with the rest of the sauce and refrigerate 1 hour, up to 3.",
+        "why": "The salt in the soy and gochujang does the work, and even 1-inch pieces take it in within the hour and cook at the same rate."
+      },
+      {
+        "step": "Rice and Oven",
+        "detail": "Start the rice about 35 minutes before you eat. Heat the oven to 425°F."
+      },
+      {
+        "step": "Broccoli",
+        "detail": "Toss the broccoli florets (about 4 cups) with the neutral oil (1 Tbsp) and table salt (¼ tsp). Spread them out with space between them and roast 18 to 20 minutes, flipping once. Get the pan in before the chicken starts.",
+        "why": "Crowded florets steam instead of browning."
+      },
+      {
+        "step": "Sear",
+        "detail": "Heat neutral oil (½ Tbsp) in a 12-inch skillet over medium-high. Lift half the chicken from the marinade, let the excess drip off, and lay it in one layer with space between pieces. Leave it 3 minutes, turn, and cook 2 minutes more. Move it to a plate. Repeat with the remaining neutral oil (½ Tbsp) and chicken, then discard the leftover marinade.",
+        "why": "Honey and gochujang scorch where they touch the pan, and 1½ lb in one batch drops the pan below browning heat, so the chicken steams gray."
+      },
+      {
+        "step": "Vegetables",
+        "detail": "If the fond is black rather than dark brown, wipe it out. Add the neutral oil (½ Tbsp), onion (1 medium, in ½-inch wedges) and carrots (2 medium, sliced ⅛ inch on the bias). Cook over medium-high 5 to 7 minutes, stirring now and then, until the carrots are crisp-tender and the onion edges brown.",
+        "why": "Thin carrot coins and thick onion wedges finish in the same time, and the bias cut gives the carrot more surface to brown and catch the glaze."
+      },
+      {
+        "step": "Glaze",
+        "detail": "Pull the pan off the heat for 30 seconds. Add the reserved sauce (¼ cup) and water (2 Tbsp), return to medium-low, scrape the pan, and bubble 30 to 60 seconds until glossy.",
+        "why": "Sugar hitting a ripping-hot pan burns on contact."
+      },
+      {
+        "step": "Finish",
+        "detail": "Return all the chicken and toss 30 to 45 seconds; the biggest pieces should read 160°F. Build the bowls: rice, broccoli, the chicken and vegetables with the glaze, then the scallions (2, sliced) and sesame seeds (1 tsp).",
+        "why": "Small pieces barely carry over, so check the temperature in the pan rather than counting on a rest."
+      }
+    ],
+    "notes": [
+      "Chunks, not slices: breast is lean, and a thin slice dries out before it browns unless it is velveted."
+    ],
+    "is_blank": false,
+    "description": "Gochujang-honey marinated chicken breast chunks seared in two batches, glazed with onion and carrot, and served over rice with roasted broccoli.",
+    "prepTime": "PT20M",
+    "cookTime": "PT25M",
+    "recipeYield": "4 servings"
+  },
+  {
     "id": "tomato-sauce",
     "name": "Tomato Sauce",
     "section": "ITALIAN",
