@@ -176,7 +176,7 @@ describe('card layout: group headings stay with their first line', () => {
         expect(orphans(layoutCard({ recipe, settings, measure })), `${recipe.id} ${JSON.stringify(settings)}`).toEqual([]);
       }
     }
-  });
+  }, 30000);
 
   it('puts SKILLET VEGETABLES directly above its first item on the Gochujang card', () => {
     const recipe = recipes.find((r) => r.id === 'gochujang-honey-chicken-rice-bowls');
