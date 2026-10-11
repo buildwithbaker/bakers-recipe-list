@@ -166,9 +166,20 @@ export function layoutCard({ recipe, settings, measure, servings = null }) {
       }
       return { sub: false, lines: wrapRuns([{ text: ing.text, font: 'sans', colour: 'ink' }], colW - indent, SIZE.body, measure) };
     };
-    const half = Math.ceil(ingredients.length / 2);
-    const left = ingredients.slice(0, half).map(cell);
-    const right = ingredients.slice(half).map(cell);
+    const cells = ingredients.map(cell);
+    const cellH = (c) => c.lines.length * lineH + 2;
+    // Split by rendered height, not entry count, and never leave a heading
+    // as the last cell of the left column: it moves to the top of the right.
+    let split = Math.ceil(cells.length / 2);
+    let best = Infinity;
+    for (let k = 1; k <= cells.length; k += 1) {
+      if (cells[k - 1].sub) continue;
+      const lh = cells.slice(0, k).reduce((h, c) => h + cellH(c), 0);
+      const rh = cells.slice(k).reduce((h, c) => h + cellH(c), 0);
+      if (Math.max(lh, rh) < best - 0.001) { best = Math.max(lh, rh); split = k; }
+    }
+    const left = cells.slice(0, split);
+    const right = cells.slice(split);
     const drawCell = (c, x0, top) => {
       c.lines.forEach((l, li) => {
         const yy = top - SIZE.body - li * lineH;
@@ -176,7 +187,7 @@ export function layoutCard({ recipe, settings, measure, servings = null }) {
         for (const p of l) text(p.text, p.font, SIZE.body, p.colour, x0 + (c.sub ? 0 : indent) + p.x, yy);
       });
     };
-    const colHeight = (col) => col.reduce((h, c) => h + c.lines.length * lineH + 2, 0);
+    const colHeight = (col) => col.reduce((h, c) => h + cellH(c), 0);
     const blockH = Math.max(colHeight(left), colHeight(right));
     if (room(blockH)) {
       // The whole block fits: each column flows on its own, like the page.
@@ -191,10 +202,18 @@ export function layoutCard({ recipe, settings, measure, servings = null }) {
     } else {
       // Too long for the rest of the page: row by row (left item i beside
       // right item i), so a page break never reads a column out of order.
-      for (let i = 0; i < half; i += 1) {
-        const row = [left[i], right[i]].filter(Boolean);
-        const h = Math.max(...row.map((c) => c.lines.length)) * lineH + 2;
-        ensure(h);
+      const rows = Math.max(left.length, right.length);
+      const rowOf = (i) => [left[i], right[i]].filter(Boolean);
+      const rowH = (i) => Math.max(...rowOf(i).map((c) => c.lines.length)) * lineH + 2;
+      const hasHeading = (i) => rowOf(i).some((c) => c.sub);
+      for (let i = 0; i < rows; i += 1) {
+        const row = rowOf(i);
+        const h = rowH(i);
+        // A heading row travels with the row below it, so a heading is never
+        // the last cell on a page.
+        let need = h;
+        for (let j = i; hasHeading(j) && j + 1 < rows; j += 1) need += rowH(j + 1);
+        ensure(need);
         row.forEach((c) => drawCell(c, MARGIN_X + (c === left[i] ? 0 : colW + gap), y));
         y -= h;
       }
@@ -207,19 +226,32 @@ export function layoutCard({ recipe, settings, measure, servings = null }) {
     heading('Method');
     const numbers = stepNumbers(steps);
     const indent = 18;
+    const stepLines = (i) => {
+      const s = steps[i];
+      const runs = s.detail
+        ? [{ text: `${stepText(s.step)}.`, font: 'sansBold', colour: 'navy' }, { text: stepText(s.detail), font: 'sans', colour: 'ink' }]
+        : [{ text: stepText(s.step), font: 'sans', colour: 'ink' }];
+      if (settings.why && s.why) runs.push({ text: s.why, font: 'sansItalic', colour: 'muted' });
+      return wrapRuns(runs, CONTENT_W - indent, SIZE.body, measure);
+    };
     steps.forEach((s, i) => {
       if (numbers[i] === null) {
-        ensure(lineH * 2);
+        // Keep the sub-heading with what follows: the next step's first line,
+        // or all of it when it would move to a fresh page whole (keepTogether).
+        let need = SIZE.body + 6;
+        for (let j = i + 1; j < steps.length; j += 1) {
+          if (numbers[j] === null) { need += SIZE.body + 6; continue; }
+          const n = stepLines(j).length * lineH + 3;
+          need += n <= PAGE.height - TOP - BOTTOM ? n : lineH + 3;
+          break;
+        }
+        ensure(need);
         y -= SIZE.body + 4;
         text(clean(s.step).toUpperCase(), 'sansBold', SIZE.body, 'amber', MARGIN_X);
         y -= 2;
         return;
       }
-      const runs = s.detail
-        ? [{ text: `${stepText(s.step)}.`, font: 'sansBold', colour: 'navy' }, { text: stepText(s.detail), font: 'sans', colour: 'ink' }]
-        : [{ text: stepText(s.step), font: 'sans', colour: 'ink' }];
-      if (settings.why && s.why) runs.push({ text: s.why, font: 'sansItalic', colour: 'muted' });
-      const lines = wrapRuns(runs, CONTENT_W - indent, SIZE.body, measure);
+      const lines = stepLines(i);
       keepTogether(lines.length);
       lines.forEach((l, li) => {
         const step = li === 0 ? lineH + 3 : lineH;
