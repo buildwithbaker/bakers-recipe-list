@@ -42,6 +42,9 @@ const RAW_CATEGORIES = [
   { id: 'marinades', label: 'Marinades', color: '#46644f' },
   { id: 'smoothies', label: 'Smoothies', color: '#46644f' },
   { id: 'bread', label: 'Bread', color: '#8a5a00' },
+  // Chef's Drafts: the --ink-muted value, so drafts read as set apart from the
+  // cookbook rather than as one more cuisine.
+  { id: 'chefs-drafts', label: "Chef's Drafts", color: '#5f5349' },
 ];
 
 // Two tints per category, precomputed (see utils/colour.js for why not
@@ -81,7 +84,11 @@ export const SECTION_CATEGORY = {
   'MARINADES': 'marinades',
   'SMOOTHIES': 'smoothies',
   'BREAD': 'bread',
+  'CHEFS DRAFTS': 'chefs-drafts',
 };
+
+// The Chef's Drafts category, for the list's one-line explainer under it.
+export const DRAFTS_CATEGORY = 'chefs-drafts';
 
 export function categoryOf(recipe) {
   return CATEGORY_BY_ID.get(SECTION_CATEGORY[recipe.section]) ?? null;

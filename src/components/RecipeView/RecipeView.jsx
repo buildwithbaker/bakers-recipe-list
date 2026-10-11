@@ -20,7 +20,8 @@ import { aboutPath, recipePath } from '../../utils/recipeRoute.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
-import { AI_PHOTO_CAPTION, CAPTION_LINK_TEXT } from '../../utils/photoCaption.js';
+import { CAPTION_LINK_TEXT, photoCaptionFor } from '../../utils/photoCaption.js';
+import { DRAFT_LABEL, isDraft } from '../../data/sections.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
 import { gatherWhyNotes, hasWhy, stepNumbers } from '../../utils/whyNotes.js';
 import { hasStepAmounts, stripStepAmounts } from '../../utils/stepAmounts.js';
@@ -477,6 +478,8 @@ export default function RecipeView({
                 is what a shared link opens (architecture.md §8). */}
             {category && <p className={styles.kicker}>{category.label}</p>}
             <TitleTag id={titleId} ref={titleRef} className={styles.title}>{recipe.name}</TitleTag>
+            {/* A Chef's Draft says so right under its name: it has not been cooked yet. */}
+            {isDraft(recipe) && <p className={styles.draftLabel}>{DRAFT_LABEL}</p>}
             {!recipe.is_blank && (
               <p className={styles.facts}>
                 <span><b>{ingredientCount(recipe)}</b> ingredients</span>
@@ -531,7 +534,7 @@ export default function RecipeView({
               </div>
               {photo.ai && (
                 <figcaption className={styles.photoCaption}>
-                  {AI_PHOTO_CAPTION}{' '}
+                  {photoCaptionFor(recipe)}{' '}
                   <a
                     href={aboutPath(undefined, 'photos')}
                     onClick={(e) => {

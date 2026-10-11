@@ -8,6 +8,7 @@ import userEvent from '@testing-library/user-event';
 import { CookHistoryProvider } from '../../context/CookHistoryContext.jsx';
 import { LISTED_ROWS } from '../../data/catalog.js';
 import { recipePath } from '../../utils/recipeRoute.js';
+import { DRAFTS_INTRO } from '../../data/sections.js';
 import SearchBar from '../SearchBar/SearchBar.jsx';
 import RecipeList from './RecipeList.jsx';
 
@@ -82,5 +83,23 @@ describe('RecipeList', () => {
     await user.click(star());
     expect(star().getAttribute('aria-pressed')).toBe('false');
     expect(onViewRecipe).not.toHaveBeenCalled();
+  });
+});
+
+describe("RecipeList: Chef's Drafts", () => {
+  it('lists the drafts last, under their own heading with the explainer, each card labelled', () => {
+    render(<ListWithSearch onViewRecipe={() => {}} />);
+    const headings = within(screen.getByRole('main')).getAllByRole('heading', { level: 2 }).map((h) => h.id);
+    expect(headings.at(-1)).toBe('g-chefs-drafts');
+    const group = screen.getByRole('region', { name: /Chef's Drafts/ });
+    expect(within(group).getByText(DRAFTS_INTRO)).toBeTruthy();
+    const drafts = LISTED_ROWS.filter((r) => r.section === 'CHEFS DRAFTS');
+    expect(drafts.length).toBeGreaterThan(0);
+    expect(within(group).getAllByText('Draft - not cooked yet')).toHaveLength(drafts.length);
+  });
+
+  it('shows the explainer under no other heading', () => {
+    render(<ListWithSearch onViewRecipe={() => {}} />);
+    expect(screen.getAllByText(DRAFTS_INTRO)).toHaveLength(1);
   });
 });

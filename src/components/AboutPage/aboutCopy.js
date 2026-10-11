@@ -10,7 +10,7 @@ export const ABOUT_HEADING = "About Baker's Recipe List";
 
 export const ABOUT_INTRO = [
   "I've been cooking for over ten years, and I change almost every recipe I touch. This site is where the ones worth keeping end up.",
-  "Every recipe here has been cooked by me, tasted and approved before it went up. If I didn't like it, it isn't here.",
+  "Every recipe here has been cooked by me, tasted and approved before it went up. If I didn't like it, it isn't here. The exception is Chef's Drafts: recipes my cooking assistant built that I haven't made yet. They're marked, and they move into the cookbook once I've cooked them and liked them.",
   'I use AI every day, including in the kitchen. I built a cooking assistant on Claude and gave it a knowledge base I put together: cooking science, technique, ingredient substitutions, scaling and USDA nutrition data. It helps me develop and write recipes. I cook them and decide what stays.',
 ];
 

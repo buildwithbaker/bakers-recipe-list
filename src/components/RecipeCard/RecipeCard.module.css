@@ -138,6 +138,12 @@
   color: var(--made);
 }
 
+/* A Chef's Draft: not cooked yet. ink-muted on surface-sunk (contrast.test.js). */
+.draft {
+  background: var(--surface-sunk);
+  color: var(--ink-muted);
+}
+
 /* Sits above the card link (z-index) so it is its own target. */
 .pin {
   position: absolute;

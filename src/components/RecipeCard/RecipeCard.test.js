@@ -18,3 +18,18 @@ describe('recipe card thumbnail', () => {
     expect(html).not.toMatch(/>AI</);
   });
 });
+
+describe("recipe card: Chef's Drafts", () => {
+  const draft = displayRecipes.find((r) => r.section === 'CHEFS DRAFTS');
+  const cookbook = displayRecipes.find((r) => r.id === 'lasagna');
+  const html = (recipe) => renderToString(createElement(RecipeCard, { recipe, onViewRecipe: () => {} }));
+
+  it('labels a draft as not cooked yet', () => {
+    expect(draft).toBeTruthy();
+    expect(html(draft)).toContain('Draft - not cooked yet');
+  });
+
+  it('puts no draft label on a cookbook recipe', () => {
+    expect(html(cookbook)).not.toContain('Draft - not cooked yet');
+  });
+});

@@ -115,6 +115,18 @@ h2.title {
   font-size: var(--t-2xl);
 }
 
+/* A Chef's Draft, right under its name: the card's pill, one size up.
+   ink-muted on surface (contrast.test.js). */
+.draftLabel {
+  display: inline-block;
+  margin: calc(-1 * var(--s2)) 0 var(--s3);
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-muted);
+  font: 700 var(--t-sm)/1.2 var(--sans);
+}
+
 .facts {
   display: flex;
   flex-wrap: wrap;

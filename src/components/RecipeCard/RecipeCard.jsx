@@ -9,6 +9,7 @@
 import { memo } from 'react';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
+import { DRAFT_LABEL, isDraft } from '../../data/sections.js';
 import { photoInitial, recipePhoto } from '../../utils/recipePhoto.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { recipePath } from '../../utils/recipeRoute.js';
@@ -56,6 +57,7 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, highlight = ''
         </h3>
         <div className={styles.meta}>
           <span>{plural(ingredientCount(recipe), 'ingredient')} · {plural(stepCount(recipe), 'step')}</span>
+          {isDraft(recipe) && <span className={`${styles.pill} ${styles.draft}`}>{DRAFT_LABEL}</span>}
           {isMade && (
             <span className={`${styles.pill} ${styles.made}`}>
               <Icon name="check" size={12} />Made

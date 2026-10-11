@@ -7,10 +7,11 @@
 // A search replaces all of this with SearchResults.
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  CATEGORY_BY_ID, LISTED_ROWS, PLANNED_BY_CATEGORY, categoryStyle, groupByCategory,
+  CATEGORY_BY_ID, DRAFTS_CATEGORY, LISTED_ROWS, PLANNED_BY_CATEGORY, categoryStyle, groupByCategory,
 } from '../../data/catalog.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
+import { DRAFTS_INTRO } from '../../data/sections.js';
 import Icon from '../Icon/Icon.jsx';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import SearchResults from '../SearchResults/SearchResults.jsx';
@@ -207,6 +208,7 @@ export default function RecipeList({
               <span className={styles.soon}>{PLANNED_BY_CATEGORY.get(g.category.id)} more planned</span>
             )}
           </div>
+          {g.category.id === DRAFTS_CATEGORY && <p className={styles.groupNote}>{DRAFTS_INTRO}</p>}
           <ul className={styles.grid}>
             {g.rows.map((r) => <RecipeCard key={r.id} recipe={r} onViewRecipe={onViewRecipe} />)}
           </ul>

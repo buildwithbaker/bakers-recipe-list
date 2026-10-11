@@ -75,6 +75,13 @@
   text-overflow: ellipsis;
 }
 
+.shelf a .draft {
+  flex: none;
+  overflow: visible;
+  color: var(--ink-muted);
+  font: 700 var(--t-xs)/1 var(--sans);
+}
+
 .shelf a svg {
   flex: none;
   width: 16px;
