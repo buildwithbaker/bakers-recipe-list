@@ -1,7 +1,13 @@
-// Auto-estimates the serving yield of a recipe from ingredient quantities,
-// recipe name, and section. Returns { servings: number, basis: string } or null.
+// The serving yield of a recipe: the authored count when there is one,
+// otherwise an estimate from ingredient quantities, recipe name, and section.
+// Returns { servings, basis, unit, about, authored } or null. `unit` is what a
+// serving is called ("serving", "patty", "ball", ...); `about` says whether the
+// number is approximate.
 //
 // Priority:
+//   0. The authored recipeYield, when it starts with a count
+//      ("4 servings", "8 patties", "about 24 balls"; see authoredYield.js).
+//      Never clamped.
 //   1. Explicit yield numbers parsed from instruction text
 //      ("makes 8 patties", "yields 6", "serves 4")
 //   2. Primary protein weight from ingredients
@@ -12,6 +18,7 @@
 // where a serving estimate isn't meaningful.
 
 import { parseQuantityStr } from './fractions.js';
+import { parseAuthoredYield } from './authoredYield.js';
 
 const SECTIONS_NO_SERVINGS = new Set(['SEASONINGS', 'DOUGHS']);
 
@@ -119,35 +126,41 @@ function servingsFromProteinGrams(grams, recipe) {
   return s;
 }
 
+// An estimate is always "about N servings".
+const estimate = (servings, basis) => ({ servings, basis, unit: 'serving', about: true, authored: false });
+
 export function estimateServings(recipe) {
   if (!recipe || recipe.is_blank) return null;
+
+  const authored = parseAuthoredYield(recipe.recipeYield);
+  if (authored) {
+    return { servings: authored.count, basis: 'From the recipe', unit: authored.unit, about: authored.about, authored: true };
+  }
+
   if (SECTIONS_NO_SERVINGS.has(recipe.section)) return null;
 
   const explicit = findExplicitYield(recipe);
   if (explicit) {
-    return { servings: explicit, basis: 'Estimated from recipe text' };
+    return estimate(explicit, 'Estimated from recipe text');
   }
 
   const proteinGrams = findProteinWeight(recipe);
   if (proteinGrams && proteinGrams >= 100) {
-    return {
-      servings: servingsFromProteinGrams(proteinGrams, recipe),
-      basis: 'Estimated from ingredients',
-    };
+    return estimate(servingsFromProteinGrams(proteinGrams, recipe), 'Estimated from ingredients');
   }
 
   const liquidCups = sumCupsFor(recipe, LIQUID_KEYWORDS);
   if (liquidCups >= 3) {
     const perServing = recipe.section?.includes('SOUP') ? 1.5 : 1.25;
     const s = Math.max(2, Math.min(12, Math.round(liquidCups / perServing)));
-    return { servings: s, basis: 'Estimated from ingredients' };
+    return estimate(s, 'Estimated from ingredients');
   }
 
   // Grain cups check (covers "2 cups rice")
   const grainCups = sumCupsFor(recipe, GRAIN_KEYWORDS);
   if (grainCups >= 1) {
     const s = Math.max(2, Math.min(12, Math.round(grainCups * 4)));
-    return { servings: s, basis: 'Estimated from ingredients' };
+    return estimate(s, 'Estimated from ingredients');
   }
 
   // Grain weight check — catches "8 oz pasta", "1 lb noodles" which are commonly
@@ -163,7 +176,7 @@ export function estimateServings(recipe) {
       if (!isNaN(q) && q > 0) {
         // 1 lb dry pasta/noodles ≈ 4 servings as a main
         const s = Math.max(2, Math.min(12, Math.round(q * 4)));
-        return { servings: s, basis: 'Estimated from ingredients' };
+        return estimate(s, 'Estimated from ingredients');
       }
     }
     const ozMatch = text.match(/^([\d./\s½¼¾⅓⅔⅛⅜⅝⅞⅕⅖⅗⅘]+)\s*(?:oz|ounce|ounces)\b/);
@@ -172,14 +185,14 @@ export function estimateServings(recipe) {
       if (!isNaN(q) && q > 0) {
         // 8 oz dry pasta ≈ 2–3 servings; use q/2.5 rounding to nearest whole
         const s = Math.max(2, Math.min(12, Math.round(q / 2.5)));
-        return { servings: s, basis: 'Estimated from ingredients' };
+        return estimate(s, 'Estimated from ingredients');
       }
     }
   }
 
   const def = SECTION_DEFAULTS[recipe.section];
   if (def) {
-    return { servings: def, basis: 'Estimated from recipe type' };
+    return estimate(def, 'Estimated from recipe type');
   }
 
   return null;

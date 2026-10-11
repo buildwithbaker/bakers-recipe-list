@@ -267,6 +267,31 @@ describe('RecipeView display settings', () => {
   });
 });
 
+// The scaler states the authored yield when there is one (Adam, 2026-10-11).
+describe('RecipeView servings line', () => {
+  const tandoori = displayRecipes.find((r) => r.id === 'tandoori-chicken-marinade-serious-eats');
+  const line = () => screen.getByRole('button', { name: 'More servings' }).parentElement.querySelector('span').textContent;
+
+  it('shows the authored "4 servings", not an estimate', () => {
+    expect(tandoori.recipeYield).toBe('4 servings');
+    render(<RecipeView recipe={tandoori} headingLevel={1} />);
+    expect(line()).toBe('4 servings');
+  });
+
+  it('doubles an authored count when scaled to x2', () => {
+    render(<RecipeView recipe={tandoori} headingLevel={1} />);
+    fireEvent.click(screen.getByRole('button', { name: 'More servings' }));
+    fireEvent.click(screen.getByRole('button', { name: 'More servings' }));
+    expect(line()).toBe('8 servings (×2)');
+  });
+
+  it('names the unit and keeps "About" for an about-yield', () => {
+    const balls = displayRecipes.find((r) => /^about \d+ balls/.test(r.recipeYield ?? ''));
+    render(<RecipeView recipe={balls} headingLevel={1} />);
+    expect(line()).toMatch(/^About \d+ balls$/);
+  });
+});
+
 // Chef's Drafts: labelled under the title, and never captioned as tested.
 describe("RecipeView: Chef's Drafts", () => {
   const shawarma = displayRecipes.find((r) => r.id === 'sheet-pan-chicken-shawarma-thighs');
