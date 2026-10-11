@@ -20,7 +20,7 @@
     },
     "section": {
       "type": "string",
-      "description": "Display group. MUST be one of the keys defined in src/data/sections.js (the validator drift-guards this enum against that file). Cookbook sections only: the To Try and For Review collections were removed on 2026-10-02.",
+      "description": "Display group. MUST be one of the keys defined in src/data/sections.js (the validator drift-guards this enum against that file). Cookbook sections, plus CHEFS DRAFTS (added 2026-10-11) for recipes built and approved but not cooked yet; a draft keeps the `category` of the section it will move to. The To Try and For Review collections were removed on 2026-10-02.",
       "enum": [
         "BREAKFAST",
         "SLOW COOKER",
@@ -38,7 +38,8 @@
         "MARINADES",
         "SMOOTHIES",
         "BREAD",
-        "DESSERTS"
+        "DESSERTS",
+        "CHEFS DRAFTS"
       ]
     },
     "category": {

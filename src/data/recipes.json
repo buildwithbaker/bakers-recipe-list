@@ -7448,5 +7448,300 @@
     "prepTime": "PT15M",
     "cookTime": "PT50M",
     "recipeYield": "6 servings"
+  },
+  {
+    "id": "sheet-pan-chicken-shawarma-thighs",
+    "name": "Sheet Pan Chicken Shawarma Thighs",
+    "section": "CHEFS DRAFTS",
+    "category": "Middle Eastern",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#thighs",
+      "#sheet-pan",
+      "#weeknight",
+      "#middle-eastern"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken and marinade:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb boneless skinless chicken thighs"
+      },
+      {
+        "type": "item",
+        "text": "½ cup plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp lemon juice (about 1 lemon), plus the zest"
+      },
+      {
+        "type": "item",
+        "text": "6 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp olive oil, plus 1 Tbsp for the rack"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground coriander"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground cinnamon"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Garlic yogurt sauce:"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "1 garlic clove, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lemon juice"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Quick pickled onion:"
+      },
+      {
+        "type": "item",
+        "text": "1 small red onion, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "½ cup white or red wine vinegar"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp sugar"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Warm pita or cooked rice"
+      },
+      {
+        "type": "item",
+        "text": "1 cucumber, sliced (optional)"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Marinate",
+        "detail": "Whisk the Greek yogurt (½ cup), lemon juice (3 Tbsp) and zest, garlic (6 cloves, grated), olive oil (2 Tbsp), cumin (2 tsp), smoked paprika (2 tsp), coriander (1 tsp), turmeric (1 tsp), cayenne (1 tsp), cinnamon (½ tsp), black pepper (1 tsp) and table salt (1½ tsp). Toss the chicken thighs (2 lb) in it and refrigerate 1 to 3 hours.",
+        "why": "The salt does most of the work in that window. Lemon only turns chicken mushy at around 8 to 12 hours, so 3 hours is nowhere near it."
+      },
+      {
+        "step": "Pickle and Sauce",
+        "detail": "Pack the red onion (1 small, sliced thin) into a jar. Stir the vinegar (½ cup), sugar (1 tsp) and table salt (½ tsp) until dissolved and pour it over. Separately, stir the Greek yogurt (¾ cup), garlic (1 clove, grated), lemon juice (1 Tbsp) and table salt (¼ tsp). Refrigerate both until dinner.",
+        "why": "Twenty minutes in the vinegar takes the raw bite off the onion. It will be ready long before the chicken."
+      },
+      {
+        "step": "Roast",
+        "detail": "Heat the oven to 425°F with a rack in the upper-middle position. Set a wire rack in a foil-lined sheet pan and brush it with olive oil (1 Tbsp). Lift the thighs out of the marinade, let the excess drip off, and lay them flat on the rack with space between them. Roast 18 to 22 minutes, until the thickest piece reads 165°F.",
+        "why": "On a rack the thighs don't sit in their own juice. A thin coating browns, while a thick one steams and holds the surface at 212°F."
+      },
+      {
+        "step": "Char",
+        "detail": "Switch the oven to broil and broil 2 to 4 minutes, watching closely, until the edges blacken in spots and the thickest piece reads 175°F.",
+        "why": "Thighs have the texture you want at 165 to 175°F, so the broiler can push them that far without drying them out. The yogurt's milk sugars and proteins brown fast under it, which is where the shawarma char comes from."
+      },
+      {
+        "step": "Rest and Slice",
+        "detail": "Rest the chicken 5 minutes, then slice it across the grain into strips. Serve with the garlic yogurt sauce, the pickled onion, warm pita or rice, and the cucumber (1, sliced), if using."
+      }
+    ],
+    "notes": [
+      "Thawing from frozen: seal the thighs in a bag and submerge in cold water, changing the water every 30 minutes. Allow about 1 hour.",
+      "No rack: spread the thighs on oiled foil with gaps between them and flip once at the 12-minute mark."
+    ],
+    "is_blank": false,
+    "description": "Boneless chicken thighs marinated in yogurt, lemon, garlic and warm spices, roasted at 425°F and charred under the broiler. Served with garlic yogurt sauce and quick-pickled red onion.",
+    "prepTime": "PT20M",
+    "cookTime": "PT25M",
+    "recipeYield": "4 servings"
+  },
+  {
+    "id": "pork-medallions-mustard-cider-pan-sauce",
+    "name": "Pork Medallions with Mustard-Cider Pan Sauce",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#pork",
+      "#tenderloin",
+      "#pan-sauce",
+      "#weeknight",
+      "#american"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Pork and marinade:"
+      },
+      {
+        "type": "item",
+        "text": "1½ lb pork tenderloin (1 large or 2 small), silver skin trimmed"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp Dijon mustard"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp fresh thyme leaves (or ¾ tsp dried)"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp neutral oil (avocado or canola), for searing"
+      },
+      {
+        "type": "header",
+        "text": "Pan sauce:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp butter, for the shallots"
+      },
+      {
+        "type": "item",
+        "text": "2 shallots, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup apple cider (the juice, not vinegar)"
+      },
+      {
+        "type": "item",
+        "text": "½ cup chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cider vinegar"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp whole-grain mustard (or Dijon)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp cold butter, cut in pieces"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fresh thyme leaves (or a pinch dried)"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Roasted potatoes or buttered egg noodles"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Cut and Marinate",
+        "detail": "Cut the pork tenderloin (1½ lb) into 1-inch-thick medallions and press each one flat with your palm. Stir the Dijon mustard (2 Tbsp), olive oil (2 Tbsp), garlic (3 cloves, grated), brown sugar (1 Tbsp), thyme (2 tsp), table salt (1 tsp) and black pepper (½ tsp), coat the pork, and refrigerate 1 to 3 hours.",
+        "why": "At an even 1 inch the medallions sear through on the stove without going to the oven. A medallion with a thick center and thin edges cooks unevenly."
+      },
+      {
+        "step": "Sear",
+        "detail": "Scrape the excess marinade off the pork and pat the faces dry. Heat a 12-inch stainless skillet over medium-high until the neutral oil (1½ Tbsp) shimmers. Sear half the medallions about 3 minutes without moving them, until they release on their own, then turn and cook about 2 minutes more, until the center reads 138 to 140°F. Move to a plate and repeat with the rest.",
+        "why": "Sugar and garlic left on the surface burn before the crust forms, and wet meat steams instead of browning. Two batches keep the pan hot enough to sear."
+      },
+      {
+        "step": "Shallots",
+        "detail": "Pour off all but about 1 Tbsp of fat, leaving the brown fond in the pan. Drop the heat to medium, add the butter (1 Tbsp) and shallots (2, sliced thin), and cook 2 to 3 minutes until soft and starting to color.",
+        "why": "Deep brown fond is the base of the sauce. If it has gone black and smells acrid, wipe the pan out and start the sauce fresh."
+      },
+      {
+        "step": "Deglaze and Reduce",
+        "detail": "Pour in the apple cider (¾ cup) and scrape the pan floor clean while it boils. Reduce by about half, 3 to 4 minutes. Add the chicken broth (½ cup) and cider vinegar (1 tsp) and reduce again until about ½ cup of syrupy sauce is left, 3 to 4 minutes more.",
+        "why": "Cider brings sweetness and the vinegar puts back the acidity that boiling it down takes out."
+      },
+      {
+        "step": "Finish",
+        "detail": "Take the pan off the heat. Whisk in the whole-grain mustard (1 Tbsp), then the cold butter (2 Tbsp) one piece at a time until glossy. Stir in the thyme (1 tsp) and any juice the pork has released. Return the medallions (they will have carried over to about 145°F), turn to coat, and serve over potatoes or egg noodles.",
+        "why": "Off the heat, the butter, mustard and gelatin in the broth hold the sauce together. Boiling it after the butter goes in breaks it."
+      }
+    ],
+    "notes": [
+      "Thawing from frozen: seal the tenderloin in a bag and submerge in cold water, changing the water every 30 minutes. Allow about 1 hour.",
+      "Cast iron sears fine but holds less fond, so the sauce comes out lighter. Stainless is the better pan for this."
+    ],
+    "is_blank": false,
+    "description": "Pork tenderloin medallions marinated in Dijon, garlic and thyme, seared hard, and finished with a sliced-shallot, apple cider and whole-grain mustard pan sauce mounted with butter.",
+    "prepTime": "PT15M",
+    "cookTime": "PT20M",
+    "recipeYield": "4 servings"
   }
 ]

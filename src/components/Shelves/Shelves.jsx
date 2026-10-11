@@ -3,6 +3,7 @@
 // Cookbook view; once a category or filter narrows the list, they step aside.
 import { resolveRecipe } from '../../data/recipeIndex.js';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
+import { isDraft } from '../../data/sections.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { recipePath } from '../../utils/recipeRoute.js';
 import Icon from '../Icon/Icon.jsx';
@@ -45,6 +46,7 @@ function Shelf({ id, title, icon, recipes, onViewRecipe, action }) {
             >
               <Icon name={icon} filled={icon === 'star'} />
               <span>{r.name}</span>
+              {isDraft(r) && <span className={styles.draft}>Draft</span>}
             </a>
           </li>
         ))}
