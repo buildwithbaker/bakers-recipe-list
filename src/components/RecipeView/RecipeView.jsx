@@ -9,6 +9,7 @@
 import { Component, lazy, Suspense, useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import styles from './RecipeView.module.css';
 import { estimateServings } from '../../utils/estimateServings.js';
+import { yieldLabel } from '../../utils/authoredYield.js';
 import { useMacroEstimate } from '../../hooks/useMacroEstimate.js';
 import { scaleIngredientText } from '../../utils/scaleIngredient.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
@@ -137,7 +138,9 @@ function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp,
 
       {servings && !selecting && (
         <div className={styles.scaler} data-print-hide>
-          <span>About {plural(Math.round(servings.servings * scale), 'serving')}{scale !== 1 && <> (×{scale % 1 === 0 ? scale : scale.toFixed(2)})</>}</span>
+          {/* The authored yield's own words ("4 servings", "8 patties",
+              "About 24 balls"); an estimate stays "About N servings". */}
+          <span>{yieldLabel({ count: Math.round(servings.servings * scale), unit: servings.unit, about: servings.about })}{scale !== 1 && <> (×{scale % 1 === 0 ? scale : scale.toFixed(2)})</>}</span>
           <button type="button" className={styles.stepBtn} onClick={onScaleDown} aria-label="Fewer servings" disabled={scale <= SCALE_STEPS[0]}>−</button>
           <button type="button" className={styles.stepBtn} onClick={onScaleUp} aria-label="More servings" disabled={scale >= SCALE_STEPS.at(-1)}>+</button>
         </div>
@@ -600,7 +603,7 @@ export default function RecipeView({
                 <summary>Estimated nutrition</summary>
                 <MacroErrorBoundary>
                   <Suspense fallback={null}>
-                    <MacroCard {...macroState} />
+                    <MacroCard {...macroState} unit={servingEstimate?.unit} />
                   </Suspense>
                 </MacroErrorBoundary>
               </details>

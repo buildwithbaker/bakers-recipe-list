@@ -1,6 +1,8 @@
 import styles from './MacroCard.module.css';
 
-export default function MacroCard({ status, macros, matchedCount, totalCount }) {
+// `unit` is what one portion is called: "serving" unless the recipe's authored
+// yield names something else ("patty", "ball", ...).
+export default function MacroCard({ status, macros, matchedCount, totalCount, unit = 'serving' }) {
   if (status === 'unavailable' || status === 'error') return null;
 
   if (status === 'rate-limited') {
@@ -45,7 +47,7 @@ export default function MacroCard({ status, macros, matchedCount, totalCount }) 
     const showPartialNote = matchPct < 0.7;
     return (
       <div className={styles.card}>
-        <div className={styles.title}>Estimated Nutrition (per serving)</div>
+        <div className={styles.title}>Estimated Nutrition (per {unit})</div>
         <div className={styles.row}>
           {stats.map((s, i) => (
             <span key={i} className={styles.stat}>
