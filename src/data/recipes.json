@@ -2080,6 +2080,142 @@
     "recipeYield": "8 servings (one 9x13)"
   },
   {
+    "id": "pork-medallions-mustard-cider-pan-sauce",
+    "name": "Pork Medallions with Mustard-Cider Pan Sauce",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#pork",
+      "#tenderloin",
+      "#pan-sauce",
+      "#weeknight",
+      "#american"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Pork and marinade:"
+      },
+      {
+        "type": "item",
+        "text": "1½ lb pork tenderloin (1 large or 2 small), silver skin trimmed"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp Dijon mustard"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp fresh thyme leaves (or ¾ tsp dried)"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp neutral oil (avocado or canola), for searing"
+      },
+      {
+        "type": "header",
+        "text": "Pan sauce:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp butter, for the shallots"
+      },
+      {
+        "type": "item",
+        "text": "2 shallots, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup apple cider (the juice, not vinegar)"
+      },
+      {
+        "type": "item",
+        "text": "½ cup chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cider vinegar"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp whole-grain mustard (or Dijon)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp cold butter, cut in pieces"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fresh thyme leaves (or a pinch dried)"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Roasted potatoes or buttered egg noodles"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Cut and Marinate",
+        "detail": "Cut the pork tenderloin (1½ lb) into 1-inch-thick medallions and press each one flat with your palm. Stir the Dijon mustard (2 Tbsp), olive oil (2 Tbsp), garlic (3 cloves, grated), brown sugar (1 Tbsp), thyme (2 tsp), table salt (1 tsp) and black pepper (½ tsp), coat the pork, and refrigerate 1 to 3 hours.",
+        "why": "At an even 1 inch the medallions sear through on the stove without going to the oven. A medallion with a thick center and thin edges cooks unevenly."
+      },
+      {
+        "step": "Sear",
+        "detail": "Scrape the excess marinade off the pork and pat the faces dry. Heat a 12-inch stainless skillet over medium-high until the neutral oil (1½ Tbsp) shimmers. Sear half the medallions about 3 minutes without moving them, until they release on their own, then turn and cook about 2 minutes more, until the center reads 138 to 140°F. Move to a plate and repeat with the rest.",
+        "why": "Sugar and garlic left on the surface burn before the crust forms, and wet meat steams instead of browning. Two batches keep the pan hot enough to sear."
+      },
+      {
+        "step": "Shallots",
+        "detail": "Pour off all but about 1 Tbsp of fat, leaving the brown fond in the pan. Drop the heat to medium, add the butter (1 Tbsp) and shallots (2, sliced thin), and cook 2 to 3 minutes until soft and starting to color.",
+        "why": "Deep brown fond is the base of the sauce. If it has gone black and smells acrid, wipe the pan out and start the sauce fresh."
+      },
+      {
+        "step": "Deglaze and Reduce",
+        "detail": "Pour in the apple cider (¾ cup) and scrape the pan floor clean while it boils. Reduce by about half, 3 to 4 minutes. Add the chicken broth (½ cup) and cider vinegar (1 tsp) and reduce again until about ½ cup of syrupy sauce is left, 3 to 4 minutes more.",
+        "why": "Cider brings sweetness and the vinegar puts back the acidity that boiling it down takes out."
+      },
+      {
+        "step": "Finish",
+        "detail": "Take the pan off the heat. Whisk in the whole-grain mustard (1 Tbsp), then the cold butter (2 Tbsp) one piece at a time until glossy. Stir in the thyme (1 tsp) and any juice the pork has released. Return the medallions (they will have carried over to about 145°F), turn to coat, and serve over potatoes or egg noodles.",
+        "why": "Off the heat, the butter, mustard and gelatin in the broth hold the sauce together. Boiling it after the butter goes in breaks it."
+      }
+    ],
+    "notes": [
+      "Thawing from frozen: seal the tenderloin in a bag and submerge in cold water, changing the water every 30 minutes. Allow about 1 hour.",
+      "Cast iron sears fine but holds less fond, so the sauce comes out lighter. Stainless is the better pan for this."
+    ],
+    "is_blank": false,
+    "description": "Pork tenderloin medallions marinated in Dijon, garlic and thyme, seared hard, and finished with a sliced-shallot, apple cider and whole-grain mustard pan sauce mounted with butter.",
+    "prepTime": "PT15M",
+    "cookTime": "PT20M",
+    "recipeYield": "4 servings"
+  },
+  {
     "id": "ground-beef-meat",
     "name": "Ground Beef Meat",
     "section": "MEXICAN",
@@ -5679,11 +5815,92 @@
     "source": "Original",
     "tags": [
       "#side",
-      "#vegetable"
+      "#vegetable",
+      "#carrots",
+      "#honey",
+      "#sheet-pan"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Carrots:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb carrots, peeled"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Honey glaze:"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp crushed red pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cider vinegar (or lemon juice)"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp fresh thyme leaves or 2 Tbsp chopped parsley"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Cut",
+        "detail": "Heat the oven to 425°F with a rack in the lower-middle position. Cut the carrots (2 lb) on a sharp angle into chunks about ¾ inch thick, halving the fat top ends lengthwise first so every piece is about the same size.",
+        "why": "Even pieces finish together. A mix of thin tips and fat tops leaves some burnt and some raw."
+      },
+      {
+        "step": "Roast",
+        "detail": "In a bowl, toss the carrots with the olive oil (2 Tbsp), table salt (1 tsp) and black pepper (½ tsp) until every piece is shiny. Spread them on a bare sheet pan in a single layer, cut faces down, and roast 20 minutes.",
+        "why": "Tossing in the bowl coats every surface; tossing on the pan leaves dry spots. The cut face touching the metal is where the browning happens."
+      },
+      {
+        "step": "Glaze",
+        "detail": "While they roast, melt the butter (1 Tbsp) with the honey (3 Tbsp) and crushed red pepper (½ tsp) in a small pan or the microwave, then stir in the cider vinegar (1 tsp). Pour it over the carrots on the pan, toss to coat, and roast 6 to 10 minutes more, until the glaze is bubbling and the edges are dark and sticky.",
+        "why": "Honey goes on late because its sugar scorches long before a raw carrot is tender. The vinegar keeps the glaze from tasting flat-sweet."
+      },
+      {
+        "step": "Finish",
+        "detail": "Toss the carrots once on the pan so they pick up the glaze that pooled, then scatter the thyme (1 tsp) or parsley (2 Tbsp) over and serve.",
+        "why": "The glaze thickens as it cools, so toss while it's still hot."
+      }
+    ],
+    "notes": [
+      "Sharing the oven with a main: roast the carrots on the lower rack, and take them out before you switch the oven to broil.",
+      "Watch the last 5 minutes. Glaze goes from sticky to burnt fast at 425°F."
+    ],
+    "is_blank": false,
+    "description": "Carrots roasted at 425°F until tender, then glazed with honey, butter, crushed red pepper and a splash of cider vinegar and roasted until sticky at the edges.",
+    "prepTime": "PT10M",
+    "cookTime": "PT30M",
+    "recipeYield": "4 servings"
   },
   {
     "id": "parmesan-baked-carrots",
@@ -7606,142 +7823,6 @@
     "description": "Boneless chicken thighs marinated in yogurt, lemon, garlic and warm spices, roasted at 425°F and charred under the broiler. Served with garlic yogurt sauce and quick-pickled red onion.",
     "prepTime": "PT20M",
     "cookTime": "PT25M",
-    "recipeYield": "4 servings"
-  },
-  {
-    "id": "pork-medallions-mustard-cider-pan-sauce",
-    "name": "Pork Medallions with Mustard-Cider Pan Sauce",
-    "section": "CHEFS DRAFTS",
-    "category": "American",
-    "source": "Original",
-    "tags": [
-      "#pork",
-      "#tenderloin",
-      "#pan-sauce",
-      "#weeknight",
-      "#american"
-    ],
-    "ingredients": [
-      {
-        "type": "header",
-        "text": "Pork and marinade:"
-      },
-      {
-        "type": "item",
-        "text": "1½ lb pork tenderloin (1 large or 2 small), silver skin trimmed"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp Dijon mustard"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp olive oil"
-      },
-      {
-        "type": "item",
-        "text": "3 garlic cloves, grated"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp brown sugar"
-      },
-      {
-        "type": "item",
-        "text": "2 tsp fresh thyme leaves (or ¾ tsp dried)"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp table salt"
-      },
-      {
-        "type": "item",
-        "text": "½ tsp black pepper"
-      },
-      {
-        "type": "item",
-        "text": "1½ Tbsp neutral oil (avocado or canola), for searing"
-      },
-      {
-        "type": "header",
-        "text": "Pan sauce:"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp butter, for the shallots"
-      },
-      {
-        "type": "item",
-        "text": "2 shallots, sliced thin"
-      },
-      {
-        "type": "item",
-        "text": "¾ cup apple cider (the juice, not vinegar)"
-      },
-      {
-        "type": "item",
-        "text": "½ cup chicken broth"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp cider vinegar"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp whole-grain mustard (or Dijon)"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp cold butter, cut in pieces"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp fresh thyme leaves (or a pinch dried)"
-      },
-      {
-        "type": "header",
-        "text": "To serve:"
-      },
-      {
-        "type": "item",
-        "text": "Roasted potatoes or buttered egg noodles"
-      }
-    ],
-    "instructions": [
-      {
-        "step": "Cut and Marinate",
-        "detail": "Cut the pork tenderloin (1½ lb) into 1-inch-thick medallions and press each one flat with your palm. Stir the Dijon mustard (2 Tbsp), olive oil (2 Tbsp), garlic (3 cloves, grated), brown sugar (1 Tbsp), thyme (2 tsp), table salt (1 tsp) and black pepper (½ tsp), coat the pork, and refrigerate 1 to 3 hours.",
-        "why": "At an even 1 inch the medallions sear through on the stove without going to the oven. A medallion with a thick center and thin edges cooks unevenly."
-      },
-      {
-        "step": "Sear",
-        "detail": "Scrape the excess marinade off the pork and pat the faces dry. Heat a 12-inch stainless skillet over medium-high until the neutral oil (1½ Tbsp) shimmers. Sear half the medallions about 3 minutes without moving them, until they release on their own, then turn and cook about 2 minutes more, until the center reads 138 to 140°F. Move to a plate and repeat with the rest.",
-        "why": "Sugar and garlic left on the surface burn before the crust forms, and wet meat steams instead of browning. Two batches keep the pan hot enough to sear."
-      },
-      {
-        "step": "Shallots",
-        "detail": "Pour off all but about 1 Tbsp of fat, leaving the brown fond in the pan. Drop the heat to medium, add the butter (1 Tbsp) and shallots (2, sliced thin), and cook 2 to 3 minutes until soft and starting to color.",
-        "why": "Deep brown fond is the base of the sauce. If it has gone black and smells acrid, wipe the pan out and start the sauce fresh."
-      },
-      {
-        "step": "Deglaze and Reduce",
-        "detail": "Pour in the apple cider (¾ cup) and scrape the pan floor clean while it boils. Reduce by about half, 3 to 4 minutes. Add the chicken broth (½ cup) and cider vinegar (1 tsp) and reduce again until about ½ cup of syrupy sauce is left, 3 to 4 minutes more.",
-        "why": "Cider brings sweetness and the vinegar puts back the acidity that boiling it down takes out."
-      },
-      {
-        "step": "Finish",
-        "detail": "Take the pan off the heat. Whisk in the whole-grain mustard (1 Tbsp), then the cold butter (2 Tbsp) one piece at a time until glossy. Stir in the thyme (1 tsp) and any juice the pork has released. Return the medallions (they will have carried over to about 145°F), turn to coat, and serve over potatoes or egg noodles.",
-        "why": "Off the heat, the butter, mustard and gelatin in the broth hold the sauce together. Boiling it after the butter goes in breaks it."
-      }
-    ],
-    "notes": [
-      "Thawing from frozen: seal the tenderloin in a bag and submerge in cold water, changing the water every 30 minutes. Allow about 1 hour.",
-      "Cast iron sears fine but holds less fond, so the sauce comes out lighter. Stainless is the better pan for this."
-    ],
-    "is_blank": false,
-    "description": "Pork tenderloin medallions marinated in Dijon, garlic and thyme, seared hard, and finished with a sliced-shallot, apple cider and whole-grain mustard pan sauce mounted with butter.",
-    "prepTime": "PT15M",
-    "cookTime": "PT20M",
     "recipeYield": "4 servings"
   }
 ]
