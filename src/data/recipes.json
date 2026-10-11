@@ -752,12 +752,20 @@
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "½ cup brown sugar"
+        "type": "header",
+        "text": "Rub"
       },
       {
         "type": "item",
-        "text": "2 Tbsp paprika"
+        "text": "½ cup packed brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp paprika (smoked if the ribs are going in the oven)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp table salt"
       },
       {
         "type": "item",
@@ -766,10 +774,6 @@
       {
         "type": "item",
         "text": "1 Tbsp onion powder"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp seasoned salt"
       },
       {
         "type": "item",
@@ -785,32 +789,43 @@
       },
       {
         "type": "item",
-        "text": "½ tsp nutmeg"
+        "text": "½ tsp ground nutmeg"
       },
       {
         "type": "item",
-        "text": "½ tsp coriander"
+        "text": "½ tsp ground coriander"
       }
     ],
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine the brown sugar (½ cup), paprika (2 Tbsp), garlic powder (1 Tbsp), onion powder (1 Tbsp), seasoned salt (1 Tbsp), chili powder (1 tsp), black pepper (1 tsp), white pepper (½ tsp), nutmeg (½ tsp), and coriander (½ tsp) in a bowl and whisk until the brown sugar is broken up and the blend is uniform in color."
+        "detail": "Combine the brown sugar (½ cup), paprika (2 Tbsp), table salt (2 Tbsp), garlic powder (1 Tbsp), onion powder (1 Tbsp), chili powder (1 tsp), black pepper (1 tsp), white pepper (½ tsp), nutmeg (½ tsp), and coriander (½ tsp). Whisk until the brown sugar is broken up and the color is even."
       },
       {
         "step": "Apply",
-        "detail": "Pat the ribs dry, then coat all sides generously with the rub, pressing it in. For best results, wrap and rest in the fridge 1-12 hours before cooking."
+        "detail": "Pull the membrane off the bone side of the ribs and pat them dry. Coat all sides with about 3 Tbsp of rub per rack, pressing it in.",
+        "why": "The membrane blocks the rub and cooks up leathery."
+      },
+      {
+        "step": "Rest",
+        "detail": "Refrigerate the ribs uncovered on a rack, 1 to 12 hours.",
+        "why": "The salt pulls moisture to the surface, the rub dissolves into it, and that brine soaks back into the meat, so the seasoning goes below the surface. Uncovered, the surface dries for a better bark."
+      },
+      {
+        "step": "Cook",
+        "detail": "Cook the ribs low and indirect, at 275°F or below, in a smoker, on a grill, or in the oven.",
+        "why": "Brown sugar is more than half this rub. Above about 355°F it scorches and turns bitter long before the ribs are tender."
       },
       {
         "step": "Store",
-        "detail": "Keep leftover rub in an airtight container away from heat and light. Makes about ¾ cup; keeps for several months."
+        "detail": "Keep leftover rub airtight, away from heat and light, for up to 6 months."
       }
     ],
     "is_blank": false,
     "description": "A sweet, smoky dry rub for ribs: brown sugar and paprika with garlic, onion, chili powder, two peppers, nutmeg and coriander.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
-    "recipeYield": "about ¾ cup"
+    "recipeYield": "about 1 cup, enough for 4 to 5 racks"
   },
   {
     "id": "noodle-dough",
@@ -950,23 +965,27 @@
     "ingredients": [
       {
         "type": "header",
-        "text": "Dough"
+        "text": "Sponge"
       },
       {
         "type": "item",
-        "text": "1 cup water, warmed to ~110°F"
+        "text": "1 cup water, warm (about 110°F)"
       },
       {
         "type": "item",
-        "text": "⅓ cup whole milk, warmed to ~110°F"
+        "text": "⅓ cup whole milk, warm (about 110°F)"
       },
       {
         "type": "item",
-        "text": "2¼ tsp active dry or instant yeast (1 standard packet)"
+        "text": "1 packet active dry or instant yeast"
       },
       {
         "type": "item",
         "text": "2 cups whole wheat flour"
+      },
+      {
+        "type": "header",
+        "text": "Dough"
       },
       {
         "type": "item",
@@ -982,11 +1001,11 @@
       },
       {
         "type": "item",
-        "text": "1⅓ cups whole wheat flour (plus more as needed)"
+        "text": "1½ cups whole wheat flour, plus more as needed"
       },
       {
         "type": "item",
-        "text": "1¼ tsp salt"
+        "text": "1½ tsp table salt"
       },
       {
         "type": "header",
@@ -998,60 +1017,58 @@
       },
       {
         "type": "item",
-        "text": "1 Tbsp whole oats"
+        "text": "1 Tbsp old-fashioned rolled oats"
       }
     ],
     "instructions": [
       {
-        "step": "Activate Yeast",
-        "detail": "Whisk warm water (1 cup), warm milk (⅓ cup), and yeast (2¼ tsp) in a large bowl. Add 2 cups flour and stir until a thick batter forms. Cover and let double in size at room temperature, about 60-90 minutes."
+        "step": "Make the Sponge",
+        "detail": "Whisk the warm water (1 cup), warm milk (⅓ cup), and yeast (1 packet) in a large bowl. Stir in the whole wheat flour (2 cups) to a thick batter. Cover and let it double at room temperature, 60 to 90 minutes.",
+        "why": "Bran and germ keep absorbing water long after mixing. An hour as a wet batter softens the bran and hydrates the flour before you knead, which does the job of the 30-minute rest whole wheat doughs otherwise need."
       },
       {
         "step": "Mix Dough",
-        "detail": "Add honey (3 Tbsp), butter (3 Tbsp), lemon juice (1 tsp), remaining flour (1⅓ cups), and salt (1¼ tsp). Using a dough hook or by hand, mix on medium until dough pulls away from sides, about 3 minutes."
+        "detail": "Add the honey (3 Tbsp), butter (3 Tbsp), lemon juice (1 tsp), whole wheat flour (1½ cups), and table salt (1½ tsp). Mix with a dough hook on medium, or by hand, until the dough pulls away from the sides, about 3 minutes."
       },
       {
-        "step": "Knead Dough",
-        "detail": "Knead in mixer or by hand on a lightly floured surface for 8-10 minutes until smooth and elastic."
+        "step": "Knead",
+        "detail": "Knead in the mixer or on a lightly floured counter 8 to 10 minutes, until smooth and elastic. Add flour 1 Tbsp at a time only if it sticks to your hands; slightly tacky is right.",
+        "why": "Whole wheat stiffens as it sits, so a dough that feels right now firms up during the rise. Extra flour gives a dense, low loaf."
       },
       {
-        "step": "Proof Dough",
-        "detail": "Lightly grease a large bowl. Place dough in bowl, turning to coat. Cover and let rise in a warm spot for 1.5-2 hours until doubled."
+        "step": "First Rise",
+        "detail": "Turn the dough in a lightly greased bowl, cover, and let rise in a warm spot until doubled, 1½ to 2 hours."
       },
       {
-        "step": "Grease Pan",
-        "detail": "Grease a 9×5-inch loaf pan."
-      },
-      {
-        "step": "Shape Dough",
-        "detail": "Punch down dough to release air. On a lightly floured surface, roll into an 8×15-inch rectangle. Roll up into an 8-inch log and place in loaf pan."
+        "step": "Shape",
+        "detail": "Grease an 8½x4½-inch loaf pan. Press the dough flat to push out all the gas, roll it into an 8x15-inch rectangle, then roll up from the short side into an 8-inch log. Set it seam down in the pan.",
+        "why": "Gas left in the dough becomes big holes in the loaf. A 9x5 pan works but gives a lower loaf."
       },
       {
         "step": "Final Rise",
-        "detail": "Cover shaped loaf and let rise until about 1 inch above the top of the pan, about 45-60 minutes."
-      },
-      {
-        "step": "Preheat Oven",
-        "detail": "Adjust oven rack to a lower position and preheat to 350°F."
-      },
-      {
-        "step": "Add Topping",
-        "detail": "Optional: Brush risen loaf with beaten egg white, then sprinkle oats (1 Tbsp) on top."
+        "detail": "Cover and let rise until the top crowns about 1 inch over the rim, 45 to 90 minutes. Meanwhile, set a rack in the lower third and heat the oven to 350°F.",
+        "why": "Go by height, not the clock. Warmth and flour vary too much for a fixed time."
       },
       {
         "step": "Bake",
-        "detail": "Bake for 36-40 minutes until golden brown. Bread is done when it sounds hollow when tapped, or an instant-read thermometer reads 195-200°F."
+        "detail": "If using the topping, brush the loaf with the egg white (1) and scatter the oats (1 Tbsp). Bake 35 to 40 minutes, tenting with foil at 20 minutes, until the center reads 190 to 195°F.",
+        "why": "Honey and milk brown the crust fast, so the foil keeps it from going dark before the center is done. A hollow tap can't tell you the middle is set."
       },
       {
         "step": "Cool",
-        "detail": "Remove from oven and cool for a few minutes in pan on a cooling rack before slicing."
+        "detail": "Turn the loaf out of the pan right away onto a rack. Cool at least 1 hour before slicing.",
+        "why": "Steam trapped in the pan softens the crust. The crumb's starch is still setting as it cools, and cutting it hot leaves a gummy, compressed slice."
       }
     ],
+    "notes": [
+      "Keep it in plastic at room temperature 1 to 2 days, or freeze it sliced up to 3 months. Never refrigerate it: bread stales fastest at fridge temperature.",
+      "Whole wheat flour turns bitter as it ages. Store it in the freezer."
+    ],
     "is_blank": false,
-    "description": "A honey whole wheat sandwich loaf enriched with milk and butter, baked in a 9x5 pan with an optional oat topping.",
+    "description": "A honey whole wheat sandwich loaf enriched with milk and butter, baked in an 8½x4½ pan with an optional oat topping.",
     "prepTime": "PT30M",
     "cookTime": "PT40M",
-    "recipeYield": "1 loaf (9x5)"
+    "recipeYield": "1 loaf (8½x4½)"
   },
   {
     "id": "burger",
@@ -3316,15 +3333,15 @@
       },
       {
         "type": "item",
-        "text": "3 cups spinach"
+        "text": "4 cups baby spinach"
       },
       {
         "type": "item",
-        "text": "½ cup dried cranberries"
+        "text": "¼ cup dried cranberries"
       },
       {
         "type": "item",
-        "text": "½ cup walnuts"
+        "text": "¼ cup walnuts"
       },
       {
         "type": "header",
@@ -3332,47 +3349,49 @@
       },
       {
         "type": "item",
-        "text": "¼ cup extra virgin olive oil"
+        "text": "1 Tbsp extra virgin olive oil"
       },
       {
         "type": "item",
-        "text": "¼ cup seasoned rice vinegar"
+        "text": "1 Tbsp seasoned rice vinegar"
       },
       {
         "type": "item",
-        "text": "1½ Tbsp honey or maple syrup"
+        "text": "1 tsp toasted sesame oil"
       },
       {
         "type": "item",
-        "text": "3 Tbsp sesame oil"
+        "text": "1 tsp honey or maple syrup"
       },
       {
         "type": "item",
-        "text": "1½ tsp soy sauce (reduced sodium)"
+        "text": "½ tsp soy sauce (reduced sodium)"
       },
       {
         "type": "item",
-        "text": "Pinch of salt"
-      },
-      {
-        "type": "item",
-        "text": "1-2 cloves garlic, minced (optional)"
+        "text": "1 small clove garlic, grated (optional)"
       }
     ],
     "instructions": [
       {
-        "step": "Make Dressing",
-        "detail": "Whisk together olive oil (¼ cup), rice vinegar (¼ cup), honey (1½ Tbsp), sesame oil (3 Tbsp), soy sauce (1½ tsp), salt, and garlic."
+        "step": "Toast Walnuts",
+        "detail": "Toast the walnuts (¼ cup) in a dry skillet over medium heat 3 to 5 minutes, shaking the pan, until fragrant. Let them cool."
       },
       {
-        "step": "Assemble",
-        "detail": "Toss spinach (3 cups) with cranberries (½ cup) and walnuts (½ cup). Drizzle with dressing and serve."
+        "step": "Make Dressing",
+        "detail": "In the bottom of a large salad bowl, whisk the rice vinegar (1 Tbsp), honey (1 tsp), soy sauce (½ tsp) and garlic (if using). Whisk in the olive oil (1 Tbsp) and sesame oil (1 tsp).",
+        "why": "Toasted sesame oil is a finishing oil, and a teaspoon is enough to lead without burying the vinegar. With nothing but a little garlic to hold it, the dressing separates within minutes, so make it right before you toss."
+      },
+      {
+        "step": "Toss and Serve",
+        "detail": "Add the spinach (4 cups), cranberries (¼ cup) and walnuts to the bowl, toss until every leaf is coated, and serve right away.",
+        "why": "The vinegar dulls the spinach and starts wilting it as it sits."
       }
     ],
     "is_blank": false,
-    "description": "Spinach with dried cranberries and walnuts in a rice vinegar, sesame and soy dressing.",
+    "description": "Baby spinach with dried cranberries and toasted walnuts in a rice vinegar, sesame and soy dressing.",
     "prepTime": "PT10M",
-    "cookTime": "PT0M",
+    "cookTime": "PT5M",
     "recipeYield": "2 servings"
   },
   {
@@ -3396,7 +3415,7 @@
       },
       {
         "type": "item",
-        "text": "4 Tbsp brown sugar"
+        "text": "¼ cup brown sugar"
       },
       {
         "type": "item",
@@ -3417,6 +3436,18 @@
       {
         "type": "item",
         "text": "1 Tbsp mirin"
+      },
+      {
+        "type": "header",
+        "text": "Glaze:"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp hot water"
       }
     ],
     "instructions": [
@@ -3430,11 +3461,12 @@
       },
       {
         "step": "Make the Marinade",
-        "detail": "In a bowl, combine garlic salt (1 Tbsp), brown sugar (4 Tbsp), oyster sauce (2 Tbsp), soy sauce (2 Tbsp), hoisin sauce (2 Tbsp), red wine vinegar (2 Tbsp), and mirin (1 Tbsp)."
+        "detail": "In a bowl, combine garlic salt (1 Tbsp), brown sugar (¼ cup), oyster sauce (2 Tbsp), soy sauce (2 Tbsp), hoisin sauce (2 Tbsp), red wine vinegar (2 Tbsp), and mirin (1 Tbsp). Set aside about ¼ cup in the refrigerator for basting before the pork goes in."
       },
       {
         "step": "Marinate",
-        "detail": "Add pork to the marinade and refrigerate for 8-24 hours."
+        "detail": "Add pork to the rest of the marinade and refrigerate for 8-12 hours.",
+        "why": "The salt in the garlic salt and soy needs hours to season the meat through. Past about 12 hours the vinegar starts turning the surface of thin, poked strips mushy."
       },
       {
         "step": "Preheat & Prepare Pan",
@@ -3442,11 +3474,13 @@
       },
       {
         "step": "Start Cooking & Basting",
-        "detail": "Reserve extra marinade. Roast the pork and baste with the marinade every 15 minutes."
+        "detail": "Discard the marinade the pork sat in. Roast the pork and baste with the reserved ¼ cup every 15 minutes, keeping each door opening quick.",
+        "why": "Basting adds nothing to the meat's moisture; each coat lays down more sugar, which builds the lacquered crust."
       },
       {
         "step": "Final Glaze",
-        "detail": "After 45 minutes (on the third baste), switch to a diluted honey glaze and cook for an additional 10 minutes."
+        "detail": "After 45 minutes (on the third baste), switch to the honey glaze, honey (2 Tbsp) stirred into hot water (1 Tbsp), and cook an additional 10 minutes, until the edges char and a skewer slides into the thickest strip easily.",
+        "why": "Shoulder is safe at 145°F but still chewy there; its collagen only starts softening above about 160°F, so judge by tenderness, not the safety number. Honey burns faster than sugar, so it goes on for the last 10 minutes only."
       },
       {
         "step": "Rest the Meat",
@@ -3503,7 +3537,7 @@
       },
       {
         "type": "item",
-        "text": "1 bag (12 oz) frozen broccoli"
+        "text": "1 bag (12 oz) frozen broccoli, thawed and patted dry"
       },
       {
         "type": "header",
@@ -3520,10 +3554,6 @@
       {
         "type": "item",
         "text": "3 Tbsp rice wine vinegar"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp sesame oil"
       },
       {
         "type": "item",
@@ -3554,8 +3584,12 @@
         "text": "1 tsp black pepper"
       },
       {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
         "type": "item",
-        "text": "1 tsp salt"
+        "text": "1 Tbsp toasted sesame oil"
       },
       {
         "type": "header",
@@ -3569,19 +3603,21 @@
     "instructions": [
       {
         "step": "Cook Noodles",
-        "detail": "Cook the egg noodles (8 oz) according to package directions. Drain and set aside."
+        "detail": "Cook the egg noodles (8 oz) 1 minute short of the package directions, since they finish in the sauce. Drain and set aside."
       },
       {
         "step": "Make Sauce",
-        "detail": "Whisk together the soy sauce (¼ cup), water (¼ cup), rice wine vinegar (3 Tbsp), sesame oil (2 Tbsp), honey (2 Tbsp), Sriracha (2 Tbsp), oyster sauce (2 Tbsp), chili sauce (1 Tbsp), garlic (4 cloves, minced), ground ginger (1 tsp), black pepper (1 tsp), and salt (1 tsp). Set aside."
+        "detail": "Whisk together the soy sauce (¼ cup), water (¼ cup), rice wine vinegar (3 Tbsp), honey (2 Tbsp), Sriracha (2 Tbsp), oyster sauce (2 Tbsp), chili sauce (1 Tbsp), garlic (4 cloves, minced), ground ginger (1 tsp), and black pepper (1 tsp). Set aside."
       },
       {
         "step": "Brown Beef",
-        "detail": "Heat a large skillet or wok over medium-high heat. Add the ground beef (1 lb) and cook, breaking it up, until browned, seasoning with salt and pepper to taste. Drain fat. Remove beef and set aside."
+        "detail": "Heat a large skillet or wok over medium-high heat. Add the ground beef (1 lb), press it flat and leave it 3 to 4 minutes before breaking it up, then cook until browned. Drain the fat into a bowl and keep it. Remove beef and set aside.",
+        "why": "Broken up right away, the beef steams gray in its own juice; contact time is what builds the crust."
       },
       {
         "step": "Stir Fry Vegetables",
-        "detail": "Return the pan to medium-high heat. Add the onion (1 medium, sliced) and carrots (3, sliced into strips). Stir fry 3-4 minutes until beginning to soften. Add the frozen broccoli (1 bag, 12 oz) and stir fry another 2-3 minutes."
+        "detail": "Return 1 Tbsp of the drained beef fat to the pan over medium-high heat. Add the onion (1 medium, sliced) and carrots (3, sliced into strips). Stir fry 3-4 minutes until beginning to soften. Add the thawed, dried broccoli (1 bag, 12 oz) and stir fry another 2-3 minutes.",
+        "why": "Frozen broccoli straight from the bag dumps its water into the pan, which holds it at 212°F and steams everything."
       },
       {
         "step": "Combine",
@@ -3589,11 +3625,12 @@
       },
       {
         "step": "Thicken",
-        "detail": "Stir together the cornstarch (1 Tbsp) and water (2 Tbsp) to form a slurry. Add to the pan and stir until the sauce tightens, about 1 minute."
+        "detail": "Stir together the cornstarch (1 Tbsp) and water (2 Tbsp) to form a slurry. Add to the pan and stir until the sauce bubbles and tightens, about 1 minute."
       },
       {
         "step": "Finish",
-        "detail": "Remove from heat. Add the fresh spinach (3 cups) and let sit 2 minutes off heat to steam and wilt. Toss to incorporate and serve."
+        "detail": "Remove from heat. Add the fresh spinach (3 cups) and let sit 2 minutes off heat to steam and wilt. Drizzle with the sesame oil (1 Tbsp), toss to incorporate and serve.",
+        "why": "Toasted sesame oil is a finishing oil; cooked in the sauce, its aroma fades."
       }
     ],
     "is_blank": false,
@@ -3621,15 +3658,15 @@
       },
       {
         "type": "item",
-        "text": "2.2 lbs rindless pork belly, sliced and halved (each piece about finger-length)"
+        "text": "2 lb rindless pork belly, sliced and halved (each piece about finger-length)"
       },
       {
         "type": "item",
-        "text": "4¼ cups hot chicken stock"
+        "text": "4 cups hot chicken stock"
       },
       {
         "type": "item",
-        "text": "1 thumb-sized piece fresh ginger, peeled and minced"
+        "text": "1 Tbsp fresh ginger, minced"
       },
       {
         "type": "item",
@@ -3645,19 +3682,11 @@
       },
       {
         "type": "header",
-        "text": "Glaze (4x batch, divided into 4 portions):"
+        "text": "Glaze (divided into 4 portions):"
       },
       {
         "type": "item",
-        "text": "½ cup vegetable oil, divided"
-      },
-      {
-        "type": "item",
-        "text": "Salt and pepper to taste"
-      },
-      {
-        "type": "item",
-        "text": "4 thumb-sized pieces fresh ginger, peeled and minced"
+        "text": "¼ cup fresh ginger, minced"
       },
       {
         "type": "item",
@@ -3686,6 +3715,22 @@
       {
         "type": "item",
         "text": "1 tsp rice vinegar (added to reserved portion only)"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp xanthan gum (optional, for thickening)"
+      },
+      {
+        "type": "header",
+        "text": "For Cooking:"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp vegetable oil, divided"
+      },
+      {
+        "type": "item",
+        "text": "Salt and pepper, a pinch each for the vegetables and the pork"
       },
       {
         "type": "header",
@@ -3727,7 +3772,8 @@
     "instructions": [
       {
         "step": "Braise Pork",
-        "detail": "Add pork belly (2.2 lbs), hot chicken stock (4¼ cups), minced ginger (1 thumb-sized piece), garlic (3 cloves, roughly chopped), rice wine (1 Tbsp), and sugar (1 Tbsp) to a heavy-based pot or cast iron casserole. Bring to a boil, cover, reduce heat, and simmer for 2 hours."
+        "detail": "Add pork belly (2 lb), hot chicken stock (4 cups), minced ginger (1 Tbsp), garlic (3 cloves, roughly chopped), rice wine (1 Tbsp), and sugar (1 Tbsp) to a heavy-based pot or cast iron casserole. Bring to a boil, cover, reduce heat, and simmer about 2 hours, until a skewer slides into a piece with no resistance.",
+        "why": "Belly's connective tissue only turns to gelatin after hours above about 160°F, which is what makes the chunks tender instead of chewy."
       },
       {
         "step": "Rest and Chop",
@@ -3735,19 +3781,21 @@
       },
       {
         "step": "Make Glaze",
-        "detail": "Whisk together minced ginger (4 thumb-sized pieces), red chilies (4, finely chopped), honey (½ cup), brown sugar (½ cup), dark soy sauce (¾ cup), garlic powder (1 Tbsp), and onion powder (1 Tbsp) in a bowl. Divide into 4 equal portions. Transfer 1 portion to a small bowl, stir in rice vinegar (1 tsp), and set aside. The remaining 3 portions go into the pan."
+        "detail": "Whisk together minced ginger (¼ cup), red chilies (4, finely chopped), honey (½ cup), brown sugar (½ cup), dark soy sauce (¾ cup), garlic powder (1 Tbsp), and onion powder (1 Tbsp) in a bowl. Divide into 4 equal portions. Transfer 1 portion to a small bowl, stir in rice vinegar (1 tsp), and set aside. The remaining 3 portions go into the pan."
       },
       {
         "step": "Cook Vegetables",
-        "detail": "Heat half the vegetable oil (¼ cup) in a wok or large skillet over medium-high. Add onion (1 medium, sliced) and carrots (2 medium, sliced on the bias); cook stirring until softened, about 4 minutes. Add broccoli florets (1 head) and cook until bright green and just tender-crisp, about 3-4 minutes. Season with salt and pepper. Transfer to a large bowl and set aside."
+        "detail": "Heat 2 Tbsp of the vegetable oil in a wok or large skillet over medium-high. Add onion (1 medium, sliced) and carrots (2 medium, sliced on the bias); cook stirring until softened, about 4 minutes. Add broccoli florets (1 head) and cook until bright green and just tender-crisp, about 3-4 minutes. Season with salt and pepper. Transfer to a large bowl and set aside."
       },
       {
         "step": "Fry Pork",
-        "detail": "Heat remaining vegetable oil (¼ cup) in the same pan over medium-high. Add pork chunks (2.2 lbs) with a pinch of salt and pepper. Fry, turning regularly, until golden and beginning to crisp on the edges, about 5-7 minutes. Use a splatter guard - rendered pork fat will pop aggressively at this stage."
+        "detail": "Heat the remaining vegetable oil (1 Tbsp) in the same pan over medium-high. Add pork chunks (2 lb) with a pinch of salt and pepper. Fry, turning regularly, until golden and beginning to crisp on the edges, about 5-7 minutes. Use a splatter guard - rendered pork fat will pop aggressively at this stage.",
+        "why": "The belly renders plenty of its own fat once it hits the pan, so it only needs a film of oil to start; it fries in its own fat from there."
       },
       {
         "step": "Add Pepper and Glaze",
-        "detail": "Add diced red bell pepper (1) and cook until softened to your preference, about 2-3 minutes. Pour ¾ of the total glaze (3 portions) over the pork and pepper. Cook, turning the pork frequently, until dark and sticky, about 2-3 minutes."
+        "detail": "Add diced red bell pepper (1) and cook until softened to your preference, about 2-3 minutes. Drop the heat to medium. Pour ¾ of the total glaze (3 portions) over the pork and pepper. Cook, turning the pork frequently, until dark and sticky, about 2-3 minutes.",
+        "why": "Honey burns faster than sugar, and there is a lot of both in this glaze."
       },
       {
         "step": "Fold in Vegetables",
@@ -3755,12 +3803,16 @@
       },
       {
         "step": "Finish Sauce",
-        "detail": "Pour the reserved glaze portion with rice vinegar (1 tsp) over everything and fold to combine. If the sauce needs thickening, sprinkle in xanthan gum (start with ¼ tsp) and toss until the sauce tightens to your liking."
+        "detail": "If the sauce needs thickening, whisk xanthan gum (start with ¼ tsp) into the reserved glaze portion first. Pour the reserved portion with its rice vinegar (1 tsp) over everything and fold to combine; toss until the sauce tightens to your liking.",
+        "why": "The vinegar goes in last, uncooked, so it cuts the sticky sweetness and the fatty pork; cooked from the start it would flatten out. Xanthan sprinkled onto a hot sauce clumps into beads, so it goes into the liquid first."
       },
       {
         "step": "Serve",
         "detail": "Serve over cooked white rice topped with chopped spring onions and chopped red chilies."
       }
+    ],
+    "notes": [
+      "Make it ahead. Braise the pork the day before and refrigerate it in the liquid. Cold belly cuts into clean chunks, and once dried and fried it crisps harder than warm belly does."
     ],
     "is_blank": false,
     "description": "Pork belly braised in chicken stock with ginger, garlic and rice wine, then cooked down to a sticky glaze.",
@@ -3794,7 +3846,7 @@
       },
       {
         "type": "item",
-        "text": "1¼ tsp table salt"
+        "text": "1 tsp table salt"
       },
       {
         "type": "item",
@@ -3810,7 +3862,7 @@
       },
       {
         "type": "item",
-        "text": "¾ tsp cayenne"
+        "text": "1 tsp cayenne"
       },
       {
         "type": "item",
@@ -3823,6 +3875,10 @@
       {
         "type": "item",
         "text": "1 lb russet potatoes (about 2 medium), peeled and cut into ½-inch dice"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the potato water"
       },
       {
         "type": "item",
@@ -3884,11 +3940,13 @@
     "instructions": [
       {
         "step": "Par-Boil Potatoes",
-        "detail": "Put the diced potatoes (1 lb, cut into ½-inch dice) in cold salted water, bring to a boil, and cook 7 to 8 minutes - a knife should meet slight resistance at the center. Drain and leave them in the colander to steam dry while everything else happens. Dry surfaces are what let them take a fried face later; ½-inch dice turns to mush well before the 20 minutes a whole potato wants."
+        "detail": "Put the diced potatoes (1 lb, cut into ½-inch dice) in 2 quarts of cold water with the table salt (1 Tbsp), bring to a boil, and cook 7 to 8 minutes, until a knife meets slight resistance at the center. Drain and leave them in the colander to steam dry while everything else happens.",
+        "why": "Dry surfaces are what let them take a fried face later. ½-inch dice turns to mush well before the 20 minutes a whole potato wants."
       },
       {
         "step": "Season Beef Raw",
-        "detail": "Mix the ground beef (1 lb, 80/20) by hand with the salt (1¼ tsp), cumin (2 tsp), coriander (2 tsp), turmeric (1 tsp), cayenne (¾ tsp) and black pepper (½ tsp) until the color is even. Season before the pan, not after."
+        "detail": "Mix the ground beef (1 lb, 80/20) by hand with the table salt (1 tsp), cumin (2 tsp), coriander (2 tsp), turmeric (1 tsp), cayenne (1 tsp) and black pepper (½ tsp) until the color is even. Season before the pan, not after.",
+        "why": "The ground spices bloom in the beef's own fat as it renders; added to the finished crumbles, they taste raw and dusty."
       },
       {
         "step": "Brown and Drain Twice",
@@ -3896,11 +3954,12 @@
       },
       {
         "step": "Onion in Beef Fat",
-        "detail": "Return 2 Tbsp of the reserved beef fat to the pan over medium heat. Add the sliced onion (1 large) and a pinch of salt; cook 7 to 8 minutes, scraping the fond up as the onion releases its water, until soft and golden at the edges. Beef fat rather than neutral oil is the point - spice flavor is fat-soluble, so the fat that carries it should already taste like the dish."
+        "detail": "Return 2 Tbsp of the reserved beef fat to the pan over medium heat. Add the sliced onion (1 large) and a pinch of table salt; cook 7 to 8 minutes, scraping the fond up as the onion releases its water, until soft and golden at the edges.",
+        "why": "Spice flavor is fat-soluble, so the fat that carries it should already taste like the dish."
       },
       {
         "step": "Aromatics, 45 Seconds",
-        "detail": "Add the garlic (5 cloves, minced), ginger (1 Tbsp, grated) and serrano (1, sliced thin). Stir constantly for 45 seconds, no longer. The onion is buffering the pan heat; minced garlic on bare hot metal burns in about that same 45 seconds and there is no recovery from it."
+        "detail": "Add the garlic (5 cloves, minced), ginger (1 Tbsp, grated) and serrano (1, sliced thin). Stir constantly for 45 seconds, no longer; the onion buffers the pan heat."
       },
       {
         "step": "Fry Tomato Paste",
@@ -3908,7 +3967,7 @@
       },
       {
         "step": "Carrots",
-        "detail": "Add the carrots (1 cup, cut into ¼-inch dice) and the water (½ cup). Simmer uncovered, stirring now and then, 5 to 6 minutes, until the water is gone and the pan is sizzling in fat again. No lid - a lid steams the pan and costs the dry style."
+        "detail": "Add the carrots (1 cup, cut into ¼-inch dice) and the water (½ cup). Simmer uncovered, stirring now and then, 5 to 6 minutes, until the water is gone and the pan is sizzling in fat again. No lid; a lid steams the pan and costs the dry style."
       },
       {
         "step": "Bhuna the Beef and Potato",
@@ -3924,7 +3983,8 @@
       },
       {
         "step": "Finish Off Heat",
-        "detail": "Squeeze in the lime juice (1 Tbsp) and scatter the cilantro (¼ cup). Lime goes in off heat and after the spinach for two reasons: citric acid is volatile and dies with sustained heat, and acid turns chlorophyll to pheophytin, so lime added before the greens gives you olive-drab leaves. Taste for salt. Serve with plain whole-milk yogurt at the table."
+        "detail": "Squeeze in the lime juice (1 Tbsp) and scatter the cilantro (¼ cup). Taste for salt. Serve with plain whole-milk yogurt at the table.",
+        "why": "Lime goes in off heat and after the spinach: heat drives off its fresh aroma, and acid turns the spinach olive-drab if it lands first."
       }
     ],
     "is_blank": false,
@@ -3972,7 +4032,7 @@
       },
       {
         "type": "item",
-        "text": "2½ Tbsp soy sauce"
+        "text": "2 Tbsp soy sauce"
       },
       {
         "type": "item",
@@ -4014,11 +4074,13 @@
     "instructions": [
       {
         "step": "Prep",
-        "detail": "Pull the tendons from the chicken (1 lb): pin the end of the white tendon with a paper towel and slide a fork down it. Pat the pieces very dry. Toss with the cornstarch (2 Tbsp) and black pepper (¼ tsp) to a thin, even coat. In a small bowl, whisk the soy sauce (2½ Tbsp), honey (3 Tbsp), cooking sherry (2 Tbsp), water (2 Tbsp), rice vinegar (1 tsp) and red pepper flakes (½ tsp). The soy is trimmed from the usual 3 to 4 Tbsp because cooking sherry is already salted."
+        "detail": "Pull the tendons from the chicken (1 lb): pin the end of the white tendon with a paper towel and slide a fork down it. Pat the pieces very dry. Toss with the cornstarch (2 Tbsp) and black pepper (¼ tsp) to a thin, even coat. In a small bowl, whisk the soy sauce (2 Tbsp), honey (3 Tbsp), cooking sherry (2 Tbsp), water (2 Tbsp), rice vinegar (1 tsp) and red pepper flakes (½ tsp).",
+        "why": "The soy is lighter than usual because cooking sherry is already salted."
       },
       {
         "step": "Sear",
-        "detail": "Heat a 12-inch skillet over medium-high heat, add the neutral oil (1½ Tbsp) and wait for it to shimmer. Lay the chicken in a single layer with space between pieces. Cook 2 to 3 minutes, until golden and it releases from the pan. Flip and cook 2 minutes more. It does not need to be cooked through yet. Move it to a plate."
+        "detail": "Heat a 12-inch skillet over medium-high heat, add the neutral oil (1½ Tbsp) and wait for it to shimmer. Lay the chicken in a single layer with space between pieces. Cook 2 to 3 minutes, until golden and it releases from the pan. Flip and cook 2 minutes more. It does not need to be cooked through yet. Move it to a plate.",
+        "why": "It finishes in the glaze; cooked through now, it would be dry by the time the glaze is done."
       },
       {
         "step": "Garlic",
@@ -4026,7 +4088,8 @@
       },
       {
         "step": "Glaze",
-        "detail": "Stir the glaze mixture and pour it in. Simmer 1 to 2 minutes, scraping up the browned bits, until it turns syrupy. The cornstarch that came off the chicken is what thickens it, so no slurry is needed. Return the chicken and any juices and toss 1 to 2 minutes, until glossy and the thickest piece reads 165°F. Keep the heat at medium: honey scorches fast. If the glaze gets too thick before the chicken is done, add a splash of water."
+        "detail": "Stir the glaze mixture and pour it in. Simmer 1 to 2 minutes, scraping up the browned bits, until it turns syrupy; no slurry is needed. Return the chicken and any juices and toss 1 to 2 minutes, until glossy and the thickest piece reads 165°F. Keep the heat at medium. If the glaze gets too thick before the chicken is done, add a splash of water.",
+        "why": "The cornstarch that came off the chicken is what thickens the glaze. Honey scorches fast, which is why the heat stays at medium."
       },
       {
         "step": "Finish",
@@ -4122,19 +4185,22 @@
     "instructions": [
       {
         "step": "Prep",
-        "detail": "Start the rice first; everything else fits inside its cook time. Pat the chicken (1½ lb, cut into 1-inch pieces) dry and toss it with the soy sauce (1 Tbsp) and cornstarch (1 Tbsp). Let it sit while you make the sauce. The cornstarch gives the sauce something to grip and helps keep the peanut-oil-and-water sauce from separating."
+        "detail": "Start the rice first; everything else fits inside its cook time. Pat the chicken (1½ lb, cut into 1-inch pieces) dry and toss it with the soy sauce (1 Tbsp) and cornstarch (1 Tbsp). Let it sit while you make the sauce.",
+        "why": "The cornstarch gives the sauce something to grip and helps keep the peanut-oil-and-water sauce from separating."
       },
       {
         "step": "Sauce",
-        "detail": "In a bowl, whisk the peanut butter (⅓ cup), soy sauce (2 Tbsp), lime juice (2 Tbsp), honey (1 Tbsp), garlic (3 cloves, grated) and chili crisp (2 Tbsp). Whisk in the hot water (⅓ cup) a splash at a time. It looks broken and stiff at first, then turns smooth and pourable. The soy is the salt here, so there is no separate salt; if your chili crisp is a salty brand, cut the soy in the sauce to 1½ Tbsp."
+        "detail": "In a bowl, whisk the peanut butter (⅓ cup), soy sauce (2 Tbsp), lime juice (2 Tbsp), honey (1 Tbsp), garlic (3 cloves, grated) and chili crisp (2 Tbsp). Whisk in the hot water (⅓ cup) a splash at a time; it looks broken and stiff at first, then turns smooth and pourable. The soy is the salt here; if your chili crisp is a salty brand, cut the soy in the sauce to 1 Tbsp."
       },
       {
         "step": "Sear",
-        "detail": "Heat a 12-inch skillet over medium-high heat until the neutral oil (1 Tbsp) shimmers. Add half the chicken in a single layer and leave it alone for 2 minutes to brown, then toss and cook 2 minutes more, until the biggest piece reads 165°F. Move it to a plate. Repeat with the remaining neutral oil (1 Tbsp) and chicken. Two batches matter: a full load drops the pan below browning temperature and the chicken poaches gray in its own juice."
+        "detail": "Heat a 12-inch skillet over medium-high heat until the neutral oil (1 Tbsp) shimmers. Add half the chicken in a single layer and leave it alone for 2 minutes to brown, then toss and cook about 2 minutes more, until the biggest piece reads about 155°F. Move it to a plate. Repeat with the remaining neutral oil (1 Tbsp) and chicken.",
+        "why": "Two batches matter: a full load drops the pan below browning temperature and the chicken poaches gray in its own juice. It comes out a little short of done because it finishes in the sauce."
       },
       {
         "step": "Toss",
-        "detail": "Turn the burner down to low and return all the chicken to the pan. Pour in the sauce and toss 30 to 60 seconds, until glossy and coating every piece. Keep it on low: peanut butter scorches fast and tightens on heat. If the sauce gets too thick, loosen it with hot water, 1 Tbsp at a time."
+        "detail": "Turn the burner down to low and return all the chicken to the pan. Pour in the sauce and toss 1 to 2 minutes, until glossy, coating every piece, and the biggest piece reads 165°F. Keep it on low. If the sauce gets too thick, loosen it with hot water, 1 Tbsp at a time.",
+        "why": "Peanut butter scorches fast and tightens on heat."
       },
       {
         "step": "Serve",
@@ -4623,10 +4689,6 @@
       },
       {
         "type": "item",
-        "text": "1 tsp salt"
-      },
-      {
-        "type": "item",
         "text": "1½ tsp cinnamon"
       },
       {
@@ -4671,6 +4733,10 @@
       },
       {
         "type": "item",
+        "text": "1½ tsp table salt, divided, plus a pinch for the onion"
+      },
+      {
+        "type": "item",
         "text": "3 Tbsp olive oil"
       },
       {
@@ -4679,7 +4745,7 @@
       },
       {
         "type": "item",
-        "text": "4 garlic cloves"
+        "text": "4 garlic cloves, sliced"
       },
       {
         "type": "item",
@@ -4701,41 +4767,45 @@
     "instructions": [
       {
         "step": "Soak Rice",
-        "detail": "Soak the basmati rice (1½ cups) in a big bowl of water for at least 30 minutes."
+        "detail": "Rinse the basmati rice (1½ cups) in a few changes of cold water until it runs mostly clear, then soak it in a big bowl of water for at least 30 minutes."
       },
       {
         "step": "Mix Spice Blend",
-        "detail": "Mix salt (1 tsp), cinnamon (1½ tsp), cumin (1 tsp), coriander (1 tsp), black pepper (1 tsp), cardamom (½ tsp), allspice (½ tsp), nutmeg (¼ tsp) and cloves (¼ tsp). This makes about 7 tsp; you will use it in thirds of about 2⅓ tsp."
+        "detail": "Mix cinnamon (1½ tsp), cumin (1 tsp), coriander (1 tsp), black pepper (1 tsp), cardamom (½ tsp), allspice (½ tsp), nutmeg (¼ tsp) and cloves (¼ tsp). This makes 6 tsp; you will use it in thirds of 2 tsp."
       },
       {
         "step": "Coat Chicken",
-        "detail": "Coat the chicken thighs (6) with one third of the spice blend (about 2⅓ tsp)."
+        "detail": "Season the chicken thighs (6) with 1 tsp of the table salt and one third of the spice blend (2 tsp)."
       },
       {
         "step": "Sauté Aromatics",
-        "detail": "Heat olive oil (3 Tbsp) in a large pan. Add the garlic (4 cloves) and red onion (1), season with the second third of the spice blend (about 2⅓ tsp) and sauté until soft and browned. Set aside for the garnish."
+        "detail": "Heat olive oil (3 Tbsp) in a large pan over medium. Add the red onion (1) with a pinch of table salt and the second third of the spice blend (2 tsp), and cook 8 to 10 minutes until soft and browned. Add the garlic (4 cloves, sliced) for the last minute. Set aside for the garnish.",
+        "why": "Garlic burns in well under the time the onion needs to brown, so it goes in last."
       },
       {
         "step": "Cook Chicken",
-        "detail": "In the same pan, cook the chicken about 5 minutes per side, until it reaches 175°F. Set aside."
+        "detail": "In the same pan, cook the chicken about 5 minutes per side, until it reaches 175°F. Set aside.",
+        "why": "Thighs go past the 165°F safety mark on purpose; their connective tissue and fat keep them juicy there, and the texture is better for it."
       },
       {
         "step": "Cook Rice",
-        "detail": "Add the water (2 cups) to the pan and bring to a boil. Drain the soaked rice and add it with the turmeric (¼ tsp) and the last third of the spice blend (about 2⅓ tsp)."
+        "detail": "Add the turmeric (¼ tsp) and the last third of the spice blend (2 tsp) to the fat left in the pan and stir 30 seconds. Add the water (2 cups) and the remaining table salt (½ tsp), scrape up the browned bits, and bring to a boil. Drain the soaked rice and stir it in.",
+        "why": "The spices bloom in the hot fat before the water goes in; stirred into boiling water, their fat-soluble flavor stays raw."
       },
       {
         "step": "Simmer",
-        "detail": "Cover and simmer on low for 15-20 minutes, until the rice is cooked."
+        "detail": "Cover and simmer on low 15 minutes. Set the chicken on top of the rice, cover again, and cook 5 minutes more. Take the pan off the heat and let it stand, covered and unopened, 10 minutes.",
+        "why": "The rice finishes in its own steam during the rest; served straight off the burner, the top is wet and the bottom firm."
       },
       {
         "step": "Serve",
-        "detail": "Set the chicken on top of the rice. Garnish with the sautéed onions and garlic and the almonds (¼ cup)."
+        "detail": "Fluff the rice around the chicken. Garnish with the sautéed onions and garlic and the almonds (¼ cup)."
       }
     ],
     "is_blank": false,
-    "description": "Bone-in chicken with turmeric, onion and garlic, served over basmati rice and garnished with almonds.",
+    "description": "Boneless chicken thighs with a warm cinnamon, cumin and cardamom blend, cooked over turmeric basmati rice and finished with browned onion, garlic and toasted almonds.",
     "prepTime": "PT15M",
-    "cookTime": "PT40M",
+    "cookTime": "PT50M",
     "recipeYield": "4 servings"
   },
   {
@@ -4752,7 +4822,11 @@
     "ingredients": [
       {
         "type": "item",
-        "text": "1⅔ lb potatoes"
+        "text": "2 lb Yukon Gold potatoes"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp table salt, for the cooking water"
       },
       {
         "type": "item",
@@ -4764,7 +4838,7 @@
       },
       {
         "type": "item",
-        "text": "1 Tbsp dried mint, finely chopped (fresh is also good)"
+        "text": "1 Tbsp dried mint, crumbled (fresh is also good)"
       },
       {
         "type": "item",
@@ -4776,37 +4850,39 @@
       },
       {
         "type": "item",
-        "text": "Salt to taste"
+        "text": "½ tsp table salt, plus more to taste"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
       },
       {
         "type": "item",
         "text": "1 clove garlic, crushed (optional)"
-      },
-      {
-        "type": "item",
-        "text": "Freshly cracked black pepper"
       }
     ],
     "instructions": [
       {
         "step": "Cook Potatoes",
-        "detail": "Place the washed potatoes (1⅔ lb) in a large pot, cover with cold water by about 2 inches. Bring to a gentle boil over high heat, then reduce to medium. Cook until fork-tender - do not overcook."
+        "detail": "Place the washed potatoes (2 lb) in a large pot with 3 quarts of cold water and the table salt (1½ Tbsp). Bring to a gentle boil over high heat, then reduce to medium. Cook until fork-tender, about 20 minutes; do not overcook.",
+        "why": "Salt in the water seasons the potatoes all the way through; salt added after cooking sits on the outside of the chunks. Starting cold lets the centers cook with the outsides."
       },
       {
         "step": "Cool & Cut",
-        "detail": "Let potatoes cool slightly. Cut into even bite-sized chunks (with or without skin)."
+        "detail": "Let the potatoes cool just enough to handle. Cut into even bite-sized chunks (with or without skin)."
       },
       {
         "step": "Combine",
-        "detail": "In a large bowl, add potato chunks, spring onions (¼ cup), parsley (¼ cup), mint (1 Tbsp), and optional garlic."
+        "detail": "In a large bowl, add the warm potato chunks, spring onions (¼ cup), parsley (¼ cup), mint (1 Tbsp), and garlic, if using."
       },
       {
         "step": "Make Dressing",
-        "detail": "In a small bowl, whisk together olive oil (¼ cup), lemon juice (¼ cup), salt, and black pepper."
+        "detail": "In a small bowl, whisk together the olive oil (¼ cup), lemon juice (¼ cup), table salt (½ tsp), and black pepper (¼ tsp)."
       },
       {
         "step": "Dress & Serve",
-        "detail": "Pour dressing over potato mixture and gently toss to combine. Taste and adjust seasoning. Serve warm or chilled."
+        "detail": "Pour the dressing over the warm potato mixture and gently toss to combine. Serve warm, or chill and taste again before serving, adding salt or lemon if it has gone flat.",
+        "why": "Warm potatoes drink in the lemon and oil. Chilling mutes salt and acid, so a salad that tasted right warm reads bland cold."
       }
     ],
     "is_blank": false,
@@ -4894,7 +4970,8 @@
     "instructions": [
       {
         "step": "Chop Aromatics",
-        "detail": "Finely chop the onion (1 medium), parsley (1 cup) and mint (1 Tbsp), by hand or by pulsing in a food processor. Stop before it turns to paste."
+        "detail": "Finely chop the onion (1 medium), parsley (1 cup) and mint (1 Tbsp), by hand or by pulsing in a food processor. Stop before it turns to paste.",
+        "why": "Pureed onion weeps water into the meat and loosens it until it slumps off the skewer."
       },
       {
         "step": "Prep Garlic",
@@ -4902,15 +4979,17 @@
       },
       {
         "step": "Mix and Rest",
-        "detail": "In a large bowl, combine the ground beef (2 lb) with the chopped onion, parsley and mint, the garlic paste, table salt (1½ tsp), black pepper (2 tsp), cayenne (1 tsp), and allspice, cinnamon, cloves, coriander, cumin and nutmeg (½ tsp each). Mix well, then cover and refrigerate for 1-24 hours."
+        "detail": "In a large bowl, combine the ground beef (2 lb) with the chopped onion, parsley and mint, the garlic paste, table salt (1½ tsp), black pepper (2 tsp), cayenne (1 tsp), and allspice, cinnamon, cloves, coriander, cumin and nutmeg (½ tsp each). Mix well, then cover and refrigerate for 1-24 hours.",
+        "why": "The salt dissolves some of the meat proteins into a sticky gel, which is what lets the mix grip the skewer. The rest gives the salt time to work and firms the fat so it shapes cleanly."
       },
       {
         "step": "Shape",
-        "detail": "Form the meat onto skewers, no more than 1 inch in diameter."
+        "detail": "Form the meat onto skewers, no more than 1 inch in diameter.",
+        "why": "Any thicker and the outside burns before the center is done over direct heat."
       },
       {
         "step": "Grill",
-        "detail": "Grill over medium heat until the internal temperature reaches 160°F."
+        "detail": "Heat the grill to medium, scrape the grate clean and wipe it with an oiled paper towel held in tongs. Grill the kafta, leaving each side alone until it releases, turning every 2 to 3 minutes, until the internal temperature reaches 160°F, about 10 to 12 minutes."
       }
     ],
     "is_blank": false,
@@ -4937,11 +5016,11 @@
       },
       {
         "type": "item",
-        "text": "1 cup plain natural yogurt"
+        "text": "1 cup plain yogurt"
       },
       {
         "type": "item",
-        "text": "½ tsp ground mint (heaping)"
+        "text": "1 tsp dried mint, crumbled"
       },
       {
         "type": "item",
@@ -4949,17 +5028,22 @@
       },
       {
         "type": "item",
-        "text": "½ tsp salt"
+        "text": "½ tsp table salt"
       }
     ],
     "instructions": [
       {
+        "step": "Salt the Cucumber",
+        "detail": "Toss the diced cucumber (1 large) with the table salt (½ tsp) in a strainer set over a bowl and let it drain 15 minutes.",
+        "why": "The salt pulls the water out before the cucumber meets the yogurt, so the salad keeps its body instead of going soupy, leftovers included."
+      },
+      {
         "step": "Combine",
-        "detail": "Add the cucumber (1 large, finely diced), yogurt (1 cup), ground mint (½ tsp, heaping), garlic (1 clove, crushed), and salt (½ tsp) to a mixing bowl and combine."
+        "detail": "Fold the drained cucumber into the yogurt (1 cup) with the dried mint (1 tsp) and garlic (1 clove, crushed)."
       },
       {
         "step": "Season & Serve",
-        "detail": "Adjust salt if needed. Serve cold."
+        "detail": "Taste and add a pinch more salt if needed. Serve cold."
       }
     ],
     "is_blank": false,
@@ -5261,7 +5345,7 @@
     "name": "Coconut Rice",
     "section": "SIDES",
     "category": "Sides",
-    "source": "https://www.recipetineats.com/fluffy-coconut-rice/",
+    "source": "Original",
     "tags": [
       "#side",
       "#rice",
@@ -5278,67 +5362,80 @@
       },
       {
         "type": "item",
-        "text": "1⅔ cups coconut milk (one 14 oz can), full-fat or light"
+        "text": "1 can (13.5 to 14 oz) full-fat coconut milk"
       },
       {
         "type": "item",
-        "text": "1 cup water"
+        "text": "1¼ cups water"
       },
       {
         "type": "item",
-        "text": "5 tsp white sugar"
+        "text": "2 tsp white sugar"
       },
       {
         "type": "item",
-        "text": "½ tsp table salt"
+        "text": "¾ tsp table salt"
       },
       {
         "type": "header",
-        "text": "Asian restaurant-style flavor (use one):"
+        "text": "Aromatics:"
       },
       {
         "type": "item",
-        "text": "1 pandan leaf, knotted"
+        "text": "1 stalk lemongrass, trimmed, cut into 3 pieces and smashed (or 1 Tbsp lemongrass paste)"
       },
       {
         "type": "item",
-        "text": "2 kaffir lime leaves, crushed in hand"
+        "text": "4 thin slices fresh ginger"
       },
       {
         "type": "header",
-        "text": "Optional garnish:"
+        "text": "Finish:"
       },
       {
         "type": "item",
-        "text": "1 Tbsp desiccated coconut, toasted"
+        "text": "2 Tbsp unsweetened coconut flakes"
+      },
+      {
+        "type": "item",
+        "text": "1 lime, zested"
       }
     ],
     "instructions": [
       {
+        "step": "Toast the coconut",
+        "detail": "Toast the coconut flakes (2 Tbsp) in a dry skillet over medium, stirring, 2 to 3 minutes until golden. Set aside."
+      },
+      {
         "step": "Rinse the rice",
-        "detail": "Rinse the rice (2 cups) until the water runs mostly clear to wash off excess surface starch - it won't go 100% clear. This matters more than for plain rice: coconut milk is thicker than water, so leftover starch turns the rice gluey."
+        "detail": "Rinse the rice (2 cups) in a bowl of cold water, swishing and draining 3 or 4 times until the water runs mostly clear. Drain well for 10 minutes.",
+        "why": "Surface starch turns rice gluey, and more so in thick coconut milk than in water."
       },
       {
-        "step": "Soak 1 hour",
-        "detail": "Cover the rinsed rice with water and soak 1 hour, then drain. The head start on water absorption is what lets the grains cook through evenly in the thicker coconut liquid."
+        "step": "Infuse the liquid",
+        "detail": "Shake the can, then whisk the coconut milk (1 can), water (1¼ cups), sugar (2 tsp), and table salt (¾ tsp) in a heavy 3-qt saucepan with a tight lid. Add the lemongrass (1 stalk, or 1 Tbsp paste) and ginger (4 slices) and simmer 5 minutes.",
+        "why": "Five minutes of simmering gets the lemongrass and ginger into the liquid before the rice starts drinking it."
       },
       {
-        "step": "Heat the liquid",
-        "detail": "Preheat the oven to 400°F. In a saucepan, combine the coconut milk (1⅔ cups), water (1 cup), sugar (5 tsp), and salt (½ tsp) and bring to a boil. Heating the liquid first means the rice starts cooking the moment it hits the oven instead of bloating in lukewarm liquid for 10-15 minutes."
+        "step": "Cook",
+        "detail": "Stir in the rice and bring back to a boil. Stir once, scraping the bottom, then cover and cook on the lowest heat for 18 minutes without lifting the lid.",
+        "why": "Coconut milk solids catch and scorch over high heat, so a heavy pot and the lowest flame matter here. The trapped steam does the cooking; lifting the lid lets it out."
       },
       {
-        "step": "Assemble and bake",
-        "detail": "Put the drained rice in a baking pan, tuck in the pandan leaf (1, knotted) or kaffir lime leaves (2, crushed), and pour over the boiling liquid. Cover tightly with foil and bake 40 minutes. The foil traps steam, so this is essentially oven steam-rice with no scorching risk and more even heat than the stovetop."
+        "step": "Rest",
+        "detail": "Take the pan off the heat and rest, still covered, 10 minutes.",
+        "why": "The grains finish absorbing and the moisture evens out, so the bottom isn't wet while the top is dry."
       },
       {
-        "step": "Rest 15 minutes",
-        "detail": "Pull the pan and rest, still covered in foil, for 15 minutes - don't skip it. The rice finishes cooking and reabsorbs surface moisture, leaving it fluffy. Fluff, discard the leaf, and garnish with toasted desiccated coconut (1 Tbsp) if using."
+        "step": "Finish",
+        "detail": "Pull out the lemongrass stalk and the ginger, fluff with a fork, and fold in the lime zest (1 lime). Top with the toasted coconut (2 Tbsp).",
+        "why": "Zest goes in last because its aromatic oils fade fast with heat."
       }
     ],
     "is_blank": false,
-    "description": "Oven-baked jasmine rice cooked in coconut milk, scented with pandan or kaffir lime leaves.",
-    "prepTime": "PT10M",
-    "cookTime": "PT1H",
+    "description": "Stovetop jasmine rice simmered in coconut milk with lemongrass and ginger, finished with lime zest and toasted coconut.",
+    "prepTime": "PT20M",
+    "cookTime": "PT35M",
     "recipeYield": "6 servings"
   },
   {
@@ -5476,7 +5573,7 @@
       },
       {
         "type": "item",
-        "text": "2½ lb russet potatoes (about 3 large), scrubbed, cut into 1-inch chunks"
+        "text": "2½ lb russet potatoes (about 3 large), scrubbed"
       },
       {
         "type": "item",
@@ -5488,7 +5585,7 @@
       },
       {
         "type": "item",
-        "text": "2¼ tsp table salt (for the boiling water)"
+        "text": "1 Tbsp table salt (for the boiling water)"
       },
       {
         "type": "header",
@@ -5530,39 +5627,42 @@
     "instructions": [
       {
         "step": "Preheat the Pan",
-        "detail": "Set a rack in the lower third and heat the oven to 450 F with a bare half sheet pan inside holding the tallow (¼ cup). No foil, no parchment - foil is a poor conductor and reflects radiant heat, so potatoes on foil brown noticeably less than on bare aluminum. The pan and fat must be at temperature before the potatoes land; that first contact is where the crust starts."
+        "detail": "Set a rack in the lower third and heat the oven to 450°F with a bare half sheet pan inside holding the tallow (¼ cup). No foil or parchment.",
+        "why": "Foil reflects radiant heat and conducts worse than bare aluminum, so potatoes on it brown noticeably less. The pan and fat have to be hot before the potatoes land; that first contact starts the crust."
       },
       {
         "step": "Cut",
-        "detail": "Cut the russets (2½ lb) into 1-inch chunks, skin on. Keep the variance tight - a pan holding ½-inch and 1½-inch pieces guarantees some burnt and some raw. Skin on gives a second texture; peel them if you want crust on every face."
+        "detail": "Cut the russets (2½ lb) into even 1-inch chunks, skin on. Peel them if you want crust on every face.",
+        "why": "Mixed sizes on one pan means some burn while others stay raw."
       },
       {
         "step": "Alkaline Parboil",
-        "detail": "Bring water (2 qt) to a boil with baking soda (½ tsp) and table salt (2¼ tsp). Add the potatoes and boil 8 to 10 minutes, until a knife tip meets almost no resistance at the edge but the center still holds. Pectin degrades by base-catalyzed beta-elimination, so alkaline water blows out the outer few millimeters far faster than the core. Undershoot and there is no slurry to work with; overshoot and they collapse in the pot."
+        "detail": "Bring the water (2 qt) to a boil with the baking soda (½ tsp) and table salt (1 Tbsp). Add the potatoes and boil 8 to 10 minutes, until a knife tip meets almost no resistance at the edge but the center still holds.",
+        "why": "Alkaline water breaks down pectin, so the outer layer softens much faster than the core. Too short and there is no starchy slurry to work with; too long and they fall apart in the pot."
       },
       {
         "step": "Rough Them Up",
-        "detail": "Drain thoroughly, return to the dry pot, and steam-dry off the heat 1 minute. Add table salt (¾ tsp) and coarse black pepper (1½ tsp), then shake the pot hard for 10 to 15 seconds until the exteriors look fuzzy and pasted over. This is the step people skip. The starch slurry gelatinizes and dehydrates in the oven into a shattering crust - it is the difference between this and ordinary oven fries."
+        "detail": "Drain well, return to the dry pot, and steam-dry off the heat for 1 minute. Add the table salt (¾ tsp) and coarse black pepper (1½ tsp), then shake the pot hard for 10 to 15 seconds until the outsides look fuzzy and pasted over.",
+        "why": "That starchy paste dries in the oven into the shattering crust. It is the difference between these and ordinary oven fries."
       },
       {
-        "step": "Roast, Stage One",
-        "detail": "Pull the hot pan, add the potatoes in a single layer with visible gaps between pieces, and return to the 450 F oven. Roast 10 minutes untouched. Crowding parks the surface at 212 F and it will never brown; two pans beat one crowded pan every time."
-      },
-      {
-        "step": "Drop the Heat",
-        "detail": "Drop the oven to 425 F and leave the potatoes alone. Ten minutes at 450 F is all it takes to set the crust; everything after that is driving moisture out of the interiors, and 425 F does that without the set crust going too dark over a 45- to 50-minute roast."
+        "step": "Roast Hot, Then Drop",
+        "detail": "Pull the hot pan, spread the potatoes in a single layer with gaps between pieces, and roast 10 minutes untouched. Then drop the oven to 425°F without opening the door.",
+        "why": "Crowded potatoes steam at 212°F and never brown, so use two pans rather than one crowded one. Ten minutes at 450°F sets the crust; 425°F dries the centers over the long roast without taking the crust too dark."
       },
       {
         "step": "First Flip",
-        "detail": "At the 25-minute mark of total roasting time, flip with a thin metal spatula and tuck the onion wedges (1 large) into the gaps. Rotate the pan 180 degrees. Do not flip earlier - an unset crust tears and sticks, while a set crust releases on its own. The rotation covers your oven's hot spot."
+        "detail": "At 25 minutes of total roasting, flip with a thin metal spatula, tuck the onion wedges (1 large) into the gaps, and rotate the pan.",
+        "why": "A set crust releases on its own. Flip earlier and it tears and sticks."
       },
       {
         "step": "Finish",
-        "detail": "Roast 20 to 25 minutes more, until the potatoes are deep brown with crackled edges and the onion is soft and browned at the tips. Total roasting time 45 to 50 minutes. Use convection if you have it; moving air is the right call whenever drying the surface is the goal."
+        "detail": "Roast 20 to 25 minutes more, until the potatoes are deep brown with crackled edges and the onion is soft and browned at the tips (45 to 50 minutes total). Use convection if you have it."
       },
       {
         "step": "Dress Off the Heat",
-        "detail": "Turn out into a warm bowl, add rice vinegar (1 Tbsp), toss once, then scatter the scallion greens (3) and flaky salt (½ tsp). Serve immediately. Vinegar on the sheet pan would steam the crust; in the bowl it flashes off the hot surfaces and leaves the sharpness behind."
+        "detail": "Turn out into a warm bowl, add the rice vinegar (1 Tbsp), toss once, then scatter the scallion greens (3) and flaky salt (½ tsp). Serve immediately.",
+        "why": "Vinegar on the sheet pan would steam the crust. In the bowl it flashes off the hot surfaces and leaves the sharpness behind."
       }
     ],
     "is_blank": false,
@@ -5614,12 +5714,16 @@
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "Scant ¾ cup mayonnaise (or vegan mayo)"
+        "type": "header",
+        "text": "Dressing:"
       },
       {
         "type": "item",
-        "text": "2 Tbsp apple cider vinegar"
+        "text": "⅔ cup mayonnaise (or vegan mayo)"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp apple cider vinegar"
       },
       {
         "type": "item",
@@ -5635,7 +5739,7 @@
       },
       {
         "type": "item",
-        "text": "¼ tsp sea salt"
+        "text": "½ tsp table salt"
       },
       {
         "type": "item",
@@ -5647,26 +5751,45 @@
       },
       {
         "type": "item",
-        "text": "Freshly ground black pepper, to taste"
+        "text": "¼ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Slaw:"
+      },
+      {
+        "type": "item",
+        "text": "1 bag (14 to 16 oz) coleslaw mix, about 7 cups"
       }
     ],
     "instructions": [
       {
+        "step": "Build the Base",
+        "detail": "In a large bowl, whisk the apple cider vinegar (3 Tbsp), maple syrup (1 Tbsp), table salt (½ tsp), garlic powder (1 tsp), onion powder (1 tsp), celery seeds (¾ tsp), and black pepper (¼ tsp). Let it sit 5 minutes.",
+        "why": "The salt dissolves and the dried garlic and onion soften in the vinegar. Stirred straight into mayo they stay gritty and spread unevenly."
+      },
+      {
         "step": "Mix Dressing",
-        "detail": "Whisk together the mayo (scant ¾ cup), apple cider vinegar (2 Tbsp), Dijon mustard (1 Tbsp), maple syrup (1 Tbsp), celery seeds (¾ tsp), salt (¼ tsp), garlic powder (1 tsp), onion powder (1 tsp), and black pepper to taste until smooth."
+        "detail": "Whisk in the mayo (⅔ cup) and Dijon mustard (1 Tbsp) until smooth."
       },
       {
         "step": "Dress Coleslaw",
-        "detail": "Pour dressing over 6-8 cups coleslaw mix (1 standard store bag). Toss to coat evenly."
+        "detail": "Add the coleslaw mix (1 bag) and toss until every shred is coated."
       },
       {
         "step": "Rest",
-        "detail": "Refrigerate for 1-4 hours, stirring occasionally, to let flavors develop."
+        "detail": "Refrigerate 1 to 4 hours, stirring once or twice.",
+        "why": "Salt and sugar pull water out of the cabbage, which softens it and thins the dressing. An hour lets the flavors come together; much past 4 hours it turns watery."
       },
       {
-        "step": "Serve Cold",
-        "detail": "Keep refrigerated until ready to serve."
+        "step": "Taste and Adjust",
+        "detail": "Stir and taste before serving. Add a splash of vinegar if it tastes flat or heavy, or a pinch of salt if it tastes sharp.",
+        "why": "Cold dulls flavor and the cabbage's water has diluted the dressing, so check it after the rest. Acid fixes flat; salt softens sour."
       }
+    ],
+    "notes": [
+      "To hold slaw longer than 4 hours without it going watery, toss the coleslaw mix with 1 tsp table salt in a colander, let it drain 1 hour, then squeeze it dry and cut the dressing's salt to a pinch.",
+      "The dressing keeps up to a week, covered, in the fridge."
     ],
     "is_blank": false,
     "description": "A creamy coleslaw dressing of mayo, cider vinegar, Dijon and maple syrup with celery seed.",
@@ -5682,7 +5805,7 @@
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked",
+      "#no-bake",
       "#protein"
     ],
     "ingredients": [
@@ -5704,17 +5827,18 @@
       },
       {
         "type": "item",
-        "text": "1½ Tbsp Greek yogurt"
+        "text": "1 to 2 Tbsp Greek yogurt, as needed"
       },
       {
         "type": "item",
-        "text": "¼ tsp salt (skip if using salted peanut butter)"
+        "text": "¼ tsp table salt (skip if using salted peanut butter)"
       }
     ],
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine the protein powder (¾ cup), oat or almond flour (½ cup), peanut or almond butter (⅓ cup), maple syrup or honey (3 Tbsp), Greek yogurt (1½ Tbsp), and salt (¼ tsp, skip if using salted peanut butter) in a bowl until a dough forms."
+        "detail": "Combine the protein powder (¾ cup), oat or almond flour (½ cup), peanut or almond butter (⅓ cup), maple syrup or honey (3 Tbsp), and table salt (¼ tsp, skip if using salted peanut butter). Add the Greek yogurt 1 Tbsp at a time, up to 2 Tbsp, until a dough forms that holds when squeezed.",
+        "why": "Protein powders soak up very different amounts of liquid by brand, so the yogurt goes by feel."
       },
       {
         "step": "Roll",
@@ -5722,7 +5846,7 @@
       },
       {
         "step": "Chill",
-        "detail": "Refrigerate for 30 minutes before serving."
+        "detail": "Refrigerate for 30 minutes before serving. Store covered in the fridge."
       }
     ],
     "is_blank": false,
@@ -5739,13 +5863,17 @@
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked",
+      "#no-bake",
       "#protein"
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Protein balls"
+      },
+      {
         "type": "item",
-        "text": "5 Tbsp nut butter"
+        "text": "⅓ cup nut butter"
       },
       {
         "type": "item",
@@ -5757,7 +5885,7 @@
       },
       {
         "type": "item",
-        "text": "1½ scoops vanilla protein powder"
+        "text": "½ cup vanilla protein powder (about 1½ scoops)"
       },
       {
         "type": "item",
@@ -5777,17 +5905,18 @@
       },
       {
         "type": "item",
-        "text": "Chocolate chips, nuts, or dried fruit (optional)"
+        "text": "¼ cup chocolate chips, chopped nuts or dried fruit (optional)"
       }
     ],
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine the nut butter (5 Tbsp), brown rice syrup or honey (2 Tbsp), Greek yogurt (2 Tbsp), vanilla protein powder (1½ scoops), melted butter (1 Tbsp), vanilla extract (1 tsp), brown sugar substitute (1 Tbsp), rolled oats (1 cup), and any chocolate chips, nuts, or dried fruit in a bowl until a dough forms."
+        "detail": "Combine the nut butter (⅓ cup), brown rice syrup or honey (2 Tbsp), Greek yogurt (2 Tbsp), vanilla protein powder (½ cup), melted butter (1 Tbsp), vanilla extract (1 tsp), brown sugar substitute (1 Tbsp), rolled oats (1 cup), and the chocolate chips, nuts or dried fruit (¼ cup), if using, in a bowl until a dough forms."
       },
       {
         "step": "Roll & Chill",
-        "detail": "Roll into balls and refrigerate until firm."
+        "detail": "Roll into 1-inch balls and refrigerate until firm. Store covered in the fridge.",
+        "why": "The melted butter sets solid again as it cools and the nut butter stiffens with it; that is what holds the oats together."
       }
     ],
     "is_blank": false,
@@ -5804,10 +5933,14 @@
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked",
+      "#no-bake",
       "#protein"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "Protein balls"
+      },
       {
         "type": "item",
         "text": "1½ cups whole rolled oats"
@@ -5826,7 +5959,7 @@
       },
       {
         "type": "item",
-        "text": "2 scoops protein powder (¼ cup unflavored)"
+        "text": "⅔ cup protein powder (about 2 scoops)"
       },
       {
         "type": "item",
@@ -5834,21 +5967,26 @@
       },
       {
         "type": "item",
-        "text": "6 Tbsp mini chocolate chips"
+        "text": "⅓ cup mini chocolate chips"
       },
       {
         "type": "item",
-        "text": "¼ cup shredded coconut (optional - note: makes them dry)"
+        "text": "¼ cup shredded coconut (optional; makes them drier)"
+      },
+      {
+        "type": "item",
+        "text": "1 to 2 Tbsp water, only if needed"
       }
     ],
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Combine the rolled oats (1½ cups), peanut butter (1 cup), ground flaxseed (¼ cup), honey (¼ cup), protein powder (2 scoops, ¼ cup unflavored), vanilla extract (1 tsp), mini chocolate chips (6 Tbsp), and shredded coconut (¼ cup, optional). If the mixture is too dry, add a splash of water."
+        "detail": "Combine the rolled oats (1½ cups), peanut butter (1 cup), ground flaxseed (¼ cup), honey (¼ cup), protein powder (⅔ cup), vanilla extract (1 tsp), mini chocolate chips (⅓ cup), and shredded coconut (¼ cup), if using. If the mixture is too dry to hold together, add water 1 Tbsp at a time, up to 2 Tbsp."
       },
       {
         "step": "Chill",
-        "detail": "Refrigerate for 30 minutes. Roll into 1-inch balls. Store at room temperature (shelf stable)."
+        "detail": "Refrigerate for 30 minutes before rolling. Roll into 1-inch balls. Store airtight at room temperature, or in the fridge if you added water.",
+        "why": "The ground flax keeps soaking up moisture into a sticky gel and the peanut butter firms as it cools, so the mix rolls clean instead of smearing."
       }
     ],
     "is_blank": false,
@@ -5865,7 +6003,7 @@
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked",
+      "#no-bake",
       "#protein"
     ],
     "ingredients": [
@@ -5879,7 +6017,7 @@
       },
       {
         "type": "item",
-        "text": "1 cup vanilla or unflavored protein powder"
+        "text": "1 cup vanilla or unflavored protein powder, plus more as needed"
       },
       {
         "type": "item",
@@ -5887,7 +6025,7 @@
       },
       {
         "type": "item",
-        "text": "1-2 Tbsp honey or maple syrup"
+        "text": "1 to 2 Tbsp honey or maple syrup"
       },
       {
         "type": "item",
@@ -5895,11 +6033,11 @@
       },
       {
         "type": "item",
-        "text": "Pinch of salt"
+        "text": "Pinch of table salt"
       },
       {
         "type": "header",
-        "text": "Optional Mix-Ins"
+        "text": "Optional Mix-Ins (up to ½ cup total)"
       },
       {
         "type": "item",
@@ -5921,15 +6059,16 @@
     "instructions": [
       {
         "step": "Mix",
-        "detail": "Blend the cottage cheese (1 cup) until smooth. Combine it with the protein powder (1 cup), nut butter (2 Tbsp), honey or maple syrup (1-2 Tbsp), vanilla extract (1 tsp, optional), and salt (pinch)."
+        "detail": "Blend the cottage cheese (1 cup) until smooth. Combine it with the protein powder (1 cup), nut butter (2 Tbsp), honey or maple syrup (1 to 2 Tbsp), vanilla extract (1 tsp, optional), and table salt (pinch). If the mix is too soft to roll, add more protein powder 1 Tbsp at a time.",
+        "why": "Whole curds don't break down in a stirred mix and leave wet lumps. Protein powders absorb very different amounts by brand, so the last of it goes by feel."
       },
       {
         "step": "Add Mix-Ins",
-        "detail": "Fold in any optional mix-ins."
+        "detail": "Fold in up to ½ cup of mix-ins, if using."
       },
       {
         "step": "Roll & Chill",
-        "detail": "Roll into balls and refrigerate until firm."
+        "detail": "Roll into 1-inch balls and refrigerate until firm. Keep them in the fridge, and do not leave them out more than 2 hours."
       }
     ],
     "is_blank": false,
@@ -5940,19 +6079,23 @@
   },
   {
     "id": "protein-balls-5",
-    "name": "Almond Butter Greek Yogurt Protein Balls",
+    "name": "Peanut Butter Greek Yogurt Protein Balls",
     "section": "SNACKS",
     "category": "Snacks",
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked",
+      "#no-bake",
       "#protein"
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Protein balls"
+      },
+      {
         "type": "item",
-        "text": "1 cup almond butter"
+        "text": "1 cup creamy peanut butter"
       },
       {
         "type": "item",
@@ -5984,21 +6127,22 @@
       },
       {
         "type": "item",
-        "text": "A splash of water if needed"
+        "text": "1 to 2 Tbsp water, only if needed"
       }
     ],
     "instructions": [
       {
         "step": "Mix & Roll",
-        "detail": "Combine the almond butter (1 cup), Greek yogurt (½ cup), rolled oats (1 cup), ground flax seeds (¼ cup), shredded coconut (⅓ cup), mini chocolate chips (¼ cup), honey or maple syrup (1 Tbsp), and vanilla extract (1 tsp). Roll into 1-inch balls, adding a splash of water if the mixture is too dry."
+        "detail": "Combine the peanut butter (1 cup), Greek yogurt (½ cup), rolled oats (1 cup), ground flax seeds (¼ cup), shredded coconut (⅓ cup), mini chocolate chips (¼ cup), honey or maple syrup (1 Tbsp), and vanilla extract (1 tsp). Let the mixture sit 5 minutes, then roll into 1-inch balls, adding water 1 Tbsp at a time, up to 2 Tbsp, only if it is still too dry.",
+        "why": "Ground flax takes 5 to 10 minutes to turn into its binding gel, so the mix looks drier straight from the bowl than it will be."
       },
       {
         "step": "Chill",
-        "detail": "Refrigerate until firm."
+        "detail": "Refrigerate until firm. Store covered in the fridge."
       }
     ],
     "is_blank": false,
-    "description": "No-bake balls of almond butter, Greek yogurt, oats, flax and coconut with mini chocolate chips.",
+    "description": "No-bake balls of peanut butter, Greek yogurt, oats, flax and coconut with mini chocolate chips.",
     "prepTime": "PT15M",
     "cookTime": "PT0M",
     "recipeYield": "about 24 balls"
@@ -6011,17 +6155,21 @@
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked",
+      "#no-bake",
       "#protein"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "Protein balls"
+      },
       {
         "type": "item",
         "text": "1 cup rolled oats (gluten-free if desired)"
       },
       {
         "type": "item",
-        "text": "2 scoops vanilla protein powder"
+        "text": "⅔ cup vanilla protein powder (about 2 scoops)"
       },
       {
         "type": "item",
@@ -6051,11 +6199,12 @@
     "instructions": [
       {
         "step": "Mix & Roll",
-        "detail": "Combine the rolled oats (1 cup), vanilla protein powder (2 scoops), pumpkin pie spice (1 tsp), almond butter (½ cup), pumpkin puree (⅓ cup), honey or maple syrup (¼ cup), dried cranberries (2 Tbsp), and mini chocolate chips (2 Tbsp). Roll into 1-inch balls."
+        "detail": "Combine the rolled oats (1 cup), vanilla protein powder (⅔ cup), pumpkin pie spice (1 tsp), almond butter (½ cup), pumpkin puree (⅓ cup), honey or maple syrup (¼ cup), dried cranberries (2 Tbsp), and mini chocolate chips (2 Tbsp). Roll into 1-inch balls."
       },
       {
         "step": "Chill",
-        "detail": "Refrigerate for at least 30 minutes before serving."
+        "detail": "Refrigerate for at least 30 minutes before serving. Store covered in the fridge.",
+        "why": "The oats keep soaking up the pumpkin's moisture and the almond butter firms as it cools, so the balls hold their shape."
       }
     ],
     "is_blank": false,
@@ -6072,10 +6221,14 @@
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked",
+      "#no-bake",
       "#protein"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "Protein balls"
+      },
       {
         "type": "item",
         "text": "1¼ cups old-fashioned rolled oats"
@@ -6114,13 +6267,14 @@
       },
       {
         "type": "item",
-        "text": "⅛ tsp salt"
+        "text": "Pinch of table salt"
       }
     ],
     "instructions": [
       {
         "step": "Mix, Chill and Roll",
-        "detail": "Combine the rolled oats (1¼ cups), peanut butter (⅔ cup), vanilla protein powder (½ cup), pumpkin puree (¼ cup), mini chocolate chips (¼ cup), dried cranberries (¼ cup), maple syrup or honey (3 Tbsp), ground flaxseed (1 Tbsp), pumpkin pie spice (2 tsp), and salt (⅛ tsp). Chill the dough for 15 minutes. Roll into 1-inch balls. Refrigerate until firm."
+        "detail": "Combine the rolled oats (1¼ cups), peanut butter (⅔ cup), vanilla protein powder (½ cup), pumpkin puree (¼ cup), mini chocolate chips (¼ cup), dried cranberries (¼ cup), maple syrup or honey (3 Tbsp), ground flaxseed (1 Tbsp), pumpkin pie spice (2 tsp), and table salt (pinch). Chill the dough for 15 minutes before rolling. Roll into 1-inch balls and refrigerate until firm. Store covered in the fridge.",
+        "why": "In 15 minutes the flax and oats take up the pumpkin's moisture and the peanut butter firms, so the dough rolls instead of smearing."
       }
     ],
     "is_blank": false,
@@ -6141,12 +6295,16 @@
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Brownies"
+      },
+      {
         "type": "item",
         "text": "1 cup Greek yogurt"
       },
       {
         "type": "item",
-        "text": "1 egg"
+        "text": "1 large egg"
       },
       {
         "type": "item",
@@ -6159,12 +6317,20 @@
       {
         "type": "item",
         "text": "⅓ cup coconut sugar or granulated sweetener of choice"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup chocolate chips (optional)"
+      },
+      {
+        "type": "item",
+        "text": "Flaky sea salt, for the top"
       }
     ],
     "instructions": [
       {
         "step": "Preheat & Prep",
-        "detail": "Preheat oven to 350°F and line a pan with parchment paper."
+        "detail": "Preheat oven to 350°F and line an 8-inch square pan with parchment paper."
       },
       {
         "step": "Mix",
@@ -6172,11 +6338,12 @@
       },
       {
         "step": "Bake",
-        "detail": "Transfer to baking pan and spread evenly. Optionally top with chocolate chips. Bake for 20-25 minutes until firm and slightly risen."
+        "detail": "Transfer to the pan and spread evenly. Top with the chocolate chips (¼ cup), if using. Bake 20-25 minutes, until the top is firm and a toothpick pushed into the center comes out with moist crumbs but no wet batter."
       },
       {
         "step": "Cool & Serve",
-        "detail": "Let cool completely. Top with flaky sea salt and enjoy."
+        "detail": "Let cool completely in the pan before cutting into 9 squares. Top with flaky sea salt. Store covered in the fridge.",
+        "why": "The slab finishes setting as it cools and tears if you cut it warm."
       }
     ],
     "is_blank": false,
@@ -6193,9 +6360,13 @@
     "source": "Original",
     "tags": [
       "#snack",
-      "#baked"
+      "#no-bake"
     ],
     "ingredients": [
+      {
+        "type": "header",
+        "text": "Cookie dough"
+      },
       {
         "type": "item",
         "text": "½ cup Greek yogurt (plain or vanilla)"
@@ -6224,11 +6395,11 @@
     "instructions": [
       {
         "step": "Mix Wet Ingredients",
-        "detail": "Mix Greek yogurt (½ cup), peanut butter (2 Tbsp), honey (1 Tbsp), and vanilla (½ tsp) in a bowl until well combined."
+        "detail": "Mix the Greek yogurt (½ cup), peanut or almond butter (2 Tbsp), honey or maple syrup (1 Tbsp), and vanilla (½ tsp) in a bowl until well combined."
       },
       {
         "step": "Add Flour",
-        "detail": "Add oat flour (¼ cup) and stir until a dough forms."
+        "detail": "Add the oat or almond flour (¼ cup) and stir until a dough forms."
       },
       {
         "step": "Add Chocolate Chips",
@@ -6246,6 +6417,9 @@
         "step": "Serve",
         "detail": "Enjoy chilled. Store leftovers in an airtight container in the fridge for up to 3 days."
       }
+    ],
+    "notes": [
+      "Raw flour is not a ready-to-eat food. To be safe, heat-treat the oat flour first: spread it on a sheet pan and bake at 350°F for 5 minutes, then cool. Almond flour carries the same caution."
     ],
     "is_blank": false,
     "description": "Edible cookie dough of Greek yogurt, nut butter, oat flour and chocolate chips.",
@@ -6534,16 +6708,28 @@
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "½ cup Greek yogurt, plain"
+        "type": "header",
+        "text": "Marinade"
       },
       {
         "type": "item",
-        "text": "1 jalapeño, seeds removed"
+        "text": "½ cup plain Greek yogurt"
       },
       {
         "type": "item",
-        "text": "⅓ cup cilantro"
+        "text": "1 jalapeño, seeded"
+      },
+      {
+        "type": "item",
+        "text": "½ cup fresh cilantro, leaves and tender stems"
+      },
+      {
+        "type": "item",
+        "text": "3 cloves garlic"
+      },
+      {
+        "type": "item",
+        "text": "1 lime, zested and juiced (about 2 Tbsp juice)"
       },
       {
         "type": "item",
@@ -6551,29 +6737,35 @@
       },
       {
         "type": "item",
-        "text": "Juice of 1 lime"
-      },
-      {
-        "type": "item",
         "text": "1 Tbsp olive oil"
       },
       {
         "type": "item",
-        "text": "1 clove garlic"
+        "text": "1 tsp table salt"
       },
       {
         "type": "item",
-        "text": "Salt and pepper"
+        "text": "¼ tsp black pepper"
       }
     ],
     "instructions": [
       {
-        "step": "Blend & Marinate",
-        "detail": "Blend the Greek yogurt (½ cup), jalapeño (1, seeds removed), cilantro (⅓ cup), honey (1 Tbsp), lime juice (1 lime), olive oil (1 Tbsp), garlic (1 clove), and salt and pepper together. Coat the chicken (1½ lb) and marinate for at least 1-2 hours before cooking."
+        "step": "Blend",
+        "detail": "Blend the Greek yogurt (½ cup), jalapeño (1), cilantro (½ cup), garlic (3 cloves), lime zest and juice (1 lime), honey (1 Tbsp), olive oil (1 Tbsp), table salt (1 tsp), and black pepper (¼ tsp) until smooth."
+      },
+      {
+        "step": "Marinate",
+        "detail": "Coat the chicken (1½ lb) and refrigerate 2 to 8 hours.",
+        "why": "The salt needs a couple of hours to work into the meat; less only seasons the surface. Past 8 hours the lime juice starts turning the surface mushy."
+      },
+      {
+        "step": "Cook",
+        "detail": "Wipe off the excess marinade, then grill, sear, or bake.",
+        "why": "Honey and yogurt scorch and flare on high heat before the chicken is cooked through."
       }
     ],
     "is_blank": false,
-    "description": "A blended Greek yogurt marinade for chicken with jalapeño, cilantro, lime, honey and garlic.",
+    "description": "A blended Greek yogurt marinade for chicken with garlic, lime, jalapeño, cilantro and a touch of honey.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
     "recipeYield": "enough for 1½ lb chicken"
@@ -6590,12 +6782,16 @@
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Marinade"
+      },
+      {
         "type": "item",
         "text": "¼ cup Dijon mustard"
       },
       {
         "type": "item",
-        "text": "2 Tbsp maple syrup"
+        "text": "2 Tbsp pure maple syrup"
       },
       {
         "type": "item",
@@ -6616,16 +6812,35 @@
       {
         "type": "item",
         "text": "½ tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
       }
     ],
     "instructions": [
       {
-        "step": "Mix & Marinate",
-        "detail": "Whisk the Dijon mustard (¼ cup), maple syrup (2 Tbsp), olive oil (1 Tbsp), apple cider vinegar (1 Tbsp), garlic powder (1 tsp), paprika (½ tsp), and cayenne (½ tsp) together. Coat the chicken (1½ lb) and marinate for at least 1 hour before cooking."
+        "step": "Mix",
+        "detail": "Whisk the Dijon mustard (¼ cup), maple syrup (2 Tbsp), olive oil (1 Tbsp), apple cider vinegar (1 Tbsp), garlic powder (1 tsp), paprika (½ tsp), cayenne (½ tsp), table salt (½ tsp), and black pepper (¼ tsp) until smooth. Set aside 2 Tbsp for glazing.",
+        "why": "The mustard emulsifies the oil and vinegar, so the marinade clings in an even coat instead of separating. The glaze comes out before raw chicken touches the rest."
+      },
+      {
+        "step": "Marinate",
+        "detail": "Coat the chicken (1½ lb) with the rest and refrigerate 1 to 8 hours.",
+        "why": "Mustard and vinegar make this acidic; past 8 hours the surface of the chicken goes soft and mealy."
+      },
+      {
+        "step": "Cook",
+        "detail": "Wipe off the excess marinade, then grill, sear, or bake. Brush on the reserved glaze (2 Tbsp) in the last few minutes.",
+        "why": "Maple syrup scorches and flares on a hot grill before the chicken is done, so the sugar goes on at the end."
       }
     ],
     "is_blank": false,
-    "description": "A Dijon and maple syrup chicken marinade with cider vinegar, paprika and cayenne heat.",
+    "description": "A Dijon and maple syrup chicken marinade with cider vinegar, paprika and cayenne heat, plus a little held back to glaze.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
     "recipeYield": "enough for 1½ lb chicken"
@@ -6642,12 +6857,16 @@
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "½ cup Greek yogurt"
+        "type": "header",
+        "text": "Marinade"
       },
       {
         "type": "item",
-        "text": "2 Tbsp lemon juice"
+        "text": "½ cup plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "1 lemon, zested and juiced (about 2 Tbsp juice)"
       },
       {
         "type": "item",
@@ -6655,15 +6874,15 @@
       },
       {
         "type": "item",
-        "text": "2 cloves garlic"
+        "text": "2 cloves garlic, grated or minced"
       },
       {
         "type": "item",
-        "text": "1 Tbsp parsley"
+        "text": "2 Tbsp chopped fresh parsley"
       },
       {
         "type": "item",
-        "text": "1 tsp oregano"
+        "text": "1 tsp dried oregano"
       },
       {
         "type": "item",
@@ -6671,13 +6890,27 @@
       },
       {
         "type": "item",
-        "text": "Salt and pepper to taste"
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
       }
     ],
     "instructions": [
       {
-        "step": "Mix & Marinate",
-        "detail": "Whisk the Greek yogurt (½ cup), lemon juice (2 Tbsp), olive oil (1 Tbsp), garlic (2 cloves), parsley (1 Tbsp), oregano (1 tsp), onion powder (1 tsp), and salt and pepper to taste together. Coat the chicken (1½ lb) and marinate for at least 1 hour before cooking."
+        "step": "Mix",
+        "detail": "Whisk the Greek yogurt (½ cup), lemon zest and juice (1 lemon), olive oil (1 Tbsp), garlic (2 cloves, grated or minced), parsley (2 Tbsp), oregano (1 tsp), onion powder (1 tsp), table salt (1 tsp), and black pepper (¼ tsp)."
+      },
+      {
+        "step": "Marinate",
+        "detail": "Coat the chicken (1½ lb) and refrigerate 2 to 8 hours.",
+        "why": "Yogurt's lactic acid is mild and tenderizes gently; the lemon juice is what sets the 8-hour cap before the surface turns mushy. The salt needs a couple of hours to work in."
+      },
+      {
+        "step": "Cook",
+        "detail": "Wipe off the excess marinade, then grill, sear, or bake.",
+        "why": "A thick coat of yogurt scorches before the chicken is cooked through."
       }
     ],
     "is_blank": false,
@@ -6714,30 +6947,52 @@
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Velveting marinade"
+      },
+      {
+        "type": "item",
+        "text": "1 egg white"
+      },
+      {
         "type": "item",
         "text": "1 Tbsp soy sauce"
       },
       {
         "type": "item",
-        "text": "1 Tbsp water"
+        "text": "1 tsp cooking sherry or Shaoxing wine"
       },
       {
         "type": "item",
-        "text": "½ egg white"
+        "text": "¼ tsp table salt"
       },
       {
         "type": "item",
         "text": "2 Tbsp cornstarch"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp neutral oil"
       }
     ],
     "instructions": [
       {
-        "step": "Mix & Marinate",
-        "detail": "Combine the soy sauce (1 Tbsp), water (1 Tbsp), egg white (½), and cornstarch (2 Tbsp). Toss with sliced chicken (1 lb) and marinate for 15-30 minutes before stir-frying (velveting technique)."
+        "step": "Coat",
+        "detail": "Whisk the egg white (1), soy sauce (1 Tbsp), cooking sherry (1 tsp), table salt (¼ tsp), and cornstarch (2 Tbsp) until smooth. Toss in the chicken (1 lb, sliced thin against the grain) until coated, then stir in the oil (2 tsp). Refrigerate 30 minutes.",
+        "why": "The egg white and cornstarch make a coating that sets on contact with heat and holds the chicken's moisture in. The oil goes in last to keep the pieces from sticking together."
+      },
+      {
+        "step": "Blanch",
+        "detail": "Bring a pot of water to a simmer, then lower the heat until it stops bubbling (about 175°F). Add the chicken, separating the pieces as they go in, and cook 45 to 60 seconds, until the coating turns opaque. Drain well.",
+        "why": "Setting the coating first keeps it from gluing the pieces into one mass in the wok, and it is what gives velveted chicken its silky texture."
+      },
+      {
+        "step": "Stir-Fry",
+        "detail": "Add the chicken back near the end of the stir-fry and cook with the sauce until cooked through, 1 to 2 minutes."
       }
     ],
     "is_blank": false,
-    "description": "A simple velveting marinade of soy sauce, egg white and cornstarch for tender stir-fried chicken.",
+    "description": "A Cantonese-style velveting marinade of egg white, cornstarch and soy sauce, with a quick water blanch, for silky stir-fried chicken.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
     "recipeYield": "enough for 1 lb chicken"
@@ -6823,25 +7078,24 @@
     ],
     "instructions": [
       {
-        "step": "Load The Cup",
-        "detail": "Makes one full 18-oz Magic Bullet cup, about 16 oz of smoothie - one serving. Drop the baby spinach (1 cup, loosely packed) into the cup first; it collapses to almost nothing. Add the frozen strawberries (½ cup), frozen blueberries (¼ cup), and frozen banana (1 whole, broken into 3 or 4 pieces). Skip ice entirely - the banana and the frozen fruit already carry the chill, and ice on top of them overfills the cup and waters the result down."
+        "step": "Load the Cup",
+        "detail": "Drop the baby spinach (1 cup, loosely packed) into an 18-oz Magic Bullet cup first. Add the frozen strawberries (½ cup), frozen blueberries (¼ cup), and frozen banana (1 whole, broken into 3 or 4 pieces). Skip the ice.",
+        "why": "The spinach collapses to almost nothing. The banana and frozen fruit already carry the chill, and ice on top of them overfills the cup and waters the result down."
       },
       {
-        "step": "Add The Rest",
-        "detail": "Add the Greek yogurt (⅓ cup), peanut butter (1 heaping Tbsp), ground flaxseed (1 Tbsp), and fresh ginger (½-inch piece, peeled and sliced thin, or ¼ tsp ground). Pour the whole milk (½ cup) in LAST. The Magic Bullet cup inverts onto its blade, so whatever goes in last sits against the blade - a blade spinning in liquid throws a vortex that pulls the frozen fruit down into it, while a blade buried in frozen fruit just cavitates and stalls."
+        "step": "Add the Rest",
+        "detail": "Add the Greek yogurt (⅓ cup), peanut butter (1 heaping Tbsp), ground flaxseed (1 Tbsp), and fresh ginger (½-inch piece, peeled and sliced thin, or ¼ tsp ground). Pour the whole milk (½ cup) in last.",
+        "why": "The cup inverts onto its blade, so whatever goes in last sits against the blade. A blade spinning in liquid throws a vortex that pulls the frozen fruit down into it, while a blade buried in frozen fruit just cavitates and stalls."
       },
       {
-        "step": "Blend In Bursts",
-        "detail": "Screw on the blade, invert, and run in 15-second bursts, shaking the cup between each one, until smooth - about four bursts. If it stalls, add whole milk 2 Tbsp at a time rather than running the motor longer; the Magic Bullet's motor overheats before it wins an argument with frozen fruit. Never fill past the max line - the seal leaks under pressure."
-      },
-      {
-        "step": "Why It Works",
-        "detail": "Spinach carries non-heme iron, which absorbs poorly on its own but noticeably better alongside vitamin C - the strawberries (½ cup) are the biggest vitamin C contributor here, which is why they lead the fruit rather than the blueberries (¼ cup). Peanut butter (1 heaping Tbsp) and ground flaxseed (1 Tbsp) cover magnesium, and the Greek yogurt (⅓ cup) adds the protein that flattens the blood sugar spike a straight fruit smoothie gives you. Ginger (½-inch piece) is the anti-inflammatory note and cuts the flat sweetness of the banana. One tradeoff worth knowing: the calcium in the yogurt and milk does blunt iron absorption somewhat, so treat this as a magnesium-and-protein drink rather than an iron one."
-      },
-      {
-        "step": "Substitutions",
-        "detail": "Lower the lactose by swapping the whole milk (½ cup) for lactose-free milk or by cutting it to ¼ cup and loosening with water - the Greek yogurt (⅓ cup) is already strained and low in lactose, so the milk is where most of it sits. Mango (¼ cup frozen) can stand in for the blueberries (¼ cup) but pushes the drink sweeter and drops the vitamin C. Unsweetened cocoa powder (1 Tbsp) adds magnesium and pairs with the peanut butter (1 heaping Tbsp), but fights the berries - use it only if you drop the strawberries (½ cup) and blueberries (¼ cup) and lean on the banana."
+        "step": "Blend in Bursts",
+        "detail": "Screw on the blade, invert, and run in 15-second bursts, shaking the cup between each one, until smooth, about four bursts. If it stalls, add whole milk 2 Tbsp at a time. Never fill past the max line.",
+        "why": "The Magic Bullet's motor overheats before it wins an argument with frozen fruit, and the seal leaks under pressure when the cup is overfilled."
       }
+    ],
+    "notes": [
+      "Spinach carries non-heme iron, which absorbs poorly on its own but noticeably better alongside vitamin C - the strawberries (½ cup) are the biggest vitamin C contributor here, which is why they lead the fruit rather than the blueberries (¼ cup). Peanut butter (1 heaping Tbsp) and ground flaxseed (1 Tbsp) cover magnesium, and the Greek yogurt (⅓ cup) adds the protein that flattens the blood sugar spike a straight fruit smoothie gives you. Ginger (½-inch piece) adds heat and cuts the flat sweetness of the banana. One tradeoff worth knowing: the calcium in the yogurt and milk does blunt iron absorption somewhat, so treat this as a magnesium-and-protein drink rather than an iron one.",
+      "Lower the lactose by swapping the whole milk (½ cup) for lactose-free milk or by cutting it to ¼ cup and loosening with water - the Greek yogurt (⅓ cup) is already strained and low in lactose, so the milk is where most of it sits. Mango (¼ cup frozen) can stand in for the blueberries (¼ cup) but pushes the drink sweeter and drops the vitamin C. Unsweetened cocoa powder (1 Tbsp) adds magnesium and pairs with the peanut butter (1 heaping Tbsp), but fights the berries - use it only if you drop the strawberries (½ cup) and blueberries (¼ cup) and lean on the banana."
     ],
     "is_blank": false,
     "description": "A spinach, strawberry and blueberry smoothie with banana, Greek yogurt, peanut butter, flax and fresh ginger.",
@@ -6868,19 +7122,43 @@
     "name": "Tandoori - Chicken Marinade",
     "section": "MARINADES",
     "category": "Marinades",
-    "source": "BBC Good Food",
+    "source": "Original",
     "tags": [
       "#chicken",
       "#marinade"
     ],
     "ingredients": [
       {
+        "type": "header",
+        "text": "Chicken"
+      },
+      {
         "type": "item",
         "text": "2 lb chicken drumsticks"
       },
       {
+        "type": "header",
+        "text": "Marinade"
+      },
+      {
         "type": "item",
-        "text": "1 cup plain yogurt"
+        "text": "2 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp Kashmiri chili powder (or 1 tsp paprika plus a pinch of cayenne)"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 cup plain whole-milk yogurt"
       },
       {
         "type": "item",
@@ -6896,78 +7174,62 @@
       },
       {
         "type": "item",
-        "text": "1 tsp ground turmeric"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp kashmiri chili powder"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp ground cumin"
-      },
-      {
-        "type": "item",
-        "text": "1 tsp table salt"
-      },
-      {
-        "type": "item",
-        "text": "2 Tbsp vegetable oil"
+        "text": "1½ tsp table salt"
       }
     ],
     "instructions": [
       {
-        "type": "item",
-        "step": "Whisk yogurt (1 cup), lemon juice (2 Tbsp), garlic paste (1 Tbsp), ginger paste (1 Tbsp), turmeric (1 tsp), chili powder (1 tsp), cumin (1 tsp), salt (1 tsp), and oil (2 Tbsp).",
-        "detail": ""
+        "step": "Bloom the Spices",
+        "detail": "Heat the oil (2 Tbsp) in a small pan over medium until it shimmers. Add the turmeric (1 tsp), chili powder (1 tsp), and cumin (1 tsp) and stir 30 seconds, until fragrant. Pour into a bowl and let cool 5 minutes.",
+        "why": "Most of a spice's flavor dissolves in fat, not water. Thirty seconds in hot oil pulls it out and rounds off the raw, dusty edge that dry spices have in yogurt."
       },
       {
-        "type": "item",
-        "step": "Rub onto chicken (2 lb) and marinate 4-24 hours.",
-        "detail": ""
+        "step": "Mix",
+        "detail": "Whisk the yogurt (1 cup), lemon juice (2 Tbsp), garlic paste (1 Tbsp), ginger paste (1 Tbsp), and table salt (1½ tsp) into the spiced oil."
       },
       {
-        "type": "item",
-        "step": "Roast or grill until 165°F.",
-        "detail": ""
+        "step": "Slash and Marinate",
+        "detail": "Cut 2 or 3 deep slashes to the bone in each drumstick. Coat the chicken (2 lb) with the marinade, working it into the cuts, and refrigerate 4 to 12 hours.",
+        "why": "Salt takes time in proportion to thickness, so the slashes let it reach the meat by the bone. Past 12 hours the lemon juice starts turning the surface mushy."
+      },
+      {
+        "step": "Roast",
+        "detail": "Heat the oven to 425°F. Set the drumsticks on a rack over a foil-lined sheet pan and roast 35 to 40 minutes, turning once, until the thickest part reads 175°F. Broil 2 to 3 minutes for char.",
+        "why": "Dark meat is safe at 165°F but still rubbery there; it turns tender around 175°F. The rack keeps the undersides from stewing in the juices."
       }
     ],
     "is_blank": false,
-    "description": "Chicken drumsticks marinated in yogurt, lemon, garlic, ginger, turmeric and Kashmiri chili.",
+    "description": "Chicken drumsticks marinated in yogurt with bloomed turmeric, Kashmiri chili and cumin, garlic, ginger and lemon, then roasted and broiled.",
     "prepTime": "PT10M",
     "cookTime": "PT35M",
     "recipeYield": "4 servings"
   },
   {
     "id": "tandoori-chicken-marinade-serious-eats",
-    "name": "Tandoori - Chicken Marinade (Serious Eats)",
+    "name": "Tandoori - Chicken Thighs (Grilled)",
     "section": "MARINADES",
     "category": "Marinades",
-    "source": "Serious Eats",
+    "source": "Original",
     "tags": [
       "#chicken",
       "#marinade"
     ],
     "ingredients": [
       {
-        "type": "item",
-        "text": "2 lb chicken thighs, bone-in"
+        "type": "header",
+        "text": "Chicken"
       },
       {
         "type": "item",
-        "text": "1 cup Greek yogurt"
+        "text": "2 lb bone-in, skin-on chicken thighs"
+      },
+      {
+        "type": "header",
+        "text": "Marinade"
       },
       {
         "type": "item",
-        "text": "2 Tbsp lemon juice"
-      },
-      {
-        "type": "item",
-        "text": "4 cloves garlic, minced"
-      },
-      {
-        "type": "item",
-        "text": "1 Tbsp ginger, grated"
+        "text": "1 Tbsp neutral oil"
       },
       {
         "type": "item",
@@ -6983,32 +7245,52 @@
       },
       {
         "type": "item",
-        "text": "½ tsp cayenne pepper"
+        "text": "½ tsp cayenne"
       },
       {
         "type": "item",
-        "text": "1 tsp table salt"
+        "text": "1 cup plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp lemon juice"
+      },
+      {
+        "type": "item",
+        "text": "4 cloves garlic, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp grated fresh ginger"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp table salt"
       }
     ],
     "instructions": [
       {
-        "type": "item",
-        "step": "Mix yogurt (1 cup), lemon juice (2 Tbsp), garlic (from 4 cloves), ginger (1 Tbsp), garam masala (1 tsp), coriander (1 tsp), paprika (1 tsp), cayenne (½ tsp), and salt (1 tsp).",
-        "detail": ""
+        "step": "Bloom the Spices",
+        "detail": "Heat the oil (1 Tbsp) in a small pan over medium until it shimmers. Add the garam masala (1 tsp), coriander (1 tsp), paprika (1 tsp), and cayenne (½ tsp) and stir 30 seconds, until fragrant. Pour into a bowl and let cool 5 minutes.",
+        "why": "Most of a spice's flavor dissolves in fat, not water, so a short bloom in hot oil gets far more out of it than stirring it into yogurt."
       },
       {
-        "type": "item",
-        "step": "Coat chicken (2 lb) and refrigerate 4-12 hours.",
-        "detail": ""
+        "step": "Mix",
+        "detail": "Whisk the Greek yogurt (1 cup), lemon juice (2 Tbsp), garlic (4 cloves), ginger (1 Tbsp), and table salt (1½ tsp) into the spiced oil."
       },
       {
-        "type": "item",
-        "step": "Grill or bake until 165°F.",
-        "detail": ""
+        "step": "Slash and Marinate",
+        "detail": "Cut 2 deep slashes to the bone on the meaty side of each thigh. Coat the chicken (2 lb) with the marinade, working it into the cuts, and refrigerate 4 to 12 hours.",
+        "why": "The slashes shorten the distance the salt has to travel to the bone. Past 12 hours the lemon juice starts turning the surface mushy."
+      },
+      {
+        "step": "Grill",
+        "detail": "Set up a two-zone fire. Wipe off the excess marinade and set the thighs skin side up on the cool side, lid down, until the thickest part reads 170°F. Move them skin side down over the hot side for 2 to 3 minutes to crisp and char. Pull at 175 to 185°F.",
+        "why": "Yogurt and fat dripping onto the coals cause flare-ups, so the thighs cook through on the cool side and only see direct heat at the end. Thighs are safe at 165°F but turn tender in the high 170s."
       }
     ],
     "is_blank": false,
-    "description": "Bone-in chicken thighs in a Greek yogurt marinade with garam masala, coriander, paprika and cayenne.",
+    "description": "Bone-in chicken thighs in a Greek yogurt marinade with bloomed garam masala, coriander, paprika and cayenne, grilled over a two-zone fire.",
     "prepTime": "PT10M",
     "cookTime": "PT40M",
     "recipeYield": "4 servings"
