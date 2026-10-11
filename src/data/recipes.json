@@ -7824,5 +7824,163 @@
     "prepTime": "PT20M",
     "cookTime": "PT25M",
     "recipeYield": "4 servings"
+  },
+  {
+    "id": "california-burgers-special-sauce",
+    "name": "California Burgers with Special Sauce",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#beef",
+      "#burger",
+      "#avocado",
+      "#american"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Special sauce:"
+      },
+      {
+        "type": "item",
+        "text": "½ cup mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp ketchup"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp sweet pickle relish"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp yellow mustard"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp white vinegar"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp smoked paprika"
+      },
+      {
+        "type": "header",
+        "text": "Patties:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp neutral oil"
+      },
+      {
+        "type": "header",
+        "text": "Toppings and buns:"
+      },
+      {
+        "type": "item",
+        "text": "3 ripe avocados"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp lime juice (about 1 lime)"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp table salt, plus a pinch for the tomatoes"
+      },
+      {
+        "type": "item",
+        "text": "1 small red onion, sliced into thin rings"
+      },
+      {
+        "type": "item",
+        "text": "2 medium tomatoes, sliced ¼ inch thick"
+      },
+      {
+        "type": "item",
+        "text": "6 large leaves green leaf or iceberg lettuce"
+      },
+      {
+        "type": "item",
+        "text": "6 hamburger buns"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Special Sauce",
+        "detail": "Stir the mayonnaise (½ cup), ketchup (2 Tbsp), sweet pickle relish (2 Tbsp), yellow mustard (1 tsp), white vinegar (1 tsp), garlic powder (½ tsp), onion powder (½ tsp) and smoked paprika (½ tsp) together. Refrigerate at least 30 minutes, up to 3 days.",
+        "why": "The dried powders need the time to hydrate. Used right away, the sauce tastes thin and a little gritty."
+      },
+      {
+        "step": "Form Patties",
+        "detail": "Divide the ground beef (2 lb) into 6 portions of ⅓ lb. Shape each about 4½ inches across and ⅝ inch thick, and press a shallow dimple into the center with your thumb. Handle it as little as possible, do not salt it yet, and keep the patties cold until cooking.",
+        "why": "The patty shrinks to bun width as it cooks, and the dimple keeps it from doming as the edges tighten."
+      },
+      {
+        "step": "Onion",
+        "detail": "Soak the red onion rings (1 small onion) in ice water for 10 minutes, then drain and pat dry.",
+        "why": "The soak takes off the harsh raw bite and keeps the crunch."
+      },
+      {
+        "step": "Avocado",
+        "detail": "Mash the avocados (3) with the lime juice (1½ Tbsp) and table salt (¼ tsp), leaving it chunky. If it has to wait, press plastic wrap onto the surface.",
+        "why": "Mashed avocado stays on the burger where slices slide off, and the lime slows browning."
+      },
+      {
+        "step": "Tomato and Lettuce",
+        "detail": "Season the tomato slices (2 tomatoes) with a pinch of table salt. Wash and dry the lettuce (6 leaves)."
+      },
+      {
+        "step": "Preheat",
+        "detail": "Heat a 12-inch cast-iron skillet over medium-high for 8 to 10 minutes, then add the neutral oil (1 tsp).",
+        "why": "Cast iron needs that long to reach 400 to 450°F across the whole pan. A cooler spot steams the meat instead of searing it."
+      },
+      {
+        "step": "Sear",
+        "detail": "Right before cooking, season both sides of the patties with the table salt (1 tsp total) and black pepper (1 tsp total). Cook 3 at a time, dimple side up, 4 minutes without moving them, until a deep brown crust forms. Flip and cook 3 to 4 minutes more, to 160°F in the center, without pressing. Set aside under loose foil and repeat with the other 3.",
+        "why": "Salt mixed into ground beef ahead of time dissolves its proteins and turns the texture springy, like sausage. Salting the surface at the pan avoids that. 160°F is the USDA minimum for ground beef."
+      },
+      {
+        "step": "Toast Buns",
+        "detail": "Pour off all but about 1 Tbsp of the rendered fat and turn the heat to medium. Toast the hamburger buns (6) cut side down 45 to 60 seconds, until golden, in batches.",
+        "why": "A toasted cut face holds up against the meat juice and the avocado."
+      },
+      {
+        "step": "Build",
+        "detail": "On each bottom bun, spread special sauce (1 Tbsp), then add lettuce (1 leaf), tomato slices, the patty and onion rings. Spread each top bun with mashed avocado (about ¼ cup) and special sauce (1 Tbsp).",
+        "why": "The lettuce sits under the tomato so tomato juice stays off the bottom bun."
+      }
+    ],
+    "notes": [
+      "On a grill: direct medium-high heat, lid open, to the same 160°F.",
+      "Brioche buns add about 70 calories per burger."
+    ],
+    "is_blank": false,
+    "description": "⅓ lb 80/20 patties seared in cast iron and stacked with lettuce, tomato, ice-water red onion, lime-smashed avocado and a mayo-ketchup-relish special sauce on toasted buns.",
+    "prepTime": "PT25M",
+    "cookTime": "PT25M",
+    "recipeYield": "6 servings"
   }
 ]
