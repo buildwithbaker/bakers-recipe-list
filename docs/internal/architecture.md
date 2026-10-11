@@ -675,6 +675,10 @@ record stays valid without them. `recipe.schema.json` is the contract.
 `image` (a path under `public/`) is the older photo mechanism and still works
 as a fallback, but a photo in `src/photos/` wins. No record uses it today.
 
+Separately, an optional `diagrams` array (technique SVGs under `public/diagrams/`,
+shown as a "Technique" section after Notes, never searched or in the JSON-LD)
+is documented in [`adding-a-diagram.md`](./adding-a-diagram.md).
+
 `prepTime` and `cookTime` must be authored **together**: Google pairs them and
 a lone value reads as missing data.
 

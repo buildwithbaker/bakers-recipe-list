@@ -2,7 +2,7 @@ import { afterAll, describe, it, expect } from 'vitest';
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
 import { EXPECTED_RECORDS } from './recordCount.js';
@@ -70,7 +70,7 @@ const summaryLine = (n, removed = 0) =>
 // <root>/src/data/* relative to its own file, and imports sections.js. The
 // script, schema and sections are copied VERBATIM so the fixtures exercise the
 // same code and the same enums production does.
-function fixture({ records = BASE_RECORDS, manifest = BASE_MANIFEST } = {}) {
+function fixture({ records = BASE_RECORDS, manifest = BASE_MANIFEST, publicFiles = {} } = {}) {
   const root = mkdtempSync(join(tmpdir(), 'brl-validator-'));
   tempRoots.push(root);
   mkdirSync(join(root, 'scripts'), { recursive: true });
@@ -81,6 +81,11 @@ function fixture({ records = BASE_RECORDS, manifest = BASE_MANIFEST } = {}) {
   }
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(manifest, null, 2));
+  // Files the fixture serves from public/, keyed by path (e.g. 'diagrams/x.svg').
+  for (const [path, body] of Object.entries(publicFiles)) {
+    mkdirSync(dirname(join(root, 'public', path)), { recursive: true });
+    writeFileSync(join(root, 'public', path), body);
+  }
   return root;
 }
 
@@ -207,6 +212,73 @@ describe('validate-recipes.mjs', () => {
     const { code, output } = runValidator(fixture({ records }));
     expect(code).not.toBe(0);
     expect(output).toMatch(/note #1 must be a non-empty string/);
+  });
+
+  // --- optional diagrams (per recipe) --------------------------------------
+
+  const SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><title>ok</title><circle r="4"/></svg>';
+  const diagramRun = (diagrams, publicFiles = { 'diagrams/cut.svg': SVG }) => {
+    const records = clone(BASE_RECORDS);
+    records[0].diagrams = diagrams;
+    return runValidator(fixture({ records, publicFiles }));
+  };
+  const good = { src: 'diagrams/cut.svg', alt: 'How to cut it.', caption: 'Cutting it' };
+
+  it('passes a valid diagram, with and without a caption', () => {
+    expect(diagramRun([good]).code).toBe(0);
+    const { code, output } = diagramRun([{ src: good.src, alt: good.alt }]);
+    expect(code).toBe(0);
+    expect(output).toMatch(/recipes\.json OK/);
+  });
+
+  it.each([[[]], ['a string'], [null]])('fails diagrams of %j', (diagrams) => {
+    const { code, output } = diagramRun(diagrams);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/diagrams must be a non-empty array when present/);
+  });
+
+  it.each(['photos/cut.svg', '/diagrams/cut.svg', 'diagrams/Cut.svg', 'diagrams/cut.png', 'diagrams/sub/cut.svg'])(
+    'fails a bad src %j',
+    (src) => {
+      const { code, output } = diagramRun([{ ...good, src }]);
+      expect(code).not.toBe(0);
+      expect(output).toMatch(/diagram #0 src .* must match/);
+    },
+  );
+
+  it('fails a src whose file is missing', () => {
+    const { code, output } = diagramRun([{ ...good, src: 'diagrams/missing.svg' }]);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/does not exist at public\/diagrams\/missing\.svg/);
+  });
+
+  it('fails a missing alt, an empty alt and an empty caption', () => {
+    expect(diagramRun([{ src: good.src }]).output).toMatch(/diagram #0 is missing required field "alt"/);
+    expect(diagramRun([{ ...good, alt: '  ' }]).output).toMatch(/diagram #0 alt must be a non-empty string/);
+    expect(diagramRun([{ ...good, caption: '' }]).output).toMatch(/diagram #0 caption must be a non-empty string/);
+  });
+
+  it('fails an extra key on a diagram', () => {
+    const { code, output } = diagramRun([{ ...good, width: 400 }]);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/diagram #0 has unknown field "width"/);
+  });
+
+  it('fails a diagram over 150 KB', () => {
+    const big = `<svg xmlns="http://www.w3.org/2000/svg"><!--${'x'.repeat(151 * 1024)}--></svg>`;
+    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': big });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/is 15\d KB, over the 150 KB limit/);
+  });
+
+  it.each([
+    ['a script element', '<svg xmlns="http://www.w3.org/2000/svg"><SCRIPT>alert(1)</SCRIPT></svg>', /contains a <script> element/],
+    ['an event handler', '<svg xmlns="http://www.w3.org/2000/svg"><circle onLoad="alert(1)" r="4"/></svg>', /event-handler attribute/],
+    ['an event handler after a quote', '<svg xmlns="http://www.w3.org/2000/svg"><circle r="4"onclick = "x()"/></svg>', /event-handler attribute/],
+  ])('fails a diagram carrying %s', (_label, svg, message) => {
+    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': svg });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(message);
   });
 
   // --- removal path (recipes.ids.json `removed`) ---------------------------

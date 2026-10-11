@@ -116,6 +116,33 @@
       "description": "OPTIONAL. Recipe-level notes, shown under a \"Notes\" heading after the method. Omit the field rather than leaving it empty. Never indexed by search and never published in the JSON-LD.",
       "items": { "type": "string", "minLength": 1 }
     },
+    "diagrams": {
+      "type": "array",
+      "minItems": 1,
+      "description": "OPTIONAL. Technique diagrams (how to cut, fold, shape), shown under a \"Technique\" heading after Notes. Each is an SVG committed under public/diagrams/, at most 150 KB, with no script or event-handler attributes. Omit the field rather than leaving it empty. Never indexed by search and never published in the JSON-LD. See docs/internal/adding-a-diagram.md.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["src", "alt"],
+        "properties": {
+          "src": {
+            "type": "string",
+            "pattern": "^diagrams/[a-z0-9-]+\\.svg$",
+            "description": "Path to the SVG, relative to public/ with no leading slash, e.g. \"diagrams/honey-carrots-roll-cut.svg\"."
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Text alternative that conveys what the diagram teaches, not just what it shows."
+          },
+          "caption": {
+            "type": "string",
+            "minLength": 1,
+            "description": "OPTIONAL. Short caption shown under the diagram."
+          }
+        }
+      }
+    },
     "is_blank": {
       "type": "boolean",
       "description": "true = placeholder rendered as a 'coming soon' row (ingredients/instructions may be empty). false = a real recipe, which MUST have at least one type:item ingredient and at least one instruction."
