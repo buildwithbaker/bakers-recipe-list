@@ -26,7 +26,7 @@
     "protein-balls-2": "Renamed to \"Honey Butter Oat Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 2\".",
     "protein-balls-3": "Renamed to \"Peanut Butter Flax Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 3\".",
     "protein-balls-4": "Renamed to \"Cottage Cheese Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 4\".",
-    "protein-balls-5": "Renamed to \"Almond Butter Greek Yogurt Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 5\".",
+    "protein-balls-5": "Renamed to \"Peanut Butter Greek Yogurt Protein Balls\" 2026-10-11 (Recipe Why Notes batch F; first renamed 2026-09-27, audit P2-11/P2-12/P2-14). ids entry stays at \"Protein Balls 5\".",
     "pumpkin-protein-balls-1": "Renamed to \"Pumpkin Almond Butter Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Pumpkin Protein Balls 1\".",
     "pumpkin-protein-balls-2": "Renamed to \"Pumpkin Peanut Butter Protein Balls\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Pumpkin Protein Balls 2\".",
     "chicken-marinade-lemon-herb": "Renamed to \"Chicken Marinade - Lemon Herb Yogurt\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Chicken Marinade - Lemon Herb\".",
@@ -34,7 +34,8 @@
     "slow-cooker-honey-garlic-chicken-alt": "Renamed to \"Slow Cooker Honey Garlic Chicken (chefsavvy.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Slow Cooker Honey Garlic Chicken (alt)\".",
     "slow-cooker-thai-peanut-chicken-alt": "Renamed to \"Slow Cooker Thai Peanut Chicken (dinnerthendessert.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Slow Cooker Thai Peanut Chicken (alt)\".",
     "amish-country-casserole-alt": "Renamed to \"Amish Country Casserole (withablast.net)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Amish Country Casserole (alt)\".",
-    "sweet-sour-chicken-alt": "Renamed to \"Sweet & Sour Chicken (dinnerthendessert.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Sweet & Sour Chicken (alt)\"."
+    "sweet-sour-chicken-alt": "Renamed to \"Sweet & Sour Chicken (dinnerthendessert.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Sweet & Sour Chicken (alt)\".",
+    "tandoori-chicken-marinade-serious-eats": "Renamed to \"Tandoori - Chicken Thighs (Grilled)\" 2026-10-11 (Recipe Why Notes batch F). ids entry stays at \"Tandoori - Chicken Marinade (Serious Eats)\"."
   },
   "removed": {
     "pork-carnitas-spice-rub": {
