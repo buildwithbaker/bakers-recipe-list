@@ -16,14 +16,18 @@
 // The wordmark is the page's h1 on the list. On a full recipe page (or About)
 // the page's own title is the h1, so the wordmark steps down to plain text and becomes the way home.
 import { useEffect, useRef, useState } from 'react';
-import { CATALOG_COUNTS } from '../../data/catalog.js';
+import { ROWS, isWritten } from '../../data/catalog.js';
+import { isDraft } from '../../data/sections.js';
 import { BASE_PATH, aboutPath } from '../../utils/recipeRoute.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import Icon from '../Icon/Icon.jsx';
 import styles from './Masthead.module.css';
 
 const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
-const TAGLINE = plural(CATALOG_COUNTS.written, 'recipe');
+// The site's size is its cookbook: written recipes, not placeholders and not
+// Chef's Drafts, which are not cooked yet.
+export const COOKBOOK_COUNT = ROWS.filter((r) => isWritten(r) && !isDraft(r)).length;
+const TAGLINE = plural(COOKBOOK_COUNT, 'recipe');
 
 export default function Masthead({ nav, onAbout, aboutCurrent = false, siteTitleIsHeading = true, slim = false, onHome }) {
   const Title = siteTitleIsHeading ? 'h1' : 'p';

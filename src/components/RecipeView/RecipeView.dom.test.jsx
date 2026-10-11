@@ -6,7 +6,7 @@
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { displayRecipes } from '../../data/recipeIndex.js';
-import { AI_PHOTO_CAPTION, CAPTION_LINK_TEXT } from '../../utils/photoCaption.js';
+import { AI_PHOTO_CAPTION, CAPTION_LINK_TEXT, DRAFT_PHOTO_CAPTION, TESTED } from '../../utils/photoCaption.js';
 import { DISPLAY_KEYS } from '../../utils/displaySettings.js';
 import { CookHistoryProvider } from '../../context/CookHistoryContext.jsx';
 import RecipeView from './RecipeView.jsx';
@@ -264,5 +264,37 @@ describe('RecipeView display settings', () => {
     const items = within(notesRegion()).getAllByRole('listitem');
     expect(items[0].textContent).toBe('Keeps three days in the fridge.');
     expect(items).toHaveLength(1 + whySteps.length);
+  });
+});
+
+// Chef's Drafts: labelled under the title, and never captioned as tested.
+describe("RecipeView: Chef's Drafts", () => {
+  const shawarma = displayRecipes.find((r) => r.id === 'sheet-pan-chicken-shawarma-thighs');
+  // Lasagna filed as a draft: the same AI photo, so the caption renders.
+  const draftWithPhoto = { ...lasagna, section: 'CHEFS DRAFTS' };
+  const caption = () => screen.getByRole('link', { name: CAPTION_LINK_TEXT }).closest('figcaption');
+
+  it('labels a draft as not cooked yet, right under its name', () => {
+    render(<RecipeView recipe={shawarma} headingLevel={1} />);
+    const title = screen.getByRole('heading', { level: 1, name: shawarma.name });
+    expect(title.nextElementSibling.textContent).toBe('Draft - not cooked yet');
+  });
+
+  it("captions a draft's AI photo as a draft, with no tested claim", () => {
+    render(<RecipeView recipe={draftWithPhoto} headingLevel={1} />);
+    expect(caption().textContent).toBe(`${DRAFT_PHOTO_CAPTION} ${CAPTION_LINK_TEXT}`);
+    expect(caption().textContent).not.toContain(TESTED);
+  });
+
+  it('still captions a cookbook recipe as cooked and tested, with no draft label', () => {
+    render(<RecipeView recipe={lasagna} headingLevel={1} />);
+    expect(caption().textContent).toContain(TESTED);
+    expect(screen.queryByText('Draft - not cooked yet')).toBeNull();
+  });
+
+  it('shows no photo and no caption for a draft without a photo', () => {
+    render(<RecipeView recipe={shawarma} headingLevel={1} />);
+    expect(document.querySelector('figure')).toBeNull();
+    expect(screen.queryByRole('link', { name: CAPTION_LINK_TEXT })).toBeNull();
   });
 });

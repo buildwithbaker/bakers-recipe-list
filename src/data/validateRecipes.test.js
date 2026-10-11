@@ -165,6 +165,15 @@ describe('validate-recipes.mjs', () => {
     expect(output).toMatch(/append-only/);
   });
 
+  it("accepts a record filed under CHEFS DRAFTS", () => {
+    const records = clone(BASE_RECORDS);
+    records[0].section = 'CHEFS DRAFTS';
+    records[0].category = 'Middle Eastern';
+    const { code, output } = runValidator(fixture({ records }));
+    expect(code).toBe(0);
+    expect(output).toMatch(/recipes\.json OK/);
+  });
+
   // --- optional why (per step) and notes (per recipe) ----------------------
 
   it('passes a step with a why and a recipe with notes', () => {
