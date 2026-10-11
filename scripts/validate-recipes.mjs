@@ -24,6 +24,8 @@ const MAX_IMAGE_BYTES = 500 * 1024;
 // Technique diagrams are SVG, which is code as much as image: ceiling on weight,
 // and no script or event handler may ride along in one that ships to every reader.
 const MAX_DIAGRAM_BYTES = 150 * 1024;
+// Each SVG has a committed PNG companion the recipe card embeds (scripts/rasterize-diagrams.mjs).
+const MAX_DIAGRAM_PNG_BYTES = 400 * 1024;
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const schema = JSON.parse(readFileSync(join(root, 'src/data/recipe.schema.json'), 'utf8'));
@@ -263,6 +265,19 @@ recipes.forEach((r, i) => {
               if (/<script/i.test(svg)) errors.push(`${at} src "${d.src}" contains a <script> element`);
               if (/[\s"'/]on[a-z]+\s*=/i.test(svg)) {
                 errors.push(`${at} src "${d.src}" contains an on...= event-handler attribute`);
+              }
+              const png = file.replace(/\.svg$/, '.png');
+              const pngSrc = d.src.replace(/\.svg$/, '.png');
+              if (!existsSync(png)) {
+                errors.push(
+                  `${at} src "${d.src}" has no PNG companion at public/${pngSrc} ` +
+                    '(run node scripts/rasterize-diagrams.mjs; see docs/internal/adding-a-diagram.md)',
+                );
+              } else if (statSync(png).size > MAX_DIAGRAM_PNG_BYTES) {
+                errors.push(
+                  `${at} PNG companion "${pngSrc}" is ${Math.round(statSync(png).size / 1024)} KB, over the ` +
+                    `${MAX_DIAGRAM_PNG_BYTES / 1024} KB limit (see docs/internal/adding-a-diagram.md)`,
+                );
               }
             }
           }
