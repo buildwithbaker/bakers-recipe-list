@@ -1,8 +1,9 @@
 // The downloadable recipe card: a 5x7 inch PDF in the site's look (design A,
 // "Site Match", Adam 2026-10-06). Cream page, double amber border, Young
 // Serif navy title, small amber meta line, ingredients in two columns with
-// amber dots, a numbered method, why notes in muted italic, notes, and the
-// site name at the foot of every page.
+// amber dots, a numbered method, why notes in muted italic, notes, technique
+// diagrams (PNG companions of the page's SVGs), and the site name at the foot
+// of every page.
 //
 // Real vector text in embedded, subset fonts. Never smaller than 9pt: a
 // recipe that does not fit continues on another page with the same frame.
@@ -33,6 +34,7 @@ const CONTENT_W = PAGE.width - MARGIN_X * 2;
 
 const SIZE = { title: 18, heading: 12, body: MIN_SIZE, numeral: 11, meta: MIN_SIZE, footer: MIN_SIZE };
 const LEAD = 1.38;          // body line height, as a multiple of the size
+const MIN_DIAGRAM_SCALE = 0.6; // a diagram is never drawn narrower than this share of the content width
 
 const clean = (t) => String(t ?? '').replace(/\s+/g, ' ').trim();
 
@@ -94,11 +96,14 @@ export function wrapRuns(runs, width, size, measure) {
  * @param settings  { why, amounts } — the reader's Display settings
  * @param measure   (fontKey, text, size) -> width in points
  * @param servings  estimateServings() result, used when no yield is authored
+ * @param diagrams  [{ caption?, width, height }] — the technique diagrams in
+ *   recipe order, with their pixel size (only the aspect ratio is used)
  * @returns { pages: Array<Array<op>> } where an op is
  *   { kind: 'text', text, font, size, colour, x, y } |
- *   { kind: 'dot', x, y, r, colour } | { kind: 'line', x1, y1, x2, y2, width, colour }
+ *   { kind: 'dot', x, y, r, colour } | { kind: 'line', x1, y1, x2, y2, width, colour } |
+ *   { kind: 'image', index, x, y, width, height } (index into `diagrams`, y = bottom edge)
  */
-export function layoutCard({ recipe, settings, measure, servings = null }) {
+export function layoutCard({ recipe, settings, measure, servings = null, diagrams = [] }) {
   const pages = [];
   let ops;
   let y;
@@ -286,6 +291,43 @@ export function layoutCard({ recipe, settings, measure, servings = null }) {
     }
   }
 
+  // Technique: each diagram at the content width, its caption below. One that
+  // does not fit in the rest of the page starts a new page rather than shrinking.
+  if (diagrams.length) {
+    const freshH = PAGE.height - TOP - BOTTOM;
+    const headingH = SIZE.heading + 10;
+    const captionOf = (d) => (d.caption ? wrapRuns([{ text: d.caption, font: 'sansItalic', colour: 'muted' }], CONTENT_W, SIZE.body, measure) : []);
+    const plan = diagrams.map((d) => {
+      const caption = captionOf(d);
+      const extra = 4 + (caption.length ? caption.length * lineH + 3 : 0) + 8; // gap above, caption, gap below
+      let w = CONTENT_W;
+      let h = (CONTENT_W * d.height) / d.width;
+      // Taller than a whole page (heading and caption included): shrink to fit,
+      // but never below the minimum share of the content width.
+      const room1 = freshH - headingH - extra;
+      if (h > room1) {
+        const scale = Math.max(MIN_DIAGRAM_SCALE, room1 / h);
+        w *= scale;
+        h *= scale;
+      }
+      return { caption, w, h, need: h + extra };
+    });
+    // The heading travels with the first diagram.
+    ensure(headingH + plan[0].need);
+    heading('Technique');
+    plan.forEach((p, i) => {
+      if (i > 0) ensure(p.need);
+      y -= 4;
+      ops.push({ kind: 'image', index: i, x: MARGIN_X + (CONTENT_W - p.w) / 2, y: y - p.h, width: p.w, height: p.h });
+      y -= p.h;
+      p.caption.forEach((l, li) => {
+        y -= li === 0 ? lineH + 3 : lineH;
+        for (const run of l) text(run.text, run.font, SIZE.body, run.colour, MARGIN_X + run.x);
+      });
+      y -= 8;
+    });
+  }
+
   // The frame and the footer go on every page, under everything else.
   const footer = "BAKER'S RECIPE LIST";
   return {
@@ -308,9 +350,12 @@ const FONT_KEYS = ['serif', 'sans', 'sansBold', 'sansItalic'];
  * @param pdfLib     the pdf-lib module ({ PDFDocument, rgb })
  * @param fontkit    @pdf-lib/fontkit
  * @param fontBytes  { serif, sans, sansBold, sansItalic } — font file bytes
+ * @param diagrams   [{ src, caption?, alt, png: Uint8Array }] — the recipe's
+ *   technique diagrams with their PNG companions already fetched (this module
+ *   never fetches); omit or pass [] for none
  * @returns Uint8Array
  */
-export async function buildCardPdf({ pdfLib, fontkit, fontBytes, recipe, settings, servings }) {
+export async function buildCardPdf({ pdfLib, fontkit, fontBytes, recipe, settings, servings, diagrams = [] }) {
   const { PDFDocument, rgb } = pdfLib;
   const doc = await PDFDocument.create();
   doc.registerFontkit(fontkit);
@@ -328,7 +373,12 @@ export async function buildCardPdf({ pdfLib, fontkit, fontBytes, recipe, setting
 
   const measure = (key, t, size) => fonts[key].widthOfTextAtSize(t, size);
   const colour = (name) => rgb(...COLOURS[name]);
-  const { pages } = layoutCard({ recipe, settings, measure, servings });
+  const images = [];
+  for (const d of diagrams) images.push(await doc.embedPng(d.png));
+  const { pages } = layoutCard({
+    recipe, settings, measure, servings,
+    diagrams: diagrams.map((d, i) => ({ caption: d.caption, width: images[i].width, height: images[i].height })),
+  });
 
   for (const ops of pages) {
     const page = doc.addPage([PAGE.width, PAGE.height]);
@@ -341,6 +391,8 @@ export async function buildCardPdf({ pdfLib, fontkit, fontBytes, recipe, setting
         page.drawText(op.text, { x: op.x, y: op.y, size: op.size, font: fonts[op.font], color: colour(op.colour) });
       } else if (op.kind === 'dot') {
         page.drawCircle({ x: op.x, y: op.y, size: op.r, color: colour(op.colour) });
+      } else if (op.kind === 'image') {
+        page.drawImage(images[op.index], { x: op.x, y: op.y, width: op.width, height: op.height });
       } else if (op.kind === 'line') {
         page.drawLine({ start: { x: op.x1, y: op.y1 }, end: { x: op.x2, y: op.y2 }, thickness: op.width, color: colour(op.colour) });
       }

@@ -1,3 +1,4 @@
+import { Buffer } from 'node:buffer';
 import { afterAll, describe, it, expect } from 'vitest';
 import { spawnSync } from 'node:child_process';
 import { copyFileSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
@@ -217,7 +218,9 @@ describe('validate-recipes.mjs', () => {
   // --- optional diagrams (per recipe) --------------------------------------
 
   const SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><title>ok</title><circle r="4"/></svg>';
-  const diagramRun = (diagrams, publicFiles = { 'diagrams/cut.svg': SVG }) => {
+  // Each SVG needs its PNG companion beside it (made by scripts/rasterize-diagrams.mjs).
+  const PNG = Buffer.from('89504e470d0a1a0a', 'hex');
+  const diagramRun = (diagrams, publicFiles = { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': PNG }) => {
     const records = clone(BASE_RECORDS);
     records[0].diagrams = diagrams;
     return runValidator(fixture({ records, publicFiles }));
@@ -264,9 +267,23 @@ describe('validate-recipes.mjs', () => {
     expect(output).toMatch(/diagram #0 has unknown field "width"/);
   });
 
+  it('fails a diagram with no PNG companion', () => {
+    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': SVG });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/diagram #0 src "diagrams\/cut\.svg" has no PNG companion at public\/diagrams\/cut\.png/);
+  });
+
+  it('fails a PNG companion over 400 KB, and passes one at the limit', () => {
+    const png = (kb) => Buffer.alloc(kb * 1024, 1);
+    const over = diagramRun([good], { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': png(401) });
+    expect(over.code).not.toBe(0);
+    expect(over.output).toMatch(/PNG companion "diagrams\/cut\.png" is 401 KB, over the 400 KB limit/);
+    expect(diagramRun([good], { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': png(400) }).code).toBe(0);
+  });
+
   it('fails a diagram over 150 KB', () => {
     const big = `<svg xmlns="http://www.w3.org/2000/svg"><!--${'x'.repeat(151 * 1024)}--></svg>`;
-    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': big });
+    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': big, 'diagrams/cut.png': PNG });
     expect(code).not.toBe(0);
     expect(output).toMatch(/is 15\d KB, over the 150 KB limit/);
   });
@@ -276,7 +293,7 @@ describe('validate-recipes.mjs', () => {
     ['an event handler', '<svg xmlns="http://www.w3.org/2000/svg"><circle onLoad="alert(1)" r="4"/></svg>', /event-handler attribute/],
     ['an event handler after a quote', '<svg xmlns="http://www.w3.org/2000/svg"><circle r="4"onclick = "x()"/></svg>', /event-handler attribute/],
   ])('fails a diagram carrying %s', (_label, svg, message) => {
-    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': svg });
+    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': svg, 'diagrams/cut.png': PNG });
     expect(code).not.toBe(0);
     expect(output).toMatch(message);
   });

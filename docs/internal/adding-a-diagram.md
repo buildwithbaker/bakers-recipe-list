@@ -25,7 +25,22 @@ public/diagrams/<recipe-id>-<what>.svg
 Lowercase letters, digits and hyphens only, e.g. `honey-carrots-roll-cut.svg`.
 Name it after the recipe's `id` so the pairing stays obvious.
 
-## 3. Reference it from the record
+## 3. Make its PNG companion
+
+The downloadable recipe card draws each diagram as a PNG; it never parses SVG.
+Every `public/diagrams/<name>.svg` therefore needs `public/diagrams/<name>.png`
+beside it, same base name, about 1200 px wide, on the card's cream. Generate
+them all and commit the result:
+
+```bash
+node scripts/rasterize-diagrams.mjs
+```
+
+Run it by hand, whenever a diagram is added or changed. It is deliberately not
+an npm script and not part of `prebuild`: a build must never rewrite committed
+files. It uses `sharp`, already a devDependency.
+
+## 4. Reference it from the record
 
 In `src/data/recipes.json`, right after the record's `notes`:
 
@@ -49,7 +64,7 @@ Omit `diagrams` entirely rather than leaving it empty. No other keys are allowed
 `EXPECTED_RECORDS` and `recipes.ids.json` do not change: this is an edit to an
 existing record.
 
-## 4. Check
+## 5. Check
 
 ```bash
 npm run validate:recipes
@@ -58,11 +73,13 @@ npm run build
 
 The validator fails, and says why, on: a `src` that does not match the pattern,
 a file that is not in `public/`, a file over 150 KB, a script or event handler
-in the SVG, a missing or empty `alt`, an empty `caption`, or an extra key.
+in the SVG, a missing PNG companion, a PNG over 400 KB, a missing or empty `alt`, an empty `caption`, or an extra key.
 
 ## What it does not do
 
-Diagrams are never indexed by search, never published in the Recipe JSON-LD,
-and never drawn on the recipe-card PDF. They do print with the recipe page.
+Diagrams are never indexed by search and never published in the Recipe JSON-LD.
+They print with the recipe page, and the recipe-card PDF carries them (as the
+PNG companions) after Notes, under "Technique". If a PNG cannot be fetched, the
+card downloads without that diagram and the browser console warns.
 They are served as `<img>`, so an SVG's own scripts could never run there; the
 no-script rule keeps the file safe to open on its own.
