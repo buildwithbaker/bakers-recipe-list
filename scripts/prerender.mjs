@@ -26,7 +26,7 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { publicSectionLabel } from '../src/data/sections.js';
+import { DRAFT_LABEL, isDraft, publicSectionLabel } from '../src/data/sections.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { ogImageAlt } from '../src/utils/photoCredit.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
@@ -88,6 +88,11 @@ function describe(r) {
   if (items.length) return truncate(`Ingredients: ${items.slice(0, 8).join(', ')}`, 155);
   return `${r.name} from ${SITE_NAME}.`;
 }
+
+// A Chef's Draft has not been cooked yet, and a search result or link preview
+// must say so before anything else. Cookbook recipes get describe() unchanged.
+const DRAFT_DESCRIPTION_PREFIX = "Chef's Draft (not cooked yet): ";
+const headDescription = (r) => (isDraft(r) ? truncate(`${DRAFT_DESCRIPTION_PREFIX}${describe(r)}`, 155) : describe(r));
 
 // Link-preview images. A photo dropped in src/photos/ (see
 // scripts/build-photos.mjs) becomes a 1200x630 JPEG at dist/og/<segment>.jpg:
@@ -217,7 +222,10 @@ function fallbackList(items, tag, render) {
 }
 
 function noscriptFor(r, related) {
-  const parts = [`<h1>${esc(r.name)}</h1>`, `<p>${esc(describe(r))}</p>`];
+  const parts = [`<h1>${esc(r.name)}</h1>`];
+  // Directly under the name, the same words the app shows (DRAFT_LABEL).
+  if (isDraft(r)) parts.push(`<p>${esc(DRAFT_LABEL)}</p>`);
+  parts.push(`<p>${esc(describe(r))}</p>`);
 
   const ingredients = r.ingredients || [];
   if (ingredients.length) {
@@ -253,7 +261,7 @@ function noscriptFor(r, related) {
 function headFor(r, url) {
   // Shared with RecipeView, which sets the same title at runtime.
   const title = recipeDocumentTitle(r.name);
-  const desc = describe(r);
+  const desc = headDescription(r);
   const img = imageFor(r);
   return [
     `<title>${esc(title)}</title>`,
