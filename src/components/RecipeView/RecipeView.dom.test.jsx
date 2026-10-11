@@ -323,3 +323,38 @@ describe("RecipeView: Chef's Drafts", () => {
     expect(screen.queryByRole('link', { name: CAPTION_LINK_TEXT })).toBeNull();
   });
 });
+
+// Technique diagrams: an optional list of SVGs after Notes, served from public/.
+describe('RecipeView technique diagrams', () => {
+  const diagram = { src: 'diagrams/cut.svg', alt: 'How to cut it.', caption: 'Cutting it' };
+  const technique = () => screen.queryByRole('region', { name: 'Technique' });
+
+  it('renders a Technique section with the image, its alt text and the caption', () => {
+    render(<RecipeView recipe={{ ...lasagna, diagrams: [diagram] }} headingLevel={1} />);
+    const region = technique();
+    expect(region).toBeTruthy();
+    const img = within(region).getByRole('img', { name: diagram.alt });
+    expect(img.getAttribute('src')).toMatch(/\/diagrams\/cut\.svg$/);
+    expect(img.getAttribute('loading')).toBe('lazy');
+    expect(within(region).getByText('Cutting it')).toBeTruthy();
+  });
+
+  it('omits the caption when there is none', () => {
+    render(<RecipeView recipe={{ ...lasagna, diagrams: [{ src: diagram.src, alt: diagram.alt }] }} headingLevel={1} />);
+    expect(technique().querySelector('figcaption')).toBeNull();
+  });
+
+  it('renders nothing on a recipe without diagrams', () => {
+    render(<RecipeView recipe={lasagna} headingLevel={1} />);
+    expect(technique()).toBeNull();
+    expect(screen.queryByRole('heading', { name: 'Technique' })).toBeNull();
+  });
+
+  it('shows the carrot roll-cut diagram on Honey Carrots, after Notes', () => {
+    const carrots = displayRecipes.find((r) => r.id === 'honey-carrots');
+    render(<RecipeView recipe={carrots} headingLevel={1} />);
+    expect(within(technique()).getByText('Cutting the carrots')).toBeTruthy();
+    const notes = screen.getByRole('region', { name: 'Notes' });
+    expect(notes.compareDocumentPosition(technique()) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+});

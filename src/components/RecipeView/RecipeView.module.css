@@ -555,6 +555,31 @@ h2.title {
   font-weight: 700;
 }
 
+/* Technique diagrams, after Notes. */
+.diagrams {
+  max-width: 68ch;
+  margin-top: var(--s4);
+}
+
+.diagram {
+  margin: 0 0 var(--s4);
+  text-align: center;
+}
+
+.diagram img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.diagram figcaption {
+  margin-top: var(--s2);
+  color: var(--ink-muted);
+  font: 400 var(--t-xs)/1.35 var(--sans);
+}
+
 .dimmed {
   opacity: 0.4;
   pointer-events: none;

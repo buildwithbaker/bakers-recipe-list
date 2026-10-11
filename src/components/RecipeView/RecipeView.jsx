@@ -17,7 +17,7 @@ import { getEffectiveTags } from '../../utils/autoTags.js';
 import { useWakeLock } from '../../hooks/useWakeLock.js';
 import { useIngredientTicks } from '../../hooks/useIngredientTicks.js';
 import { cookModeMessage } from '../../utils/screenLock.js';
-import { aboutPath, recipePath } from '../../utils/recipeRoute.js';
+import { BASE_PATH, aboutPath, recipePath } from '../../utils/recipeRoute.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
@@ -265,6 +265,35 @@ function RecipeNotes({ notes, steps, settings, Heading }) {
           </li>
         ))}
       </ul>
+    </section>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Technique diagrams: the recipe's own SVGs (how to cut, fold, shape), after
+// Notes. Served from public/ by path, not through the photo pipeline. Renders
+// nothing when the recipe has none.
+// ---------------------------------------------------------------------------
+
+function RecipeDiagrams({ diagrams, Heading }) {
+  const headingId = useId();
+  if (!diagrams?.length) return null;
+  return (
+    <section className={styles.diagrams} aria-labelledby={headingId}>
+      <div className={styles.sectionHead}>
+        <Heading id={headingId}>Technique</Heading>
+      </div>
+      {diagrams.map((d) => (
+        <figure key={d.src} className={styles.diagram}>
+          <img
+            src={`${BASE_PATH}${String(d.src).replace(/^\/+/, '')}`}
+            alt={d.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          {d.caption && <figcaption>{d.caption}</figcaption>}
+        </figure>
+      ))}
     </section>
   );
 }
@@ -582,6 +611,7 @@ export default function RecipeView({
                 scaled={scale !== 1}
               />
               <RecipeNotes notes={recipe.notes} steps={recipe.instructions} settings={display} Heading={Heading} />
+              <RecipeDiagrams diagrams={recipe.diagrams} Heading={Heading} />
             </div>
           </div>
         )}

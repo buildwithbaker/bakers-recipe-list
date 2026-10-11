@@ -21,6 +21,10 @@ import { SECTIONS } from '../src/data/sections.js';
 // looks identical at the size it is displayed, so the ceiling costs nothing.
 const MAX_IMAGE_BYTES = 500 * 1024;
 
+// Technique diagrams are SVG, which is code as much as image: ceiling on weight,
+// and no script or event handler may ride along in one that ships to every reader.
+const MAX_DIAGRAM_BYTES = 150 * 1024;
+
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const schema = JSON.parse(readFileSync(join(root, 'src/data/recipe.schema.json'), 'utf8'));
 const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'utf8'));
@@ -28,6 +32,9 @@ const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json
 
 const errors = [];
 const props = schema.properties;
+const diagramItem = props.diagrams.items;
+const diagramKeys = Object.keys(diagramItem.properties);
+const diagramSrcPattern = new RegExp(diagramItem.properties.src.pattern);
 const required = schema.required;
 const sectionEnum = props.section.enum;
 const categoryEnum = props.category.enum;
@@ -209,6 +216,56 @@ recipes.forEach((r, i) => {
       r.notes.forEach((note, j) => {
         if (typeof note !== 'string' || note.trim() === '') {
           errors.push(`${where} note #${j} must be a non-empty string`);
+        }
+      });
+    }
+  }
+
+  // diagrams - optional; when present, a non-empty array of {src, alt, caption?}.
+  // The file must be committed, small, and free of script (see MAX_DIAGRAM_BYTES).
+  if ('diagrams' in r) {
+    if (!Array.isArray(r.diagrams) || r.diagrams.length === 0) {
+      errors.push(`${where} diagrams must be a non-empty array when present`);
+    } else {
+      r.diagrams.forEach((d, j) => {
+        const at = `${where} diagram #${j}`;
+        if (d === null || typeof d !== 'object' || Array.isArray(d)) {
+          errors.push(`${at} must be an object`);
+          return;
+        }
+        Object.keys(d).forEach((k) => {
+          if (!diagramKeys.includes(k)) errors.push(`${at} has unknown field "${k}"`);
+        });
+        diagramItem.required.forEach((k) => {
+          if (!(k in d)) errors.push(`${at} is missing required field "${k}"`);
+        });
+        ['alt', 'caption'].forEach((k) => {
+          if (k in d && (typeof d[k] !== 'string' || d[k].trim() === '')) {
+            errors.push(`${at} ${k} must be a non-empty string when present`);
+          }
+        });
+        if ('src' in d) {
+          if (typeof d.src !== 'string' || !diagramSrcPattern.test(d.src)) {
+            errors.push(`${at} src ${JSON.stringify(d.src)} must match ${diagramItem.properties.src.pattern}`);
+          } else {
+            const file = join(root, 'public', d.src);
+            if (!existsSync(file)) {
+              errors.push(`${at} src "${d.src}" does not exist at public/${d.src}`);
+            } else {
+              const bytes = statSync(file).size;
+              if (bytes > MAX_DIAGRAM_BYTES) {
+                errors.push(
+                  `${at} src "${d.src}" is ${Math.round(bytes / 1024)} KB, over the ` +
+                    `${MAX_DIAGRAM_BYTES / 1024} KB limit (see docs/internal/adding-a-diagram.md)`,
+                );
+              }
+              const svg = readFileSync(file, 'utf8');
+              if (/<script/i.test(svg)) errors.push(`${at} src "${d.src}" contains a <script> element`);
+              if (/[\s"'/]on[a-z]+\s*=/i.test(svg)) {
+                errors.push(`${at} src "${d.src}" contains an on...= event-handler attribute`);
+              }
+            }
+          }
         }
       });
     }
