@@ -11,13 +11,13 @@
 // results are often from other categories. Each card names its own.
 import { useId, useMemo } from 'react';
 import styles from './RelatedRecipes.module.css';
-import { displayRecipes } from '../../data/recipeIndex.js';
+import { cookbookRecipes } from '../../data/recipeIndex.js';
 import { relatedRecipes } from '../../utils/relatedRecipes.js';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 
 export default function RelatedRecipes({ recipe, onNavigate }) {
   const headingId = useId();
-  const items = useMemo(() => relatedRecipes(recipe, displayRecipes), [recipe]);
+  const items = useMemo(() => relatedRecipes(recipe, cookbookRecipes), [recipe]);
 
   // Nothing cleared the similarity floor. Padding this out with arbitrary
   // recipes would teach the visitor that the heading means nothing.

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { resolveRecipe } from './data/recipeIndex.js';
-import { SECTIONS } from './data/sections.js';
+import { DRAFTS_SECTION, SECTIONS } from './data/sections.js';
 import { SECTION_CATEGORY } from './data/catalog.js';
 import Masthead from './components/Masthead/Masthead.jsx';
 import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
@@ -13,11 +13,14 @@ import ShoppingList from './components/ShoppingList/ShoppingList.jsx';
 import TabBar from './components/TabBar/TabBar.jsx';
 import PinnedList from './components/PinnedList/PinnedList.jsx';
 import AboutPage from './components/AboutPage/AboutPage.jsx';
+import DraftsPage from './components/DraftsPage/DraftsPage.jsx';
 import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
-import { BASE_PATH, aboutPath, isAboutPath, recipePath, recipeKeyFromPath } from './utils/recipeRoute.js';
+import {
+  BASE_PATH, aboutPath, draftsPath, isAboutPath, isDraftsPath, recipePath, recipeKeyFromPath,
+} from './utils/recipeRoute.js';
 import {
   LIST, TAB_RECIPES,
   activeTab, entryIsPage, entryOverlays as overlaysOf, entryTab, goToTab, makeEntry, popOverlay, pushOverlay, tabTapAction,
@@ -35,6 +38,10 @@ import {
  * /about/ is the one other page, prerendered the same way. Going there is a
  * push like opening a recipe, so Back returns to whatever was on screen
  * before: the list, a tab, a card, a recipe page.
+ *
+ * /drafts/ (Chef's Drafts) is routed exactly the same way. Its only way in is
+ * the footer link under the Recipes list. A draft opened from it opens as a
+ * full page, so Back from the draft lands on /drafts/ again.
  *
  * Overlay history model
  * ---------------------
@@ -61,11 +68,12 @@ import {
 // An old #sec-<SECTION> link from the retired sections drawer lands on the
 // matching category rather than nowhere. A link to a removed To Try or For
 // Review section (#sec-TO-TRY-*, #sec-FOR-REVIEW-*) matches nothing and lands
-// on the whole Cookbook list.
+// on the whole Cookbook list, and so does #sec-CHEFS-DRAFTS: drafts are not a
+// category of the list.
 function landingCategory() {
   try {
     const id = decodeURIComponent(window.location.hash.slice(1));
-    const section = id && SECTIONS.find((s) => s.id === id);
+    const section = id && SECTIONS.find((s) => s.id === id && s.key !== DRAFTS_SECTION);
     if (section) return SECTION_CATEGORY[section.key] ?? '';
   } catch { /* fall through */ }
   return '';
@@ -152,6 +160,8 @@ function AppInner() {
   const [pageView, setPageView] = useState(() => (window.history.state ? isPageEntry() : !!landing.id));
   // The About page: read off the path, like the recipe.
   const [aboutView, setAboutView] = useState(() => isAboutPath(window.location.pathname));
+  // Chef's Drafts: the same, off its own path.
+  const [draftsView, setDraftsView] = useState(() => isDraftsPath(window.location.pathname));
   const [overlays, setOverlays] = useState(entryOverlays);
   const [tab, setTab] = useState(currentEntryTab);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
@@ -167,6 +177,8 @@ function AppInner() {
   const tabRef = useRef(tab);
   // Same, for About: a tab tap from it has to leave it.
   const aboutRef = useRef(aboutView);
+  // Same, for Chef's Drafts.
+  const draftsRef = useRef(draftsView);
   // Holds a tag search that must be applied after a back navigation lands.
   const pendingSearchRef = useRef(null);
   const [recentHistory, addToHistory, clearHistory] = useRecentlyViewed();
@@ -194,6 +206,11 @@ function AppInner() {
   const applyAbout = useCallback((on) => {
     aboutRef.current = on;
     setAboutView(on);
+  }, []);
+
+  const applyDrafts = useCallback((on) => {
+    draftsRef.current = on;
+    setDraftsView(on);
   }, []);
 
   // Opening a layer PUSHES a history entry, so Back pops the layer, not the site.
@@ -227,12 +244,15 @@ function AppInner() {
       window.history.pushState(makeEntry(overlaysRef.current, asPage, tabRef.current), '', urlForRecipe(recipe.id));
     } catch { /* ignore */ }
     applyRecipe(recipe.id);
+    applyDrafts(false);
     setPageView(asPage);
     addToHistory(recipe);
-  }, [applyRecipe, addToHistory]);
+  }, [applyRecipe, applyDrafts, addToHistory]);
 
   // From the list: a card over the list the visitor is already looking at.
-  const handleViewRecipe = useCallback((recipe) => openRecipe(recipe, false), [openRecipe]);
+  // From Chef's Drafts there is no list behind it, so the draft opens as a
+  // full page and Back returns to the Drafts page.
+  const handleViewRecipe = useCallback((recipe) => openRecipe(recipe, draftsRef.current), [openRecipe]);
 
   // From a related link on a full page: another full page. The href on that
   // link points at /r/<slug>/, and someone with JavaScript off lands on the
@@ -252,9 +272,10 @@ function AppInner() {
     applyOverlays([]);
     applyRecipe('');
     applyAbout(false);
+    applyDrafts(false);
     applyTab(TAB_RECIPES);
     setPageView(false);
-  }, [applyOverlays, applyRecipe, applyAbout, applyTab]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyTab]);
 
   // Returns true when a back navigation is in flight (popstate finishes the close).
   const closeRecipe = useCallback(() => {
@@ -300,13 +321,28 @@ function AppInner() {
     } catch { /* ignore */ }
     applyOverlays([]);
     applyRecipe('');
+    applyDrafts(false);
     setPageView(false);
     if (aboutRef.current) {
       const target = hash && document.getElementById(hash);
       if (target) target.scrollIntoView(); else window.scrollTo({ top: 0 });
     }
     applyAbout(true);
-  }, [applyOverlays, applyRecipe, applyAbout]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts]);
+
+  // The footer link under the Recipes list: a real navigation to /drafts/,
+  // pushed like About, so Back returns to the list.
+  const handleDrafts = useCallback(() => {
+    try {
+      window.history.pushState(makeEntry([], false, tabRef.current), '', `${draftsPath()}${searchWithoutRecipe()}`);
+    } catch { /* ignore */ }
+    applyOverlays([]);
+    applyRecipe('');
+    applyAbout(false);
+    setPageView(false);
+    applyDrafts(true);
+    window.scrollTo({ top: 0 });
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts]);
 
   // The masthead's (i) toggles: on About it closes the page by stepping Back,
   // exactly like the browser's Back. Every way in leaves an in-site entry
@@ -325,8 +361,9 @@ function AppInner() {
       tapped,
       tab: tabRef.current,
       overlays: overlaysRef.current,
-      // About is a page of its own: any tab leaves it, the current one too.
-      onRecipePage: !!recipeIdRef.current || aboutRef.current,
+      // About and Chef's Drafts are pages of their own: any tab leaves them,
+      // the current one too.
+      onRecipePage: !!recipeIdRef.current || aboutRef.current || draftsRef.current,
     });
     if (action.type === 'scrollTop') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     if (action.type === 'openList') { openOverlay(LIST); return; }
@@ -335,10 +372,11 @@ function AppInner() {
     applyOverlays([]);
     applyRecipe('');
     applyAbout(false);
+    applyDrafts(false);
     setPageView(false);
     applyTab(action.tab);
     window.scrollTo({ top: 0 });
-  }, [openOverlay, closeOverlay, applyOverlays, applyRecipe, applyAbout, applyTab]);
+  }, [openOverlay, closeOverlay, applyOverlays, applyRecipe, applyAbout, applyDrafts, applyTab]);
 
   const handleSearch = useCallback((query) => {
     setSearchQuery(query);
@@ -383,6 +421,7 @@ function AppInner() {
       const recipe = key ? resolveRecipe(key) : null;
       applyRecipe(recipe ? recipe.id : '');
       applyAbout(isAboutPath(window.location.pathname));
+      applyDrafts(isDraftsPath(window.location.pathname));
       setPageView(isPageEntry());
       applyTab(currentEntryTab());
       const pending = pendingSearchRef.current;
@@ -394,7 +433,7 @@ function AppInner() {
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
-  }, [applyOverlays, applyRecipe, applyAbout, applyTab]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyTab]);
 
   // A shared link — /r/spicy-pork-patties/ or the legacy ?recipe=Chili — opens
   // straight into a recipe with nothing behind it. Rewrite that first entry to
@@ -415,19 +454,19 @@ function AppInner() {
     } catch { /* ignore */ }
   }, [landing]);
 
-  // The same rule for a direct load of /about/: the list goes in behind it, so
-  // Back lands on the recipes rather than off the site. The About URL is kept
-  // whole (query and #photos). Same "this entry is ours" marker as above, so a
-  // reload or an in-app arrival never adds a second entry.
-  const [landedOnAbout] = useState(() => isAboutPath(window.location.pathname));
+  // The same rule for a direct load of /about/ or /drafts/: the list goes in
+  // behind it, so Back lands on the recipes rather than off the site. The URL
+  // is kept whole (query and #photos). Same "this entry is ours" marker as
+  // above, so a reload or an in-app arrival never adds a second entry.
+  const [landedOnPage] = useState(() => isAboutPath(window.location.pathname) || isDraftsPath(window.location.pathname));
   useEffect(() => {
-    if (!landedOnAbout || window.history.state) return;
+    if (!landedOnPage || window.history.state) return;
     try {
-      const aboutUrl = currentUrl();
+      const pageUrl = currentUrl();
       window.history.replaceState(makeEntry([], false, TAB_RECIPES), '', listUrl());
-      window.history.pushState(makeEntry([], false, TAB_RECIPES), '', aboutUrl);
+      window.history.pushState(makeEntry([], false, TAB_RECIPES), '', pageUrl);
     } catch { /* ignore */ }
-  }, [landedOnAbout]);
+  }, [landedOnPage]);
 
   // "/" focuses the search bar when nothing is layered over the list.
   useEffect(() => {
@@ -454,13 +493,17 @@ function AppInner() {
         nav={<TabBar placement="header" {...navProps} />}
         onAbout={handleAboutButton}
         aboutCurrent={aboutView}
-        siteTitleIsHeading={!fullPage && !aboutView}
-        slim={fullPage || pinnedView || aboutView}
-        onHome={fullPage || aboutView ? goToList : undefined}
+        siteTitleIsHeading={!fullPage && !aboutView && !draftsView}
+        slim={fullPage || pinnedView || aboutView || draftsView}
+        onHome={fullPage || aboutView || draftsView ? goToList : undefined}
       />
       {aboutView ? (
         <ErrorBoundary key="__about__">
           <AboutPage />
+        </ErrorBoundary>
+      ) : draftsView ? (
+        <ErrorBoundary key="__drafts__">
+          <DraftsPage onViewRecipe={handleViewRecipe} />
         </ErrorBoundary>
       ) : fullPage ? (
         // Arrived here from a shared link: there is no list to lay a card over,
@@ -492,6 +535,7 @@ function AppInner() {
                 onCategoryChange={setCategory}
                 recentHistory={recentHistory}
                 onClearRecent={clearHistory}
+                onOpenDrafts={handleDrafts}
               />
             </>
           )}

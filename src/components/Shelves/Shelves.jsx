@@ -55,9 +55,11 @@ function Shelf({ id, title, icon, recipes, onViewRecipe, action }) {
   );
 }
 
+// Pinned keeps a draft Adam pinned himself. Recently viewed is the Cookbook's
+// own memory, so a draft opened from the Drafts page stays off it.
 export default function Shelves({ pinnedIds, recent, onViewRecipe, onClearRecent }) {
   const pinned = resolveAll([...pinnedIds]);
-  const recentRecipes = resolveAll(recent.map((h) => h.id ?? h.name));
+  const recentRecipes = resolveAll(recent.map((h) => h.id ?? h.name)).filter((r) => !isDraft(r));
   return (
     <>
       <Shelf id="shelf-pinned" title="Pinned" icon="star" recipes={pinned} onViewRecipe={onViewRecipe} />

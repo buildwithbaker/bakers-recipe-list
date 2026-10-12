@@ -13,3 +13,5 @@ export function recipeDocumentTitle(name) {
 // writes it into dist/about/index.html (title and og:title) and AboutPage sets
 // it at runtime.
 export const ABOUT_DOCUMENT_TITLE = recipeDocumentTitle('About');
+
+export const DRAFTS_DOCUMENT_TITLE = recipeDocumentTitle("Chef's Drafts");

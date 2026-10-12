@@ -5,13 +5,17 @@
 // not have.
 //
 // A search replaces all of this with SearchResults.
+//
+// Chef's Drafts are not here: LISTED_ROWS is the Cookbook only. A quiet footer
+// line after the last category is the one way in to their own page.
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import {
-  CATEGORY_BY_ID, DRAFTS_CATEGORY, LISTED_ROWS, PLANNED_BY_CATEGORY, categoryStyle, groupByCategory,
+  CATEGORY_BY_ID, DRAFT_ROWS, LISTED_ROWS, PLANNED_BY_CATEGORY, categoryStyle, groupByCategory,
 } from '../../data/catalog.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
-import { DRAFTS_INTRO } from '../../data/sections.js';
+import { isModifiedClick } from '../../utils/isModifiedClick.js';
+import { draftsPath } from '../../utils/recipeRoute.js';
 import Icon from '../Icon/Icon.jsx';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
 import SearchResults from '../SearchResults/SearchResults.jsx';
@@ -28,7 +32,7 @@ import styles from './RecipeList.module.css';
 
 export default function RecipeList({
   onViewRecipe, searchQuery, onSearch, category, onCategoryChange,
-  recentHistory = [], onClearRecent,
+  recentHistory = [], onClearRecent, onOpenDrafts,
 }) {
   const deferredQuery = useDeferredValue(searchQuery || '');
   const isFiltering = (searchQuery || '') !== deferredQuery;
@@ -208,12 +212,29 @@ export default function RecipeList({
               <span className={styles.soon}>{PLANNED_BY_CATEGORY.get(g.category.id)} more planned</span>
             )}
           </div>
-          {g.category.id === DRAFTS_CATEGORY && <p className={styles.groupNote}>{DRAFTS_INTRO}</p>}
           <ul className={styles.grid}>
             {g.rows.map((r) => <RecipeCard key={r.id} recipe={r} onViewRecipe={onViewRecipe} />)}
           </ul>
         </section>
       ))}
+
+      {/* Chef's Drafts are for Adam's own reference: a small muted line at the
+          very bottom, not a tab, a chip or a heading. A real link, so it can
+          be opened in a new tab; a plain click is an in-app navigation. */}
+      {DRAFT_ROWS.length > 0 && (
+        <footer className={styles.draftsFooter}>
+          <a
+            href={draftsPath()}
+            onClick={(e) => {
+              if (isModifiedClick(e) || !onOpenDrafts) return;
+              e.preventDefault();
+              onOpenDrafts();
+            }}
+          >
+            Chef&apos;s Drafts
+          </a>
+        </footer>
+      )}
 
       {filtersOpen && (
         <FiltersSheet

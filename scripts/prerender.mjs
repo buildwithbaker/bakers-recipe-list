@@ -26,11 +26,11 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { DRAFT_LABEL, isDraft, publicSectionLabel } from '../src/data/sections.js';
+import { DRAFT_LABEL, DRAFTS_INTRO, isDraft, publicSectionLabel } from '../src/data/sections.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { ogImageAlt } from '../src/utils/photoCredit.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
-import { ABOUT_DOCUMENT_TITLE, SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
+import { ABOUT_DOCUMENT_TITLE, DRAFTS_DOCUMENT_TITLE, SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
 import {
   ABOUT_DESCRIPTION, ABOUT_FAQ, ABOUT_FAQ_HEADING, ABOUT_HEADING, ABOUT_INSTALL, ABOUT_INTRO, ABOUT_MAKER,
 } from '../src/components/AboutPage/aboutCopy.js';
@@ -65,6 +65,12 @@ const displayRecipes = recipes;
 // link to anyone they were shared with. They still open in the app from the
 // list; they just get no file and no preview of their own.
 const published = displayRecipes.filter((r) => r.is_blank === false);
+
+// The Cookbook without Chef's Drafts (cookbookRecipes in recipeIndex.js): what
+// related links rank from, so no page suggests a draft. Drafts keep their own
+// pages, but stay out of the sitemap and are listed only on /drafts/.
+const cookbookRecipes = displayRecipes.filter((r) => !isDraft(r));
+const publishedDrafts = published.filter(isDraft);
 
 // --- helpers ---------------------------------------------------------------
 
@@ -352,8 +358,39 @@ const ABOUT_URL = `${ORIGIN}about/`;
 mkdirSync(join(dist, 'about'), { recursive: true });
 writeFileSync(join(dist, 'about', 'index.html'), injectIntoShell(aboutHead(ABOUT_URL), aboutNoscript()), 'utf8');
 
+// --- the Chef's Drafts page ------------------------------------------------
+//
+// /drafts/ is a route in the app like /about/, so it gets a real file for a
+// direct load or a refresh. It is Adam's own reference, not part of the
+// Cookbook: noindex, and never in the sitemap.
+
+const DRAFTS_URL = `${ORIGIN}drafts/`;
+
+function draftsHead(url) {
+  return [
+    `<title>${esc(DRAFTS_DOCUMENT_TITLE)}</title>`,
+    '<meta name="robots" content="noindex">',
+    `<link rel="canonical" href="${esc(url)}">`,
+    `<meta name="description" content="${esc(DRAFTS_INTRO)}">`,
+  ].join('\n    ');
+}
+
+function draftsNoscript() {
+  const parts = ["<h1>Chef&#39;s Drafts</h1>", `<p>${esc(DRAFTS_INTRO)}</p>`, '<ul>'];
+  for (const r of publishedDrafts) {
+    parts.push(`  <li><a href="${esc(`${ORIGIN}r/${idToSlug(r.id)}/`)}">${esc(r.name)}</a> - ${esc(DRAFT_LABEL)}</li>`);
+  }
+  parts.push('</ul>');
+  const indented = parts.map((line) => `      ${line}`).join('\n');
+  return `<noscript>\n${indented}\n    </noscript>`;
+}
+
+mkdirSync(join(dist, 'drafts'), { recursive: true });
+writeFileSync(join(dist, 'drafts', 'index.html'), injectIntoShell(draftsHead(DRAFTS_URL), draftsNoscript()), 'utf8');
+
 // --- write -----------------------------------------------------------------
 
+// Sitemap URLs: Cookbook pages only.
 const urls = [];
 for (const r of published) {
   const slug = idToSlug(r.id);
@@ -363,9 +400,9 @@ for (const r of published) {
   // The SAME ranking the app renders — imported, never reimplemented. Two
   // copies of it would drift, and the fallback agreeing with what the app shows
   // is the whole reason for writing it.
-  const related = relatedRecipes(r, displayRecipes);
+  const related = relatedRecipes(r, cookbookRecipes);
   writeFileSync(join(dir, 'index.html'), pageFor(r, url, related), 'utf8');
-  urls.push(url);
+  if (!isDraft(r)) urls.push(url);
 }
 
 // --- redirects for removed records ---------------------------------------
@@ -445,5 +482,5 @@ console.log(
   `✓ prerender - ${published.length} recipe pages from ${displayRecipes.length} display rows ` +
   `(${recipes.length} records, ${displayRecipes.length - published.length} blank/skipped), ` +
   `${ogMade.size} photo preview${ogMade.size === 1 ? '' : 's'}, ` +
-  `${redirects} redirect${redirects === 1 ? '' : 's'}, about page, sitemap + robots.txt + 404.html written`,
+  `${redirects} redirect${redirects === 1 ? '' : 's'}, about page, drafts page, sitemap + robots.txt + 404.html written`,
 );
