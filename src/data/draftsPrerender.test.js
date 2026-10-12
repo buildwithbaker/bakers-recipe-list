@@ -83,3 +83,28 @@ describe("prerendered Chef's Draft pages", () => {
     expect(noscript(html)).toMatch(/<h1>A Cookbook Recipe<\/h1>\s*<p>A short cookbook description\.<\/p>/);
   });
 });
+
+describe("prerendered Chef's Drafts page and sitemap", () => {
+  const drafts = () => readFileSync(join(root, 'dist', 'drafts', 'index.html'), 'utf8');
+  const sitemap = () => readFileSync(join(root, 'dist', 'sitemap.xml'), 'utf8');
+
+  it('writes /drafts/ as a noindex page listing every draft and no cookbook recipe', () => {
+    const html = drafts();
+    expect(html).toContain('<meta name="robots" content="noindex">');
+    const ns = noscript(html);
+    expect(ns).toContain('/r/a-draft/');
+    expect(ns).toContain('Draft - not cooked yet');
+    expect(ns).not.toContain('a-cookbook');
+  });
+
+  it('keeps drafts and the Drafts page out of the sitemap', () => {
+    const xml = sitemap();
+    expect(xml).toContain('/r/a-cookbook/');
+    expect(xml).not.toContain('/r/a-draft/');
+    expect(xml).not.toContain('/drafts/');
+  });
+
+  it("still writes the draft's own page", () => {
+    expect(page('a-draft')).toContain('<h1>A Draft</h1>');
+  });
+});

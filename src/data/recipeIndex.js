@@ -11,6 +11,7 @@
 // `removed` map below like any other removed key.
 import recipes from './recipes.json';
 import idManifest from './recipes.ids.json';
+import { isDraft } from './sections.js';
 
 // Raw records, in file order. Use this only when you genuinely mean the stored
 // catalog (validation, counts); anything the user can click wants `displayRecipes`.
@@ -18,6 +19,11 @@ export { recipes as rawRecipes };
 
 // Every row the app renders, in file order: one per record.
 export const displayRecipes = recipes;
+
+// The same rows without Chef's Drafts, still in file order: what "related
+// recipes" ranks from, so a draft is never suggested from the Cookbook. One
+// stable array, because relatedRecipes caches its model per array.
+export const cookbookRecipes = displayRecipes.filter((r) => !isDraft(r));
 
 // Display rows grouped by section key, preserving file order within a section.
 export const displayedBySection = (() => {

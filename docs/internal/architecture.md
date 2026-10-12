@@ -69,6 +69,7 @@ thing most likely to surprise you if you last read the old docs.
 | `recipePath(id)` | id → `/bakers-recipe-list/r/<slug>/` |
 | `recipeKeyFromPath(pathname)` | pathname → recipe key, or `''` when it is not a recipe route |
 | `aboutPath(base, hash)` / `isAboutPath(pathname)` | the About page at `/bakers-recipe-list/about/` |
+| `draftsPath(base)` / `isDraftsPath(pathname)` | the Chef's Drafts page at `/bakers-recipe-list/drafts/` |
 
 `App.jsx` reads the path on first paint and on every `popstate`, resolves it
 through `resolveRecipe`, and renders. Opening a recipe from the list is a real
@@ -117,6 +118,26 @@ The masthead is two siblings: a sticky row (wordmark, header tabs, the (i),
 a real link to `/about/`) and a foot (tagline, the search-box overlap, the double rule) that
 scrolls away. `--masthead-stuck` is the row's height; `RecipePage` pins its
 bar there and `scroll-padding-top` keeps anchor jumps clear of it.
+
+### The Chef's Drafts page
+
+Chef's Drafts (`section: "CHEFS DRAFTS"`, `isDraft` in `sections.js`) are
+recipes built but not cooked yet, kept for Adam's own reference. They are **not
+part of the Cookbook**: `catalog.js` `ROWS` leaves them out, so the list, its
+chips and counts, the Filters sheet and search never show one, and
+`recipeIndex.js` `cookbookRecipes` keeps them out of related recipes (app and
+prerender). Recently viewed skips them; Pinned, the shopping list and the cook
+log keep a draft Adam put there.
+
+`/drafts/` (`DraftsPage`, listing `DRAFT_ROWS`) is routed exactly like About:
+a push in, Back out, a list entry put behind a direct load, and a prerendered
+file (`noindex`, never in the sitemap). The only way in from the UI is a small
+muted footer link after the last category on the Recipes tab. A draft opened
+there opens as a full page, so Back returns to `/drafts/`. A draft's own page
+still works by path and by `?recipe=`, labelled `DRAFT_LABEL`.
+
+Graduating a draft into the Cookbook is a one-field change to its `section`;
+`isDraft` is the only test any surface uses.
 
 ### The About page
 
@@ -276,6 +297,8 @@ with its site-level `<title>` and description stripped, and per-recipe
 `Recipe` JSON-LD block injected into the head. For every recipe with a photo
 in `src/photos/`, `dist/og/<id>.jpg` (§13). Plus `dist/sitemap.xml`,
 `dist/about/index.html` (the About page, also in the sitemap),
+`dist/drafts/index.html` (Chef's Drafts, `noindex`; drafts' own pages are
+written but left out of the sitemap),
 `dist/robots.txt`, and `dist/404.html` (the shell, so an unknown path lands on
 the app; Pages returns a real 404 for it, which is correct).
 

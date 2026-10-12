@@ -6,11 +6,13 @@
 //
 // The site is the Cookbook only. The To Try and For Review collections were
 // removed on 2026-10-02 (archived outside the repo; in git history at d58c4db).
+// Chef's Drafts are not in the Cookbook either: ROWS leaves them out, and they
+// live on their own page (DRAFT_ROWS, components/DraftsPage).
 //
 // Every section must map to a category. catalog.test.js fails the suite when a
 // new section is added to sections.js without a line in SECTION_CATEGORY, so a
 // new bucket can never silently vanish from the list.
-import { SECTIONS } from './sections.js';
+import { SECTIONS, isDraft } from './sections.js';
 import { displayRecipes } from './recipeIndex.js';
 import { isComingSoon } from '../utils/recipeKinds.js';
 import { mix } from '../utils/colour.js';
@@ -43,7 +45,8 @@ const RAW_CATEGORIES = [
   { id: 'smoothies', label: 'Smoothies', color: '#46644f' },
   { id: 'bread', label: 'Bread', color: '#8a5a00' },
   // Chef's Drafts: the --ink-muted value, so drafts read as set apart from the
-  // cookbook rather than as one more cuisine.
+  // cookbook rather than as one more cuisine. Never a chip or a list heading
+  // (ROWS has no drafts); it colours a draft's card and page.
   { id: 'chefs-drafts', label: "Chef's Drafts", color: '#5f5349' },
 ];
 
@@ -87,22 +90,29 @@ export const SECTION_CATEGORY = {
   'CHEFS DRAFTS': 'chefs-drafts',
 };
 
-// The Chef's Drafts category, for the list's one-line explainer under it.
-export const DRAFTS_CATEGORY = 'chefs-drafts';
-
 export function categoryOf(recipe) {
   return CATEGORY_BY_ID.get(SECTION_CATEGORY[recipe.section]) ?? null;
 }
 
+// A written recipe: not a placeholder. Each one has its own page.
+export const isWritten = (r) => !r.is_blank;
+
 // Every display row, in SECTIONS order (the order the list has always used),
 // so groups come out Breakfast, Slow Cooker, ... not file order.
 const SECTION_ORDER = new Map(SECTIONS.map((s, i) => [s.key, i]));
-export const ROWS = [...displayRecipes].sort(
+const SORTED_ROWS = [...displayRecipes].sort(
   (a, b) => (SECTION_ORDER.get(a.section) ?? 1e9) - (SECTION_ORDER.get(b.section) ?? 1e9),
 );
 
-// A written recipe: not a placeholder. Each one has its own page.
-export const isWritten = (r) => !r.is_blank;
+// The Cookbook: every row except Chef's Drafts. The list, its chips and
+// counts, the Filters sheet and search all read this, so a draft can never
+// reach them. isDraft is the one test: graduating a draft is a change to its
+// `section` and nothing else.
+export const ROWS = SORTED_ROWS.filter((r) => !isDraft(r));
+
+// Chef's Drafts, for their own page and nothing else: the written drafts, in
+// file order.
+export const DRAFT_ROWS = SORTED_ROWS.filter((r) => isDraft(r) && isWritten(r));
 
 // Headline numbers, counted off the same rows the list renders.
 export const CATALOG_COUNTS = {

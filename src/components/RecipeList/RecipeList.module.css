@@ -119,14 +119,6 @@
    z-index 3 clears the card internals (pin 1, photo 1, AI badge 2) and stays
    under the masthead (400), the Filters sheet (450) and the recipe modal (500). */
 /* The one line under the Chef's Drafts heading. */
-.groupNote {
-  max-width: 60ch;
-  margin: calc(-1 * var(--s2)) 0 var(--s4);
-  color: var(--ink-muted);
-  font-size: var(--t-sm);
-  line-height: 1.5;
-}
-
 .groupHead {
   position: sticky;
   top: var(--masthead-stuck);
@@ -214,4 +206,23 @@
 
 .btn:hover {
   border-color: var(--brand);
+}
+
+/* The one way in to Chef's Drafts: a quiet footer line after the last
+   category. Muted ink, small type, no button chrome. */
+.draftsFooter {
+  margin-top: var(--s8);
+  padding: var(--s4) 0 var(--s2);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: var(--t-xs);
+}
+
+.draftsFooter a {
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.draftsFooter a:hover {
+  text-decoration: underline;
 }

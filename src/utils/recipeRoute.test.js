@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { aboutPath, isAboutPath, recipePath, recipeKeyFromPath } from './recipeRoute.js';
+import { aboutPath, draftsPath, isAboutPath, isDraftsPath, recipePath, recipeKeyFromPath } from './recipeRoute.js';
 import { rawRecipes, recipesById } from '../data/recipeIndex.js';
 
 // The tests pass `base` explicitly: import.meta.env.BASE_URL is '/' under
@@ -82,5 +82,20 @@ describe('aboutPath / isAboutPath', () => {
 
   it('does not read About as a recipe key', () => {
     expect(recipeKeyFromPath('/bakers-recipe-list/about/', BASE)).toBe('');
+  });
+});
+
+describe('draftsPath / isDraftsPath', () => {
+  it('builds /drafts/ under the base', () => {
+    expect(draftsPath(BASE)).toBe('/bakers-recipe-list/drafts/');
+    expect(draftsPath('/bakers-recipe-list')).toBe('/bakers-recipe-list/drafts/');
+  });
+
+  it('recognises the Drafts path and nothing else', () => {
+    expect(isDraftsPath('/bakers-recipe-list/drafts/', BASE)).toBe(true);
+    expect(isDraftsPath('/bakers-recipe-list/drafts', BASE)).toBe(true);
+    expect(isDraftsPath('/bakers-recipe-list/r/drafts/', BASE)).toBe(false);
+    expect(isDraftsPath('/bakers-recipe-list/about/', BASE)).toBe(false);
+    expect(isDraftsPath('/drafts/', BASE)).toBe(false);
   });
 });

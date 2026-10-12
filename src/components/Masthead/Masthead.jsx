@@ -17,7 +17,6 @@
 // the page's own title is the h1, so the wordmark steps down to plain text and becomes the way home.
 import { useEffect, useRef, useState } from 'react';
 import { ROWS, isWritten } from '../../data/catalog.js';
-import { isDraft } from '../../data/sections.js';
 import { BASE_PATH, aboutPath } from '../../utils/recipeRoute.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import Icon from '../Icon/Icon.jsx';
@@ -26,7 +25,7 @@ import styles from './Masthead.module.css';
 const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
 // The site's size is its cookbook: written recipes, not placeholders and not
 // Chef's Drafts, which are not cooked yet.
-export const COOKBOOK_COUNT = ROWS.filter((r) => isWritten(r) && !isDraft(r)).length;
+export const COOKBOOK_COUNT = ROWS.filter(isWritten).length;
 const TAGLINE = plural(COOKBOOK_COUNT, 'recipe');
 
 export default function Masthead({ nav, onAbout, aboutCurrent = false, siteTitleIsHeading = true, slim = false, onHome }) {

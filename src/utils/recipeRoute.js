@@ -47,3 +47,16 @@ export function isAboutPath(pathname, base = BASE_PATH) {
   const prefix = withTrailingSlash(base);
   return path.startsWith(prefix) && /^about\/?$/.test(path.slice(prefix.length));
 }
+
+// Chef's Drafts is a page of its own at <base>/drafts/, routed like About and
+// prerendered the same way (dist/drafts/index.html). It is reached from a
+// footer link under the Recipes list, never from the navigation.
+export function draftsPath(base = BASE_PATH) {
+  return `${withTrailingSlash(base)}drafts/`;
+}
+
+export function isDraftsPath(pathname, base = BASE_PATH) {
+  const path = String(pathname ?? '');
+  const prefix = withTrailingSlash(base);
+  return path.startsWith(prefix) && /^drafts\/?$/.test(path.slice(prefix.length));
+}
