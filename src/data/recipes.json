@@ -7989,5 +7989,141 @@
     "prepTime": "PT25M",
     "cookTime": "PT25M",
     "recipeYield": "6 servings"
+  },
+  {
+    "id": "sticky-balsamic-honey-soy-chicken",
+    "name": "Sticky Balsamic-Honey-Soy Chicken",
+    "section": "CHEFS DRAFTS",
+    "category": "Asian",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#balsamic",
+      "#weeknight",
+      "#rice-bowl"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "1½ lb boneless skinless chicken breast (about 2 large)"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp kosher salt"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp cornstarch"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp neutral oil (avocado or canola), divided"
+      },
+      {
+        "type": "header",
+        "text": "Glaze:"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup balsamic vinegar"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp low-sodium soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup water"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp fresh ginger, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp red pepper flakes"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp toasted sesame oil"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp sesame seeds (optional)"
+      },
+      {
+        "type": "item",
+        "text": "Cooked rice, for serving"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix the Glaze",
+        "detail": "Whisk the balsamic vinegar (⅓ cup), low-sodium soy sauce (3 Tbsp), honey (3 Tbsp) and water (¼ cup) together. Keep the garlic (4 cloves), ginger (1 Tbsp) and red pepper flakes (1 tsp) separate.",
+        "why": "Mixed ahead, it all hits the pan at once, before the garlic can scorch."
+      },
+      {
+        "step": "Cut and Coat",
+        "detail": "Cut the chicken breast (1½ lb) into 1-inch cubes and pat dry. Toss with the kosher salt (½ tsp), black pepper (¼ tsp) and cornstarch (1 Tbsp) until evenly coated.",
+        "why": "The cornstarch gives the glaze something to grip. Without it the glaze slides off lean breast meat. The salt stays light because the soy carries the rest."
+      },
+      {
+        "step": "Sear in Batches",
+        "detail": "Heat neutral oil (1 Tbsp) in a 12-inch stainless or cast-iron skillet over medium-high until it shimmers. Add half the chicken in a single layer with space between the pieces and leave it 2 minutes to brown, then turn and cook 1 to 2 minutes more, browned but not cooked through. Move to a plate and repeat with the remaining neutral oil (1 Tbsp) and chicken.",
+        "why": "All 1½ lb at once crowds the pan and steams the chicken instead of browning it."
+      },
+      {
+        "step": "Bloom the Aromatics",
+        "detail": "Turn the heat to medium. Add the garlic (4 cloves), ginger (1 Tbsp) and red pepper flakes (1 tsp) and stir for 30 seconds, until fragrant."
+      },
+      {
+        "step": "Reduce the Glaze",
+        "detail": "Pour in the glaze mixture (balsamic vinegar ⅓ cup, low-sodium soy sauce 3 Tbsp, honey 3 Tbsp, water ¼ cup) and scrape up the browned bits. Simmer 3 to 4 minutes, until syrupy and it coats a spoon.",
+        "why": "Balsamic and honey are mostly sugar: they thicken fast and burn fast."
+      },
+      {
+        "step": "Glaze the Chicken",
+        "detail": "Return the chicken and any plate juices to the pan. Toss 1 to 2 minutes, until glossy and coated and the largest piece is opaque all the way through when cut open. Add a splash of water if the glaze tightens too far.",
+        "why": "Breast cubes dry out fast, and the sear already did most of the cooking."
+      },
+      {
+        "step": "Finish",
+        "detail": "Off the heat, stir in the toasted sesame oil (1 tsp). Serve over cooked rice, topped with the green onions (2) and sesame seeds (1 tsp).",
+        "why": "Sesame oil's aroma cooks off quickly, so it goes in last."
+      }
+    ],
+    "notes": [
+      "Use low-sodium soy sauce. The glaze reduces, which concentrates the salt.",
+      "No fresh ginger: use ¼ tsp ground ginger, whisked into the glaze mixture."
+    ],
+    "is_blank": false,
+    "description": "Cornstarch-coated chicken breast cubes, seared and tossed in a sticky glaze of reduced balsamic, honey, low-sodium soy, garlic, ginger and chili flake, served over rice.",
+    "prepTime": "PT15M",
+    "cookTime": "PT20M",
+    "recipeYield": "4 servings"
   }
 ]
