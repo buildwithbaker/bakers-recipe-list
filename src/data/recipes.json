@@ -8196,5 +8196,152 @@
     "prepTime": "PT15M",
     "cookTime": "PT20M",
     "recipeYield": "4 servings"
+  },
+  {
+    "id": "korean-beef-and-broccoli-rice-bowls",
+    "name": "Korean Beef and Broccoli Rice Bowls",
+    "section": "CHEFS DRAFTS",
+    "category": "Asian",
+    "source": "Original",
+    "tags": [
+      "#beef",
+      "#ground-beef",
+      "#korean",
+      "#rice-bowl",
+      "#weeknight",
+      "#spicy",
+      "#one-pan"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Sauce:"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp gochujang"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp rice vinegar"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cornstarch"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup water"
+      },
+      {
+        "type": "header",
+        "text": "Beef and vegetables:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "1 bag (12 oz) frozen broccoli florets"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp water, for the broccoli"
+      },
+      {
+        "type": "item",
+        "text": "1 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 medium yellow onion, halved and sliced ¼ inch thick"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp fresh ginger, grated"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp toasted sesame oil"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp toasted sesame seeds"
+      },
+      {
+        "type": "item",
+        "text": "Cooked rice, for serving"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix the Sauce",
+        "detail": "Whisk the soy sauce (3 Tbsp), brown sugar (2 Tbsp), gochujang (2 Tbsp), rice vinegar (1 Tbsp), cornstarch (1 tsp) and water (¼ cup) until the gochujang and cornstarch dissolve.",
+        "why": "Mixed ahead, it goes in all at once, so the garlic doesn't sit in a hot pan waiting on you."
+      },
+      {
+        "step": "Sear the Broccoli",
+        "detail": "Heat the neutral oil (1 Tbsp) in a 12-inch skillet over medium-high until it shimmers. Add the frozen broccoli (12 oz) straight from the bag and the water (2 Tbsp), cover and cook 3 minutes. Uncover and cook 3 to 4 minutes more, stirring once or twice, until the water is gone and some edges are browned. Move to a plate.",
+        "why": "The cover steams it through from frozen; once the water boils off, the dry pan can brown the edges instead of boiling them soft."
+      },
+      {
+        "step": "Brown the Beef",
+        "detail": "Season the raw ground beef (1 lb) with the black pepper (½ tsp). Put it in the empty skillet over medium-high, press it into one flat layer and leave it 3 to 4 minutes, until browned underneath. Flip it in sections, brown 3 minutes more, then break it into bite-size crumbles. Drain the fat into a heatproof bowl and keep it.",
+        "why": "Pressed flat and left alone, the beef browns. Broken up right away, it releases water and turns gray and steamed."
+      },
+      {
+        "step": "Cook the Onion",
+        "detail": "Push the beef to one side. Add 1 Tbsp of the reserved fat to the empty side, then the onion (1 medium) and cook 4 to 5 minutes, stirring now and then, until soft and browned at the edges. Stir it into the beef.",
+        "why": "Cooking the onion in the beef's own fat gives it the beef flavor without adding more oil."
+      },
+      {
+        "step": "Add the Aromatics",
+        "detail": "Clear a spot in the pan, add the garlic (4 cloves) and ginger (1 Tbsp) and stir 30 seconds, until fragrant.",
+        "why": "Garlic goes in last, next to food that buffers the heat, because minced garlic burns within a minute in a hot, bare pan."
+      },
+      {
+        "step": "Sauce",
+        "detail": "Stir the sauce again and pour it in. Simmer 1 to 2 minutes, stirring, until it thickens and coats the beef. Return the broccoli and toss 1 minute to heat through. Take the pan off the heat and stir in the toasted sesame oil (1 tsp).",
+        "why": "Toasted sesame oil goes in off the heat because heat drives off its aroma."
+      },
+      {
+        "step": "Serve",
+        "detail": "Spoon over cooked rice and top with the green onions (2) and sesame seeds (1 tsp)."
+      }
+    ],
+    "notes": [
+      "No added salt: the soy sauce and gochujang carry it. Taste before serving and add a splash more soy if it needs it.",
+      "For more heat, add up to 1 Tbsp more gochujang to the sauce."
+    ],
+    "is_blank": false,
+    "description": "Browned ground beef, onion and seared frozen broccoli in a soy, gochujang, ginger and garlic sauce, served over rice.",
+    "prepTime": "PT10M",
+    "cookTime": "PT20M",
+    "recipeYield": "4 servings"
   }
 ]
