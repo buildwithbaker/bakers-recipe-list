@@ -178,6 +178,77 @@
     "recipeYield": "8 servings"
   },
   {
+    "id": "berry-peanut-butter-yogurt-parfait",
+    "name": "Berry Peanut Butter Yogurt Parfait",
+    "section": "BREAKFAST",
+    "category": "Breakfast",
+    "source": "Original",
+    "tags": [
+      "#breakfast",
+      "#snack",
+      "#greek-yogurt",
+      "#peanut-butter",
+      "#high-protein",
+      "#no-cook"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "For the fruit:"
+      },
+      {
+        "type": "item",
+        "text": "¾ to 1 cup frozen blueberries"
+      },
+      {
+        "type": "item",
+        "text": "¾ to 1 cup frozen strawberries or mango chunks"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 cup plain nonfat Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp peanut butter"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp ground flaxseed"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Thaw the Fruit",
+        "detail": "Put the frozen blueberries (¾ to 1 cup) and frozen strawberries or mango (¾ to 1 cup) in a microwave-safe bowl. Microwave on high for 1 to 1½ minutes, stir, then microwave 1 minute more. Let it stand until no ice is left in the center of the pieces.",
+        "why": "Microwaves heat liquid water far faster than ice, so stirring moves the thawed juice around the frozen pieces and the rest lets that heat finish the centers without cooking the fruit to mush."
+      },
+      {
+        "step": "Stir in the Yogurt",
+        "detail": "Add the Greek yogurt (1 cup) and stir until it is fully mixed into the fruit and its juices.",
+        "why": "Nonfat Greek yogurt can turn grainy in hot, acidic fruit, so the fruit should be thawed and warm, not steaming, when the yogurt goes in."
+      },
+      {
+        "step": "Finish",
+        "detail": "Add the peanut butter (2 Tbsp) and ground flaxseed (1 Tbsp) and stir them through.",
+        "why": "Ground flax starts to gel as it soaks up the juice, so it thickens the bowl the longer it sits."
+      }
+    ],
+    "notes": [
+      "Use ground flaxseed, not whole: whole seeds mostly pass through undigested, so most of the fiber and omega-3 never gets used. Keep ground flax in the fridge or freezer, where its oils stay fresh longer.",
+      "Blueberries stay as half the fruit; the other half rotates between strawberries and mango."
+    ],
+    "is_blank": false,
+    "description": "Microwave-thawed blueberries and strawberries or mango stirred into nonfat Greek yogurt with peanut butter and ground flaxseed.",
+    "prepTime": "PT3M",
+    "cookTime": "PT3M",
+    "recipeYield": "1 serving"
+  },
+  {
     "id": "pulled-pork",
     "name": "Pulled Pork",
     "section": "SLOW COOKER",
