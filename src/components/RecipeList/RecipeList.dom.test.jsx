@@ -4,7 +4,7 @@
 // Chef's Drafts never appear here; a footer link is the one way to them.
 import { useState } from 'react';
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
-import { cleanup, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CookHistoryProvider } from '../../context/CookHistoryContext.jsx';
 import { LISTED_ROWS } from '../../data/catalog.js';
@@ -107,11 +107,11 @@ describe("RecipeList: Chef's Drafts", () => {
   });
 
   it('never returns a draft in search results, even searched by its exact name', async () => {
-    const user = userEvent.setup();
     render(<ListWithSearch onViewRecipe={() => {}} />);
     for (const d of drafts) {
-      await user.clear(screen.getByRole('searchbox'));
-      await user.type(screen.getByRole('searchbox'), d.name);
+      // One change event per draft: typing the name key by key made the test
+      // grow with the number of drafts and time out.
+      fireEvent.change(screen.getByRole('searchbox'), { target: { value: d.name } });
       await screen.findByRole('status');
       expect(screen.queryByRole('link', { name: d.name })).toBeNull();
       expect(screen.queryByText(DRAFT_LABEL)).toBeNull();
