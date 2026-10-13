@@ -65,5 +65,18 @@
   "honey-carrots": { "ai": true, "alt": "AI-generated image of roll-cut honey roasted carrot chunks, browned on the cut faces, on a white plate." },
   "rib-rub": { "ai": true, "alt": "AI-generated image of a rust-red dry rib rub in a small white bowl with a spoon." },
   "noodle-dough": { "ai": true, "alt": "AI-generated image of fresh egg noodle nests and rolled pasta sheets on a floured table." },
-  "wheat-bread-dough": { "ai": true, "alt": "AI-generated image of a whole wheat sandwich loaf with oats on top and two slices cut." }
+  "wheat-bread-dough": { "ai": true, "alt": "AI-generated image of a whole wheat sandwich loaf with oats on top and two slices cut." },
+  "crispy-smoked-paprika-chickpeas": { "ai": true, "alt": "AI-generated image of crispy roasted chickpeas dusted with smoked paprika in a white bowl." },
+  "chili-lime-spiced-peanuts": { "ai": true, "alt": "AI-generated image of chili-coated roasted peanuts in a white bowl." },
+  "korean-spicy-cucumber-salad": { "ai": true, "alt": "AI-generated image of sliced cucumbers in a red chili dressing with green onion and sesame seeds." },
+  "mayak-eggs": { "ai": true, "alt": "AI-generated image of soy-marinated soft-boiled eggs, two halved to show jammy yolks, with sliced chili." },
+  "peanut-chicken-lettuce-cups": { "ai": true, "alt": "AI-generated image of lettuce cups filled with ground chicken in peanut sauce, carrot, peanuts and green onion." },
+  "smooth-hummus": { "ai": true, "alt": "AI-generated image of hummus swirled with olive oil and paprika, with carrot, cucumber and red pepper sticks." },
+  "buffalo-greek-yogurt-dip": { "ai": true, "alt": "AI-generated image of an orange buffalo yogurt dip with blue cheese and dill, with celery, carrot and red pepper sticks." },
+  "tzatziki": { "ai": true, "alt": "AI-generated image of tzatziki with grated cucumber, dill and olive oil, with pita wedges." },
+  "chocolate-peanut-butter-chia-pudding": { "ai": true, "alt": "AI-generated image of chocolate chia pudding topped with blueberries and raspberries." },
+  "microwave-cinnamon-apples-with-greek-yogurt": { "ai": true, "alt": "AI-generated image of warm cinnamon apples on Greek yogurt with chopped peanuts." },
+  "peanut-butter-granola-clusters": { "ai": true, "alt": "AI-generated image of oat and peanut granola clusters on a small white plate." },
+  "korean-beef-and-broccoli-rice-bowls": { "ai": true, "alt": "AI-generated image of saucy ground beef with onion and browned broccoli over white rice, topped with green onion and sesame seeds." },
+  "berry-peanut-butter-yogurt-parfait": { "ai": true, "alt": "AI-generated image of Greek yogurt stirred with blueberries and strawberries, topped with peanut butter and flax." }
 }
