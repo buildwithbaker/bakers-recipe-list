@@ -6,6 +6,8 @@
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { displayRecipes } from '../../data/recipeIndex.js';
+import photoCredits from '../../data/photoCredits.json';
+import { isDraft } from '../../data/sections.js';
 import { AI_PHOTO_CAPTION, CAPTION_LINK_TEXT, DRAFT_PHOTO_CAPTION, TESTED } from '../../utils/photoCaption.js';
 import { DISPLAY_KEYS } from '../../utils/displaySettings.js';
 import { CookHistoryProvider } from '../../context/CookHistoryContext.jsx';
@@ -317,8 +319,11 @@ describe("RecipeView: Chef's Drafts", () => {
     expect(screen.queryByText('Draft - not cooked yet')).toBeNull();
   });
 
-  it('shows no photo and no caption for a draft without a photo', () => {
-    render(<RecipeView recipe={shawarma} headingLevel={1} />);
+  it('shows no photo and no caption for a draft without a photo', (ctx) => {
+    // Any draft will do, as long as it has no photo (a photo has a credits entry).
+    const photoless = displayRecipes.find((r) => isDraft(r) && !r.is_blank && !photoCredits[r.id]);
+    if (!photoless) return ctx.skip("every Chef's Draft has a photo now");
+    render(<RecipeView recipe={photoless} headingLevel={1} />);
     expect(document.querySelector('figure')).toBeNull();
     expect(screen.queryByRole('link', { name: CAPTION_LINK_TEXT })).toBeNull();
   });
