@@ -8343,5 +8343,1022 @@
     "prepTime": "PT10M",
     "cookTime": "PT20M",
     "recipeYield": "4 servings"
+  },
+  {
+    "id": "crispy-smoked-paprika-chickpeas",
+    "name": "Crispy Smoked Paprika Chickpeas",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#chickpeas",
+      "#oven",
+      "#vegetarian",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "2 cans (15 oz each) chickpeas, drained and rinsed"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 425°F with a rack in the lower third."
+      },
+      {
+        "step": "Dry the Chickpeas",
+        "detail": "Spread the chickpeas (2 cans, drained and rinsed) on a clean kitchen towel, fold it over and rub gently. Throw away any skins that come loose, then leave them uncovered for 15 minutes.",
+        "why": "Wet chickpeas steam at 212°F before they can brown or crisp, so every bit of surface water you remove now is time saved in the oven."
+      },
+      {
+        "step": "Roast",
+        "detail": "Toss the chickpeas with the olive oil (1 Tbsp) in a bowl until they are all glossy. Spread them on a bare rimmed sheet pan with space between them. Roast 20 minutes, shake the pan, then roast 10 to 15 minutes more, until deep golden and a cooled one crunches all the way through.",
+        "why": "A bare pan, not foil, because foil reflects heat and browns less, and the gaps keep steam from collecting between them."
+      },
+      {
+        "step": "Season Hot",
+        "detail": "Mix the smoked paprika (1 tsp), cumin (½ tsp), garlic powder (½ tsp), cayenne (¼ tsp) and table salt (½ tsp). Tip the hot chickpeas into a bowl, toss with the spice mix, then spread them back on the pan to cool completely.",
+        "why": "Ground spices scorch over 30 minutes at 425°F, and the hot oil-coated chickpeas grab them right out of the oven."
+      }
+    ],
+    "notes": [
+      "They stay crisp a day or two in a loosely covered container at room temperature. A sealed container traps their moisture and softens them. Re-crisp at 400°F for 5 minutes."
+    ],
+    "is_blank": false,
+    "description": "Canned chickpeas dried well and roasted until they crunch, then tossed hot with smoked paprika, cumin, garlic and cayenne.",
+    "prepTime": "PT20M",
+    "cookTime": "PT35M",
+    "recipeYield": "5 servings (about ½ cup each)"
+  },
+  {
+    "id": "chili-lime-spiced-peanuts",
+    "name": "Chili-Lime Spiced Peanuts",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#peanut",
+      "#oven",
+      "#spicy",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "1 large egg white"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp water"
+      },
+      {
+        "type": "item",
+        "text": "2 cups unsalted dry-roasted peanuts"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp chili powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "¾ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "Zest of 1 lime"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 300°F and line a rimmed sheet pan with parchment.",
+        "why": "Parchment because the egg white glues itself to a bare pan."
+      },
+      {
+        "step": "Coat",
+        "detail": "Whisk the egg white (1 large) with the water (1 tsp) until foamy. Add the peanuts (2 cups) and toss until every nut is wet, then tip them into a strainer for a minute to drain off the extra. Return them to the bowl and toss with the chili powder (2 tsp), cayenne (½ tsp), garlic powder (½ tsp) and table salt (¾ tsp).",
+        "why": "Only a thin film of egg white dries into a crisp shell. Extra pools on the pan and bakes into chewy sheets."
+      },
+      {
+        "step": "Bake",
+        "detail": "Spread the peanuts in a single layer on the pan. Bake 20 to 25 minutes, stirring every 10 minutes, until the coating looks dry and matte.",
+        "why": "The peanuts are already roasted, so the low oven is only drying the coating, not cooking the nuts any further."
+      },
+      {
+        "step": "Finish",
+        "detail": "Let the peanuts cool completely on the pan, then break up any clumps and toss with the lime zest (1 lime).",
+        "why": "The coating crisps as it cools. Lime zest goes on last because heat drives off its aroma."
+      }
+    ],
+    "notes": [
+      "Keeps 1 week in an airtight container."
+    ],
+    "is_blank": false,
+    "description": "Dry-roasted peanuts coated in a thin egg-white shell with chili powder, cayenne and garlic, baked crisp and finished with lime zest.",
+    "prepTime": "PT5M",
+    "cookTime": "PT25M",
+    "recipeYield": "8 servings (about ¼ cup each)"
+  },
+  {
+    "id": "korean-spicy-cucumber-salad",
+    "name": "Korean Spicy Cucumber Salad",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#cucumber",
+      "#korean",
+      "#spicy",
+      "#no-cook",
+      "#vegetarian"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Cucumbers:"
+      },
+      {
+        "type": "item",
+        "text": "2 English cucumbers"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Dressing:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp gochugaru (Korean chili flakes), or 1 tsp red pepper flakes"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp rice vinegar"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp sugar"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp toasted sesame oil"
+      },
+      {
+        "type": "item",
+        "text": "1 garlic clove, grated"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp toasted sesame seeds"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Salt the Cucumbers",
+        "detail": "Halve the English cucumbers (2) lengthwise and slice them ¼ inch thick. Toss with the table salt (½ tsp) and let them sit 15 minutes. Drain, then press them dry in a towel.",
+        "why": "Salt pulls water out of the cucumber, so it seasons them through and leaves the dressing strong instead of watered down."
+      },
+      {
+        "step": "Dress",
+        "detail": "Mix the gochugaru (1 Tbsp) or red pepper flakes (1 tsp), rice vinegar (1 Tbsp), soy sauce (1 tsp), sugar (1 tsp), toasted sesame oil (1 tsp) and garlic (1 clove) in a bowl. Add the cucumbers and green onions (2) and toss. Top with the sesame seeds (1 tsp)."
+      }
+    ],
+    "notes": [
+      "Best the day it is made. It keeps a day in the fridge but keeps softening and giving off liquid."
+    ],
+    "is_blank": false,
+    "description": "Salted, sliced cucumbers tossed with gochugaru, rice vinegar, soy, sesame oil, garlic and green onion.",
+    "prepTime": "PT25M",
+    "cookTime": "PT0M",
+    "recipeYield": "4 servings"
+  },
+  {
+    "id": "mayak-eggs",
+    "name": "Mayak Eggs",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#eggs",
+      "#korean",
+      "#make-ahead",
+      "#high-protein"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Eggs:"
+      },
+      {
+        "type": "item",
+        "text": "6 large eggs, straight from the fridge"
+      },
+      {
+        "type": "header",
+        "text": "Marinade:"
+      },
+      {
+        "type": "item",
+        "text": "½ cup soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "½ cup water"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp rice vinegar"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 jalapeño, thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp toasted sesame seeds"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix the Marinade",
+        "detail": "Stir the soy sauce (½ cup), water (½ cup), honey (2 Tbsp), rice vinegar (1 Tbsp), garlic (3 cloves), green onions (2), jalapeño (1) and sesame seeds (1 tsp) together in a container just big enough to hold 6 eggs.",
+        "why": "Soy cut with an equal amount of water seasons the eggs overnight without turning them too salty."
+      },
+      {
+        "step": "Boil",
+        "detail": "Bring a pot of water to a rolling boil, deep enough to cover the eggs by 1 inch. Lower the cold eggs (6 large) in with a spoon and boil 6½ minutes. Have a bowl of ice water ready."
+      },
+      {
+        "step": "Shock and Peel",
+        "detail": "Move the eggs straight into the ice water for 5 minutes, then peel them under water.",
+        "why": "The ice bath stops the cooking. Left to sit, the eggs' own heat keeps cooking the yolk past jammy."
+      },
+      {
+        "step": "Marinate",
+        "detail": "Put the peeled eggs in the marinade so they are covered, and refrigerate at least 4 hours, best overnight. Turn them once if the marinade does not fully cover them."
+      }
+    ],
+    "notes": [
+      "Keep them in the marinade in the fridge and eat within 4 days. They get saltier and firmer the longer they sit.",
+      "Spoon some of the marinade and its garlic and chili over the eggs, or over rice with them."
+    ],
+    "is_blank": false,
+    "description": "Jammy soft-boiled eggs marinated overnight in soy, honey, garlic, green onion and jalapeño.",
+    "prepTime": "PT15M",
+    "cookTime": "PT10M",
+    "recipeYield": "3 servings (2 eggs each)"
+  },
+  {
+    "id": "peanut-chicken-lettuce-cups",
+    "name": "Peanut Chicken Lettuce Cups",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#chicken",
+      "#peanut",
+      "#spicy",
+      "#asian",
+      "#high-protein"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Sauce:"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp natural peanut butter, stirred well first"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lime juice"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp sriracha"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp hot water"
+      },
+      {
+        "type": "header",
+        "text": "Filling:"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "1 lb ground chicken"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp fresh ginger, grated"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "1 head butter lettuce or romaine hearts, leaves separated"
+      },
+      {
+        "type": "item",
+        "text": "1 cup shredded carrot"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup roasted peanuts, chopped"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix the Sauce",
+        "detail": "Whisk the peanut butter (3 Tbsp), soy sauce (2 Tbsp), lime juice (1 Tbsp), honey (1 Tbsp), sriracha (1 Tbsp) and hot water (3 Tbsp) until smooth.",
+        "why": "Hot water loosens natural peanut butter into a sauce that coats instead of clumping."
+      },
+      {
+        "step": "Brown the Chicken",
+        "detail": "Heat the neutral oil (1 tsp) in a 12-inch skillet over medium-high until it shimmers. Add the ground chicken (1 lb), press it into one flat layer and leave it 3 to 4 minutes, until browned underneath. Break it up and cook 3 to 4 minutes more, until no pink remains.",
+        "why": "Left alone in one layer it browns. Broken up right away, it releases water and turns gray and steamed."
+      },
+      {
+        "step": "Add the Aromatics",
+        "detail": "Push the chicken to the sides, add the garlic (3 cloves) and ginger (1 Tbsp) to the clear spot and stir 30 seconds, until fragrant.",
+        "why": "Garlic goes in last, beside food that buffers the heat, because minced garlic burns within a minute in a hot pan."
+      },
+      {
+        "step": "Sauce",
+        "detail": "Pour in the sauce and toss 1 minute, until the chicken is coated. Take the pan off the heat."
+      },
+      {
+        "step": "Fill the Cups",
+        "detail": "Spoon the filling into the lettuce leaves (1 head) and top with the shredded carrot (1 cup), chopped peanuts (¼ cup) and green onions (2)."
+      }
+    ],
+    "notes": [
+      "The filling keeps 3 to 4 days in the fridge. Reheat it and build the cups fresh, since dressed lettuce wilts."
+    ],
+    "is_blank": false,
+    "description": "Browned ground chicken in a spicy peanut, lime and soy sauce, spooned into lettuce cups with carrot, peanuts and green onion.",
+    "prepTime": "PT15M",
+    "cookTime": "PT10M",
+    "recipeYield": "4 servings (about 12 cups)"
+  },
+  {
+    "id": "smooth-hummus",
+    "name": "Smooth Hummus",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#dip",
+      "#chickpeas",
+      "#middle-eastern",
+      "#vegetarian",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Hummus:"
+      },
+      {
+        "type": "item",
+        "text": "1 can (15 oz) chickpeas, drained and rinsed"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp baking soda"
+      },
+      {
+        "type": "item",
+        "text": "1 garlic clove"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp lemon juice (about 1 lemon)"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup tahini, stirred well first"
+      },
+      {
+        "type": "item",
+        "text": "4 to 6 Tbsp ice water"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground cumin"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "Pinch of smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "Carrot, cucumber and bell pepper sticks, or pita"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Simmer the Chickpeas",
+        "detail": "Put the chickpeas (1 can) and baking soda (½ tsp) in a small pot, cover with water by 2 inches and simmer 15 to 20 minutes, until they are falling apart and the skins float. Drain, rinse well with warm water and let any skins wash away.",
+        "why": "Baking soda softens the chickpeas past what the can gives you, which is the difference between grainy and smooth. Rinsing clears the soapy taste."
+      },
+      {
+        "step": "Mellow the Garlic",
+        "detail": "While the chickpeas simmer, run the garlic (1 clove), lemon juice (3 Tbsp) and table salt (½ tsp) in a food processor until the garlic is finely chopped, then let it sit 5 minutes.",
+        "why": "Sitting in the lemon juice takes the harsh edge off raw garlic."
+      },
+      {
+        "step": "Whip the Tahini",
+        "detail": "Add the tahini (⅓ cup) and process until thick, then, with the machine running, add the ice water (4 Tbsp) a little at a time until it turns pale and creamy."
+      },
+      {
+        "step": "Blend",
+        "detail": "Add the warm chickpeas and cumin (½ tsp) and process 2 to 3 minutes nonstop, scraping the bowl once, until very smooth. Add up to 2 Tbsp more ice water if it is too stiff. Taste and adjust salt and lemon.",
+        "why": "It needs the full 2 to 3 minutes of continuous running. Short pulses leave it chunky."
+      },
+      {
+        "step": "Serve",
+        "detail": "Spread it in a bowl, drizzle with the olive oil (1 Tbsp) and dust with smoked paprika. Serve with vegetable sticks or pita."
+      }
+    ],
+    "notes": [
+      "Keeps 4 days in the fridge. It firms up cold; stir in a spoonful of water to loosen it."
+    ],
+    "is_blank": false,
+    "description": "Silky hummus made by simmering canned chickpeas with baking soda, then whipping them in a food processor with tahini, lemon and garlic.",
+    "prepTime": "PT10M",
+    "cookTime": "PT20M",
+    "recipeYield": "7 servings (about ¼ cup each)"
+  },
+  {
+    "id": "buffalo-greek-yogurt-dip",
+    "name": "Buffalo Greek Yogurt Dip",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#dip",
+      "#greek-yogurt",
+      "#spicy",
+      "#no-cook",
+      "#high-protein"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "1 cup plain nonfat Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup cayenne pepper hot sauce, such as Frank's RedHot"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp dried dill"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup crumbled blue cheese"
+      },
+      {
+        "type": "item",
+        "text": "Celery, carrot and bell pepper sticks, for serving"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix",
+        "detail": "Stir the Greek yogurt (1 cup), hot sauce (¼ cup), garlic powder (½ tsp), onion powder (¼ tsp) and dried dill (½ tsp) together until smooth. Fold in the blue cheese (¼ cup)."
+      },
+      {
+        "step": "Chill",
+        "detail": "Cover and refrigerate at least 30 minutes, then taste. Add more hot sauce if you want it hotter; it rarely needs salt.",
+        "why": "The dried dill and garlic powder need time in the yogurt to soften and flavor it, and the hot sauce already carries plenty of salt."
+      },
+      {
+        "step": "Serve",
+        "detail": "Serve cold with celery, carrot and bell pepper sticks."
+      }
+    ],
+    "notes": [
+      "Keeps 4 days in the fridge."
+    ],
+    "is_blank": false,
+    "description": "Nonfat Greek yogurt with cayenne hot sauce, garlic, dill and blue cheese, served with celery, carrot and pepper sticks.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "5 servings (about ¼ cup each)"
+  },
+  {
+    "id": "tzatziki",
+    "name": "Tzatziki",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#dip",
+      "#greek-yogurt",
+      "#cucumber",
+      "#no-cook",
+      "#vegetarian"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "½ English cucumber"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt, divided"
+      },
+      {
+        "type": "item",
+        "text": "1 cup plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "1 garlic clove, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lemon juice"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp chopped fresh dill, or 1 tsp dried"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "Pita or vegetable sticks, for serving"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Salt the Cucumber",
+        "detail": "Coarsely grate the cucumber (½ English), toss with half the table salt (¼ tsp) and let it sit 10 minutes. Squeeze it hard in a towel until no more water drips out.",
+        "why": "Salt pulls the water out now. Left in, it seeps into the yogurt and the dip turns thin and watery in the fridge."
+      },
+      {
+        "step": "Mix",
+        "detail": "Stir the cucumber into the Greek yogurt (1 cup) with the garlic (1 clove), lemon juice (1 Tbsp), olive oil (1 Tbsp), dill (1 Tbsp fresh or 1 tsp dried), black pepper (¼ tsp) and the remaining table salt (¼ tsp)."
+      },
+      {
+        "step": "Rest",
+        "detail": "Refrigerate at least 30 minutes before serving with pita or vegetable sticks.",
+        "why": "The garlic mellows and spreads through the yogurt as it sits."
+      }
+    ],
+    "notes": [
+      "2% or whole-milk Greek yogurt makes it creamier; nonfat works.",
+      "Keeps 3 days in the fridge."
+    ],
+    "is_blank": false,
+    "description": "Thick Greek yogurt dip with salted, squeezed grated cucumber, garlic, lemon, olive oil and dill.",
+    "prepTime": "PT15M",
+    "cookTime": "PT0M",
+    "recipeYield": "6 servings (about ¼ cup each)"
+  },
+  {
+    "id": "chocolate-peanut-butter-chia-pudding",
+    "name": "Chocolate Peanut Butter Chia Pudding",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#chia",
+      "#peanut-butter",
+      "#chocolate",
+      "#make-ahead",
+      "#no-cook"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "2 Tbsp natural peanut butter, stirred well first"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp unsweetened cocoa powder"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp vanilla extract"
+      },
+      {
+        "type": "item",
+        "text": "Pinch of table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 cup 2% milk"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup chia seeds"
+      },
+      {
+        "type": "item",
+        "text": "Berries or a spoonful of plain Greek yogurt, for topping (optional)"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Blend the Base",
+        "detail": "Put the peanut butter (2 Tbsp), cocoa powder (1 Tbsp), honey (1 Tbsp), vanilla (¼ tsp) and table salt (a pinch) in the Magic Bullet cup, then pour the milk (1 cup) in last. Blend two 15-second bursts until smooth.",
+        "why": "Cocoa and peanut butter clump in cold milk when stirred by hand. The milk goes in last because the cup turns over onto the blade."
+      },
+      {
+        "step": "Stir in the Chia",
+        "detail": "Pour into a jar or two small containers, add the chia seeds (¼ cup) and stir well. Wait 5 minutes and stir again.",
+        "why": "Chia starts to gel within 5 to 10 minutes. The second stir breaks up the clumps that form while it does."
+      },
+      {
+        "step": "Chill",
+        "detail": "Cover and refrigerate at least 4 hours, or overnight, until thick and spoonable. Top with berries or Greek yogurt if you like."
+      }
+    ],
+    "notes": [
+      "Keeps 4 days in the fridge."
+    ],
+    "is_blank": false,
+    "description": "Chia seeds set overnight in milk blended with peanut butter, cocoa and honey.",
+    "prepTime": "PT5M",
+    "cookTime": "PT0M",
+    "recipeYield": "2 servings"
+  },
+  {
+    "id": "microwave-cinnamon-apples-with-greek-yogurt",
+    "name": "Microwave Cinnamon Apples with Greek Yogurt",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#apple",
+      "#greek-yogurt",
+      "#microwave",
+      "#high-protein"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Apples:"
+      },
+      {
+        "type": "item",
+        "text": "1 medium apple, such as Honeycrisp or Gala"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp water"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground cinnamon"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp honey"
+      },
+      {
+        "type": "item",
+        "text": "Pinch of table salt"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup plain nonfat Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp roasted peanuts, chopped"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Cook the Apple",
+        "detail": "Core the apple (1 medium) and cut it into ½-inch pieces, peel on. Put it in a microwave-safe bowl with the water (1 Tbsp) and cinnamon (½ tsp), cover with a plate and microwave on high 2 to 3 minutes, stirring halfway, until tender but still holding its shape.",
+        "why": "The cover holds in steam, so the pieces cook evenly instead of drying out at the edges."
+      },
+      {
+        "step": "Season",
+        "detail": "Stir in the honey (1 tsp) and table salt (a pinch) and let it sit 1 minute."
+      },
+      {
+        "step": "Serve",
+        "detail": "Spoon the warm apples over the Greek yogurt (¾ cup) and top with the chopped peanuts (2 Tbsp).",
+        "why": "Spooned on top, not stirred in, so the warm fruit doesn't make nonfat yogurt grainy."
+      }
+    ],
+    "is_blank": false,
+    "description": "Diced apple steamed tender in the microwave with cinnamon and honey, spooned over Greek yogurt and topped with peanuts.",
+    "prepTime": "PT5M",
+    "cookTime": "PT3M",
+    "recipeYield": "1 serving"
+  },
+  {
+    "id": "peanut-butter-granola-clusters",
+    "name": "Peanut Butter Granola Clusters",
+    "section": "CHEFS DRAFTS",
+    "category": "Snacks",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#granola",
+      "#peanut-butter",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "3 cups old-fashioned rolled oats"
+      },
+      {
+        "type": "item",
+        "text": "½ cup unsalted roasted peanuts, chopped"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp ground flaxseed"
+      },
+      {
+        "type": "item",
+        "text": "½ cup natural peanut butter, stirred well first"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup honey"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp vanilla extract"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cinnamon"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 large egg white"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 300°F with a rack in the center. Line a rimmed sheet pan with parchment.",
+        "why": "Honey browns at a lower temperature than sugar, so a hotter oven burns the edges before the middle dries out."
+      },
+      {
+        "step": "Mix the Binder",
+        "detail": "Microwave the peanut butter (½ cup) and honey (⅓ cup) 30 seconds, then stir in the vanilla (1 tsp), cinnamon (1 tsp) and table salt (½ tsp) until smooth. In a small bowl, whisk the egg white (1 large) until foamy."
+      },
+      {
+        "step": "Combine",
+        "detail": "Stir the oats (3 cups), peanuts (½ cup) and ground flaxseed (2 Tbsp) into the peanut butter mixture until everything is coated, then stir in the egg white.",
+        "why": "The egg white sets in the oven and glues the oats into clusters."
+      },
+      {
+        "step": "Press and Bake",
+        "detail": "Spread it on the pan and press firmly into an even ½-inch layer. Bake 35 to 40 minutes without stirring, turning the pan halfway, until golden all over and deep brown at the edges.",
+        "why": "Stirring breaks it into loose granola. A pressed sheet that sets in one piece is what makes clusters."
+      },
+      {
+        "step": "Cool and Break",
+        "detail": "Let it cool on the pan until completely cool, about 45 minutes, then break it into clusters.",
+        "why": "It is soft out of the oven and crisps as it cools."
+      }
+    ],
+    "notes": [
+      "Keeps 2 weeks in an airtight container.",
+      "Good on top of a yogurt parfait."
+    ],
+    "is_blank": false,
+    "description": "Oats, peanuts and flax bound with peanut butter, honey and egg white, pressed and baked into a sheet, then broken into clusters.",
+    "prepTime": "PT10M",
+    "cookTime": "PT40M",
+    "recipeYield": "10 servings (about ½ cup each)"
+  },
+  {
+    "id": "spinach-pepper-cheddar-egg-muffins",
+    "name": "Spinach, Pepper and Cheddar Egg Muffins",
+    "section": "CHEFS DRAFTS",
+    "category": "Breakfast",
+    "source": "Original",
+    "tags": [
+      "#breakfast",
+      "#snack",
+      "#eggs",
+      "#make-ahead",
+      "#high-protein"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Vegetables:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil, plus more for the tin"
+      },
+      {
+        "type": "item",
+        "text": "½ small onion, diced ¼ inch"
+      },
+      {
+        "type": "item",
+        "text": "1 red bell pepper, diced ¼ inch"
+      },
+      {
+        "type": "item",
+        "text": "2 cups baby spinach, chopped"
+      },
+      {
+        "type": "header",
+        "text": "Eggs:"
+      },
+      {
+        "type": "item",
+        "text": "12 large eggs"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup milk"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 cup shredded sharp cheddar"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 350°F with a rack in the center. Brush or spray all 12 cups of a muffin tin generously with olive oil.",
+        "why": "Eggs weld to a dry tin, and to paper liners."
+      },
+      {
+        "step": "Cook the Vegetables",
+        "detail": "Heat the olive oil (1 Tbsp) in a skillet over medium. Cook the onion (½ small) and bell pepper (1) 5 minutes, until soft, then add the spinach (2 cups) and stir 1 minute, until wilted. Let it cool 5 minutes.",
+        "why": "Raw vegetables give off water as they bake and leave the muffins sitting in puddles. Cooking them first drives it off."
+      },
+      {
+        "step": "Whisk the Eggs",
+        "detail": "Whisk the eggs (12 large), milk (¼ cup), table salt (½ tsp) and black pepper (¼ tsp) until no streaks of white remain."
+      },
+      {
+        "step": "Fill",
+        "detail": "Divide the vegetables and cheddar (1 cup) among the cups, then pour in the egg until each cup is about ¾ full."
+      },
+      {
+        "step": "Bake",
+        "detail": "Bake 20 to 22 minutes, until the centers are just set and a knife comes out clean. Rest 5 minutes, then run a knife around each one and lift them out.",
+        "why": "Pull them as soon as the centers set. Overbaked eggs keep tightening, turn rubbery and weep water."
+      }
+    ],
+    "notes": [
+      "Keep 4 days in the fridge or 2 to 3 months frozen. Reheat 30 to 45 seconds in the microwave, longer from frozen.",
+      "Hot sauce at the table suits them."
+    ],
+    "is_blank": false,
+    "description": "Make-ahead baked egg muffins with sautéed onion, red bell pepper, spinach and sharp cheddar.",
+    "prepTime": "PT15M",
+    "cookTime": "PT25M",
+    "recipeYield": "6 servings (2 muffins each)"
   }
 ]
