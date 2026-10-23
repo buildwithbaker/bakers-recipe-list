@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { MAX_SOURCE_BYTES, generatedName, planPhotos } from './photoFiles.js';
+import { MAX_SOURCE_BYTES, generatedName, planPhotos, splitDormant } from './photoFiles.js';
 
 const ids = new Set(['lasagna', 'chili::v2', 'beef-stew']);
 
@@ -44,6 +44,19 @@ describe('photo drop folder rules', () => {
     const { photos, errors } = planPhotos([{ name: 'generated', bytes: 0 }, { name: 'README.md', bytes: 10 }, { name: '.gitkeep', bytes: 0 }], ids);
     expect(photos).toEqual([]);
     expect(errors).toEqual([]);
+  });
+
+  it('keeps a photo for a recipe not written yet dormant, and still checks it', () => {
+    const { photos, errors } = planPhotos([
+      { name: 'lasagna.jpg', bytes: 1000 },
+      { name: 'beef-stew.jpg', bytes: 1000 },
+    ], ids);
+    expect(errors).toEqual([]);
+    const { active, dormant } = splitDormant(photos, new Set(['beef-stew']));
+    expect(active.map((p) => p.id)).toEqual(['lasagna']);
+    expect(dormant.map((p) => p.id)).toEqual(['beef-stew']);
+    // A dormant photo is still held to the drop-folder rules.
+    expect(planPhotos([{ name: 'beef-stew.jpg', bytes: MAX_SOURCE_BYTES + 1 }], ids).errors[0]).toMatch(/over the 2 MB limit/);
   });
 
   it('names outputs by segment and size', () => {

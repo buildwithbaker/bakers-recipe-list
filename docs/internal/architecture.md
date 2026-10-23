@@ -680,6 +680,8 @@ without a phone — see `screenLock.test.js`.
   `src/photos/generated/` (gitignored). It fails the build on a file that
   matches no recipe id, is over 2 MB, is not a photo, or duplicates another.
   Originals never ship; the 2 MB limit bounds repo history, not the site.
+  A photo for a blank record stays dormant: no sizes, no photo shown, until the
+  recipe is filled in (`splitDormant` in `photoFiles.js`; `adding-a-photo.md`).
   The rules are `src/utils/photoFiles.js` (unit-tested). File names are matched
   against the real ids, never turned into new ones.
 - `src/utils/recipePhoto.js` finds the outputs with `import.meta.glob` and is

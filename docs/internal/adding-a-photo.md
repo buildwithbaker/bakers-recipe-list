@@ -151,6 +151,26 @@ that is not a recipe or has no photo in `src/photos/`, or when an `"ai": true`
 entry lacks an `alt` that starts with `AI-generated`. When you replace an AI
 image with a real photo of the dish, delete its entry in the same change.
 
+## A photo for a recipe not written yet
+
+A photo can go into `src/photos/` before its recipe is written (a record with
+`is_blank: true`). It is checked like any other photo, and its
+`photoCredits.json` entry is required the same way, but it stays **dormant**:
+
+- `scripts/build-photos.mjs` makes no sizes for it, so no card, header, badge
+  or caption shows it, and installed copies of the app do not download it.
+  The build log counts it as dormant.
+- `recipePhoto()` returns nothing for a blank record, so a stale
+  `generated/` folder cannot show it either.
+- No link-preview image is made, because blanks get no prerendered page.
+
+Dormant matters for the label: the AI caption says the recipe was cooked and
+tested, which an unwritten recipe never was. When the recipe is filled in
+(`is_blank: false`), the next build makes its sizes and the photo appears, with
+no second step. Check that the photo still matches the recipe as written
+before merging that change, and replace it if it does not. The rule lives in
+`splitDormant` in `src/utils/photoFiles.js`.
+
 ## Removing a photo
 
 Delete the file from `src/photos/` (and its `photoCredits.json` entry, if it

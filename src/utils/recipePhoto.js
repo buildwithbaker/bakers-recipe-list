@@ -33,6 +33,9 @@ const LARGES = glob(import.meta.glob('../photos/generated/*-large.webp', { eager
 /** @returns {{ thumb: string, large: string, ai: boolean, alt: string } | null} */
 export function recipePhoto(recipe) {
   if (!recipe?.id) return null;
+  // A recipe not written yet shows no photo, even one already in src/photos/
+  // (photoFiles.js splitDormant). Its AI caption would claim it was tested.
+  if (recipe.is_blank === true) return null;
   const segment = idToSlug(recipe.id);
   if (THUMBS.has(segment) && LARGES.has(segment)) {
     return { thumb: THUMBS.get(segment), large: LARGES.get(segment), ...photoCredit(recipe.id) };
