@@ -14,7 +14,7 @@ import { readFileSync, readdirSync, statSync, mkdirSync, existsSync, unlinkSync 
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import sharp from 'sharp';
-import { PHOTO_SIZES, generatedName, planPhotos } from '../src/utils/photoFiles.js';
+import { PHOTO_SIZES, generatedName, planPhotos, splitDormant } from '../src/utils/photoFiles.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = join(root, 'src', 'photos');
@@ -26,7 +26,12 @@ const knownIds = new Set(recipes.map((r) => r.id));
 const files = existsSync(SRC)
   ? readdirSync(SRC).map((name) => ({ name, bytes: statSync(join(SRC, name)).size }))
   : [];
-const { photos, errors } = planPhotos(files, knownIds);
+const blankIds = new Set(recipes.filter((r) => r.is_blank === true).map((r) => r.id));
+const planned = planPhotos(files, knownIds);
+const { errors } = planned;
+// A photo for a recipe not written yet stays dormant until it is filled in
+// (photoFiles.js splitDormant). It is still checked above like any other.
+const { active: photos, dormant } = splitDormant(planned.photos, blankIds);
 
 if (errors.length) {
   console.error(`✗ src/photos/ has ${errors.length} problem${errors.length === 1 ? '' : 's'}:`);
@@ -51,4 +56,4 @@ for (const p of photos) {
     made += 1;
   }
 }
-console.log(`✓ photos - ${photos.length} in src/photos/, ${made} size${made === 1 ? '' : 's'} written to src/photos/generated/`);
+console.log(`✓ photos - ${photos.length} in src/photos/, ${made} size${made === 1 ? '' : 's'} written to src/photos/generated/${dormant.length ? `, ${dormant.length} dormant (recipe not written yet)` : ''}`);

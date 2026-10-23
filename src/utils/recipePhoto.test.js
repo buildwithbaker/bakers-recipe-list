@@ -17,6 +17,11 @@ describe('recipe photo', () => {
     expect(recipePhoto({ id: 'no-photo-here', image: 'photos/x.jpg' })).toMatchObject({ ai: false, alt: '' });
   });
 
+  it('shows no photo for a recipe not written yet, even one it has', () => {
+    expect(recipePhoto({ id: 'lasagna', image: 'photos/lasagna.jpg', is_blank: true })).toBeNull();
+    expect(recipePhoto({ id: 'lasagna', image: 'photos/lasagna.jpg', is_blank: false })).not.toBeNull();
+  });
+
   it('uses the first letter of the name for the empty slot', () => {
     expect(photoInitial('Lasagna')).toBe('L');
     expect(photoInitial('3 Ingredient Cups')).toBe('I');

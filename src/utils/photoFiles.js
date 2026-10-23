@@ -65,6 +65,26 @@ export function planPhotos(files, knownIds) {
 }
 
 /**
+ * Splits planned photos into the ones the site shows and the dormant ones.
+ *
+ * A photo can be added for a recipe that is not written yet (is_blank). It
+ * stays dormant: no sizes are made, so no card, header, badge or caption shows
+ * it, and it costs installed clients nothing in the precache. The build that
+ * follows the recipe being filled in makes its sizes, so it appears with no
+ * second step. Dormant matters for the caption too: an AI photo's caption says
+ * the recipe was cooked and tested, which a blank recipe never was.
+ * @param photos     planPhotos(...).photos
+ * @param blankIds   Set of ids whose record is is_blank: true
+ * @returns {{ active: object[], dormant: object[] }}
+ */
+export function splitDormant(photos, blankIds) {
+  const active = [];
+  const dormant = [];
+  for (const p of photos) (blankIds.has(p.id) ? dormant : active).push(p);
+  return { active, dormant };
+}
+
+/**
  * Checks src/data/photoCredits.json. Every AI photo carries a label, so an
  * entry must point at a real photo of a real recipe, and an AI entry must
  * describe the image as AI-generated in its alt text.
