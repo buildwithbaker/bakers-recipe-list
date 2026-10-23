@@ -31,6 +31,34 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   referenced from `index.html`; `pwa-192x192.png`, `pwa-512x512.png` and
   `maskable-512x512.png` ship alongside the SVG favicon.
 
+### 2026-10-23 repo cleanup
+
+- [x] **#137** One dependency update for vite 8.3.4, vitest 5.0.3, eslint
+  10.12.0, jsdom 30.1.2, @vitejs/plugin-react 6.1.2 and source-map-js 1.2.2.
+  Replaces Dependabot #106, #112, #113, #114, #116 and #136, closed unmerged.
+  A fresh `npm install` of plugin-react 6.1.2 fails ERESOLVE on an optional
+  peer chain that ends at `@babel/core` 8, so the PR kept Dependabot's minimal
+  lockfile edits rather than re-resolving.
+- [x] **#138** vite-plugin-pwa 2.0.0 (replaces #115). The major version only
+  raises the Node floor to 20.19. `sw.js`, `registerSW.js`, the manifest and
+  the Workbox runtime built byte-identical to 1.3.0, so `swUpdate.js` is
+  unaffected.
+- **Stale branches, cleared for deletion.** Every one is merged under another
+  SHA (squash) or was made moot by #94. Restore any of them with
+  `git push origin <sha>:refs/heads/<name>`:
+
+  | Branch | SHA | Why it can go |
+  |---|---|---|
+  | `recipes/add-two-chicken-dinners` | `4672971` | both recipes are filled on `main` |
+  | `slow-cooker-recipes-complete` | `0a7d671` | all four recipes are filled on `main` |
+  | `chore/docs-and-line-endings` | `47242ab` | `CLAUDE.md` carries the branching section |
+  | `fix/audit-followups` | `3038b20` | June audit fixes, superseded |
+  | `recipe-standard` | `0fa9d55` | schema, validator and `AGENTS.md` are on `main` |
+  | `feat/peanut-tab-tag-driven` | `5acd3b9` | moot since #94 (Cookbook only) |
+  | `feat/to-try-restructure` | `b4bc5da` | moot since #94 |
+  | `feat/to-try-restructure-460` | `a74a855` | moot since #94 |
+  | `feat/to-try-section` | `01af04e` | moot since #94 |
+
 ### 2026-09-29 to 2026-10-03
 
 - [x] **#86** AI label follow-up: no card badge, a faint badge on the recipe
