@@ -9360,5 +9360,92 @@
     "prepTime": "PT15M",
     "cookTime": "PT25M",
     "recipeYield": "6 servings (2 muffins each)"
+  },
+  {
+    "id": "quick-pickled-red-onions",
+    "name": "Quick Pickled Red Onions",
+    "section": "CHEFS DRAFTS",
+    "category": "Sides",
+    "source": "Original",
+    "tags": [
+      "#pickled",
+      "#condiment",
+      "#onion",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "1 large red onion (about ¾ lb)"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup apple cider vinegar"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup water"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp sugar"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "2 cloves garlic, smashed"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black peppercorns"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1 bay leaf"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Slice the Onion",
+        "detail": "Halve the red onion (1 large) from root to tip, peel it, and slice into thin half-moons, about ⅛ inch.",
+        "why": "Thin slices pickle through in about an hour. Thick ones still taste raw in the center the next day."
+      },
+      {
+        "step": "Pack the Jar",
+        "detail": "Pack the onion into a pint jar along with the garlic (2 cloves, smashed), black peppercorns (½ tsp), dried oregano (½ tsp) and bay leaf (1).",
+        "why": "Smashed garlic stays mild and in one piece, so it flavors the brine without coating every slice in raw garlic."
+      },
+      {
+        "step": "Make the Brine",
+        "detail": "In a small pot, bring the apple cider vinegar (¾ cup), water (¼ cup), sugar (1 Tbsp) and table salt (1 tsp) to a simmer, stirring until the sugar and salt dissolve."
+      },
+      {
+        "step": "Pour and Cool",
+        "detail": "Pour the hot brine over the onions and press them under the liquid. Cool uncovered on the counter for about 30 minutes.",
+        "why": "Hot brine softens the slices just enough to sink below the liquid and pickles them faster, without cooking them soft."
+      },
+      {
+        "step": "Chill",
+        "detail": "Cover and refrigerate. They are ready in an hour and better the next day. Keep them in the fridge, not the pantry."
+      }
+    ],
+    "notes": [
+      "Keeps about 2 weeks in the fridge. They turn bright pink overnight.",
+      "Distilled white vinegar works in place of the cider vinegar at the same amount for a sharper, cleaner pickle. Cider vinegar is the softer, rounder of the two.",
+      "Garlic sometimes turns blue-green in vinegar. It is harmless.",
+      "These are refrigerator pickles. The recipe has not been tested for canning, so do not water-bath can it."
+    ],
+    "is_blank": false,
+    "description": "Thin-sliced red onions quick-pickled in a hot apple cider vinegar brine with garlic, black pepper, oregano and bay.",
+    "prepTime": "PT10M",
+    "cookTime": "PT5M",
+    "recipeYield": "about 2 cups (one pint jar)"
   }
 ]
