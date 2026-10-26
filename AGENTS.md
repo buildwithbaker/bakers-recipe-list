@@ -29,9 +29,10 @@ as the npm `prebuild` hook. A recipe that violates the schema **fails
 ## Adding or editing a recipe — exact steps
 
 1. **Open `src/data/recipe.schema.json`** and follow it field by field.
-2. Edit `src/data/recipes.json`. Every record needs all 8 fields:
-   `name`, `section`, `category`, `source`, `tags`, `ingredients`,
-   `instructions`, `is_blank`.
+2. Edit `src/data/recipes.json`. Every record needs all 9 required fields:
+   `id`, `name`, `section`, `category`, `source`, `tags`, `ingredients`,
+   `instructions`, `is_blank`. A written record (`is_blank: false`) also needs
+   `description`; blanks are exempt.
    - `name` is the **globally unique** key — the app uses it for state, lookups,
      and `?recipe=` deep links. Never duplicate a name.
    - `section` must be one of the keys in `src/data/sections.js`
@@ -49,6 +50,20 @@ as the npm `prebuild` hook. A recipe that violates the schema **fails
    (or just `npm run build`, which runs it first). Fix every error it reports.
 5. Commit on a branch and open a PR (see below) - `main` is protected, so a PR is the
    only way in. Do not edit `dist/`.
+
+## Going live: `added`, and the wait fields
+
+- When a recipe goes live in the Cookbook (new, promoted from Chef's Drafts, or a
+  completed placeholder), set `added` to the go-live date, `"YYYY-MM-DD"` in
+  **Central time** (America/Chicago), a real date and not in the future. The
+  validator requires it on every written Cookbook record whose id is not in
+  `src/data/cookbookBaseline.json`, and rejects it on blanks, on drafts and on
+  baseline records.
+- **Never add an id to `cookbookBaseline.json`.** It is the frozen list of the 66
+  recipes live before `added` existed; the validator pins its size.
+- `waitTime` (ISO 8601, greater than zero, the minimum of any range) and
+  `waitLabel` (at most 40 chars, e.g. `"marinate 8-12 hr first"`) go together, and
+  only for a required wait of 30 minutes or more. Allowed on drafts, not on blanks.
 
 ## Removing a recipe
 
