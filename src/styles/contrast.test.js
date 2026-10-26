@@ -34,7 +34,8 @@ const PAIRS = [
   ['ink', 'notice-soft', 4.5], ['brand', 'notice-soft', 4.5],   // USDA notice
   ['ink', 'accent-soft', 4.5],         // search-hit highlight
   ['danger', 'surface', 4.5],
-  ['band-ink', 'band', 4.5], ['band-ink-muted', 'band', 4.5],
+  ['band-ink', 'band', 4.5],            // masthead text; NEW pill on a recipe card
+  ['band-ink-muted', 'band', 4.5],
   // Exempt: AiBadge. Decorative at 25% opacity; the figcaption carries the AI label in tested colours.
   ['band', 'band-accent', 4.5],        // shopping badge (tab bar, list): navy digits on amber
   ['band', 'band-ink', 4.5],           // current tab in the desktop header: navy on cream

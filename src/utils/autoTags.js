@@ -88,7 +88,64 @@ const PROTEIN_RULES = [
   { needles: ['turkey'],                                                                tag: '#turkey'  },
 ];
 
-export function getAutoTags(recipe) {
+// ── NEW: 14 days after `added` ─────────────────────────────────────────────
+//
+// `added` is a bare calendar date in Central time (schema). "Today" is the
+// calendar date in America/Chicago at this instant, never the device's zone,
+// and both are compared as calendar dates: no `new Date("YYYY-MM-DD")`, which
+// parses as UTC midnight and lands on the previous day west of Greenwich.
+//
+// Computed at render in the browser only. The prerender writes an empty #root
+// and its JSON-LD keywords come from `recipe.tags`, so #new never reaches
+// either.
+export const NEW_TAG = '#new';
+export const NEW_DAYS = 14;
+
+// The clock every NEW check reads. Tests (and renderToString output) set it
+// with setClock so the answer does not depend on when the suite runs.
+let clock = () => new Date();
+
+/** Point the NEW clock at a fixed instant (a Date or a () => Date); no argument restores the real clock. */
+export function setClock(now) {
+  if (now === undefined) clock = () => new Date();
+  else clock = typeof now === 'function' ? now : () => now;
+}
+
+const CENTRAL_DATE = new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit',
+});
+
+/** Today's calendar date in Central time, "YYYY-MM-DD". */
+export function centralToday(now = clock()) {
+  const parts = Object.fromEntries(CENTRAL_DATE.formatToParts(now).map((p) => [p.type, p.value]));
+  return `${parts.year}-${parts.month}-${parts.day}`;
+}
+
+// A "YYYY-MM-DD" date as a whole day number. Date.UTC is pure calendar
+// arithmetic here (no zone is involved), so the difference of two of these is
+// an exact count of calendar days, DST or not.
+function dayNumber(ymd) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(ymd ?? '');
+  if (!m) return null;
+  return Date.UTC(Number(m[1]), Number(m[2]) - 1, Number(m[3])) / 86400000;
+}
+
+/** Calendar days from `added` to today in Central (0 on the day it went live), or null without a valid `added`. */
+export function daysSinceAdded(recipe, now = clock()) {
+  const added = dayNumber(recipe?.added);
+  if (added === null) return null;
+  return dayNumber(centralToday(now)) - added;
+}
+
+/** True for the first 14 days a recipe is live: day 0 through day 13. A future `added` is never new. */
+export function isNew(recipe, now = clock()) {
+  if (!recipe || recipe.is_blank) return false;
+  const days = daysSinceAdded(recipe, now);
+  return days !== null && days >= 0 && days < NEW_DAYS;
+}
+
+// options.now: an optional Date to judge #new against (default: the clock above).
+export function getAutoTags(recipe, options) {
   if (!recipe || recipe.is_blank) return [];
 
   const result = new Set();
@@ -111,12 +168,15 @@ export function getAutoTags(recipe) {
     if (hasProtein(ingLines, needles, notWhen)) result.add(tag);
   }
 
-  // ── 3. Remove tags already set manually (dedup) ──────────────────────────
+  // ── 3. Date-derived tags ─────────────────────────────────────────────────
+  if (isNew(recipe, options?.now ?? clock())) result.add(NEW_TAG);
+
+  // ── 4. Remove tags already set manually (dedup) ──────────────────────────
   const manual = new Set(recipe.tags ?? []);
   return [...result].filter((t) => !manual.has(t));
 }
 
-// Convenience: returns manual + auto tags merged, deduped.
-export function getEffectiveTags(recipe) {
-  return [...(recipe?.tags ?? []), ...getAutoTags(recipe)];
+// Convenience: returns manual + auto tags merged, deduped. `now` as getAutoTags.
+export function getEffectiveTags(recipe, options) {
+  return [...(recipe?.tags ?? []), ...getAutoTags(recipe, options)];
 }

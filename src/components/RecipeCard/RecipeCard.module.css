@@ -80,9 +80,18 @@
   outline-offset: 2px;
 }
 
+/* The line above the title: the NEW pill, then the category kicker. Clear of
+   the pin in the top-right corner. */
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  padding-right: 36px;
+}
+
 .kicker {
   margin: 0;
-  padding-right: 36px;
   font-size: var(--t-xs);
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -136,6 +145,17 @@
 .made {
   background: var(--made-soft);
   color: var(--made);
+}
+
+/* First 14 days after a recipe goes live. band-ink on band (contrast.test.js). */
+.new {
+  height: 20px;
+  background: var(--band);
+  color: var(--band-ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 /* A Chef's Draft: not cooked yet. ink-muted on surface-sunk (contrast.test.js). */
