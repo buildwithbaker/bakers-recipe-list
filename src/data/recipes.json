@@ -5,10 +5,7 @@
     "section": "BREAKFAST",
     "category": "Breakfast",
     "source": "Original",
-    "tags": [
-      "#pork",
-      "#breakfast"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "item",
@@ -119,7 +116,6 @@
     "category": "Breakfast",
     "source": "Original",
     "tags": [
-      "#breakfast",
       "#slow-cooker"
     ],
     "ingredients": [
@@ -184,12 +180,9 @@
     "category": "Breakfast",
     "source": "Original",
     "tags": [
-      "#breakfast",
-      "#snack",
-      "#greek-yogurt",
       "#peanut-butter",
-      "#high-protein",
-      "#no-cook"
+      "#microwave",
+      "#snack"
     ],
     "ingredients": [
       {
@@ -254,10 +247,7 @@
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
     "source": "Original",
-    "tags": [
-      "#pork",
-      "#slow-cooker"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "item",
@@ -371,11 +361,7 @@
     "category": "Slow Cooker",
     "source": "Adam's build, Mississippi pot roast lineage; technique corrected against the slow cooker reference",
     "tags": [
-      "#beef",
-      "#slow-cooker",
-      "#american",
-      "#pepperoncini",
-      "#pot-roast"
+      "#american"
     ],
     "ingredients": [
       {
@@ -475,6 +461,8 @@
     "description": "Chuck roast slow cooked with a whole jar of pepperoncini and its brine, onion, garlic and tomato paste until it shreds.",
     "prepTime": "PT20M",
     "cookTime": "PT10H30M",
+    "waitTime": "PT8H",
+    "waitLabel": "dry brine overnight (8+ hr)",
     "recipeYield": "6 servings"
   },
   {
@@ -498,9 +486,7 @@
     "category": "Slow Cooker",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#soup",
-      "#slow-cooker"
+      "#soup"
     ],
     "ingredients": [
       {
@@ -574,9 +560,7 @@
     "category": "Slow Cooker",
     "source": "Original",
     "tags": [
-      "#pork",
-      "#soup",
-      "#slow-cooker"
+      "#soup"
     ],
     "ingredients": [
       {
@@ -653,10 +637,7 @@
     "section": "SLOW COOKER",
     "category": "Slow Cooker",
     "source": "Original",
-    "tags": [
-      "#beef",
-      "#slow-cooker"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "item",
@@ -818,8 +799,8 @@
     "source": "Original",
     "tags": [
       "#bbq",
-      "#pork",
-      "#seasoning"
+      "#make-ahead",
+      "#pork"
     ],
     "ingredients": [
       {
@@ -905,10 +886,9 @@
     "category": "Doughs",
     "source": "Original",
     "tags": [
-      "#dough",
       "#pasta",
-      "#italian",
-      "#handmade"
+      "#make-ahead",
+      "#italian"
     ],
     "ingredients": [
       {
@@ -987,6 +967,8 @@
     "description": "Fresh egg noodle dough from all-purpose flour, whole eggs, an extra yolk and olive oil, rolled thin for cutting into noodles.",
     "prepTime": "PT40M",
     "cookTime": "PT5M",
+    "waitTime": "PT1H30M",
+    "waitLabel": "rest dough 30 min, then 1+ hr",
     "recipeYield": "about 1¼ lb, 12 to 14 lasagna sheets or 4 servings of cut noodles",
     "notes": [
       "All-purpose flour, on purpose. Its 10 to 12 percent protein is what makes a hand-rolled sheet cooperate; high-gluten or semolina-heavy blends snap back. If your flour runs high in protein, use the full water (2 Tbsp).",
@@ -1029,8 +1011,8 @@
     "category": "Doughs",
     "source": "Original",
     "tags": [
-      "#baked",
-      "#dough",
+      "#oven",
+      "#make-ahead",
       "#bread"
     ],
     "ingredients": [
@@ -1139,6 +1121,8 @@
     "description": "A honey whole wheat sandwich loaf enriched with milk and butter, baked in an 8½x4½ pan with an optional oat topping.",
     "prepTime": "PT30M",
     "cookTime": "PT40M",
+    "waitTime": "PT4H15M",
+    "waitLabel": "rise 3 hr 15 min, then cool 1 hr",
     "recipeYield": "1 loaf (8½x4½)"
   },
   {
@@ -1175,11 +1159,7 @@
     "section": "AMERICAN",
     "category": "American",
     "source": "Original",
-    "tags": [
-      "#chicken",
-      "#one-pan",
-      "#american"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "header",
@@ -1285,9 +1265,8 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#pork",
-      "#american"
+      "#sheet-pan",
+      "#high-protein"
     ],
     "ingredients": [
       {
@@ -1384,10 +1363,7 @@
     "section": "AMERICAN",
     "category": "American",
     "source": "Original",
-    "tags": [
-      "#chicken",
-      "#american"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "header",
@@ -1472,6 +1448,8 @@
     "description": "Chicken drumsticks marinated in honey, soy, Worcestershire, hoisin and lime, then roasted on a rack and broiled crisp.",
     "prepTime": "PT10M",
     "cookTime": "PT40M",
+    "waitTime": "PT4H",
+    "waitLabel": "marinate 4-8 hr first",
     "recipeYield": "4 servings"
   },
   {
@@ -1481,14 +1459,8 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#drumsticks",
-      "#soy-garlic",
-      "#smoked-paprika",
-      "#spicy",
-      "#oven-roasted",
-      "#dry-brine",
-      "#american"
+      "#oven",
+      "#sheet-pan"
     ],
     "ingredients": [
       {
@@ -1592,6 +1564,8 @@
     "description": "Dry-brined chicken drumsticks seasoned with soy sauce, grated garlic, smoked paprika and oregano.",
     "prepTime": "PT15M",
     "cookTime": "PT40M",
+    "waitTime": "PT5H",
+    "waitLabel": "dry brine 5-6 hr first",
     "recipeYield": "4 servings, 2 drumsticks each",
     "notes": [
       "Serve it with something plain and crisp: a roasted potato side and a sharp green vegetable both work. Anything that roasts at 425°F can share the oven on a lower rack."
@@ -1604,11 +1578,8 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#pansauce",
-      "#cranberry",
       "#holiday",
-      "#makeahead"
+      "#make-ahead"
     ],
     "ingredients": [
       {
@@ -1747,11 +1718,7 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#potato",
-      "#eggs",
       "#skillet",
-      "#one-pan",
       "#breakfast"
     ],
     "ingredients": [
@@ -1911,12 +1878,8 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#chicken",
       "#sheet-pan",
-      "#potatoes",
-      "#one-pan",
-      "#weeknight",
-      "#american"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -2007,13 +1970,10 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#chicken",
       "#casserole",
       "#tex-mex",
       "#make-ahead",
-      "#baked",
-      "#rotisserie",
-      "#scratch-sauce"
+      "#oven"
     ],
     "ingredients": [
       {
@@ -2157,11 +2117,8 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#pork",
-      "#tenderloin",
-      "#pan-sauce",
-      "#weeknight",
-      "#american"
+      "#high-protein",
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -2284,6 +2241,8 @@
     "description": "Pork tenderloin medallions marinated in Dijon, garlic and thyme, seared hard, and finished with a sliced-shallot, apple cider and whole-grain mustard pan sauce mounted with butter.",
     "prepTime": "PT15M",
     "cookTime": "PT20M",
+    "waitTime": "PT1H",
+    "waitLabel": "marinate 1-3 hr first",
     "recipeYield": "4 servings"
   },
   {
@@ -2456,8 +2415,7 @@
     "category": "Mexican",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#mexican"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -2555,8 +2513,7 @@
     "category": "Mexican",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#mexican",
+      "#one-pan",
       "#italian"
     ],
     "ingredients": [
@@ -2667,9 +2624,7 @@
     "category": "Mexican",
     "source": "Original",
     "tags": [
-      "#pork",
-      "#slow-cooker",
-      "#mexican"
+      "#slow-cooker"
     ],
     "ingredients": [
       {
@@ -2778,6 +2733,8 @@
     "description": "Pork shoulder dry-brined with cumin and oregano, slow cooked with orange, cinnamon and garlic, then shredded and broiled until the edges crackle.",
     "prepTime": "PT20M",
     "cookTime": "PT10H15M",
+    "waitTime": "PT4H",
+    "waitLabel": "dry brine 4 hr to overnight",
     "recipeYield": "8 servings"
   },
   {
@@ -2787,9 +2744,9 @@
     "category": "Mexican",
     "source": "Original",
     "tags": [
-      "#mexican",
-      "#side",
-      "#salad"
+      "#salad",
+      "#no-cook",
+      "#side-dish"
     ],
     "ingredients": [
       {
@@ -2845,6 +2802,8 @@
     "description": "A light slaw of bagged coleslaw mix in a lime, honey and oregano dressing with mayo and Greek yogurt.",
     "prepTime": "PT10M",
     "cookTime": "PT0M",
+    "waitTime": "PT1H",
+    "waitLabel": "chill 1+ hr",
     "recipeYield": "6 servings"
   },
   {
@@ -2881,11 +2840,7 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#broccoli",
-      "#stir-fry",
-      "#asian",
-      "#weeknight"
+      "#stir-fry"
     ],
     "ingredients": [
       {
@@ -3105,10 +3060,7 @@
     "section": "ASIAN",
     "category": "Asian",
     "source": "Original",
-    "tags": [
-      "#chicken",
-      "#asian"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "header",
@@ -3294,8 +3246,7 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#asian"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -3404,6 +3355,8 @@
     "description": "Bite-size chicken coated in egg and cornstarch, fried crisp and tossed with garlic, green onion, salt and pepper.",
     "prepTime": "PT15M",
     "cookTime": "PT15M",
+    "waitTime": "PT30M",
+    "waitLabel": "marinate 30 min",
     "recipeYield": "4 servings"
   },
   {
@@ -3413,10 +3366,8 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#rice",
-      "#pineapple",
       "#thai",
-      "#asian"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -3529,9 +3480,8 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#asian",
       "#salad",
-      "#side"
+      "#side-dish"
     ],
     "ingredients": [
       {
@@ -3608,8 +3558,7 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#pork",
-      "#asian"
+      "#high-protein"
     ],
     "ingredients": [
       {
@@ -3702,6 +3651,8 @@
     "description": "Chinese barbecue pork in a sweet glaze of hoisin, oyster sauce, soy, brown sugar and mirin.",
     "prepTime": "PT20M",
     "cookTime": "PT55M",
+    "waitTime": "PT8H",
+    "waitLabel": "marinate 8-12 hr first",
     "recipeYield": "4 servings"
   },
   {
@@ -3711,11 +3662,8 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#beef",
       "#noodles",
-      "#stir-fry",
-      "#asian",
-      "#weeknight"
+      "#stir-fry"
     ],
     "ingredients": [
       {
@@ -3853,10 +3801,7 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#pork",
-      "#asian",
-      "#sticky",
-      "#slow-cooked"
+      "#make-ahead"
     ],
     "ingredients": [
       {
@@ -4034,13 +3979,8 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#ground-beef",
-      "#potato",
       "#indian",
-      "#curry",
-      "#one-pan",
-      "#weeknight"
+      "#curry"
     ],
     "ingredients": [
       {
@@ -4207,10 +4147,7 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#weeknight",
-      "#one-pan",
-      "#asian"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -4316,12 +4253,7 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#peanut",
-      "#weeknight",
-      "#one-pan",
-      "#spicy",
-      "#asian"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -4427,9 +4359,7 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#chicken",
       "#korean",
-      "#weeknight",
       "#rice-bowl"
     ],
     "ingredients": [
@@ -4570,6 +4500,8 @@
     "description": "Gochujang-honey marinated chicken breast chunks seared in two batches, glazed with onion and carrot, and served over rice with roasted broccoli.",
     "prepTime": "PT20M",
     "cookTime": "PT25M",
+    "waitTime": "PT1H",
+    "waitLabel": "marinate 1-3 hr first",
     "recipeYield": "4 servings"
   },
   {
@@ -4621,10 +4553,6 @@
     "category": "Italian",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#pork",
-      "#italian",
-      "#lasagna",
       "#make-ahead"
     ],
     "ingredients": [
@@ -4830,6 +4758,8 @@
     "description": "Beef and hot Italian sausage lasagna with a whole-milk ricotta layer, built in one 9x13 pan.",
     "prepTime": "PT45M",
     "cookTime": "PT3H",
+    "waitTime": "PT30M",
+    "waitLabel": "rest 30 min before slicing",
     "recipeYield": "8 servings (one 9x13)",
     "notes": [
       "Shred your own mozzarella. Pre-shredded is dusted with cellulose to stop clumping, and it melts grainy.",
@@ -4886,8 +4816,7 @@
     "category": "Middle Eastern",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#middle-eastern"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -5022,9 +4951,8 @@
     "category": "Middle Eastern",
     "source": "Original",
     "tags": [
-      "#middle-eastern",
-      "#side",
-      "#salad"
+      "#salad",
+      "#side-dish"
     ],
     "ingredients": [
       {
@@ -5104,10 +5032,7 @@
     "section": "MIDDLE EASTERN",
     "category": "Middle Eastern",
     "source": "Original",
-    "tags": [
-      "#beef",
-      "#middle-eastern"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "header",
@@ -5203,6 +5128,8 @@
     "description": "Lebanese ground beef skewers with onion, parsley, mint, allspice and cinnamon, grilled to 160°F.",
     "prepTime": "PT20M",
     "cookTime": "PT12M",
+    "waitTime": "PT1H",
+    "waitLabel": "chill kafta mix 1-24 hr",
     "recipeYield": "6 servings"
   },
   {
@@ -5212,9 +5139,9 @@
     "category": "Middle Eastern",
     "source": "Original",
     "tags": [
-      "#middle-eastern",
-      "#side",
-      "#salad"
+      "#salad",
+      "#no-cook",
+      "#side-dish"
     ],
     "ingredients": [
       {
@@ -5334,10 +5261,6 @@
     "category": "Sandwiches",
     "source": "Original",
     "tags": [
-      "#eggs",
-      "#sandwiches",
-      "#wasabi",
-      "#no-cook",
       "#make-ahead"
     ],
     "ingredients": [
@@ -5400,6 +5323,8 @@
     "description": "Egg salad with the eggs cut into strips, dressed with mayo, Miracle Whip and a kick of wasabi.",
     "prepTime": "PT15M",
     "cookTime": "PT15M",
+    "waitTime": "PT30M",
+    "waitLabel": "chill 30+ min",
     "recipeYield": "6 servings, about 4 cups"
   },
   {
@@ -5408,12 +5333,7 @@
     "section": "SANDWICHES",
     "category": "Sandwiches",
     "source": "Original",
-    "tags": [
-      "#chicken",
-      "#sandwiches",
-      "#hot-honey",
-      "#rotisserie"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "header",
@@ -5554,8 +5474,6 @@
     "category": "Sides",
     "source": "Original",
     "tags": [
-      "#side",
-      "#rice",
       "#asian"
     ],
     "ingredients": [
@@ -5764,14 +5682,9 @@
     "category": "Sides",
     "source": "Original",
     "tags": [
-      "#potatoes",
-      "#russet",
-      "#side",
-      "#oven-roasted",
-      "#crispy",
-      "#american",
-      "#parboil",
-      "#sheet-pan"
+      "#oven",
+      "#sheet-pan",
+      "#american"
     ],
     "ingredients": [
       {
@@ -5885,10 +5798,6 @@
     "category": "Sides",
     "source": "Original",
     "tags": [
-      "#side",
-      "#vegetable",
-      "#carrots",
-      "#honey",
       "#sheet-pan"
     ],
     "ingredients": [
@@ -6003,9 +5912,9 @@
     "source": "Original",
     "tags": [
       "#dressing",
-      "#coleslaw",
-      "#sides",
-      "#vegetarian"
+      "#vegetarian",
+      "#make-ahead",
+      "#no-cook"
     ],
     "ingredients": [
       {
@@ -6090,6 +5999,8 @@
     "description": "A creamy coleslaw dressing of mayo, cider vinegar, Dijon and maple syrup with celery seed.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT1H",
+    "waitLabel": "chill dressed slaw 1-4 hr",
     "recipeYield": "about 1 cup, dresses 6-8 cups slaw"
   },
   {
@@ -6099,9 +6010,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake",
-      "#protein"
+      "#no-bake"
     ],
     "ingredients": [
       {
@@ -6148,6 +6057,8 @@
     "description": "No-bake protein balls of vanilla protein powder, oat flour and peanut butter, bound with maple syrup and Greek yogurt.",
     "prepTime": "PT10M",
     "cookTime": "PT0M",
+    "waitTime": "PT30M",
+    "waitLabel": "chill 30 min",
     "recipeYield": "about 12 balls"
   },
   {
@@ -6157,9 +6068,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake",
-      "#protein"
+      "#no-bake"
     ],
     "ingredients": [
       {
@@ -6227,9 +6136,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake",
-      "#protein"
+      "#no-bake"
     ],
     "ingredients": [
       {
@@ -6288,6 +6195,8 @@
     "description": "No-bake balls of rolled oats, peanut butter, flaxseed and honey with protein powder and mini chocolate chips.",
     "prepTime": "PT15M",
     "cookTime": "PT0M",
+    "waitTime": "PT30M",
+    "waitLabel": "chill dough 30 min",
     "recipeYield": "about 24 balls"
   },
   {
@@ -6297,9 +6206,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake",
-      "#protein"
+      "#no-bake"
     ],
     "ingredients": [
       {
@@ -6379,9 +6286,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake",
-      "#protein"
+      "#no-bake"
     ],
     "ingredients": [
       {
@@ -6449,9 +6354,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake",
-      "#protein"
+      "#no-bake"
     ],
     "ingredients": [
       {
@@ -6506,6 +6409,8 @@
     "description": "Pumpkin pie spiced protein balls with oats, almond butter, pumpkin puree, cranberries and chocolate chips.",
     "prepTime": "PT10M",
     "cookTime": "PT0M",
+    "waitTime": "PT30M",
+    "waitLabel": "chill 30+ min",
     "recipeYield": "about 16 balls"
   },
   {
@@ -6515,9 +6420,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake",
-      "#protein"
+      "#no-bake"
     ],
     "ingredients": [
       {
@@ -6585,8 +6488,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#baked"
+      "#oven"
     ],
     "ingredients": [
       {
@@ -6654,8 +6556,8 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#no-bake"
+      "#no-bake",
+      "#make-ahead"
     ],
     "ingredients": [
       {
@@ -6720,6 +6622,8 @@
     "description": "Edible cookie dough of Greek yogurt, nut butter, oat flour and chocolate chips.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT30M",
+    "waitLabel": "chill 30+ min",
     "recipeYield": "2 servings"
   },
   {
@@ -6728,10 +6632,7 @@
     "section": "SOUPS",
     "category": "Soups",
     "source": "Original",
-    "tags": [
-      "#chicken",
-      "#soup"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "item",
@@ -6831,8 +6732,6 @@
     "category": "Soups",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#soup",
       "#italian"
     ],
     "ingredients": [
@@ -6998,8 +6897,7 @@
     "category": "Marinades",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#marinade"
+      "#chicken"
     ],
     "ingredients": [
       {
@@ -7063,6 +6961,8 @@
     "description": "A blended Greek yogurt marinade for chicken with garlic, lime, jalapeño, cilantro and a touch of honey.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT2H",
+    "waitLabel": "marinate 2-8 hr first",
     "recipeYield": "enough for 1½ lb chicken"
   },
   {
@@ -7072,8 +6972,7 @@
     "category": "Marinades",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#marinade"
+      "#chicken"
     ],
     "ingredients": [
       {
@@ -7138,6 +7037,8 @@
     "description": "A Dijon and maple syrup chicken marinade with cider vinegar, paprika and cayenne heat, plus a little held back to glaze.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT1H",
+    "waitLabel": "marinate 1-8 hr first",
     "recipeYield": "enough for 1½ lb chicken"
   },
   {
@@ -7147,8 +7048,7 @@
     "category": "Marinades",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#marinade"
+      "#chicken"
     ],
     "ingredients": [
       {
@@ -7212,6 +7112,8 @@
     "description": "A Greek yogurt chicken marinade with lemon, garlic, parsley and oregano.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT2H",
+    "waitLabel": "marinate 2-8 hr first",
     "recipeYield": "enough for 1½ lb chicken"
   },
   {
@@ -7237,7 +7139,6 @@
     "source": "Original",
     "tags": [
       "#chicken",
-      "#marinade",
       "#asian"
     ],
     "ingredients": [
@@ -7290,6 +7191,8 @@
     "description": "A Cantonese-style velveting marinade of egg white, cornstarch and soy sauce, with a quick water blanch, for silky stir-fried chicken.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT30M",
+    "waitLabel": "marinate 30 min",
     "recipeYield": "enough for 1 lb chicken"
   },
   {
@@ -7327,9 +7230,6 @@
     "category": "Smoothies",
     "source": "Original",
     "tags": [
-      "#smoothie",
-      "#strawberry",
-      "#spinach",
       "#peanut-butter",
       "#no-cook"
     ],
@@ -7419,8 +7319,8 @@
     "category": "Marinades",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#marinade"
+      "#sheet-pan",
+      "#high-protein"
     ],
     "ingredients": [
       {
@@ -7497,6 +7397,8 @@
     "description": "Chicken drumsticks marinated in yogurt with bloomed turmeric, Kashmiri chili and cumin, garlic, ginger and lemon, then roasted and broiled.",
     "prepTime": "PT10M",
     "cookTime": "PT35M",
+    "waitTime": "PT4H",
+    "waitLabel": "marinate 4-12 hr first",
     "recipeYield": "4 servings"
   },
   {
@@ -7505,10 +7407,7 @@
     "section": "MARINADES",
     "category": "Marinades",
     "source": "Original",
-    "tags": [
-      "#chicken",
-      "#marinade"
-    ],
+    "tags": [],
     "ingredients": [
       {
         "type": "header",
@@ -7588,6 +7487,8 @@
     "description": "Bone-in chicken thighs in a Greek yogurt marinade with bloomed garam masala, coriander, paprika and cayenne, grilled over a two-zone fire.",
     "prepTime": "PT10M",
     "cookTime": "PT40M",
+    "waitTime": "PT4H",
+    "waitLabel": "marinate 4-12 hr first",
     "recipeYield": "4 servings"
   },
   {
@@ -7597,13 +7498,8 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#american",
       "#cajun",
-      "#rice",
-      "#beans",
-      "#one-pan",
-      "#beef",
-      "#spicy"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -7751,11 +7647,7 @@
     "category": "Middle Eastern",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#thighs",
-      "#sheet-pan",
-      "#weeknight",
-      "#middle-eastern"
+      "#sheet-pan"
     ],
     "ingredients": [
       {
@@ -7901,6 +7793,8 @@
     "description": "Boneless chicken thighs marinated in yogurt, lemon, garlic and warm spices, roasted at 425°F and charred under the broiler. Served with garlic yogurt sauce and quick-pickled red onion.",
     "prepTime": "PT20M",
     "cookTime": "PT25M",
+    "waitTime": "PT1H",
+    "waitLabel": "marinate 1-3 hr first",
     "recipeYield": "4 servings"
   },
   {
@@ -7910,10 +7804,7 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#burger",
-      "#avocado",
-      "#american"
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -8068,10 +7959,8 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#balsamic",
-      "#weeknight",
-      "#rice-bowl"
+      "#rice-bowl",
+      "#one-pan"
     ],
     "ingredients": [
       {
@@ -8204,12 +8093,8 @@
     "category": "Asian",
     "source": "Original",
     "tags": [
-      "#beef",
-      "#ground-beef",
       "#korean",
       "#rice-bowl",
-      "#weeknight",
-      "#spicy",
       "#one-pan"
     ],
     "ingredients": [
@@ -8351,11 +8236,10 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#chickpeas",
       "#oven",
       "#vegetarian",
-      "#make-ahead"
+      "#make-ahead",
+      "#sheet-pan"
     ],
     "ingredients": [
       {
@@ -8424,11 +8308,9 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#peanut",
       "#oven",
-      "#spicy",
-      "#make-ahead"
+      "#make-ahead",
+      "#sheet-pan"
     ],
     "ingredients": [
       {
@@ -8502,10 +8384,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#cucumber",
       "#korean",
-      "#spicy",
       "#no-cook",
       "#vegetarian"
     ],
@@ -8586,11 +8465,8 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#eggs",
       "#korean",
-      "#make-ahead",
-      "#high-protein"
+      "#make-ahead"
     ],
     "ingredients": [
       {
@@ -8666,6 +8542,8 @@
     "description": "Jammy soft-boiled eggs marinated overnight in soy, honey, garlic, green onion and jalapeño.",
     "prepTime": "PT15M",
     "cookTime": "PT10M",
+    "waitTime": "PT4H",
+    "waitLabel": "marinate 4+ hr, best overnight",
     "recipeYield": "3 servings (2 eggs each)"
   },
   {
@@ -8675,12 +8553,9 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#chicken",
-      "#peanut",
-      "#spicy",
-      "#asian",
-      "#high-protein"
+      "#make-ahead",
+      "#one-pan",
+      "#asian"
     ],
     "ingredients": [
       {
@@ -8793,12 +8668,10 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
       "#dip",
-      "#chickpeas",
-      "#middle-eastern",
       "#vegetarian",
-      "#make-ahead"
+      "#make-ahead",
+      "#middle-eastern"
     ],
     "ingredients": [
       {
@@ -8895,12 +8768,9 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
       "#dip",
-      "#greek-yogurt",
-      "#spicy",
       "#no-cook",
-      "#high-protein"
+      "#make-ahead"
     ],
     "ingredients": [
       {
@@ -8954,6 +8824,8 @@
     "description": "Nonfat Greek yogurt with cayenne hot sauce, garlic, dill and blue cheese, served with celery, carrot and pepper sticks.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT30M",
+    "waitLabel": "chill 30+ min",
     "recipeYield": "5 servings (about ¼ cup each)"
   },
   {
@@ -8963,12 +8835,10 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
       "#dip",
-      "#greek-yogurt",
-      "#cucumber",
       "#no-cook",
-      "#vegetarian"
+      "#vegetarian",
+      "#make-ahead"
     ],
     "ingredients": [
       {
@@ -9032,6 +8902,8 @@
     "description": "Thick Greek yogurt dip with salted, squeezed grated cucumber, garlic, lemon, olive oil and dill.",
     "prepTime": "PT15M",
     "cookTime": "PT0M",
+    "waitTime": "PT30M",
+    "waitLabel": "chill 30+ min",
     "recipeYield": "6 servings (about ¼ cup each)"
   },
   {
@@ -9041,10 +8913,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#chia",
       "#peanut-butter",
-      "#chocolate",
       "#make-ahead",
       "#no-cook"
     ],
@@ -9105,6 +8974,8 @@
     "description": "Chia seeds set overnight in milk blended with peanut butter, cocoa and honey.",
     "prepTime": "PT5M",
     "cookTime": "PT0M",
+    "waitTime": "PT4H",
+    "waitLabel": "chill 4 hr or overnight",
     "recipeYield": "2 servings"
   },
   {
@@ -9114,11 +8985,7 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#apple",
-      "#greek-yogurt",
-      "#microwave",
-      "#high-protein"
+      "#microwave"
     ],
     "ingredients": [
       {
@@ -9187,11 +9054,10 @@
     "category": "Snacks",
     "source": "Original",
     "tags": [
-      "#snack",
-      "#granola",
       "#peanut-butter",
       "#oven",
-      "#make-ahead"
+      "#make-ahead",
+      "#sheet-pan"
     ],
     "ingredients": [
       {
@@ -9265,6 +9131,8 @@
     "description": "Oats, peanuts and flax bound with peanut butter, honey and egg white, pressed and baked into a sheet, then broken into clusters.",
     "prepTime": "PT10M",
     "cookTime": "PT40M",
+    "waitTime": "PT45M",
+    "waitLabel": "cool 45 min before breaking",
     "recipeYield": "10 servings (about ½ cup each)"
   },
   {
@@ -9274,11 +9142,8 @@
     "category": "Breakfast",
     "source": "Original",
     "tags": [
-      "#breakfast",
-      "#snack",
-      "#eggs",
       "#make-ahead",
-      "#high-protein"
+      "#snack"
     ],
     "ingredients": [
       {
@@ -9368,9 +9233,7 @@
     "category": "Sides",
     "source": "Original",
     "tags": [
-      "#pickled",
       "#condiment",
-      "#onion",
       "#make-ahead"
     ],
     "ingredients": [
@@ -9446,6 +9309,8 @@
     "description": "Thin-sliced red onions quick-pickled in a hot apple cider vinegar brine with garlic, black pepper, oregano and bay.",
     "prepTime": "PT10M",
     "cookTime": "PT5M",
+    "waitTime": "PT1H30M",
+    "waitLabel": "cool 30 min, chill 1 hr",
     "recipeYield": "about 2 cups (one pint jar)"
   },
   {
@@ -9455,29 +9320,67 @@
     "category": "American",
     "source": "Original",
     "tags": [
-      "#chicken",
-      "#chicken-breast",
       "#cajun",
-      "#weeknight",
-      "#spicy",
-      "#cast-iron",
-      "#make-ahead"
+      "#make-ahead",
+      "#skillet"
     ],
     "ingredients": [
-      { "type": "header", "text": "Chicken and rub:" },
-      { "type": "item", "text": "2 boneless skinless chicken breasts (about 1½ lb)" },
-      { "type": "item", "text": "2 tsp smoked paprika" },
-      { "type": "item", "text": "1 tsp garlic powder" },
-      { "type": "item", "text": "1 tsp onion powder" },
-      { "type": "item", "text": "1 tsp dried thyme" },
-      { "type": "item", "text": "½ tsp dried oregano" },
-      { "type": "item", "text": "½ tsp black pepper" },
-      { "type": "item", "text": "½ tsp cayenne" },
-      { "type": "item", "text": "1 tsp table salt" },
-      { "type": "header", "text": "To cook:" },
-      { "type": "item", "text": "2 Tbsp butter, melted" },
-      { "type": "item", "text": "1 Tbsp neutral oil" },
-      { "type": "item", "text": "1 lemon, cut in wedges (optional)" }
+      {
+        "type": "header",
+        "text": "Chicken and rub:"
+      },
+      {
+        "type": "item",
+        "text": "2 boneless skinless chicken breasts (about 1½ lb)"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried thyme"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "To cook:"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp butter, melted"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "1 lemon, cut in wedges (optional)"
+      }
     ],
     "instructions": [
       {
@@ -9525,31 +9428,78 @@
     "category": "Sides",
     "source": "Original",
     "tags": [
-      "#side",
-      "#rice",
-      "#beans",
-      "#one-pot",
-      "#weeknight",
+      "#one-pan",
       "#cajun"
     ],
     "ingredients": [
-      { "type": "header", "text": "Rice and beans:" },
-      { "type": "item", "text": "2 Tbsp butter" },
-      { "type": "item", "text": "1 small yellow onion, diced" },
-      { "type": "item", "text": "½ green bell pepper, diced" },
-      { "type": "item", "text": "1 celery rib, diced" },
-      { "type": "item", "text": "2 garlic cloves, minced" },
-      { "type": "item", "text": "1 cup long-grain white rice" },
-      { "type": "item", "text": "1 tsp smoked paprika" },
-      { "type": "item", "text": "½ tsp dried thyme" },
-      { "type": "item", "text": "¼ tsp cayenne" },
-      { "type": "item", "text": "1½ cups low-sodium chicken broth" },
-      { "type": "item", "text": "1 can (15 oz) red kidney beans, drained and rinsed" },
-      { "type": "item", "text": "¾ tsp table salt" },
-      { "type": "item", "text": "1 bay leaf" },
-      { "type": "header", "text": "To finish:" },
-      { "type": "item", "text": "2 green onions, sliced" },
-      { "type": "item", "text": "Hot sauce, for serving" }
+      {
+        "type": "header",
+        "text": "Rice and beans:"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 small yellow onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "½ green bell pepper, diced"
+      },
+      {
+        "type": "item",
+        "text": "1 celery rib, diced"
+      },
+      {
+        "type": "item",
+        "text": "2 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 cup long-grain white rice"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp dried thyme"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 can (15 oz) red kidney beans, drained and rinsed"
+      },
+      {
+        "type": "item",
+        "text": "¾ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 bay leaf"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "Hot sauce, for serving"
+      }
     ],
     "instructions": [
       {

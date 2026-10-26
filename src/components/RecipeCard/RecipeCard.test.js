@@ -75,7 +75,10 @@ describe('recipe card: Option A layout', () => {
     expect(i, s).toBeGreaterThan(-1);
     return i;
   };
-  const base = { ...lasagna, prepTime: 'PT20M', cookTime: 'PT55M', tags: ['#make-ahead'], description: 'Layers of pasta, ragu and ricotta, baked in one pan.' };
+  // The live lasagna has a 30-minute rest (waitTime); the base drops it so each
+  // test adds a wait only when it means to.
+  const { waitTime: _wait, waitLabel: _label, ...lasagnaNoWait } = lasagna;
+  const base = { ...lasagnaNoWait, prepTime: 'PT20M', cookTime: 'PT55M', tags: ['#make-ahead'], description: 'Layers of pasta, ragu and ricotta, baked in one pan.' };
 
   it('leads with the ready time, hands-on beside it', () => {
     const out = html(base);

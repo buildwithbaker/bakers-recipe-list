@@ -625,7 +625,7 @@ src/
     search.js               one search across the Cookbook + drafts (Name / Ingredient / All)
     relatedRecipes.js       the related ranking (also imported by prerender.mjs)
     screenLock.js           wake-lock lifecycle, injectable nav/doc so it is testable
-    autoTags.js             derived tags from section + ingredients
+    autoTags.js             derived tags from category + ingredients, and #new from added
     parseIngredient / convertToGrams / fractions / scaleIngredient /
     estimateServings / estimateMacros / fetchNutrition / swUpdate
 

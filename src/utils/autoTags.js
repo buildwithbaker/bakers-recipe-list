@@ -66,11 +66,14 @@ const OTHER_PROTEINS = ['pork', 'chicken', 'turkey', 'lamb', 'salmon', 'tuna', '
 // ingLines: string[] of lowercased individual ingredient texts.
 function hasProtein(ingLines, needles, notWhen = []) {
   return needles.some((needle) =>
-    ingLines.some((line) =>
-      line.includes(needle)
-      && !BROTH_WORDS.some((w) => line.includes(w))
-      && !notWhen.some((w) => line.includes(w))
-    )
+    ingLines.some((raw) => {
+      // A packaged cut that ships with its own spice packet is still the
+      // protein: "corned beef brisket (with seasoning packet)" is beef.
+      const line = raw.replace('seasoning packet', '');
+      return line.includes(needle)
+        && !BROTH_WORDS.some((w) => line.includes(w))
+        && !notWhen.some((w) => line.includes(w));
+    })
   );
 }
 
@@ -79,10 +82,13 @@ function hasProtein(ingLines, needles, notWhen = []) {
 const PROTEIN_RULES = [
   { needles: ['chicken', 'poultry'],                                                   tag: '#chicken' },
   // `steak` is a cut, not an animal: "pork shoulder steaks" was yielding #beef.
-  { needles: ['ground beef', 'beef', 'steak', 'brisket', 'chuck', 'short rib'],       tag: '#beef', notWhen: OTHER_PROTEINS },
-  { needles: ['pork', 'bacon', 'ham', 'prosciutto', 'pancetta', 'chorizo', 'salami'], tag: '#pork'    },
+  // Beef tallow is a cooking fat, not the protein of the dish.
+  { needles: ['ground beef', 'beef', 'steak', 'brisket', 'chuck', 'short rib'],       tag: '#beef', notWhen: [...OTHER_PROTEINS, 'tallow'] },
+  // "ham" is a substring of "hamburger": a hamburger bun is not pork.
+  { needles: ['pork', 'bacon', 'ham', 'prosciutto', 'pancetta', 'chorizo', 'salami'], tag: '#pork', notWhen: ['hamburger'] },
   { needles: ['sausage'],                                                               tag: '#pork'    },
-  { needles: ['salmon', 'tuna', 'cod', 'halibut', 'tilapia', 'mahi', 'fish'],         tag: '#seafood' },
+  // Fish sauce is a seasoning, not seafood (Adam, 2026-10-26).
+  { needles: ['salmon', 'tuna', 'cod', 'halibut', 'tilapia', 'mahi', 'fish'],         tag: '#seafood', notWhen: ['fish sauce'] },
   { needles: ['shrimp', 'scallop', 'crab', 'lobster', 'clam', 'mussel', 'prawn'],    tag: '#seafood' },
   { needles: ['lamb', 'mutton'],                                                       tag: '#lamb'    },
   { needles: ['turkey'],                                                                tag: '#turkey'  },
@@ -91,6 +97,15 @@ const PROTEIN_RULES = [
 // Every tag the protein rules can produce, once each. tagFacets.js reads this to
 // give an auto protein tag its facet without keeping a second copy of the list.
 export const PROTEIN_TAGS = Object.freeze([...new Set(PROTEIN_RULES.map((r) => r.tag))]);
+
+// Every tag the auto-tags can derive from category and ingredients (not #new,
+// which comes from a date). A recipe may also carry one of these BY HAND where
+// the auto-tags do not supply it - #soup on a Slow Cooker stew, #chicken on a
+// marinade that names chicken only in its method - so the validator accepts
+// them alongside the controlled list in tagFacets.js.
+export const AUTO_TAG_VOCABULARY = Object.freeze([
+  ...new Set([...Object.values(CATEGORY_TAG_MAP).flat(), ...PROTEIN_TAGS, '#spicy']),
+]);
 
 // ── NEW: 14 days after `added` ─────────────────────────────────────────────
 //
