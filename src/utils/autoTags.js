@@ -88,6 +88,10 @@ const PROTEIN_RULES = [
   { needles: ['turkey'],                                                                tag: '#turkey'  },
 ];
 
+// Every tag the protein rules can produce, once each. tagFacets.js reads this to
+// give an auto protein tag its facet without keeping a second copy of the list.
+export const PROTEIN_TAGS = Object.freeze([...new Set(PROTEIN_RULES.map((r) => r.tag))]);
+
 // ── NEW: 14 days after `added` ─────────────────────────────────────────────
 //
 // `added` is a bare calendar date in Central time (schema). "Today" is the

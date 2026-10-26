@@ -34,13 +34,19 @@ const PAIRS = [
   ['ink', 'notice-soft', 4.5], ['brand', 'notice-soft', 4.5],   // USDA notice
   ['ink', 'accent-soft', 4.5],         // search-hit highlight
   ['danger', 'surface', 4.5],
-  ['band-ink', 'band', 4.5],            // masthead text; NEW pill on a recipe card
+  ['band-ink', 'band', 4.5],            // masthead text
   ['band-ink-muted', 'band', 4.5],
   // Exempt: AiBadge. Decorative at 25% opacity; the figcaption carries the AI label in tested colours.
   ['band', 'band-accent', 4.5],        // shopping badge (tab bar, list): navy digits on amber
   ['band', 'band-ink', 4.5],           // current tab in the desktop header: navy on cream
   ['band-accent', 'band', 3],          // amber "Recipe" in the large serif wordmark
   ['accent', 'surface', 3],            // filled star of a pinned card (graphic)
+  // Recipe card, Option A (RecipeCard.module.css). Some repeat a pair above on
+  // purpose, so each card colour stays measured even if its other use goes.
+  ['band-ink', 'band', 4.5],           // NEW pill
+  ['accent-ink', 'accent-soft', 4.5],  // Plan ahead line
+  ['ink-muted', 'surface', 4.5],       // tag chips, hands-on time, description, matched line
+  ['ink', 'surface', 4.5],             // ready time
 ];
 
 describe('token contrast (WCAG AA)', () => {
