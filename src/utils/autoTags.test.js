@@ -152,3 +152,38 @@ describe('auto-tags: #new for 14 days after added', () => {
     }
   });
 });
+
+describe('auto-tags: protein exceptions', () => {
+  const dish = (...lines) => ({
+    id: 'x', name: 'X', section: 'AMERICAN', category: 'American', source: 'Original', tags: [], is_blank: false,
+    ingredients: lines.map((text) => ({ type: 'item', text })), instructions: [{ step: 's', detail: 'd' }],
+  });
+
+  it('does not read fish sauce as seafood', () => {
+    expect(getAutoTags(dish('1½ Tbsp fish sauce', '3 cups cooked rice'))).not.toContain('#seafood');
+    expect(getAutoTags(dish('1 lb cod fillets', '1 Tbsp fish sauce'))).toContain('#seafood');
+  });
+
+  it('does not read a hamburger bun as pork', () => {
+    expect(getAutoTags(dish('2 lb ground beef', '6 hamburger buns'))).not.toContain('#pork');
+    expect(getAutoTags(dish('4 oz diced ham'))).toContain('#pork');
+  });
+
+  it('does not read beef tallow as beef', () => {
+    expect(getAutoTags(dish('2 lb russet potatoes', '3 Tbsp beef tallow'))).not.toContain('#beef');
+  });
+
+  it('reads corned beef with its seasoning packet as beef', () => {
+    expect(getAutoTags(dish('3 lb corned beef brisket (with seasoning packet)'))).toContain('#beef');
+    expect(getAutoTags(dish('2 cups beef broth', '1 tsp taco seasoning'))).not.toContain('#beef');
+  });
+
+  // The four records that prompted these exceptions, as they are in the file.
+  it('fixes the four real records', () => {
+    const byId = Object.fromEntries(rawRecipes.map((r) => [r.id, r]));
+    expect(getEffectiveTags(byId['thai-pineapple-fried-rice'])).not.toContain('#seafood');
+    expect(getEffectiveTags(byId['california-burgers-special-sauce'])).not.toContain('#pork');
+    expect(getEffectiveTags(byId['crispy-onion-and-black-pepper-russet-chunks'])).not.toContain('#beef');
+    expect(getAutoTags({ ...byId['corned-beef-and-cabbage'], tags: [] })).toContain('#beef');
+  });
+});
