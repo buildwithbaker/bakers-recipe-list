@@ -156,7 +156,12 @@
       "type": "string",
       "minLength": 1,
       "maxLength": 200,
-      "description": "OPTIONAL. One sentence describing the dish, written for a link preview and the Recipe rich result. When absent, scripts/prerender.mjs derives one from the first instruction, then from the ingredient list. Authoring it beats the derivation — write it for the recipes you actually share."
+      "description": "REQUIRED on every record with is_blank false (enforced by scripts/validate-recipes.mjs; blanks are exempt, so it is not in `required`). One sentence describing the dish, written for a link preview and the Recipe rich result. When absent, scripts/prerender.mjs derives one from the first instruction, then from the ingredient list. Authoring it beats the derivation — write it for the recipes you actually share."
+    },
+    "added": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "OPTIONAL by schema, conditions enforced by scripts/validate-recipes.mjs. The date the recipe went live in the Cookbook, as a bare local date in Central time (America/Chicago), \"YYYY-MM-DD\": a real calendar date, not in the future. REQUIRED on every written Cookbook record (is_blank false, section not CHEFS DRAFTS) whose id is not in src/data/cookbookBaseline.json: a new recipe, a draft promoted to the Cookbook, a placeholder completed. REJECTED on a blank, on a draft, and on a baseline record (those went live before this field existed and never show NEW)."
     },
     "prepTime": {
       "type": "string",
@@ -167,6 +172,17 @@
       "type": "string",
       "pattern": "^PT(?:[0-9]+H)?(?:[0-9]+M)?$",
       "description": "OPTIONAL. Unattended cooking time as an ISO 8601 duration. See prepTime — the two go together. totalTime is computed from the pair by the prerender script and is never authored."
+    },
+    "waitTime": {
+      "type": "string",
+      "pattern": "^PT(?:[0-9]+H)?(?:[0-9]+M)?$",
+      "description": "OPTIONAL. Required waiting before you eat (marinate, rise, chill), the minimum of any range, as an ISO 8601 duration like prepTime. Must be greater than zero. Author with waitLabel or not at all. Allowed on written records including drafts, rejected on blanks. Not published anywhere yet: totalTime is still prepTime + cookTime."
+    },
+    "waitLabel": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "description": "OPTIONAL. Short text shown after \"Plan ahead: \", e.g. \"marinate 8-12 hr first\". Author with waitTime or not at all."
     },
     "recipeYield": {
       "type": "string",

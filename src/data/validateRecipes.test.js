@@ -1,7 +1,7 @@
 import { Buffer } from 'node:buffer';
 import { afterAll, describe, it, expect } from 'vitest';
 import { spawnSync } from 'node:child_process';
-import { copyFileSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import process from 'node:process';
@@ -40,6 +40,7 @@ function record(id, name, over = {}) {
     name,
     section: 'BREAKFAST',
     category: 'Breakfast',
+    description: 'A fixture dish.',
     source: 'Original',
     tags: ['#breakfast'],
     ingredients: [{ type: 'item', text: '1 egg' }],
@@ -58,20 +59,62 @@ const BASE_MANIFEST = {
 
 const clone = (v) => JSON.parse(JSON.stringify(v));
 
+// The validator insists on exactly 66 baseline ids. Fixtures carry alpha and
+// beta plus filler ids that are declared removed, so the count is right without
+// 66 real records. The fillers show up in the summary line (see summaryLine).
+const BASELINE_SIZE = 66;
+const FILLERS = Array.from({ length: BASELINE_SIZE - 2 }, (_, i) => `filler-${String(i).padStart(2, '0')}`);
+const BASE_BASELINE = ['alpha-recipe', 'beta-recipe', ...FILLERS];
+
+// Today in Central, the way the validator computes it, shifted by whole days.
+const centralDate = (offsetDays = 0) => {
+  const d = new Date(Date.now() + offsetDays * 86_400_000);
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(d);
+};
+
 // The validator's summary line, built from a record count. The count itself is
 // hand-authored once in src/data/recordCount.js - this only formats it, so a
 // catalog change is a one-line bump there and nothing to remember here.
 // A removed id keeps its manifest entry, so the manifest holds n + removed.
-const summaryLine = (n, removed = 0) =>
+const summaryLine = (n, removed = 0, filler = FILLERS.length) =>
   new RegExp(
-    `${n} records, ${n} unique names, ${n} unique ids, ${n + removed} manifest entries, ${removed} removed`,
+    `${n} records, ${n} unique names, ${n} unique ids, ${n + removed + filler} manifest entries, ${removed + filler} removed`,
   );
 
 // Mirrors the repo layout the validator resolves against: it reads
 // <root>/src/data/* relative to its own file, and imports sections.js. The
 // script, schema and sections are copied VERBATIM so the fixtures exercise the
 // same code and the same enums production does.
-function fixture({ records = BASE_RECORDS, manifest = BASE_MANIFEST, publicFiles = {} } = {}) {
+// A manifest where every baseline id but alpha/beta is listed and removed.
+function fillManifest(ids) {
+  const manifest = clone(BASE_MANIFEST);
+  manifest.removed = {};
+  for (const id of ids) {
+    if (id in manifest.ids) continue;
+    manifest.ids[id] = id;
+    manifest.removed[id] = { to: null, note: 'fixture filler' };
+  }
+  return manifest;
+}
+
+// Any baseline id that is neither live nor in the manifest is added to `ids` and
+// `removed` (fillFiller: false turns that off, for the cases that test it).
+function fixture({
+  records = BASE_RECORDS,
+  manifest = BASE_MANIFEST,
+  publicFiles = {},
+  baseline = BASE_BASELINE,
+  fillFiller = true,
+} = {}) {
+  manifest = clone(manifest);
+  if (fillFiller) {
+    manifest.removed = manifest.removed ?? {};
+    for (const id of baseline) {
+      if (id in manifest.ids || id in manifest.removed || records.some((r) => r.id === id)) continue;
+      manifest.ids[id] = id;
+      manifest.removed[id] = { to: null, note: 'fixture filler' };
+    }
+  }
   const root = mkdtempSync(join(tmpdir(), 'brl-validator-'));
   tempRoots.push(root);
   mkdirSync(join(root, 'scripts'), { recursive: true });
@@ -82,6 +125,7 @@ function fixture({ records = BASE_RECORDS, manifest = BASE_MANIFEST, publicFiles
   }
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(manifest, null, 2));
+  writeFileSync(join(root, 'src', 'data', 'cookbookBaseline.json'), JSON.stringify({ ids: baseline }, null, 2));
   // Files the fixture serves from public/, keyed by path (e.g. 'diagrams/x.svg').
   for (const [path, body] of Object.entries(publicFiles)) {
     mkdirSync(dirname(join(root, 'public', path)), { recursive: true });
@@ -111,7 +155,7 @@ describe('validate-recipes.mjs', () => {
   it('passes the real src/data, so the fixtures exercise the production path', () => {
     const { code, output } = runValidator(repoRoot);
     expect(code).toBe(0);
-    expect(output).toMatch(summaryLine(EXPECTED_RECORDS, Object.keys(idManifest.removed ?? {}).length));
+    expect(output).toMatch(summaryLine(EXPECTED_RECORDS, Object.keys(idManifest.removed ?? {}).length, 0));
   });
 
   it('fails when an id is changed', () => {
@@ -296,6 +340,252 @@ describe('validate-recipes.mjs', () => {
     const { code, output } = diagramRun([good], { 'diagrams/cut.svg': svg, 'diagrams/cut.png': PNG });
     expect(code).not.toBe(0);
     expect(output).toMatch(message);
+  });
+
+  // --- added / waitTime / waitLabel / description, and the frozen baseline ---
+  //
+  // Per AGENTS.md "Probing a guard": every mutation is read back from the
+  // fixture's recipes.json on disk and asserted present BEFORE the outcome is
+  // checked, so a write that silently did nothing cannot pass for a green guard.
+
+  const readBack = (root) => JSON.parse(readFileSync(join(root, 'src', 'data', 'recipes.json'), 'utf8'));
+  const readBaseline = (root) =>
+    JSON.parse(readFileSync(join(root, 'src', 'data', 'cookbookBaseline.json'), 'utf8')).ids;
+
+  // gamma is a written Cookbook record NOT on the baseline.
+  const withGamma = (over = {}, section = {}) => {
+    const records = [...clone(BASE_RECORDS), record('gamma-recipe', 'Gamma Recipe', { ...section, ...over })];
+    const manifest = clone(BASE_MANIFEST);
+    manifest.ids['gamma-recipe'] = 'Gamma Recipe';
+    return { records, manifest };
+  };
+
+  // Mutate record #idx, read the fixture back to prove it, then run.
+  function probe(setup, check) {
+    const root = fixture(setup);
+    check(readBack(root));
+    return runValidator(root);
+  }
+
+  it('fails a written Cookbook record off the baseline with no added', () => {
+    const { code, output } = probe(withGamma(), (rs) => {
+      expect(rs[2].id).toBe('gamma-recipe');
+      expect('added' in rs[2]).toBe(false);
+    });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/"Gamma Recipe"\) is a written Cookbook record not in cookbookBaseline\.json, so it needs "added"/);
+  });
+
+  it('passes a record off the baseline with a valid added, today included', () => {
+    for (const added of ['2026-10-01', centralDate(0)]) {
+      const { code, output } = probe(withGamma({ added }), (rs) => expect(rs[2].added).toBe(added));
+      expect(code).toBe(0);
+      expect(output).toMatch(/recipes\.json OK/);
+    }
+  });
+
+  it('fails added on a Chef draft', () => {
+    const { code, output } = probe(withGamma({ added: '2026-10-01' }, { section: 'CHEFS DRAFTS' }), (rs) => {
+      expect(rs[2].section).toBe('CHEFS DRAFTS');
+      expect(rs[2].added).toBe('2026-10-01');
+    });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/has "added" but is a Chef draft/);
+  });
+
+  it('fails added on a blank', () => {
+    const over = { added: '2026-10-01', is_blank: true, ingredients: [], instructions: [] };
+    const { code, output } = probe(withGamma(over), (rs) => {
+      expect(rs[2].is_blank).toBe(true);
+      expect(rs[2].added).toBe('2026-10-01');
+    });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/has "added" but is blank/);
+  });
+
+  it('fails added on a baseline record', () => {
+    const records = clone(BASE_RECORDS);
+    records[0].added = '2026-10-01';
+    const { code, output } = probe({ records }, (rs) => {
+      expect(rs[0].added).toBe('2026-10-01');
+      expect(rs[0].id).toBe('alpha-recipe');
+    });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/"Alpha Recipe"\) is in cookbookBaseline\.json .* must not carry "added"/);
+  });
+
+  it.each([
+    ['2026-13-01', /must be a real calendar date/],
+    ['2026-02-30', /must be a real calendar date/],
+    ['2026-00-10', /must be a real calendar date/],
+    ['2026-04-31', /must be a real calendar date/],
+    ['10/25/2026', /must match \^\[0-9\]\{4\}/],
+    ['2026-1-5', /must match \^\[0-9\]\{4\}/],
+    ['', /added must be a non-empty string when present/],
+  ])('fails a malformed or impossible added of %j', (added, message) => {
+    const { code, output } = probe(withGamma({ added }), (rs) => expect(rs[2].added).toBe(added));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(message);
+  });
+
+  it('fails a leap day in a non-leap year and passes one in a leap year', () => {
+    const bad = probe(withGamma({ added: '2025-02-29' }), (rs) => expect(rs[2].added).toBe('2025-02-29'));
+    expect(bad.code).not.toBe(0);
+    expect(bad.output).toMatch(/must be a real calendar date/);
+    const ok = probe(withGamma({ added: '2024-02-29' }), (rs) => expect(rs[2].added).toBe('2024-02-29'));
+    expect(ok.code).toBe(0);
+  });
+
+  it('fails an added after today in Central, and tomorrow in Central is the edge', () => {
+    for (const added of [centralDate(1), '2999-12-31']) {
+      const { code, output } = probe(withGamma({ added }), (rs) => expect(rs[2].added).toBe(added));
+      expect(code).not.toBe(0);
+      expect(output).toMatch(/is in the future \(today in Central is \d{4}-\d{2}-\d{2}\)/);
+    }
+  });
+
+  it('passes a waitTime with a waitLabel on a written record, a draft included', () => {
+    const over = { waitTime: 'PT8H', waitLabel: 'marinate 8-12 hr first' };
+    const written = probe(withGamma({ ...over, added: '2026-10-01' }), (rs) => {
+      expect(rs[2].waitTime).toBe('PT8H');
+      expect(rs[2].waitLabel).toBe('marinate 8-12 hr first');
+    });
+    expect(written.code).toBe(0);
+    const draft = probe(withGamma(over, { section: 'CHEFS DRAFTS' }), (rs) => {
+      expect(rs[2].section).toBe('CHEFS DRAFTS');
+      expect(rs[2].waitTime).toBe('PT8H');
+    });
+    expect(draft.code).toBe(0);
+    expect(draft.output).toMatch(/recipes\.json OK/);
+  });
+
+  it('fails a waitTime without a waitLabel, and the reverse', () => {
+    const a = probe(withGamma({ added: '2026-10-01', waitTime: 'PT30M' }), (rs) => {
+      expect(rs[2].waitTime).toBe('PT30M');
+      expect('waitLabel' in rs[2]).toBe(false);
+    });
+    expect(a.code).not.toBe(0);
+    expect(a.output).toMatch(/has only one of waitTime\/waitLabel — author both or neither/);
+    const b = probe(withGamma({ added: '2026-10-01', waitLabel: 'chill first' }), (rs) => {
+      expect(rs[2].waitLabel).toBe('chill first');
+      expect('waitTime' in rs[2]).toBe(false);
+    });
+    expect(b.code).not.toBe(0);
+    expect(b.output).toMatch(/has only one of waitTime\/waitLabel/);
+  });
+
+  it.each(['PT', 'PT0M', 'PT0H0M', 'PT0H', 'PT00M'])('fails a zero or empty waitTime of %j', (waitTime) => {
+    const over = { added: '2026-10-01', waitTime, waitLabel: 'chill first' };
+    const { code, output } = probe(withGamma(over), (rs) => expect(rs[2].waitTime).toBe(waitTime));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/waitTime .* must be greater than zero/);
+  });
+
+  it.each(['8 hours', 'P1D', '', 'PT8'])('fails a malformed waitTime of %j', (waitTime) => {
+    const over = { added: '2026-10-01', waitTime, waitLabel: 'chill first' };
+    const { code, output } = probe(withGamma(over), (rs) => expect(rs[2].waitTime).toBe(waitTime));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/waitTime/);
+  });
+
+  it('fails a waitLabel over 40 chars, and passes one at exactly 40', () => {
+    const long = 'x'.repeat(41);
+    const bad = probe(withGamma({ added: '2026-10-01', waitTime: 'PT1H', waitLabel: long }), (rs) =>
+      expect(rs[2].waitLabel).toHaveLength(41),
+    );
+    expect(bad.code).not.toBe(0);
+    expect(bad.output).toMatch(/waitLabel is 41 chars, over the 40 limit/);
+    const edge = 'x'.repeat(40);
+    const ok = probe(withGamma({ added: '2026-10-01', waitTime: 'PT1H', waitLabel: edge }), (rs) =>
+      expect(rs[2].waitLabel).toHaveLength(40),
+    );
+    expect(ok.code).toBe(0);
+  });
+
+  it('fails an empty waitLabel', () => {
+    const over = { added: '2026-10-01', waitTime: 'PT1H', waitLabel: '  ' };
+    const { code, output } = probe(withGamma(over), (rs) => expect(rs[2].waitLabel).toBe('  '));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/waitLabel must be a non-empty string when present/);
+  });
+
+  it('fails wait fields on a blank', () => {
+    const over = { is_blank: true, ingredients: [], instructions: [], waitTime: 'PT1H', waitLabel: 'chill first' };
+    const { code, output } = probe(withGamma(over), (rs) => {
+      expect(rs[2].is_blank).toBe(true);
+      expect(rs[2].waitTime).toBe('PT1H');
+    });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/is blank but has waitTime/);
+    expect(output).toMatch(/is blank but has waitLabel/);
+  });
+
+  it('fails a written record with no description, and passes a blank with none', () => {
+    const records = clone(BASE_RECORDS);
+    delete records[0].description;
+    const bad = probe({ records }, (rs) => expect('description' in rs[0]).toBe(false));
+    expect(bad.code).not.toBe(0);
+    expect(bad.output).toMatch(/"Alpha Recipe"\) is not blank but has no description/);
+
+    const blank = clone(BASE_RECORDS);
+    Object.assign(blank[0], { is_blank: true, ingredients: [], instructions: [] });
+    delete blank[0].description;
+    const ok = probe({ records: blank }, (rs) => {
+      expect(rs[0].is_blank).toBe(true);
+      expect('description' in rs[0]).toBe(false);
+    });
+    expect(ok.code).toBe(0);
+    expect(ok.output).toMatch(/recipes\.json OK/);
+  });
+
+  it.each([65, 67])('fails a baseline of %i entries', (n) => {
+    const baseline = n < BASELINE_SIZE ? BASE_BASELINE.slice(0, n) : [...BASE_BASELINE, 'filler-extra'];
+    const root = fixture({ baseline });
+    expect(readBaseline(root)).toHaveLength(n);
+    const { code, output } = runValidator(root);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(new RegExp(`cookbookBaseline\\.json has ${n} entries, expected exactly 66`));
+  });
+
+  it('fails a duplicate baseline id', () => {
+    const baseline = [...BASE_BASELINE.slice(0, -1), 'alpha-recipe'];
+    const root = fixture({ baseline });
+    const read = readBaseline(root);
+    expect(read).toHaveLength(BASELINE_SIZE);
+    expect(read.filter((id) => id === 'alpha-recipe')).toHaveLength(2);
+    const { code, output } = runValidator(root);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/cookbookBaseline\.json has duplicate id\(s\): alpha-recipe/);
+  });
+
+  it('fails a baseline id that is not in recipes.ids.json', () => {
+    const baseline = [...BASE_BASELINE.slice(0, -1), 'unlisted-id'];
+    const root = fixture({ baseline, fillFiller: false, manifest: fillManifest(BASE_BASELINE.slice(0, -1)) });
+    expect(readBaseline(root)).toContain('unlisted-id');
+    const { code, output } = runValidator(root);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/cookbookBaseline\.json id "unlisted-id" is not in recipes\.ids\.json/);
+  });
+
+  it('fails a baseline id that is neither live nor removed', () => {
+    const baseline = [...BASE_BASELINE.slice(0, -1), 'ghost-recipe'];
+    const manifest = fillManifest(BASE_BASELINE.slice(0, -1));
+    manifest.ids['ghost-recipe'] = 'Ghost Recipe';
+    const root = fixture({ baseline, manifest, fillFiller: false });
+    expect(readBaseline(root)).toContain('ghost-recipe');
+    const { code, output } = runValidator(root);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/cookbookBaseline\.json id "ghost-recipe" is neither a live record nor declared in `removed`/);
+  });
+
+  it('passes a baseline id that is later removed, so a removal never breaks the build', () => {
+    const { records, manifest } = removal();
+    const root = fixture({ records, manifest });
+    expect(readBaseline(root)).toContain('alpha-recipe');
+    expect(readBack(root).some((r) => r.id === 'alpha-recipe')).toBe(false);
+    const { code, output } = runValidator(root);
+    expect(code).toBe(0);
+    expect(output).toMatch(/recipes\.json OK/);
   });
 
   // --- removal path (recipes.ids.json `removed`) ---------------------------

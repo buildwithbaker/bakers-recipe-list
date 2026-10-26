@@ -31,6 +31,31 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const schema = JSON.parse(readFileSync(join(root, 'src/data/recipe.schema.json'), 'utf8'));
 const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'utf8'));
 const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json'), 'utf8'));
+const baselineFile = JSON.parse(readFileSync(join(root, 'src/data/cookbookBaseline.json'), 'utf8'));
+
+// The Cookbook baseline (src/data/cookbookBaseline.json) is the set of written
+// Cookbook recipes that were live before the `added` field existed. It is
+// FROZEN: it never grows, and a recipe that goes live later carries `added`
+// instead. This count is hand-authored, like EXPECTED_RECORDS in recordCount.js,
+// and deliberately not computed from the file it guards: a surprise add or drop
+// moves the file away from this number and the build fails.
+const BASELINE_SIZE = 66;
+const baselineIds = Array.isArray(baselineFile?.ids) ? baselineFile.ids : [];
+const baselineSet = new Set(baselineIds);
+
+// Today's date in Central time, "YYYY-MM-DD". Never new Date("YYYY-MM-DD"),
+// which is UTC midnight; CI runs in UTC, so that would be a day off every evening.
+const todayCentral = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago' }).format(new Date());
+
+function isRealDate(s) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+  if (!m) return false;
+  const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  return d.getUTCFullYear() === +m[1] && d.getUTCMonth() === +m[2] - 1 && d.getUTCDate() === +m[3];
+}
+
+// "PT", "PT0M", "PT0H0M" match the duration pattern but wait for nothing.
+const isZeroDuration = (s) => !/[1-9]/.test(s);
 
 const errors = [];
 const props = schema.properties;
@@ -106,7 +131,7 @@ recipes.forEach((r, i) => {
   if (typeof r.is_blank !== 'boolean') errors.push(`${where} is_blank must be a boolean`);
 
   // Optional fields — absent is always valid; present must be well formed.
-  const optionalStrings = ['image', 'description', 'prepTime', 'cookTime', 'recipeYield'];
+  const optionalStrings = ['image', 'description', 'prepTime', 'cookTime', 'recipeYield', 'waitTime', 'waitLabel', 'added'];
   optionalStrings.forEach((k) => {
     if (!(k in r)) return;
     if (typeof r[k] !== 'string' || r[k].trim() === '') {
@@ -127,6 +152,51 @@ recipes.forEach((r, i) => {
   // benefit and reads as missing data.
   if (('prepTime' in r) !== ('cookTime' in r)) {
     errors.push(`${where} has only one of prepTime/cookTime — author both or neither`);
+  }
+
+  // waitTime/waitLabel: a pair, only on a written record, and a real wait.
+  if (('waitTime' in r) !== ('waitLabel' in r)) {
+    errors.push(`${where} has only one of waitTime/waitLabel — author both or neither`);
+  }
+  if (r.is_blank === true) {
+    ['waitTime', 'waitLabel'].forEach((k) => {
+      if (k in r) errors.push(`${where} is blank but has ${k} — wait fields are for written records only`);
+    });
+  }
+  if (
+    typeof r.waitTime === 'string' &&
+    new RegExp(props.waitTime.pattern).test(r.waitTime) &&
+    isZeroDuration(r.waitTime)
+  ) {
+    errors.push(`${where} waitTime ${JSON.stringify(r.waitTime)} must be greater than zero`);
+  }
+
+  // added: the Cookbook go-live date. See cookbookBaseline.json.
+  if (typeof r.is_blank === 'boolean') {
+    const writtenCookbook = r.is_blank === false && r.section !== 'CHEFS DRAFTS';
+    const onBaseline = typeof r.id === 'string' && baselineSet.has(r.id);
+    if (!writtenCookbook) {
+      if ('added' in r) {
+        const kind = r.is_blank ? 'blank' : 'a Chef draft';
+        errors.push(`${where} has "added" but is ${kind} — only a written Cookbook record goes live`);
+      }
+    } else if (onBaseline) {
+      if ('added' in r) {
+        errors.push(`${where} is in cookbookBaseline.json (live before "added" existed) and must not carry "added"`);
+      }
+    } else if (!('added' in r)) {
+      errors.push(
+        `${where} is a written Cookbook record not in cookbookBaseline.json, so it needs "added" ` +
+          '(go-live date, YYYY-MM-DD, Central time)',
+      );
+    }
+    if (typeof r.added === 'string') {
+      if (!isRealDate(r.added)) {
+        errors.push(`${where} added ${JSON.stringify(r.added)} must be a real calendar date, YYYY-MM-DD`);
+      } else if (r.added > todayCentral) {
+        errors.push(`${where} added ${r.added} is in the future (today in Central is ${todayCentral})`);
+      }
+    }
   }
 
   // A photo that is referenced but not committed is a broken image in
@@ -290,6 +360,7 @@ recipes.forEach((r, i) => {
   if (r.is_blank === false) {
     const hasItem = Array.isArray(r.ingredients) && r.ingredients.some((x) => x && x.type === 'item');
     if (!hasItem) errors.push(`${where} is not blank but has no ingredient of type "item"`);
+    if (!('description' in r)) errors.push(`${where} is not blank but has no description`);
     if (!Array.isArray(r.instructions) || r.instructions.length === 0) {
       errors.push(`${where} is not blank but has no instructions`);
     }
@@ -422,6 +493,33 @@ if (!manifestIds || typeof manifestIds !== 'object') {
     }
     for (const k of Object.keys(entry)) {
       if (!['to', 'note', 'versions'].includes(k)) errors.push(`${where} has unknown field "${k}"`);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Frozen Cookbook baseline (src/data/cookbookBaseline.json)
+//
+// Enforced here, in the build path, for the same reason as the manifest above.
+// ---------------------------------------------------------------------------
+if (!Array.isArray(baselineFile?.ids)) {
+  errors.push('cookbookBaseline.json is missing its `ids` array');
+} else {
+  if (baselineIds.length !== BASELINE_SIZE) {
+    errors.push(
+      `cookbookBaseline.json has ${baselineIds.length} entries, expected exactly ${BASELINE_SIZE}. ` +
+        'The baseline is frozen: it never grows, and an id leaves it only by being removed from the catalog.',
+    );
+  }
+  const baseDups = [...new Set(baselineIds.filter((id, i) => baselineIds.indexOf(id) !== i))];
+  if (baseDups.length) errors.push(`cookbookBaseline.json has duplicate id(s): ${baseDups.join(', ')}`);
+  const liveIds = new Set(recipes.filter((r) => typeof r?.id === 'string').map((r) => r.id));
+  for (const id of baselineIds) {
+    if (!manifestIds || !(id in manifestIds)) {
+      errors.push(`cookbookBaseline.json id "${id}" is not in recipes.ids.json \`ids\``);
+    }
+    if (!liveIds.has(id) && !(id in removedMap)) {
+      errors.push(`cookbookBaseline.json id "${id}" is neither a live record nor declared in \`removed\``);
     }
   }
 }
