@@ -9447,5 +9447,147 @@
     "prepTime": "PT10M",
     "cookTime": "PT5M",
     "recipeYield": "about 2 cups (one pint jar)"
+  },
+  {
+    "id": "cajun-blackened-chicken-cutlets",
+    "name": "Cajun Blackened Chicken Cutlets",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#chicken-breast",
+      "#cajun",
+      "#weeknight",
+      "#spicy",
+      "#cast-iron",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      { "type": "header", "text": "Chicken and rub:" },
+      { "type": "item", "text": "2 boneless skinless chicken breasts (about 1½ lb)" },
+      { "type": "item", "text": "2 tsp smoked paprika" },
+      { "type": "item", "text": "1 tsp garlic powder" },
+      { "type": "item", "text": "1 tsp onion powder" },
+      { "type": "item", "text": "1 tsp dried thyme" },
+      { "type": "item", "text": "½ tsp dried oregano" },
+      { "type": "item", "text": "½ tsp black pepper" },
+      { "type": "item", "text": "½ tsp cayenne" },
+      { "type": "item", "text": "1 tsp table salt" },
+      { "type": "header", "text": "To cook:" },
+      { "type": "item", "text": "2 Tbsp butter, melted" },
+      { "type": "item", "text": "1 Tbsp neutral oil" },
+      { "type": "item", "text": "1 lemon, cut in wedges (optional)" }
+    ],
+    "instructions": [
+      {
+        "step": "Split the Breasts",
+        "detail": "Lay each breast (2) flat and slice it horizontally into 2 cutlets about ½ inch thick. Pat dry with paper towels, pressing rather than wiping.",
+        "why": "Even ½-inch cutlets cook through before the thin end dries out, and you get twice the crust."
+      },
+      {
+        "step": "Rub and Rest",
+        "detail": "Mix the smoked paprika (2 tsp), garlic powder (1 tsp), onion powder (1 tsp), thyme (1 tsp), oregano (½ tsp), black pepper (½ tsp), cayenne (½ tsp) and salt (1 tsp). Coat both sides of every cutlet. Set on a rack over a sheet pan, or on a plate, and refrigerate uncovered 4 to 6 hours.",
+        "why": "The salt has time to work into the meat, and the uncovered rest dries the surface so it forms a crust instead of steaming."
+      },
+      {
+        "step": "Heat the Pan",
+        "detail": "Turn on the hood and crack a window. Heat a cast iron skillet over medium-high for 8 to 10 minutes. Brush the tops of the cutlets with half the melted butter (1 Tbsp).",
+        "why": "Cast iron's mass keeps the pan hot when the cold chicken lands."
+      },
+      {
+        "step": "Sear",
+        "detail": "Add the oil (1 Tbsp) and the rest of the butter (1 Tbsp) to the pan. Lay the cutlets in, buttered side down, and cook 2 to 3 minutes without moving them, until the crust is dark mahogany and they release. Flip and cook 2 minutes more. Pull at 155°F in the thickest part.",
+        "why": "The oil keeps the butter's milk solids from burning while the butter fat carries the spice flavor; if the spices go fully black in under 90 seconds, the pan is too hot and they turn bitter."
+      },
+      {
+        "step": "Rest and Serve",
+        "detail": "Rest 5 minutes, then serve with the lemon wedges (1 lemon) if using.",
+        "why": "Carryover brings the center to about 160°F, which is as safe as 165°F when held for 15 seconds."
+      }
+    ],
+    "notes": [
+      "No wet marinade on purpose: liquid would wash the rub off and leave the surface too wet to blacken.",
+      "If the cutlets need two batches, wipe the burnt spice out of the pan between them and split the butter and oil."
+    ],
+    "is_blank": false,
+    "description": "Chicken breast cutlets dry-brined in a smoky Cajun spice rub, then blackened in cast iron with butter and oil.",
+    "prepTime": "PT10M",
+    "cookTime": "PT10M",
+    "waitTime": "PT4H",
+    "waitLabel": "dry-brine 4-6 hr first",
+    "recipeYield": "4 servings"
+  },
+  {
+    "id": "smoky-rice-and-red-beans",
+    "name": "Smoky Rice and Red Beans",
+    "section": "CHEFS DRAFTS",
+    "category": "Sides",
+    "source": "Original",
+    "tags": [
+      "#side",
+      "#rice",
+      "#beans",
+      "#one-pot",
+      "#weeknight",
+      "#cajun"
+    ],
+    "ingredients": [
+      { "type": "header", "text": "Rice and beans:" },
+      { "type": "item", "text": "2 Tbsp butter" },
+      { "type": "item", "text": "1 small yellow onion, diced" },
+      { "type": "item", "text": "½ green bell pepper, diced" },
+      { "type": "item", "text": "1 celery rib, diced" },
+      { "type": "item", "text": "2 garlic cloves, minced" },
+      { "type": "item", "text": "1 cup long-grain white rice" },
+      { "type": "item", "text": "1 tsp smoked paprika" },
+      { "type": "item", "text": "½ tsp dried thyme" },
+      { "type": "item", "text": "¼ tsp cayenne" },
+      { "type": "item", "text": "1½ cups low-sodium chicken broth" },
+      { "type": "item", "text": "1 can (15 oz) red kidney beans, drained and rinsed" },
+      { "type": "item", "text": "¾ tsp table salt" },
+      { "type": "item", "text": "1 bay leaf" },
+      { "type": "header", "text": "To finish:" },
+      { "type": "item", "text": "2 green onions, sliced" },
+      { "type": "item", "text": "Hot sauce, for serving" }
+    ],
+    "instructions": [
+      {
+        "step": "Rinse the Rice",
+        "detail": "Rinse the rice (1 cup) in a fine strainer under cold water until it runs mostly clear, then let it drain.",
+        "why": "Washing off the loose surface starch keeps the grains separate instead of gummy."
+      },
+      {
+        "step": "Cook the Vegetables",
+        "detail": "Melt the butter (2 Tbsp) in a heavy 3-quart saucepan with a tight lid over medium heat. Add the onion (1 small), bell pepper (½) and celery (1 rib) and cook 5 to 6 minutes, stirring now and then, until soft and starting to brown at the edges. Add the garlic (2 cloves) and stir 30 seconds."
+      },
+      {
+        "step": "Toast the Rice and Spices",
+        "detail": "Add the drained rice, smoked paprika (1 tsp), thyme (½ tsp) and cayenne (¼ tsp). Stir 2 minutes, until the rice looks glossy and the spices smell toasted.",
+        "why": "The spices' flavor dissolves into the hot butter, so it coats every grain instead of sitting on top."
+      },
+      {
+        "step": "Simmer",
+        "detail": "Stir in the broth (1½ cups), beans (1 can), salt (¾ tsp) and bay leaf (1). Bring to a boil, cover, drop the heat to the lowest setting and cook 18 minutes without lifting the lid.",
+        "why": "1 part rice to 1½ parts liquid is the absorption ratio for long-grain white rice; lifting the lid lets out the steam that finishes the top layer."
+      },
+      {
+        "step": "Rest",
+        "detail": "Take the pan off the heat and leave it covered 10 minutes.",
+        "why": "The rest lets the moisture even out, so the bottom isn't wet and the top isn't firm."
+      },
+      {
+        "step": "Finish",
+        "detail": "Remove the bay leaf, fluff with a fork and fold in the green onions (2). Serve with hot sauce."
+      }
+    ],
+    "notes": [
+      "Low-sodium broth keeps the salt in your hands; with regular broth, cut the salt to ¼ tsp."
+    ],
+    "is_blank": false,
+    "description": "Long-grain rice and red kidney beans simmered in one pot with onion, pepper, celery, smoked paprika and thyme.",
+    "prepTime": "PT10M",
+    "cookTime": "PT35M",
+    "recipeYield": "4 servings"
   }
 ]
