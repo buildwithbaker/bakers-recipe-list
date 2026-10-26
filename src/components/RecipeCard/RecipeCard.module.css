@@ -1,11 +1,14 @@
-/* Horizontal: photo slot, then the words. --cc / --cc-soft / --cc-mid come
-   from the card's category (catalog.js categoryStyle); the fallbacks are the
-   brand navy for anything without one. */
+/* Option A: a column of rows. The head row is the photo slot beside the top
+   row and title; time, Plan ahead, description and chips run full width
+   under it. --cc / --cc-soft / --cc-mid come from the card's category
+   (catalog.js categoryStyle); the fallbacks are the brand navy for anything
+   without one. */
 .card {
   position: relative;
   display: flex;
-  gap: var(--s4);
-  padding: var(--s3);
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
   background: var(--surface);
   border: 1px solid var(--cc-mid, var(--line));
   border-radius: var(--r3);
@@ -20,7 +23,7 @@
 }
 
 /* Pressed: the link's ::after covers the card, so a press anywhere on it
-   (thumbnail, title, meta) presses the card. It sinks rather than lifts.
+   (photo, title, time, chips) presses the card. It sinks rather than lifts.
    The pin is a separate button and dips on its own (globals.css). */
 .card:has(.link:active) {
   box-shadow: none;
@@ -28,12 +31,19 @@
   transform: scale(0.98);
 }
 
-/* ---------- Photo slot ---------- */
+/* ---------- Head: photo slot, top row, title ---------- */
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding-right: 36px;   /* clear of the pin */
+}
+
 .thumb {
   position: relative;
   flex: none;
-  width: 88px;
-  height: 88px;
+  width: 56px;
+  height: 56px;
   display: grid;
   place-items: center;
   overflow: hidden;
@@ -45,14 +55,14 @@
 .thumb::before {
   content: "";
   position: absolute;
-  inset: 6px;
+  inset: 4px;
   border: 1.5px dashed var(--cc-mid, var(--line-strong));
   border-radius: 6px;
 }
 
 .initial {
   position: relative;
-  font: 400 2.25rem/1 var(--serif);
+  font: 400 1.6rem/1 var(--serif);
   color: var(--cc, var(--brand));
 }
 
@@ -65,12 +75,12 @@
   object-fit: cover;
 }
 
-.body {
+.heading {
   flex: 1;
   min-width: 0;
   display: flex;
   flex-direction: column;
-  padding: 2px 0;
+  gap: 2px;
 }
 
 /* The whole card is the target: the link's ::after covers it. The focus ring
@@ -80,14 +90,13 @@
   outline-offset: 2px;
 }
 
-/* The line above the title: the NEW pill, then the category kicker. Clear of
-   the pin in the top-right corner. */
+/* The line above the title: the NEW pill, the category kicker, then the
+   draft and Made pills. */
 .top {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--s2);
-  padding-right: 36px;
+  gap: 6px var(--s2);
 }
 
 .kicker {
@@ -100,8 +109,7 @@
 }
 
 .title {
-  margin: 0 0 var(--s1);
-  padding-right: 36px;
+  margin: 0;
   font: 400 1.1875rem/1.25 var(--serif);
 }
 
@@ -121,14 +129,91 @@
   outline: none;
 }
 
-.meta {
-  margin-top: auto;
+/* ---------- Rows under the head ---------- */
+
+/* Ready time (prep + cook) leads; hands-on (prep) beside it.
+   ink and ink-muted on surface (contrast.test.js). */
+.time {
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--s2);
+  gap: 6px;
+  font-size: 1.0625rem;
+  color: var(--ink);
+}
+
+.time strong {
+  font-weight: 700;
+}
+
+.handsOn {
   color: var(--ink-muted);
   font-size: var(--t-sm);
+}
+
+/* Only when the recipe has a required wait. accent-ink on accent-soft
+   (contrast.test.js). */
+.plan {
+  margin: 0;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: var(--r2);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.plan svg {
+  flex: none;
+}
+
+/* Two lines at most. ink-muted on surface (contrast.test.js). */
+.desc {
+  margin: 0;
+  font-size: var(--t-sm);
+  line-height: 1.45;
+  color: var(--ink-muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Search results: the line the query matched. ink-muted on surface. */
+.matched {
+  margin: 0;
+  font-size: var(--t-sm);
+  color: var(--ink-muted);
+  overflow-wrap: anywhere;
+}
+
+/* Up to three tags. Not links: the whole card is the link. ink-muted on
+   surface (contrast.test.js); the border is decorative. */
+.chips {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-muted);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .pill {
@@ -193,14 +278,4 @@
 .pin svg {
   width: 22px;
   height: 22px;
-}
-
-@media (max-width: 719px) {
-  .thumb {
-    width: 76px;
-    height: 76px;
-  }
-  .initial {
-    font-size: 2rem;
-  }
 }
