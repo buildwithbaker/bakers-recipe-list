@@ -13,6 +13,7 @@ import { DRAFT_LABEL, isDraft } from '../../data/sections.js';
 import { photoInitial, recipePhoto } from '../../utils/recipePhoto.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { recipePath } from '../../utils/recipeRoute.js';
+import { isNew } from '../../utils/autoTags.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
 import Icon from '../Icon/Icon.jsx';
 import Highlight from '../Highlight/Highlight.jsx';
@@ -27,6 +28,9 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, highlight = ''
   const category = categoryOf(recipe);
   const photo = recipePhoto(recipe);
   const title = <Highlight text={recipe.name} query={highlight} />;
+  // NEW for 14 days after `added`, judged in Central time at render (autoTags.js).
+  const fresh = isNew(recipe);
+  const kicker = showCategory && category;
 
   return (
     <li className={styles.card} style={categoryStyle(category)}>
@@ -41,7 +45,12 @@ function RecipeCard({ recipe, onViewRecipe, showCategory = false, highlight = ''
         )}
       </div>
       <div className={styles.body}>
-        {showCategory && category && <p className={styles.kicker}>{category.label}</p>}
+        {(fresh || kicker) && (
+          <div className={styles.top}>
+            {fresh && <span className={`${styles.pill} ${styles.new}`}>New</span>}
+            {kicker && <p className={styles.kicker}>{category.label}</p>}
+          </div>
+        )}
         <h3 className={styles.title}>
           <a
             className={styles.link}
