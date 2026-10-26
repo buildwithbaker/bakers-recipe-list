@@ -2,36 +2,43 @@
 // Returns tags that aren't already in recipe.tags so there are no duplicates.
 //
 // Two sources:
-//   1. Section → cuisine/type tag (100% reliable, no false positives)
+//   1. Category → cuisine/type tag (100% reliable, no false positives)
 //   2. Ingredient keywords → dietary/protein/characteristic tags
 //
 // These tags behave exactly like manual tags: they appear in the modal meta
 // line, match searches, and populate the tag browser counts.
 
-// Maps a section key to a single cuisine/type tag.
-const SECTION_TAG_MAP = {
-  'AMERICAN':                     ['#american'],
-  'MEXICAN':                      ['#mexican'],
-  'ASIAN':                        ['#asian'],
-  'ITALIAN':                      ['#italian'],
-  'MIDDLE EASTERN':               ['#middle-eastern'],
-  'BREAKFAST':                    ['#breakfast'],
-  'SLOW COOKER':                  ['#slow-cooker'],
-  'SOUPS':                        ['#soup'],
-  'SANDWICHES':                   ['#sandwich'],
-  'SIDES':                        ['#side-dish'],
-  'SNACKS':                       ['#snack'],
-  'SMOOTHIES':                    ['#smoothie'],
-  'BREAD':                        ['#bread'],
-  'MARINADES':                    ['#marinade'],
-  'SEASONINGS':                   ['#seasoning'],
-  'DOUGHS':                       ['#dough'],
+// Maps a record's `category` to a single cuisine/type tag.
+//
+// Keyed on `category`, not `section`: a Chef's Draft is filed under section
+// CHEFS DRAFTS but keeps the category of the section it will move to, so
+// keying on section gave drafts no cuisine or dish-type tag at all. For every
+// Cookbook record the two agree (category is its section's label), so the
+// output there is unchanged. autoTags.test.js holds both to that.
+const CATEGORY_TAG_MAP = {
+  'American':                     ['#american'],
+  'Mexican':                      ['#mexican'],
+  'Asian':                        ['#asian'],
+  'Italian':                      ['#italian'],
+  'Middle Eastern':               ['#middle-eastern'],
+  'Breakfast':                    ['#breakfast'],
+  'Slow Cooker':                  ['#slow-cooker'],
+  'Soups':                        ['#soup'],
+  'Sandwiches':                   ['#sandwich'],
+  'Sides':                        ['#side-dish'],
+  'Snacks':                       ['#snack'],
+  'Smoothies':                    ['#smoothie'],
+  'Bread':                        ['#bread'],
+  'Marinades':                    ['#marinade'],
+  'Seasonings':                   ['#seasoning'],
+  'Doughs':                       ['#dough'],
 };
 
-// SANDWICHES and BREAD above look dead — no published recipe reaches them,
-// because every record in those sections is currently a blank placeholder and
-// getAutoTags returns nothing for a blank. They are NOT dead: fill one of those
-// recipes in and the key becomes live and correct. Do not "tidy" them away.
+// Bread above looks dead: no published recipe reaches it, because every record
+// in that category is currently a blank placeholder and getAutoTags returns
+// nothing for a blank. It is NOT dead: fill one of those recipes in and the key
+// becomes live and correct. Do not "tidy" it away. Desserts has no entry, as
+// DESSERTS had none when this map was keyed on section.
 
 // Ingredient substrings that signal #spicy.
 const SPICY_NEEDLES = [
@@ -86,9 +93,9 @@ export function getAutoTags(recipe) {
 
   const result = new Set();
 
-  // ── 1. Section tags ──────────────────────────────────────────────────────
-  const sectionTags = SECTION_TAG_MAP[recipe.section];
-  if (sectionTags) sectionTags.forEach((t) => result.add(t));
+  // ── 1. Category tags ─────────────────────────────────────────────────────
+  const categoryTags = CATEGORY_TAG_MAP[recipe.category];
+  if (categoryTags) categoryTags.forEach((t) => result.add(t));
 
   // ── 2. Ingredient-derived tags ───────────────────────────────────────────
   const ingLines = recipe.ingredients
