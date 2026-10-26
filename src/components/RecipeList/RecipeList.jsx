@@ -4,10 +4,11 @@
 // of cards that chip shows, so a number can never promise rows the list does
 // not have.
 //
-// A search replaces all of this with SearchResults.
+// A search replaces all of this with SearchResults, which also finds Chef's
+// Drafts.
 //
-// Chef's Drafts are not here: LISTED_ROWS is the Cookbook only. A quiet footer
-// line after the last category is the one way in to their own page.
+// Chef's Drafts are not listed here: LISTED_ROWS is the Cookbook only. A quiet
+// footer line after the last category is the one way in to their own page.
 import { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState } from 'react';
 import {
   CATEGORY_BY_ID, DRAFT_ROWS, LISTED_ROWS, PLANNED_BY_CATEGORY, categoryStyle, groupByCategory,

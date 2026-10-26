@@ -8,6 +8,7 @@ import RecipeList from './components/RecipeList/RecipeList.jsx';
 import RecipeModal from './components/RecipeModal/RecipeModal.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
 import SearchBar from './components/SearchBar/SearchBar.jsx';
+import { SearchModeContext } from './components/SearchResults/searchModeContext.js';
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
 import ShoppingList from './components/ShoppingList/ShoppingList.jsx';
 import TabBar from './components/TabBar/TabBar.jsx';
@@ -18,6 +19,7 @@ import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
+import { SEARCH_MODES } from './utils/search.js';
 import {
   BASE_PATH, aboutPath, draftsPath, isAboutPath, isDraftsPath, recipePath, recipeKeyFromPath,
 } from './utils/recipeRoute.js';
@@ -165,6 +167,9 @@ function AppInner() {
   const [overlays, setOverlays] = useState(entryOverlays);
   const [tab, setTab] = useState(currentEntryTab);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
+  // Name / Ingredient / All. Not in the URL: a shared ?q= link always
+  // searches everything.
+  const [searchMode, setSearchMode] = useState(SEARCH_MODES.ALL);
   // Which category the list shows. Owned here so it survives the list
   // unmounting behind a full recipe page.
   const [category, setCategory] = useState(landingCategory);
@@ -385,8 +390,10 @@ function AppInner() {
 
   // Tag click leaves the recipe and searches the tag. When the close triggers a back
   // navigation the search is deferred until the pop lands, otherwise the popstate
-  // handler would overwrite the URL and drop `q`.
+  // handler would overwrite the URL and drop `q`. A tag is not a name or an
+  // ingredient, so the mode goes back to All.
   const handleTagClick = useCallback((tag) => {
+    setSearchMode(SEARCH_MODES.ALL);
     // Search lives on the Recipes tab: from a page, or from a card over
     // Pinned, go there instead of stepping Back to a view without it.
     if (fullPage || tabRef.current !== TAB_RECIPES) {
@@ -525,18 +532,26 @@ function AppInner() {
             <PinnedList onViewRecipe={handleViewRecipe} />
           ) : (
             <>
-              <SearchBar ref={searchBarRef} value={searchQuery} onChange={handleSearch} />
-              <UsdaKeyNotice />
-              <RecipeList
-                onViewRecipe={handleViewRecipe}
-                searchQuery={searchQuery}
-                onSearch={handleSearch}
-                category={category}
-                onCategoryChange={setCategory}
-                recentHistory={recentHistory}
-                onClearRecent={clearHistory}
-                onOpenDrafts={handleDrafts}
+              <SearchBar
+                ref={searchBarRef}
+                value={searchQuery}
+                onChange={handleSearch}
+                mode={searchMode}
+                onModeChange={setSearchMode}
               />
+              <UsdaKeyNotice />
+              <SearchModeContext.Provider value={searchMode}>
+                <RecipeList
+                  onViewRecipe={handleViewRecipe}
+                  searchQuery={searchQuery}
+                  onSearch={handleSearch}
+                  category={category}
+                  onCategoryChange={setCategory}
+                  recentHistory={recentHistory}
+                  onClearRecent={clearHistory}
+                  onOpenDrafts={handleDrafts}
+                />
+              </SearchModeContext.Provider>
             </>
           )}
           <ErrorBoundary key={selectedRecipe?.id ?? '__none__'}>

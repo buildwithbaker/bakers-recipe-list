@@ -105,12 +105,13 @@ const SORTED_ROWS = [...displayRecipes].sort(
 );
 
 // The Cookbook: every row except Chef's Drafts. The list, its chips and
-// counts, the Filters sheet and search all read this, so a draft can never
-// reach them. isDraft is the one test: graduating a draft is a change to its
-// `section` and nothing else.
+// counts and the Filters sheet read this, so a draft can never reach them.
+// Search reads this AND DRAFT_ROWS (SearchResults), so a draft is findable
+// there, wearing its draft pill. isDraft is the one test: graduating a draft is
+// a change to its `section` and nothing else.
 export const ROWS = SORTED_ROWS.filter((r) => !isDraft(r));
 
-// Chef's Drafts, for their own page and nothing else: the written drafts, in
+// Chef's Drafts, for their own page and for search: the written drafts, in
 // file order.
 export const DRAFT_ROWS = SORTED_ROWS.filter((r) => isDraft(r) && isWritten(r));
 
