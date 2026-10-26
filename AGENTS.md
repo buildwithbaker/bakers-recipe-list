@@ -83,12 +83,13 @@ never another removed one; the validator enforces all of this.
 
 ## Two instruction conventions (both valid)
 
-`instructions` is an array of step objects. The collection uses two shapes — the
-schema and validator accept both:
+`instructions` is an array of step objects. The schema and validator accept two
+shapes:
 
 - **Classic:** `{ "step": "<short title>", "detail": "<full instruction>" }`.
-  Use this for new recipes. `detail` carries the real text.
-- **Grouped** (used by the two Tandoori marinade records): `{ "type": "...",
+  Use this for every recipe. `detail` carries the real text. Every record uses it
+  today; the two Tandoori marinades moved to it in #119.
+- **Grouped** (accepted, used by no record any more): `{ "type": "...",
   "step": "<full content>", "detail": "" }`, where `type: "section"` / `"header"`
   is a sub-heading like `"Glaze"` and `type: "item"` is a step. Here the content
   lives in `step` and `detail` is empty. A `"Version N ..."` sub-heading is not
@@ -97,6 +98,16 @@ schema and validator accept both:
 
 Rule the validator enforces: `step` is always non-empty; `detail` is required but
 may be empty; `type`, when present, is `item`, `section`, or `header`.
+
+## Tags
+
+A written recipe may carry only the tags on the controlled list in
+`src/data/tagFacets.js`, or a tag the auto-tags can derive (cuisine and dish type
+from `category`, protein from ingredient lines, `#spicy`) where the auto-tags do
+not already supply it on that recipe. The validator fails anything else, so a new
+tag is a deliberate edit to `tagFacets.js`, made with the rules in
+`docs/internal/tag-criteria.md`. Never type `#new` (derived from `added`) or
+`#weeknight` (retired 2026-10-26). Blank placeholders are exempt until written.
 
 ## Probing a guard: read the mutation back before you trust the result
 

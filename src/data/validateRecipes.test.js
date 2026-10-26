@@ -123,6 +123,10 @@ function fixture({
   for (const f of ['sections.js', 'recipe.schema.json']) {
     copyFileSync(join(repoRoot, 'src', 'data', f), join(root, 'src', 'data', f));
   }
+  // The tag check imports the controlled list and the auto-tag vocabulary.
+  copyFileSync(join(repoRoot, 'src', 'data', 'tagFacets.js'), join(root, 'src', 'data', 'tagFacets.js'));
+  mkdirSync(join(root, 'src', 'utils'), { recursive: true });
+  copyFileSync(join(repoRoot, 'src', 'utils', 'autoTags.js'), join(root, 'src', 'utils', 'autoTags.js'));
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(manifest, null, 2));
   writeFileSync(join(root, 'src', 'data', 'cookbookBaseline.json'), JSON.stringify({ ids: baseline }, null, 2));
@@ -671,5 +675,32 @@ describe('validate-recipes.mjs', () => {
     const { code, output } = runValidator(fixture(removal({ to: 'beta-recipe', note: 'x', versions })));
     expect(code).not.toBe(0);
     expect(output).toMatch(/removed entry "alpha-recipe" has versions .*; it must be a positive integer/);
+  });
+
+  describe('controlled tag list', () => {
+    const withTags = (tags, over = {}) => fixture({ records: [record('alpha-recipe', 'Alpha Recipe', { tags, ...over }), BASE_RECORDS[1]] });
+
+    it('passes a controlled tag and an auto-tag word', () => {
+      const { code, output } = runValidator(withTags(['#one-pan', '#make-ahead', '#soup', '#chicken']));
+      expect(output).toMatch(/recipes\.json OK/);
+      expect(code).toBe(0);
+    });
+
+    it.each(['#weeknight', '#greek-yogurt', '#new', '#potatoes', '#side'])('fails %s on a written recipe', (tag) => {
+      const root = withTags(['#one-pan', tag]);
+      // Read the mutation back before trusting the outcome (AGENTS.md, Probing a guard).
+      const written = JSON.parse(readFileSync(join(root, 'src', 'data', 'recipes.json'), 'utf8'));
+      expect(written[0].tags).toContain(tag);
+      const { code, output } = runValidator(root);
+      expect(code).not.toBe(0);
+      expect(output).toContain(`has tag ${tag}, which is not on the controlled list`);
+    });
+
+    it('leaves a blank placeholder\'s tags alone until it is written', () => {
+      const root = withTags(['#starch'], { is_blank: true, ingredients: [], instructions: [], description: undefined });
+      const { code, output } = runValidator(root);
+      expect(output).not.toMatch(/#starch/);
+      expect(code).toBe(0);
+    });
   });
 });

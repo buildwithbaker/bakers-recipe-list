@@ -98,6 +98,15 @@ const PROTEIN_RULES = [
 // give an auto protein tag its facet without keeping a second copy of the list.
 export const PROTEIN_TAGS = Object.freeze([...new Set(PROTEIN_RULES.map((r) => r.tag))]);
 
+// Every tag the auto-tags can derive from category and ingredients (not #new,
+// which comes from a date). A recipe may also carry one of these BY HAND where
+// the auto-tags do not supply it - #soup on a Slow Cooker stew, #chicken on a
+// marinade that names chicken only in its method - so the validator accepts
+// them alongside the controlled list in tagFacets.js.
+export const AUTO_TAG_VOCABULARY = Object.freeze([
+  ...new Set([...Object.values(CATEGORY_TAG_MAP).flat(), ...PROTEIN_TAGS, '#spicy']),
+]);
+
 // ── NEW: 14 days after `added` ─────────────────────────────────────────────
 //
 // `added` is a bare calendar date in Central time (schema). "Today" is the

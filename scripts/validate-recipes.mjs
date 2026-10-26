@@ -13,6 +13,16 @@ import { readFileSync, existsSync, statSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import { SECTIONS } from '../src/data/sections.js';
+import { CONTROLLED_TAGS } from '../src/data/tagFacets.js';
+import { AUTO_TAG_VOCABULARY } from '../src/utils/autoTags.js';
+
+// The tags a WRITTEN recipe may carry by hand: the controlled list in
+// src/data/tagFacets.js (docs/internal/tag-criteria.md says what earns a place
+// there), plus any tag the auto-tags can derive, for the cases where the
+// auto-tags do not supply it on that recipe. Anything else is a typo or an
+// unapproved tag, and fails the build. Blank placeholders are exempt until they
+// are written: their tags are checked the day is_blank turns false.
+const ALLOWED_TAGS = new Set([...CONTROLLED_TAGS, ...AUTO_TAG_VOCABULARY]);
 
 // Photo weight ceiling. An untreated phone photo runs 3-5 MB; the collection has
 // hundreds of records, so accepting them would put hundreds of megabytes of
@@ -226,6 +236,12 @@ recipes.forEach((r, i) => {
     r.tags.forEach((t) => {
       if (typeof t !== 'string' || !tagPattern.test(t)) {
         errors.push(`${where} has invalid tag ${JSON.stringify(t)} (must match ${props.tags.items.pattern})`);
+      } else if (r.is_blank === false && !ALLOWED_TAGS.has(t)) {
+        errors.push(
+          `${where} has tag ${t}, which is not on the controlled list (src/data/tagFacets.js) ` +
+            'or an auto-tag (src/utils/autoTags.js). A new tag is a deliberate edit to tagFacets.js; ' +
+            'see docs/internal/tag-criteria.md',
+        );
       }
     });
   }
