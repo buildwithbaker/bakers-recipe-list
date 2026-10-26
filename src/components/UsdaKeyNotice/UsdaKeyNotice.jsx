@@ -4,10 +4,11 @@ import styles from './UsdaKeyNotice.module.css';
 
 const STORAGE_KEY = 'usda_notice_dismissed_v1';
 
-// Only renders when the app is still using the public DEMO_KEY (which is
-// rate-limited to ~30 requests/hour and will quickly stop returning macro
-// data). Disappears automatically once a real key is configured via the
-// VITE_USDA_API_KEY env var. Also dismissible per-browser.
+// A developer hint, never shown to readers: it renders only in the Vite dev
+// server (import.meta.env.DEV), and there only while the app is still using
+// the public DEMO_KEY (rate-limited to ~30 requests/hour). Every built site -
+// production, preview, or a local build with no key - leaves it out. Also
+// dismissible per-browser.
 export default function UsdaKeyNotice() {
   const [dismissed, setDismissed] = useState(() => {
     try {
@@ -17,6 +18,7 @@ export default function UsdaKeyNotice() {
     }
   });
 
+  if (!import.meta.env.DEV) return null;
   if (USDA_API_KEY !== 'DEMO_KEY') return null;
   if (dismissed) return null;
 
