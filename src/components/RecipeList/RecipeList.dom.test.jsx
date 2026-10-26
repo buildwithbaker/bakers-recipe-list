@@ -1,7 +1,8 @@
 // @vitest-environment jsdom
 // The list as a person uses it: cards are links, search narrows them, Filters
 // opens its sheet, a card opens its recipe and the star pins without opening.
-// Chef's Drafts never appear here; a footer link is the one way to them.
+// Chef's Drafts are never listed here (a footer link is the one way to their
+// page), but search finds them, each wearing its draft pill.
 import { useState } from 'react';
 import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
@@ -106,15 +107,15 @@ describe("RecipeList: Chef's Drafts", () => {
     expect(screen.queryByText(DRAFTS_INTRO)).toBeNull();
   });
 
-  it('never returns a draft in search results, even searched by its exact name', async () => {
+  it('returns every draft in search results by its exact name, with its draft pill', async () => {
     render(<ListWithSearch onViewRecipe={() => {}} />);
     for (const d of drafts) {
       // One change event per draft: typing the name key by key made the test
       // grow with the number of drafts and time out.
       fireEvent.change(screen.getByRole('searchbox'), { target: { value: d.name } });
       await screen.findByRole('status');
-      expect(screen.queryByRole('link', { name: d.name })).toBeNull();
-      expect(screen.queryByText(DRAFT_LABEL)).toBeNull();
+      const link = await screen.findByRole('link', { name: d.name });
+      expect(within(link.closest('li')).getByText(DRAFT_LABEL)).toBeTruthy();
     }
   });
 

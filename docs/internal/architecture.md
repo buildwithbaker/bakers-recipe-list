@@ -26,7 +26,7 @@ one place, `src/data/recordCount.js` (`EXPECTED_RECORDS`), which the integrity
 tests assert against. A number restated in prose rots silently; read it from
 there.
 
-Features: one search (names, ingredients, tags) · the Cookbook narrowed by
+Features: one search (names, ingredients, tags; Name / Ingredient / All) · the Cookbook narrowed by
 category chips (§3a) · a recipe card *and* a full page for every recipe, on
 one URL · serving scaler · USDA macro estimates · shopping list · cook log ·
 pinned + recently viewed · print · cook mode (screen wake lock) · related
@@ -124,9 +124,10 @@ bar there and `scroll-padding-top` keeps anchor jumps clear of it.
 Chef's Drafts (`section: "CHEFS DRAFTS"`, `isDraft` in `sections.js`) are
 recipes built but not cooked yet, kept for Adam's own reference. They are **not
 part of the Cookbook**: `catalog.js` `ROWS` leaves them out, so the list, its
-chips and counts, the Filters sheet and search never show one, and
+chips and counts and the Filters sheet never show one, and
 `recipeIndex.js` `cookbookRecipes` keeps them out of related recipes (app and
-prerender). Recently viewed skips them; Pinned, the shopping list and the cook
+prerender). Search is the exception: it finds drafts too (see §3a), each card
+wearing its draft pill. Recently viewed skips them; Pinned, the shopping list and the cook
 log keep a draft Adam put there.
 
 `/drafts/` (`DraftsPage`, listing `DRAFT_ROWS`) is routed exactly like About:
@@ -183,6 +184,32 @@ count is counted from the rows that chip would show**, after the filters, so a
 number never promises rows the list does not have. A search
 (`src/utils/search.js`) ignores the chips and the filters and returns one flat
 list of matching cards.
+
+**Search.** `SearchResults` searches `ROWS` and then `DRAFT_ROWS`, so Chef's
+Drafts are findable and come last, each with its draft pill; coming-soon
+placeholders never are. A Name / Ingredient / All toggle under the box picks
+what the query is matched against. The mode lives in `App.jsx` beside the
+query, defaults to All, goes back to All when a tag is clicked (a tag search),
+and stays out of the URL: `?q=` alone is mirrored, so a shared link searches
+everything. `App` provides the mode through `SearchModeContext`
+(`components/SearchResults/searchModeContext.js`) rather than through
+`RecipeList`'s props.
+
+- **All** is a substring match (case- and accent-insensitive) across the name,
+  every ingredient line, the effective tags (manual + auto), the source and the
+  category label.
+- **Name** is the same substring match on the name alone.
+- **Ingredient** matches `type: "item"` lines only, on whole words:
+  plural-tolerant both ways (`tomato` ⇄ `tomatoes`, `berry` ⇄ `berries`), with
+  a multi-word query matched as a phrase (`red onion`). A match followed
+  straight away by `powder` or `salt` does not count unless the query has that
+  word: `onion` skips `onion powder` and `onion salt`, `onion powder` finds it,
+  and `garlic` still finds `4 cloves garlic` on a line beside a `garlic powder`
+  line.
+
+Each result card gets a `matchedLine` saying why it matched: the first
+matching ingredient line, `tag #x`, `source: x` or `category: x`; a name hit
+has none (`matchRecipe` / `searchMatches`).
 
 **Coming-soon placeholders are never listed.** Each category header says
 "N more planned" instead (`PLANNED_BY_CATEGORY`). They still have a URL and
@@ -595,7 +622,7 @@ src/
     photoCaption.js         the caption under an AI photo (Cookbook adds the tested sentence)
     navHistory.js           tab + layer history rules, injectable history (tested)
     colour.js               tint mixing + WCAG contrast for the category palette
-    search.js               one search across the Cookbook
+    search.js               one search across the Cookbook + drafts (Name / Ingredient / All)
     relatedRecipes.js       the related ranking (also imported by prerender.mjs)
     screenLock.js           wake-lock lifecycle, injectable nav/doc so it is testable
     autoTags.js             derived tags from section + ingredients
