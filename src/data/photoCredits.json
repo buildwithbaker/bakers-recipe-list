@@ -139,5 +139,9 @@
   "tortellini-soup": { "ai": true, "alt": "AI-generated image of tortellini soup with spinach and sausage in a creamy orange broth, spoon in the bowl." },
   "twice-baked-mashed-potatoes": { "ai": true, "alt": "AI-generated image of two twice-baked potato halves topped with melted cheddar, bacon bits and green onion on a white plate." },
   "white-bread-dough": { "ai": true, "alt": "AI-generated image of a risen ball of white bread dough in a white bowl with flour on the table." },
-  "white-enchiladas": { "ai": true, "alt": "AI-generated image of two rolled chicken enchiladas covered in creamy white sauce with green chile bits." }
+  "white-enchiladas": { "ai": true, "alt": "AI-generated image of two rolled chicken enchiladas covered in creamy white sauce with green chile bits." },
+  "cajun-blackened-chicken-cutlets": { "ai": true, "alt": "AI-generated image of two blackened chicken breast cutlets on a white plate, one sliced, with a lemon wedge." },
+  "quick-pickled-red-onions": { "ai": true, "alt": "AI-generated image of thin-sliced pickled red onions in pink brine in a glass jar with peppercorns and a bay leaf." },
+  "sticky-balsamic-honey-soy-chicken": { "ai": true, "alt": "AI-generated image of glazed chicken cubes over white rice, topped with green onion and sesame seeds." },
+  "smoky-rice-and-red-beans": { "ai": true, "alt": "AI-generated image of orange-tinted rice with red kidney beans, green pepper and green onion in a white bowl." }
 }
