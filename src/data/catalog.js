@@ -149,3 +149,9 @@ export const PLANNED_BY_CATEGORY = (() => {
 
 // What the list shows: the written recipes.
 export const LISTED_ROWS = ROWS.filter((r) => !isComingSoon(r));
+
+// The coming-soon placeholders themselves, in SECTIONS order: the "Planned"
+// part of the Chef's Drafts page (Adam, 2026-10-31), so every recipe counted in
+// an "N more planned" header can be seen by name. Never a link - a placeholder
+// has no page of its own (prerender skips blanks).
+export const PLANNED_ROWS = ROWS.filter(isComingSoon);

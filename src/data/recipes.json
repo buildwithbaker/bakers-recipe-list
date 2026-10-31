@@ -9229,7 +9229,7 @@
   {
     "id": "quick-pickled-red-onions",
     "name": "Quick Pickled Red Onions",
-    "section": "CHEFS DRAFTS",
+    "section": "SIDES",
     "category": "Sides",
     "source": "Original",
     "tags": [
@@ -9243,7 +9243,7 @@
       },
       {
         "type": "item",
-        "text": "¾ cup apple cider vinegar"
+        "text": "¾ cup distilled white vinegar"
       },
       {
         "type": "item",
@@ -9287,7 +9287,7 @@
       },
       {
         "step": "Make the Brine",
-        "detail": "In a small pot, bring the apple cider vinegar (¾ cup), water (¼ cup), sugar (1 Tbsp) and table salt (1 tsp) to a simmer, stirring until the sugar and salt dissolve."
+        "detail": "In a small pot, bring the distilled white vinegar (¾ cup), water (¼ cup), sugar (1 Tbsp) and table salt (1 tsp) to a simmer, stirring until the sugar and salt dissolve."
       },
       {
         "step": "Pour and Cool",
@@ -9301,12 +9301,13 @@
     ],
     "notes": [
       "Keeps about 2 weeks in the fridge. They turn bright pink overnight.",
-      "Distilled white vinegar works in place of the cider vinegar at the same amount for a sharper, cleaner pickle. Cider vinegar is the softer, rounder of the two.",
+      "Apple cider vinegar works in place of the white vinegar at the same amount for a softer, rounder pickle. White vinegar is the sharper, cleaner of the two.",
       "Garlic sometimes turns blue-green in vinegar. It is harmless.",
       "These are refrigerator pickles. The recipe has not been tested for canning, so do not water-bath can it."
     ],
     "is_blank": false,
-    "description": "Thin-sliced red onions quick-pickled in a hot apple cider vinegar brine with garlic, black pepper, oregano and bay.",
+    "description": "Thin-sliced red onions quick-pickled in a hot white vinegar brine with garlic, black pepper, oregano and bay.",
+    "added": "2026-10-31",
     "prepTime": "PT10M",
     "cookTime": "PT5M",
     "waitTime": "PT1H30M",
@@ -9316,7 +9317,7 @@
   {
     "id": "cajun-blackened-chicken-cutlets",
     "name": "Cajun Blackened Chicken Cutlets",
-    "section": "CHEFS DRAFTS",
+    "section": "AMERICAN",
     "category": "American",
     "source": "Original",
     "tags": [
@@ -9415,6 +9416,7 @@
     ],
     "is_blank": false,
     "description": "Chicken breast cutlets dry-brined in a smoky Cajun spice rub, then blackened in cast iron with butter and oil.",
+    "added": "2026-10-31",
     "prepTime": "PT10M",
     "cookTime": "PT10M",
     "waitTime": "PT4H",
@@ -9424,7 +9426,7 @@
   {
     "id": "smoky-rice-and-red-beans",
     "name": "Smoky Rice and Red Beans",
-    "section": "CHEFS DRAFTS",
+    "section": "SIDES",
     "category": "Sides",
     "source": "Original",
     "tags": [
@@ -9536,6 +9538,7 @@
     ],
     "is_blank": false,
     "description": "Long-grain rice and red kidney beans simmered in one pot with onion, pepper, celery, smoked paprika and thyme.",
+    "added": "2026-10-31",
     "prepTime": "PT10M",
     "cookTime": "PT35M",
     "recipeYield": "4 servings"

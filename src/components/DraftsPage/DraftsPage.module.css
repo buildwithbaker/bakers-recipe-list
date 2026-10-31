@@ -40,3 +40,76 @@
 .empty {
   color: var(--ink-muted);
 }
+
+/* ---------- Planned: the placeholders, by name (2026-10-31) ----------
+   Set apart from the drafts above: a rule, then quieter cards with a dashed
+   border, because nothing here is a recipe yet. --cc / --cc-soft / --cc-mid
+   come from each group's category (catalog.js categoryStyle). */
+.plannedSection {
+  margin-top: var(--s7);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--line);
+}
+
+.plannedGroup {
+  margin-top: var(--s5);
+}
+
+.groupTitle {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s2);
+  margin: 0 0 var(--s3);
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--cc, var(--line));
+  font: 400 var(--t-lg)/1.2 var(--serif);
+  color: var(--cc, var(--brand));
+}
+
+.plannedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--s3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.planned {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1.5px dashed var(--cc-mid, var(--line-strong));
+  border-radius: var(--r3);
+}
+
+.initial {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r2);
+  background: var(--cc-soft, var(--surface-sunk));
+  color: var(--cc, var(--brand));
+  font: 400 1.25rem/1 var(--serif);
+}
+
+.plannedText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.plannedName {
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.plannedLabel {
+  color: var(--ink-muted);
+  font-size: var(--t-xs);
+}

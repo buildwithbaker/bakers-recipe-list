@@ -26,6 +26,7 @@ const record = (id, name, over) => ({
 });
 const draft = record('a-draft', 'A Draft', { section: 'CHEFS DRAFTS', description: LONG });
 const cookbook = record('a-cookbook', 'A Cookbook Recipe', { description: 'A short cookbook description.' });
+const planned = record('a-planned', 'A Planned Dish', { is_blank: true, ingredients: [], instructions: [] });
 
 const root = mkdtempSync(join(tmpdir(), 'brl-drafts-'));
 afterAll(() => {
@@ -34,9 +35,9 @@ afterAll(() => {
 mkdirSync(join(root, 'dist'), { recursive: true });
 mkdirSync(join(root, 'src', 'data'), { recursive: true });
 writeFileSync(join(root, 'dist', 'index.html'), SHELL);
-writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify([cookbook, draft]));
+writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify([cookbook, draft, planned]));
 writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify({
-  ids: { 'a-draft': 'A Draft', 'a-cookbook': 'A Cookbook Recipe' }, renamed: {}, removed: {},
+  ids: { 'a-draft': 'A Draft', 'a-cookbook': 'A Cookbook Recipe', 'a-planned': 'A Planned Dish' }, renamed: {}, removed: {},
 }));
 
 const res = spawnSync(process.execPath, [join(repoRoot, 'scripts', 'prerender.mjs')], {
@@ -102,6 +103,13 @@ describe("prerendered Chef's Drafts page and sitemap", () => {
     expect(xml).toContain('/r/a-cookbook/');
     expect(xml).not.toContain('/r/a-draft/');
     expect(xml).not.toContain('/drafts/');
+  });
+
+  it('lists the placeholders under Planned on /drafts/, by name and category, never as links', () => {
+    const ns = noscript(drafts());
+    expect(ns).toMatch(/<h2>Planned<\/h2>\s*<p>[^<]+<\/p>\s*<ul>\s*<li>A Planned Dish \(Middle Eastern\)<\/li>/);
+    expect(ns).not.toContain('/r/a-planned/');
+    expect(sitemap()).not.toContain('a-planned');
   });
 
   it("still writes the draft's own page", () => {

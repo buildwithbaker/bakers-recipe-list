@@ -49,6 +49,11 @@ export const isDraft = (recipe) => recipe?.section === DRAFTS_SECTION;
 export const DRAFT_LABEL = 'Draft - not cooked yet';
 // The one line under the Chef's Drafts heading in the list (Adam, 2026-10-11).
 export const DRAFTS_INTRO = "Recipes my cooking assistant built that I haven't cooked yet. Once I've made one and liked it, it moves into the cookbook.";
+// The second part of the Chef's Drafts page: the placeholders, by name
+// (Adam, 2026-10-31). PLANNED_ROWS in catalog.js.
+export const PLANNED_HEADING = 'Planned';
+export const PLANNED_INTRO = "On the list but not written yet. Each one gets a full recipe once it's made.";
+export const PLANNED_LABEL = 'Not written yet';
 
 export function publicSectionLabel(sectionKey) {
   return SECTION_BY_KEY.get(sectionKey)?.label ?? null;

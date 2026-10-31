@@ -138,7 +138,14 @@ there opens as a full page, so Back returns to `/drafts/`. A draft's own page
 still works by path and by `?recipe=`, labelled `DRAFT_LABEL`.
 
 Graduating a draft into the Cookbook is a one-field change to its `section`;
-`isDraft` is the only test any surface uses.
+`isDraft` is the only test any surface uses. (Plus `added`, the go-live date,
+which the validator requires on every new Cookbook recipe; `AGENTS.md`.)
+
+Below the drafts, **Planned** (2026-10-31) lists every coming-soon placeholder
+by name (`PLANNED_ROWS` in `catalog.js`), grouped by category, so each
+"N more planned" count on the Cookbook list can be seen. A planned card is
+plain text, not a link: a blank has no page of its own. The prerendered
+`/drafts/` carries the same list in its `<noscript>`, names only.
 
 ### The About page
 
