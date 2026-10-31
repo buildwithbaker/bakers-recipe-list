@@ -5,7 +5,9 @@ risk, P2 = worthwhile, P3 = nice-to-have.
 
 Originally an audit from 2026-06-02. Reconciled against the code on 2026-09-09,
 after the routing / prerender / related-recipes run — several P2 items had
-shipped and were still listed as open.
+shipped and were still listed as open. Reconciled again on 2026-10-31 against
+`main` e77a5c1, after the October features run, and the open owner-Adam items
+from the closed handoff scopes were moved here.
 
 ---
 
@@ -31,6 +33,33 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   referenced from `index.html`; `pwa-192x192.png`, `pwa-512x512.png` and
   `maskable-512x512.png` ship alongside the SVG favicon.
 
+### 2026-10-24 to 2026-10-31
+
+- [x] **#141** 61 AI placeholder photos for the blank recipes, dormant until
+  each recipe is filled in (the dormancy rule is #140).
+- [x] **#143** Schema: `added`, `waitTime`, `waitLabel`; `description`
+  required; Cookbook baseline frozen.
+- [x] **#145** Cuisine and dish-type auto-tags keyed on category, not section.
+- [x] **#146** The `#new` auto-tag and a NEW pill on the card, for 14 days from
+  `added`. Proven by a test with an injected clock; no Cookbook recipe carries
+  `added` yet, so the pill first shows live on the next recipe added.
+- [x] **#147** Option A recipe card, led by cook time, with the wait shown
+  separately. Difficulty dropped.
+- [x] **#148** Search: Name / Ingredient / All toggle, Chef's Drafts in the
+  results with their pill, `matchedLine` on each card.
+- [x] **#149** Tag pass against the approved criteria, plus wait times.
+  `#weeknight` removed; `#high-protein` is manual at 30 g per serving.
+- [x] **#150** The USDA key notice shows only in the Vite dev server.
+- [x] **#151** AI photos for four Chef's Drafts.
+- [x] **Photo coverage checked 2026-10-31:** 145 of 146 records have a photo
+  and a credit, with no credit lacking a file and no file lacking a credit.
+  `spinach-pepper-cheddar-egg-muffins` keeps the placeholder on purpose.
+- [x] **Dependency update 2026-10-31:** eslint 10.13.0, jsdom 30.1.3 (with
+  @asamuzakjp/dom-selector 10.0.5), react and react-dom 19.3.1, vite 8.3.5,
+  undici 8.12.3 and fast-uri 3.1.9 in one PR. It replaces the seven Dependabot
+  PRs for those packages, which are closed unmerged. Same approach as #137:
+  Dependabot's lockfile entries merged by hand, no re-resolve.
+
 ### 2026-10-23 repo cleanup
 
 - [x] **#137** One dependency update for vite 8.3.4, vitest 5.0.3, eslint
@@ -43,8 +72,9 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   raises the Node floor to 20.19. `sw.js`, `registerSW.js`, the manifest and
   the Workbox runtime built byte-identical to 1.3.0, so `swUpdate.js` is
   unaffected.
-- **Stale branches, cleared for deletion.** Every one is merged under another
-  SHA (squash) or was made moot by #94. Restore any of them with
+- [x] **Stale branches, deleted.** Confirmed gone from GitHub on 2026-10-31
+  (`git ls-remote --heads` lists only `main` and the Dependabot branches). Every
+  one was merged under another SHA (squash) or made moot by #94. Restore any of them with
   `git push origin <sha>:refs/heads/<name>`:
 
   | Branch | SHA | Why it can go |
@@ -105,6 +135,13 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   revoke-then-return logic is unit-tested in `screenLock.test.js`; what is
   missing is one person, one phone, one screen-lock-and-wake against the live
   site. *(Owner: Adam.)*
+- [ ] **The other phone checks on the live site.** Clear the service worker
+  first (`AGENTS.md`). Three are outstanding, all *(Owner: Adam)*:
+  - A chip and a recipe card show a pressed state when tapped on an iPhone
+    (#92). Asked 2026-10-02, never answered.
+  - The four Chef's Drafts photos from #151 look right. The pages were checked
+    and serve their images; nobody has looked at them on a phone.
+  - The NEW pill (#146), once the next Cookbook recipe goes in with `added`.
 - [x] **`aria-expanded` on the menu + list toggles.** *Superseded by the
   2026-09 redesign.* The TOC drawer and `TopBar` are gone. The shopping list
   and the Filters sheet are now modal dialogs: focus moves in, is trapped, and
@@ -174,6 +211,10 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   if the Cookbook grows several-fold. Original note: `recipes.json` is bundled
   eagerly; if the catalog keeps growing consider lazy-loading the data or
   splitting it by section.
+- [ ] **Reroll the weakest placeholder photos (optional).** From the #141 picks:
+  parmesan-baked-carrots, chopped-salami, breakfast-muffins, fried-rice and
+  the thin-cut stir-fry rows. Each is dormant until its recipe is written, so
+  rerolling can wait until then. *(Owner: Adam.)*
 - [ ] **Prerender output size.** One file per published recipe, each carrying the
   full shell head. If that ever becomes a problem, the `<noscript>` block is the
   compressible part — but read §6 of `architecture.md` before touching it.
