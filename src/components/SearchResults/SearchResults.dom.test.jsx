@@ -103,16 +103,19 @@ describe("search results: Chef's Drafts", () => {
     expect(within(card).getByText(DRAFT_LABEL)).toBeTruthy();
   });
 
-  it('"red onion" in the app lists the 3 drafts that use it, each with its pill', async () => {
+  it('"red onion" in the app lists the 2 drafts that use it, each with its pill', async () => {
     window.history.replaceState({ overlays: [], page: false, tab: 'recipes' }, '', '/');
     render(<App />);
     search('red onion');
     await screen.findByText('4 results for “red onion”');
-    for (const name of ['Sheet Pan Chicken Shawarma Thighs', 'California Burgers with Special Sauce', 'Quick Pickled Red Onions']) {
+    for (const name of ['Sheet Pan Chicken Shawarma Thighs', 'California Burgers with Special Sauce']) {
       const card = screen.getByRole('link', { name: new RegExp(name) }).closest('li');
       expect(within(card).getByText(DRAFT_LABEL)).toBeTruthy();
     }
-    const persian = screen.getByRole('link', { name: 'Persian Chicken' }).closest('li');
-    expect(within(persian).queryByText(DRAFT_LABEL)).toBeNull();
+    // Persian Chicken is Cookbook; Quick Pickled Red Onions graduated 2026-10-31.
+    for (const name of ['Persian Chicken', 'Quick Pickled Red Onions']) {
+      const card = screen.getByRole('link', { name: new RegExp(name) }).closest('li');
+      expect(within(card).queryByText(DRAFT_LABEL)).toBeNull();
+    }
   });
 });

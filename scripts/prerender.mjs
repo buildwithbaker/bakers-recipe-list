@@ -26,7 +26,9 @@ import process from 'node:process';
 import sharp from 'sharp';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-import { DRAFT_LABEL, DRAFTS_INTRO, isDraft, publicSectionLabel } from '../src/data/sections.js';
+import {
+  DRAFT_LABEL, DRAFTS_INTRO, PLANNED_HEADING, PLANNED_INTRO, SECTIONS, isDraft, publicSectionLabel,
+} from '../src/data/sections.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { ogImageAlt } from '../src/utils/photoCredit.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
@@ -71,6 +73,14 @@ const published = displayRecipes.filter((r) => r.is_blank === false);
 // pages, but stay out of the sitemap and are listed only on /drafts/.
 const cookbookRecipes = displayRecipes.filter((r) => !isDraft(r));
 const publishedDrafts = published.filter(isDraft);
+// The placeholders, in SECTIONS order: the Planned part of /drafts/ (Adam,
+// 2026-10-31). Names only, never links: a blank has no file of its own.
+const SECTION_INDEX = new Map(SECTIONS.map((sec, i) => [sec.key, i]));
+const plannedRecipes = displayRecipes
+  .filter((r) => r.is_blank === true && !isDraft(r))
+  .map((r, i) => ({ r, i }))
+  .sort((a, b) => (SECTION_INDEX.get(a.r.section) ?? 1e9) - (SECTION_INDEX.get(b.r.section) ?? 1e9) || a.i - b.i)
+  .map(({ r }) => r);
 
 // --- helpers ---------------------------------------------------------------
 
@@ -381,6 +391,14 @@ function draftsNoscript() {
     parts.push(`  <li><a href="${esc(`${ORIGIN}r/${idToSlug(r.id)}/`)}">${esc(r.name)}</a> - ${esc(DRAFT_LABEL)}</li>`);
   }
   parts.push('</ul>');
+  if (plannedRecipes.length) {
+    parts.push(`<h2>${esc(PLANNED_HEADING)}</h2>`, `<p>${esc(PLANNED_INTRO)}</p>`, '<ul>');
+    for (const r of plannedRecipes) {
+      const label = publicSectionLabel(r.section);
+      parts.push(`  <li>${esc(r.name)}${label ? ` (${esc(label)})` : ''}</li>`);
+    }
+    parts.push('</ul>');
+  }
   const indented = parts.map((line) => `      ${line}`).join('\n');
   return `<noscript>\n${indented}\n    </noscript>`;
 }

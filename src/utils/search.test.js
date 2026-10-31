@@ -80,11 +80,11 @@ describe('search: modes', () => {
     'Quick Pickled Red Onions',
   ];
 
-  it('"red onion" finds the 4 recipes that use it, 3 of them drafts, in Ingredient and All mode', () => {
+  it('"red onion" finds the 4 recipes that use it, 2 of them drafts, in Ingredient and All mode', () => {
     for (const mode of [INGREDIENT, ALL]) {
       const res = searchCatalog(SEARCHED, 'red onion', mode);
       expect(names(res).sort()).toEqual([...RED_ONION].sort());
-      expect(res.filter(isDraft)).toHaveLength(3);
+      expect(res.filter(isDraft)).toHaveLength(2);
     }
   });
 
