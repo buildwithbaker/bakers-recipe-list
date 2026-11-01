@@ -41,8 +41,9 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   required; Cookbook baseline frozen.
 - [x] **#145** Cuisine and dish-type auto-tags keyed on category, not section.
 - [x] **#146** The `#new` auto-tag and a NEW pill on the card, for 14 days from
-  `added`. Proven by a test with an injected clock; no Cookbook recipe carries
-  `added` yet, so the pill first shows live on the next recipe added.
+  `added`. Proven by a test with an injected clock at merge. First live on
+  2026-10-31, when #160 put three recipes into the Cookbook with `added`; their
+  pills run until 2026-11-14.
 - [x] **#147** Option A recipe card, led by cook time, with the wait shown
   separately. Difficulty dropped.
 - [x] **#148** Search: Name / Ingredient / All toggle, Chef's Drafts in the
@@ -54,11 +55,16 @@ Closed on 2026-09-09 because the work is on `main` and live. See
 - [x] **Photo coverage checked 2026-10-31:** 145 of 146 records have a photo
   and a credit, with no credit lacking a file and no file lacking a credit.
   `spinach-pepper-cheddar-egg-muffins` keeps the placeholder on purpose.
-- [x] **Dependency update 2026-10-31:** eslint 10.13.0, jsdom 30.1.3 (with
+- [x] **#159** One dependency update for eslint 10.13.0, jsdom 30.1.3 (with
   @asamuzakjp/dom-selector 10.0.5), react and react-dom 19.3.1, vite 8.3.5,
-  undici 8.12.3 and fast-uri 3.1.9 in one PR. It replaces the seven Dependabot
-  PRs for those packages, which are closed unmerged. Same approach as #137:
-  Dependabot's lockfile entries merged by hand, no re-resolve.
+  undici 8.12.3 and fast-uri 3.1.9. Replaces Dependabot #152-#158, closed
+  unmerged. Same approach as #137: Dependabot's lockfile entries merged by
+  hand, no re-resolve.
+- [x] **#160** Cajun Blackened Chicken Cutlets (American), Smoky Rice and Red
+  Beans and Quick Pickled Red Onions (Sides) graduated from Chef's Drafts with
+  `added` 2026-10-31; the onions switched to distilled white vinegar. `/drafts/`
+  gained a Planned section listing every placeholder by name, grouped by
+  category, as plain cards (a blank has no page). Verified live after deploy.
 
 ### 2026-10-23 repo cleanup
 
@@ -139,9 +145,11 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   first (`AGENTS.md`). Three are outstanding, all *(Owner: Adam)*:
   - A chip and a recipe card show a pressed state when tapped on an iPhone
     (#92). Asked 2026-10-02, never answered.
-  - The four Chef's Drafts photos from #151 look right. The pages were checked
-    and serve their images; nobody has looked at them on a phone.
-  - The NEW pill (#146), once the next Cookbook recipe goes in with `added`.
+  - The four photos from #151 look right (three of those recipes are in the
+    Cookbook since #160). The pages were checked and serve their images;
+    nobody has looked at them on a phone.
+  - The NEW pill (#146) on the three #160 recipes. Check before 2026-11-14,
+    when it expires.
 - [x] **`aria-expanded` on the menu + list toggles.** *Superseded by the
   2026-09 redesign.* The TOC drawer and `TopBar` are gone. The shopping list
   and the Filters sheet are now modal dialogs: focus moves in, is trapped, and
