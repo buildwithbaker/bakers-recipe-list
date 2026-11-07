@@ -159,3 +159,25 @@ export const LISTED_ROWS = ROWS.filter((r) => !isComingSoon(r));
 // an "N more planned" header can be seen by name. Never a link - a placeholder
 // has no page of its own (prerender skips blanks).
 export const PLANNED_ROWS = ROWS.filter(isComingSoon);
+
+// A draft's destination category: every draft is filed under section CHEFS
+// DRAFTS (so categoryOf gives the drafts colour), but keeps the `category`
+// label of the section it will graduate to. Matched by label; null when no
+// category carries it (draftCategories.test.js fails CI on that).
+const CATEGORY_BY_LABEL = new Map(CATEGORIES.map((c) => [c.label, c]));
+export const draftCategoryOf = (recipe) => CATEGORY_BY_LABEL.get(recipe.category) ?? null;
+
+// Drafts grouped by destination category, groups in SECTIONS order (the order
+// of CATEGORIES), rows in the order given. A draft with no matching category
+// goes in a trailing group whose category is null ("Other"): never dropped.
+export function groupDraftsByCategory(rows) {
+  const groups = new Map();
+  for (const r of rows) {
+    const cat = draftCategoryOf(r);
+    const key = cat?.id ?? '';
+    if (!groups.has(key)) groups.set(key, { category: cat, rows: [] });
+    groups.get(key).rows.push(r);
+  }
+  const rank = (g) => (g.category ? CATEGORIES.indexOf(g.category) : Infinity);
+  return [...groups.values()].sort((a, b) => rank(a) - rank(b));
+}
