@@ -53,9 +53,9 @@ describe('RecipeList', () => {
   it('narrows the list as you type in search', async () => {
     const user = userEvent.setup();
     render(<ListWithSearch onViewRecipe={() => {}} />);
-    await user.type(screen.getByRole('searchbox'), 'lasagna');
+    await user.type(screen.getByRole('searchbox'), 'king ranch');
     await screen.findByText(/1 result for/);
-    expect(cardLinks().map((a) => a.textContent)).toEqual(['Lasagna']);
+    expect(cardLinks().map((a) => a.textContent)).toEqual(['King Ranch Chicken Casserole']);
   });
 
   it('puts Filters first in the chip row, and it opens the Filters dialog', async () => {

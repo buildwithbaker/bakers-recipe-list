@@ -22,7 +22,7 @@ export const SURFACE = '#fffbf5';
 
 // Reader-facing categories, one per section.
 //
-// Each owns one colour (prototype v2). Seventeen categories share ten
+// Each owns one colour (prototype v2). Nineteen categories share ten
 // colours, so neighbours can repeat; the colour is a wayfinding cue, never the only
 // signal. Every colour must clear 4.5:1 as text on the card surface and under
 // white text; contrast.test.js measures each one.
@@ -34,7 +34,9 @@ const RAW_CATEGORIES = [
   { id: 'american', label: 'American', color: '#1f3a5f' },
   { id: 'mexican', label: 'Mexican', color: '#a63d24' },
   { id: 'asian', label: 'Asian', color: '#1d6663' },
+  { id: 'indian', label: 'Indian', color: '#8b3a1a' },
   { id: 'italian', label: 'Italian', color: '#a63d24' },
+  { id: 'greek', label: 'Greek', color: '#3e4f7a' },
   { id: 'middle-eastern', label: 'Middle Eastern', color: '#6b3a5e' },
   { id: 'sandwiches', label: 'Sandwiches', color: '#3e4f7a' },
   { id: 'sides', label: 'Sides', color: '#56662a' },
@@ -77,7 +79,9 @@ export const SECTION_CATEGORY = {
   'AMERICAN': 'american',
   'MEXICAN': 'mexican',
   'ASIAN': 'asian',
+  'INDIAN': 'indian',
   'ITALIAN': 'italian',
+  'GREEK': 'greek',
   'MIDDLE EASTERN': 'middle-eastern',
   'SANDWICHES': 'sandwiches',
   'SIDES': 'sides',

@@ -3975,11 +3975,10 @@
   {
     "id": "keema-aloo-bhuna-with-peas-carrot-and-spinach",
     "name": "Keema Aloo Bhuna with Peas, Carrot and Spinach",
-    "section": "ASIAN",
-    "category": "Asian",
+    "section": "INDIAN",
+    "category": "Indian",
     "source": "Original",
     "tags": [
-      "#indian",
       "#curry"
     ],
     "ingredients": [
@@ -4139,6 +4138,172 @@
     "prepTime": "PT15M",
     "cookTime": "PT45M",
     "recipeYield": "4 servings"
+  },
+  {
+    "id": "butter-chicken",
+    "name": "Butter Chicken",
+    "section": "INDIAN",
+    "category": "Indian",
+    "source": "Original",
+    "tags": [
+      "#curry",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Marinated chicken:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb boneless skinless chicken thighs, cut into 1½-inch pieces"
+      },
+      {
+        "type": "item",
+        "text": "1 cup plain whole-milk yogurt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp lemon juice"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp grated fresh ginger"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp garam masala"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Sauce:"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter, divided"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, finely chopped"
+      },
+      {
+        "type": "item",
+        "text": "5 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp grated fresh ginger"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp garam masala"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground coriander"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cayenne pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 can (28 oz) crushed tomatoes"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "¾ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 cup heavy cream"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup chopped cilantro"
+      },
+      {
+        "type": "item",
+        "text": "Cooked basmati rice"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Marinate",
+        "detail": "Stir the chicken (3 lb) with the yogurt (1 cup), lemon juice (2 Tbsp), garlic (3 cloves), ginger (1 Tbsp), garam masala (2 tsp), paprika (2 tsp), cumin (1 tsp), turmeric (½ tsp) and salt (1½ tsp). Cover and refrigerate 1 to 12 hours.",
+        "why": "Yogurt is a mild acid, so it tenderizes without turning the surface mealy the way a sharp citrus marinade does over a long soak."
+      },
+      {
+        "step": "Char the Chicken",
+        "detail": "Set an oven rack 4 to 6 inches under the broiler and heat it on high. Spread the chicken in a single layer, pieces not touching, on two foil-lined sheet pans, shaking off the excess marinade. Broil one pan at a time 8 to 10 minutes, turning once, until charred in spots. It does not need to be cooked through.",
+        "why": "Crowded pieces steam instead of char, and the charred edges are the tandoor flavor in the finished sauce."
+      },
+      {
+        "step": "Build the Sauce Base",
+        "detail": "Melt 4 Tbsp of the butter in a large pot over medium heat. Cook the onion (1 large) 8 to 10 minutes until soft and golden. Add the garlic (5 cloves) and ginger (2 Tbsp) and stir 1 minute. Add the garam masala (2 tsp), paprika (2 tsp), coriander (1 tsp), cumin (1 tsp) and cayenne (1 tsp) and stir 30 seconds.",
+        "why": "Spice flavor dissolves in fat, so a short fry in the butter carries it through the whole pot."
+      },
+      {
+        "step": "Simmer the Tomatoes",
+        "detail": "Add the crushed tomatoes (1 can), honey (1 Tbsp) and salt (¾ tsp). Simmer partly covered 15 minutes, stirring now and then, until it darkens and thickens."
+      },
+      {
+        "step": "Finish the Chicken",
+        "detail": "Add the chicken and any pan juices. Simmer 10 to 15 minutes until the chicken is tender. Lower the heat and stir in the cream (1 cup), then take it off the heat and stir in the last 2 Tbsp butter.",
+        "why": "Heavy cream has enough fat to sit in the hot tomato without curdling, which yogurt or milk would not."
+      },
+      {
+        "step": "Serve",
+        "detail": "Scatter with cilantro (¼ cup) and serve over basmati rice."
+      }
+    ],
+    "notes": [
+      "It tastes better on day two. Reheat gently with a splash of water; a hard boil can split the cream."
+    ],
+    "is_blank": false,
+    "description": "Charred yogurt-marinated chicken thighs simmered in a spiced tomato, butter and cream sauce.",
+    "added": "2026-11-07",
+    "prepTime": "PT35M",
+    "cookTime": "PT40M",
+    "waitTime": "PT1H",
+    "waitLabel": "marinate 1-12 hr first",
+    "recipeYield": "8 servings"
   },
   {
     "id": "honey-garlic-soy-glazed-chicken-tenderloins",
@@ -9225,6 +9390,2047 @@
     "prepTime": "PT15M",
     "cookTime": "PT25M",
     "recipeYield": "6 servings (2 muffins each)"
+  },
+  {
+    "id": "pastitsio",
+    "name": "Pastitsio",
+    "section": "CHEFS DRAFTS",
+    "category": "Greek",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#pasta",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Meat sauce:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp tomato paste"
+      },
+      {
+        "type": "item",
+        "text": "½ cup low-sodium beef broth"
+      },
+      {
+        "type": "item",
+        "text": "1 can (15 oz) tomato sauce"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp ground cinnamon"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp ground allspice"
+      },
+      {
+        "type": "item",
+        "text": "1 bay leaf"
+      },
+      {
+        "type": "header",
+        "text": "Pasta:"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp table salt, for the pasta water"
+      },
+      {
+        "type": "item",
+        "text": "1 lb ziti"
+      },
+      {
+        "type": "item",
+        "text": "1 large egg"
+      },
+      {
+        "type": "item",
+        "text": "½ cup grated parmesan cheese"
+      },
+      {
+        "type": "header",
+        "text": "Béchamel:"
+      },
+      {
+        "type": "item",
+        "text": "8 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "⅔ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "5 cups whole milk"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp nutmeg"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup grated parmesan cheese"
+      },
+      {
+        "type": "item",
+        "text": "3 large eggs"
+      },
+      {
+        "type": "header",
+        "text": "Topping:"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup grated parmesan cheese"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Start the Water and Oven",
+        "detail": "Heat the oven to 350°F. Bring 4 quarts of water and the pasta-water salt (2 Tbsp) to a boil in a large pot."
+      },
+      {
+        "step": "Brown the Beef",
+        "detail": "Season the raw beef (2 lb) with the salt (1 tsp) and pepper (½ tsp). Press it flat into a 12-inch skillet over medium-high heat and leave it 4 minutes, then flip in sections and give it 3 to 4 minutes more. Break it into small crumbles. Drain off the fat, reserving 2 Tbsp.",
+        "why": "Left still in one layer the beef sears in its own fat instead of steaming in its juices, and that browning is most of the sauce's flavor."
+      },
+      {
+        "step": "Cook the Aromatics",
+        "detail": "Return the reserved fat (2 Tbsp) to the skillet over medium heat. Add the onion (1 large) and cook 6 to 7 minutes until soft and golden. Add the garlic (4 cloves) and tomato paste (2 Tbsp) and stir 2 minutes, until the paste turns brick red.",
+        "why": "Frying the paste browns its sugars and takes away the raw, tinny edge."
+      },
+      {
+        "step": "Simmer the Meat Sauce",
+        "detail": "Pour in the broth (½ cup) and scrape up the browned bits. Add the beef, tomato sauce (1 can), cinnamon (1½ tsp), oregano (1 tsp), allspice (¼ tsp) and bay leaf (1). Simmer uncovered 20 minutes, stirring now and then, until thick and no liquid pools when you drag a spoon through. Remove the bay leaf.",
+        "why": "A wet meat layer makes the slices slide apart and the béchamel weep."
+      },
+      {
+        "step": "Cook the Pasta",
+        "detail": "Cook the ziti (1 lb) 2 minutes short of the package time and drain. Beat the egg (1) with the parmesan (½ cup) in a large bowl, add the hot pasta and toss to coat.",
+        "why": "The pasta finishes in the oven, and the egg and cheese glue the tubes into a layer that slices."
+      },
+      {
+        "step": "Make the Béchamel",
+        "detail": "Melt the butter (8 Tbsp) in a large saucepan over medium heat. Whisk in the flour (⅔ cup) and cook 2 minutes without browning. Whisk in the milk (5 cups) a cup at a time, then simmer, whisking often, 8 to 10 minutes until it thickly coats a spoon. Off the heat, stir in the salt (1 tsp), nutmeg (¼ tsp) and parmesan (¼ cup)."
+      },
+      {
+        "step": "Add the Eggs",
+        "detail": "Beat the eggs (3) in a bowl. Whisk in about 1 cup of the hot béchamel, then whisk that back into the pan.",
+        "why": "Warming the eggs with a little sauce first keeps them from scrambling; in the oven they set the topping into a thick custard."
+      },
+      {
+        "step": "Assemble and Bake",
+        "detail": "Spread half the pasta in a 9x13-inch baking dish. Cover with all the meat sauce, then the rest of the pasta. Pour the béchamel over and spread it to the edges. Sprinkle with the topping parmesan (¼ cup). Bake 45 to 50 minutes, until puffed and browned in spots."
+      },
+      {
+        "step": "Rest",
+        "detail": "Let it stand 30 minutes before cutting.",
+        "why": "The custard finishes setting as it cools; cut hot and it runs."
+      }
+    ],
+    "notes": [
+      "Cold leftovers cut into clean squares. Reheat a square covered in the microwave, or at 325°F until hot through."
+    ],
+    "is_blank": false,
+    "description": "Greek baked pasta: cinnamon-spiced beef sauce between layers of ziti, under a thick custardy béchamel.",
+    "prepTime": "PT45M",
+    "cookTime": "PT50M",
+    "waitTime": "PT30M",
+    "waitLabel": "rest 30 min before cutting",
+    "recipeYield": "10 servings"
+  },
+  {
+    "id": "beef-stroganoff-noodle-bake",
+    "name": "Beef Stroganoff Noodle Bake",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#noodles",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Noodles:"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp table salt, for the pasta water"
+      },
+      {
+        "type": "item",
+        "text": "12 oz wide egg noodles"
+      },
+      {
+        "type": "header",
+        "text": "Beef and sauce:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "16 oz white mushrooms, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, halved and thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "3 cups low-sodium beef broth"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp Worcestershire sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp Dijon mustard"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups full-fat sour cream"
+      },
+      {
+        "type": "header",
+        "text": "Topping:"
+      },
+      {
+        "type": "item",
+        "text": "1 cup panko bread crumbs"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp butter, melted"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp chopped parsley"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Start the Water and Oven",
+        "detail": "Heat the oven to 375°F. Bring 4 quarts of water and the pasta-water salt (2 Tbsp) to a boil."
+      },
+      {
+        "step": "Cook the Noodles",
+        "detail": "Cook the egg noodles (12 oz) 2 minutes short of the package time, drain and set aside.",
+        "why": "They keep soaking up sauce in the oven; fully cooked noodles turn soft by the leftovers."
+      },
+      {
+        "step": "Brown the Beef",
+        "detail": "Season the raw beef (2 lb) with the salt (1 tsp) and pepper (½ tsp). Press it flat into a 12-inch skillet over medium-high heat and leave it 4 minutes, then flip in sections and give it 3 to 4 minutes more. Break into crumbles, move to a bowl, and pour off all but 2 Tbsp of the fat."
+      },
+      {
+        "step": "Brown the Mushrooms and Onion",
+        "detail": "Add the mushrooms (16 oz) to the fat in the skillet and cook over medium-high heat 8 to 10 minutes, stirring now and then, until their liquid cooks off and they brown. Add the onion (1 large) and cook 5 minutes more until soft. Add the garlic (4 cloves) and stir 30 seconds.",
+        "why": "Mushrooms only brown once their water has boiled away, so don't salt or crowd them early."
+      },
+      {
+        "step": "Make the Sauce",
+        "detail": "Sprinkle the flour (¼ cup) over the vegetables and stir 1 minute. Whisk in the broth (3 cups), Worcestershire (2 Tbsp) and Dijon (1 Tbsp), scraping up the browned bits. Simmer 5 minutes until it thickens. Stir the beef back in."
+      },
+      {
+        "step": "Add the Sour Cream",
+        "detail": "Take the skillet off the heat and let it stand 5 minutes. Stir in the sour cream (1½ cups), then fold in the noodles.",
+        "why": "Full-fat sour cream in a flour-thickened sauce, added off the boil, stays smooth; boiled or low-fat, it curdles."
+      },
+      {
+        "step": "Top and Bake",
+        "detail": "Spread into a 9x13-inch baking dish. Toss the panko (1 cup) with the melted butter (3 Tbsp) and scatter it over. Bake 20 to 25 minutes, until bubbling at the edges and the crumbs are golden. Rest 5 minutes and sprinkle with parsley (2 Tbsp)."
+      }
+    ],
+    "notes": [
+      "Reheat leftovers covered with a splash of broth or water; the noodles will have drunk some of the sauce."
+    ],
+    "is_blank": false,
+    "description": "Ground beef, browned mushrooms and egg noodles in a sour cream and Dijon sauce, baked under buttered panko.",
+    "prepTime": "PT35M",
+    "cookTime": "PT25M",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "chicken-divan",
+    "name": "Chicken Divan",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "2½ lb boneless skinless chicken breasts"
+      },
+      {
+        "type": "item",
+        "text": "4 cups low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 bay leaf"
+      },
+      {
+        "type": "header",
+        "text": "Broccoli:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb frozen broccoli florets, thawed"
+      },
+      {
+        "type": "header",
+        "text": "Cheese sauce:"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "½ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "2 cups whole milk"
+      },
+      {
+        "type": "item",
+        "text": "8 oz sharp cheddar cheese, shredded from the block (2 cups)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp cooking sherry"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lemon juice"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp curry powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Topping:"
+      },
+      {
+        "type": "item",
+        "text": "1 cup panko bread crumbs"
+      },
+      {
+        "type": "item",
+        "text": "½ cup grated parmesan cheese"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp butter, melted"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Poach the Chicken",
+        "detail": "Put the chicken (2½ lb) in a wide pot with the broth (4 cups), salt (1 tsp) and bay leaf (1), adding water if needed to just cover. Heat over medium until the surface barely shivers, about 170°F with no bubbles breaking. Hold it there until the thickest piece reads 160°F, 15 to 20 minutes.",
+        "why": "Breast has almost no fat to forgive overcooking, and it bakes again later, so it comes out of a gentle poach at 160°F."
+      },
+      {
+        "step": "Cut the Chicken",
+        "detail": "Lift out the chicken and let it rest 10 minutes. Scoop out 2 cups of the poaching broth for the sauce. Cut the chicken into 1-inch cubes."
+      },
+      {
+        "step": "Prepare the Broccoli",
+        "detail": "Heat the oven to 375°F. Pat the thawed broccoli (2 lb) dry with towels and spread it in a 9x13-inch baking dish.",
+        "why": "Water left on the broccoli leaks out in the oven and thins the sauce."
+      },
+      {
+        "step": "Make the Sauce",
+        "detail": "Melt the butter (6 Tbsp) in a saucepan over medium heat. Whisk in the flour (½ cup) and cook 2 minutes. Whisk in the reserved broth (2 cups), then the milk (2 cups). Simmer, whisking, 5 minutes until thick."
+      },
+      {
+        "step": "Add the Cheese",
+        "detail": "Off the heat, whisk in the cheddar (8 oz) a handful at a time until smooth. Stir in the sherry (2 Tbsp), lemon juice (1 Tbsp), curry powder (1 tsp), salt (½ tsp) and pepper (½ tsp).",
+        "why": "Aged cheddar's proteins squeeze out fat if it boils; melted off the heat into a flour-thickened base, it stays smooth."
+      },
+      {
+        "step": "Assemble and Bake",
+        "detail": "Scatter the chicken over the broccoli and pour the sauce over everything. Toss the panko (1 cup) and parmesan (½ cup) with the melted butter (3 Tbsp) and sprinkle on top. Bake 25 to 30 minutes, until bubbling and browned. Rest 10 minutes."
+      }
+    ],
+    "notes": [
+      "Shred the cheddar yourself; the starch coating on bagged shreds makes the sauce gritty.",
+      "Cooking sherry is salted, which is why the sauce takes only ½ tsp salt."
+    ],
+    "is_blank": false,
+    "description": "Gently poached chicken breast and broccoli under a sharp cheddar and curry sauce, baked with a crisp parmesan crust.",
+    "prepTime": "PT45M",
+    "cookTime": "PT30M",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "baked-arroz-con-pollo",
+    "name": "Baked Arroz con Pollo",
+    "section": "CHEFS DRAFTS",
+    "category": "Mexican",
+    "source": "Original",
+    "tags": [
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb boneless skinless chicken thighs, halved"
+      },
+      {
+        "type": "item",
+        "text": "1 packet sazón with culantro and annatto"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp olive oil"
+      },
+      {
+        "type": "header",
+        "text": "Rice:"
+      },
+      {
+        "type": "item",
+        "text": "3 cups long-grain white rice"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "1 green bell pepper, diced"
+      },
+      {
+        "type": "item",
+        "text": "1 red bell pepper, diced"
+      },
+      {
+        "type": "item",
+        "text": "5 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 can (8 oz) tomato sauce"
+      },
+      {
+        "type": "item",
+        "text": "4 cups low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 packet sazón with culantro and annatto"
+      },
+      {
+        "type": "item",
+        "text": "¾ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 bay leaf"
+      },
+      {
+        "type": "item",
+        "text": "½ cup pimiento-stuffed green olives, halved"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups frozen peas"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup chopped cilantro"
+      },
+      {
+        "type": "item",
+        "text": "2 limes, cut into wedges"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Season the Chicken",
+        "detail": "Toss the chicken (3 lb) with 1 packet of the sazón, the cumin (1 tsp), oregano (1 tsp), salt (1 tsp) and pepper (½ tsp). Let it sit while you prep the vegetables.",
+        "why": "Even 15 minutes gives the salt a head start into the meat."
+      },
+      {
+        "step": "Rinse the Rice",
+        "detail": "Heat the oven to 375°F. Rinse the rice (3 cups) in a strainer under cold water until it runs mostly clear, and let it drain.",
+        "why": "Washing off loose surface starch keeps the grains separate instead of gummy."
+      },
+      {
+        "step": "Brown the Chicken",
+        "detail": "Heat the olive oil (2 Tbsp) in a 12-inch skillet over medium-high heat. Brown the chicken in two batches, 3 minutes per side, with space between pieces. Move it to a plate; it finishes in the oven."
+      },
+      {
+        "step": "Toast the Rice",
+        "detail": "Lower the heat to medium. Add the onion (1 large) and both bell peppers to the skillet and cook 6 minutes, scraping up the browned bits. Add the garlic (5 cloves) and stir 30 seconds. Add the drained rice and stir 2 to 3 minutes until the edges of the grains turn translucent.",
+        "why": "Coating the grains in hot fat helps them cook up separate."
+      },
+      {
+        "step": "Boil the Liquid",
+        "detail": "Stir in the tomato sauce (1 can), broth (4 cups), the second sazón packet, the salt (¾ tsp) and bay leaf (1). Bring to a full boil.",
+        "why": "Liquid that goes into the oven already boiling starts the rice cooking at once, so the bottom doesn't turn to paste before the top is done."
+      },
+      {
+        "step": "Bake",
+        "detail": "Pour into a 9x13-inch baking dish and spread level. Nestle in the chicken and its juices and scatter the olives (½ cup) over. Cover tightly with foil and bake 40 minutes."
+      },
+      {
+        "step": "Steam the Peas",
+        "detail": "Uncover, scatter the peas (1½ cups) over the top, re-cover at once and let it stand 10 minutes. Remove the bay leaf, fluff the rice around the chicken, and finish with cilantro (¼ cup) and lime wedges.",
+        "why": "The trapped steam finishes the top layer of rice and warms the peas without boiling them gray."
+      }
+    ],
+    "notes": [
+      "The foil has to seal all the way around; steam escaping at a corner leaves a strip of crunchy rice.",
+      "Sazón, the olives and the broth all carry salt, so taste before adding more at the table."
+    ],
+    "is_blank": false,
+    "description": "Sazón-seasoned chicken thighs baked on rice with peppers, tomato, olives and peas in one 9x13 dish.",
+    "prepTime": "PT35M",
+    "cookTime": "PT40M",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "baked-chicken-biryani",
+    "name": "Baked Chicken Biryani",
+    "section": "CHEFS DRAFTS",
+    "category": "Indian",
+    "source": "Original",
+    "tags": [
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb boneless skinless chicken thighs, cut into 1½-inch pieces"
+      },
+      {
+        "type": "item",
+        "text": "1 cup plain whole-milk yogurt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp lemon juice"
+      },
+      {
+        "type": "item",
+        "text": "6 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp grated fresh ginger"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp garam masala"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cayenne pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "2 large yellow onions, thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "2 jalapeños, sliced"
+      },
+      {
+        "type": "header",
+        "text": "Rice:"
+      },
+      {
+        "type": "item",
+        "text": "3 cups basmati rice"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp table salt, for the rice water"
+      },
+      {
+        "type": "item",
+        "text": "2 bay leaves"
+      },
+      {
+        "type": "item",
+        "text": "1 cinnamon stick"
+      },
+      {
+        "type": "item",
+        "text": "4 whole cloves"
+      },
+      {
+        "type": "header",
+        "text": "Layers:"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups crispy fried onions, divided"
+      },
+      {
+        "type": "item",
+        "text": "½ cup chopped cilantro, divided"
+      },
+      {
+        "type": "item",
+        "text": "½ cup chopped fresh mint, divided"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp ground turmeric, for the milk"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter, melted"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Marinate",
+        "detail": "Stir the chicken (3 lb) with the yogurt (1 cup), lemon juice (2 Tbsp), garlic (6 cloves), ginger (2 Tbsp), garam masala (1 Tbsp), paprika (2 tsp), cayenne (1 tsp), cumin (1 tsp), turmeric (½ tsp) and salt (2 tsp). Cover and refrigerate 1 to 12 hours."
+      },
+      {
+        "step": "Brown the Onions",
+        "detail": "Melt the butter (3 Tbsp) in a large pot or deep 12-inch skillet over medium-high heat. Cook the sliced onions (2 large) 15 to 18 minutes, stirring more often as they darken, until deep golden brown.",
+        "why": "Well-browned onions are the backbone of the masala; pale ones leave it flat and sweet."
+      },
+      {
+        "step": "Cook the Chicken Down",
+        "detail": "Add the chicken with all of its marinade and the jalapeños (2). Cook uncovered over medium heat 15 to 20 minutes, stirring often, until the chicken is cooked through and the sauce has reduced to a thick coating with little free liquid.",
+        "why": "The rice only needs steam to finish; a soupy masala floods it and turns the bottom layer to mush."
+      },
+      {
+        "step": "Soak the Rice",
+        "detail": "While the chicken cooks, rinse the basmati (3 cups) until the water runs mostly clear, then cover with cold water and soak 20 minutes. Heat the oven to 350°F.",
+        "why": "Soaked basmati cooks evenly and stretches long instead of breaking."
+      },
+      {
+        "step": "Par-Boil the Rice",
+        "detail": "Bring 4 quarts of water to a boil with the rice-water salt (2 Tbsp), bay leaves (2), cinnamon stick (1) and cloves (4). Drain the rice, add it and boil 5 to 6 minutes, until a grain bends but still has a firm white core. Drain well.",
+        "why": "It is about two-thirds cooked here and finishes in the steam under the foil."
+      },
+      {
+        "step": "Layer",
+        "detail": "Spread the chicken masala in a 9x13-inch baking dish. Scatter half the fried onions (¾ cup), half the cilantro (¼ cup) and half the mint (¼ cup) over it. Spread the rice over evenly without pressing it down. Stir the turmeric (¼ tsp) into the milk (¼ cup) and drizzle it over the rice in streaks, then drizzle the melted butter (4 Tbsp) over all."
+      },
+      {
+        "step": "Bake",
+        "detail": "Cover tightly with foil and bake 30 minutes. Let it stand covered 10 minutes."
+      },
+      {
+        "step": "Serve",
+        "detail": "Uncover and top with the rest of the fried onions (¾ cup), cilantro (¼ cup) and mint (¼ cup). Scoop from the bottom so each portion gets both chicken and rice.",
+        "why": "Adding the last fried onions at the end keeps them crisp."
+      }
+    ],
+    "notes": [
+      "The whole spices stay in the rice; warn anyone eating it, or pick them out as you serve.",
+      "Whole-milk yogurt holds together better than nonfat when the marinade is cooked down."
+    ],
+    "is_blank": false,
+    "description": "Spiced yogurt-marinated chicken thighs layered under par-boiled basmati, fried onions, mint and cilantro, steamed in the oven.",
+    "prepTime": "PT45M",
+    "cookTime": "PT30M",
+    "waitTime": "PT1H",
+    "waitLabel": "marinate 1-12 hr first",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "tater-tot-hotdish",
+    "name": "Tater Tot Hotdish",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Beef:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "8 oz cremini mushrooms, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, diced"
+      },
+      {
+        "type": "header",
+        "text": "Gravy:"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "2 cups low-sodium beef broth"
+      },
+      {
+        "type": "item",
+        "text": "1 cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp Worcestershire sauce"
+      },
+      {
+        "type": "header",
+        "text": "Vegetables and topping:"
+      },
+      {
+        "type": "item",
+        "text": "1 bag (12 oz) frozen cut green beans"
+      },
+      {
+        "type": "item",
+        "text": "1 cup frozen corn"
+      },
+      {
+        "type": "item",
+        "text": "2 cups shredded sharp cheddar cheese"
+      },
+      {
+        "type": "item",
+        "text": "1 bag (32 oz) frozen tater tots"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 400°F."
+      },
+      {
+        "step": "Brown the Beef",
+        "detail": "Season the raw beef (2 lb) with the salt (1 tsp), pepper (1 tsp), paprika (1½ tsp), garlic powder (1 tsp) and onion powder (1 tsp). Press it flat into a 12-inch skillet over medium-high heat and leave it 4 minutes, then flip in sections and brown 3 to 4 minutes more. Break it into small crumbles. Drain the fat into a heatproof bowl and keep it.",
+        "why": "Pressed flat and left alone, the beef browns in its own fat instead of steaming in its juices."
+      },
+      {
+        "step": "Brown the Mushrooms and Onion",
+        "detail": "Return 2 Tbsp of the reserved fat to the skillet over medium-high. Add the mushrooms (8 oz) and cook 5 to 6 minutes without stirring much, until their liquid is gone and they brown. Add the onion (1 large) and cook 5 minutes more, until soft. Stir in the beef and take the pan off the heat.",
+        "why": "Browned mushrooms in the gravy are what canned cream of mushroom soup was standing in for."
+      },
+      {
+        "step": "Make the Gravy",
+        "detail": "Melt the butter (4 Tbsp) in a medium saucepan over medium heat. Whisk in the flour (⅓ cup) and cook 2 minutes. Whisk in the broth (2 cups) a little at a time, then the milk (1 cup) and Worcestershire (1 Tbsp). Simmer 3 to 4 minutes, whisking, until it thickly coats a spoon.",
+        "why": "It should be thicker than you would serve it, because the frozen vegetables release water in the oven and thin it."
+      },
+      {
+        "step": "Assemble",
+        "detail": "Stir the gravy, frozen green beans (12 oz) and frozen corn (1 cup) into the beef. Spread it in a 9x13-inch baking dish and scatter the cheddar (2 cups) over the top. Stand the frozen tots (32 oz) on end in tight rows over the cheese, in a single layer.",
+        "why": "Tots in one upright layer brown on every side; piled up, the bottom ones steam soft."
+      },
+      {
+        "step": "Bake and Rest",
+        "detail": "Bake 40 to 45 minutes, until the tots are deep golden and the filling bubbles at the edges. Let it stand 10 minutes before serving."
+      }
+    ],
+    "notes": [
+      "No added salt in the gravy: the beef seasoning, cheese and tots carry it. Taste the beef before assembling and add a pinch only if it needs it.",
+      "To make ahead, assemble without the tots, cover and refrigerate up to a day. Add the tots and bake 50 to 55 minutes."
+    ],
+    "is_blank": false,
+    "description": "Minnesota-style hotdish: browned beef, mushrooms, green beans and corn in a scratch gravy under cheddar and a layer of crisp tater tots.",
+    "prepTime": "PT30M",
+    "cookTime": "PT45M",
+    "waitTime": "PT10M",
+    "waitLabel": "rest 10 min before serving",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "lazy-pierogi-bake",
+    "name": "Lazy Pierogi Bake",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#pasta",
+      "#oven"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Potato filling:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb russet potatoes, peeled and cut into 1½-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the potato water"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "½ cup sour cream"
+      },
+      {
+        "type": "item",
+        "text": "2 cups shredded sharp cheddar cheese"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Kielbasa and onions:"
+      },
+      {
+        "type": "item",
+        "text": "1 package (14 oz) smoked kielbasa, halved lengthwise and sliced ¼ inch thick"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "2 large yellow onions, halved and thinly sliced"
+      },
+      {
+        "type": "header",
+        "text": "Noodles and topping:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the pasta water"
+      },
+      {
+        "type": "item",
+        "text": "12 lasagna noodles"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp butter, melted"
+      },
+      {
+        "type": "item",
+        "text": "1 cup shredded sharp cheddar cheese"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Sour cream"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Boil the Potatoes",
+        "detail": "Cover the potatoes (3 lb) with cold water in a large pot, add the salt (1 Tbsp) and bring to a boil. Simmer 15 to 18 minutes, until a knife slides through with no resistance. Drain and let them steam dry in the colander 2 minutes.",
+        "why": "Starting in cold water cooks the chunks evenly to the center; letting them steam dry keeps the filling from going gluey."
+      },
+      {
+        "step": "Brown the Kielbasa",
+        "detail": "While the potatoes cook, brown the kielbasa (14 oz) in a 12-inch skillet over medium-high heat, 5 to 6 minutes, until the edges are dark. Move it to a bowl, leaving the fat in the pan."
+      },
+      {
+        "step": "Brown the Onions",
+        "detail": "Add the butter (4 Tbsp) and onions (2 large) to the same skillet over medium heat. Cook 20 to 25 minutes, stirring every few minutes, until deep golden brown. Stir the kielbasa back in.",
+        "why": "Well-browned onion is most of what makes this taste like pierogi rather than plain potatoes and noodles."
+      },
+      {
+        "step": "Make the Filling",
+        "detail": "Mash the hot potatoes with the butter (4 Tbsp) and sour cream (½ cup). Stir in the cheddar (2 cups), salt (1 tsp) and pepper (½ tsp).",
+        "why": "Mash while hot: cooled potato starch turns gummy when worked."
+      },
+      {
+        "step": "Cook the Noodles and Heat the Oven",
+        "detail": "Heat the oven to 375°F. Boil the lasagna noodles (12) in 4 quarts of water with the salt (1 Tbsp) 2 minutes short of the package time. Drain and lay them flat on an oiled sheet pan so they do not stick together."
+      },
+      {
+        "step": "Assemble",
+        "detail": "Brush a 9x13-inch baking dish with some of the melted butter. Lay in 4 noodles, spread half the potato filling over them, then half the kielbasa and onions. Repeat with 4 noodles, the rest of the filling and the rest of the kielbasa and onions. Top with the last 4 noodles, brush them with the remaining melted butter (2 Tbsp total) and scatter the cheddar (1 cup) over the top.",
+        "why": "Butter on the top noodles keeps them tender under the foil; bare, they bake into a leathery sheet."
+      },
+      {
+        "step": "Bake and Rest",
+        "detail": "Cover with foil and bake 25 minutes. Uncover and bake 15 minutes more, until the cheese is browned in spots. Let it stand 15 minutes, then cut and serve with sour cream and the green onions (2).",
+        "why": "The rest lets the potato layers firm up so the squares hold their shape."
+      }
+    ],
+    "notes": [
+      "Leftover squares reheat well in a covered skillet over medium-low with a splash of water, or crisp in a buttered pan."
+    ],
+    "is_blank": false,
+    "description": "Pierogi as a casserole: lasagna noodles layered with cheddar potato filling, browned onions and smoked kielbasa.",
+    "prepTime": "PT45M",
+    "cookTime": "PT40M",
+    "waitTime": "PT15M",
+    "waitLabel": "rest 15 min before cutting",
+    "recipeYield": "10 servings"
+  },
+  {
+    "id": "chicken-pot-pie-bake",
+    "name": "Chicken Pot Pie Bake",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#oven"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Filling:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb boneless skinless chicken thighs, cut into 1-inch pieces"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "3 medium carrots, sliced ¼ inch thick"
+      },
+      {
+        "type": "item",
+        "text": "3 celery ribs, sliced ¼ inch thick"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "½ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "3 cups low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried thyme"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups frozen peas"
+      },
+      {
+        "type": "header",
+        "text": "Drop biscuits:"
+      },
+      {
+        "type": "item",
+        "text": "2 cups all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp baking powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp baking soda"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp sugar"
+      },
+      {
+        "type": "item",
+        "text": "¾ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 cup cold buttermilk"
+      },
+      {
+        "type": "item",
+        "text": "8 Tbsp butter, melted and cooled 5 minutes"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 425°F."
+      },
+      {
+        "step": "Brown the Chicken",
+        "detail": "Season the chicken (2 lb) with the salt (1 tsp) and pepper (½ tsp). Heat the oil (1 Tbsp) in a large Dutch oven or deep skillet over medium-high. Brown the chicken in two batches, 4 to 5 minutes per batch, turning once. It does not need to cook through. Move it to a bowl.",
+        "why": "Thighs in 1-inch pieces stay tender through a simmer and a bake that would dry out breast meat."
+      },
+      {
+        "step": "Cook the Vegetables",
+        "detail": "Melt the butter (6 Tbsp) in the same pot over medium heat. Add the onion (1 large), carrots (3) and celery (3 ribs) and cook 6 to 7 minutes, scraping up the browned bits, until the onion is soft. Add the garlic (3 cloves) and stir 30 seconds."
+      },
+      {
+        "step": "Make the Sauce",
+        "detail": "Sprinkle in the flour (½ cup) and stir 2 minutes. Whisk in the broth (3 cups) a little at a time, then the milk (1 cup) and thyme (1 tsp). Add the chicken and its juices and simmer 8 to 10 minutes, stirring often, until the carrots are just tender and the sauce is thick. Stir in the frozen peas (1½ cups) and pour it all into a 9x13-inch baking dish.",
+        "why": "A roux-thickened sauce stands in for canned soup and stays stable through the bake."
+      },
+      {
+        "step": "Mix the Biscuits",
+        "detail": "Whisk the flour (2 cups), baking powder (1 Tbsp), baking soda (½ tsp), sugar (1 tsp) and salt (¾ tsp) in a large bowl. Stir the cold buttermilk (1 cup) into the melted butter (8 Tbsp) until the butter forms small clumps, then add it to the flour and stir just until no dry flour remains.",
+        "why": "Cold buttermilk firms the butter into small lumps that steam open into flaky pockets; stirring past the point of no dry flour toughens them."
+      },
+      {
+        "step": "Top and Bake",
+        "detail": "Drop the dough in 10 even mounds over the hot filling, leaving small gaps. Bake 20 to 25 minutes, until the biscuits are deep golden and the filling bubbles between them. Let it stand 10 minutes before serving.",
+        "why": "The filling must still be hot when the dough goes on, so the biscuit bottoms cook from below instead of staying raw."
+      }
+    ],
+    "notes": [
+      "The biscuits are best the day they are made. For leftovers, reheat the filling and biscuits separately, or warm a covered portion in the microwave."
+    ],
+    "is_blank": false,
+    "description": "Chicken thigh, carrot, celery and pea filling in a scratch roux sauce, baked under golden buttermilk drop biscuits.",
+    "prepTime": "PT35M",
+    "cookTime": "PT45M",
+    "waitTime": "PT10M",
+    "waitLabel": "rest 10 min before serving",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "buffalo-chicken-potato-bake",
+    "name": "Buffalo Chicken Potato Bake",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#oven"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Potatoes:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb Yukon Gold potatoes, cut into 1-inch cubes"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "¾ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb boneless skinless chicken thighs, cut into 1-inch cubes"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Buffalo sauce:"
+      },
+      {
+        "type": "item",
+        "text": "⅔ cup Frank's RedHot Original"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp honey"
+      },
+      {
+        "type": "header",
+        "text": "Topping:"
+      },
+      {
+        "type": "item",
+        "text": "6 slices bacon"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups shredded sharp cheddar cheese"
+      },
+      {
+        "type": "item",
+        "text": "½ cup shredded mozzarella cheese"
+      },
+      {
+        "type": "item",
+        "text": "3 green onions, sliced"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Ranch or blue cheese dressing"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Roast the Potatoes",
+        "detail": "Heat the oven to 450°F. Toss the potatoes (2 lb) with the oil (2 Tbsp) and salt (¾ tsp) in a bowl until every piece is glossy, spread them on a bare rimmed sheet pan in one layer and roast 25 minutes, until browned on the bottom.",
+        "why": "Potato cubes need about 35 minutes and chicken cubes about 20, so the potatoes get a head start; a bare pan in one layer browns them instead of steaming them."
+      },
+      {
+        "step": "Make the Sauce",
+        "detail": "While the potatoes roast, melt the butter (4 Tbsp) in a small saucepan and whisk in the hot sauce (⅔ cup) and honey (1 Tbsp). Take it off the heat."
+      },
+      {
+        "step": "Cook the Bacon",
+        "detail": "Cook the bacon (6 slices) in a skillet over medium heat until crisp, 8 to 10 minutes. Drain on paper towels and crumble."
+      },
+      {
+        "step": "Season the Chicken",
+        "detail": "Toss the chicken (2 lb) with the salt (½ tsp), garlic powder (1 tsp) and pepper (½ tsp), then with half the buffalo sauce.",
+        "why": "Cubes give the sauce the most surface to cling to, so every bite carries it."
+      },
+      {
+        "step": "Combine and Bake",
+        "detail": "Lower the oven to 425°F. Tip the roasted potatoes into a 9x13-inch baking dish, scatter the chicken over them in an even layer and bake 20 to 25 minutes, until the thickest chicken piece reads 175°F.",
+        "why": "Thighs are juicier at 175°F than at the 165°F minimum, and they stay tender there."
+      },
+      {
+        "step": "Top and Finish",
+        "detail": "Drizzle the rest of the buffalo sauce over the top, then scatter the cheddar (1½ cups), mozzarella (½ cup) and bacon. Bake 5 to 7 minutes, until the cheese melts. Top with the green onions (3) and serve with ranch or blue cheese dressing."
+      }
+    ],
+    "notes": [
+      "For a milder pan, use ½ cup hot sauce and an extra Tbsp of butter."
+    ],
+    "is_blank": false,
+    "description": "Roasted Yukon Gold potatoes and buffalo-sauced chicken thigh cubes baked under cheddar, mozzarella and bacon.",
+    "prepTime": "PT25M",
+    "cookTime": "PT55M",
+    "recipeYield": "6 servings"
+  },
+  {
+    "id": "scalloped-potatoes-and-ham",
+    "name": "Scalloped Potatoes and Ham",
+    "section": "CHEFS DRAFTS",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#oven"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Sauce:"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 medium yellow onion, halved and thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "2 cups whole milk"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp Dijon mustard"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried thyme"
+      },
+      {
+        "type": "header",
+        "text": "Potatoes and ham:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb russet potatoes, peeled and sliced ⅛ inch thick"
+      },
+      {
+        "type": "item",
+        "text": "1 lb fully cooked ham, cut into ½-inch dice (about 3 cups)"
+      },
+      {
+        "type": "header",
+        "text": "Cheese:"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups shredded sharp cheddar cheese"
+      },
+      {
+        "type": "item",
+        "text": "½ cup grated parmesan cheese"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat the oven to 375°F. Slice the potatoes (3 lb) on the food processor's slicing disc or by hand. Do not rinse them.",
+        "why": "The surface starch on unrinsed slices is part of what thickens the sauce."
+      },
+      {
+        "step": "Start the Sauce",
+        "detail": "Melt the butter (4 Tbsp) in a large Dutch oven over medium heat. Add the onion (1 medium) and cook 5 minutes, until soft. Add the garlic (3 cloves) and stir 30 seconds. Sprinkle in the flour (⅓ cup) and stir 2 minutes."
+      },
+      {
+        "step": "Finish the Sauce",
+        "detail": "Whisk in the milk (2 cups) and broth (1½ cups) a little at a time, then the Dijon (1 tsp), salt (½ tsp), pepper (½ tsp) and thyme (1 tsp). Bring to a simmer, whisking, until it thickens.",
+        "why": "Flour in the sauce keeps the milk from curdling during the long bake, which an unthickened milk-and-cream scallop often does. Broth replaces half the milk to keep it lighter."
+      },
+      {
+        "step": "Simmer the Potatoes",
+        "detail": "Add the potatoes and ham (1 lb) and stir gently to separate the slices. Simmer 10 minutes, stirring from the bottom every couple of minutes, until the potatoes just start to soften.",
+        "why": "Starting the potatoes hot means the center of the dish cooks as fast as the edges."
+      },
+      {
+        "step": "Assemble and Bake",
+        "detail": "Stir in 1 cup of the cheddar and spread it all into a 9x13-inch baking dish. Cover with foil and bake 30 minutes. Uncover, scatter the remaining cheddar (½ cup) and the parmesan (½ cup) over the top and bake 25 to 30 minutes more, until browned and a knife slides through the center with no resistance."
+      },
+      {
+        "step": "Rest",
+        "detail": "Let it stand 15 minutes before serving.",
+        "why": "The sauce sets as it cools a little; cut right away and it runs."
+      }
+    ],
+    "notes": [
+      "Salt is kept low because ham varies a lot in saltiness. Taste the sauce before the potatoes go in.",
+      "A good use for leftover holiday ham."
+    ],
+    "is_blank": false,
+    "description": "Thin-sliced russets and diced ham baked in a thyme and Dijon cheese sauce until browned on top.",
+    "prepTime": "PT40M",
+    "cookTime": "PT1H",
+    "waitTime": "PT15M",
+    "waitLabel": "rest 15 min before serving",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "tamale-pie",
+    "name": "Tamale Pie",
+    "section": "CHEFS DRAFTS",
+    "category": "Mexican",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#tex-mex",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Filling:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp chili powder"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "1 red bell pepper, diced"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "2 chipotle peppers in adobo, minced, plus 1 Tbsp of the sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 can (14.5 oz) fire-roasted diced tomatoes"
+      },
+      {
+        "type": "item",
+        "text": "1 can (15 oz) black beans, drained and rinsed"
+      },
+      {
+        "type": "item",
+        "text": "1 cup frozen corn"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups shredded Monterey Jack cheese"
+      },
+      {
+        "type": "header",
+        "text": "Masa topping:"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups masa harina"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp baking powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1¾ cups warm low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter, melted"
+      },
+      {
+        "type": "item",
+        "text": "½ cup shredded Monterey Jack cheese"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Sour cream"
+      },
+      {
+        "type": "item",
+        "text": "Pickled jalapeños"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Brown the Beef",
+        "detail": "Season the raw beef (2 lb) with the salt (1 tsp), chili powder (2 Tbsp), cumin (2 tsp), smoked paprika (1 tsp), oregano (1 tsp) and garlic powder (1 tsp). Press it flat into a 12-inch skillet over medium-high heat and leave it 4 minutes, then flip in sections and brown 3 to 4 minutes more. Break it up and drain off all but 2 Tbsp of the fat.",
+        "why": "Seasoning the raw meat toasts the spices in the beef's own fat as it browns."
+      },
+      {
+        "step": "Cook the Vegetables",
+        "detail": "Add the onion (1 large) and bell pepper (1) and cook 5 to 6 minutes, until soft. Add the garlic (3 cloves) and chipotles (2, plus 1 Tbsp sauce) and stir 30 seconds."
+      },
+      {
+        "step": "Simmer the Filling",
+        "detail": "Add the tomatoes (1 can, with their juice), black beans (1 can) and corn (1 cup). Simmer 10 minutes, stirring now and then, until thick and no liquid pools when you drag a spoon through it. Heat the oven to 375°F.",
+        "why": "A wet filling soaks the masa from below and leaves it pasty."
+      },
+      {
+        "step": "Mix the Masa",
+        "detail": "Whisk the masa harina (1½ cups), baking powder (1 tsp) and salt (½ tsp) in a bowl. Stir in the warm broth (1¾ cups) and melted butter (6 Tbsp) to a thick, spreadable batter. Let it stand 5 minutes to hydrate.",
+        "why": "Masa harina needs a few minutes to absorb the liquid; spread right away and it weeps."
+      },
+      {
+        "step": "Assemble and Bake",
+        "detail": "Spread the filling in a 9x13-inch baking dish and scatter the Jack cheese (1½ cups) over it. Drop the masa over the cheese in spoonfuls and spread it gently to the edges. Bake 30 to 35 minutes, until the topping is set and golden at the edges. Scatter the remaining Jack (½ cup) over the top and bake 5 minutes more."
+      },
+      {
+        "step": "Rest",
+        "detail": "Let it stand 10 minutes. Serve with sour cream and pickled jalapeños."
+      }
+    ],
+    "notes": [
+      "Masa harina (such as Maseca) is shelf-stable and sits with the flour in most stores.",
+      "For more heat, add a third chipotle."
+    ],
+    "is_blank": false,
+    "description": "Chipotle-spiced beef, black beans and corn under a baked masa harina crust and melted Monterey Jack.",
+    "prepTime": "PT30M",
+    "cookTime": "PT40M",
+    "waitTime": "PT10M",
+    "waitLabel": "rest 10 min before serving",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "greek-lemon-chicken-orzo-bake",
+    "name": "Greek Lemon Chicken Orzo Bake",
+    "section": "CHEFS DRAFTS",
+    "category": "Greek",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#pasta",
+      "#oven"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb boneless skinless chicken thighs (about 8)"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp olive oil"
+      },
+      {
+        "type": "header",
+        "text": "Lemon:"
+      },
+      {
+        "type": "item",
+        "text": "2 lemons, zested and juiced (about ⅓ cup juice)"
+      },
+      {
+        "type": "header",
+        "text": "Orzo:"
+      },
+      {
+        "type": "item",
+        "text": "1 medium yellow onion, halved and thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "2 cups dry orzo"
+      },
+      {
+        "type": "item",
+        "text": "3½ cups low-sodium chicken broth, hot"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried oregano"
+      },
+      {
+        "type": "item",
+        "text": "5 oz baby spinach"
+      },
+      {
+        "type": "item",
+        "text": "1 pint cherry tomatoes"
+      },
+      {
+        "type": "item",
+        "text": "½ cup pitted kalamata olives, halved"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 cup crumbled feta cheese"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp chopped fresh parsley"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Season the Chicken",
+        "detail": "Heat the oven to 375°F. Pat the thighs (2 lb) dry and season with the salt (1 tsp), oregano (2 tsp), garlic powder (1 tsp), pepper (½ tsp) and half the lemon zest.",
+        "why": "Whole thighs, not cubes: they ride on top of the orzo and stay juicy through a bake long enough to cook the pasta, then slice at the table."
+      },
+      {
+        "step": "Sear the Chicken",
+        "detail": "Heat the olive oil (2 Tbsp) in a 12-inch skillet over medium-high until it shimmers. Sear the thighs 3 to 4 minutes per side, until browned. They will finish in the oven. Move them to a plate.",
+        "why": "Searing first gives color the covered bake cannot, and leaves browned bits that flavor the orzo."
+      },
+      {
+        "step": "Toast the Orzo",
+        "detail": "Lower the heat to medium. Cook the onion (1 medium) in the fat left in the pan 4 to 5 minutes, until soft. Add the garlic (4 cloves) and orzo (2 cups) and stir 2 minutes, until the orzo smells nutty.",
+        "why": "Toasting coats the pasta in fat and sets its surface, so it absorbs the broth evenly instead of clumping."
+      },
+      {
+        "step": "Add the Liquid",
+        "detail": "Stir in the hot broth (3½ cups), 2 Tbsp of the lemon juice and the oregano (1 tsp), scraping up the browned bits. Bring to a boil, stir in the spinach (5 oz) by handfuls until wilted, and pour it all into a 9x13-inch baking dish."
+      },
+      {
+        "step": "Bake",
+        "detail": "Scatter the cherry tomatoes (1 pint) and olives (½ cup) over the orzo and nestle in the thighs. Cover tightly with foil and bake 20 minutes. Uncover and bake 10 to 15 minutes more, until the orzo is tender, the liquid is absorbed and the thickest thigh reads 175°F."
+      },
+      {
+        "step": "Finish",
+        "detail": "Drizzle the rest of the lemon juice over the top, then scatter the feta (1 cup), parsley (2 Tbsp) and the rest of the zest. Let it stand 5 minutes before serving.",
+        "why": "Lemon juice added at the end keeps its brightness; cooked the whole time, it goes flat."
+      }
+    ],
+    "notes": [
+      "The orzo keeps absorbing liquid as it sits. Loosen leftovers with a splash of broth or water when reheating."
+    ],
+    "is_blank": false,
+    "description": "Seared oregano-lemon chicken thighs baked over orzo with spinach, cherry tomatoes and kalamata olives, finished with feta.",
+    "prepTime": "PT25M",
+    "cookTime": "PT35M",
+    "recipeYield": "6 servings"
+  },
+  {
+    "id": "thai-peanut-chicken-noodle-bake",
+    "name": "Thai Peanut Chicken Noodle Bake",
+    "section": "CHEFS DRAFTS",
+    "category": "Asian",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#thai",
+      "#noodles",
+      "#oven",
+      "#peanut-butter"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Peanut sauce:"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup natural peanut butter, stirred well"
+      },
+      {
+        "type": "item",
+        "text": "1 can (13.5 oz) coconut milk"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp rice vinegar"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp sriracha"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp fresh ginger, grated"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 cup water"
+      },
+      {
+        "type": "header",
+        "text": "Noodles and chicken:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the pasta water"
+      },
+      {
+        "type": "item",
+        "text": "1 lb linguine"
+      },
+      {
+        "type": "item",
+        "text": "1½ lb boneless skinless chicken thighs, sliced into ½-inch strips"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "1 bag (14 oz) coleslaw mix"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup roasted peanuts, chopped"
+      },
+      {
+        "type": "item",
+        "text": "3 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 lime, cut into wedges"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Make the Sauce",
+        "detail": "Heat the oven to 375°F. Whisk the peanut butter (¾ cup), coconut milk (1 can), soy sauce (⅓ cup), brown sugar (3 Tbsp), rice vinegar (3 Tbsp), sriracha (3 Tbsp), ginger (1 Tbsp), garlic (4 cloves) and water (1 cup) in a saucepan over medium-low heat, 2 to 3 minutes, until smooth.",
+        "why": "Gentle heat loosens natural peanut butter so it blends into the liquid instead of seizing into clumps."
+      },
+      {
+        "step": "Cook the Noodles",
+        "detail": "Boil the linguine (1 lb) in 4 quarts of water with the salt (1 Tbsp) 3 minutes short of the package time. Drain.",
+        "why": "The noodles finish cooking in the sauce in the oven; fully cooked first, they go soft."
+      },
+      {
+        "step": "Brown the Chicken",
+        "detail": "While the pasta cooks, heat the oil (1 Tbsp) in a 12-inch skillet over medium-high. Brown the chicken (1½ lb) in two batches, 3 to 4 minutes per batch, without stirring for the first 2 minutes. It does not need to cook through.",
+        "why": "Strips tangle with the noodles so each forkful gets some chicken; crowded into one batch they steam gray."
+      },
+      {
+        "step": "Assemble",
+        "detail": "Toss the noodles, chicken, coleslaw mix (14 oz) and sauce together in a 9x13-inch baking dish. It should look too saucy.",
+        "why": "The noodles drink up a lot of sauce in the oven; it looks right only if it starts loose."
+      },
+      {
+        "step": "Bake",
+        "detail": "Cover with foil and bake 20 minutes. Uncover, scatter the peanuts (¾ cup) over the top and bake 8 to 10 minutes more, until the edges are bubbling and the top strands are lightly crisp."
+      },
+      {
+        "step": "Serve",
+        "detail": "Top with the green onions (3) and serve with the lime wedges (1)."
+      }
+    ],
+    "notes": [
+      "No added salt beyond the pasta water: the soy sauce carries it.",
+      "The sauce thickens as it cools. Loosen leftovers with a splash of water before reheating."
+    ],
+    "is_blank": false,
+    "description": "Linguine, chicken thigh strips and cabbage baked in a spicy coconut peanut sauce, topped with roasted peanuts.",
+    "prepTime": "PT25M",
+    "cookTime": "PT30M",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "keema-shepherds-pie",
+    "name": "Keema Shepherd's Pie",
+    "section": "CHEFS DRAFTS",
+    "category": "Indian",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Keema:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground coriander"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cayenne pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp neutral oil"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "2 jalapeños, minced"
+      },
+      {
+        "type": "item",
+        "text": "4 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp fresh ginger, grated"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp tomato paste"
+      },
+      {
+        "type": "item",
+        "text": "1 cup low-sodium beef broth"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups frozen peas"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp garam masala"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lemon juice"
+      },
+      {
+        "type": "header",
+        "text": "Spiced potato topping:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb Yukon Gold potatoes, peeled and cut into 1½-inch chunks"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the potato water"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp cumin seeds"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup whole milk, warmed"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp chopped fresh cilantro"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Boil the Potatoes",
+        "detail": "Cover the potatoes (3 lb) with cold water in a large pot, add the salt (1 Tbsp) and bring to a boil. Simmer 15 to 18 minutes, until a knife slides through with no resistance. Drain and let them steam dry 2 minutes."
+      },
+      {
+        "step": "Brown the Beef",
+        "detail": "While the potatoes cook, season the raw beef (2 lb) with the salt (1 tsp), cumin (1 tsp), coriander (1 tsp), turmeric (1 tsp) and cayenne (1 tsp). Press it flat into a 12-inch skillet over medium-high and leave it 4 minutes, then flip in sections and brown 3 to 4 minutes more. Break it up and drain off all but 1 Tbsp of the fat.",
+        "why": "Ground spices on raw meat toast in its fat as it browns, which wakes them up the way frying them in oil would."
+      },
+      {
+        "step": "Build the Keema",
+        "detail": "Add the oil (1 Tbsp) and onion (1 large) and cook 6 to 7 minutes, until golden. Add the jalapeños (2), garlic (4 cloves), ginger (1 Tbsp) and tomato paste (3 Tbsp) and stir 2 minutes, until the paste darkens. Add the broth (1 cup) and simmer 8 to 10 minutes, until thick and no liquid pools. Stir in the frozen peas (1½ cups), garam masala (2 tsp) and lemon juice (1 Tbsp). Spread it in a 9x13-inch baking dish.",
+        "why": "Garam masala goes in at the end because its aroma fades with long cooking."
+      },
+      {
+        "step": "Spice the Butter",
+        "detail": "Heat the oven to 400°F. Melt the butter (6 Tbsp) in a small pan over medium heat. Add the cumin seeds (1 tsp) and cook 30 to 60 seconds, until they darken a shade and smell toasty. Off the heat, stir in the turmeric (½ tsp).",
+        "why": "Blooming whole cumin in butter carries its flavor through the whole topping."
+      },
+      {
+        "step": "Make the Topping",
+        "detail": "Mash the hot potatoes with the spiced butter, warm milk (¾ cup) and salt (1 tsp) until smooth."
+      },
+      {
+        "step": "Top and Bake",
+        "detail": "Spread the potato over the keema to the edges of the dish and rough up the surface with a fork. Bake 25 minutes, until the filling bubbles at the edges, then broil 2 to 3 minutes, watching closely, until the ridges brown. Let it stand 10 minutes, then scatter the cilantro (2 Tbsp) over the top.",
+        "why": "Sealing the potato to the edges keeps the filling from bubbling up over it; the fork ridges are what brown under the broiler."
+      }
+    ],
+    "notes": [
+      "Ground lamb works in place of the beef.",
+      "To make ahead, assemble, cover and refrigerate up to a day. Bake 40 to 45 minutes from cold, then broil."
+    ],
+    "is_blank": false,
+    "description": "Spiced Indian keema with peas under a cumin-and-turmeric potato topping, browned under the broiler.",
+    "prepTime": "PT45M",
+    "cookTime": "PT30M",
+    "waitTime": "PT10M",
+    "waitLabel": "rest 10 min before serving",
+    "recipeYield": "8 servings"
   },
   {
     "id": "quick-pickled-red-onions",
