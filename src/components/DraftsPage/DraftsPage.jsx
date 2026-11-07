@@ -12,18 +12,23 @@
 //
 // A draft opens as a full page, so Back from it returns here.
 import { useEffect } from 'react';
-import { DRAFT_ROWS, PLANNED_ROWS, categoryStyle, groupByCategory } from '../../data/catalog.js';
+import {
+  DRAFT_ROWS, PLANNED_ROWS, categoryStyle, groupByCategory, groupDraftsByCategory,
+} from '../../data/catalog.js';
 import {
   DRAFTS_INTRO, DRAFTS_SECTION, PLANNED_HEADING, PLANNED_INTRO, PLANNED_LABEL, SECTIONS,
 } from '../../data/sections.js';
 import { photoInitial } from '../../utils/recipePhoto.js';
 import { DRAFTS_DOCUMENT_TITLE, SITE_NAME } from '../../utils/siteTitle.js';
 import RecipeCard from '../RecipeCard/RecipeCard.jsx';
+// The Cookbook list's category heading (divider tab + count), reused as is.
+import listStyles from '../RecipeList/RecipeList.module.css';
 import styles from './DraftsPage.module.css';
 
 export const DRAFTS_HEADING = SECTIONS.find((s) => s.key === DRAFTS_SECTION).label;
 
 const PLANNED_GROUPS = groupByCategory(PLANNED_ROWS);
+const DRAFT_GROUPS = groupDraftsByCategory(DRAFT_ROWS);
 
 function PlannedCard({ recipe }) {
   return (
@@ -51,9 +56,26 @@ export default function DraftsPage({ onViewRecipe }) {
       </h1>
       <p className={styles.intro}>{DRAFTS_INTRO}</p>
       {DRAFT_ROWS.length ? (
-        <ul className={styles.grid}>
-          {DRAFT_ROWS.map((r) => <RecipeCard key={r.id} recipe={r} onViewRecipe={onViewRecipe} />)}
-        </ul>
+        DRAFT_GROUPS.map(({ category, rows }) => {
+          const id = `dg-${category?.id ?? 'other'}`;
+          return (
+            <section
+              key={id}
+              className={listStyles.group}
+              style={categoryStyle(category)}
+              aria-labelledby={id}
+            >
+              <div className={listStyles.groupHead}>
+                <h2 id={id}>
+                  {category?.label ?? 'Other'}<span className={listStyles.n}>{rows.length}</span>
+                </h2>
+              </div>
+              <ul className={styles.grid}>
+                {rows.map((r) => <RecipeCard key={r.id} recipe={r} onViewRecipe={onViewRecipe} />)}
+              </ul>
+            </section>
+          );
+        })
       ) : (
         <p className={styles.empty}>No drafts right now.</p>
       )}

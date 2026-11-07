@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, it, expect, vi } from 'vitest';
 import { cleanup, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CookHistoryProvider } from '../../context/CookHistoryContext.jsx';
-import { categoryOf } from '../../data/catalog.js';
+import { categoryOf, groupDraftsByCategory, DRAFT_ROWS } from '../../data/catalog.js';
 import { displayRecipes } from '../../data/recipeIndex.js';
 import {
   DRAFT_LABEL, DRAFTS_INTRO, PLANNED_INTRO, PLANNED_LABEL, isDraft,
@@ -41,6 +41,21 @@ describe('DraftsPage', () => {
       expect(screen.getByRole('link', { name: r.name }).getAttribute('href')).toBe(recipePath(r.id));
     }
     expect(screen.getAllByText(DRAFT_LABEL)).toHaveLength(drafts.length);
+  });
+
+  it('renders one heading per non-empty group, in SECTIONS order, each with its count', () => {
+    renderPage();
+    const groups = groupDraftsByCategory(DRAFT_ROWS);
+    expect(groups.length).toBeGreaterThan(0);
+    const main = screen.getByRole('main');
+    const planned = screen.getByRole('heading', { level: 2, name: /Planned/ });
+    const headings = within(main).getAllByRole('heading', { level: 2 }).filter((h) => h !== planned);
+    expect(headings.map((h) => h.textContent)).toEqual(
+      groups.map((g) => `${g.category?.label ?? 'Other'}${g.rows.length}`),
+    );
+    headings.forEach((h, i) => {
+      expect(within(h.closest('section')).getAllByText(DRAFT_LABEL)).toHaveLength(groups[i].rows.length);
+    });
   });
 
   it('shows every placeholder under Planned, after the drafts, as a card that is not a link', () => {
