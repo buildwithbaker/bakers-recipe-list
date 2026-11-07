@@ -29,6 +29,8 @@ const SECTION_DEFAULTS = {
   'MEXICAN': 4,
   'ASIAN': 4,
   'ITALIAN': 4,
+  'GREEK': 4,
+  'INDIAN': 4,
   'MIDDLE EASTERN': 4,
   'SANDWICHES': 2,
   'SIDES': 5,

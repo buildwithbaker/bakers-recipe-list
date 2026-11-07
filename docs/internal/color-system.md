@@ -51,21 +51,21 @@ paper; use `--accent-ink` for amber-coloured text.
 
 ## Category colours
 
-Seventeen categories share ten colours, per the approved SOW. Neighbours can
+Nineteen categories share ten colours, per the approved SOW. Neighbours can
 repeat, so the colour is a wayfinding cue and never the only signal: every
 category is also named in text.
 
 | Colour | Categories |
 |---|---|
 | `#8a5a00` | Breakfast, Bread |
-| `#8b3a1a` | Slow Cooker |
+| `#8b3a1a` | Slow Cooker, Indian |
 | `#56662a` | Seasonings, Sides |
 | `#9a4a12` | Doughs, Snacks |
 | `#1f3a5f` | American |
 | `#a63d24` | Mexican, Italian |
 | `#1d6663` | Asian |
 | `#6b3a5e` | Middle Eastern, Desserts |
-| `#3e4f7a` | Sandwiches, Soups |
+| `#3e4f7a` | Sandwiches, Soups, Greek |
 | `#46644f` | Marinades, Smoothies |
 
 Each colour gets two tints, **mixed in JavaScript** (`src/utils/colour.js`) and

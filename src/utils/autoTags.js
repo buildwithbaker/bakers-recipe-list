@@ -20,6 +20,8 @@ const CATEGORY_TAG_MAP = {
   'Mexican':                      ['#mexican'],
   'Asian':                        ['#asian'],
   'Italian':                      ['#italian'],
+  'Greek':                        ['#greek'],
+  'Indian':                       ['#indian'],
   'Middle Eastern':               ['#middle-eastern'],
   'Breakfast':                    ['#breakfast'],
   'Slow Cooker':                  ['#slow-cooker'],
