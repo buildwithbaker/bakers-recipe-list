@@ -19,6 +19,8 @@ import { useEffect, useRef, useState } from 'react';
 import { ROWS, isWritten } from '../../data/catalog.js';
 import { BASE_PATH, aboutPath } from '../../utils/recipeRoute.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
+import { useToast } from '../../hooks/useToast.jsx';
+import { shareLink } from '../../utils/shareLink.js';
 import Icon from '../Icon/Icon.jsx';
 import styles from './Masthead.module.css';
 
@@ -28,12 +30,13 @@ const plural = (n, word) => `${n} ${word}${n === 1 ? '' : 's'}`;
 export const COOKBOOK_COUNT = ROWS.filter(isWritten).length;
 const TAGLINE = plural(COOKBOOK_COUNT, 'recipe');
 
-export default function Masthead({ nav, onAbout, aboutCurrent = false, siteTitleIsHeading = true, slim = false, onHome }) {
+export default function Masthead({ nav, onAbout, aboutCurrent = false, siteTitleIsHeading = true, slim = false, onHome, showShare = true }) {
   const Title = siteTitleIsHeading ? 'h1' : 'p';
   const word = <>Baker’s <span className={styles.accent}>Recipe</span> List</>;
   const headerRef = useRef(null);
   const footRef = useRef(null);
   const [stuck, setStuck] = useState(false);
+  const [toastNode, toast] = useToast();
 
   // Stuck once the foot is entirely behind the header.
   useEffect(() => {
@@ -68,6 +71,22 @@ export default function Masthead({ nav, onAbout, aboutCurrent = false, siteTitle
             ) : word}
           </Title>
           {nav}
+          {showShare && (
+            <button
+              type="button"
+              className={styles.share}
+              aria-label="Share Baker's Recipe List"
+              title="Share Baker's Recipe List"
+              onClick={() => shareLink({
+                title: "Baker's Recipe List",
+                // Always the site home, never the current page (About, Drafts).
+                url: `${window.location.origin}${BASE_PATH}`,
+                toast,
+              })}
+            >
+              <Icon name="share" />
+            </button>
+          )}
           <a
             className={styles.about}
             href={aboutPath()}
@@ -86,6 +105,7 @@ export default function Masthead({ nav, onAbout, aboutCurrent = false, siteTitle
       <div ref={footRef} className={`${styles.foot} ${slim ? styles.slim : ''}`}>
         {!slim && <p className={`wrap ${styles.tagline}`}>{TAGLINE}</p>}
       </div>
+      {showShare && toastNode}
     </>
   );
 }

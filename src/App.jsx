@@ -503,6 +503,7 @@ function AppInner() {
         siteTitleIsHeading={!fullPage && !aboutView && !draftsView}
         slim={fullPage || pinnedView || aboutView || draftsView}
         onHome={fullPage || aboutView || draftsView ? goToList : undefined}
+        showShare={!fullPage}
       />
       {aboutView ? (
         <ErrorBoundary key="__about__">
