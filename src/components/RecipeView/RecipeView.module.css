@@ -690,26 +690,6 @@ h2.title {
   margin: 0 var(--s4) var(--s4);
 }
 
-/* ---------- Toast ---------- */
-.toastSlot {
-  position: fixed;
-  left: 50%;
-  bottom: calc(var(--s4) + max(var(--tabbar-space), env(safe-area-inset-bottom)));
-  z-index: 700;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
-.toast {
-  max-width: calc(100vw - 2 * var(--s4));
-  padding: var(--s2) var(--s4);
-  border-radius: 999px;
-  background: var(--ink);
-  color: #fff;
-  font-size: var(--t-sm);
-  box-shadow: var(--shadow-3);
-}
-
 /* ---------- Wide: ingredients beside the method, and they stay put ---------- */
 @container (min-width: 760px) {
   .columns {

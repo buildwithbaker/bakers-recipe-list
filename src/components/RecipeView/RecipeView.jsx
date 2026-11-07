@@ -6,7 +6,7 @@
 // renders it at /r/<slug>/ for someone who arrived from a shared link. They are
 // the same route, so a second renderer would be a second thing to keep correct
 // — which is exactly how a card and its page drift apart.
-import { Component, lazy, Suspense, useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { Component, lazy, Suspense, useEffect, useId, useMemo, useRef, useState } from 'react';
 import styles from './RecipeView.module.css';
 import { estimateServings } from '../../utils/estimateServings.js';
 import { yieldLabel } from '../../utils/authoredYield.js';
@@ -14,6 +14,8 @@ import { useMacroEstimate } from '../../hooks/useMacroEstimate.js';
 import { scaleIngredientText } from '../../utils/scaleIngredient.js';
 import { useCookHistoryContext } from '../../context/CookHistoryContext.jsx';
 import { getEffectiveTags } from '../../utils/autoTags.js';
+import { useToast } from '../../hooks/useToast.jsx';
+import { shareLink } from '../../utils/shareLink.js';
 import { useWakeLock } from '../../hooks/useWakeLock.js';
 import { useIngredientTicks } from '../../hooks/useIngredientTicks.js';
 import { cookModeMessage } from '../../utils/screenLock.js';
@@ -51,28 +53,6 @@ function formatDate(iso) {
   try {
     return new Date(iso).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
   } catch { return ''; }
-}
-
-// ---------------------------------------------------------------------------
-// Toast: one short line at the bottom of the screen, read out by a screen
-// reader (role="status"), gone after a few seconds.
-// ---------------------------------------------------------------------------
-
-function useToast() {
-  const [message, setMessage] = useState('');
-  const timer = useRef(null);
-  const show = useCallback((text) => {
-    clearTimeout(timer.current);
-    setMessage(text);
-    timer.current = setTimeout(() => setMessage(''), 2600);
-  }, []);
-  useEffect(() => () => clearTimeout(timer.current), []);
-  const node = (
-    <div className={styles.toastSlot} role="status" aria-live="polite">
-      {message && <div className={styles.toast}>{message}</div>}
-    </div>
-  );
-  return [node, show];
 }
 
 // ---------------------------------------------------------------------------
@@ -461,13 +441,7 @@ export default function RecipeView({
     // the one URL with a prerendered file behind it, so a link preview shows
     // this recipe and not the generic shell.
     const url = `${window.location.origin}${recipePath(recipe.id)}`;
-    if (navigator.share) {
-      navigator.share({ title: recipe.name, url }).catch(() => {});
-    } else {
-      navigator.clipboard?.writeText(url)
-        .then(() => toast('Link copied'))
-        .catch(() => toast('Could not copy the link'));
-    }
+    shareLink({ title: recipe.name, url, toast });
   };
 
   // In-page jump that does not touch the URL: the path is the route, and a
