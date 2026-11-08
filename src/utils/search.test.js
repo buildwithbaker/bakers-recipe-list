@@ -79,10 +79,9 @@ describe('search: modes', () => {
     'California Burgers with Special Sauce',
     'Quick Pickled Red Onions',
     'Sheet Pan Chicken Shawarma Breasts',
-    'Quinoa',
   ];
 
-  it('"red onion" finds the 6 recipes that use it, 2 of them drafts, in Ingredient and All mode', () => {
+  it('"red onion" finds the 5 recipes that use it, 2 of them drafts, in Ingredient and All mode', () => {
     for (const mode of [INGREDIENT, ALL]) {
       const res = searchCatalog(SEARCHED, 'red onion', mode);
       expect(names(res).sort()).toEqual([...RED_ONION].sort());

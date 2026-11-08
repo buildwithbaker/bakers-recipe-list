@@ -37,6 +37,7 @@ writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify([{
   is_blank: false,
 }]));
 writeFileSync(join(root, 'src', 'data', 'techniques.json'), '[]');
+writeFileSync(join(root, 'src', 'data', 'mealSets.json'), '[]');
 writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify({
   ids: { 'only-recipe': 'Only Recipe' }, renamed: {}, removed: {},
 }));

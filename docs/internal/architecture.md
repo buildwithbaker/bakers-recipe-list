@@ -29,8 +29,8 @@ there.
 Features: one search (names, ingredients, tags; Name / Ingredient / All) · the Cookbook narrowed by
 category chips (§3a) · a recipe card *and* a full page for every recipe, on
 one URL · serving scaler · USDA macro estimates · shopping list · cook log ·
-pinned + recently viewed · print · cook mode (screen wake lock) · related
-recipes · prerendered per-recipe pages with Open Graph metadata, `Recipe`
+pinned + recently viewed · print · cook mode (screen wake lock) · meal sets
+("Make it a meal") · prerendered per-recipe pages with Open Graph metadata, `Recipe`
 JSON-LD, and a no-JavaScript fallback. Light theme only, by decision; the
 colours are role-named tokens so a dark block could be added later.
 
@@ -125,8 +125,7 @@ Chef's Drafts (`section: "CHEFS DRAFTS"`, `isDraft` in `sections.js`) are
 recipes built but not cooked yet, kept for Adam's own reference. They are **not
 part of the Cookbook**: `catalog.js` `ROWS` leaves them out, so the list, its
 chips and counts and the Filters sheet never show one, and
-`recipeIndex.js` `cookbookRecipes` keeps them out of related recipes (app and
-prerender). Search is the exception: it finds drafts too (see §3a), each card
+`recipeIndex.js` `cookbookRecipes` is the Cookbook without them. Search is the exception: it finds drafts too (see §3a), each card
 wearing its draft pill. Recently viewed skips them; Pinned, the shopping list and the cook
 log keep a draft Adam put there.
 
@@ -361,12 +360,11 @@ not render — they got a blank page.
 
 So each prerendered file also carries the recipe as plain semantic HTML inside
 `<noscript>`, injected **before** `<div id="root">`: an `h1`, the description,
-the ingredients, the numbered method, and the related recipes as **real
+the ingredients, the numbered method, and the recipe's meal-set members as **real
 anchors** to their `/r/<slug>/` URLs.
 
-The related list is computed by importing the *same* `src/utils/relatedRecipes.js`
-the app uses. **Never reimplement it in the script.** Two copies of that ranking
-will drift, and the fallback agreeing with what the app shows is the whole point.
+The meal-set links come from the same `src/data/mealSets.json` the app reads
+(§7). Never write a second list in the script.
 
 The anchors matter as much as the recipe text: without them the prerendered
 pages are orphans with no path between them. With them, the same fallback that
@@ -396,98 +394,33 @@ found the `innerText` behaviour and want to fix it: don't.
 
 ---
 
-## 7. Related recipes
+## 7. Meal sets ("Make it a meal")
 
-`src/utils/relatedRecipes.js`, rendered by `RelatedRecipes` on the **full page
-only** — in a modal, the whole list is already sitting behind the card.
-`scripts/prerender.mjs` imports the same module for the `<noscript>` links, so
-the two can never disagree. Do not fork the logic. The app shows them as
-recipe cards under **"More like this"**, not "More <category>": the ranking
-crosses sections on purpose, so each card names its own category.
+Hand-picked "goes with" groups, in `src/data/mealSets.json`: an array of
+`{ id, name, recipes: [recipe id, ...] }`. This replaced the ingredient-overlap
+"More like this" list (removed with `relatedRecipes.js`).
 
-Scored on **ingredient overlap**, not tags. Each `type: "item"` line is
-lowercased, its parentheticals dropped, non-alpha stripped, and split on
-whitespace; tokens shorter than `TOKEN_MIN_LENGTH` (3) or present in
-`STOPWORDS` are discarded. A candidate scores the sum of `log(N / df)` over the
-tokens it shares, so `gochujang` counts for far more than `garlic`. Tokenised
-once per candidate list and cached by the array itself.
+- **Symmetric by construction.** Every recipe in a set links to every other
+  member. A recipe may be in several sets; its page then shows one block per set.
+  A recipe in no set shows nothing.
+- **`src/utils/mealSets.js`** reads the file: `mealBlocksFor(id)` (the other
+  members, set order), `linkTargetsFor(id)` and `linkIngredientText` (below).
+- **Validated at build** by `scripts/validate-recipes.mjs` (tests in
+  `validateRecipes.test.js`): a set id must be unique and kebab-case, a set needs
+  at least 2 recipes, no repeated recipe id in a set, and every member must exist
+  in `recipes.json` and not be `is_blank`. Failures are errors, never skipped.
+- **`MealSets`** (components/MealSets) renders it on the **full page only**, in
+  RecipePage's footer slot: h2 "Make it a meal", the line "<set name> · N recipes
+  made to go together", then the other members as `RecipeCard` (`showCategory`),
+  real `<a href>` links. The modal does not show it.
+- **Ingredient-line links** (RecipeView, page and modal): an ingredient whose text
+  contains the exact name of another recipe in one of the current recipe's sets
+  (case-insensitive, whole word) shows that name as a link. Display only: the
+  ingredient data, shopping list, macro parsing and PDF card are untouched.
+- **Prerender** writes the same blocks into each page's `<noscript>` as real
+  anchors under "Make it a meal".
 
-The rules:
-
-1. **Rarity weighting**, as above. The principle is inherited from the tag
-   version; the vocabulary is what changed.
-2. **A minimum score.** `MIN_SCORE` (10) — see below, it is not independent of
-   the stoplist.
-3. **Blanks never appear.** A "coming soon" placeholder has nothing to show.
-   (Until 2026-10-02 version rows of one record were "siblings" that skipped
-   scoring; the For Review collection that produced them is gone, and so is
-   that rule.)
-4. **No section rule of any kind.** Deliberate, and measured both ways. The old
-   tag version *excluded* a recipe's own section to break the section-listing
-   effect; ingredients do not have that failure, and the exclusion would discard
-   the single best result in the catalog — Beef Stew and Pork Stew are the same
-   dish with a different protein, and share a section. A same-section *bonus*
-   was tested at +2 and +4: it pushed same-section results from 33% to 49% and
-   64% while leaving the lists no better, and at +4 promoted a section-mate
-   above a cross-protein match. Neither direction earns its place.
-
-Capped at `RELATED_LIMIT` (6). Renders **nothing at all** when nothing clears
-the floor — an unrelated recipe presented as related is worse than an absent
-heading.
-
-### Why not tags
-
-Worth knowing, because "just use the tags" is the obvious first idea and it was
-tried. There are ~68 tags; roughly half sit on exactly one recipe and so can
-never be *shared*, leaving an effective vocabulary of about 31, dominated by
-`#marinade`, `#for-review` and `#chicken`. A scoring function can only re-rank
-candidates whose shared sets *differ* — and every chicken marinade carries the
-identical four tags, so file order silently picked the results. Ingredients give
-several hundred tokens over the same catalog and describe the food rather than
-the drawer it lives in.
-
-Tags are still right for what they do: the tag chips, and search. They are not a
-similarity signal and no amount of scoring makes them one.
-
-### STOPWORDS is load-bearing, and it drifts silently
-
-**This is the maintenance hazard in this feature.** The stoplist will need to
-grow as recipes are added, and the failure mode makes no noise: nothing throws,
-no test goes red, the lists just get quietly slightly wrong.
-
-**The failure signature**, so it is recognisable: two recipes that share nothing
-a cook would call related, scoring *high*, on a token that is rare in the
-catalog and says nothing about the dish. Rare and contentless is the worst
-combination there is here, because the rarity weighting hands exactly those
-tokens the top score.
-
-**The worked example**, found while tuning this: `diamond`, `crystal` and
-`morton` — salt brands. Each appeared on two recipes, so each scored at the very
-top of the range, and Pepperoncini Beef's best match was
-`crystal(4.7) diamond(4.7) morton(4.0) reserved(4.0)` — nine points for two
-recipes agreeing about which salt to buy, plus a prep verb from "reserved pasta
-water". Note that raising the threshold would have made this **worse**: the junk
-outscored the genuine matches.
-
-**The rule.** A token naming a producer, a package, a grade or a preparation
-goes in `STOPWORDS`. Then **re-sweep `MIN_SCORE`** — the tokeniser, the stoplist
-and the threshold move together and are not independent choices. The stoplist
-is grouped by the failure each block prevents; keep it that way, or it becomes
-a junk drawer nobody can review.
-
-**`MIN_SCORE` is the second line of defence.** The most a single shared token
-can be worth is `log(216/2) = 4.68`, since a token on one recipe can never be
-shared. So at 10, one rare token cannot clear the floor alone — and neither can
-two (9.36). It takes three. That is deliberate: a single leaked brand word
-cannot by itself surface an unrelated pair, which buys time to notice a stoplist
-gap before it does damage. It also means lowering `MIN_SCORE` weakens the
-stoplist, and vice versa.
-
-The threshold was chosen by sweeping 0–15 and **reading the resulting lists**,
-not by reading the aggregate metrics, which barely move below 8. Ten is the
-first value at which spice-rack matches disappear — candidates sharing only
-`chili`, `cumin`, `paprika`, `powder`, `garlic` — and the last before genuine
-cross-protein matches start dropping.
+To add a set, add an entry to `mealSets.json` and run `npm run validate:recipes`.
 
 ---
 
@@ -499,12 +432,11 @@ subtitle at all rather than a placeholder that says nothing.
 
 Everything on a **shared** surface goes through it:
 
-- the related-recipe card subtitle in `RelatedRecipes`
+- the meal-set card subtitle in `MealSets`
 - `recipeCategory` in the prerendered `Recipe` JSON-LD, omitted when null
 
 **Never render `recipe.category` to a reader.** Use the section's label. Its
-only legitimate runtime use is the `sameCategory` tie-break in
-`relatedRecipes.js`, which compares without displaying. (This rule was written
+only legitimate runtime use is comparing without displaying. (This rule was written
 when For Review records carried the staging value "For Review" in `category`;
 that collection was removed on 2026-10-02, and the rule stays.)
 
@@ -595,8 +527,8 @@ src/
   components/
     RecipeView/             ★ THE recipe body — used by BOTH frames
     RecipeModal/            modal chrome only: backdrop, dialog, close, open-full-page
-    RecipePage/             full-page frame: back link, card, related recipes
-    RelatedRecipes/         "More like this": cross-section related cards, real <a href> links
+    RecipePage/             full-page frame: back link, card, meal sets
+    MealSets/               "Make it a meal": the hand-picked set members, real <a href> links
     RecipeList/             the browser: category chips, filters, groups
     RecipeCard/ SearchResults/ Highlight/ Icon/
     FiltersSheet/ Shelves/
@@ -630,7 +562,7 @@ src/
     navHistory.js           tab + layer history rules, injectable history (tested)
     colour.js               tint mixing + WCAG contrast for the category palette
     search.js               one search across the Cookbook + drafts (Name / Ingredient / All)
-    relatedRecipes.js       the related ranking (also imported by prerender.mjs)
+    mealSets.js             meal-set lookups + ingredient-line links (data: mealSets.json)
     screenLock.js           wake-lock lifecycle, injectable nav/doc so it is testable
     autoTags.js             derived tags from category + ingredients, and #new from added
     parseIngredient / convertToGrams / fractions / scaleIngredient /
@@ -764,8 +696,8 @@ drift.
 
 **Change the recipe body** → `RecipeView`. Not the modal, not the page.
 
-**Change the related ranking** → `relatedRecipes.js` only. `prerender.mjs`
-imports it; do not fork the logic.
+**Add or change a meal set** → `src/data/mealSets.json` only; the validator
+checks it and `prerender.mjs` reads the same file.
 
 **Add persistent UI state** → a hook under `src/hooks/`, `localStorage`-backed,
 keyed by **id**.

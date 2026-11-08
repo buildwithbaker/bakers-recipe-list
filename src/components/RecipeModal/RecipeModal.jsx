@@ -11,7 +11,7 @@ import RecipeView from '../RecipeView/RecipeView.jsx';
 import Icon from '../Icon/Icon.jsx';
 import { useFocusTrap } from '../../hooks/useFocusTrap.js';
 
-export default function RecipeModal({ recipe, onClose, onOpenFullPage, onTagClick, onAddToList, onAbout, onLearn }) {
+export default function RecipeModal({ recipe, onClose, onOpenFullPage, onTagClick, onAddToList, onAbout, onLearn, onViewRecipe }) {
   const titleId = useId();
   const modalCardRef = useRef(null);
   const closeRef = useRef(null);
@@ -57,6 +57,7 @@ export default function RecipeModal({ recipe, onClose, onOpenFullPage, onTagClic
           onTagClick={onTagClick}
           onAbout={onAbout}
           onLearn={onLearn}
+          onViewRecipe={onViewRecipe}
           onAddToList={onAddToList}
           headingLevel={2}
           barEnd={

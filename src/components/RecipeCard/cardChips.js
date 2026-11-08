@@ -8,7 +8,7 @@ import { CARD_FACETS, facetOf } from '../../data/tagFacets.js';
 export const MAX_CHIPS = 3;
 
 // "Slow Cooker" -> "#slow-cooker", to compare a label with a tag.
-const asTag = (label) => `#${label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+export const asTag = (label) => `#${label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 
 /** "#one-pan" -> "One pan". */
 export function chipLabel(tag) {

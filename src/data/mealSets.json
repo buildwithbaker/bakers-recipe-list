@@ -1,0 +1,5 @@
+[
+  { "id": "shawarma-wrap-night", "name": "Shawarma wrap night", "recipes": ["sheet-pan-chicken-shawarma-breasts", "quinoa", "smashed-spiced-cucumbers-mint", "quick-pickled-red-onions"] },
+  { "id": "blackened-chicken-dinner", "name": "Blackened chicken dinner", "recipes": ["cajun-blackened-chicken-cutlets", "smoky-rice-and-red-beans"] },
+  { "id": "lebanese-kafta-dinner", "name": "Lebanese kafta dinner", "recipes": ["lebanese-kafta-ground-beef-skewers", "lebanese-cucumber-salad", "lebanese-potato-salad"] }
+]

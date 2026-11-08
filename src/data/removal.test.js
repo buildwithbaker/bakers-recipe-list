@@ -257,6 +257,7 @@ function prerenderFixture() {
   ];
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
   writeFileSync(join(root, 'src', 'data', 'techniques.json'), '[]');
+  writeFileSync(join(root, 'src', 'data', 'mealSets.json'), '[]');
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(MANIFEST, null, 2));
   return root;
 }

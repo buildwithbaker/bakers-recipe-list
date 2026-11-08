@@ -5442,7 +5442,7 @@
       },
       {
         "type": "header",
-        "text": "To serve:"
+        "text": "To build wraps:"
       },
       {
         "type": "item",
@@ -5450,7 +5450,15 @@
       },
       {
         "type": "item",
-        "text": "Pickled red onions"
+        "text": "1 cup shredded romaine"
+      },
+      {
+        "type": "item",
+        "text": "Smashed Spiced Cucumbers with Mint, drained"
+      },
+      {
+        "type": "item",
+        "text": "Quick Pickled Red Onions"
       }
     ],
     "instructions": [
@@ -5481,16 +5489,22 @@
       },
       {
         "step": "Rest and Slice",
-        "detail": "Rest the chicken 5 minutes, uncovered, then slice it across the grain. Serve with the garlic yogurt sauce, the naan and the pickled red onions.",
+        "detail": "Rest the chicken 5 minutes, uncovered, then slice it across the grain.",
         "why": "Carryover heat brings it to about 160 to 162°F while it rests."
+      },
+      {
+        "step": "Build the Wraps",
+        "detail": "Spread a spoonful of the garlic yogurt sauce on each warm naan. Layer on the romaine (1 cup), the sliced chicken, the Smashed Spiced Cucumbers with Mint and the Quick Pickled Red Onions. Serve the rest of the sauce on the side.",
+        "why": "Drain the cucumbers well first. Their oil and lemon soak through naan fast."
       }
     ],
     "notes": [
       "USDA's number for chicken is 165°F. Holding 160°F for about 15 seconds kills bacteria just as well. If you'd rather see 165°F on the thermometer, pull at 160°F.",
-      "The cutlets from the thin tail end cook fastest: start checking them at 8 minutes."
+      "The cutlets from the thin tail end cook fastest: start checking them at 8 minutes.",
+      "Start the Quick Pickled Red Onions when the chicken goes into the marinade; they need about 1½ hours. Start the cucumbers when the oven goes on."
     ],
     "is_blank": false,
-    "description": "Chicken breasts cut into cutlets, marinated in yogurt, lemon, garlic and warm spices, roasted at 425°F, charred under the broiler and served with garlic yogurt sauce.",
+    "description": "Chicken breasts cut into cutlets, marinated in yogurt, lemon, garlic and warm spices, roasted at 425°F, charred under the broiler and served in naan wraps with garlic yogurt sauce.",
     "added": "2026-11-08",
     "prepTime": "PT20M",
     "cookTime": "PT20M",
@@ -5891,7 +5905,7 @@
   },
   {
     "id": "quinoa",
-    "name": "Quinoa",
+    "name": "Lemon-Herb Quinoa with Feta",
     "section": "SIDES",
     "category": "Sides",
     "source": "Original",
@@ -5967,26 +5981,6 @@
       {
         "type": "item",
         "text": "¼ cup crumbled feta"
-      },
-      {
-        "type": "header",
-        "text": "To build a wrap (optional):"
-      },
-      {
-        "type": "item",
-        "text": "Warm naan or flatbread"
-      },
-      {
-        "type": "item",
-        "text": "1 cup shredded romaine"
-      },
-      {
-        "type": "item",
-        "text": "½ cucumber, sliced thin"
-      },
-      {
-        "type": "item",
-        "text": "Pickled red onions"
       }
     ],
     "instructions": [
@@ -6018,10 +6012,6 @@
         "step": "Finish",
         "detail": "Let it cool 5 minutes, then fold in the parsley (¼ cup), green onions (2) and feta (¼ cup).",
         "why": "A short cool keeps the herbs bright and the feta in crumbles instead of melting."
-      },
-      {
-        "step": "Build a Wrap",
-        "detail": "Optional: warm the naan, then layer the romaine (1 cup), a scoop of quinoa, the cucumber (½, sliced thin) and the pickled red onions."
       }
     ],
     "notes": [
@@ -6029,7 +6019,7 @@
       "Using water instead of broth: add another ⅛ tsp table salt to the pot."
     ],
     "is_blank": false,
-    "description": "Toasted quinoa cooked in broth, dressed warm with lemon, garlic and cumin, and finished with parsley, green onion and feta. Works as a side or a wrap filling.",
+    "description": "Toasted quinoa cooked in broth, dressed warm with lemon, garlic and cumin, and finished with parsley, green onion and feta.",
     "added": "2026-11-08",
     "prepTime": "PT10M",
     "cookTime": "PT20M",

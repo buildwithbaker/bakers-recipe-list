@@ -43,6 +43,7 @@ const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'ut
 const techniques = JSON.parse(readFileSync(join(root, 'src/data/techniques.json'), 'utf8'));
 const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json'), 'utf8'));
 const baselineFile = JSON.parse(readFileSync(join(root, 'src/data/cookbookBaseline.json'), 'utf8'));
+const mealSets = JSON.parse(readFileSync(join(root, 'src/data/mealSets.json'), 'utf8'));
 
 // The Cookbook baseline (src/data/cookbookBaseline.json) is the set of written
 // Cookbook recipes that were live before the `added` field existed. It is
@@ -597,6 +598,43 @@ if (dups.length) {
     `${dups.length} duplicate recipe name(s): ` +
       dups.map(([n, c]) => `"${n}" (×${c})`).join(', '),
   );
+}
+
+// ---------------------------------------------------------------------------
+// Meal sets (src/data/mealSets.json): hand-picked "goes with" groups. Every
+// failure is loud: a set that is malformed, or that names a recipe which is
+// missing or a blank placeholder, fails the build.
+// ---------------------------------------------------------------------------
+{
+  const KEBAB = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+  const recipeById = new Map(recipes.map((r) => [r.id, r]));
+  if (!Array.isArray(mealSets)) {
+    errors.push('mealSets.json must be an array of { id, name, recipes }');
+  } else {
+    const seenSetIds = new Set();
+    mealSets.forEach((set, i) => {
+      const at = `mealSets.json[${i}]${typeof set?.id === 'string' ? ` ("${set.id}")` : ''}`;
+      if (!set || typeof set !== 'object' || Array.isArray(set)) { errors.push(`${at} must be an object`); return; }
+      if (typeof set.id !== 'string' || !KEBAB.test(set.id)) {
+        errors.push(`${at} id must be kebab-case (lowercase letters, digits, single dashes)`);
+      } else if (seenSetIds.has(set.id)) {
+        errors.push(`${at} duplicate meal set id "${set.id}"`);
+      } else {
+        seenSetIds.add(set.id);
+      }
+      if (typeof set.name !== 'string' || !set.name.trim()) errors.push(`${at} name must be a non-empty string`);
+      if (!Array.isArray(set.recipes)) { errors.push(`${at} recipes must be an array of recipe ids`); return; }
+      if (set.recipes.length < 2) errors.push(`${at} must list at least 2 recipes (has ${set.recipes.length})`);
+      const inSet = new Set();
+      for (const rid of set.recipes) {
+        if (inSet.has(rid)) errors.push(`${at} lists recipe id "${rid}" more than once`);
+        inSet.add(rid);
+        const rec = recipeById.get(rid);
+        if (!rec) errors.push(`${at} recipe id "${rid}" is not in recipes.json`);
+        else if (rec.is_blank) errors.push(`${at} recipe id "${rid}" is a blank placeholder (is_blank)`);
+      }
+    });
+  }
 }
 
 if (errors.length) {

@@ -1,6 +1,6 @@
 // The recipe itself: a header band in the category colour, the actions a cook
 // reaches for, ingredients you can tick off, the numbered method, and below
-// those the tags, nutrition estimate and your own notes.
+// those the nutrition estimate and your own notes.
 //
 // ONE component, TWO frames. RecipeModal renders it over the list; RecipePage
 // renders it at /r/<slug>/ for someone who arrived from a shared link. They are
@@ -26,7 +26,9 @@ import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
 import { CAPTION_LINK_TEXT, photoCaptionFor } from '../../utils/photoCaption.js';
 import { DRAFT_LABEL, isDraft } from '../../data/sections.js';
-import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
+import { linkIngredientText, linkTargetsFor } from '../../utils/mealSets.js';
+import { asTag, chipLabel } from '../RecipeCard/cardChips.js';
+import { formatMinutes, isoToMinutes, recipeTimes } from '../../utils/isoDuration.js';
 import { gatherWhyNotes, hasWhy, stepNumbers } from '../../utils/whyNotes.js';
 import { hasStepAmounts, stripStepAmounts } from '../../utils/stepAmounts.js';
 import { techniquesById } from '../../data/techniqueIndex.js';
@@ -36,6 +38,7 @@ import TechniqueSheet from '../TechniqueSheet/TechniqueSheet.jsx';
 import { loadDisplaySettings, saveDisplaySetting } from '../../utils/displaySettings.js';
 import DisplaySettings from '../DisplaySettings/DisplaySettings.jsx';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
+import { recipesById } from '../../data/recipeIndex.js';
 import { domainOf } from '../../utils/domainOf.js';
 import AiBadge from '../AiBadge/AiBadge.jsx';
 import Icon from '../Icon/Icon.jsx';
@@ -64,7 +67,15 @@ function formatDate(iso) {
 // Ingredients
 // ---------------------------------------------------------------------------
 
-function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp, onAddToList, onListModeChange, Heading, toast }) {
+// Hourglass for the Plan ahead chip. Decorative: the words carry it.
+const hourglass = (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
+    <path d="M7 3h10M7 21h10M8 3c0 5 8 5 8 9s-8 4-8 9M16 3c0 5-8 5-8 9" />
+  </svg>
+);
+
+function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp, onAddToList, onListModeChange, onViewRecipe, Heading, toast }) {
+  const linkTargets = useMemo(() => linkTargetsFor(recipeId), [recipeId]);
   const [ticks, toggleTick, clearTicks] = useIngredientTicks(recipeId);
   const [selecting, setSelecting] = useState(false);
   const [selected, setSelected] = useState(() => new Set());
@@ -141,7 +152,19 @@ function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp,
             <li key={i}>
               <label className={styles.check}>
                 <input type="checkbox" checked={checked.has(i)} onChange={() => onCheck(i)} />
-                <span>{lineText(ing)}</span>
+                <span>
+                  {linkIngredientText(lineText(ing), linkTargets).map((part, k) => (part.id ? (
+                    <a
+                      key={k}
+                      href={recipePath(part.id)}
+                      onClick={(e) => {
+                        if (isModifiedClick(e) || !onViewRecipe) return;
+                        e.preventDefault();
+                        onViewRecipe(recipesById.get(part.id));
+                      }}
+                    >{part.text}</a>
+                  ) : part.text))}
+                </span>
               </label>
             </li>
           );
@@ -342,7 +365,9 @@ function CookLogSection({ recipeId, Heading }) {
  *                     "Open full page" and Close)
  * @param onTagClick   tag -> search the list
  * @param onAddToList  (recipeId, items, scale) -> shopping list; omit to hide
- * @param footer       extra content after the notes (the page's related recipes)
+ * @param footer       extra content after the notes (the page's "Make it a meal")
+ * @param onViewRecipe (recipe) -> another recipe, from a linked ingredient line;
+ *                     the link is a real <a href> and falls back to it without this
  * @param onAbout      (hash) -> the About page in-app; the AI photo caption
  *                     links to about/#photos and falls back to a plain
  *                     navigation without it
@@ -352,7 +377,7 @@ function CookLogSection({ recipeId, Heading }) {
  */
 export default function RecipeView({
   recipe, titleId, headingLevel = 2, barStart = null, barEnd = null,
-  onTagClick, onAddToList, footer = null, onAbout, onLearn,
+  onTagClick, onAddToList, footer = null, onAbout, onLearn, onViewRecipe,
 }) {
   const [scale, setScale] = useState(1);
   const [listSelecting, setListSelecting] = useState(false);
@@ -410,7 +435,12 @@ export default function RecipeView({
   const methodId = `${localId}-method`;
   const TitleTag = headingLevel === 1 ? 'h1' : 'h2';
   const Heading = headingLevel === 1 ? 'h2' : 'h3';
-  const tags = getEffectiveTags(recipe);
+  // Effective tags, minus any that only repeats the category label (the same
+  // rule the list cards use).
+  const repeat = category ? asTag(category.label) : null;
+  const tags = getEffectiveTags(recipe).filter((t) => t !== repeat);
+  const times = recipeTimes(recipe);
+  const wait = isoToMinutes(recipe.waitTime);
   const hasSource = recipe.source && recipe.source !== 'Original';
 
   const scaleIdx = SCALE_STEPS.indexOf(scale);
@@ -484,16 +514,38 @@ export default function RecipeView({
           <div className={styles.headText}>
             {/* The reader-facing category, never the staging state: this page
                 is what a shared link opens (architecture.md §8). */}
-            {category && <p className={styles.kicker}>{category.label}</p>}
+            {/* One wrapping row above the title: the category first (a plain
+                label: the main page has no category route to link to), then
+                the tags, each a search. */}
+            {(category || tags.length > 0) && (
+              <div className={styles.pills} role="group" aria-label="Category and tags">
+                {category && <span className={styles.kicker}>{category.label}</span>}
+                {tags.map((tag) => (
+                  <button key={tag} type="button" className={styles.tag} onClick={() => onTagClick?.(tag)} data-print-hide>
+                    {chipLabel(tag)}
+                  </button>
+                ))}
+              </div>
+            )}
             <TitleTag id={titleId} ref={titleRef} className={styles.title}>{recipe.name}</TitleTag>
             {/* A Chef's Draft says so right under its name: it has not been cooked yet. */}
             {isDraft(recipe) && <p className={styles.draftLabel}>{DRAFT_LABEL}</p>}
             {!recipe.is_blank && (
               <p className={styles.facts}>
-                <span><b>{ingredientCount(recipe)}</b> ingredients</span>
-                <a href={`#${methodId}`} onClick={jumpToMethod} data-print-hide>
-                  <b>{stepCount(recipe)}</b> steps · jump to method
-                </a>
+                {times && (
+                  <span className={styles.time}>
+                    <Icon name="clock" size={18} />
+                    <b>{formatMinutes(times.ready)}</b>
+                    <span className={styles.handsOn}>{` · ${formatMinutes(times.handsOn)} hands-on`}</span>
+                  </span>
+                )}
+                {wait > 0 && (
+                  <span className={styles.plan}>
+                    {hourglass}
+                    <span>{`Plan ahead: ${recipe.waitLabel || formatMinutes(wait)}`}</span>
+                  </span>
+                )}
+                <a href={`#${methodId}`} onClick={jumpToMethod} data-print-hide>Jump to method</a>
                 <span>
                   Source:{' '}
                   {hasSource ? (
@@ -574,6 +626,7 @@ export default function RecipeView({
               onScaleUp={scaleUp}
               onAddToList={onAddToList ? (items, sc) => onAddToList(recipe.id, items, sc) : null}
               onListModeChange={setListSelecting}
+              onViewRecipe={onViewRecipe}
               Heading={Heading}
               toast={toast}
             />
@@ -590,16 +643,6 @@ export default function RecipeView({
               <RecipeNotes notes={recipe.notes} steps={recipe.instructions} settings={display} Heading={Heading} />
             </div>
           </div>
-        )}
-
-        {tags.length > 0 && (
-          <section className={styles.tags} data-print-hide aria-label="Tags">
-            {tags.map((tag) => (
-              <button key={tag} type="button" className={styles.tag} onClick={() => onTagClick?.(tag)}>
-                {tag}
-              </button>
-            ))}
-          </section>
         )}
 
         {!recipe.is_blank && (

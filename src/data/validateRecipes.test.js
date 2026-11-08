@@ -106,6 +106,7 @@ function fixture({
   techniques = [],
   baseline = BASE_BASELINE,
   fillFiller = true,
+  mealSets = [],
 } = {}) {
   manifest = clone(manifest);
   if (fillFiller) {
@@ -131,6 +132,7 @@ function fixture({
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
   writeFileSync(join(root, 'src', 'data', 'techniques.json'), JSON.stringify(techniques, null, 2));
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(manifest, null, 2));
+  writeFileSync(join(root, 'src', 'data', 'mealSets.json'), JSON.stringify(mealSets, null, 2));
   writeFileSync(join(root, 'src', 'data', 'cookbookBaseline.json'), JSON.stringify({ ids: baseline }, null, 2));
   // Files the fixture serves from public/, keyed by path (e.g. 'diagrams/x.svg').
   for (const [path, body] of Object.entries(publicFiles)) {
@@ -761,6 +763,54 @@ describe('validate-recipes.mjs', () => {
       const { code, output } = runValidator(root);
       expect(output).not.toMatch(/#starch/);
       expect(code).toBe(0);
+    });
+  });
+
+  describe('meal sets', () => {
+    const good = { id: 'alpha-beta', name: 'Alpha and beta', recipes: ['alpha-recipe', 'beta-recipe'] };
+    const run = (mealSets) => runValidator(fixture({ mealSets }));
+
+    it('passes a valid set', () => {
+      expect(run([good]).code).toBe(0);
+    });
+
+    it('fails a duplicate set id', () => {
+      const { code, output } = run([good, { ...good, name: 'Again' }]);
+      expect(code).not.toBe(0);
+      expect(output).toMatch(/duplicate meal set id "alpha-beta"/);
+    });
+
+    it('fails a set id that is not kebab-case', () => {
+      for (const id of ['Alpha_Beta', 'alpha beta', '-alpha', 'alpha--beta', '']) {
+        const { code, output } = run([{ ...good, id }]);
+        expect(code, id).not.toBe(0);
+        expect(output, id).toMatch(/id must be kebab-case/);
+      }
+    });
+
+    it('fails a set with fewer than 2 recipes', () => {
+      const { code, output } = run([{ ...good, recipes: ['alpha-recipe'] }]);
+      expect(code).not.toBe(0);
+      expect(output).toMatch(/must list at least 2 recipes \(has 1\)/);
+    });
+
+    it('fails a recipe id repeated within a set', () => {
+      const { code, output } = run([{ ...good, recipes: ['alpha-recipe', 'beta-recipe', 'alpha-recipe'] }]);
+      expect(code).not.toBe(0);
+      expect(output).toMatch(/lists recipe id "alpha-recipe" more than once/);
+    });
+
+    it('fails a member that is not in recipes.json', () => {
+      const { code, output } = run([{ ...good, recipes: ['alpha-recipe', 'ghost-recipe'] }]);
+      expect(code).not.toBe(0);
+      expect(output).toMatch(/recipe id "ghost-recipe" is not in recipes.json/);
+    });
+
+    it('fails a member that is a blank placeholder', () => {
+      const blank = record('beta-recipe', 'Beta Recipe', { is_blank: true, ingredients: [], instructions: [], description: undefined });
+      const { code, output } = runValidator(fixture({ records: [BASE_RECORDS[0], blank], mealSets: [good] }));
+      expect(code).not.toBe(0);
+      expect(output).toMatch(/recipe id "beta-recipe" is a blank placeholder/);
     });
   });
 });

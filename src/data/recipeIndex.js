@@ -20,9 +20,7 @@ export { recipes as rawRecipes };
 // Every row the app renders, in file order: one per record.
 export const displayRecipes = recipes;
 
-// The same rows without Chef's Drafts, still in file order: what "related
-// recipes" ranks from, so a draft is never suggested from the Cookbook. One
-// stable array, because relatedRecipes caches its model per array.
+// The same rows without Chef's Drafts, still in file order.
 export const cookbookRecipes = displayRecipes.filter((r) => !isDraft(r));
 
 // Display rows grouped by section key, preserving file order within a section.
