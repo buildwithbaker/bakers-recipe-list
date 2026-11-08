@@ -39,9 +39,9 @@ describe('techniquesOf', () => {
 });
 
 describe('the real data', () => {
-  it('derives Used in from the raw catalog: carrots are used by Honey Carrots, cutlets by nothing yet', () => {
+  it('derives Used in from the raw catalog: carrots by Honey Carrots, cutlets by the shawarma breasts', () => {
     expect(usedIn('carrot-roll-cut').map((r) => r.id)).toEqual(['honey-carrots']);
-    expect(usedIn('chicken-breast-cutlets')).toEqual([]);
+    expect(usedIn('chicken-breast-cutlets').map((r) => r.id)).toEqual(['sheet-pan-chicken-shawarma-breasts']);
     // The records are the very objects findable by id and name.
     expect(usedIn('carrot-roll-cut')[0]).toBe(rawRecipes.find((r) => r.id === 'honey-carrots'));
   });

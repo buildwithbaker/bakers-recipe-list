@@ -5352,6 +5352,153 @@
     "recipeYield": "4 servings"
   },
   {
+    "id": "sheet-pan-chicken-shawarma-breasts",
+    "name": "Sheet Pan Chicken Shawarma Breasts",
+    "section": "MIDDLE EASTERN",
+    "category": "Middle Eastern",
+    "source": "Original",
+    "tags": [
+      "#chicken",
+      "#sheet-pan",
+      "#high-protein",
+      "#middle-eastern"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Chicken and marinade:"
+      },
+      {
+        "type": "item",
+        "text": "2 large boneless skinless chicken breasts (about 1¼ lb)"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp lemon juice, plus the zest of ½ lemon"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil, plus ½ Tbsp for the rack"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground coriander"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground turmeric"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp cayenne"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp ground cinnamon"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Garlic yogurt sauce:"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp plain Greek yogurt"
+      },
+      {
+        "type": "item",
+        "text": "1 small garlic clove, grated"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp lemon juice"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "To serve:"
+      },
+      {
+        "type": "item",
+        "text": "Naan"
+      },
+      {
+        "type": "item",
+        "text": "Pickled red onions"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Cut into Cutlets",
+        "detail": "Lay each chicken breast (2) flat, press a hand on top, and slice it horizontally through the middle with the knife level, making two cutlets about ¾ inch thick. You end up with four cutlets.",
+        "why": "Even pieces cook evenly, and four separate cutlets give more edges to coat and char than two whole breasts.",
+        "technique": "chicken-breast-cutlets"
+      },
+      {
+        "step": "Marinate",
+        "detail": "Whisk the Greek yogurt (¼ cup), lemon juice (1½ Tbsp) and zest, garlic (3 cloves, grated), olive oil (1 Tbsp), cumin (1 tsp), smoked paprika (1 tsp), coriander (½ tsp), turmeric (½ tsp), cayenne (½ tsp), cinnamon (¼ tsp), black pepper (½ tsp) and table salt (1 tsp). Coat the chicken and refrigerate 1 to 6 hours.",
+        "why": "Lemon does not start turning chicken mushy until around 8 to 12 hours."
+      },
+      {
+        "step": "Make the Sauce",
+        "detail": "Stir the Greek yogurt (6 Tbsp), garlic (1 small clove, grated), lemon juice (1½ tsp) and table salt (⅛ tsp). Refrigerate until dinner."
+      },
+      {
+        "step": "Roast",
+        "detail": "Heat the oven to 425°F with a rack in the upper-middle position. Brush a wire rack set in a sheet pan with olive oil (½ Tbsp). Let the extra marinade drip off the cutlets and lay them on the rack with space between them. Roast 10 to 14 minutes, until the thickest part reads about 145°F. Wrap the naan in foil and put it in the oven for the last 5 minutes.",
+        "why": "The rack keeps the bottom out of its own juices, so it roasts instead of steaming."
+      },
+      {
+        "step": "Char",
+        "detail": "Take the naan out and switch the oven to broil. Broil the cutlets 2 to 3 minutes, watching it, until the edges char in spots and the thickest part reads 157°F. Pull it then.",
+        "why": "Breast meat dries out well before thigh meat does, so it gets the char first and comes out early."
+      },
+      {
+        "step": "Rest and Slice",
+        "detail": "Rest the chicken 5 minutes, uncovered, then slice it across the grain. Serve with the garlic yogurt sauce, the naan and the pickled red onions.",
+        "why": "Carryover heat brings it to about 160 to 162°F while it rests."
+      }
+    ],
+    "notes": [
+      "USDA's number for chicken is 165°F. Holding 160°F for about 15 seconds kills bacteria just as well. If you'd rather see 165°F on the thermometer, pull at 160°F.",
+      "The cutlets from the thin tail end cook fastest: start checking them at 8 minutes."
+    ],
+    "is_blank": false,
+    "description": "Chicken breasts cut into cutlets, marinated in yogurt, lemon, garlic and warm spices, roasted at 425°F, charred under the broiler and served with garlic yogurt sauce.",
+    "added": "2026-11-08",
+    "prepTime": "PT20M",
+    "cookTime": "PT20M",
+    "waitTime": "PT1H",
+    "waitLabel": "marinate 1-6 hr first",
+    "recipeYield": "2 servings"
+  },
+  {
     "id": "grilled-cheese",
     "name": "Grilled Cheese",
     "section": "SANDWICHES",
@@ -5749,12 +5896,144 @@
     "category": "Sides",
     "source": "Original",
     "tags": [
-      "#side",
-      "#starch"
+      "#salad",
+      "#make-ahead"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Quinoa:"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup quinoa"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "2 garlic cloves, grated"
+      },
+      {
+        "type": "item",
+        "text": "1⅓ cups low-sodium chicken broth (or water)"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Dressing:"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp lemon juice, plus the zest of ½ lemon"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp red pepper flakes"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Mix-ins:"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup chopped fresh parsley"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup crumbled feta"
+      },
+      {
+        "type": "header",
+        "text": "To build a wrap (optional):"
+      },
+      {
+        "type": "item",
+        "text": "Warm naan or flatbread"
+      },
+      {
+        "type": "item",
+        "text": "1 cup shredded romaine"
+      },
+      {
+        "type": "item",
+        "text": "½ cucumber, sliced thin"
+      },
+      {
+        "type": "item",
+        "text": "Pickled red onions"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Rinse",
+        "detail": "Rinse the quinoa (¾ cup) in a fine-mesh strainer under cold water for 30 seconds, then shake it as dry as you can.",
+        "why": "Quinoa has a bitter, soapy natural coating (saponins) that rinsing washes off."
+      },
+      {
+        "step": "Toast",
+        "detail": "Heat the olive oil (1 Tbsp) in a 2-quart saucepan over medium. Add the quinoa and stir 3 to 4 minutes, until it dries out, smells nutty and starts to pop. Stir in the garlic (2 cloves, grated) for 30 seconds.",
+        "why": "Browning the dry grains gives a nutty flavor; wet grains only steam, so let the rinse water cook off first."
+      },
+      {
+        "step": "Simmer",
+        "detail": "Add the chicken broth (1⅓ cups) and table salt (¼ tsp), bring to a boil, then cover and cook on the lowest heat for 15 minutes.",
+        "why": "This is a little less liquid than most package directions; the rest finishes the grains, and less water keeps them separate instead of mushy."
+      },
+      {
+        "step": "Rest",
+        "detail": "Take the pan off the heat and leave it covered for 10 minutes, then fluff with a fork."
+      },
+      {
+        "step": "Dress",
+        "detail": "Whisk the olive oil (1½ Tbsp), lemon juice (1½ Tbsp) and zest, cumin (¼ tsp), red pepper flakes (¼ tsp), black pepper (¼ tsp) and table salt (⅛ tsp). Toss it with the quinoa while it is still warm.",
+        "why": "Warm grains soak up the dressing; cold grains only get coated."
+      },
+      {
+        "step": "Finish",
+        "detail": "Let it cool 5 minutes, then fold in the parsley (¼ cup), green onions (2) and feta (¼ cup).",
+        "why": "A short cool keeps the herbs bright and the feta in crumbles instead of melting."
+      },
+      {
+        "step": "Build a Wrap",
+        "detail": "Optional: warm the naan, then layer the romaine (1 cup), a scoop of quinoa, the cucumber (½, sliced thin) and the pickled red onions."
+      }
+    ],
+    "notes": [
+      "Keeps 4 days in the refrigerator. Good cold, at room temperature or warm.",
+      "Using water instead of broth: add another ⅛ tsp table salt to the pot."
+    ],
+    "is_blank": false,
+    "description": "Toasted quinoa cooked in broth, dressed warm with lemon, garlic and cumin, and finished with parsley, green onion and feta. Works as a side or a wrap filling.",
+    "added": "2026-11-08",
+    "prepTime": "PT10M",
+    "cookTime": "PT20M",
+    "recipeYield": "2 servings"
   },
   {
     "id": "rice-pilaf",
@@ -11513,6 +11792,94 @@
     "waitTime": "PT1H30M",
     "waitLabel": "cool 30 min, chill 1 hr",
     "recipeYield": "about 2 cups (one pint jar)"
+  },
+  {
+    "id": "smashed-spiced-cucumbers-mint",
+    "name": "Smashed Spiced Cucumbers with Mint",
+    "section": "SIDES",
+    "category": "Sides",
+    "source": "Original",
+    "tags": [
+      "#salad",
+      "#vegetarian"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Cucumbers:"
+      },
+      {
+        "type": "item",
+        "text": "1 English cucumber (or 2 regular, peeled in stripes)"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Spiced oil:"
+      },
+      {
+        "type": "item",
+        "text": "1½ Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "1 garlic clove, grated"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp ground coriander"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp red pepper flakes"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp lemon juice, plus the zest of ½ lemon"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried mint, crumbled"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Smash and Salt",
+        "detail": "Halve the cucumber (1) lengthwise and scoop out the seeds with a spoon. Smash each half with the flat of a knife and break it into bite-size pieces. Toss with the table salt (½ tsp) in a strainer, drain 15 minutes, then pat dry.",
+        "why": "Salt pulls water out so it does not dilute the dressing, and the cracked surfaces hold more of the oil than clean slices."
+      },
+      {
+        "step": "Make the Spiced Oil",
+        "detail": "Warm the olive oil (1½ Tbsp) and garlic (1 clove, grated) in a small skillet over medium-low for about 60 seconds, until fragrant but not browned. Take it off the heat and stir in the coriander (½ tsp), smoked paprika (½ tsp), cumin (¼ tsp) and red pepper flakes (½ tsp). Let it sit 1 minute.",
+        "why": "Most spice flavor only dissolves in fat; doing it off the heat keeps ground spices from scorching, which takes seconds."
+      },
+      {
+        "step": "Toss",
+        "detail": "Toss the cucumber with the spiced oil, lemon juice (1 Tbsp) and zest, and dried mint (1 tsp). Taste and add a pinch of salt if needed. Serve within an hour, or chill 30 minutes.",
+        "why": "Lemon and salt keep drawing water out the longer it sits, so dress it close to serving."
+      }
+    ],
+    "is_blank": false,
+    "description": "Smashed cucumbers salted and drained, then tossed in olive oil warmed with garlic, coriander, paprika, cumin and chili, finished with lemon and dried mint.",
+    "added": "2026-11-08",
+    "prepTime": "PT25M",
+    "cookTime": "PT2M",
+    "recipeYield": "2 servings"
   },
   {
     "id": "cajun-blackened-chicken-cutlets",

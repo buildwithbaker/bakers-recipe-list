@@ -90,15 +90,17 @@ describe('Learning to Cook page', () => {
     expect(document.title).toBe("Learning to Cook — Baker's Recipe List");
   });
 
-  it('shows Used in only where a recipe uses the technique, linking to its page', () => {
+  it('lists the recipes that use each technique under Used in, linking to their pages', () => {
     mount();
     const carrots = document.getElementById('carrot-roll-cut');
     const link = within(carrots).getByRole('link', { name: 'Honey Carrots' });
     expect(link.getAttribute('href')).toBe('/r/honey-carrots/');
     expect(within(carrots).getByRole('heading', { name: 'Used in' })).toBeTruthy();
     const cutlets = document.getElementById('chicken-breast-cutlets');
-    expect(within(cutlets).queryByRole('heading', { name: 'Used in' })).toBeNull();
-    expect(within(cutlets).queryByRole('link')).toBeNull();
+    expect(within(cutlets).getByRole('heading', { name: 'Used in' })).toBeTruthy();
+    const cutletLinks = within(cutlets).getAllByRole('link');
+    expect(cutletLinks.map((a) => a.textContent)).toEqual(['Sheet Pan Chicken Shawarma Breasts']);
+    expect(cutletLinks[0].getAttribute('href')).toBe('/r/sheet-pan-chicken-shawarma-breasts/');
   });
 
   it('puts kicker, title, diagram, How and Why on a card', () => {
@@ -137,5 +139,18 @@ describe('Learning to Cook footer link', () => {
     await goBack();
     await waitFor(() => expect(window.location.pathname).toBe('/'));
     expect(screen.getByRole('link', { name: 'Learning to Cook' })).toBeTruthy();
+  });
+});
+
+describe('Sheet Pan Chicken Shawarma Breasts', () => {
+  it('has the (i) on step 1, opening the cutlets popup', () => {
+    window.history.replaceState({ overlays: [], page: true, tab: 'recipes' }, '', '/r/sheet-pan-chicken-shawarma-breasts/');
+    render(<App />);
+    const buttons = screen.getAllByRole('button', { name: /^How to: / });
+    expect(buttons.map((b) => b.getAttribute('aria-label'))).toEqual(['How to: Cutting chicken breasts into cutlets']);
+    expect(buttons[0].closest('li').getAttribute('data-n')).toBe('1');
+    fireEvent.click(buttons[0]);
+    expect(screen.getByRole('dialog', { name: 'Cutting chicken breasts into cutlets' })).toBeTruthy();
+    expect(screen.queryByRole('img', { name: /Cutting chicken breasts into cutlets: lay each breast/ })).toBeTruthy();
   });
 });
