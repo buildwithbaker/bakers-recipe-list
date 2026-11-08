@@ -598,6 +598,7 @@ function AppInner() {
                   recentHistory={recentHistory}
                   onClearRecent={clearHistory}
                   onOpenDrafts={handleDrafts}
+                  onOpenLearning={() => handleLearn()}
                 />
               </SearchModeContext.Provider>
             </>

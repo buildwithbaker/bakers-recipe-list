@@ -124,3 +124,18 @@ describe('Learning to Cook page', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Honey Carrots' })).toBeTruthy();
   });
 });
+
+describe('Learning to Cook footer link', () => {
+  it('sits under the Recipes list and opens the page on a new entry; Back returns to the list', async () => {
+    window.history.replaceState({ overlays: [], page: false, tab: 'recipes' }, '', '/');
+    render(<App />);
+    const link = screen.getByRole('link', { name: 'Learning to Cook' });
+    expect(link.getAttribute('href')).toBe('/learning-to-cook/');
+    fireEvent.click(link);
+    expect(window.location.pathname).toBe('/learning-to-cook/');
+    expect(screen.getByRole('heading', { level: 1, name: 'Learning to Cook' })).toBeTruthy();
+    await goBack();
+    await waitFor(() => expect(window.location.pathname).toBe('/'));
+    expect(screen.getByRole('link', { name: 'Learning to Cook' })).toBeTruthy();
+  });
+});
