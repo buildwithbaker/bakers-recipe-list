@@ -15,3 +15,6 @@ export function recipeDocumentTitle(name) {
 export const ABOUT_DOCUMENT_TITLE = recipeDocumentTitle('About');
 
 export const DRAFTS_DOCUMENT_TITLE = recipeDocumentTitle("Chef's Drafts");
+
+// The Learning to Cook page's title, same recipe as About's.
+export const LEARNING_DOCUMENT_TITLE = recipeDocumentTitle('Learning to Cook');

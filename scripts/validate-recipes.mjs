@@ -40,6 +40,7 @@ const MAX_DIAGRAM_PNG_BYTES = 400 * 1024;
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const schema = JSON.parse(readFileSync(join(root, 'src/data/recipe.schema.json'), 'utf8'));
 const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'utf8'));
+const techniques = JSON.parse(readFileSync(join(root, 'src/data/techniques.json'), 'utf8'));
 const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json'), 'utf8'));
 const baselineFile = JSON.parse(readFileSync(join(root, 'src/data/cookbookBaseline.json'), 'utf8'));
 
@@ -69,9 +70,13 @@ const isZeroDuration = (s) => !/[1-9]/.test(s);
 
 const errors = [];
 const props = schema.properties;
-const diagramItem = props.diagrams.items;
-const diagramKeys = Object.keys(diagramItem.properties);
-const diagramSrcPattern = new RegExp(diagramItem.properties.src.pattern);
+const techniqueSchema = JSON.parse(readFileSync(join(root, 'src/data/techniques.schema.json'), 'utf8'));
+const techniqueProps = techniqueSchema.properties;
+const techniqueKeys = Object.keys(techniqueProps);
+const diagramProps = techniqueProps.diagram.properties;
+const diagramKeys = Object.keys(diagramProps);
+const diagramSrcPattern = new RegExp(diagramProps.src.pattern);
+const techniqueIdPattern = new RegExp(techniqueProps.id.pattern);
 const required = schema.required;
 const sectionEnum = props.section.enum;
 const categoryEnum = props.category.enum;
@@ -98,6 +103,107 @@ if (JSON.stringify(secKeys) !== JSON.stringify(schemaSecs)) {
 
 const seen = new Map();
 const seenIds = new Map();
+
+// A technique's diagram: {src, alt}. The file must be committed, small, free of
+// script, and have its PNG companion (see MAX_DIAGRAM_BYTES).
+function checkDiagram(at, d) {
+  if (d === null || typeof d !== 'object' || Array.isArray(d)) {
+    errors.push(`${at} must be an object`);
+    return;
+  }
+  Object.keys(d).forEach((k) => {
+    if (!diagramKeys.includes(k)) errors.push(`${at} has unknown field "${k}"`);
+  });
+  techniqueProps.diagram.required.forEach((k) => {
+    if (!(k in d)) errors.push(`${at} is missing required field "${k}"`);
+  });
+  if ('alt' in d && (typeof d.alt !== 'string' || d.alt.trim() === '')) {
+    errors.push(`${at} alt must be a non-empty string`);
+  }
+  if (!('src' in d)) return;
+  if (typeof d.src !== 'string' || !diagramSrcPattern.test(d.src)) {
+    errors.push(`${at} src ${JSON.stringify(d.src)} must match ${diagramProps.src.pattern}`);
+    return;
+  }
+  const file = join(root, 'public', d.src);
+  if (!existsSync(file)) {
+    errors.push(`${at} src "${d.src}" does not exist at public/${d.src}`);
+    return;
+  }
+  const bytes = statSync(file).size;
+  if (bytes > MAX_DIAGRAM_BYTES) {
+    errors.push(
+      `${at} src "${d.src}" is ${Math.round(bytes / 1024)} KB, over the ` +
+        `${MAX_DIAGRAM_BYTES / 1024} KB limit (see docs/internal/adding-a-diagram.md)`,
+    );
+  }
+  const svg = readFileSync(file, 'utf8');
+  if (/<script/i.test(svg)) errors.push(`${at} src "${d.src}" contains a <script> element`);
+  if (/[\s"'/]on[a-z]+\s*=/i.test(svg)) {
+    errors.push(`${at} src "${d.src}" contains an on...= event-handler attribute`);
+  }
+  const png = file.replace(/\.svg$/, '.png');
+  const pngSrc = d.src.replace(/\.svg$/, '.png');
+  if (!existsSync(png)) {
+    errors.push(
+      `${at} src "${d.src}" has no PNG companion at public/${pngSrc} ` +
+        '(run node scripts/rasterize-diagrams.mjs; see docs/internal/adding-a-diagram.md)',
+    );
+  } else if (statSync(png).size > MAX_DIAGRAM_PNG_BYTES) {
+    errors.push(
+      `${at} PNG companion "${pngSrc}" is ${Math.round(statSync(png).size / 1024)} KB, over the ` +
+        `${MAX_DIAGRAM_PNG_BYTES / 1024} KB limit (see docs/internal/adding-a-diagram.md)`,
+    );
+  }
+}
+
+// Techniques (src/data/techniques.json, contract: techniques.schema.json).
+// Checked before the records so a step can be resolved against the ids.
+const techniqueIds = new Set();
+const seenTechniqueIds = new Map();
+if (!Array.isArray(techniques)) {
+  errors.push('techniques.json must be a top-level array');
+} else {
+  techniques.forEach((t, i) => {
+    const at = `technique #${i}${t && typeof t.id === 'string' ? ` ("${t.id}")` : ''}`;
+    if (t === null || typeof t !== 'object' || Array.isArray(t)) {
+      errors.push(`${at} is not an object`);
+      return;
+    }
+    Object.keys(t).forEach((k) => {
+      if (!techniqueKeys.includes(k)) errors.push(`${at} has unknown field "${k}"`);
+    });
+    techniqueSchema.required.forEach((k) => {
+      if (!(k in t)) errors.push(`${at} is missing required field "${k}"`);
+    });
+    if ('id' in t) {
+      if (typeof t.id !== 'string' || !techniqueIdPattern.test(t.id)) {
+        errors.push(`${at} id must be a string matching ${techniqueProps.id.pattern}`);
+      } else {
+        techniqueIds.add(t.id);
+        seenTechniqueIds.set(t.id, (seenTechniqueIds.get(t.id) || 0) + 1);
+      }
+    }
+    ['title', 'kicker', 'why'].forEach((k) => {
+      if (k in t && (typeof t[k] !== 'string' || t[k].trim() === '')) {
+        errors.push(`${at} ${k} must be a non-empty string`);
+      }
+    });
+    if ('how' in t) {
+      if (!Array.isArray(t.how) || t.how.length === 0) {
+        errors.push(`${at} how must be a non-empty array`);
+      } else {
+        t.how.forEach((h, j) => {
+          if (typeof h !== 'string' || h.trim() === '') errors.push(`${at} how #${j} must be a non-empty string`);
+        });
+      }
+    }
+    if ('diagram' in t) checkDiagram(`${at} diagram`, t.diagram);
+  });
+  for (const [id, count] of seenTechniqueIds) {
+    if (count > 1) errors.push(`duplicate technique id "${id}" (×${count})`);
+  }
+}
 
 recipes.forEach((r, i) => {
   const where = `record #${i}${r && typeof r.name === 'string' ? ` ("${r.name}")` : ''}`;
@@ -289,6 +395,13 @@ recipes.forEach((r, i) => {
       if ('why' in st && (typeof st.why !== 'string' || st.why.trim() === '')) {
         errors.push(`${where} instruction #${j} why must be a non-empty string when present`);
       }
+      if ('technique' in st) {
+        if (typeof st.technique !== 'string' || !techniqueIdPattern.test(st.technique)) {
+          errors.push(`${where} instruction #${j} technique ${JSON.stringify(st.technique)} must be a string matching ${techniqueProps.id.pattern}`);
+        } else if (!techniqueIds.has(st.technique)) {
+          errors.push(`${where} instruction #${j} technique "${st.technique}" is not an id in src/data/techniques.json`);
+        }
+      }
       Object.keys(st).forEach((k) => {
         if (!instrKeys.includes(k)) errors.push(`${where} instruction #${j} has unknown field "${k}"`);
       });
@@ -304,69 +417,6 @@ recipes.forEach((r, i) => {
       r.notes.forEach((note, j) => {
         if (typeof note !== 'string' || note.trim() === '') {
           errors.push(`${where} note #${j} must be a non-empty string`);
-        }
-      });
-    }
-  }
-
-  // diagrams - optional; when present, a non-empty array of {src, alt, caption?}.
-  // The file must be committed, small, and free of script (see MAX_DIAGRAM_BYTES).
-  if ('diagrams' in r) {
-    if (!Array.isArray(r.diagrams) || r.diagrams.length === 0) {
-      errors.push(`${where} diagrams must be a non-empty array when present`);
-    } else {
-      r.diagrams.forEach((d, j) => {
-        const at = `${where} diagram #${j}`;
-        if (d === null || typeof d !== 'object' || Array.isArray(d)) {
-          errors.push(`${at} must be an object`);
-          return;
-        }
-        Object.keys(d).forEach((k) => {
-          if (!diagramKeys.includes(k)) errors.push(`${at} has unknown field "${k}"`);
-        });
-        diagramItem.required.forEach((k) => {
-          if (!(k in d)) errors.push(`${at} is missing required field "${k}"`);
-        });
-        ['alt', 'caption'].forEach((k) => {
-          if (k in d && (typeof d[k] !== 'string' || d[k].trim() === '')) {
-            errors.push(`${at} ${k} must be a non-empty string when present`);
-          }
-        });
-        if ('src' in d) {
-          if (typeof d.src !== 'string' || !diagramSrcPattern.test(d.src)) {
-            errors.push(`${at} src ${JSON.stringify(d.src)} must match ${diagramItem.properties.src.pattern}`);
-          } else {
-            const file = join(root, 'public', d.src);
-            if (!existsSync(file)) {
-              errors.push(`${at} src "${d.src}" does not exist at public/${d.src}`);
-            } else {
-              const bytes = statSync(file).size;
-              if (bytes > MAX_DIAGRAM_BYTES) {
-                errors.push(
-                  `${at} src "${d.src}" is ${Math.round(bytes / 1024)} KB, over the ` +
-                    `${MAX_DIAGRAM_BYTES / 1024} KB limit (see docs/internal/adding-a-diagram.md)`,
-                );
-              }
-              const svg = readFileSync(file, 'utf8');
-              if (/<script/i.test(svg)) errors.push(`${at} src "${d.src}" contains a <script> element`);
-              if (/[\s"'/]on[a-z]+\s*=/i.test(svg)) {
-                errors.push(`${at} src "${d.src}" contains an on...= event-handler attribute`);
-              }
-              const png = file.replace(/\.svg$/, '.png');
-              const pngSrc = d.src.replace(/\.svg$/, '.png');
-              if (!existsSync(png)) {
-                errors.push(
-                  `${at} src "${d.src}" has no PNG companion at public/${pngSrc} ` +
-                    '(run node scripts/rasterize-diagrams.mjs; see docs/internal/adding-a-diagram.md)',
-                );
-              } else if (statSync(png).size > MAX_DIAGRAM_PNG_BYTES) {
-                errors.push(
-                  `${at} PNG companion "${pngSrc}" is ${Math.round(statSync(png).size / 1024)} KB, over the ` +
-                    `${MAX_DIAGRAM_PNG_BYTES / 1024} KB limit (see docs/internal/adding-a-diagram.md)`,
-                );
-              }
-            }
-          }
         }
       });
     }

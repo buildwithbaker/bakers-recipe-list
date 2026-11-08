@@ -6019,7 +6019,8 @@
       {
         "step": "Cut",
         "detail": "Heat the oven to 425°F with a rack in the lower-middle position. Cut the carrots (2 lb) on a sharp angle into chunks about ¾ inch thick, halving the fat top ends lengthwise first so every piece is about the same size.",
-        "why": "Even pieces finish together. A mix of thin tips and fat tops leaves some burnt and some raw."
+        "why": "Even pieces finish together. A mix of thin tips and fat tops leaves some burnt and some raw.",
+        "technique": "carrot-roll-cut"
       },
       {
         "step": "Roast",
@@ -6040,13 +6041,6 @@
     "notes": [
       "Sharing the oven with a main: roast the carrots on the lower rack, and take them out before you switch the oven to broil.",
       "Watch the last 5 minutes. Glaze goes from sticky to burnt fast at 425°F."
-    ],
-    "diagrams": [
-      {
-        "src": "diagrams/honey-carrots-roll-cut.svg",
-        "alt": "Cutting carrots: trim the stem and halve the thick top third lengthwise; cut on an angle about three-quarters of an inch apart, rolling the carrot a quarter turn between cuts, shorter pieces at the fat end and longer toward the tip; lay the even chunks cut face down on the pan.",
-        "caption": "Cutting the carrots"
-      }
     ],
     "is_blank": false,
     "description": "Carrots roasted at 425°F until tender, then glazed with honey, butter, crushed red pepper and a splash of cider vinegar and roasted until sticky at the edges.",

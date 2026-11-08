@@ -1,0 +1,119 @@
+/* Learning to Cook: a heading and intro on the paper, then one card per
+   technique (the About and recipe pages' card frame). */
+.page {
+  max-width: var(--maxw);
+  margin: var(--s4) auto 0;
+  padding: 0 var(--s4) var(--s8);
+}
+
+.title {
+  max-width: 44rem;
+  margin: var(--s5) auto var(--s2);
+  font: 400 var(--t-3xl)/1.1 var(--serif);
+  letter-spacing: -0.01em;
+  color: var(--brand);
+  text-wrap: balance;
+}
+
+.intro {
+  max-width: 44rem;
+  margin: 0 auto var(--s5);
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s5);
+}
+
+/* Anchors land below the sticky masthead (globals.css scroll-padding-top). */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  width: 100%;
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: var(--s5) var(--s4);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r4);
+  box-shadow: var(--shadow-2);
+}
+
+.kicker {
+  font: 600 var(--t-xs)/1.2 var(--sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.cardTitle {
+  margin: 0;
+  font: 400 var(--t-xl)/1.2 var(--serif);
+  color: var(--brand);
+}
+
+.diagram {
+  display: block;
+  width: 100%;
+  max-height: 340px;
+  object-fit: contain;
+  border-radius: var(--r2);
+}
+
+.card h3 {
+  margin: var(--s1) 0 0;
+  font: 700 var(--t-md)/1.2 var(--sans);
+  color: var(--brand);
+}
+
+.how {
+  margin: 0;
+  padding-left: 1.25em;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+  line-height: 1.45;
+}
+
+.why {
+  margin: 0;
+  color: var(--ink-muted);
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.usedIn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.usedIn a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0 14px;
+  border-radius: 22px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-size: var(--t-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.usedIn a:hover {
+  background: var(--line);
+}
+
+@media (min-width: 720px) {
+  .card {
+    padding: var(--s5) var(--s6);
+  }
+}

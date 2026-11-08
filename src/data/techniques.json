@@ -1,0 +1,32 @@
+[
+  {
+    "id": "chicken-breast-cutlets",
+    "title": "Cutting chicken breasts into cutlets",
+    "kicker": "Knife work · Chicken",
+    "diagram": {
+      "src": "diagrams/chicken-breast-cutlets.svg",
+      "alt": "Cutting chicken breasts into cutlets: lay each breast flat with a hand on top and slice it horizontally through the middle with the knife level, giving two cutlets about three quarters of an inch thick; lay the cutlets on the rack with gaps between them so they roast instead of steaming."
+    },
+    "how": [
+      "Lay the breast flat on the board, thick end toward your knife.",
+      "Press a flat hand on top to hold it still.",
+      "Keep the knife level with the board and slice through the middle, from the thick end to the tail."
+    ],
+    "why": "Two even pieces cook at the same rate, so nothing dries out waiting on a thick end, and more edges means more browning."
+  },
+  {
+    "id": "carrot-roll-cut",
+    "title": "Roll-cutting carrots",
+    "kicker": "Knife work · Vegetables",
+    "diagram": {
+      "src": "diagrams/honey-carrots-roll-cut.svg",
+      "alt": "Cutting carrots: trim the stem and halve the thick top third lengthwise; cut on an angle about three-quarters of an inch apart, rolling the carrot a quarter turn between cuts, shorter pieces at the fat end and longer toward the tip; lay the even chunks cut face down on the pan."
+    },
+    "how": [
+      "Trim the stem and halve the thick top third lengthwise.",
+      "Cut on an angle about ¾ inch apart, rolling the carrot a quarter turn between cuts.",
+      "Cut shorter pieces at the fat end and longer ones toward the tip."
+    ],
+    "why": "Same-size pieces finish together, and the angled faces give more flat surface to brown on the pan."
+  }
+]
