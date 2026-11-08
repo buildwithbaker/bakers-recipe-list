@@ -39,6 +39,7 @@ const SECTION_DEFAULTS = {
   'MARINADES': 4,
   'SMOOTHIES': 1,
   'BREAD': 12,
+  'THANKSGIVING': 8,
 };
 
 const PROTEIN_KEYWORDS = [

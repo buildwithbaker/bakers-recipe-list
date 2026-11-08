@@ -22,7 +22,7 @@ export const SURFACE = '#fffbf5';
 
 // Reader-facing categories, one per section.
 //
-// Each owns one colour (prototype v2). Nineteen categories share ten
+// Each owns one colour (prototype v2). Twenty categories share ten
 // colours, so neighbours can repeat; the colour is a wayfinding cue, never the only
 // signal. Every colour must clear 4.5:1 as text on the card surface and under
 // white text; contrast.test.js measures each one.
@@ -46,6 +46,7 @@ const RAW_CATEGORIES = [
   { id: 'marinades', label: 'Marinades', color: '#46644f' },
   { id: 'smoothies', label: 'Smoothies', color: '#46644f' },
   { id: 'bread', label: 'Bread', color: '#8a5a00' },
+  { id: 'thanksgiving', label: 'Thanksgiving', color: '#9a4a12' },
   // Chef's Drafts: the --ink-muted value, so drafts read as set apart from the
   // cookbook rather than as one more cuisine. Never a chip or a list heading
   // (ROWS has no drafts); it colours a draft's card and page.
@@ -91,6 +92,7 @@ export const SECTION_CATEGORY = {
   'MARINADES': 'marinades',
   'SMOOTHIES': 'smoothies',
   'BREAD': 'bread',
+  'THANKSGIVING': 'thanksgiving',
   'CHEFS DRAFTS': 'chefs-drafts',
 };
 

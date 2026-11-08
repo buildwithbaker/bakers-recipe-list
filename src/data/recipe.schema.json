@@ -40,6 +40,7 @@
         "MARINADES",
         "SMOOTHIES",
         "BREAD",
+        "THANKSGIVING",
         "DESSERTS",
         "CHEFS DRAFTS"
       ]
@@ -66,7 +67,8 @@
         "Slow Cooker",
         "Smoothies",
         "Snacks",
-        "Soups"
+        "Soups",
+        "Thanksgiving"
       ]
     },
     "source": {
