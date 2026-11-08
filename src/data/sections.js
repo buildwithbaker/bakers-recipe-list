@@ -33,6 +33,7 @@ export const SECTIONS = [
   { key: "MARINADES", label: "Marinades", id: "sec-MARINADES" },
   { key: "SMOOTHIES", label: "Smoothies", id: "sec-SMOOTHIES" },
   { key: "BREAD", label: "Bread", id: "sec-BREAD" },
+  { key: "THANKSGIVING", label: "Thanksgiving", id: "sec-THANKSGIVING" },
   { key: "CHEFS DRAFTS", label: "Chef's Drafts", id: "sec-CHEFS-DRAFTS" },
 ];
 

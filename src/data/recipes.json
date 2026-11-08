@@ -11748,5 +11748,1207 @@
     "prepTime": "PT10M",
     "cookTime": "PT35M",
     "recipeYield": "4 servings"
+  },
+  {
+    "id": "citrus-herb-dry-brine-turkey-marinade",
+    "name": "Citrus-Herb Dry-Brine Turkey Marinade with Garlic-Herb Butter",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#marinade",
+      "#turkey"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Dry brine:"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp + 1 tsp table salt (½ tsp per lb of turkey)"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp coarse ground black pepper"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp baking powder"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp dried rubbed sage"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp dried thyme"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried rosemary, crumbled"
+      },
+      {
+        "type": "item",
+        "text": "Zest of 2 oranges (keep the oranges)"
+      },
+      {
+        "type": "header",
+        "text": "Garlic-herb butter and cavity:"
+      },
+      {
+        "type": "item",
+        "text": "½ cup (1 stick) unsalted butter, softened"
+      },
+      {
+        "type": "item",
+        "text": "6 cloves garlic, grated"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp chopped fresh sage (or 2 tsp dried)"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp fresh thyme leaves (or 1 tsp dried)"
+      },
+      {
+        "type": "item",
+        "text": "1 medium yellow onion, quartered"
+      },
+      {
+        "type": "item",
+        "text": "The 2 zested oranges, quartered"
+      },
+      {
+        "type": "header",
+        "text": "Turkey:"
+      },
+      {
+        "type": "item",
+        "text": "1 whole turkey, 18-22 lb, thawed"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Check the Label",
+        "detail": "If the turkey (18-22 lb) says enhanced, self-basting, kosher, or \"contains up to X% of a solution,\" cut the salt to 1 Tbsp and keep everything else.",
+        "why": "Those birds are already salted; a full dry brine on top makes them salty."
+      },
+      {
+        "step": "Mix the Rub",
+        "detail": "Stir together the salt (3 Tbsp + 1 tsp), brown sugar (1 Tbsp), pepper (1 Tbsp), baking powder (2 tsp), sage (2 tsp), thyme (2 tsp), rosemary (1 tsp) and orange zest (from 2 oranges).",
+        "why": "Baking powder raises the skin's surface pH, which speeds browning."
+      },
+      {
+        "step": "Apply 2-3 Days Ahead",
+        "detail": "Pull the neck and giblet bag from the turkey (18-22 lb) and pat it dry. Work your fingers under the skin over the breast and thighs. Rub about half the rub directly on the meat under the skin and the rest over the outside and inside the cavity.",
+        "why": "Skin blocks salt, so the half under it does most of the seasoning."
+      },
+      {
+        "step": "Rest Uncovered",
+        "detail": "Set the turkey on a rack over a rimmed pan, breast up, and refrigerate uncovered 48-72 hours.",
+        "why": "The salt draws out moisture, dissolves in it, then soaks back in; open air dries the skin so it browns instead of steaming."
+      },
+      {
+        "step": "Make the Butter",
+        "detail": "On roasting day, mash the butter (½ cup), garlic (6 cloves), fresh sage (2 Tbsp) and thyme (1 Tbsp)."
+      },
+      {
+        "step": "Butter and Stuff",
+        "detail": "Do not rinse the bird. Pat it dry. Push most of the butter (½ cup) under the skin over the breast and thighs and smear the rest thinly over the outside. Put the onion (1, quartered) and oranges (2, quartered) loosely in the cavity.",
+        "why": "Butter under the skin bastes the breast from the inside, where spooning juices on the outside never reaches. The raw garlic stays under the skin so it can't scorch."
+      },
+      {
+        "step": "Roast",
+        "detail": "Roast as usual. Pull when the thickest part of the breast reads 155-157°F and the thigh reads at least 175°F, then rest 30-40 minutes.",
+        "why": "The breast climbs another 8-12°F while it rests."
+      }
+    ],
+    "notes": [
+      "The sugar and zest brown fast. If the skin is dark before the bird is done, tent the breast with foil.",
+      "Pan drippings from this bird are salty, so salt the gravy only after the drippings go in."
+    ],
+    "is_blank": false,
+    "description": "Salt, herbs and orange zest rubbed under the skin 2-3 days ahead, then garlic-herb butter under the skin on roasting day, for a seasoned bird with crisp skin.",
+    "added": "2026-11-07",
+    "prepTime": "PT20M",
+    "cookTime": "PT0M",
+    "waitTime": "PT48H",
+    "waitLabel": "dry-brine 48-72 hr first",
+    "recipeYield": "enough for one 18-22 lb turkey"
+  },
+  {
+    "id": "make-ahead-turkey-gravy",
+    "name": "Make-Ahead Turkey Gravy",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#turkey",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Turkey stock:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb turkey wings (or drumsticks)"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, quartered, skin on"
+      },
+      {
+        "type": "item",
+        "text": "2 carrots, cut in chunks"
+      },
+      {
+        "type": "item",
+        "text": "2 ribs celery, cut in chunks"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp vegetable oil"
+      },
+      {
+        "type": "item",
+        "text": "8 cups low-sodium chicken broth (two 32-oz boxes)"
+      },
+      {
+        "type": "item",
+        "text": "4 cups water, divided"
+      },
+      {
+        "type": "item",
+        "text": "2 bay leaves"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried thyme"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp whole black peppercorns"
+      },
+      {
+        "type": "header",
+        "text": "Gravy:"
+      },
+      {
+        "type": "item",
+        "text": "⅔ cup fat (skimmed turkey fat from the stock, topped up with unsalted butter)"
+      },
+      {
+        "type": "item",
+        "text": "⅔ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "8 cups turkey stock (from above)"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "Defatted pan drippings from the roast turkey"
+      },
+      {
+        "type": "item",
+        "text": "Table salt, to taste at the end"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Roast the Wings",
+        "detail": "Heat the oven to 425°F. Toss the wings (3 lb), onion (1), carrots (2) and celery (2 ribs) with the oil (1 Tbsp) on a rimmed sheet pan. Roast 50-60 minutes, turning once, until deep brown.",
+        "why": "Browning needs roasting heat; a simmering pot never gets past 212°F, so this is where the roast flavor comes from."
+      },
+      {
+        "step": "Simmer the Stock",
+        "detail": "Pour 1 cup of the water (from 4 cups) onto the hot pan and scrape up the browned bits. Scrape everything into a large pot with the broth (8 cups), the remaining water (3 cups), bay leaves (2), thyme (1 tsp) and peppercorns (1 tsp). Bring to a bare simmer and cook partly covered 2½-3 hours.",
+        "why": "A hard boil churns fat into the liquid and clouds it; a gentle simmer pulls gelatin out of the wing joints for body."
+      },
+      {
+        "step": "Strain and Chill",
+        "detail": "Strain, pressing on the solids. You want about 9 cups; reduce if you have more, top up with broth if less. Refrigerate overnight, then lift off the fat cap and save it."
+      },
+      {
+        "step": "Cook the Roux",
+        "detail": "In a heavy wide pot over medium, melt the saved turkey fat plus enough butter to make ⅔ cup. Whisk in the flour (⅔ cup) and cook, whisking, 6-8 minutes until it smells nutty and is the color of peanut butter.",
+        "why": "Cooking the flour removes the raw taste; a darker roux tastes nuttier but thickens less."
+      },
+      {
+        "step": "Build the Gravy",
+        "detail": "Warm the stock (8 cups). Whisk 2 cups into the roux a little at a time until smooth, then whisk in the remaining 6 cups. Simmer 10-15 minutes until it coats a spoon. Stir in the soy sauce (2 tsp) and pepper (½ tsp). Do not salt yet. Cool and refrigerate up to 3 days; keep the leftover cup of stock for thinning."
+      },
+      {
+        "step": "Finish with Drippings",
+        "detail": "Reheat the gravy over medium-low, whisking. Pour the fat off the turkey roasting pan, set the pan over a burner, add 1 cup of the hot gravy and scrape the pan clean. Strain that back into the pot. Thin with the reserved stock if needed, then taste and salt.",
+        "why": "Drippings from a dry-brined bird carry a lot of salt, so salting before they go in over-salts the gravy."
+      }
+    ],
+    "is_blank": false,
+    "description": "Roasted turkey wing stock thickened with a nutty roux up to 3 days ahead, finished with the roast turkey's pan drippings.",
+    "added": "2026-11-07",
+    "prepTime": "PT20M",
+    "cookTime": "PT3H30M",
+    "waitTime": "PT8H",
+    "waitLabel": "chill stock overnight to defat",
+    "recipeYield": "about 8 cups (16 servings)"
+  },
+  {
+    "id": "buttery-mashed-potatoes",
+    "name": "Buttery Mashed Potatoes",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#side-dish",
+      "#vegetarian"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "8 lb Yukon Gold potatoes"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp table salt, for the cooking water"
+      },
+      {
+        "type": "item",
+        "text": "1 cup (2 sticks) unsalted butter"
+      },
+      {
+        "type": "item",
+        "text": "2½ cups whole milk, plus ½ cup for holding"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp celery salt, plus more to taste"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Cut Evenly",
+        "detail": "Peel the potatoes (8 lb) and cut them into even 2-inch chunks.",
+        "why": "Even pieces finish together; mixed sizes give lumps and mush in the same pot."
+      },
+      {
+        "step": "Start Cold",
+        "detail": "Put them in a 12-quart pot (or split between two pots), cover with cold water by 1 inch and add the salt (3 Tbsp). Bring to a boil, then simmer gently 15-20 minutes until a knife slides in with no resistance.",
+        "why": "Starting cold lets the outside and center cook through together; dropped into boiling water, the outside falls apart before the center is done."
+      },
+      {
+        "step": "Warm the Dairy",
+        "detail": "While they cook, heat the butter (1 cup) and milk (2½ cups) in a saucepan until the butter melts. Do not boil."
+      },
+      {
+        "step": "Dry Them",
+        "detail": "Drain well, return the potatoes to the hot empty pot over low heat and stir 1-2 minutes until the steam stops.",
+        "why": "Leftover surface water makes the mash loose and bland."
+      },
+      {
+        "step": "Mash",
+        "detail": "Mash by hand or with a ricer, never a food processor or blender. Fold in the hot butter-milk in three additions, then the mayonnaise (¼ cup), celery salt (1½ tsp) and pepper (1 tsp). Taste and add celery salt.",
+        "why": "Hard blending ruptures the starch cells and turns the potatoes gluey. The mayo adds richness and a little tang and helps the mash stay creamy while it holds."
+      },
+      {
+        "step": "To Hold",
+        "detail": "Spoon the hot mash into a slow cooker preheated on Low, pour the holding milk (½ cup) over the top, cover and set to Warm or Low. Stir every hour and hold no more than 4 hours.",
+        "why": "A slow cooker keeps hot food hot but cannot safely reheat cold food, so the potatoes go in hot and stay at or above 140°F."
+      }
+    ],
+    "is_blank": false,
+    "description": "Yukon Gold potatoes mashed with plenty of butter, warm milk, a little mayo and celery salt, with a slow-cooker hold.",
+    "added": "2026-11-07",
+    "prepTime": "PT25M",
+    "cookTime": "PT30M",
+    "recipeYield": "16 servings"
+  },
+  {
+    "id": "sweet-potato-casserole-pecan-crumble",
+    "name": "Sweet Potato Casserole with Pecan Crumble",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#side-dish",
+      "#casserole",
+      "#vegetarian",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Sweet potato base:"
+      },
+      {
+        "type": "item",
+        "text": "5 lb sweet potatoes (6-7 medium)"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp unsalted butter, melted, plus 1 Tbsp for the pan"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup packed brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "2 large eggs"
+      },
+      {
+        "type": "item",
+        "text": "½ cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp vanilla extract"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cinnamon"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp ground nutmeg"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Pecan crumble:"
+      },
+      {
+        "type": "item",
+        "text": "1 cup chopped pecans"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup packed brown sugar"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "5 Tbsp unsalted butter, melted"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp table salt"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Roast the Potatoes",
+        "detail": "Heat the oven to 400°F. Prick the sweet potatoes (5 lb) a few times with a fork, set them on a foil-lined sheet pan and roast 60-75 minutes, until completely soft and leaking syrup.",
+        "why": "Roasting drives off water and concentrates the sugar; boiled sweet potatoes come out watery. The foil catches the syrup, which burns onto a bare pan."
+      },
+      {
+        "step": "Mash the Base",
+        "detail": "When cool enough to handle, scoop the flesh into a large bowl (about 7 cups) and discard the skins. Mash or beat with a hand mixer until smooth with the melted butter (6 Tbsp), brown sugar (⅓ cup), eggs (2), milk (½ cup), vanilla (1 tsp), cinnamon (1 tsp), nutmeg (¼ tsp) and salt (1 tsp).",
+        "why": "Sweet potatoes don't go gluey like russets, so a mixer is fine here."
+      },
+      {
+        "step": "Pan It",
+        "detail": "Spread in a 9x13 buttered with the butter (1 Tbsp). Refrigerate covered up to 2 days ahead if you like."
+      },
+      {
+        "step": "Make the Crumble",
+        "detail": "Stir the pecans (1 cup), brown sugar (¾ cup), flour (⅓ cup), melted butter (5 Tbsp) and salt (¼ tsp) until clumpy. Scatter evenly over the base."
+      },
+      {
+        "step": "Bake",
+        "detail": "Bake at 350°F for 30-35 minutes (40-45 if cold from the fridge) until the edges bubble, the crumble is browned and the center reads 160°F.",
+        "why": "160°F is the safe point for the eggs in the base."
+      }
+    ],
+    "notes": [
+      "For a marshmallow top instead, skip the crumble, bake the base 25 minutes, cover with 1 bag (10 oz) mini marshmallows and bake 5-8 minutes more until puffed and browned. Watch it; they go from golden to burnt fast."
+    ],
+    "is_blank": false,
+    "description": "Roasted sweet potatoes whipped with butter, brown sugar and cinnamon under a crunchy brown sugar pecan crumble.",
+    "added": "2026-11-07",
+    "prepTime": "PT25M",
+    "cookTime": "PT1H50M",
+    "recipeYield": "15 servings"
+  },
+  {
+    "id": "cranberry-sage-stuffing",
+    "name": "Cranberry Sage Stuffing",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Modified from Pepperidge Farm herb-seasoned stuffing package directions",
+    "tags": [
+      "#side-dish",
+      "#casserole",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Stuffing:"
+      },
+      {
+        "type": "item",
+        "text": "2 bags (12-14 oz each) herb-seasoned cubed stuffing mix"
+      },
+      {
+        "type": "item",
+        "text": "1 bag (6 oz) dried cranberries, about 1⅓ cups"
+      },
+      {
+        "type": "item",
+        "text": "½ cup chopped fresh parsley"
+      },
+      {
+        "type": "header",
+        "text": "Vegetables:"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup (1½ sticks) unsalted butter, plus 1 Tbsp for the pans"
+      },
+      {
+        "type": "item",
+        "text": "2 large yellow onions, diced (about 3 cups)"
+      },
+      {
+        "type": "item",
+        "text": "4 ribs celery, diced (about 2 cups)"
+      },
+      {
+        "type": "item",
+        "text": "3 cloves garlic, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp chopped fresh sage (optional)"
+      },
+      {
+        "type": "header",
+        "text": "Binder:"
+      },
+      {
+        "type": "item",
+        "text": "4 cups low-sodium chicken broth, plus up to 1 cup more"
+      },
+      {
+        "type": "item",
+        "text": "2 large eggs"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp black pepper"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Soften the Vegetables",
+        "detail": "Melt the butter (¾ cup) in a large pot over medium. Add the onions (3 cups) and celery (2 cups) and cook 10-12 minutes until soft and lightly golden. Add the garlic (3 cloves) and sage (1 Tbsp, if using) and cook 1 minute.",
+        "why": "The mix brings bread and seasoning; the vegetables and butter are what make it taste homemade. The center only reaches about 165°F in the oven, so anything still crunchy now stays crunchy."
+      },
+      {
+        "step": "Combine",
+        "detail": "In your largest bowl, toss the stuffing mix (2 bags) with the vegetables and all the butter, the dried cranberries (1⅓ cups) and the parsley (½ cup).",
+        "why": "Add the cranberries dry. They plump in the broth during the bake; soaked first, they go soft and bleed."
+      },
+      {
+        "step": "Moisten",
+        "detail": "Whisk the broth (4 cups), eggs (2) and pepper (1 tsp). Pour over in three additions, tossing gently. Squeeze a handful: it should hold together and feel moist but not drip. Add up to 1 more cup of broth if dry.",
+        "why": "No salt: the mix is already salted and seasoned. The eggs set it into a baked dressing that holds its shape."
+      },
+      {
+        "step": "Pan It",
+        "detail": "Butter a 9x13 and an 8x8 pan with the butter (1 Tbsp). Pile the stuffing in loosely and cover with foil. Assemble up to 1 day ahead and refrigerate if you like."
+      },
+      {
+        "step": "Bake",
+        "detail": "Bake at 350°F covered for 30 minutes, then uncovered 15-20 minutes until the top is crisp and the center reads 165°F. Add 10-15 minutes to the covered time if it went in cold.",
+        "why": "Covered heats it through without drying it; uncovered crisps the top. 165°F is the safe point for the eggs."
+      }
+    ],
+    "notes": [
+      "The bag's own directions run about 2 cups broth, 4-5 Tbsp butter and 1 cup each of onion and celery per bag. This version is heavier on vegetables and adds eggs and cranberries.",
+      "Use vegetable broth and it is vegetarian."
+    ],
+    "is_blank": false,
+    "description": "Bagged herb stuffing mix baked with buttery onion and celery, dried cranberries and parsley, bound with broth and eggs.",
+    "added": "2026-11-07",
+    "prepTime": "PT20M",
+    "cookTime": "PT50M",
+    "recipeYield": "about 16 servings"
+  },
+  {
+    "id": "green-bean-casserole-scratch-sauce",
+    "name": "Green Bean Casserole with Scratch Mushroom Sauce",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#side-dish",
+      "#casserole",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Beans:"
+      },
+      {
+        "type": "item",
+        "text": "6 cans (14.5 oz each) cut green beans, drained"
+      },
+      {
+        "type": "header",
+        "text": "Mushroom sauce:"
+      },
+      {
+        "type": "item",
+        "text": "5 Tbsp unsalted butter, plus 1 Tbsp for the pan"
+      },
+      {
+        "type": "item",
+        "text": "12 oz cremini or white mushrooms, sliced"
+      },
+      {
+        "type": "item",
+        "text": "1 medium yellow onion, thinly sliced"
+      },
+      {
+        "type": "item",
+        "text": "3 cloves garlic, minced"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups whole milk"
+      },
+      {
+        "type": "item",
+        "text": "2 tsp soy sauce"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp ground nutmeg"
+      },
+      {
+        "type": "header",
+        "text": "Topping:"
+      },
+      {
+        "type": "item",
+        "text": "1 container (6 oz) French-fried onions, divided"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Drain the Beans",
+        "detail": "Drain the green beans (6 cans) in a colander, shake well and spread on towels while you make the sauce.",
+        "why": "Can liquid left on the beans thins the sauce into soup."
+      },
+      {
+        "step": "Brown the Mushrooms",
+        "detail": "Melt the butter (5 Tbsp) in a 12-inch skillet over medium-high. Add the mushrooms (12 oz) and leave them alone 3-4 minutes, then stir and cook until browned and dry, about 10 minutes total. Add the onion (1) for 5 minutes, then the garlic (3 cloves) for 30 seconds.",
+        "why": "Salt waits until the sauce, because salt pulls water out of mushrooms and stalls the browning."
+      },
+      {
+        "step": "Make the Sauce",
+        "detail": "Sprinkle in the flour (⅓ cup) and stir 2 minutes. Slowly whisk in the broth (1½ cups), then the milk (1½ cups). Simmer 3-4 minutes until thick. Stir in the soy sauce (2 tsp), salt (½ tsp), pepper (½ tsp) and nutmeg (¼ tsp).",
+        "why": "Light on salt because canned beans are already salted. Make it thicker than you'd serve on its own; the beans give off water in the oven."
+      },
+      {
+        "step": "Assemble",
+        "detail": "Fold the beans (6 cans) and 1 cup of the fried onions into the sauce, stirring as little as you can. Spread in a deep 9x13 buttered with the butter (1 Tbsp). Refrigerate up to 1 day ahead if you like, without the topping.",
+        "why": "Canned beans are fully cooked and soft, so heavy stirring breaks them up."
+      },
+      {
+        "step": "Bake",
+        "detail": "Bake at 350°F for 25 minutes (35-40 if cold from the fridge) until bubbling at the edges. Scatter the remaining fried onions (about 1¾ cups) over the top and bake 5 minutes more.",
+        "why": "The onions go on last because they burn over a full bake."
+      }
+    ],
+    "notes": [
+      "Canned soup version: skip the mushroom sauce. Whisk 3 cans (10.5 oz each) condensed cream of mushroom soup with 1½ cups whole milk, 1 Tbsp soy sauce and ½ tsp black pepper, then go on from Assemble. Add no salt; the soup is heavily salted. For real mushroom flavor, brown 12 oz sliced mushrooms in 2 Tbsp butter and fold them in too.",
+      "With low-sodium canned beans, raise the sauce salt to 1 tsp."
+    ],
+    "is_blank": false,
+    "description": "Canned green beans in a from-scratch browned mushroom cream sauce under crispy fried onions, with a canned-soup option.",
+    "added": "2026-11-07",
+    "prepTime": "PT20M",
+    "cookTime": "PT30M",
+    "recipeYield": "14-16 servings"
+  },
+  {
+    "id": "roasted-brussels-sprouts-hot-honey",
+    "name": "Roasted Brussels Sprouts with Hot Honey and Cider Vinegar",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#side-dish",
+      "#vegetarian",
+      "#oven"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Sprouts:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb Brussels sprouts, trimmed and halved (quarter any very large ones)"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp vegetable oil"
+      },
+      {
+        "type": "item",
+        "text": "1¼ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Hot honey glaze:"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup honey"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp apple cider vinegar"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp unsalted butter"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp red pepper flakes"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Heat the Oven",
+        "detail": "Heat to 425°F with racks in the upper-middle and lower-middle positions."
+      },
+      {
+        "step": "Coat",
+        "detail": "Toss the sprouts (3 lb) with the oil (3 Tbsp), salt (1¼ tsp) and pepper (½ tsp) in a large bowl until every piece is glossy.",
+        "why": "Tossing in a bowl coats evenly; tossing on the pan leaves dry spots that won't brown."
+      },
+      {
+        "step": "Pan Them",
+        "detail": "Split the sprouts (3 lb) between two bare half-sheet pans (no foil), cut side down, with space between pieces.",
+        "why": "The cut face browns against the metal; crowded sprouts steam instead of roast."
+      },
+      {
+        "step": "Roast",
+        "detail": "Roast 20-25 minutes, swapping and turning the pans at 12 minutes, until the cut faces are deep brown and the loose outer leaves char."
+      },
+      {
+        "step": "Make the Glaze",
+        "detail": "While they roast, simmer the honey (¼ cup), vinegar (2 Tbsp), butter (2 Tbsp) and pepper flakes (1 tsp) in a small saucepan 1-2 minutes."
+      },
+      {
+        "step": "Toss and Serve",
+        "detail": "Toss the hot sprouts with the glaze in the big bowl.",
+        "why": "The vinegar keeps the honey from tasting flat and sugary against the sprouts' bitterness."
+      }
+    ],
+    "is_blank": false,
+    "description": "Brussels sprouts roasted cut side down until charred, tossed in a honey, cider vinegar and red pepper glaze.",
+    "added": "2026-11-07",
+    "prepTime": "PT20M",
+    "cookTime": "PT25M",
+    "recipeYield": "14-16 servings"
+  },
+  {
+    "id": "brown-butter-skillet-corn",
+    "name": "Brown Butter Skillet Corn",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#side-dish",
+      "#vegetarian",
+      "#skillet"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "2½ lb frozen sweet corn, thawed and patted very dry (about 7½ cups)"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp vegetable oil, divided"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp unsalted butter"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp honey"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "4 green onions, thinly sliced"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Dry the Corn",
+        "detail": "Thaw the corn (2½ lb) and blot it hard with towels.",
+        "why": "Surface water holds the pan at 212°F and the corn steams instead of browning."
+      },
+      {
+        "step": "Char in Two Batches",
+        "detail": "Heat 1 Tbsp of the oil (from 2 Tbsp) in a 12-inch skillet, cast iron if you have it, over high. Add half the corn in one layer and leave it 3-4 minutes until spotted brown, then stir and cook 2 minutes more. Move to a bowl. Repeat with the other 1 Tbsp oil and the rest of the corn.",
+        "why": "Half at a time keeps the pan hot enough to brown; the whole bag at once drops the heat and the corn stews."
+      },
+      {
+        "step": "Brown the Butter",
+        "detail": "Lower the heat to medium. Add the butter (6 Tbsp) and cook, swirling, 2-3 minutes until it foams, smells nutty and the solids turn brown."
+      },
+      {
+        "step": "Finish",
+        "detail": "Return all the corn (2½ lb), add the honey (1 Tbsp), salt (1½ tsp) and pepper (½ tsp) and toss 1 minute. Stir in the green onions (4)."
+      }
+    ],
+    "notes": [
+      "Holds covered off the heat for an hour; rewarm in the skillet."
+    ],
+    "is_blank": false,
+    "description": "Frozen sweet corn charred hard in a hot skillet, then tossed in nutty brown butter with a little honey and green onion.",
+    "added": "2026-11-07",
+    "prepTime": "PT5M",
+    "cookTime": "PT20M",
+    "recipeYield": "15 servings"
+  },
+  {
+    "id": "cranberry-orange-sauce",
+    "name": "Cranberry Orange Sauce",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#side-dish",
+      "#vegetarian",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "1 bag (12 oz) fresh cranberries"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup granulated sugar"
+      },
+      {
+        "type": "item",
+        "text": "½ cup orange juice"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup water"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp grated orange zest"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1 cinnamon stick (optional)"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Sort",
+        "detail": "Rinse the cranberries (12 oz) and throw out any soft or shriveled ones."
+      },
+      {
+        "step": "Dissolve the Sugar",
+        "detail": "Bring the sugar (¾ cup), orange juice (½ cup), water (¼ cup), salt (⅛ tsp) and cinnamon stick (1, if using) to a simmer in a medium saucepan, stirring until the sugar dissolves.",
+        "why": "The pinch of salt mutes the skins' bitterness so the fruit tastes brighter."
+      },
+      {
+        "step": "Cook Until They Pop",
+        "detail": "Add the cranberries (12 oz) and simmer over medium 8-10 minutes, stirring now and then, until most have burst. Stop while some are still whole.",
+        "why": "Cranberries carry plenty of their own pectin. Cook them longer and the sauce sets rubbery once cold; it looks loose hot but thickens a lot as it cools."
+      },
+      {
+        "step": "Finish",
+        "detail": "Off the heat, stir in the zest (1 tsp) and pull the cinnamon stick. Cool, then refrigerate."
+      }
+    ],
+    "notes": [
+      "Keeps about 10 days in the fridge."
+    ],
+    "is_blank": false,
+    "description": "Fresh cranberries simmered with orange juice, sugar and zest just until they burst.",
+    "added": "2026-11-07",
+    "prepTime": "PT5M",
+    "cookTime": "PT15M",
+    "recipeYield": "about 2¼ cups"
+  },
+  {
+    "id": "soft-pull-apart-dinner-rolls",
+    "name": "Soft Pull-Apart Dinner Rolls",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#bread",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Dough:"
+      },
+      {
+        "type": "item",
+        "text": "5½ cups all-purpose flour, spooned and leveled, plus more for the counter"
+      },
+      {
+        "type": "item",
+        "text": "⅔ cup instant mashed potato flakes"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup granulated sugar"
+      },
+      {
+        "type": "item",
+        "text": "2¼ tsp (1 packet) instant yeast"
+      },
+      {
+        "type": "item",
+        "text": "2¼ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups whole milk, lukewarm (about 100°F)"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp water"
+      },
+      {
+        "type": "item",
+        "text": "1 large egg"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp unsalted butter, softened"
+      },
+      {
+        "type": "header",
+        "text": "Finish:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp butter, for the pans"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp unsalted butter, melted"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Mix the Dry",
+        "detail": "Whisk the flour (5½ cups), potato flakes (⅔ cup), sugar (⅓ cup), yeast (2¼ tsp) and salt (2¼ tsp) in a stand mixer bowl or your biggest bowl.",
+        "why": "Potato starch holds water, so the rolls bake softer and stay soft a day longer."
+      },
+      {
+        "step": "Knead",
+        "detail": "Add the milk (1½ cups), water (3 Tbsp), egg (1) and softened butter (6 Tbsp). Mix to a shaggy dough, then knead 8-10 minutes by hand (6-8 minutes with the dough hook on medium-low) until smooth and slightly tacky, and a small piece stretches thin enough to see light through without tearing.",
+        "why": "Butter slows gluten forming, so judge by the stretch test, not the clock."
+      },
+      {
+        "step": "First Rise",
+        "detail": "Cover in a greased bowl and let rise in a warm spot 1½-2 hours, until doubled."
+      },
+      {
+        "step": "Shape",
+        "detail": "Cut the dough in half, each half into 3 pieces, then each piece into 5, for 30 equal pieces. Round each into a tight ball by rolling it under a cupped hand on an unfloured spot of counter. Set 15 per 9x13 pan buttered with the butter (1 Tbsp for both), 5 by 3.",
+        "why": "Packed rolls rise into each other and bake up tall and soft-sided."
+      },
+      {
+        "step": "Proof",
+        "detail": "Cover and let rise 45-60 minutes, until puffy and touching. To bake the next day instead, cover tightly and refrigerate the shaped rolls 8-16 hours, then let them sit out 1 hour before baking.",
+        "why": "The cold slows the yeast and builds flavor; chill for this rise only, not both."
+      },
+      {
+        "step": "Bake",
+        "detail": "Bake at 350°F for 20-22 minutes, turning the pans halfway, until golden and the center roll reads 190°F. Brush with the melted butter (2 Tbsp) right away."
+      }
+    ],
+    "notes": [
+      "To rewarm baked rolls, cover the pan with foil and heat at 300°F for 8-10 minutes.",
+      "Proportions checked against King Arthur's published Soft Dinner Rolls ratios; ingredients and method are ours."
+    ],
+    "is_blank": false,
+    "description": "Soft, buttery pull-apart yeast rolls made tender with potato flakes, baked 15 to a pan, with an overnight make-ahead option.",
+    "added": "2026-11-07",
+    "prepTime": "PT30M",
+    "cookTime": "PT22M",
+    "waitTime": "PT2H15M",
+    "waitLabel": "rise 1½-2 hr, then proof 45-60 min",
+    "recipeYield": "30 rolls"
+  },
+  {
+    "id": "wasabi-deviled-eggs",
+    "name": "Wasabi Deviled Eggs",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#snack",
+      "#vegetarian",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Eggs:"
+      },
+      {
+        "type": "item",
+        "text": "12 large eggs"
+      },
+      {
+        "type": "header",
+        "text": "Filling:"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "2½ Tbsp Miracle Whip"
+      },
+      {
+        "type": "item",
+        "text": "¾ tsp wasabi paste (start at ½ tsp, up to 1 tsp)"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "Garnish:"
+      },
+      {
+        "type": "item",
+        "text": "Paprika, for dusting"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Steam the Eggs",
+        "detail": "Bring 1 inch of water to a rolling boil in a wide pot. Set the eggs (12) straight from the fridge in a steamer basket in a single layer, cover, drop to medium and steam 13 minutes.",
+        "why": "Cold eggs into hot steam is what makes them peel cleanly."
+      },
+      {
+        "step": "Shock and Peel",
+        "detail": "Move the eggs (12) to an ice bath of 4 cups ice and 4 cups cold water for 15 minutes. Crack all over and peel."
+      },
+      {
+        "step": "Halve",
+        "detail": "Cut each egg in half lengthwise with a thin knife, wiping it between cuts. Pop the yolks into a bowl and set the whites on a platter."
+      },
+      {
+        "step": "Make the Filling",
+        "detail": "Mash the yolks with a fork until no lumps are left, then stir in the mayonnaise (⅓ cup), Miracle Whip (2½ Tbsp), wasabi paste (½ tsp to start), salt (⅛ tsp) and pepper (⅛ tsp) until smooth. Taste and work in up to another ½ tsp wasabi paste.",
+        "why": "Mash the yolks dry first; once the dressing is in, the lumps won't break down."
+      },
+      {
+        "step": "Fill",
+        "detail": "Spoon the filling into a zip-top bag, snip a corner and pipe it into the whites."
+      },
+      {
+        "step": "Garnish",
+        "detail": "Dust the filled eggs (24 halves) with a little paprika. Refrigerate until serving."
+      }
+    ],
+    "notes": [
+      "To make ahead, keep the whites and filling separate and covered up to 1 day, then fill within a few hours of serving. Tube wasabi loses heat as it sits, so a day-old filling may want a touch more."
+    ],
+    "is_blank": false,
+    "description": "Deviled eggs with a mayo and Miracle Whip filling sharpened with wasabi, finished with a dash of paprika.",
+    "added": "2026-11-07",
+    "prepTime": "PT25M",
+    "cookTime": "PT13M",
+    "waitTime": "PT15M",
+    "waitLabel": "ice bath 15 min before peeling",
+    "recipeYield": "24 halves"
+  },
+  {
+    "id": "caramelized-french-onion-dip",
+    "name": "Caramelized French Onion Dip",
+    "section": "THANKSGIVING",
+    "category": "Thanksgiving",
+    "source": "Original",
+    "tags": [
+      "#dip",
+      "#snack",
+      "#vegetarian",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "Onion:"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp unsalted butter"
+      },
+      {
+        "type": "item",
+        "text": "1½ tsp vegetable oil"
+      },
+      {
+        "type": "item",
+        "text": "1 large yellow onion, diced small (¼ inch)"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp table salt"
+      },
+      {
+        "type": "header",
+        "text": "Dip:"
+      },
+      {
+        "type": "item",
+        "text": "1 cup (8 oz) sour cream"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp Worcestershire sauce"
+      },
+      {
+        "type": "item",
+        "text": "¼ tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "⅛ tsp table salt, plus more to taste"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp chopped chives or green onion tops"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Caramelize",
+        "detail": "Melt the butter (1 Tbsp) with the oil (1½ tsp) in a 10-inch skillet over medium. Add the onion (1) and salt (¼ tsp). Cook 30-35 minutes, stirring every few minutes, until deep brown and jammy. When the bottom of the pan darkens, add a splash of water and scrape.",
+        "why": "Low heat gives the sugars time to brown without scorching; the water lifts the browned layer back into the onion."
+      },
+      {
+        "step": "Cool Completely",
+        "detail": "Spread the onion on a plate and let it cool to room temperature.",
+        "why": "Warm onion thins the sour cream into a runny dip."
+      },
+      {
+        "step": "Mix",
+        "detail": "Stir the sour cream (1 cup), mayonnaise (¼ cup), Worcestershire (½ tsp), garlic powder (¼ tsp), pepper (⅛ tsp), salt (⅛ tsp), the onion and the chives (1 Tbsp). Taste for salt."
+      },
+      {
+        "step": "Chill",
+        "detail": "Refrigerate at least 2 hours before serving.",
+        "why": "The onion flavor spreads through the dip as it sits; it tastes thin right after mixing."
+      }
+    ],
+    "notes": [
+      "Keeps 3 days in the fridge."
+    ],
+    "is_blank": false,
+    "description": "Sour cream and mayo dip built on slowly caramelized onion, with Worcestershire and chives.",
+    "added": "2026-11-07",
+    "prepTime": "PT10M",
+    "cookTime": "PT35M",
+    "waitTime": "PT2H",
+    "waitLabel": "chill 2 hr before serving",
+    "recipeYield": "about 1½ cups"
   }
 ]

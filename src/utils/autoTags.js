@@ -31,6 +31,7 @@ const CATEGORY_TAG_MAP = {
   'Snacks':                       ['#snack'],
   'Smoothies':                    ['#smoothie'],
   'Bread':                        ['#bread'],
+  'Thanksgiving':                 ['#holiday'],
   'Marinades':                    ['#marinade'],
   'Seasonings':                   ['#seasoning'],
   'Doughs':                       ['#dough'],
