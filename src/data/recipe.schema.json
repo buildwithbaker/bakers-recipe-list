@@ -112,6 +112,11 @@
             "type": "string",
             "minLength": 1,
             "description": "OPTIONAL. One short sentence on why the step is done this way. Rendered in muted italic after the step's detail, hideable with the page's \"Show why notes\" checkbox. Never indexed by search and never published in the JSON-LD."
+          },
+          "technique": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "OPTIONAL. The id of a technique in src/data/techniques.json (how to cut, fold, shape). The step then shows an (i) button that opens the technique as a popup, and the recipe is listed under that technique on the Learning to Cook page. Must resolve to an existing technique; the build fails otherwise. Never indexed by search and never published in the JSON-LD."
           }
         }
       }
@@ -121,33 +126,6 @@
       "minItems": 1,
       "description": "OPTIONAL. Recipe-level notes, shown under a \"Notes\" heading after the method. Omit the field rather than leaving it empty. Never indexed by search and never published in the JSON-LD.",
       "items": { "type": "string", "minLength": 1 }
-    },
-    "diagrams": {
-      "type": "array",
-      "minItems": 1,
-      "description": "OPTIONAL. Technique diagrams (how to cut, fold, shape), shown under a \"Technique\" heading after Notes. Each is an SVG committed under public/diagrams/, at most 150 KB, with no script or event-handler attributes. Omit the field rather than leaving it empty. Never indexed by search and never published in the JSON-LD. See docs/internal/adding-a-diagram.md.",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["src", "alt"],
-        "properties": {
-          "src": {
-            "type": "string",
-            "pattern": "^diagrams/[a-z0-9-]+\\.svg$",
-            "description": "Path to the SVG, relative to public/ with no leading slash, e.g. \"diagrams/honey-carrots-roll-cut.svg\"."
-          },
-          "alt": {
-            "type": "string",
-            "minLength": 1,
-            "description": "Text alternative that conveys what the diagram teaches, not just what it shows."
-          },
-          "caption": {
-            "type": "string",
-            "minLength": 1,
-            "description": "OPTIONAL. Short caption shown under the diagram."
-          }
-        }
-      }
     },
     "is_blank": {
       "type": "boolean",

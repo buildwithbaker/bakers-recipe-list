@@ -60,3 +60,16 @@ export function isDraftsPath(pathname, base = BASE_PATH) {
   const prefix = withTrailingSlash(base);
   return path.startsWith(prefix) && /^drafts\/?$/.test(path.slice(prefix.length));
 }
+
+// Learning to Cook lives at <base>/learning-to-cook/, routed and prerendered
+// like About (dist/learning-to-cook/index.html). `hash` is a technique id, so
+// /learning-to-cook/#carrot-roll-cut lands on that technique's card.
+export function learningPath(base = BASE_PATH, hash = '') {
+  return `${withTrailingSlash(base)}learning-to-cook/${hash ? `#${hash}` : ''}`;
+}
+
+export function isLearningPath(pathname, base = BASE_PATH) {
+  const path = String(pathname ?? '');
+  const prefix = withTrailingSlash(base);
+  return path.startsWith(prefix) && /^learning-to-cook\/?$/.test(path.slice(prefix.length));
+}

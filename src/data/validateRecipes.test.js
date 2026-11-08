@@ -103,6 +103,7 @@ function fixture({
   records = BASE_RECORDS,
   manifest = BASE_MANIFEST,
   publicFiles = {},
+  techniques = [],
   baseline = BASE_BASELINE,
   fillFiller = true,
 } = {}) {
@@ -120,7 +121,7 @@ function fixture({
   mkdirSync(join(root, 'scripts'), { recursive: true });
   mkdirSync(join(root, 'src', 'data'), { recursive: true });
   copyFileSync(join(repoRoot, 'scripts', 'validate-recipes.mjs'), join(root, 'scripts', 'validate-recipes.mjs'));
-  for (const f of ['sections.js', 'recipe.schema.json']) {
+  for (const f of ['sections.js', 'recipe.schema.json', 'techniques.schema.json']) {
     copyFileSync(join(repoRoot, 'src', 'data', f), join(root, 'src', 'data', f));
   }
   // The tag check imports the controlled list and the auto-tag vocabulary.
@@ -128,6 +129,7 @@ function fixture({
   mkdirSync(join(root, 'src', 'utils'), { recursive: true });
   copyFileSync(join(repoRoot, 'src', 'utils', 'autoTags.js'), join(root, 'src', 'utils', 'autoTags.js'));
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
+  writeFileSync(join(root, 'src', 'data', 'techniques.json'), JSON.stringify(techniques, null, 2));
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(manifest, null, 2));
   writeFileSync(join(root, 'src', 'data', 'cookbookBaseline.json'), JSON.stringify({ ids: baseline }, null, 2));
   // Files the fixture serves from public/, keyed by path (e.g. 'diagrams/x.svg').
@@ -263,75 +265,125 @@ describe('validate-recipes.mjs', () => {
     expect(output).toMatch(/note #1 must be a non-empty string/);
   });
 
-  // --- optional diagrams (per recipe) --------------------------------------
+  // --- techniques (src/data/techniques.json) and a step's "technique" ----------
 
   const SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><title>ok</title><circle r="4"/></svg>';
   // Each SVG needs its PNG companion beside it (made by scripts/rasterize-diagrams.mjs).
   const PNG = Buffer.from('89504e470d0a1a0a', 'hex');
-  const diagramRun = (diagrams, publicFiles = { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': PNG }) => {
+  const FILES = { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': PNG };
+  const technique = (over = {}) => ({
+    id: 'cut-it',
+    title: 'Cutting it',
+    kicker: 'Knife work',
+    diagram: { src: 'diagrams/cut.svg', alt: 'How to cut it.' },
+    how: ['Hold it.', 'Cut it.'],
+    why: 'It cooks evenly.',
+    ...over,
+  });
+  // Runs the validator with the given techniques, and (optionally) a record
+  // whose first step references a technique id.
+  const techRun = (techniques, { publicFiles = FILES, stepTechnique } = {}) => {
     const records = clone(BASE_RECORDS);
-    records[0].diagrams = diagrams;
-    return runValidator(fixture({ records, publicFiles }));
+    if (stepTechnique !== undefined) records[0].instructions[0].technique = stepTechnique;
+    return runValidator(fixture({ records, techniques, publicFiles }));
   };
-  const good = { src: 'diagrams/cut.svg', alt: 'How to cut it.', caption: 'Cutting it' };
 
-  it('passes a valid diagram, with and without a caption', () => {
-    expect(diagramRun([good]).code).toBe(0);
-    const { code, output } = diagramRun([{ src: good.src, alt: good.alt }]);
+  it('passes a valid technique, and a step that references it', () => {
+    const { code, output } = techRun([technique()], { stepTechnique: 'cut-it' });
     expect(code).toBe(0);
     expect(output).toMatch(/recipes\.json OK/);
   });
 
-  it.each([[[]], ['a string'], [null]])('fails diagrams of %j', (diagrams) => {
-    const { code, output } = diagramRun(diagrams);
+  it('fails a step whose technique id resolves to no technique', () => {
+    const { code, output } = techRun([technique()], { stepTechnique: 'no-such-technique' });
     expect(code).not.toBe(0);
-    expect(output).toMatch(/diagrams must be a non-empty array when present/);
+    expect(output).toMatch(/instruction #0 technique "no-such-technique" is not an id in src\/data\/techniques\.json/);
+  });
+
+  it('fails a step technique when there are no techniques at all', () => {
+    const { code, output } = techRun([], { stepTechnique: 'cut-it' });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/technique "cut-it" is not an id/);
+  });
+
+  it.each([['Cut It'], ['cut_it'], [''], [7]])('fails a step technique of %j that is not an id', (bad) => {
+    const { code, output } = techRun([technique()], { stepTechnique: bad });
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/instruction #0 technique .* must be a string matching/);
+  });
+
+  it('fails duplicate technique ids', () => {
+    const { code, output } = techRun([technique(), technique({ title: 'Again' })]);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/duplicate technique id "cut-it" \(×2\)/);
+  });
+
+  it('fails an unknown key on a technique and on its diagram', () => {
+    const a = techRun([technique({ extra: 1 })]);
+    expect(a.code).not.toBe(0);
+    expect(a.output).toMatch(/technique #0 \("cut-it"\) has unknown field "extra"/);
+    const b = techRun([technique({ diagram: { src: 'diagrams/cut.svg', alt: 'x', width: 4 } })]);
+    expect(b.code).not.toBe(0);
+    expect(b.output).toMatch(/diagram has unknown field "width"/);
+  });
+
+  it.each(['id', 'title', 'kicker', 'diagram', 'how', 'why'])('fails a technique missing %s', (key) => {
+    const t = technique();
+    delete t[key];
+    const { code, output } = techRun([t]);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(new RegExp(`is missing required field "${key}"`));
+  });
+
+  it.each([[[]], ['one'], [['ok', '']], [[3]]])('fails how of %j', (how) => {
+    const { code, output } = techRun([technique({ how })]);
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/how (must be a non-empty array|#\d must be a non-empty string)/);
+  });
+
+  it('fails a bad id, an empty title and an empty why', () => {
+    expect(techRun([technique({ id: 'Cut It' })]).output).toMatch(/id must be a string matching/);
+    expect(techRun([technique({ title: ' ' })]).output).toMatch(/title must be a non-empty string/);
+    expect(techRun([technique({ why: '' })]).output).toMatch(/why must be a non-empty string/);
   });
 
   it.each(['photos/cut.svg', '/diagrams/cut.svg', 'diagrams/Cut.svg', 'diagrams/cut.png', 'diagrams/sub/cut.svg'])(
-    'fails a bad src %j',
+    'fails a bad diagram src %j',
     (src) => {
-      const { code, output } = diagramRun([{ ...good, src }]);
+      const { code, output } = techRun([technique({ diagram: { src, alt: 'x' } })]);
       expect(code).not.toBe(0);
-      expect(output).toMatch(/diagram #0 src .* must match/);
+      expect(output).toMatch(/diagram src .* must match/);
     },
   );
 
-  it('fails a src whose file is missing', () => {
-    const { code, output } = diagramRun([{ ...good, src: 'diagrams/missing.svg' }]);
+  it('fails a diagram whose file is missing', () => {
+    const { code, output } = techRun([technique({ diagram: { src: 'diagrams/missing.svg', alt: 'x' } })]);
     expect(code).not.toBe(0);
     expect(output).toMatch(/does not exist at public\/diagrams\/missing\.svg/);
   });
 
-  it('fails a missing alt, an empty alt and an empty caption', () => {
-    expect(diagramRun([{ src: good.src }]).output).toMatch(/diagram #0 is missing required field "alt"/);
-    expect(diagramRun([{ ...good, alt: '  ' }]).output).toMatch(/diagram #0 alt must be a non-empty string/);
-    expect(diagramRun([{ ...good, caption: '' }]).output).toMatch(/diagram #0 caption must be a non-empty string/);
-  });
-
-  it('fails an extra key on a diagram', () => {
-    const { code, output } = diagramRun([{ ...good, width: 400 }]);
-    expect(code).not.toBe(0);
-    expect(output).toMatch(/diagram #0 has unknown field "width"/);
+  it('fails a missing or empty diagram alt', () => {
+    expect(techRun([technique({ diagram: { src: 'diagrams/cut.svg' } })]).output).toMatch(/diagram is missing required field "alt"/);
+    expect(techRun([technique({ diagram: { src: 'diagrams/cut.svg', alt: '  ' } })]).output).toMatch(/diagram alt must be a non-empty string/);
   });
 
   it('fails a diagram with no PNG companion', () => {
-    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': SVG });
+    const { code, output } = techRun([technique()], { publicFiles: { 'diagrams/cut.svg': SVG } });
     expect(code).not.toBe(0);
-    expect(output).toMatch(/diagram #0 src "diagrams\/cut\.svg" has no PNG companion at public\/diagrams\/cut\.png/);
+    expect(output).toMatch(/src "diagrams\/cut\.svg" has no PNG companion at public\/diagrams\/cut\.png/);
   });
 
   it('fails a PNG companion over 400 KB, and passes one at the limit', () => {
     const png = (kb) => Buffer.alloc(kb * 1024, 1);
-    const over = diagramRun([good], { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': png(401) });
+    const over = techRun([technique()], { publicFiles: { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': png(401) } });
     expect(over.code).not.toBe(0);
     expect(over.output).toMatch(/PNG companion "diagrams\/cut\.png" is 401 KB, over the 400 KB limit/);
-    expect(diagramRun([good], { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': png(400) }).code).toBe(0);
+    expect(techRun([technique()], { publicFiles: { 'diagrams/cut.svg': SVG, 'diagrams/cut.png': png(400) } }).code).toBe(0);
   });
 
   it('fails a diagram over 150 KB', () => {
     const big = `<svg xmlns="http://www.w3.org/2000/svg"><!--${'x'.repeat(151 * 1024)}--></svg>`;
-    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': big, 'diagrams/cut.png': PNG });
+    const { code, output } = techRun([technique()], { publicFiles: { 'diagrams/cut.svg': big, 'diagrams/cut.png': PNG } });
     expect(code).not.toBe(0);
     expect(output).toMatch(/is 15\d KB, over the 150 KB limit/);
   });
@@ -341,9 +393,17 @@ describe('validate-recipes.mjs', () => {
     ['an event handler', '<svg xmlns="http://www.w3.org/2000/svg"><circle onLoad="alert(1)" r="4"/></svg>', /event-handler attribute/],
     ['an event handler after a quote', '<svg xmlns="http://www.w3.org/2000/svg"><circle r="4"onclick = "x()"/></svg>', /event-handler attribute/],
   ])('fails a diagram carrying %s', (_label, svg, message) => {
-    const { code, output } = diagramRun([good], { 'diagrams/cut.svg': svg, 'diagrams/cut.png': PNG });
+    const { code, output } = techRun([technique()], { publicFiles: { 'diagrams/cut.svg': svg, 'diagrams/cut.png': PNG } });
     expect(code).not.toBe(0);
     expect(output).toMatch(message);
+  });
+
+  it('no longer accepts a recipe-level diagrams field', () => {
+    const records = clone(BASE_RECORDS);
+    records[0].diagrams = [{ src: 'diagrams/cut.svg', alt: 'x' }];
+    const { code, output } = runValidator(fixture({ records, publicFiles: FILES }));
+    expect(code).not.toBe(0);
+    expect(output).toMatch(/has unknown field "diagrams"/);
   });
 
   // --- added / waitTime / waitLabel / description, and the frozen baseline ---

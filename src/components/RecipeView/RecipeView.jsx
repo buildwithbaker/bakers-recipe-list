@@ -7,6 +7,7 @@
 // the same route, so a second renderer would be a second thing to keep correct
 // — which is exactly how a card and its page drift apart.
 import { Component, lazy, Suspense, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './RecipeView.module.css';
 import { estimateServings } from '../../utils/estimateServings.js';
 import { yieldLabel } from '../../utils/authoredYield.js';
@@ -19,7 +20,7 @@ import { shareLink } from '../../utils/shareLink.js';
 import { useWakeLock } from '../../hooks/useWakeLock.js';
 import { useIngredientTicks } from '../../hooks/useIngredientTicks.js';
 import { cookModeMessage } from '../../utils/screenLock.js';
-import { BASE_PATH, aboutPath, recipePath } from '../../utils/recipeRoute.js';
+import { aboutPath, learningPath, recipePath } from '../../utils/recipeRoute.js';
 import { isModifiedClick } from '../../utils/isModifiedClick.js';
 import { SITE_NAME, recipeDocumentTitle } from '../../utils/siteTitle.js';
 import { recipePhoto } from '../../utils/recipePhoto.js';
@@ -28,6 +29,10 @@ import { DRAFT_LABEL, isDraft } from '../../data/sections.js';
 import { ingredientCount, stepCount } from '../../utils/recipeStats.js';
 import { gatherWhyNotes, hasWhy, stepNumbers } from '../../utils/whyNotes.js';
 import { hasStepAmounts, stripStepAmounts } from '../../utils/stepAmounts.js';
+import { techniquesById } from '../../data/techniqueIndex.js';
+import { techniqueIdsOf } from '../../utils/techniqueUsage.js';
+import { useTechniquePopup } from '../../hooks/useTechniquePopup.js';
+import TechniqueSheet from '../TechniqueSheet/TechniqueSheet.jsx';
 import { loadDisplaySettings, saveDisplaySetting } from '../../utils/displaySettings.js';
 import DisplaySettings from '../DisplaySettings/DisplaySettings.jsx';
 import { categoryOf, categoryStyle } from '../../data/catalog.js';
@@ -170,7 +175,7 @@ function Ingredients({ recipeId, items, scale, servings, onScaleDown, onScaleUp,
 // Method
 // ---------------------------------------------------------------------------
 
-function Method({ steps, headingId, Heading, settings, onSettingChange, scaled }) {
+function Method({ steps, headingId, Heading, settings, onSettingChange, scaled, onTechnique }) {
   if (!steps?.length) return null;
   const count = steps.filter((s) => s.type !== 'section' && s.type !== 'header').length;
   // Numbering restarts after a version marker, so each version of a
@@ -184,6 +189,22 @@ function Method({ steps, headingId, Heading, settings, onSettingChange, scaled }
   // The why sits in the step's own paragraph, after a space, as its own
   // element: turning it off removes it and nothing else.
   const why = (s) => settings.why && s.why && <>{' '}<span className={styles.why}>{s.why}</span></>;
+  // The (i) after a step's title opens its technique. Always shown, whether
+  // the why notes are on or off. Only an id that resolves gets a button.
+  const technique = (s) => {
+    const t = s.technique && techniquesById.get(s.technique);
+    if (!t) return null;
+    return (
+      <button
+        type="button"
+        className={styles.techBtn}
+        aria-label={`How to: ${t.title}`}
+        onClick={(e) => onTechnique?.(t.id, e.currentTarget)}
+      >
+        <Icon name="info" />
+      </button>
+    );
+  };
   return (
     <section className={styles.method} aria-labelledby={headingId}>
       <div className={styles.sectionHead}>
@@ -209,11 +230,14 @@ function Method({ steps, headingId, Heading, settings, onSettingChange, scaled }
             <li key={i} className={styles.step} data-n={numbers[i]}>
               {s.detail ? (
                 <>
-                  <span className={styles.stepTitle}>{text(s.step)}</span>
+                  <span className={styles.stepHead}>
+                    <span className={styles.stepTitle}>{text(s.step)}</span>
+                    {technique(s)}
+                  </span>
                   <p>{text(s.detail)}{why(s)}</p>
                 </>
               ) : (
-                <p>{text(s.step)}{why(s)}</p>
+                <p>{text(s.step)}{why(s)}{technique(s)}</p>
               )}
             </li>
           );
@@ -245,35 +269,6 @@ function RecipeNotes({ notes, steps, settings, Heading }) {
           </li>
         ))}
       </ul>
-    </section>
-  );
-}
-
-// ---------------------------------------------------------------------------
-// Technique diagrams: the recipe's own SVGs (how to cut, fold, shape), after
-// Notes. Served from public/ by path, not through the photo pipeline. Renders
-// nothing when the recipe has none.
-// ---------------------------------------------------------------------------
-
-function RecipeDiagrams({ diagrams, Heading }) {
-  const headingId = useId();
-  if (!diagrams?.length) return null;
-  return (
-    <section className={styles.diagrams} aria-labelledby={headingId}>
-      <div className={styles.sectionHead}>
-        <Heading id={headingId}>Technique</Heading>
-      </div>
-      {diagrams.map((d) => (
-        <figure key={d.src} className={styles.diagram}>
-          <img
-            src={`${BASE_PATH}${String(d.src).replace(/^\/+/, '')}`}
-            alt={d.alt}
-            loading="lazy"
-            decoding="async"
-          />
-          {d.caption && <figcaption>{d.caption}</figcaption>}
-        </figure>
-      ))}
     </section>
   );
 }
@@ -351,10 +346,13 @@ function CookLogSection({ recipeId, Heading }) {
  * @param onAbout      (hash) -> the About page in-app; the AI photo caption
  *                     links to about/#photos and falls back to a plain
  *                     navigation without it
+ * @param onLearn      (techniqueId) -> the Learning to Cook page in-app; the
+ *                     technique popup's link falls back to a plain navigation
+ *                     without it
  */
 export default function RecipeView({
   recipe, titleId, headingLevel = 2, barStart = null, barEnd = null,
-  onTagClick, onAddToList, footer = null, onAbout,
+  onTagClick, onAddToList, footer = null, onAbout, onLearn,
 }) {
   const [scale, setScale] = useState(1);
   const [listSelecting, setListSelecting] = useState(false);
@@ -366,6 +364,7 @@ export default function RecipeView({
   const [toastNode, toast] = useToast();
   const titleRef = useRef(null);
   const localId = useId();
+  const popup = useTechniquePopup();
 
   const servingEstimate = useMemo(() => (recipe ? estimateServings(recipe) : null), [recipe]);
   const macroState = useMacroEstimate(recipe, servingEstimate);
@@ -401,6 +400,9 @@ export default function RecipeView({
 
   if (!recipe) return null;
 
+  const openTechnique = popup.openId && techniqueIdsOf(recipe).includes(popup.openId)
+    ? techniquesById.get(popup.openId)
+    : null;
   const category = categoryOf(recipe);
   const photo = recipePhoto(recipe);
   const isMade = madeSet.has(recipe.id);
@@ -583,9 +585,9 @@ export default function RecipeView({
                 settings={display}
                 onSettingChange={changeDisplay}
                 scaled={scale !== 1}
+                onTechnique={popup.open}
               />
               <RecipeNotes notes={recipe.notes} steps={recipe.instructions} settings={display} Heading={Heading} />
-              <RecipeDiagrams diagrams={recipe.diagrams} Heading={Heading} />
             </div>
           </div>
         )}
@@ -621,6 +623,21 @@ export default function RecipeView({
         {footer}
       </div>
       {toastNode}
+      {openTechnique && createPortal(
+        <TechniqueSheet
+          technique={openTechnique}
+          onClose={popup.close}
+          onLearn={(id) => {
+            // Strip the Back stop in place, then go: Back from Learning to
+            // Cook lands on this recipe with the popup closed.
+            popup.leave();
+            if (onLearn) onLearn(id);
+            else window.location.assign(learningPath(undefined, id));
+          }}
+          returnFocusRef={popup.openerRef}
+        />,
+        document.body,
+      )}
     </div>
   );
 }

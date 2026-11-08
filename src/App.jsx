@@ -15,13 +15,14 @@ import TabBar from './components/TabBar/TabBar.jsx';
 import PinnedList from './components/PinnedList/PinnedList.jsx';
 import AboutPage from './components/AboutPage/AboutPage.jsx';
 import DraftsPage from './components/DraftsPage/DraftsPage.jsx';
+import LearningPage from './components/LearningPage/LearningPage.jsx';
 import { CookHistoryProvider } from './context/CookHistoryContext.jsx';
 import { useRecentlyViewed } from './hooks/useRecentlyViewed.js';
 import { useShoppingList } from './hooks/useShoppingList.js';
 import { scaleIngredientText } from './utils/scaleIngredient.js';
 import { SEARCH_MODES } from './utils/search.js';
 import {
-  BASE_PATH, aboutPath, draftsPath, isAboutPath, isDraftsPath, recipePath, recipeKeyFromPath,
+  BASE_PATH, aboutPath, draftsPath, isAboutPath, isDraftsPath, isLearningPath, learningPath, recipePath, recipeKeyFromPath,
 } from './utils/recipeRoute.js';
 import {
   LIST, TAB_RECIPES,
@@ -164,6 +165,8 @@ function AppInner() {
   const [aboutView, setAboutView] = useState(() => isAboutPath(window.location.pathname));
   // Chef's Drafts: the same, off its own path.
   const [draftsView, setDraftsView] = useState(() => isDraftsPath(window.location.pathname));
+  // Learning to Cook: the same, off its own path.
+  const [learningView, setLearningView] = useState(() => isLearningPath(window.location.pathname));
   const [overlays, setOverlays] = useState(entryOverlays);
   const [tab, setTab] = useState(currentEntryTab);
   const [searchQuery, setSearchQuery] = useState(() => getParam('q'));
@@ -184,6 +187,8 @@ function AppInner() {
   const aboutRef = useRef(aboutView);
   // Same, for Chef's Drafts.
   const draftsRef = useRef(draftsView);
+  // Same, for Learning to Cook.
+  const learningRef = useRef(learningView);
   // Holds a tag search that must be applied after a back navigation lands.
   const pendingSearchRef = useRef(null);
   const [recentHistory, addToHistory, clearHistory] = useRecentlyViewed();
@@ -218,6 +223,11 @@ function AppInner() {
     setDraftsView(on);
   }, []);
 
+  const applyLearning = useCallback((on) => {
+    learningRef.current = on;
+    setLearningView(on);
+  }, []);
+
   // Opening a layer PUSHES a history entry, so Back pops the layer, not the site.
   // The URL does not change: only the recipe is mirrored into it. `page` rides
   // along so that popping back to this entry restores the same rendering.
@@ -250,14 +260,19 @@ function AppInner() {
     } catch { /* ignore */ }
     applyRecipe(recipe.id);
     applyDrafts(false);
+    applyLearning(false);
     setPageView(asPage);
     addToHistory(recipe);
-  }, [applyRecipe, applyDrafts, addToHistory]);
+  }, [applyRecipe, applyDrafts, applyLearning, addToHistory]);
 
   // From the list: a card over the list the visitor is already looking at.
   // From Chef's Drafts there is no list behind it, so the draft opens as a
   // full page and Back returns to the Drafts page.
-  const handleViewRecipe = useCallback((recipe) => openRecipe(recipe, draftsRef.current), [openRecipe]);
+  // Same from Learning to Cook: no list behind it, so a full page.
+  const handleViewRecipe = useCallback(
+    (recipe) => openRecipe(recipe, draftsRef.current || learningRef.current),
+    [openRecipe],
+  );
 
   // From a related link on a full page: another full page. The href on that
   // link points at /r/<slug>/, and someone with JavaScript off lands on the
@@ -278,9 +293,10 @@ function AppInner() {
     applyRecipe('');
     applyAbout(false);
     applyDrafts(false);
+    applyLearning(false);
     applyTab(TAB_RECIPES);
     setPageView(false);
-  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyTab]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyLearning, applyTab]);
 
   // Returns true when a back navigation is in flight (popstate finishes the close).
   const closeRecipe = useCallback(() => {
@@ -327,13 +343,34 @@ function AppInner() {
     applyOverlays([]);
     applyRecipe('');
     applyDrafts(false);
+    applyLearning(false);
     setPageView(false);
     if (aboutRef.current) {
       const target = hash && document.getElementById(hash);
       if (target) target.scrollIntoView(); else window.scrollTo({ top: 0 });
     }
     applyAbout(true);
-  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyLearning]);
+
+  // The technique popup's "All techniques" link: a real navigation to
+  // /learning-to-cook/#<id>, pushed like About, so Back returns to the recipe.
+  const handleLearn = useCallback((hash = '') => {
+    try {
+      const url = `${learningPath(undefined, hash)}`;
+      if (learningRef.current) window.history.replaceState(window.history.state, '', url);
+      else window.history.pushState(makeEntry([], false, tabRef.current), '', url);
+    } catch { /* ignore */ }
+    applyOverlays([]);
+    applyRecipe('');
+    applyAbout(false);
+    applyDrafts(false);
+    setPageView(false);
+    if (learningRef.current) {
+      const target = hash && document.getElementById(hash);
+      if (target) target.scrollIntoView(); else window.scrollTo({ top: 0 });
+    }
+    applyLearning(true);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyLearning]);
 
   // The footer link under the Recipes list: a real navigation to /drafts/,
   // pushed like About, so Back returns to the list.
@@ -344,10 +381,11 @@ function AppInner() {
     applyOverlays([]);
     applyRecipe('');
     applyAbout(false);
+    applyLearning(false);
     setPageView(false);
     applyDrafts(true);
     window.scrollTo({ top: 0 });
-  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyLearning]);
 
   // The masthead's (i) toggles: on About it closes the page by stepping Back,
   // exactly like the browser's Back. Every way in leaves an in-site entry
@@ -368,7 +406,7 @@ function AppInner() {
       overlays: overlaysRef.current,
       // About and Chef's Drafts are pages of their own: any tab leaves them,
       // the current one too.
-      onRecipePage: !!recipeIdRef.current || aboutRef.current || draftsRef.current,
+      onRecipePage: !!recipeIdRef.current || aboutRef.current || draftsRef.current || learningRef.current,
     });
     if (action.type === 'scrollTop') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     if (action.type === 'openList') { openOverlay(LIST); return; }
@@ -378,10 +416,11 @@ function AppInner() {
     applyRecipe('');
     applyAbout(false);
     applyDrafts(false);
+    applyLearning(false);
     setPageView(false);
     applyTab(action.tab);
     window.scrollTo({ top: 0 });
-  }, [openOverlay, closeOverlay, applyOverlays, applyRecipe, applyAbout, applyDrafts, applyTab]);
+  }, [openOverlay, closeOverlay, applyOverlays, applyRecipe, applyAbout, applyDrafts, applyLearning, applyTab]);
 
   const handleSearch = useCallback((query) => {
     setSearchQuery(query);
@@ -429,6 +468,7 @@ function AppInner() {
       applyRecipe(recipe ? recipe.id : '');
       applyAbout(isAboutPath(window.location.pathname));
       applyDrafts(isDraftsPath(window.location.pathname));
+      applyLearning(isLearningPath(window.location.pathname));
       setPageView(isPageEntry());
       applyTab(currentEntryTab());
       const pending = pendingSearchRef.current;
@@ -440,7 +480,7 @@ function AppInner() {
     };
     window.addEventListener('popstate', onPopState);
     return () => window.removeEventListener('popstate', onPopState);
-  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyTab]);
+  }, [applyOverlays, applyRecipe, applyAbout, applyDrafts, applyLearning, applyTab]);
 
   // A shared link — /r/spicy-pork-patties/ or the legacy ?recipe=Chili — opens
   // straight into a recipe with nothing behind it. Rewrite that first entry to
@@ -465,7 +505,9 @@ function AppInner() {
   // behind it, so Back lands on the recipes rather than off the site. The URL
   // is kept whole (query and #photos). Same "this entry is ours" marker as
   // above, so a reload or an in-app arrival never adds a second entry.
-  const [landedOnPage] = useState(() => isAboutPath(window.location.pathname) || isDraftsPath(window.location.pathname));
+  const [landedOnPage] = useState(() => (
+    isAboutPath(window.location.pathname) || isDraftsPath(window.location.pathname) || isLearningPath(window.location.pathname)
+  ));
   useEffect(() => {
     if (!landedOnPage || window.history.state) return;
     try {
@@ -500,9 +542,9 @@ function AppInner() {
         nav={<TabBar placement="header" {...navProps} />}
         onAbout={handleAboutButton}
         aboutCurrent={aboutView}
-        siteTitleIsHeading={!fullPage && !aboutView && !draftsView}
-        slim={fullPage || pinnedView || aboutView || draftsView}
-        onHome={fullPage || aboutView || draftsView ? goToList : undefined}
+        siteTitleIsHeading={!fullPage && !aboutView && !draftsView && !learningView}
+        slim={fullPage || pinnedView || aboutView || draftsView || learningView}
+        onHome={fullPage || aboutView || draftsView || learningView ? goToList : undefined}
         showShare={!fullPage}
       />
       {aboutView ? (
@@ -512,6 +554,10 @@ function AppInner() {
       ) : draftsView ? (
         <ErrorBoundary key="__drafts__">
           <DraftsPage onViewRecipe={handleViewRecipe} />
+        </ErrorBoundary>
+      ) : learningView ? (
+        <ErrorBoundary key="__learning__">
+          <LearningPage onViewRecipe={handleViewRecipe} />
         </ErrorBoundary>
       ) : fullPage ? (
         // Arrived here from a shared link: there is no list to lay a card over,
@@ -525,6 +571,7 @@ function AppInner() {
             onAddToList={handleAddToList}
             onViewRelated={handleViewRelated}
             onAbout={handleAbout}
+            onLearn={handleLearn}
           />
         </ErrorBoundary>
       ) : (
@@ -551,6 +598,7 @@ function AppInner() {
                   recentHistory={recentHistory}
                   onClearRecent={clearHistory}
                   onOpenDrafts={handleDrafts}
+                  onOpenLearning={() => handleLearn()}
                 />
               </SearchModeContext.Provider>
             </>
@@ -563,6 +611,7 @@ function AppInner() {
               onTagClick={handleTagClick}
               onAddToList={handleAddToList}
               onAbout={handleAbout}
+              onLearn={handleLearn}
             />
           </ErrorBoundary>
         </>

@@ -107,13 +107,14 @@ describe("search results: Chef's Drafts", () => {
     window.history.replaceState({ overlays: [], page: false, tab: 'recipes' }, '', '/');
     render(<App />);
     search('red onion');
-    await screen.findByText('4 results for “red onion”');
+    await screen.findByText('6 results for “red onion”');
     for (const name of ['Sheet Pan Chicken Shawarma Thighs', 'California Burgers with Special Sauce']) {
       const card = screen.getByRole('link', { name: new RegExp(name) }).closest('li');
       expect(within(card).getByText(DRAFT_LABEL)).toBeTruthy();
     }
-    // Persian Chicken is Cookbook; Quick Pickled Red Onions graduated 2026-10-31.
-    for (const name of ['Persian Chicken', 'Quick Pickled Red Onions']) {
+    // The rest are Cookbook: Persian Chicken, Quick Pickled Red Onions (graduated
+    // 2026-10-31), and Sheet Pan Chicken Shawarma Breasts and Quinoa (live 2026-11-08).
+    for (const name of ['Persian Chicken', 'Quick Pickled Red Onions', 'Sheet Pan Chicken Shawarma Breasts', 'Quinoa']) {
       const card = screen.getByRole('link', { name: new RegExp(name) }).closest('li');
       expect(within(card).queryByText(DRAFT_LABEL)).toBeNull();
     }

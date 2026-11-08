@@ -36,6 +36,7 @@ mkdirSync(join(root, 'dist'), { recursive: true });
 mkdirSync(join(root, 'src', 'data'), { recursive: true });
 writeFileSync(join(root, 'dist', 'index.html'), SHELL);
 writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify([cookbook, draft, planned]));
+writeFileSync(join(root, 'src', 'data', 'techniques.json'), '[]');
 writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify({
   ids: { 'a-draft': 'A Draft', 'a-cookbook': 'A Cookbook Recipe', 'a-planned': 'A Planned Dish' }, renamed: {}, removed: {},
 }));

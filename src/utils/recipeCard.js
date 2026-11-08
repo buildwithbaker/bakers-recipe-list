@@ -16,6 +16,8 @@ import sansItalicUrl from '../fonts/inter/Inter-Italic.ttf?url';
 import { buildCardPdf } from './cardPdf.js';
 import { estimateServings } from './estimateServings.js';
 import { BASE_PATH } from './recipeRoute.js';
+import { techniquesOf } from './techniqueUsage.js';
+import techniques from '../data/techniques.json';
 
 const FONT_URLS = { serif: serifUrl, sans: sansUrl, sansBold: sansBoldUrl, sansItalic: sansItalicUrl };
 
@@ -30,16 +32,19 @@ async function fetchFonts() {
   return Object.fromEntries(entries);
 }
 
-// A diagram's PNG companion sits beside its SVG (public/diagrams/<name>.png).
+// The card's Technique diagrams: those of the techniques the recipe's steps
+// reference (deduplicated, in step order), as PNG companions, captioned with the
+// technique's title. A companion sits beside its SVG (public/diagrams/<name>.png).
 // A failed fetch drops that one diagram, loudly: the card is still worth having.
-export async function fetchDiagrams(recipe) {
+export async function fetchDiagrams(recipe, all = techniques) {
   const found = await Promise.all(
-    (recipe.diagrams ?? []).map(async (d) => {
+    techniquesOf(recipe, all).map(async (t) => {
+      const d = t.diagram;
       const url = `${BASE_PATH}${String(d.src).replace(/^\/+/, '').replace(/\.svg$/, '.png')}`;
       try {
         const res = await fetch(url);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return { src: d.src, caption: d.caption, alt: d.alt, png: new Uint8Array(await res.arrayBuffer()) };
+        return { src: d.src, caption: t.title, alt: d.alt, png: new Uint8Array(await res.arrayBuffer()) };
       } catch (err) {
         console.warn(`Recipe card: leaving out diagram ${d.src} (${url}): ${err?.message ?? err}`);
         return null;

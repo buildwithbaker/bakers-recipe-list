@@ -7,8 +7,8 @@
 // head at runtime. The only fix on static hosting is to have the right HTML
 // already on disk before anyone clicks. That is this script.
 //
-// It writes dist/r/<slug>/index.html per recipe, and dist/about/index.html for
-// the About page. GitHub Pages serves <dir>/index.html for <dir>/, so those
+// It writes dist/r/<slug>/index.html per recipe, and dist/about/index.html and
+// dist/learning-to-cook/index.html for the About and Learning to Cook pages. GitHub Pages serves <dir>/index.html for <dir>/, so those
 // become clean URLs with no server.
 //
 // SLUG vs ID: a removed record that displayed as versions had derived ids like
@@ -32,7 +32,13 @@ import {
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { ogImageAlt } from '../src/utils/photoCredit.js';
 import { relatedRecipes } from '../src/utils/relatedRecipes.js';
-import { ABOUT_DOCUMENT_TITLE, DRAFTS_DOCUMENT_TITLE, SITE_NAME, recipeDocumentTitle } from '../src/utils/siteTitle.js';
+import { recipesUsingTechnique } from '../src/utils/techniqueUsage.js';
+import {
+  ABOUT_DOCUMENT_TITLE, DRAFTS_DOCUMENT_TITLE, LEARNING_DOCUMENT_TITLE, SITE_NAME, recipeDocumentTitle,
+} from '../src/utils/siteTitle.js';
+import {
+  LEARNING_DESCRIPTION, LEARNING_HEADING, LEARNING_INTRO, LEARNING_USED_IN,
+} from '../src/components/LearningPage/learningCopy.js';
 import {
   ABOUT_DESCRIPTION, ABOUT_FAQ, ABOUT_FAQ_HEADING, ABOUT_HEADING, ABOUT_INSTALL, ABOUT_INTRO, ABOUT_MAKER,
 } from '../src/components/AboutPage/aboutCopy.js';
@@ -58,6 +64,7 @@ if (!existsSync(join(dist, 'index.html'))) {
 const shell = readFileSync(join(dist, 'index.html'), 'utf8');
 const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'utf8'));
 const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json'), 'utf8'));
+const techniques = JSON.parse(readFileSync(join(root, 'src/data/techniques.json'), 'utf8'));
 
 // The rows the app renders: one per record (displayRecipes in recipeIndex.js).
 const displayRecipes = recipes;
@@ -368,6 +375,67 @@ const ABOUT_URL = `${ORIGIN}about/`;
 mkdirSync(join(dist, 'about'), { recursive: true });
 writeFileSync(join(dist, 'about', 'index.html'), injectIntoShell(aboutHead(ABOUT_URL), aboutNoscript()), 'utf8');
 
+// --- the Learning to Cook page ---------------------------------------------
+//
+// /learning-to-cook/ is a route in the app like /about/. One section per
+// technique, anchored by its id, with "Used in" links to the recipes' own
+// pages (derived with the same function the app uses, over the published
+// recipes). The words come from learningCopy.js, which LearningPage renders.
+// Not part of any recipe's JSON-LD.
+
+const LEARNING_URL = `${ORIGIN}learning-to-cook/`;
+
+function learningHead(url) {
+  return [
+    `<title>${esc(LEARNING_DOCUMENT_TITLE)}</title>`,
+    `<link rel="canonical" href="${esc(url)}">`,
+    `<meta name="description" content="${esc(LEARNING_DESCRIPTION)}">`,
+    `<meta property="og:type" content="website">`,
+    `<meta property="og:site_name" content="${esc(SITE_NAME)}">`,
+    `<meta property="og:title" content="${esc(LEARNING_DOCUMENT_TITLE)}">`,
+    `<meta property="og:description" content="${esc(LEARNING_DESCRIPTION)}">`,
+    `<meta property="og:url" content="${esc(url)}">`,
+    `<meta property="og:image" content="${esc(PLACEHOLDER)}">`,
+    `<meta name="twitter:card" content="summary">`,
+    `<meta name="twitter:title" content="${esc(LEARNING_DOCUMENT_TITLE)}">`,
+    `<meta name="twitter:description" content="${esc(LEARNING_DESCRIPTION)}">`,
+  ].join('\n    ');
+}
+
+function learningNoscript() {
+  const parts = [`<h1>${esc(LEARNING_HEADING)}</h1>`, `<p>${esc(LEARNING_INTRO)}</p>`];
+  for (const t of techniques) {
+    parts.push(
+      `<section id="${esc(t.id)}">`,
+      `  <p>${esc(t.kicker)}</p>`,
+      `  <h2>${esc(t.title)}</h2>`,
+      `  <img src="${esc(`${ORIGIN}${t.diagram.src}`)}" alt="${esc(t.diagram.alt)}">`,
+      '  <h3>How</h3>',
+      '  <ol>',
+      ...t.how.map((line) => `    <li>${esc(line)}</li>`),
+      '  </ol>',
+      '  <h3>Why</h3>',
+      `  <p>${esc(t.why)}</p>`,
+    );
+    const used = recipesUsingTechnique(t.id, published);
+    if (used.length) {
+      parts.push(`  <h3>${esc(LEARNING_USED_IN)}</h3>`, '  <ul>');
+      for (const r of used) parts.push(`    <li><a href="${esc(`${ORIGIN}r/${idToSlug(r.id)}/`)}">${esc(r.name)}</a></li>`);
+      parts.push('  </ul>');
+    }
+    parts.push('</section>');
+  }
+  const indented = parts.map((line) => `      ${line}`).join('\n');
+  return `<noscript>\n${indented}\n    </noscript>`;
+}
+
+mkdirSync(join(dist, 'learning-to-cook'), { recursive: true });
+writeFileSync(
+  join(dist, 'learning-to-cook', 'index.html'),
+  injectIntoShell(learningHead(LEARNING_URL), learningNoscript()),
+  'utf8',
+);
+
 // --- the Chef's Drafts page ------------------------------------------------
 //
 // /drafts/ is a route in the app like /about/, so it gets a real file for a
@@ -487,7 +555,7 @@ writeFileSync(join(dist, '404.html'), shell, 'utf8');
 const sitemap =
   '<?xml version="1.0" encoding="UTF-8"?>\n' +
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  [ORIGIN, ABOUT_URL, ...urls].map((u) => `  <url><loc>${esc(u)}</loc></url>`).join('\n') +
+  [ORIGIN, ABOUT_URL, LEARNING_URL, ...urls].map((u) => `  <url><loc>${esc(u)}</loc></url>`).join('\n') +
   '\n</urlset>\n';
 writeFileSync(join(dist, 'sitemap.xml'), sitemap, 'utf8');
 writeFileSync(
@@ -500,5 +568,5 @@ console.log(
   `✓ prerender - ${published.length} recipe pages from ${displayRecipes.length} display rows ` +
   `(${recipes.length} records, ${displayRecipes.length - published.length} blank/skipped), ` +
   `${ogMade.size} photo preview${ogMade.size === 1 ? '' : 's'}, ` +
-  `${redirects} redirect${redirects === 1 ? '' : 's'}, about page, drafts page, sitemap + robots.txt + 404.html written`,
+  `${redirects} redirect${redirects === 1 ? '' : 's'}, about page, learning page, drafts page, sitemap + robots.txt + 404.html written`,
 );

@@ -214,11 +214,16 @@
   margin-top: var(--s8);
   padding: var(--s4) 0 var(--s2);
   border-top: 1px solid var(--line);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: var(--s5);
   font-size: var(--t-xs);
 }
 
 .draftsFooter a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
   color: var(--ink-muted);
   text-decoration: none;
 }

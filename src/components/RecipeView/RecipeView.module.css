@@ -555,29 +555,41 @@ h2.title {
   font-weight: 700;
 }
 
-/* Technique diagrams, after Notes. */
-.diagrams {
-  max-width: 68ch;
-  margin-top: var(--s4);
+/* A step's title and its (i): the button is a 44px target, drawn as a small
+   circle, and pulled up so it does not add height to the row. */
+.stepHead {
+  display: flex;
+  align-items: center;
+  gap: var(--s1);
+  margin-top: -10px;
+  margin-bottom: -8px;
 }
 
-.diagram {
-  margin: 0 0 var(--s4);
-  text-align: center;
+.stepHead .stepTitle {
+  margin-bottom: 0;
 }
 
-.diagram img {
-  display: block;
-  width: 100%;
-  max-width: 520px;
-  height: auto;
-  margin: 0 auto;
+.techBtn {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: var(--tap);
+  height: var(--tap);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--brand);
+  cursor: pointer;
 }
 
-.diagram figcaption {
-  margin-top: var(--s2);
-  color: var(--ink-muted);
-  font: 400 var(--t-xs)/1.35 var(--sans);
+.techBtn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.techBtn:hover svg {
+  background: var(--brand-soft);
+  border-radius: 999px;
 }
 
 .dimmed {
@@ -778,5 +790,8 @@ h2.title {
   }
   .dimmed {
     opacity: 1;
+  }
+  .techBtn {
+    display: none;
   }
 }
