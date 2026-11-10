@@ -78,10 +78,11 @@ describe('search mode toggle', () => {
     expect(modeButton('Ingredient').getAttribute('aria-pressed')).toBe('true');
     fireEvent.click(screen.getByRole('link', { name: 'Lasagna' }));
     const dialog = await screen.findByRole('dialog');
-    const tag = within(within(dialog).getByRole('region', { name: 'Tags' })).getAllByRole('button')[0];
-    const tagText = tag.textContent;
+    const tag = within(within(dialog).getByRole('group', { name: 'Category and tags' })).getAllByRole('button')[0];
+    // The pill reads "Make ahead"; the search it runs is exactly that tag, "#make-ahead".
+    const expected = `#${tag.textContent.toLowerCase().replace(/ /g, '-')}`;
     fireEvent.click(tag);
-    await waitFor(() => expect(screen.getByRole('searchbox').value).toBe(tagText));
+    await waitFor(() => expect(screen.getByRole('searchbox').value).toBe(expected));
     expect(modeButton('All').getAttribute('aria-pressed')).toBe('true');
     expect(modeButton('Ingredient').getAttribute('aria-pressed')).toBe('false');
   });
@@ -107,14 +108,14 @@ describe("search results: Chef's Drafts", () => {
     window.history.replaceState({ overlays: [], page: false, tab: 'recipes' }, '', '/');
     render(<App />);
     search('red onion');
-    await screen.findByText('6 results for “red onion”');
+    await screen.findByText('5 results for “red onion”');
     for (const name of ['Sheet Pan Chicken Shawarma Thighs', 'California Burgers with Special Sauce']) {
       const card = screen.getByRole('link', { name: new RegExp(name) }).closest('li');
       expect(within(card).getByText(DRAFT_LABEL)).toBeTruthy();
     }
     // The rest are Cookbook: Persian Chicken, Quick Pickled Red Onions (graduated
-    // 2026-10-31), and Sheet Pan Chicken Shawarma Breasts and Quinoa (live 2026-11-08).
-    for (const name of ['Persian Chicken', 'Quick Pickled Red Onions', 'Sheet Pan Chicken Shawarma Breasts', 'Quinoa']) {
+    // 2026-10-31), and Sheet Pan Chicken Shawarma Breasts (live 2026-11-08).
+    for (const name of ['Persian Chicken', 'Quick Pickled Red Onions', 'Sheet Pan Chicken Shawarma Breasts']) {
       const card = screen.getByRole('link', { name: new RegExp(name) }).closest('li');
       expect(within(card).queryByText(DRAFT_LABEL)).toBeNull();
     }

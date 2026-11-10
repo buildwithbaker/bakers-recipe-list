@@ -612,6 +612,7 @@ function AppInner() {
               onAddToList={handleAddToList}
               onAbout={handleAbout}
               onLearn={handleLearn}
+              onViewRecipe={handleViewRelated}
             />
           </ErrorBoundary>
         </>

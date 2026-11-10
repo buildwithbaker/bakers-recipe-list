@@ -31,7 +31,6 @@ import {
 } from '../src/data/sections.js';
 import { idToSlug } from '../src/utils/recipeSlug.js';
 import { ogImageAlt } from '../src/utils/photoCredit.js';
-import { relatedRecipes } from '../src/utils/relatedRecipes.js';
 import { recipesUsingTechnique } from '../src/utils/techniqueUsage.js';
 import {
   ABOUT_DOCUMENT_TITLE, DRAFTS_DOCUMENT_TITLE, LEARNING_DOCUMENT_TITLE, SITE_NAME, recipeDocumentTitle,
@@ -66,6 +65,7 @@ const recipes = JSON.parse(readFileSync(join(root, 'src/data/recipes.json'), 'ut
 const idManifest = JSON.parse(readFileSync(join(root, 'src/data/recipes.ids.json'), 'utf8'));
 const techniques = JSON.parse(readFileSync(join(root, 'src/data/techniques.json'), 'utf8'));
 
+const mealSets = JSON.parse(readFileSync(join(root, 'src/data/mealSets.json'), 'utf8'));
 // The rows the app renders: one per record (displayRecipes in recipeIndex.js).
 const displayRecipes = recipes;
 
@@ -75,10 +75,8 @@ const displayRecipes = recipes;
 // list; they just get no file and no preview of their own.
 const published = displayRecipes.filter((r) => r.is_blank === false);
 
-// The Cookbook without Chef's Drafts (cookbookRecipes in recipeIndex.js): what
-// related links rank from, so no page suggests a draft. Drafts keep their own
-// pages, but stay out of the sitemap and are listed only on /drafts/.
-const cookbookRecipes = displayRecipes.filter((r) => !isDraft(r));
+// Drafts keep their own pages, but stay out of the sitemap and are listed only
+// on /drafts/.
 const publishedDrafts = published.filter(isDraft);
 // The placeholders, in SECTIONS order: the Planned part of /drafts/ (Adam,
 // 2026-10-31). Names only, never links: a blank has no file of its own.
@@ -218,8 +216,8 @@ function addDurations(a, b) {
 // <noscript>. Browsers hide that entirely when scripting is on, so it costs a
 // normal visitor nothing but bytes.
 //
-// The related links matter as much as the recipe: without them these are 216
-// pages with no path between them. With them, the same fallback that serves a
+// The meal-set links matter as much as the recipe: without them these pages
+// have little path between them. With them, the same fallback that serves a
 // person with JavaScript off gives a non-rendering crawler a graph to walk.
 
 const fallbackPath = (id) => `${BASE}r/${idToSlug(id)}/`;
@@ -242,6 +240,19 @@ function fallbackList(items, tag, render) {
   }
   closeList();
   return out;
+}
+
+// The other members of each meal set (src/data/mealSets.json) this recipe is in,
+// one block per set, in set order. A recipe in no set gets none.
+function mealBlocksFor(r) {
+  const byId = new Map(displayRecipes.map((x) => [x.id, x]));
+  return mealSets
+    .filter((set) => set.recipes.includes(r.id))
+    .map((set) => ({
+      set,
+      others: set.recipes.filter((id) => id !== r.id).map((id) => byId.get(id)).filter((x) => x && x.is_blank === false),
+    }))
+    .filter((b) => b.others.length);
 }
 
 function noscriptFor(r, related) {
@@ -269,9 +280,9 @@ function noscriptFor(r, related) {
     }));
   }
 
-  if (related.length) {
-    parts.push('<h2>Related recipes</h2>', '<ul>');
-    for (const item of related) {
+  for (const { set, others } of related) {
+    parts.push('<h2>Make it a meal</h2>', `<p>${esc(set.name)} · ${set.recipes.length} recipes made to go together</p>`, '<ul>');
+    for (const item of others) {
       parts.push(`<li><a href="${esc(fallbackPath(item.id))}">${esc(item.name)}</a></li>`);
     }
     parts.push('</ul>');
@@ -483,10 +494,8 @@ for (const r of published) {
   const url = `${ORIGIN}r/${slug}/`;
   const dir = join(dist, 'r', slug);
   mkdirSync(dir, { recursive: true });
-  // The SAME ranking the app renders — imported, never reimplemented. Two
-  // copies of it would drift, and the fallback agreeing with what the app shows
-  // is the whole reason for writing it.
-  const related = relatedRecipes(r, cookbookRecipes);
+  // The same meal sets the app renders (mealSets.json), as real links.
+  const related = mealBlocksFor(r);
   writeFileSync(join(dir, 'index.html'), pageFor(r, url, related), 'utf8');
   if (!isDraft(r)) urls.push(url);
 }

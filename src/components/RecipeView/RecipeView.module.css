@@ -90,6 +90,15 @@
   min-width: 0;
 }
 
+/* One wrapping row above the title: the category pill, then the tag pills. */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  margin: 0 0 var(--s3);
+}
+
 .kicker {
   display: inline-block;
   margin: 0;
@@ -140,6 +149,38 @@ h2.title {
 .facts b {
   color: var(--ink);
   font-weight: 600;
+}
+
+.time {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink);
+  font-size: 1.0625rem;
+}
+
+.handsOn {
+  color: var(--ink-muted);
+  font-size: var(--t-sm);
+}
+
+/* Only when the recipe has a required wait. accent-ink on accent-soft
+   (contrast.test.js), as on the list card. */
+.plan {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: var(--r2);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.plan svg {
+  flex: none;
 }
 
 /* 44px tall to the finger, but pulled back into the line so the facts row
@@ -608,13 +649,6 @@ h2.title {
 }
 
 /* ---------- Tags, nutrition, notes ---------- */
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s2);
-  margin-top: var(--s6);
-}
-
 .tag {
   min-height: var(--tap);
   padding: 0 14px;

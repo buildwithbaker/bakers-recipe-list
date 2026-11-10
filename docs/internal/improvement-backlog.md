@@ -159,7 +159,7 @@ Closed on 2026-09-09 because the work is on `main` and live. See
 
 ## P2 — worthwhile
 
-- [x] **Related recipes by ingredient overlap.** *Shipped.* Replaced tag
+- [x] **Related recipes by ingredient overlap.** *Shipped, then superseded:* "More like this" was removed in favour of hand-picked meal sets ("Make it a meal", §7 of `architecture.md`). History kept below. Replaced tag
   matching entirely: several hundred ingredient tokens instead of ~31 shareable
   tags, coverage 84.7% → 94.9%, top-10 concentration roughly halved, and it
   finds pairs tags structurally could not (Beef Stew → Pork Stew; a chicken
@@ -172,7 +172,7 @@ Closed on 2026-09-09 because the work is on `main` and live. See
   ranking moved to ingredient overlap. **The tags themselves are fine and need
   no work** — they serve the tag chips and search, which is what they are for.
   Recorded here only so the next person does not re-derive the finding.
-- [ ] **`STOPWORDS` in `relatedRecipes.js` drifts silently.** The new maintenance
+- [x] **`STOPWORDS` in `relatedRecipes.js` drifts silently.** *Moot: `relatedRecipes.js` and its stoplist were removed with "More like this".* Original note: The new maintenance
   hazard, and the one to actually watch. A brand or product word in a new recipe
   is rare, so the rarity weighting scores it at the top, and it can pair two
   unrelated recipes with nothing failing. Salt brands (`diamond`, `crystal`,

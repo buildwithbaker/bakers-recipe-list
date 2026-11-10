@@ -25,3 +25,9 @@
     gap: var(--s3);
   }
 }
+
+.line {
+  margin: 0 0 var(--s4);
+  color: var(--ink-muted);
+  font-size: var(--t-sm);
+}
