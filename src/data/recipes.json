@@ -5905,7 +5905,7 @@
   },
   {
     "id": "quinoa",
-    "name": "Lemon-Herb Quinoa with Feta",
+    "name": "Lemon Quinoa with Spinach and Feta",
     "section": "SIDES",
     "category": "Sides",
     "source": "Original",
@@ -5925,6 +5925,10 @@
       {
         "type": "item",
         "text": "1 Tbsp olive oil"
+      },
+      {
+        "type": "item",
+        "text": "½ yellow onion, minced"
       },
       {
         "type": "item",
@@ -5972,11 +5976,7 @@
       },
       {
         "type": "item",
-        "text": "¼ cup chopped fresh parsley"
-      },
-      {
-        "type": "item",
-        "text": "2 green onions, sliced thin"
+        "text": "½ cup chopped baby spinach"
       },
       {
         "type": "item",
@@ -5990,9 +5990,9 @@
         "why": "Quinoa has a bitter, soapy natural coating (saponins) that rinsing washes off."
       },
       {
-        "step": "Toast",
-        "detail": "Heat the olive oil (1 Tbsp) in a 2-quart saucepan over medium. Add the quinoa and stir 3 to 4 minutes, until it dries out, smells nutty and starts to pop. Stir in the garlic (2 cloves, grated) for 30 seconds.",
-        "why": "Browning the dry grains gives a nutty flavor; wet grains only steam, so let the rinse water cook off first."
+        "step": "Onion and Toast",
+        "detail": "Heat the olive oil (1 Tbsp) in a 2-quart saucepan over medium. Add the yellow onion (½, minced) and cook 4 to 5 minutes, stirring, until soft and translucent. Add the quinoa and stir 3 to 4 minutes, until it dries out, smells nutty and starts to pop. Stir in the garlic (2 cloves, grated) for 30 seconds.",
+        "why": "Cook the onion until its moisture is mostly gone before the quinoa goes in: wet grains steam instead of browning, and the browning is what makes them taste nutty."
       },
       {
         "step": "Simmer",
@@ -6005,13 +6005,13 @@
       },
       {
         "step": "Dress",
-        "detail": "Whisk the olive oil (1½ Tbsp), lemon juice (1½ Tbsp) and zest, cumin (¼ tsp), red pepper flakes (¼ tsp), black pepper (¼ tsp) and table salt (⅛ tsp). Toss it with the quinoa while it is still warm.",
-        "why": "Warm grains soak up the dressing; cold grains only get coated."
+        "detail": "Whisk the olive oil (1½ Tbsp), lemon juice (1½ Tbsp) and zest, cumin (¼ tsp), red pepper flakes (¼ tsp), black pepper (¼ tsp) and table salt (⅛ tsp). Toss it and the spinach (½ cup) with the quinoa while it is still warm.",
+        "why": "Warm grains soak up the dressing, and the heat wilts the spinach; cold grains only get coated."
       },
       {
         "step": "Finish",
-        "detail": "Let it cool 5 minutes, then fold in the parsley (¼ cup), green onions (2) and feta (¼ cup).",
-        "why": "A short cool keeps the herbs bright and the feta in crumbles instead of melting."
+        "detail": "Let it cool 5 minutes, then fold in the feta (¼ cup).",
+        "why": "A short cool keeps the feta in crumbles instead of melting."
       }
     ],
     "notes": [
@@ -6019,10 +6019,10 @@
       "Using water instead of broth: add another ⅛ tsp table salt to the pot."
     ],
     "is_blank": false,
-    "description": "Toasted quinoa cooked in broth, dressed warm with lemon, garlic and cumin, and finished with parsley, green onion and feta.",
+    "description": "Toasted quinoa cooked in broth with onion, dressed warm with lemon, garlic and cumin, then tossed with wilted spinach and feta.",
     "added": "2026-11-08",
-    "prepTime": "PT10M",
-    "cookTime": "PT20M",
+    "prepTime": "PT15M",
+    "cookTime": "PT25M",
     "recipeYield": "2 servings"
   },
   {

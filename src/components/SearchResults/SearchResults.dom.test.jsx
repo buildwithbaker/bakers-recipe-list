@@ -79,9 +79,10 @@ describe('search mode toggle', () => {
     fireEvent.click(screen.getByRole('link', { name: 'Lasagna' }));
     const dialog = await screen.findByRole('dialog');
     const tag = within(within(dialog).getByRole('group', { name: 'Category and tags' })).getAllByRole('button')[0];
+    // The pill reads "Make ahead"; the search it runs is exactly that tag, "#make-ahead".
+    const expected = `#${tag.textContent.toLowerCase().replace(/ /g, '-')}`;
     fireEvent.click(tag);
-    // The pill reads "Make ahead"; the search it runs is the tag, "#make-ahead".
-    await waitFor(() => expect(screen.getByRole('searchbox').value).toMatch(/^#/));
+    await waitFor(() => expect(screen.getByRole('searchbox').value).toBe(expected));
     expect(modeButton('All').getAttribute('aria-pressed')).toBe('true');
     expect(modeButton('Ingredient').getAttribute('aria-pressed')).toBe('false');
   });
