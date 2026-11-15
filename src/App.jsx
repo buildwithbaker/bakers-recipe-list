@@ -3,7 +3,6 @@ import { resolveRecipe } from './data/recipeIndex.js';
 import { DRAFTS_SECTION, SECTIONS } from './data/sections.js';
 import { SECTION_CATEGORY } from './data/catalog.js';
 import Masthead from './components/Masthead/Masthead.jsx';
-import UsdaKeyNotice from './components/UsdaKeyNotice/UsdaKeyNotice.jsx';
 import RecipeList from './components/RecipeList/RecipeList.jsx';
 import RecipeModal from './components/RecipeModal/RecipeModal.jsx';
 import RecipePage from './components/RecipePage/RecipePage.jsx';
@@ -563,7 +562,6 @@ function AppInner() {
         // Arrived here from a shared link: there is no list to lay a card over,
         // so the recipe IS the page. Same URL either way.
         <ErrorBoundary key={selectedRecipe.id}>
-          <UsdaKeyNotice />
           <RecipePage
             recipe={selectedRecipe}
             onBackToList={handleCloseModal}
@@ -587,7 +585,6 @@ function AppInner() {
                 mode={searchMode}
                 onModeChange={setSearchMode}
               />
-              <UsdaKeyNotice />
               <SearchModeContext.Provider value={searchMode}>
                 <RecipeList
                   onViewRecipe={handleViewRecipe}
