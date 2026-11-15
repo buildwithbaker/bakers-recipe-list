@@ -14,13 +14,15 @@ const UNITS = {
   sandwich: 'sandwiches',
   square: 'squares',
   ball: 'balls',
+  roll: 'rolls',
+  half: 'halves',
   smoothie: 'smoothies',
 };
 const SINGULAR = Object.fromEntries(
   Object.entries(UNITS).flatMap(([one, many]) => [[one, one], [many, one]]),
 );
 
-const YIELD_RE = new RegExp(`^(about\\s+)?(\\d+)\\s+(${Object.keys(SINGULAR).join('|')})\\b`, 'i');
+const YIELD_RE = new RegExp(`^(about\\s+)?(\\d+)(?:\\s*(?:-|–|to)\\s*(\\d+))?\\s+(${Object.keys(SINGULAR).join('|')})\\b`, 'i');
 
 /**
  * @returns {{ count: number, unit: string, about: boolean } | null}
@@ -32,9 +34,12 @@ export function parseAuthoredYield(recipeYield) {
   const head = recipeYield.split(/[,(]/)[0].trim();
   const m = YIELD_RE.exec(head);
   if (!m) return null;
-  const count = parseInt(m[2], 10);
-  if (!(count > 0)) return null;
-  return { count, unit: SINGULAR[m[3].toLowerCase()], about: Boolean(m[1]) };
+  const low = parseInt(m[2], 10);
+  const high = m[3] ? parseInt(m[3], 10) : low;
+  if (!(low > 0) || high < low) return null;
+  // A range ("14-16 servings") counts as its midpoint, rounded, and is always "about".
+  const count = Math.round((low + high) / 2);
+  return { count, unit: SINGULAR[m[4].toLowerCase()], about: Boolean(m[1]) || high !== low };
 }
 
 export const pluralUnit = (unit, n) => (n === 1 ? unit : UNITS[unit] ?? `${unit}s`);
