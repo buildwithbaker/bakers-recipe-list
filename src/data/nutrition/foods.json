@@ -3,7 +3,7 @@
     "description": "Pinned USDA FoodData Central records for site macro estimates. One entry per food; per100g is per 100 g edible portion as listed by USDA. gPerCup / gPerEach / edibleFactor document how The Chef converted recipe amounts to grams; the site does not read them.",
     "source": "USDA FoodData Central API, pulled 2026-11-14 by The Chef",
     "preference": "Foundation, then SR Legacy; Branded only where the ingredient is itself a branded product with no generic record (gochujang, mirin, seasoned rice vinegar, chili crisp, chipotles in adobo, French-fried onions).",
-    "count": 209
+    "count": 211
   },
   "foods": {
     "allspice": {
@@ -2809,6 +2809,33 @@
         "fiber": 0.0
       },
       "gPerCup": 245
+    },
+    "tortilla-flour-refrigerated": {
+      "fdcId": 175037,
+      "description": "Tortillas, ready-to-bake or -fry, flour, refrigerated",
+      "dataType": "SR Legacy",
+      "per100g": {
+        "kcal": 306.0,
+        "protein": 8.2,
+        "fat": 7.99,
+        "carbs": 49.38,
+        "fiber": 3.5
+      },
+      "gPerEach": 49,
+      "eachLabel": "7-8 inch tortilla (USDA portion)"
+    },
+    "green-chiles-canned": {
+      "fdcId": 168577,
+      "description": "Peppers, chili, green, canned",
+      "dataType": "SR Legacy",
+      "per100g": {
+        "kcal": 21.0,
+        "protein": 0.72,
+        "fat": 0.27,
+        "carbs": 4.6,
+        "fiber": 1.7
+      },
+      "gPerCup": 139
     }
   }
 }

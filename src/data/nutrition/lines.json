@@ -776,7 +776,7 @@
           "grams": 283.5
         },
         "1 can (4 oz) diced green chiles": {
-          "food": "chile-hot-raw",
+          "food": "green-chiles-canned",
           "grams": 113.4
         },
         "½ cup sour cream": {
@@ -6595,7 +6595,73 @@
       }
     },
     "white-enchiladas": {
-      "skip": "Flour tortillas have no pinned USDA record yet (FoodData Central lookup was rate-limited on 2026-11-14) and are about 30% of the calories; macros stay hidden until the record is added."
+      "lines": {
+        "4 Tbsp butter": {
+          "food": "butter",
+          "grams": 56.8
+        },
+        "1 medium onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "1 jalapeño, minced (seeds in)": {
+          "food": "jalapeno",
+          "grams": 14.0
+        },
+        "3 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "⅓ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 41.7
+        },
+        "2½ cups low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 600.0
+        },
+        "1 cup full-fat sour cream": {
+          "food": "sour-cream",
+          "grams": 230.0
+        },
+        "1 can (4 oz) diced green chiles, undrained": {
+          "food": "green-chiles-canned",
+          "grams": 113.4
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "10 raw refrigerated flour tortillas (8-inch)": {
+          "food": "tortilla-flour-refrigerated",
+          "grams": 490,
+          "note": "10 x 49 g (USDA portion for a 7-8 inch refrigerated flour tortilla)"
+        },
+        "3½ cups shredded rotisserie chicken (about 1 bird, skin discarded)": {
+          "food": "chicken-roasted-meat",
+          "grams": 490,
+          "note": "3½ cups x 140 g per cup of chopped roasted meat (USDA portion), skin discarded"
+        },
+        "3 cups shredded pepper jack (12 oz), divided": {
+          "food": "monterey-jack",
+          "grams": 339.0
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        },
+        "Chopped cilantro and lime wedges": {
+          "exclude": "garnish, no amount given"
+        }
+      }
     }
   }
 }
