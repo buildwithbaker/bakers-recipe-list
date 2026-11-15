@@ -36,7 +36,9 @@
     "amish-country-casserole-alt": "Renamed to \"Amish Country Casserole (withablast.net)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Amish Country Casserole (alt)\".",
     "sweet-sour-chicken-alt": "Renamed to \"Sweet & Sour Chicken (dinnerthendessert.com)\" 2026-09-27 (audit P2-11/P2-12/P2-14). ids entry stays at \"Sweet & Sour Chicken (alt)\".",
     "tandoori-chicken-marinade-serious-eats": "Renamed to \"Tandoori - Chicken Thighs (Grilled)\" 2026-10-11 (Recipe Why Notes batch F). ids entry stays at \"Tandoori - Chicken Marinade (Serious Eats)\".",
-    "quinoa": "Completed from placeholder 2026-11-08; renamed to \"Lemon-Herb Quinoa with Feta\" 2026-11-08 (Adam: a bare \"Quinoa\" does not say what the dish is), then to \"Lemon Quinoa with Spinach and Feta\" 2026-11-09 when parsley and green onion gave way to spinach and yellow onion. ids entry stays at \"Quinoa\"."
+    "quinoa": "Completed from placeholder 2026-11-08; renamed to \"Lemon-Herb Quinoa with Feta\" 2026-11-08 (Adam: a bare \"Quinoa\" does not say what the dish is), then to \"Lemon Quinoa with Spinach and Feta\" 2026-11-09 when parsley and green onion gave way to spinach and yellow onion. ids entry stays at \"Quinoa\".",
+    "white-enchiladas": "Completed from placeholder 2026-11-14; renamed to \"White Chicken Enchiladas\". ids entry stays at \"White Enchiladas\".",
+    "buttery-mashed-potatoes": "Renamed to \"Thanksgiving Mashed Potatoes\" 2026-11-14 (Adam: the everyday \"Mashed Potatoes\" is its own recipe). ids entry stays at \"Buttery Mashed Potatoes\"."
   },
   "removed": {
     "pork-carnitas-spice-rub": {
@@ -3459,6 +3461,8 @@
     "wasabi-deviled-eggs": "Wasabi Deviled Eggs",
     "caramelized-french-onion-dip": "Caramelized French Onion Dip",
     "sheet-pan-chicken-shawarma-breasts": "Sheet Pan Chicken Shawarma Breasts",
-    "smashed-spiced-cucumbers-mint": "Smashed Spiced Cucumbers with Mint"
+    "smashed-spiced-cucumbers-mint": "Smashed Spiced Cucumbers with Mint",
+    "shepherds-pie": "Shepherd's Pie",
+    "gravy-train": "Gravy Train"
   }
 }
