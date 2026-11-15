@@ -2383,16 +2383,161 @@
   },
   {
     "id": "white-enchiladas",
-    "name": "White Enchiladas",
+    "name": "White Chicken Enchiladas",
     "section": "MEXICAN",
     "category": "Mexican",
     "source": "Original",
     "tags": [
+      "#chicken",
+      "#tex-mex",
+      "#casserole",
+      "#oven",
       "#mexican"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "For the sauce:"
+      },
+      {
+        "type": "item",
+        "text": "4 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 medium onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "1 jalapeño, minced (seeds in)"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp ground cumin"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "2½ cups low-sodium chicken broth"
+      },
+      {
+        "type": "item",
+        "text": "1 cup full-fat sour cream"
+      },
+      {
+        "type": "item",
+        "text": "1 can (4 oz) diced green chiles, undrained"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "header",
+        "text": "For the enchiladas:"
+      },
+      {
+        "type": "item",
+        "text": "10 raw refrigerated flour tortillas (8-inch)"
+      },
+      {
+        "type": "item",
+        "text": "3½ cups shredded rotisserie chicken (about 1 bird, skin discarded)"
+      },
+      {
+        "type": "item",
+        "text": "3 cups shredded pepper jack (12 oz), divided"
+      },
+      {
+        "type": "header",
+        "text": "To finish:"
+      },
+      {
+        "type": "item",
+        "text": "2 green onions, sliced"
+      },
+      {
+        "type": "item",
+        "text": "Chopped cilantro and lime wedges"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Prep",
+        "detail": "Heat the oven to 375°F. Shred the rotisserie chicken (3½ cups) into bite-size pieces and discard the skin.",
+        "why": "Shreds hold sauce in their fibers better than cubes, and rotisserie meat pulls apart that way anyway."
+      },
+      {
+        "step": "Cook the Tortillas",
+        "detail": "Heat a dry skillet over medium-high. Cook the tortillas (10) 30 to 45 seconds per side, until puffed with light brown spots. Stack them in a towel to keep warm.",
+        "why": "Raw dough baked under a wet sauce steams into paste, and warm flour tortillas roll without cracking."
+      },
+      {
+        "step": "Sweat the Aromatics",
+        "detail": "In a 3-qt saucepan over medium, melt the butter (4 Tbsp). Add the onion (1, diced) and jalapeño (1, minced) and cook 5 minutes until soft but not browned. Add the garlic (3 cloves) and cumin (1 tsp) and stir 30 seconds.",
+        "why": "Cumin's flavor compounds dissolve in fat, so blooming it here gets more out of it."
+      },
+      {
+        "step": "Make the Roux",
+        "detail": "Sprinkle in the flour (⅓ cup) and stir 2 minutes, until it smells toasty but is still pale.",
+        "why": "This cooks out the raw-flour taste; a darker roux thickens less."
+      },
+      {
+        "step": "Build the Sauce",
+        "detail": "Whisk in the low-sodium chicken broth (2½ cups) a splash at a time so it stays smooth. Simmer 3 to 4 minutes, until it coats a spoon.",
+        "why": "Rotisserie chicken is already brined and pepper jack is salty, so regular broth oversalts the pan."
+      },
+      {
+        "step": "Finish the Sauce",
+        "detail": "Take the pan off the heat and cool 2 minutes. Whisk in the sour cream (1 cup), green chiles (4 oz can, undrained), table salt (½ tsp) and black pepper (½ tsp). Taste and adjust the salt. Makes about 4½ cups. Do not boil it from here on.",
+        "why": "Full-fat sour cream plus the starch from the roux keeps the sauce from breaking in the oven; low-fat sour cream curdles in hot liquid."
+      },
+      {
+        "step": "Make the Filling",
+        "detail": "Toss the chicken (3½ cups) with sauce (1 cup) and pepper jack (1 cup).",
+        "why": "The chicken is already cooked once, and sauce inside keeps it from drying out in the second cook."
+      },
+      {
+        "step": "Assemble",
+        "detail": "Spread sauce (½ cup) over the bottom of a 9x13 dish. Spoon filling (about ½ cup) down the center of each tortilla (10), roll it up and set it seam-side down. Pack them snugly in two rows of five."
+      },
+      {
+        "step": "Top",
+        "detail": "Pour the remaining sauce (about 3 cups) over the enchiladas, covering the ends. Scatter the remaining pepper jack (2 cups) on top.",
+        "why": "Any tortilla left uncovered bakes into hard, dry edges."
+      },
+      {
+        "step": "Bake",
+        "detail": "Bake uncovered 20 to 25 minutes, until the edges bubble and the cheese has brown spots. For more color, broil 2 to 3 minutes, watching closely.",
+        "why": "A flour-thickened sauce gets thinner the longer it bakes, and nothing in the pan needs more time."
+      },
+      {
+        "step": "Rest and Serve",
+        "detail": "Rest 10 minutes, then top with the green onions (2), cilantro and lime wedges.",
+        "why": "Resting lets the sauce set so the enchiladas lift out whole; lime at the table cuts the richness."
+      }
+    ],
+    "notes": [
+      "Already-cooked flour tortillas work too: warm them 15 seconds per side instead of cooking them.",
+      "For a lower-lactose pan, swap half the pepper jack for aged sharp cheddar (1½ cups)."
+    ],
+    "is_blank": false,
+    "description": "Rotisserie chicken and pepper jack rolled in fresh-cooked flour tortillas, baked under a scratch green chile sour cream sauce.",
+    "added": "2026-11-14",
+    "prepTime": "PT25M",
+    "cookTime": "PT35M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "spanish-chicken-and-rice",
@@ -6046,12 +6191,72 @@
     "category": "Sides",
     "source": "Original",
     "tags": [
-      "#side",
-      "#starch"
+      "#side-dish",
+      "#vegetarian"
     ],
-    "ingredients": [],
-    "instructions": [],
-    "is_blank": true
+    "ingredients": [
+      {
+        "type": "item",
+        "text": "3 lb Yukon Gold potatoes"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the cooking water"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp celery salt, plus more to taste"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Cut Evenly",
+        "detail": "Peel the potatoes (3 lb) and cut them into even 2-inch chunks.",
+        "why": "Even pieces finish together; mixed sizes give lumps and mush in the same pot."
+      },
+      {
+        "step": "Start Cold",
+        "detail": "Put them in a large pot, cover with cold water by 1 inch and add the salt (1 Tbsp). Bring to a boil, then simmer gently 15 to 20 minutes, until a knife slides in with no resistance.",
+        "why": "Salting the water is the only way to season the inside of the potatoes, and starting cold lets the outside and center cook through together."
+      },
+      {
+        "step": "Warm the Dairy",
+        "detail": "While they cook, heat the butter (6 Tbsp) and milk (1 cup) in a small saucepan or the microwave until the butter melts. Do not boil.",
+        "why": "Cold dairy cools the potatoes and makes them stiff and pasty."
+      },
+      {
+        "step": "Dry Them",
+        "detail": "Drain well, return the potatoes to the hot empty pot over low heat and stir 1 to 2 minutes, until the steam stops.",
+        "why": "Leftover surface water makes the mash loose and bland."
+      },
+      {
+        "step": "Mash",
+        "detail": "Mash by hand or with a ricer, never a food processor or blender. Fold in the hot butter and milk in three additions, then the mayonnaise (2 Tbsp), celery salt (1 tsp) and pepper (½ tsp). Taste and add more celery salt if it needs it.",
+        "why": "Hard blending ruptures the starch cells and turns the potatoes gluey. The mayo adds richness and a little tang."
+      }
+    ],
+    "is_blank": false,
+    "description": "Everyday Yukon Gold mashed potatoes with butter, warm milk, a little mayo and celery salt.",
+    "added": "2026-11-14",
+    "prepTime": "PT15M",
+    "cookTime": "PT25M",
+    "recipeYield": "6 servings"
   },
   {
     "id": "smashed-potatoes",
@@ -11981,6 +12186,304 @@
     "recipeYield": "4 servings"
   },
   {
+    "id": "shepherds-pie",
+    "name": "Shepherd's Pie",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#casserole",
+      "#oven",
+      "#make-ahead"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "For the filling:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 medium onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "3 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp tomato paste"
+      },
+      {
+        "type": "item",
+        "text": "¼ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups low-sodium beef broth"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp Worcestershire sauce"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp dried thyme"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "2½ cups frozen mixed vegetables"
+      },
+      {
+        "type": "item",
+        "text": "1 can (10.5 oz) condensed cream of mushroom soup"
+      },
+      {
+        "type": "header",
+        "text": "For the potato topping:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb Yukon Gold potatoes"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the cooking water"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "¾ cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp celery salt"
+      },
+      {
+        "type": "item",
+        "text": "1½ cups shredded sharp cheddar"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Start the Potatoes",
+        "detail": "Heat the oven to 400°F. Peel the potatoes (3 lb) and cut them into even 2-inch chunks. Cover with cold water by 1 inch in a large pot, add the salt (1 Tbsp), bring to a boil and simmer 15 to 20 minutes, until a knife slides in with no resistance.",
+        "why": "Salting the water is the only way to season the inside of the potatoes."
+      },
+      {
+        "step": "Brown the Beef",
+        "detail": "While they cook, brown the beef (2 lb) in two batches of 1 lb in a 12-inch skillet over medium-high, breaking it up, 6 to 8 minutes per batch, until browned with no pink left. Drain off the fat 2 to 3 times per batch as it collects. Return all the beef to the pan and sprinkle with the salt (½ tsp).",
+        "why": "A 12-inch skillet browns about 1 lb at a time; any more, or a pan of rendered liquid, and the beef steams instead of browning."
+      },
+      {
+        "step": "Cook the Onion",
+        "detail": "Add the butter (2 Tbsp) and onion (1, diced) to the beef and cook 5 to 6 minutes, until the onion is golden. Add the tomato paste (2 Tbsp) and stir 1½ minutes, until it darkens, then add the garlic (3 cloves) and stir 30 seconds.",
+        "why": "Draining takes out most of the fat, and the flour in the next step needs about as much fat as flour to coat it without lumps."
+      },
+      {
+        "step": "Thicken the Filling",
+        "detail": "Sprinkle in the flour (¼ cup) and stir 1 minute. Stir in the beef broth (1½ cups) a little at a time, then the Worcestershire (1 Tbsp), thyme (1 tsp) and pepper (½ tsp), scraping the bottom of the pan. Simmer 5 minutes, until thick and no liquid pools. Take it off the heat.",
+        "why": "A loose filling boils up through the potatoes in the oven."
+      },
+      {
+        "step": "Cook the Vegetables",
+        "detail": "Cook the frozen mixed vegetables (2½ cups) as the package directs, drain well and pat dry with a towel. Stir them into the filling.",
+        "why": "Wet vegetables water down the filling; drying them keeps it thick."
+      },
+      {
+        "step": "Fill the Dish",
+        "detail": "Spread the filling in an even layer in a 9x13 baking dish. Spread the cream of mushroom soup (1 can, straight from the can, not diluted) over the top.",
+        "why": "Undiluted, the soup bakes into a creamy layer instead of thinning the filling."
+      },
+      {
+        "step": "Make the Topping",
+        "detail": "Warm the butter (6 Tbsp) and milk (¾ cup) until the butter melts. Drain the potatoes, return them to the hot pot over low heat and stir 1 to 2 minutes until the steam stops. Mash by hand, folding in the butter and milk, then the mayonnaise (2 Tbsp) and celery salt (1 tsp).",
+        "why": "Less milk than a side-dish mash keeps the topping stiff enough to sit on the filling and hold ridges."
+      },
+      {
+        "step": "Top and Bake",
+        "detail": "Drop the potatoes over the soup in spoonfuls, spread them to the edges of the dish and rough up the surface with a fork. Scatter the cheddar (1½ cups) over the top. Bake 25 minutes, until the filling bubbles at the edges, then broil 1 to 2 minutes, watching closely, until the cheese browns in spots.",
+        "why": "Sealing the potatoes to the edges keeps the filling from bubbling up over them; cheese browns fast, so the broil is shorter than for bare potatoes."
+      },
+      {
+        "step": "Rest",
+        "detail": "Let it stand 10 minutes before serving.",
+        "why": "The filling thickens as it cools slightly, so it holds together on the plate."
+      }
+    ],
+    "notes": [
+      "Ground lamb in place of the beef makes the traditional British version.",
+      "To make ahead, assemble, cover and refrigerate up to a day. Bake 40 to 45 minutes from cold, then broil."
+    ],
+    "is_blank": false,
+    "description": "Ground beef and mixed vegetables in a thick gravy, a layer of cream of mushroom, and a buttery mashed potato topping baked under cheddar.",
+    "added": "2026-11-14",
+    "prepTime": "PT30M",
+    "cookTime": "PT1H",
+    "recipeYield": "8 servings"
+  },
+  {
+    "id": "gravy-train",
+    "name": "Gravy Train",
+    "section": "AMERICAN",
+    "category": "American",
+    "source": "Original",
+    "tags": [
+      "#skillet"
+    ],
+    "ingredients": [
+      {
+        "type": "header",
+        "text": "For the gravy:"
+      },
+      {
+        "type": "item",
+        "text": "2 lb 80/20 ground beef"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp table salt"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp black pepper"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp garlic powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp onion powder"
+      },
+      {
+        "type": "item",
+        "text": "½ tsp smoked paprika"
+      },
+      {
+        "type": "item",
+        "text": "3 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 medium onion, diced"
+      },
+      {
+        "type": "item",
+        "text": "2 garlic cloves, minced"
+      },
+      {
+        "type": "item",
+        "text": "⅓ cup all-purpose flour"
+      },
+      {
+        "type": "item",
+        "text": "3 cups low-sodium beef broth"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp Worcestershire sauce"
+      },
+      {
+        "type": "header",
+        "text": "For the potatoes:"
+      },
+      {
+        "type": "item",
+        "text": "3 lb Yukon Gold potatoes"
+      },
+      {
+        "type": "item",
+        "text": "1 Tbsp table salt, for the cooking water"
+      },
+      {
+        "type": "item",
+        "text": "6 Tbsp butter"
+      },
+      {
+        "type": "item",
+        "text": "1 cup whole milk"
+      },
+      {
+        "type": "item",
+        "text": "2 Tbsp mayonnaise"
+      },
+      {
+        "type": "item",
+        "text": "1 tsp celery salt"
+      }
+    ],
+    "instructions": [
+      {
+        "step": "Start the Potatoes",
+        "detail": "Peel the potatoes (3 lb) and cut them into even 2-inch chunks. Cover with cold water by 1 inch in a large pot, add the salt (1 Tbsp), bring to a boil and simmer 15 to 20 minutes, until a knife slides in with no resistance.",
+        "why": "Salting the water is the only way to season the inside of the potatoes."
+      },
+      {
+        "step": "Brown the Beef",
+        "detail": "While they cook, brown the beef (2 lb) in two batches of 1 lb in a 12-inch skillet over medium-high, breaking it up, 6 to 8 minutes per batch, until browned with no pink left. Drain off the fat 2 to 3 times per batch as it collects.",
+        "why": "A 12-inch skillet browns about 1 lb at a time; any more, or a pan of rendered liquid, and the beef steams instead of browning."
+      },
+      {
+        "step": "Season the Beef",
+        "detail": "Return all the beef to the pan and season with the table salt (1 tsp), black pepper (½ tsp), garlic powder (½ tsp), onion powder (½ tsp) and smoked paprika (½ tsp).",
+        "why": "Seasoning after the last drain keeps the salt and spices from pouring off with the fat."
+      },
+      {
+        "step": "Add the Onion",
+        "detail": "Add the butter (3 Tbsp) and onion (1, diced) and cook 5 minutes, until soft. Add the garlic (2 cloves) and stir 30 seconds.",
+        "why": "The drains took out the beef fat, and the roux needs about as much fat as flour to coat it without lumps."
+      },
+      {
+        "step": "Make the Roux",
+        "detail": "Sprinkle the flour (⅓ cup) over the beef and stir 2 minutes, until no dry flour shows and it smells toasty.",
+        "why": "Cooking the flour in the fat takes away the raw taste."
+      },
+      {
+        "step": "Make the Gravy",
+        "detail": "Stir in the beef broth (3 cups) a little at a time, scraping the bottom of the pan, then the Worcestershire (1 Tbsp). Simmer 5 minutes, until thick. Taste and add salt only if it needs it.",
+        "why": "Adding the broth gradually keeps the roux from lumping, and low-sodium broth leaves you in control of the salt."
+      },
+      {
+        "step": "Mash the Potatoes",
+        "detail": "Warm the butter (6 Tbsp) and milk (1 cup) until the butter melts. Drain the potatoes, return them to the hot pot over low heat and stir 1 to 2 minutes until the steam stops. Mash by hand, folding in the butter and milk, then the mayonnaise (2 Tbsp) and celery salt (1 tsp).",
+        "why": "Hard blending ruptures the starch cells and turns the potatoes gluey."
+      },
+      {
+        "step": "Serve",
+        "detail": "Spoon the potatoes onto plates and ladle the beef gravy over the top."
+      }
+    ],
+    "is_blank": false,
+    "description": "Browned ground beef seasoned with garlic, onion and smoked paprika in a roux pan gravy, ladled over buttery mashed potatoes.",
+    "added": "2026-11-14",
+    "prepTime": "PT20M",
+    "cookTime": "PT35M",
+    "recipeYield": "6 servings"
+  },
+  {
     "id": "smoky-rice-and-red-beans",
     "name": "Smoky Rice and Red Beans",
     "section": "SIDES",
@@ -12362,7 +12865,7 @@
   },
   {
     "id": "buttery-mashed-potatoes",
-    "name": "Buttery Mashed Potatoes",
+    "name": "Thanksgiving Mashed Potatoes",
     "section": "THANKSGIVING",
     "category": "Thanksgiving",
     "source": "Original",

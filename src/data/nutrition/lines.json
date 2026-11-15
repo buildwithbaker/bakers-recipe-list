@@ -6397,6 +6397,205 @@
           "grams": 6.2
         }
       }
+    },
+    "mashed-potatoes": {
+      "lines": {
+        "3 lb Yukon Gold potatoes": {
+          "food": "potato-raw",
+          "grams": 1360.8
+        },
+        "1 Tbsp table salt, for the cooking water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "6 Tbsp butter": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "1 cup whole milk": {
+          "food": "milk-whole",
+          "grams": 244.0
+        },
+        "2 Tbsp mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 27.5
+        },
+        "1 tsp celery salt, plus more to taste": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        }
+      }
+    },
+    "gravy-train": {
+      "lines": {
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat drained 2-3 times per batch; uses the site's 35% fat-loss convention for drained ground beef, not a measured figure"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "½ tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 1.6
+        },
+        "½ tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 1.2
+        },
+        "½ tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 1.1
+        },
+        "3 Tbsp butter": {
+          "food": "butter",
+          "grams": 42.6
+        },
+        "1 medium onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "2 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 6.0
+        },
+        "⅓ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 41.7
+        },
+        "3 cups low-sodium beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 720.0
+        },
+        "1 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 17.2
+        },
+        "3 lb Yukon Gold potatoes": {
+          "food": "potato-raw",
+          "grams": 1360.8
+        },
+        "1 Tbsp table salt, for the cooking water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "6 Tbsp butter": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "1 cup whole milk": {
+          "food": "milk-whole",
+          "grams": 244.0
+        },
+        "2 Tbsp mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 27.5
+        },
+        "1 tsp celery salt": {
+          "food": "salt",
+          "grams": 6.1
+        }
+      }
+    },
+    "shepherds-pie": {
+      "lines": {
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat drained 2-3 times per batch; uses the site's 35% fat-loss convention for drained ground beef, not a measured figure"
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "2 Tbsp butter": {
+          "food": "butter",
+          "grams": 28.4
+        },
+        "1 medium onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "3 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "2 Tbsp tomato paste": {
+          "food": "tomato-paste",
+          "grams": 32.8
+        },
+        "¼ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 31.2
+        },
+        "1½ cups low-sodium beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 360.0
+        },
+        "1 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 17.2
+        },
+        "1 tsp dried thyme": {
+          "food": "thyme-dried",
+          "grams": 0.9
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "2½ cups frozen mixed vegetables": {
+          "food": "mixed-vegetables-frozen",
+          "grams": 337.5
+        },
+        "1 can (10.5 oz) condensed cream of mushroom soup": {
+          "food": "cream-of-mushroom-soup-condensed",
+          "grams": 297.7
+        },
+        "3 lb Yukon Gold potatoes": {
+          "food": "potato-raw",
+          "grams": 1360.8
+        },
+        "1 Tbsp table salt, for the cooking water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "6 Tbsp butter": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "¾ cup whole milk": {
+          "food": "milk-whole",
+          "grams": 183.0
+        },
+        "2 Tbsp mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 27.5
+        },
+        "1 tsp celery salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "1½ cups shredded sharp cheddar": {
+          "food": "cheddar",
+          "grams": 169.5
+        }
+      }
+    },
+    "white-enchiladas": {
+      "skip": "Flour tortillas have no pinned USDA record yet (FoodData Central lookup was rate-limited on 2026-11-14) and are about 30% of the calories; macros stay hidden until the record is added."
     }
   }
 }

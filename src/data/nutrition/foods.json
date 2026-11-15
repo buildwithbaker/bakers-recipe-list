@@ -3,7 +3,7 @@
     "description": "Pinned USDA FoodData Central records for site macro estimates. One entry per food; per100g is per 100 g edible portion as listed by USDA. gPerCup / gPerEach / edibleFactor document how The Chef converted recipe amounts to grams; the site does not read them.",
     "source": "USDA FoodData Central API, pulled 2026-11-14 by The Chef",
     "preference": "Foundation, then SR Legacy; Branded only where the ingredient is itself a branded product with no generic record (gochujang, mirin, seasoned rice vinegar, chili crisp, chipotles in adobo, French-fried onions).",
-    "count": 207
+    "count": 209
   },
   "foods": {
     "allspice": {
@@ -968,6 +968,18 @@
       },
       "gPerCup": 238
     },
+    "cream-of-mushroom-soup-condensed": {
+      "fdcId": 171155,
+      "description": "Soup, cream of mushroom, canned, condensed",
+      "dataType": "SR Legacy",
+      "per100g": {
+        "kcal": 79.0,
+        "protein": 1.35,
+        "fat": 5.3,
+        "carbs": 6.8,
+        "fiber": 0.7
+      }
+    },
     "cucumber": {
       "fdcId": 2346406,
       "description": "Cucumber, with peel, raw",
@@ -1606,6 +1618,19 @@
         "fiber": 0.0
       },
       "gPerCup": 240
+    },
+    "mixed-vegetables-frozen": {
+      "fdcId": 170471,
+      "description": "Vegetables, mixed, frozen, unprepared",
+      "dataType": "SR Legacy",
+      "per100g": {
+        "kcal": 72.0,
+        "protein": 3.33,
+        "fat": 0.52,
+        "carbs": 13.5,
+        "fiber": 4.0
+      },
+      "gPerCup": 135
     },
     "monterey-jack": {
       "fdcId": 2647438,
