@@ -129,6 +129,16 @@ function fixture({
   copyFileSync(join(repoRoot, 'src', 'data', 'tagFacets.js'), join(root, 'src', 'data', 'tagFacets.js'));
   mkdirSync(join(root, 'src', 'utils'), { recursive: true });
   copyFileSync(join(repoRoot, 'src', 'utils', 'autoTags.js'), join(root, 'src', 'utils', 'autoTags.js'));
+  // The nutrition check: the pure module, plus data that skips every fixture
+  // recipe that would need a mapping (the nutrition rules have their own tests).
+  copyFileSync(join(repoRoot, 'src', 'utils', 'nutrition.js'), join(root, 'src', 'utils', 'nutrition.js'));
+  mkdirSync(join(root, 'src', 'data', 'nutrition'), { recursive: true });
+  const nutritionLines = {};
+  for (const r of records) {
+    if (!r.is_blank && !['SEASONINGS', 'DOUGHS'].includes(r.section)) nutritionLines[r.id] = { skip: 'fixture' };
+  }
+  writeFileSync(join(root, 'src', 'data', 'nutrition', 'foods.json'), JSON.stringify({ foods: {} }));
+  writeFileSync(join(root, 'src', 'data', 'nutrition', 'lines.json'), JSON.stringify({ recipes: nutritionLines }));
   writeFileSync(join(root, 'src', 'data', 'recipes.json'), JSON.stringify(records, null, 2));
   writeFileSync(join(root, 'src', 'data', 'techniques.json'), JSON.stringify(techniques, null, 2));
   writeFileSync(join(root, 'src', 'data', 'recipes.ids.json'), JSON.stringify(manifest, null, 2));

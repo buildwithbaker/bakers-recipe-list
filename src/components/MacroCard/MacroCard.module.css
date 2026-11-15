@@ -14,23 +14,6 @@
   margin-bottom: 8px;
 }
 
-.loading {
-  font-size: 13px;
-  color: var(--ink-muted);
-  font-style: italic;
-}
-
-.dots {
-  display: inline-block;
-  margin-left: 2px;
-  animation: blink 1.2s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -70,9 +53,24 @@
   font-style: italic;
 }
 
-.partial a {
-  color: var(--accent-ink);
-  text-decoration: underline;
+.excluded {
+  margin-top: 8px;
+  font-size: var(--t-xs);
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+.excluded summary {
+  cursor: pointer;
+}
+
+.excluded ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+.reason {
+  font-style: italic;
 }
 
 @media (max-width: 480px) {

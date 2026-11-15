@@ -15,6 +15,7 @@ import { dirname, join } from 'node:path';
 import { SECTIONS } from '../src/data/sections.js';
 import { CONTROLLED_TAGS } from '../src/data/tagFacets.js';
 import { AUTO_TAG_VOCABULARY } from '../src/utils/autoTags.js';
+import { validateNutrition } from '../src/utils/nutrition.js';
 
 // The tags a WRITTEN recipe may carry by hand: the controlled list in
 // src/data/tagFacets.js (docs/internal/tag-criteria.md says what earns a place
@@ -637,15 +638,25 @@ if (dups.length) {
   }
 }
 
+// Pinned nutrition data (src/data/nutrition/). Every ingredient line of every
+// recipe that shows macros must be mapped; every problem is printed, uncapped.
+const nutritionFoods = JSON.parse(readFileSync(join(root, 'src/data/nutrition/foods.json'), 'utf8')).foods;
+const nutritionLines = JSON.parse(readFileSync(join(root, 'src/data/nutrition/lines.json'), 'utf8')).recipes;
+const nutritionProblems = validateNutrition(recipes, nutritionFoods, nutritionLines);
+
 if (errors.length) {
   console.error(`✗ recipes.json failed validation (${errors.length} error${errors.length === 1 ? '' : 's'}):`);
   errors.slice(0, 200).forEach((e) => console.error('  - ' + e));
   if (errors.length > 200) console.error(`  ...and ${errors.length - 200} more`);
-  process.exit(1);
 }
+if (nutritionProblems.length) {
+  console.error(`✗ nutrition data failed validation (${nutritionProblems.length} problem${nutritionProblems.length === 1 ? '' : 's'}):`);
+  nutritionProblems.forEach((p) => console.error('  - ' + p));
+}
+if (errors.length || nutritionProblems.length) process.exit(1);
 
 console.log(
   `✓ recipes.json OK — ${recipes.length} records, ${seen.size} unique names, ${seenIds.size} unique ids, ` +
     `${manifestIds ? Object.keys(manifestIds).length : 0} manifest entries, ` +
-    `${Object.keys(removedMap).length} removed, validated against recipe.schema.json`,
+    `${Object.keys(removedMap).length} removed, validated against recipe.schema.json; nutrition data OK (0 problems)`,
 );

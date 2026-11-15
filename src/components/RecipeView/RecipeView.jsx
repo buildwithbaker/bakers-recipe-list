@@ -650,7 +650,7 @@ export default function RecipeView({
             {/* Closed by default: an estimate, useful on demand, not the point
                 of the page. Hidden entirely when there is nothing to estimate
                 (MacroCard renders nothing for those states either). */}
-            {macroState.status !== 'unavailable' && macroState.status !== 'error' && (
+            {macroState.status !== 'none' && (
               <details className={styles.nutrition}>
                 <summary>Estimated nutrition</summary>
                 <MacroErrorBoundary>

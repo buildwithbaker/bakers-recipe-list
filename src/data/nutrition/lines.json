@@ -1,0 +1,6402 @@
+{
+  "_meta": {
+    "description": "Every ingredient line of every recipe that shows macros, mapped to a food in foods.json and an edible weight in grams, or excluded with a reason. Keyed by recipe id, then by the exact ingredient text. Editing an ingredient line in recipes.json means updating its key here; the build fails until it matches.",
+    "fields": "food, grams (edible weight in the whole recipe); retain = share of the line that is eaten (discarded marinade); fatRetain = share of the fat that stays (fat poured off or skimmed); note = why; exclude = reason the line is not counted; skip at recipe level = no macros shown, with the reason",
+    "maintainedBy": "The Chef",
+    "generated": "2026-11-14"
+  },
+  "recipes": {
+    "spicy-pork-patties": {
+      "lines": {
+        "1 lb ground pork": {
+          "food": "pork-ground-raw",
+          "grams": 453.6
+        },
+        "1 egg": {
+          "food": "egg-whole",
+          "grams": 50.0
+        },
+        "¼ cup breadcrumbs": {
+          "food": "breadcrumbs",
+          "grams": 27.0
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "2 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 4.6
+        },
+        "2 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 6.2
+        },
+        "1 tsp paprika": {
+          "food": "paprika",
+          "grams": 2.3
+        },
+        "1 tsp chili powder": {
+          "food": "chili-powder",
+          "grams": 2.6
+        },
+        "½ tsp cumin": {
+          "food": "cumin",
+          "grams": 1.0
+        },
+        "½ tsp oregano": {
+          "food": "oregano-dried",
+          "grams": 0.5
+        },
+        "1 tsp cayenne pepper": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "1 tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 1.8
+        }
+      }
+    },
+    "oatmeal": {
+      "lines": {
+        "2 cups steel-cut oats": {
+          "food": "oats-rolled",
+          "grams": 352,
+          "note": "steel-cut oats are denser than rolled: about 176 g per cup"
+        },
+        "7 cups 2% milk": {
+          "food": "milk-2pct",
+          "grams": 1708.0
+        },
+        "1 cup water": {
+          "food": "water",
+          "grams": 237.0
+        },
+        "2 Tbsp maple syrup or honey": {
+          "food": "honey",
+          "grams": 42.4
+        },
+        "2 tsp table salt": {
+          "food": "salt",
+          "grams": 12.2
+        },
+        "3 cups frozen fruit": {
+          "food": "strawberries-frozen",
+          "grams": 447.0
+        },
+        "Jelly or fresh fruit, for serving (optional)": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "berry-peanut-butter-yogurt-parfait": {
+      "lines": {
+        "¾ to 1 cup frozen blueberries": {
+          "food": "blueberries-frozen",
+          "grams": 135.6
+        },
+        "¾ to 1 cup frozen strawberries or mango chunks": {
+          "food": "strawberries-frozen",
+          "grams": 130.4
+        },
+        "1 cup plain nonfat Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 245.0
+        },
+        "2 Tbsp peanut butter": {
+          "food": "peanut-butter",
+          "grams": 32.2
+        },
+        "1 Tbsp ground flaxseed": {
+          "food": "flax-ground",
+          "grams": 7.0
+        }
+      }
+    },
+    "pulled-pork": {
+      "lines": {
+        "3-4 lb boneless pork shoulder, cut into 2-3 large pieces": {
+          "food": "pork-shoulder-raw",
+          "grams": 1587.6,
+          "fatRetain": 0.65,
+          "note": "fat skimmed from the braise; assumes 35% of the fat leaves the dish (estimate, not a measured figure)"
+        },
+        "2 tsp seasoned salt (1 tsp if the pork was dry-brined)": {
+          "food": "salt",
+          "grams": 12.2
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "1 yellow onion, thickly sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "½ cup barbecue sauce": {
+          "food": "bbq-sauce",
+          "grams": 143.0
+        },
+        "1 Tbsp yellow mustard": {
+          "food": "mustard-yellow",
+          "grams": 15.6
+        },
+        "1 Tbsp white vinegar": {
+          "food": "vinegar-distilled",
+          "grams": 14.9
+        },
+        "1 Tbsp brown sugar": {
+          "food": "brown-sugar",
+          "grams": 13.8
+        },
+        "1½ tsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 8.0
+        },
+        "1 Tbsp onion powder": {
+          "food": "onion-powder",
+          "grams": 6.9
+        },
+        "1 Tbsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 9.4
+        },
+        "2 Tbsp water, for the skillet": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "About ½ cup barbecue sauce": {
+          "food": "bbq-sauce",
+          "grams": 143.0
+        },
+        "1 tsp white vinegar, to finish": {
+          "food": "vinegar-distilled",
+          "grams": 5.0
+        }
+      }
+    },
+    "pepperoncini-beef": {
+      "lines": {
+        "3½ lb boneless beef chuck roast": {
+          "food": "beef-chuck-raw",
+          "grams": 1587.6,
+          "fatRetain": 0.65,
+          "note": "fat skimmed from the braise; assumes 35% of the fat leaves the dish (estimate, not a measured figure)"
+        },
+        "2½ tsp table salt": {
+          "food": "salt",
+          "grams": 15.2
+        },
+        "2 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "1 jar (16 oz) whole pepperoncini, ¼ cup of the brine reserved separately": {
+          "food": "pepperoncini",
+          "grams": 453.6
+        },
+        "1 large yellow onion, sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "6 cloves garlic, smashed": {
+          "food": "garlic",
+          "grams": 30.0
+        },
+        "2 Tbsp tomato paste": {
+          "food": "tomato-paste",
+          "grams": 32.8
+        },
+        "3 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 51.6
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9
+        },
+        "4 whole dried chiles de arbol": {
+          "food": "chile-dried",
+          "grams": 4.0
+        },
+        "¼ cup reserved pepperoncini brine (3 Tbsp before the reduction, 1 Tbsp off the heat)": {
+          "food": "pepperoncini",
+          "grams": 34.0
+        }
+      }
+    },
+    "beef-stew": {
+      "lines": {
+        "2.5 lb beef chuck roast": {
+          "food": "beef-chuck-raw",
+          "grams": 1134.0
+        },
+        "5 carrots, peeled, cut into 1-inch chunks": {
+          "food": "carrot",
+          "grams": 305.0
+        },
+        "1 large onion, quartered": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "5 stalks celery, cut into 1-inch chunks": {
+          "food": "celery",
+          "grams": 200.0
+        },
+        "5 russet potatoes, washed, cut into large cubes": {
+          "food": "potato-russet-raw",
+          "grams": 1065.0
+        },
+        "2 packets onion soup mix": {
+          "food": "onion-soup-mix",
+          "grams": 56.0
+        },
+        "1 cup steak sauce": {
+          "food": "steak-sauce",
+          "grams": 272.0
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        }
+      }
+    },
+    "pork-stew": {
+      "lines": {
+        "2.5 lb boneless pork shoulder (Boston butt), cut into 2 large pieces": {
+          "food": "pork-shoulder-raw",
+          "grams": 1134.0
+        },
+        "5 carrots, peeled, cut into 1-inch chunks": {
+          "food": "carrot",
+          "grams": 305.0
+        },
+        "1 large onion, quartered": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "5 stalks celery, cut into 1-inch chunks": {
+          "food": "celery",
+          "grams": 200.0
+        },
+        "5 russet potatoes, washed, cut into large cubes": {
+          "food": "potato-russet-raw",
+          "grams": 1065.0
+        },
+        "1 packet onion soup mix": {
+          "food": "onion-soup-mix",
+          "grams": 28.0
+        },
+        "1 can (12 oz) frozen apple juice concentrate": {
+          "food": "apple-juice-conc",
+          "grams": 340.2
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "1 Tbsp cider vinegar, to finish": {
+          "food": "vinegar-cider",
+          "grams": 14.9
+        }
+      }
+    },
+    "corned-beef-and-cabbage": {
+      "lines": {
+        "3 lb corned beef brisket (with seasoning packet)": {
+          "food": "beef-corned-brisket-raw",
+          "grams": 1360.8
+        },
+        "1 can (12 oz) frozen apple juice concentrate": {
+          "food": "apple-juice-conc",
+          "grams": 340.2
+        },
+        "5 carrots, peeled, cut into 1-inch chunks": {
+          "food": "carrot",
+          "grams": 305.0
+        },
+        "1 large onion, quartered": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "5 russet potatoes, washed, cut into large cubes": {
+          "food": "potato-russet-raw",
+          "grams": 1065.0
+        },
+        "1 head cabbage, cut into wedges": {
+          "food": "cabbage",
+          "grams": 900.0
+        }
+      }
+    },
+    "garlic-butter-chicken-and-potatoes-skillet": {
+      "lines": {
+        "1½ lb baby yellow potatoes, halved": {
+          "food": "potato-raw",
+          "grams": 680.4
+        },
+        "1 Tbsp table salt, for the cooking water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "1½ lb boneless skinless chicken thighs, cut into 1½-inch pieces": {
+          "food": "chicken-thigh-raw",
+          "grams": 680.4
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "2 Tbsp neutral oil, divided": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "3 Tbsp butter, divided": {
+          "food": "butter",
+          "grams": 42.6
+        },
+        "6 garlic cloves, thinly sliced": {
+          "food": "garlic",
+          "grams": 18.0
+        },
+        "½ cup chicken stock": {
+          "food": "broth-chicken",
+          "grams": 120.0
+        },
+        "1 tsp fresh thyme leaves": {
+          "food": "thyme-fresh",
+          "grams": 1.6
+        },
+        "1 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        },
+        "2 cups baby spinach (optional)": {
+          "food": "spinach",
+          "grams": 60.0
+        },
+        "2 Tbsp chopped parsley": {
+          "food": "parsley",
+          "grams": 7.5
+        }
+      }
+    },
+    "meatloaf": {
+      "lines": {
+        "2 lb ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2
+        },
+        "1 lb ground pork": {
+          "food": "pork-ground-raw",
+          "grams": 453.6
+        },
+        "2 packets onion soup mix": {
+          "food": "onion-soup-mix",
+          "grams": 56.0
+        },
+        "2 eggs": {
+          "food": "egg-whole",
+          "grams": 100.0
+        },
+        "1 cup panko breadcrumbs": {
+          "food": "breadcrumbs",
+          "grams": 108.0
+        },
+        "½ cup milk": {
+          "food": "milk-whole",
+          "grams": 122.0
+        },
+        "2 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 34.4
+        },
+        "½ cup ketchup": {
+          "food": "ketchup",
+          "grams": 120.0
+        },
+        "¼ cup brown sugar": {
+          "food": "brown-sugar",
+          "grams": 55.0
+        },
+        "1 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        },
+        "2 tsp yellow mustard": {
+          "food": "mustard-yellow",
+          "grams": 10.4
+        }
+      }
+    },
+    "marinated-chicken-drumsticks": {
+      "lines": {
+        "2 lb chicken drumsticks": {
+          "food": "chicken-drumstick-raw",
+          "grams": 635.0,
+          "note": "bone-in weight; assumes about 30% is bone (estimate, not from the KB)"
+        },
+        "2 Tbsp honey": {
+          "food": "honey",
+          "grams": 42.4,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 34.4,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp lime juice": {
+          "food": "lime-juice",
+          "grams": 15.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp hoisin sauce": {
+          "food": "hoisin",
+          "grams": 16.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "¼ cup olive oil": {
+          "food": "olive-oil",
+          "grams": 54.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "5 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 25.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp onion powder": {
+          "food": "onion-powder",
+          "grams": 6.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 9.4,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        }
+      }
+    },
+    "soy-garlic-paprika-drumsticks": {
+      "lines": {
+        "8 chicken drumsticks (about 2½ lb), skin on": {
+          "food": "chicken-drumstick-raw",
+          "grams": 793.8,
+          "note": "bone-in weight; assumes about 30% is bone (estimate, not from the KB)"
+        },
+        "1½ tsp table salt (for the dry brine)": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "3 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 40.5
+        },
+        "4 cloves garlic, grated on a microplane": {
+          "food": "garlic",
+          "grams": 20.0
+        },
+        "1 Tbsp smoked paprika": {
+          "food": "paprika",
+          "grams": 6.9
+        },
+        "2 tsp crushed red pepper flakes (or 1 Tbsp gochugaru)": {
+          "food": "cayenne",
+          "grams": 3.5
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "1 tsp coarse black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9
+        },
+        "1 Tbsp brown sugar (or honey)": {
+          "food": "brown-sugar",
+          "grams": 13.8
+        },
+        "1 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        }
+      }
+    },
+    "seared-chicken-breast-with-cranberry-thyme-pan-sauce": {
+      "lines": {
+        "2 boneless skinless chicken breasts (about 6 oz each)": {
+          "food": "chicken-breast-raw",
+          "grams": 340.2
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 tsp fresh thyme (or ½ tsp dried)": {
+          "food": "thyme-fresh",
+          "grams": 1.6
+        },
+        "½ tsp rubbed sage": {
+          "food": "sage-ground",
+          "grams": 0.3
+        },
+        "¼ cup dried cranberries": {
+          "food": "cranberries-dried",
+          "grams": 30.0
+        },
+        "⅔ cup chicken stock": {
+          "food": "broth-chicken",
+          "grams": 160.0
+        },
+        "¼ small onion, thinly sliced": {
+          "food": "onion",
+          "grams": 27.5
+        },
+        "1 tsp Dijon mustard": {
+          "food": "mustard-yellow",
+          "grams": 5.2
+        },
+        "1 tsp maple syrup": {
+          "food": "maple-syrup",
+          "grams": 6.6
+        },
+        "½ tsp fresh thyme": {
+          "food": "thyme-fresh",
+          "grams": 0.8
+        },
+        "Salt and black pepper, to taste": {
+          "exclude": "to taste, no amount"
+        },
+        "1 Tbsp cold butter": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "½ tsp vinegar or lemon juice": {
+          "food": "vinegar-distilled",
+          "grams": 2.5
+        },
+        "12 oz green beans, trimmed": {
+          "food": "green-beans",
+          "grams": 340.2
+        },
+        "1 Tbsp butter": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "1 clove garlic, smashed": {
+          "food": "garlic",
+          "grams": 5.0
+        },
+        "2 Tbsp toasted sliced almonds (optional)": {
+          "food": "almonds",
+          "grams": 17.9
+        }
+      }
+    },
+    "skillet-beef-and-potato-hash-with-fried-eggs": {
+      "lines": {
+        "1 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 453.6
+        },
+        "1½ tsp paprika": {
+          "food": "paprika",
+          "grams": 3.4
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "1 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 2.3
+        },
+        "½ tsp chili powder": {
+          "food": "chili-powder",
+          "grams": 1.3
+        },
+        "½ tsp ground cumin": {
+          "food": "cumin",
+          "grams": 1.0
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "2 lb Yukon Gold potatoes, peeled and cut into ½-inch dice": {
+          "food": "potato-raw",
+          "grams": 907.2
+        },
+        "1 large yellow onion, sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "1 Tbsp paprika": {
+          "food": "paprika",
+          "grams": 6.9
+        },
+        "Reserved rendered beef fat (about ¼ cup, drained from the beef)": {
+          "exclude": "this fat came from the ground beef, which is already counted at full fat"
+        },
+        "½ cup shredded sharp cheddar": {
+          "food": "cheddar",
+          "grams": 56.5
+        },
+        "4 large eggs": {
+          "food": "egg-whole",
+          "grams": 200.0
+        },
+        "Salt, black pepper, and paprika, for the eggs": {
+          "exclude": "to taste, no amount"
+        },
+        "Steak sauce, ketchup, or barbecue sauce, for serving": {
+          "exclude": "serving suggestion"
+        }
+      }
+    },
+    "sheet-pan-paprika-chicken-thighs-with-potatoes": {
+      "lines": {
+        "2 lb boneless skinless chicken thighs (about 8)": {
+          "food": "chicken-thigh-raw",
+          "grams": 907.2
+        },
+        "1½ lb baby Yukon Gold potatoes, halved": {
+          "food": "potato-raw",
+          "grams": 680.4
+        },
+        "4 Tbsp olive oil, divided": {
+          "food": "olive-oil",
+          "grams": 54.0
+        },
+        "1 Tbsp smoked paprika": {
+          "food": "paprika",
+          "grams": 6.9
+        },
+        "2 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 6.2
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "½ to 1 tsp cayenne": {
+          "food": "cayenne",
+          "grams": 1.3
+        },
+        "1½ tsp table salt": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "1 lemon, cut into wedges": {
+          "exclude": "zest or wedges only, negligible"
+        }
+      }
+    },
+    "king-ranch-chicken-casserole": {
+      "lines": {
+        "4 Tbsp butter": {
+          "food": "butter",
+          "grams": 56.8
+        },
+        "¼ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 31.2
+        },
+        "3 cups chicken broth": {
+          "food": "broth-chicken",
+          "grams": 720.0
+        },
+        "1 can (10 oz) diced tomatoes with green chiles (Rotel), undrained": {
+          "food": "tomato-canned",
+          "grams": 283.5
+        },
+        "1 can (4 oz) diced green chiles": {
+          "food": "chile-hot-raw",
+          "grams": 113.4
+        },
+        "½ cup sour cream": {
+          "food": "sour-cream",
+          "grams": 115.0
+        },
+        "2 tsp chili powder": {
+          "food": "chili-powder",
+          "grams": 5.2
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "1½ tsp chipotle powder": {
+          "food": "chili-powder",
+          "grams": 3.9
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 rotisserie chicken, meat pulled (about 4 cups)": {
+          "food": "chicken-roasted-meat",
+          "grams": 560.0
+        },
+        "12 corn tortillas, torn into large pieces": {
+          "food": "tortilla-corn",
+          "grams": 312.0
+        },
+        "1 medium onion, sliced thin": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "3 cups shredded sharp cheddar": {
+          "food": "cheddar",
+          "grams": 339.0
+        }
+      }
+    },
+    "pork-medallions-mustard-cider-pan-sauce": {
+      "lines": {
+        "1½ lb pork tenderloin (1 large or 2 small), silver skin trimmed": {
+          "food": "pork-tenderloin-raw",
+          "grams": 680.4
+        },
+        "2 Tbsp Dijon mustard": {
+          "food": "mustard-yellow",
+          "grams": 31.2
+        },
+        "2 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 27.0
+        },
+        "3 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "1 Tbsp brown sugar": {
+          "food": "brown-sugar",
+          "grams": 13.8
+        },
+        "2 tsp fresh thyme leaves (or ¾ tsp dried)": {
+          "food": "thyme-fresh",
+          "grams": 3.2
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1½ Tbsp neutral oil (avocado or canola), for searing": {
+          "food": "canola-oil",
+          "grams": 20.4
+        },
+        "1 Tbsp butter, for the shallots": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "2 shallots, sliced thin": {
+          "food": "shallot",
+          "grams": 80.0
+        },
+        "¾ cup apple cider (the juice, not vinegar)": {
+          "food": "vinegar-cider",
+          "grams": 179.2
+        },
+        "½ cup chicken broth": {
+          "food": "broth-chicken",
+          "grams": 120.0
+        },
+        "1 tsp cider vinegar": {
+          "food": "vinegar-cider",
+          "grams": 5.0
+        },
+        "1 Tbsp whole-grain mustard (or Dijon)": {
+          "food": "mustard-yellow",
+          "grams": 15.6
+        },
+        "2 Tbsp cold butter, cut in pieces": {
+          "food": "butter",
+          "grams": 28.4
+        },
+        "1 tsp fresh thyme leaves (or a pinch dried)": {
+          "food": "thyme-fresh",
+          "grams": 1.6
+        },
+        "Roasted potatoes or buttered egg noodles": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "picadillo": {
+      "lines": {
+        "1 lb ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 453.6,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "½ cup onion, diced": {
+          "food": "onion",
+          "grams": 80.0
+        },
+        "1 green bell pepper, diced": {
+          "food": "bell-pepper-green",
+          "grams": 120.0
+        },
+        "2 cups potato, peeled and cut into ½-inch dice": {
+          "food": "potato-raw",
+          "grams": 300.0
+        },
+        "4 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 20.0
+        },
+        "1 can (8 oz) tomato sauce": {
+          "food": "tomato-sauce",
+          "grams": 226.8
+        },
+        "½ cup beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 120.0
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "¼ tsp ground black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "1 tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 1.7
+        },
+        "1 bay leaf": {
+          "food": "bay-leaf",
+          "grams": 0.6
+        }
+      }
+    },
+    "taco-pasta": {
+      "lines": {
+        "1 cup cheddar cheese, shredded": {
+          "food": "cheddar",
+          "grams": 113.0
+        },
+        "1 cup Monterey Jack cheese, shredded": {
+          "food": "monterey-jack",
+          "grams": 113.0
+        },
+        "4 oz Velveeta, cut into cubes (or ¾ cup more shredded cheese, though the sauce is more likely to turn grainy)": {
+          "food": "process-cheese",
+          "grams": 113.4
+        },
+        "1 lb ground beef (85% lean)": {
+          "food": "beef-ground-85-raw",
+          "grams": 453.6,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 Tbsp butter": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "2 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 10.0
+        },
+        "1 oz packet taco seasoning": {
+          "food": "taco-seasoning",
+          "grams": 28.4
+        },
+        "1 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 17.2
+        },
+        "2 Tbsp tomato paste": {
+          "food": "tomato-paste",
+          "grams": 32.8
+        },
+        "1 cup beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 240.0
+        },
+        "1 cup chicken broth": {
+          "food": "broth-chicken",
+          "grams": 240.0
+        },
+        "1 cup whole milk (room temp)": {
+          "food": "milk-whole",
+          "grams": 244.0
+        },
+        "1 can (10 oz) Rotel tomatoes with green chilies, undrained": {
+          "food": "tomato-canned",
+          "grams": 283.5
+        },
+        "¾ lb medium pasta shells": {
+          "food": "pasta-dry",
+          "grams": 340.2
+        }
+      }
+    },
+    "slow-cooker-pork-carnitas": {
+      "lines": {
+        "4 lb boneless pork shoulder": {
+          "food": "pork-shoulder-raw",
+          "grams": 1814.4,
+          "fatRetain": 0.65,
+          "note": "fat skimmed from the braise; assumes 35% of the fat leaves the dish (estimate, not a measured figure)"
+        },
+        "1 Tbsp table salt": {
+          "food": "salt",
+          "grams": 18.2
+        },
+        "2 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 4.0
+        },
+        "1 Tbsp dried oregano (Mexican if you have it)": {
+          "food": "oregano-dried",
+          "grams": 2.8
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "1 large yellow onion, quartered": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "6 cloves garlic, smashed": {
+          "food": "garlic",
+          "grams": 30.0
+        },
+        "1 orange": {
+          "exclude": "zest or wedges only, negligible"
+        },
+        "1 cinnamon stick": {
+          "food": "cinnamon",
+          "grams": 3.0
+        },
+        "2 bay leaves": {
+          "food": "bay-leaf",
+          "grams": 1.2
+        },
+        "1 jalapeño, halved lengthwise": {
+          "food": "jalapeno",
+          "grams": 14.0
+        },
+        "2 Tbsp fat skimmed from the cooking liquid (or neutral oil)": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "1 lime, cut into wedges": {
+          "exclude": "zest or wedges only, negligible"
+        },
+        "Warm corn tortillas, for serving": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "mexican-coleslaw": {
+      "lines": {
+        "16 oz bagged slaw mix": {
+          "food": "cabbage",
+          "grams": 453.6
+        },
+        "2 limes, juiced": {
+          "food": "lime-juice",
+          "grams": 60.0
+        },
+        "3 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 40.5
+        },
+        "2 Tbsp honey": {
+          "food": "honey",
+          "grams": 42.4
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "¼ cup mayo": {
+          "food": "mayonnaise",
+          "grams": 55.0
+        },
+        "¼ cup Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 61.2
+        }
+      }
+    },
+    "broccoli-chicken-stir-fry": {
+      "lines": {
+        "16 oz broccoli (~2 heads)": {
+          "food": "broccoli",
+          "grams": 453.6
+        },
+        "12 oz chicken breast": {
+          "food": "chicken-breast-raw",
+          "grams": 340.2
+        },
+        "2 cloves garlic": {
+          "food": "garlic",
+          "grams": 10.0
+        },
+        "1 Tbsp fresh ginger": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "¼ cup green onion whites, cut into 1-inch pieces": {
+          "food": "green-onion",
+          "grams": 25.0
+        },
+        "¼ cup carrot, thin-sliced on diagonal": {
+          "food": "carrot",
+          "grams": 32.0
+        },
+        "8 cups water (for blanching)": {
+          "food": "water",
+          "grams": 1896.0
+        },
+        "1 tsp table salt + 2 tsp oil (blanching)": {
+          "exclude": "goes in the blanching water, which is poured off"
+        },
+        "2 Tbsp oil (stir fry)": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "1 tsp cooking wine (stir fry)": {
+          "food": "wine-sherry-cooking",
+          "grams": 4.9
+        },
+        "½ tsp sugar (to taste)": {
+          "food": "sugar",
+          "grams": 2.1
+        },
+        "1 tsp sesame oil (finishing)": {
+          "food": "sesame-oil",
+          "grams": 4.5
+        },
+        "1 Tbsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 8.0
+        },
+        "2 Tbsp water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "½ tsp salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 Tbsp oyster sauce": {
+          "food": "oyster-sauce",
+          "grams": 18.0
+        },
+        "¼ tsp white pepper": {
+          "food": "white-pepper",
+          "grams": 0.6
+        },
+        "1 Tbsp light soy sauce": {
+          "food": "soy-sauce",
+          "grams": 15.9
+        },
+        "1½ tsp sugar": {
+          "food": "sugar",
+          "grams": 6.2
+        },
+        "2 tsp cooking wine": {
+          "food": "wine-sherry-cooking",
+          "grams": 9.8
+        },
+        "⅓ tsp white pepper": {
+          "food": "white-pepper",
+          "grams": 0.8
+        }
+      }
+    },
+    "peanut-butter-noodles": {
+      "lines": {
+        "2 chicken breasts": {
+          "food": "chicken-breast-raw",
+          "grams": 450.0
+        },
+        "1 Tbsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 8.0
+        },
+        "2 Tbsp water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "½ tsp salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 Tbsp oyster sauce": {
+          "food": "oyster-sauce",
+          "grams": 18.0
+        },
+        "¼ tsp white pepper": {
+          "food": "white-pepper",
+          "grams": 0.6
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "1 cup creamy peanut butter": {
+          "food": "peanut-butter",
+          "grams": 258.0
+        },
+        "¼ cup soy sauce": {
+          "food": "soy-sauce",
+          "grams": 63.8
+        },
+        "¼ cup water or chicken broth": {
+          "food": "water",
+          "grams": 59.2
+        },
+        "2 Tbsp rice vinegar": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 30.0
+        },
+        "1 Tbsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 13.6
+        },
+        "2 Tbsp oyster sauce": {
+          "food": "oyster-sauce",
+          "grams": 36.0
+        },
+        "2 Tbsp sriracha": {
+          "food": "sriracha",
+          "grams": 33.8
+        },
+        "2 Tbsp honey": {
+          "food": "honey",
+          "grams": 42.4
+        },
+        "2 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 4.6
+        },
+        "2 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 6.2
+        },
+        "2 tsp ground ginger": {
+          "food": "ginger-ground",
+          "grams": 3.6
+        },
+        "½ tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 0.9
+        },
+        "½ tsp white pepper": {
+          "food": "white-pepper",
+          "grams": 1.2
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "16 oz brown rice noodles": {
+          "food": "rice-noodles-dry",
+          "grams": 453.6
+        },
+        "¼ cup reserved noodle water": {
+          "food": "water",
+          "grams": 59.2
+        },
+        "1 Tbsp oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "2 medium carrots, julienned": {
+          "food": "carrot",
+          "grams": 122.0
+        },
+        "1 package shredded cabbage": {
+          "food": "cabbage",
+          "grams": 900.0
+        },
+        "3-5 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 20.0
+        },
+        "1 bunch green onion, sliced": {
+          "food": "green-onion",
+          "grams": 15.0
+        }
+      }
+    },
+    "salt-and-pepper-chicken": {
+      "lines": {
+        "1 lb chicken breasts, cut into bite-sized pieces": {
+          "food": "chicken-breast-raw",
+          "grams": 453.6
+        },
+        "3 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "1 tsp salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "2 tsp brown sugar": {
+          "food": "brown-sugar",
+          "grams": 9.2
+        },
+        "2 Tbsp water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "1 Tbsp rice wine": {
+          "food": "wine-sherry-cooking",
+          "grams": 14.8
+        },
+        "¼ tsp baking soda": {
+          "food": "baking-soda",
+          "grams": 1.5
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9
+        },
+        "1 egg": {
+          "food": "egg-whole",
+          "grams": 50.0
+        },
+        "¾ cup cornstarch": {
+          "food": "cornstarch",
+          "grams": 96.0
+        },
+        "About 2 cups vegetable oil, for frying": {
+          "food": "canola-oil",
+          "grams": 26,
+          "note": "frying oil mostly stays in the pan; counts only the oil absorbed, about 5 g per 100 g of coated raw chicken (KB nutrition module-03, Bognar 2002)"
+        },
+        "½ tsp salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "½ tsp pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "2 Tbsp green onions, chopped": {
+          "food": "green-onion",
+          "grams": 12.5
+        }
+      }
+    },
+    "thai-pineapple-fried-rice": {
+      "lines": {
+        "2 Tbsp vegetable oil": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "2 garlic cloves, finely minced": {
+          "food": "garlic",
+          "grams": 6.0
+        },
+        "½ onion, finely chopped": {
+          "food": "onion",
+          "grams": 55.0
+        },
+        "½ red bell pepper, diced (~¾ cup)": {
+          "food": "bell-pepper-red",
+          "grams": 111.8
+        },
+        "½ cup frozen peas": {
+          "food": "peas-frozen",
+          "grams": 67.0
+        },
+        "3 cups day-old jasmine rice, cooked": {
+          "food": "rice-white-cooked",
+          "grams": 474.0
+        },
+        "1½ cups pineapple pieces, fresh or canned drained": {
+          "food": "pineapple",
+          "grams": 247.5
+        },
+        "1 lime, cut into wedges": {
+          "exclude": "zest or wedges only, negligible"
+        },
+        "½ cup green onion, sliced": {
+          "food": "green-onion",
+          "grams": 50.0
+        },
+        "1 Tbsp oyster sauce": {
+          "food": "oyster-sauce",
+          "grams": 18.0
+        },
+        "1½ Tbsp fish sauce": {
+          "food": "fish-sauce",
+          "grams": 27.0
+        },
+        "½ tsp sugar": {
+          "food": "sugar",
+          "grams": 2.1
+        },
+        "1½ Tbsp soy sauce (light or all-purpose)": {
+          "food": "soy-sauce",
+          "grams": 23.9
+        },
+        "1 Tbsp Thai seasoning sauce (Golden Mountain)": {
+          "food": "soy-sauce",
+          "grams": 15.9
+        }
+      }
+    },
+    "asian-spinach-salad": {
+      "lines": {
+        "4 cups baby spinach": {
+          "food": "spinach",
+          "grams": 120.0
+        },
+        "¼ cup dried cranberries": {
+          "food": "cranberries-dried",
+          "grams": 30.0
+        },
+        "¼ cup walnuts": {
+          "food": "walnuts",
+          "grams": 29.2
+        },
+        "1 Tbsp extra virgin olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5
+        },
+        "1 Tbsp seasoned rice vinegar": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 15.0
+        },
+        "1 tsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 4.5
+        },
+        "1 tsp honey or maple syrup": {
+          "food": "honey",
+          "grams": 7.1
+        },
+        "½ tsp soy sauce (reduced sodium)": {
+          "food": "soy-sauce",
+          "grams": 2.7
+        },
+        "1 small clove garlic, grated (optional)": {
+          "food": "garlic",
+          "grams": 3.0
+        }
+      }
+    },
+    "pork-char-siu": {
+      "lines": {
+        "2 lb pork shoulder (Boston butt)": {
+          "food": "pork-shoulder-raw",
+          "grams": 907.2
+        },
+        "1 Tbsp garlic salt": {
+          "food": "salt",
+          "grams": 18.2,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "¼ cup brown sugar": {
+          "food": "brown-sugar",
+          "grams": 55.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp oyster sauce": {
+          "food": "oyster-sauce",
+          "grams": 36.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp hoisin sauce": {
+          "food": "hoisin",
+          "grams": 32.2,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp red wine vinegar": {
+          "food": "vinegar-red-wine",
+          "grams": 29.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp mirin": {
+          "food": "mirin",
+          "grams": 15.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp honey": {
+          "food": "honey",
+          "grams": 42.4
+        },
+        "1 Tbsp hot water": {
+          "food": "water",
+          "grams": 14.8
+        }
+      }
+    },
+    "sesame-beef-and-noodles": {
+      "lines": {
+        "8 oz egg noodles": {
+          "food": "egg-noodles-dry",
+          "grams": 226.8
+        },
+        "1 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 453.6,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "3 cups fresh spinach": {
+          "food": "spinach",
+          "grams": 90.0
+        },
+        "1 medium onion, sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "3 carrots, sliced into strips": {
+          "food": "carrot",
+          "grams": 183.0
+        },
+        "1 bag (12 oz) frozen broccoli, thawed and patted dry": {
+          "food": "broccoli-frozen",
+          "grams": 340.2
+        },
+        "¼ cup soy sauce": {
+          "food": "soy-sauce",
+          "grams": 63.8
+        },
+        "¼ cup water": {
+          "food": "water",
+          "grams": 59.2
+        },
+        "3 Tbsp rice wine vinegar": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 45.0
+        },
+        "2 Tbsp honey": {
+          "food": "honey",
+          "grams": 42.4
+        },
+        "2 Tbsp Sriracha": {
+          "food": "sriracha",
+          "grams": 33.8
+        },
+        "2 Tbsp oyster sauce": {
+          "food": "oyster-sauce",
+          "grams": 36.0
+        },
+        "1 Tbsp chili sauce": {
+          "food": "chili-sauce",
+          "grams": 17.0
+        },
+        "4 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 20.0
+        },
+        "1 tsp ground ginger": {
+          "food": "ginger-ground",
+          "grams": 1.8
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "1 Tbsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 13.6
+        },
+        "1 Tbsp cornstarch + 2 Tbsp water": {
+          "food": "water",
+          "grams": 44.4
+        }
+      }
+    },
+    "sticky-chinese-pork-belly": {
+      "lines": {
+        "2 lb rindless pork belly, sliced and halved (each piece about finger-length)": {
+          "food": "pork-belly-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "belly is braised 2 hours in stock that is set aside, then fried; assumes 35% of the fat leaves (estimate, not a measured figure)"
+        },
+        "4 cups hot chicken stock": {
+          "exclude": "braising liquid is set aside, not served"
+        },
+        "1 Tbsp fresh ginger, minced": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "3 cloves garlic, roughly chopped": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "1 Tbsp rice wine": {
+          "food": "wine-sherry-cooking",
+          "grams": 14.8
+        },
+        "1 Tbsp sugar": {
+          "food": "sugar",
+          "grams": 12.5
+        },
+        "¼ cup fresh ginger, minced": {
+          "food": "ginger",
+          "grams": 24.0
+        },
+        "4 red chilies, finely chopped": {
+          "food": "chile-hot-raw",
+          "grams": 40.0
+        },
+        "½ cup honey": {
+          "food": "honey",
+          "grams": 169.5
+        },
+        "½ cup packed brown sugar": {
+          "food": "brown-sugar",
+          "grams": 110.0
+        },
+        "¾ cup dark soy sauce": {
+          "food": "soy-sauce",
+          "grams": 191.2
+        },
+        "1 Tbsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 9.4
+        },
+        "1 Tbsp onion powder": {
+          "food": "onion-powder",
+          "grams": 6.9
+        },
+        "1 tsp rice vinegar (added to reserved portion only)": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 5.0
+        },
+        "¼ tsp xanthan gum (optional, for thickening)": {
+          "exclude": "negligible amount (thickener)"
+        },
+        "3 Tbsp vegetable oil, divided": {
+          "food": "canola-oil",
+          "grams": 40.9
+        },
+        "Salt and pepper, a pinch each for the vegetables and the pork": {
+          "exclude": "to taste, no amount"
+        },
+        "1 medium onion, sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "2 medium carrots, sliced on the bias": {
+          "food": "carrot",
+          "grams": 122.0
+        },
+        "1 head broccoli, cut into florets": {
+          "food": "broccoli",
+          "grams": 600.0
+        },
+        "1 red bell pepper, diced": {
+          "food": "bell-pepper-red",
+          "grams": 120.0
+        },
+        "Cooked white rice": {
+          "exclude": "serving suggestion, no amount"
+        },
+        "Chopped spring onions": {
+          "exclude": "no amount given"
+        },
+        "Chopped red chilies": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "keema-aloo-bhuna-with-peas-carrot-and-spinach": {
+      "lines": {
+        "1 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 453.6,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "2 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 4.0
+        },
+        "2 tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 3.3
+        },
+        "1 tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 3.0
+        },
+        "1 tsp cayenne": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 lb russet potatoes (about 2 medium), peeled and cut into ½-inch dice": {
+          "food": "potato-russet-raw",
+          "grams": 453.6
+        },
+        "1 Tbsp table salt, for the potato water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "1 large yellow onion, halved and sliced thin": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "5 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 25.0
+        },
+        "1 Tbsp fresh ginger, grated": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "1 serrano chile, sliced thin": {
+          "food": "chile-hot-raw",
+          "grams": 10.0
+        },
+        "2 medium carrots, cut into ¼-inch dice (about 1 cup)": {
+          "food": "carrot",
+          "grams": 128.0
+        },
+        "2 Tbsp tomato paste": {
+          "food": "tomato-paste",
+          "grams": 32.8
+        },
+        "½ cup water": {
+          "food": "water",
+          "grams": 118.5
+        },
+        "1 cup frozen peas": {
+          "food": "peas-frozen",
+          "grams": 134.0
+        },
+        "5 oz fresh spinach, stacked and cut into ¼-inch ribbons": {
+          "food": "spinach",
+          "grams": 141.8
+        },
+        "1½ tsp garam masala": {
+          "food": "masa-harina",
+          "grams": 3.6
+        },
+        "1 Tbsp lime juice": {
+          "food": "lime-juice",
+          "grams": 15.1
+        },
+        "¼ cup cilantro, chopped": {
+          "food": "cilantro",
+          "grams": 4.0
+        },
+        "Plain whole-milk yogurt, for the table": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "butter-chicken": {
+      "lines": {
+        "3 lb boneless skinless chicken thighs, cut into 1½-inch pieces": {
+          "food": "chicken-thigh-raw",
+          "grams": 1360.8
+        },
+        "1 cup plain whole-milk yogurt": {
+          "food": "yogurt-plain-whole",
+          "grams": 245.0
+        },
+        "2 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 30.5
+        },
+        "3 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "1 Tbsp grated fresh ginger": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "2 tsp garam masala": {
+          "food": "masa-harina",
+          "grams": 4.8
+        },
+        "2 tsp paprika": {
+          "food": "paprika",
+          "grams": 4.6
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "½ tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 1.5
+        },
+        "1½ tsp table salt": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "6 Tbsp butter, divided": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "1 large yellow onion, finely chopped": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "5 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "2 Tbsp grated fresh ginger": {
+          "food": "ginger",
+          "grams": 12.0
+        },
+        "1 tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 1.7
+        },
+        "1 tsp cayenne pepper": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "1 can (28 oz) crushed tomatoes": {
+          "food": "tomato-canned",
+          "grams": 793.8
+        },
+        "1 Tbsp honey": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "1 cup heavy cream": {
+          "food": "cream-heavy",
+          "grams": 238.0
+        },
+        "¼ cup chopped cilantro": {
+          "food": "cilantro",
+          "grams": 4.0
+        },
+        "Cooked basmati rice": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "honey-garlic-soy-glazed-chicken-tenderloins": {
+      "lines": {
+        "1 lb chicken tenderloins, tendons pulled": {
+          "food": "chicken-breast-raw",
+          "grams": 453.6
+        },
+        "2 Tbsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 16.0
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "1½ Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 20.4
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9
+        },
+        "3 Tbsp honey": {
+          "food": "honey",
+          "grams": 63.6
+        },
+        "2 Tbsp cooking sherry": {
+          "food": "wine-sherry-cooking",
+          "grams": 29.5
+        },
+        "2 Tbsp water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "1 tsp rice vinegar (any vinegar works)": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 5.0
+        },
+        "½ tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 0.9
+        },
+        "1 tsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 4.5
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        },
+        "Cooked rice, for serving": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "spicy-peanut-chicken": {
+      "lines": {
+        "1½ lb boneless skinless chicken breast (about 2 large), cut into 1-inch pieces": {
+          "food": "chicken-breast-raw",
+          "grams": 680.4
+        },
+        "1 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 15.9
+        },
+        "1 Tbsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 8.0
+        },
+        "2 Tbsp neutral oil (avocado or canola)": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "⅓ cup natural peanut butter, stirred well first": {
+          "food": "peanut-butter",
+          "grams": 86.0
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9
+        },
+        "2 Tbsp lime juice (about 1 lime)": {
+          "food": "lime-juice",
+          "grams": 30.2
+        },
+        "1 Tbsp honey": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "3 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "2 Tbsp chili crisp (or 2 Tbsp sriracha)": {
+          "food": "sriracha",
+          "grams": 33.8
+        },
+        "⅓ cup hot water": {
+          "food": "water",
+          "grams": 79.0
+        },
+        "Cooked rice, for serving": {
+          "exclude": "serving suggestion, no amount"
+        },
+        "¼ cup roasted peanuts, chopped (optional)": {
+          "food": "peanuts-roasted",
+          "grams": 36.5
+        },
+        "2 green onions, sliced (optional)": {
+          "food": "green-onion",
+          "grams": 30.0
+        }
+      }
+    },
+    "gochujang-honey-chicken-rice-bowls": {
+      "lines": {
+        "¼ cup gochujang": {
+          "food": "gochujang",
+          "grams": 75.0
+        },
+        "3 Tbsp honey": {
+          "food": "honey",
+          "grams": 63.6
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9
+        },
+        "4 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "1 Tbsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 13.6
+        },
+        "1½ lb boneless skinless chicken breast (about 2 large), cut into 1-inch chunks": {
+          "food": "chicken-breast-raw",
+          "grams": 680.4
+        },
+        "1 Tbsp neutral oil, divided": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "2 Tbsp water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "1 medium yellow onion, cut into ½-inch wedges": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "2 medium carrots, sliced ⅛ inch thick on the bias": {
+          "food": "carrot",
+          "grams": 122.0
+        },
+        "½ Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 6.8
+        },
+        "1 large head broccoli, cut into florets (about 4 cups)": {
+          "food": "broccoli",
+          "grams": 364.0
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "¼ tsp table salt": {
+          "food": "salt",
+          "grams": 1.5
+        },
+        "Cooked rice, for serving": {
+          "exclude": "serving suggestion, no amount"
+        },
+        "2 scallions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        },
+        "1 tsp sesame seeds": {
+          "food": "sesame-seeds",
+          "grams": 3.0
+        }
+      }
+    },
+    "lasagna": {
+      "lines": {
+        "1½ lb ground beef, 80/20": {
+          "food": "beef-ground-80-raw",
+          "grams": 680.4
+        },
+        "½ lb hot Italian sausage, casings removed": {
+          "food": "sausage-italian-raw",
+          "grams": 226.8
+        },
+        "1½ tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 1.4
+        },
+        "1 tsp fennel seed, crushed": {
+          "food": "fennel-seed",
+          "grams": 1.9
+        },
+        "1½ tsp crushed red pepper": {
+          "food": "bell-pepper-red",
+          "grams": 4.7
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "2 Tbsp olive oil, only if the reserved beef fat runs short": {
+          "food": "olive-oil",
+          "grams": 27.0
+        },
+        "1½ cups yellow onion, sliced thin": {
+          "food": "onion",
+          "grams": 240.0
+        },
+        "¾ cup carrot, small dice": {
+          "food": "carrot",
+          "grams": 96.0
+        },
+        "¾ cup celery, small dice": {
+          "food": "celery",
+          "grams": 75.8
+        },
+        "6 cloves garlic, sliced": {
+          "food": "garlic",
+          "grams": 30.0
+        },
+        "3 Tbsp tomato paste": {
+          "food": "tomato-paste",
+          "grams": 49.1
+        },
+        "1 cup dry red wine": {
+          "food": "wine-red",
+          "grams": 236.0
+        },
+        "1 can (28 oz) whole peeled tomatoes, crushed by hand": {
+          "food": "tomato-canned",
+          "grams": 793.8
+        },
+        "1 can (15 oz) crushed tomatoes": {
+          "food": "tomato-canned",
+          "grams": 425.2
+        },
+        "½ cup whole milk": {
+          "food": "milk-whole",
+          "grams": 122.0
+        },
+        "1 Parmigiano-Reggiano rind, about 2 inches": {
+          "exclude": "rind simmered and removed"
+        },
+        "2 bay leaves": {
+          "food": "bay-leaf",
+          "grams": 1.2
+        },
+        "2 tsp red wine vinegar": {
+          "food": "vinegar-red-wine",
+          "grams": 10.0
+        },
+        "15 oz whole-milk ricotta": {
+          "food": "milk-whole",
+          "grams": 425.2
+        },
+        "1 large egg": {
+          "food": "egg-whole",
+          "grams": 50.0
+        },
+        "¾ cup Parmigiano-Reggiano, finely grated": {
+          "food": "parmesan",
+          "grams": 75.0
+        },
+        "⅓ cup flat-leaf parsley, chopped": {
+          "food": "parsley",
+          "grams": 20.0
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "¼ tsp nutmeg, freshly grated": {
+          "food": "nutmeg",
+          "grams": 0.6
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "12 to 14 fresh egg pasta sheets, about 4½ by 9 inches, blanched (see Noodle Dough), or 12 no-boil dried sheets": {
+          "food": "pasta-fresh",
+          "grams": 572,
+          "note": "13 sheets x 44 g (the Noodle Dough recipe makes about 1¼ lb for 12-14 sheets)"
+        },
+        "1 lb low-moisture whole-milk mozzarella, shredded from a block": {
+          "food": "milk-whole",
+          "grams": 453.6
+        },
+        "¼ cup fresh basil, torn": {
+          "food": "basil",
+          "grams": 5.2
+        }
+      }
+    },
+    "persian-chicken": {
+      "lines": {
+        "1½ tsp cinnamon": {
+          "food": "cinnamon",
+          "grams": 3.9
+        },
+        "1 tsp cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "1 tsp coriander": {
+          "food": "coriander-seed",
+          "grams": 1.7
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "½ tsp cardamom": {
+          "food": "cardamom",
+          "grams": 1.0
+        },
+        "½ tsp allspice": {
+          "food": "allspice",
+          "grams": 0.9
+        },
+        "¼ tsp nutmeg": {
+          "food": "nutmeg",
+          "grams": 0.6
+        },
+        "¼ tsp ground cloves": {
+          "food": "cloves",
+          "grams": 0.5
+        },
+        "1½ cups basmati rice": {
+          "food": "rice-white-raw",
+          "grams": 277.5
+        },
+        "6 boneless chicken thighs": {
+          "food": "chicken-thigh-raw",
+          "grams": 660.0
+        },
+        "1½ tsp table salt, divided, plus a pinch for the onion": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "3 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 40.5
+        },
+        "1 red onion, chopped": {
+          "food": "onion-red",
+          "grams": 110.0
+        },
+        "4 garlic cloves, sliced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "2 cups water": {
+          "food": "water",
+          "grams": 474.0
+        },
+        "¼ tsp turmeric": {
+          "food": "turmeric",
+          "grams": 0.8
+        },
+        "¼ cup sliced almonds, toasted": {
+          "food": "almonds",
+          "grams": 35.8
+        }
+      }
+    },
+    "lebanese-potato-salad": {
+      "lines": {
+        "2 lb Yukon Gold potatoes": {
+          "food": "potato-raw",
+          "grams": 907.2
+        },
+        "1½ Tbsp table salt, for the cooking water": {
+          "food": "water",
+          "grams": 22.2
+        },
+        "¼ cup parsley, chopped": {
+          "food": "parsley",
+          "grams": 15.0
+        },
+        "¼ cup spring onions, finely chopped": {
+          "food": "green-onion",
+          "grams": 25.0
+        },
+        "1 Tbsp dried mint, crumbled (fresh is also good)": {
+          "food": "mint-dried",
+          "grams": 1.6
+        },
+        "¼ cup extra virgin olive oil": {
+          "food": "olive-oil",
+          "grams": 54.0
+        },
+        "¼ cup fresh lemon juice": {
+          "food": "lemon-juice",
+          "grams": 61.0
+        },
+        "½ tsp table salt, plus more to taste": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "1 clove garlic, crushed (optional)": {
+          "food": "garlic",
+          "grams": 5.0
+        }
+      }
+    },
+    "lebanese-kafta-ground-beef-skewers": {
+      "lines": {
+        "2 lb ground beef (85/15)": {
+          "food": "beef-ground-85-raw",
+          "grams": 907.2
+        },
+        "1 medium onion, finely chopped": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "1 cup parsley, finely chopped": {
+          "food": "parsley",
+          "grams": 60.0
+        },
+        "1 Tbsp fresh mint, finely chopped": {
+          "food": "mint-fresh",
+          "grams": 2.8
+        },
+        "3 cloves garlic": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "1½ tsp table salt": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "2 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 4.6
+        },
+        "1 tsp cayenne": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "½ tsp allspice": {
+          "food": "allspice",
+          "grams": 0.9
+        },
+        "½ tsp cinnamon": {
+          "food": "cinnamon",
+          "grams": 1.3
+        },
+        "½ tsp ground cloves": {
+          "food": "cloves",
+          "grams": 1.1
+        },
+        "½ tsp coriander": {
+          "food": "coriander-seed",
+          "grams": 0.8
+        },
+        "½ tsp cumin": {
+          "food": "cumin",
+          "grams": 1.0
+        },
+        "½ tsp nutmeg": {
+          "food": "nutmeg",
+          "grams": 1.1
+        }
+      }
+    },
+    "lebanese-cucumber-salad": {
+      "lines": {
+        "1 large cucumber, finely diced": {
+          "food": "cucumber",
+          "grams": 300.0
+        },
+        "1 cup plain yogurt": {
+          "food": "yogurt-plain-whole",
+          "grams": 245.0
+        },
+        "1 tsp dried mint, crumbled": {
+          "food": "mint-dried",
+          "grams": 0.5
+        },
+        "1 clove garlic, crushed": {
+          "food": "garlic",
+          "grams": 5.0
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        }
+      }
+    },
+    "sheet-pan-chicken-shawarma-breasts": {
+      "lines": {
+        "2 large boneless skinless chicken breasts (about 1¼ lb)": {
+          "food": "chicken-breast-raw",
+          "grams": 567.0
+        },
+        "¼ cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 61.2,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1½ Tbsp lemon juice, plus the zest of ½ lemon": {
+          "food": "lemon-juice",
+          "grams": 22.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "3 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 9.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp olive oil, plus ½ Tbsp for the rack": {
+          "food": "olive-oil",
+          "grams": 13.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 2.3,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 0.8,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 1.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "¼ tsp ground cinnamon": {
+          "food": "cinnamon",
+          "grams": 0.7,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "6 Tbsp plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 91.9
+        },
+        "1 small garlic clove, grated": {
+          "food": "garlic",
+          "grams": 3.0
+        },
+        "1½ tsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 7.6
+        },
+        "⅛ tsp table salt": {
+          "food": "salt",
+          "grams": 0.8
+        },
+        "Naan": {
+          "exclude": "no amount given"
+        },
+        "1 cup shredded romaine": {
+          "food": "lettuce-romaine",
+          "grams": 47.0
+        },
+        "Smashed Spiced Cucumbers with Mint, drained": {
+          "exclude": "no amount given"
+        },
+        "Quick Pickled Red Onions": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "wasabi-egg-salad": {
+      "lines": {
+        "12 large eggs": {
+          "food": "egg-whole",
+          "grams": 600.0
+        },
+        "½ cup mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 110.0
+        },
+        "¼ cup Miracle Whip": {
+          "food": "miracle-whip",
+          "grams": 58.8
+        },
+        "¾ tsp wasabi paste (start at ½ tsp, up to 1 tsp)": {
+          "food": "wasabi",
+          "grams": 3.8
+        },
+        "½ tsp table salt, plus more to taste": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        }
+      }
+    },
+    "hot-honey-chicken-sandwiches": {
+      "lines": {
+        "1 rotisserie chicken (about 3 cups meat)": {
+          "food": "chicken-roasted-meat",
+          "grams": 420.0
+        },
+        "1 Tbsp butter, for crisping": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "3 Tbsp butter": {
+          "food": "butter",
+          "grams": 42.6
+        },
+        "1 garlic clove, grated": {
+          "food": "garlic",
+          "grams": 3.0
+        },
+        "¼ cup honey": {
+          "food": "honey",
+          "grams": 84.8
+        },
+        "2 Tbsp Frank's RedHot (or similar)": {
+          "food": "hot-sauce",
+          "grams": 33.8
+        },
+        "1 tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "½ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.9
+        },
+        "1½ tsp apple cider vinegar": {
+          "food": "vinegar-cider",
+          "grams": 7.5
+        },
+        "½ bag coleslaw mix (from a 14 oz bag)": {
+          "food": "cabbage",
+          "grams": 450.0
+        },
+        "2 Tbsp + 2 tsp mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 36.7
+        },
+        "1 Tbsp apple cider vinegar": {
+          "food": "vinegar-cider",
+          "grams": 14.9
+        },
+        "1½ tsp honey": {
+          "food": "honey",
+          "grams": 10.6
+        },
+        "¼ tsp celery seed": {
+          "food": "celery-seed",
+          "grams": 0.5
+        },
+        "⅛ tsp table salt": {
+          "food": "salt",
+          "grams": 0.8
+        },
+        "⅛ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.3
+        },
+        "3 brioche buns": {
+          "food": "bun-hamburger",
+          "grams": 195,
+          "note": "USDA has no brioche record; plain hamburger roll values at about 65 g per brioche bun (estimate)"
+        },
+        "1 Tbsp butter, for the buns": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "½ cup dill pickle chips": {
+          "food": "pickles-dill",
+          "grams": 71.5
+        }
+      }
+    },
+    "coconut-rice": {
+      "lines": {
+        "2 cups jasmine rice": {
+          "food": "rice-white-raw",
+          "grams": 370.0
+        },
+        "1 can (13.5 to 14 oz) full-fat coconut milk": {
+          "food": "coconut-milk",
+          "grams": 389.8
+        },
+        "1¼ cups water": {
+          "food": "water",
+          "grams": 296.2
+        },
+        "2 tsp white sugar": {
+          "food": "sugar",
+          "grams": 8.3
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "1 stalk lemongrass, trimmed, cut into 3 pieces and smashed (or 1 Tbsp lemongrass paste)": {
+          "exclude": "zest or wedges only, negligible"
+        },
+        "4 thin slices fresh ginger": {
+          "food": "ginger",
+          "grams": 8.0
+        },
+        "2 Tbsp unsweetened coconut flakes": {
+          "food": "coconut-unsweetened",
+          "grams": 10.0
+        },
+        "1 lime, zested": {
+          "exclude": "zest or wedges only, negligible"
+        }
+      }
+    },
+    "quinoa": {
+      "lines": {
+        "¾ cup quinoa": {
+          "food": "quinoa-raw",
+          "grams": 127.5
+        },
+        "1 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5
+        },
+        "½ yellow onion, minced": {
+          "food": "onion",
+          "grams": 55.0
+        },
+        "2 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 6.0
+        },
+        "1⅓ cups low-sodium chicken broth (or water)": {
+          "food": "water",
+          "grams": 316.0
+        },
+        "¼ tsp table salt": {
+          "food": "salt",
+          "grams": 1.5
+        },
+        "1½ Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 20.2
+        },
+        "1½ Tbsp lemon juice, plus the zest of ½ lemon": {
+          "food": "lemon-juice",
+          "grams": 22.9
+        },
+        "¼ tsp ground cumin": {
+          "food": "cumin",
+          "grams": 0.5
+        },
+        "¼ tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 0.4
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "⅛ tsp table salt": {
+          "food": "salt",
+          "grams": 0.8
+        },
+        "½ cup chopped baby spinach": {
+          "food": "spinach",
+          "grams": 15.0
+        },
+        "¼ cup crumbled feta": {
+          "food": "feta",
+          "grams": 37.5
+        }
+      }
+    },
+    "crispy-onion-and-black-pepper-russet-chunks": {
+      "lines": {
+        "2½ lb russet potatoes (about 3 large), scrubbed": {
+          "food": "potato-russet-raw",
+          "grams": 1134.0
+        },
+        "2 qt water": {
+          "food": "water",
+          "grams": 1896.0
+        },
+        "½ tsp baking soda": {
+          "food": "baking-soda",
+          "grams": 3.0
+        },
+        "1 Tbsp table salt (for the boiling water)": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "¼ cup beef tallow, duck fat, or neutral high-heat oil (avocado or refined peanut)": {
+          "food": "beef-tallow",
+          "grams": 51.2
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "1½ tsp coarse black pepper": {
+          "food": "black-pepper",
+          "grams": 3.4
+        },
+        "1 large yellow onion, cut into 1-inch wedges, root end intact": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "1 Tbsp rice vinegar (or malt vinegar)": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 15.0
+        },
+        "3 scallions, green parts only, sliced thin": {
+          "food": "green-onion",
+          "grams": 45.0
+        },
+        "½ tsp flaky salt": {
+          "food": "salt",
+          "grams": 3.0
+        }
+      }
+    },
+    "honey-carrots": {
+      "lines": {
+        "2 lb carrots, peeled": {
+          "food": "carrot",
+          "grams": 907.2
+        },
+        "2 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 27.0
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "3 Tbsp honey": {
+          "food": "honey",
+          "grams": 63.6
+        },
+        "1 Tbsp butter": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "½ tsp crushed red pepper": {
+          "food": "bell-pepper-red",
+          "grams": 1.6
+        },
+        "1 tsp cider vinegar (or lemon juice)": {
+          "food": "vinegar-cider",
+          "grams": 5.0
+        },
+        "1 tsp fresh thyme leaves or 2 Tbsp chopped parsley": {
+          "food": "thyme-fresh",
+          "grams": 1.6
+        }
+      }
+    },
+    "classic-coleslaw-dressing": {
+      "lines": {
+        "⅔ cup mayonnaise (or vegan mayo)": {
+          "food": "mayonnaise",
+          "grams": 146.7
+        },
+        "3 Tbsp apple cider vinegar": {
+          "food": "vinegar-cider",
+          "grams": 44.8
+        },
+        "1 Tbsp Dijon mustard": {
+          "food": "mustard-yellow",
+          "grams": 15.6
+        },
+        "1 Tbsp pure maple syrup": {
+          "food": "maple-syrup",
+          "grams": 19.7
+        },
+        "¾ tsp celery seeds": {
+          "food": "celery-seed",
+          "grams": 1.6
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "1 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 2.3
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "1 bag (14 to 16 oz) coleslaw mix, about 7 cups": {
+          "food": "cabbage",
+          "grams": 425.2
+        }
+      }
+    },
+    "protein-balls-1": {
+      "lines": {
+        "¾ cup vanilla protein powder": {
+          "food": "protein-powder-whey",
+          "grams": 75.0
+        },
+        "½ cup oat flour or almond flour": {
+          "food": "flour-oat",
+          "grams": 46.0
+        },
+        "⅓ cup peanut butter or almond butter": {
+          "food": "peanut-butter",
+          "grams": 86.0
+        },
+        "3 Tbsp maple syrup or honey": {
+          "food": "honey",
+          "grams": 63.6
+        },
+        "1 to 2 Tbsp Greek yogurt, as needed": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 23.0
+        },
+        "¼ tsp table salt (skip if using salted peanut butter)": {
+          "food": "peanut-butter",
+          "grams": 1.3
+        }
+      }
+    },
+    "protein-balls-2": {
+      "lines": {
+        "⅓ cup nut butter": {
+          "food": "peanut-butter",
+          "grams": 86.0
+        },
+        "2 Tbsp brown rice syrup or honey": {
+          "food": "rice-white-raw",
+          "grams": 23.1
+        },
+        "2 Tbsp Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 30.6
+        },
+        "½ cup vanilla protein powder (about 1½ scoops)": {
+          "food": "protein-powder-whey",
+          "grams": 50.0
+        },
+        "1 Tbsp butter, melted": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "1 tsp vanilla extract": {
+          "food": "vanilla",
+          "grams": 4.3
+        },
+        "1 Tbsp brown sugar substitute": {
+          "exclude": "zero-calorie sweetener (assumed)"
+        },
+        "1 cup rolled oats": {
+          "food": "oats-rolled",
+          "grams": 81.0
+        },
+        "¼ cup chocolate chips, chopped nuts or dried fruit (optional)": {
+          "food": "chocolate-chips",
+          "grams": 42.0
+        }
+      }
+    },
+    "protein-balls-3": {
+      "lines": {
+        "1½ cups whole rolled oats": {
+          "food": "oats-rolled",
+          "grams": 121.5
+        },
+        "1 cup creamy natural peanut butter": {
+          "food": "peanut-butter",
+          "grams": 258.0
+        },
+        "¼ cup ground flaxseed": {
+          "food": "flax-ground",
+          "grams": 28.0
+        },
+        "¼ cup honey": {
+          "food": "honey",
+          "grams": 84.8
+        },
+        "⅔ cup protein powder (about 2 scoops)": {
+          "food": "protein-powder-whey",
+          "grams": 66.7
+        },
+        "1 tsp vanilla extract": {
+          "food": "vanilla",
+          "grams": 4.3
+        },
+        "⅓ cup mini chocolate chips": {
+          "food": "chocolate-chips",
+          "grams": 56.0
+        },
+        "¼ cup shredded coconut (optional; makes them drier)": {
+          "food": "coconut-unsweetened",
+          "grams": 20.0
+        },
+        "1 to 2 Tbsp water, only if needed": {
+          "food": "water",
+          "grams": 22.2
+        }
+      }
+    },
+    "protein-balls-4": {
+      "lines": {
+        "1 cup low-fat cottage cheese": {
+          "food": "cottage-cheese-2pct",
+          "grams": 226.0
+        },
+        "1 cup vanilla or unflavored protein powder, plus more as needed": {
+          "food": "protein-powder-whey",
+          "grams": 100.0
+        },
+        "2 Tbsp nut butter (almond, peanut, or cashew)": {
+          "food": "peanut-butter",
+          "grams": 32.2
+        },
+        "1 to 2 Tbsp honey or maple syrup": {
+          "food": "honey",
+          "grams": 31.8
+        },
+        "1 tsp vanilla extract (optional)": {
+          "food": "vanilla",
+          "grams": 4.3
+        },
+        "Pinch of table salt": {
+          "food": "salt",
+          "grams": 0.4
+        },
+        "Chopped nuts (almonds, walnuts, pistachios)": {
+          "exclude": "no amount given"
+        },
+        "Dark chocolate chips or cacao nibs": {
+          "exclude": "no amount given"
+        },
+        "Dried fruit (cranberries, raisins)": {
+          "exclude": "no amount given"
+        },
+        "Shredded coconut": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "protein-balls-5": {
+      "lines": {
+        "1 cup creamy peanut butter": {
+          "food": "peanut-butter",
+          "grams": 258.0
+        },
+        "½ cup high-protein Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 122.5
+        },
+        "1 cup rolled oats": {
+          "food": "oats-rolled",
+          "grams": 81.0
+        },
+        "¼ cup ground flax seeds": {
+          "food": "flax-ground",
+          "grams": 28.0
+        },
+        "⅓ cup shredded coconut": {
+          "food": "coconut-unsweetened",
+          "grams": 26.7
+        },
+        "¼ cup mini chocolate chips": {
+          "food": "chocolate-chips",
+          "grams": 42.0
+        },
+        "1 Tbsp honey or maple syrup": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "1 tsp vanilla extract": {
+          "food": "vanilla",
+          "grams": 4.3
+        },
+        "1 to 2 Tbsp water, only if needed": {
+          "food": "water",
+          "grams": 22.2
+        }
+      }
+    },
+    "pumpkin-protein-balls-1": {
+      "lines": {
+        "1 cup rolled oats (gluten-free if desired)": {
+          "food": "oats-rolled",
+          "grams": 81.0
+        },
+        "⅔ cup vanilla protein powder (about 2 scoops)": {
+          "food": "protein-powder-whey",
+          "grams": 66.7
+        },
+        "1 tsp pumpkin pie spice": {
+          "food": "pumpkin-pie-spice",
+          "grams": 2.0
+        },
+        "½ cup almond butter": {
+          "food": "almond-butter",
+          "grams": 128.0
+        },
+        "⅓ cup pumpkin puree": {
+          "food": "pumpkin-canned",
+          "grams": 81.7
+        },
+        "¼ cup raw honey (or maple syrup for vegan)": {
+          "food": "honey",
+          "grams": 84.8
+        },
+        "2 Tbsp dried cranberries": {
+          "food": "cranberries-dried",
+          "grams": 15.0
+        },
+        "2 Tbsp mini chocolate chips": {
+          "food": "chocolate-chips",
+          "grams": 21.0
+        }
+      }
+    },
+    "pumpkin-protein-balls-2": {
+      "lines": {
+        "1¼ cups old-fashioned rolled oats": {
+          "food": "oats-rolled",
+          "grams": 101.2
+        },
+        "⅔ cup creamy peanut butter": {
+          "food": "peanut-butter",
+          "grams": 172.0
+        },
+        "½ cup vanilla protein powder": {
+          "food": "protein-powder-whey",
+          "grams": 50.0
+        },
+        "¼ cup pumpkin puree": {
+          "food": "pumpkin-canned",
+          "grams": 61.2
+        },
+        "¼ cup mini chocolate chips": {
+          "food": "chocolate-chips",
+          "grams": 42.0
+        },
+        "¼ cup dried cranberries": {
+          "food": "cranberries-dried",
+          "grams": 30.0
+        },
+        "3 Tbsp pure maple syrup or honey": {
+          "food": "honey",
+          "grams": 63.6
+        },
+        "1 Tbsp ground flaxseed": {
+          "food": "flax-ground",
+          "grams": 7.0
+        },
+        "2 tsp pumpkin pie spice": {
+          "food": "pumpkin-pie-spice",
+          "grams": 4.0
+        },
+        "Pinch of table salt": {
+          "food": "salt",
+          "grams": 0.4
+        }
+      }
+    },
+    "greek-yogurt-brownies": {
+      "lines": {
+        "1 cup Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 245.0
+        },
+        "1 large egg": {
+          "food": "egg-whole",
+          "grams": 50.0
+        },
+        "⅓ cup cocoa powder": {
+          "food": "cocoa",
+          "grams": 28.7
+        },
+        "½ cup protein powder (chocolate or vanilla)": {
+          "food": "protein-powder-whey",
+          "grams": 50.0
+        },
+        "⅓ cup coconut sugar or granulated sweetener of choice": {
+          "food": "sugar",
+          "grams": 66.7
+        },
+        "¼ cup chocolate chips (optional)": {
+          "food": "chocolate-chips",
+          "grams": 42.0
+        },
+        "Flaky sea salt, for the top": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "greek-yogurt-cookie-dough": {
+      "lines": {
+        "½ cup Greek yogurt (plain or vanilla)": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 122.5
+        },
+        "2 Tbsp peanut butter or almond butter": {
+          "food": "peanut-butter",
+          "grams": 32.2
+        },
+        "1 Tbsp honey or maple syrup": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "½ tsp vanilla extract": {
+          "food": "vanilla",
+          "grams": 2.2
+        },
+        "¼ cup oat flour or almond flour": {
+          "food": "flour-oat",
+          "grams": 23.0
+        },
+        "1 Tbsp chocolate chips": {
+          "food": "chocolate-chips",
+          "grams": 10.5
+        }
+      }
+    },
+    "chicken-noodle-soup": {
+      "lines": {
+        "1 whole chicken, raw": {
+          "food": "chicken-whole-raw",
+          "grams": 1104,
+          "note": "assumes a 4-lb bird; USDA: 1 lb ready-to-cook chicken yields 276 g meat and skin"
+        },
+        "3 cups carrots, chopped": {
+          "food": "carrot",
+          "grams": 384.0
+        },
+        "2 cups celery, chopped": {
+          "food": "celery",
+          "grams": 202.0
+        },
+        "2 cups onion, chopped": {
+          "food": "onion",
+          "grams": 320.0
+        },
+        "3 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "6 cups chicken broth": {
+          "food": "broth-chicken",
+          "grams": 1440.0
+        },
+        "2 cups water": {
+          "food": "water",
+          "grams": 474.0
+        },
+        "2 cups egg noodles": {
+          "food": "egg-noodles-dry",
+          "grams": 76.0
+        },
+        "1 Tbsp BBQ sauce": {
+          "food": "bbq-sauce",
+          "grams": 17.9
+        },
+        "2 tsp dill weed": {
+          "food": "dill-dried",
+          "grams": 2.1
+        },
+        "½ tsp table salt, plus more to taste": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        }
+      }
+    },
+    "tuscan-chicken-soup": {
+      "lines": {
+        "1 whole chicken, raw": {
+          "food": "chicken-whole-raw",
+          "grams": 1104,
+          "note": "assumes a 4-lb bird; USDA: 1 lb ready-to-cook chicken yields 276 g meat and skin"
+        },
+        "1 onion, chopped": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "3 stalks celery, chopped": {
+          "food": "celery",
+          "grams": 120.0
+        },
+        "2 cups spinach, chopped": {
+          "food": "spinach",
+          "grams": 60.0
+        },
+        "½ cup sun-dried tomatoes": {
+          "food": "sun-dried-tomatoes",
+          "grams": 55.0
+        },
+        "3 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "8 oz small pasta shells": {
+          "food": "pasta-dry",
+          "grams": 226.8
+        },
+        "6 cups chicken broth": {
+          "food": "broth-chicken",
+          "grams": 1440.0
+        },
+        "2 cups water": {
+          "food": "water",
+          "grams": 474.0
+        },
+        "1 cup heavy cream": {
+          "food": "cream-heavy",
+          "grams": 238.0
+        },
+        "1 cup Parmesan cheese": {
+          "food": "parmesan",
+          "grams": 100.0
+        },
+        "1 Tbsp white wine vinegar": {
+          "food": "vinegar-distilled",
+          "grams": 14.9
+        },
+        "¼ tsp table salt, plus more to taste": {
+          "food": "salt",
+          "grams": 1.5
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "1 Tbsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 8.0
+        },
+        "1 Tbsp water": {
+          "food": "water",
+          "grams": 14.8
+        }
+      }
+    },
+    "chicken-marinade-sweet-garlic-lime": {
+      "lines": {
+        "½ cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 122.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 jalapeño, seeded": {
+          "food": "jalapeno",
+          "grams": 14.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ cup fresh cilantro, leaves and tender stems": {
+          "food": "cilantro",
+          "grams": 8.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "3 cloves garlic": {
+          "food": "garlic",
+          "grams": 15.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 lime, zested and juiced (about 2 Tbsp juice)": {
+          "food": "lime-juice",
+          "grams": 30.2,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp honey": {
+          "food": "honey",
+          "grams": 21.2,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        }
+      }
+    },
+    "chicken-marinade-spicy-maple-mustard": {
+      "lines": {
+        "¼ cup Dijon mustard": {
+          "food": "mustard-yellow",
+          "grams": 62.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp pure maple syrup": {
+          "food": "maple-syrup",
+          "grams": 39.4,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp apple cider vinegar": {
+          "food": "vinegar-cider",
+          "grams": 14.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp paprika": {
+          "food": "paprika",
+          "grams": 1.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        }
+      }
+    },
+    "chicken-marinade-lemon-herb": {
+      "lines": {
+        "½ cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 122.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 lemon, zested and juiced (about 2 Tbsp juice)": {
+          "food": "lemon-juice",
+          "grams": 30.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 cloves garlic, grated or minced": {
+          "food": "garlic",
+          "grams": 10.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp chopped fresh parsley": {
+          "food": "parsley",
+          "grams": 7.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 2.3,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        }
+      }
+    },
+    "stir-fry-marinade-chicken": {
+      "lines": {
+        "1 egg white": {
+          "food": "egg-white",
+          "grams": 33.0
+        },
+        "1 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 15.9
+        },
+        "1 tsp cooking sherry or Shaoxing wine": {
+          "food": "wine-sherry-cooking",
+          "grams": 4.9
+        },
+        "¼ tsp table salt": {
+          "food": "salt",
+          "grams": 1.5
+        },
+        "2 Tbsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 16.0
+        },
+        "2 tsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 9.1
+        }
+      }
+    },
+    "strawberry-spinach-smoothie": {
+      "lines": {
+        "1 cup baby spinach, loosely packed (1 large handful)": {
+          "food": "spinach",
+          "grams": 30.0
+        },
+        "½ cup frozen strawberries": {
+          "food": "strawberries-frozen",
+          "grams": 74.5
+        },
+        "¼ cup frozen blueberries": {
+          "food": "blueberries-frozen",
+          "grams": 38.8
+        },
+        "1 whole frozen banana, broken into 3 or 4 pieces": {
+          "food": "banana",
+          "grams": 118.0
+        },
+        "⅓ cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 81.7
+        },
+        "1 heaping Tbsp peanut butter": {
+          "food": "peanut-butter",
+          "grams": 16.1
+        },
+        "1 Tbsp ground flaxseed (must be ground - whole seeds pass through both the blender and the body intact)": {
+          "food": "flax-ground",
+          "grams": 7.0
+        },
+        "½-inch piece fresh ginger, peeled and sliced thin (or ¼ tsp ground ginger)": {
+          "food": "ginger",
+          "grams": 3,
+          "note": "½-inch piece of fresh ginger, about 3 g"
+        },
+        "½ cup whole milk, plus more to loosen": {
+          "food": "milk-whole",
+          "grams": 122.0
+        }
+      }
+    },
+    "tandoori-chicken-marinade": {
+      "lines": {
+        "2 lb chicken drumsticks": {
+          "food": "chicken-drumstick-raw",
+          "grams": 635.0,
+          "note": "bone-in weight; assumes about 30% is bone (estimate, not from the KB)"
+        },
+        "2 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 27.2,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 3.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp Kashmiri chili powder (or 1 tsp paprika plus a pinch of cayenne)": {
+          "food": "cayenne",
+          "grams": 1.8,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 cup plain whole-milk yogurt": {
+          "food": "yogurt-plain-whole",
+          "grams": 245.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 30.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp garlic paste": {
+          "food": "garlic",
+          "grams": 8.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp ginger paste": {
+          "food": "ginger",
+          "grams": 6.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1½ tsp table salt": {
+          "food": "salt",
+          "grams": 9.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        }
+      }
+    },
+    "tandoori-chicken-marinade-serious-eats": {
+      "lines": {
+        "2 lb bone-in, skin-on chicken thighs": {
+          "food": "chicken-thigh-skin-raw",
+          "grams": 771.1,
+          "note": "bone-in weight; about 15% is bone (KB nutrition module-03)"
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp garam masala": {
+          "food": "masa-harina",
+          "grams": 2.4,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 1.7,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp paprika": {
+          "food": "paprika",
+          "grams": 2.3,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.9,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 245.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 30.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "4 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 20.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp grated fresh ginger": {
+          "food": "ginger",
+          "grams": 6.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1½ tsp table salt": {
+          "food": "salt",
+          "grams": 9.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        }
+      }
+    },
+    "dirty-rice": {
+      "lines": {
+        "1 Tbsp paprika": {
+          "food": "paprika",
+          "grams": 6.9
+        },
+        "1 tsp cayenne": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "2 tsp coarse black pepper": {
+          "food": "black-pepper",
+          "grams": 4.6
+        },
+        "1 tsp dried thyme": {
+          "food": "thyme-dried",
+          "grams": 0.9
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "1 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 2.3
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "1½ tsp salt": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "1 lb ground beef (80/20)": {
+          "food": "beef-ground-80-raw",
+          "grams": 453.6,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 medium yellow onion, diced (about 1 cup)": {
+          "food": "onion",
+          "grams": 160.0
+        },
+        "1 green bell pepper, diced (about 1 cup)": {
+          "food": "bell-pepper-green",
+          "grams": 149.0
+        },
+        "2 celery stalks, diced (about ¾ cup)": {
+          "food": "celery",
+          "grams": 75.8
+        },
+        "4 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 20.0
+        },
+        "1½ cups long-grain white rice": {
+          "food": "rice-white-raw",
+          "grams": 277.5
+        },
+        "2¼ cups chicken broth": {
+          "food": "broth-chicken",
+          "grams": 540.0
+        },
+        "1 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 17.2
+        },
+        "1 can (15.5 oz) kidney beans, drained and rinsed (about 1½ cups)": {
+          "food": "kidney-beans-canned",
+          "grams": 263.7
+        },
+        "4 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 60.0
+        },
+        "¼ cup chopped parsley": {
+          "food": "parsley",
+          "grams": 15.0
+        },
+        "Hot sauce, at the table": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "sheet-pan-chicken-shawarma-thighs": {
+      "lines": {
+        "2 lb boneless skinless chicken thighs": {
+          "food": "chicken-thigh-raw",
+          "grams": 907.2
+        },
+        "½ cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 122.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "3 Tbsp lemon juice (about 1 lemon), plus the zest": {
+          "food": "lemon-juice",
+          "grams": 45.8,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "6 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 18.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 Tbsp olive oil, plus 1 Tbsp for the rack": {
+          "food": "olive-oil",
+          "grams": 27.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 4.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 4.6,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 1.7,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 3.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp cayenne": {
+          "food": "cayenne",
+          "grams": 1.8,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ tsp ground cinnamon": {
+          "food": "cinnamon",
+          "grams": 1.3,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1½ tsp table salt": {
+          "food": "salt",
+          "grams": 9.1,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "¾ cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 183.8
+        },
+        "1 garlic clove, grated": {
+          "food": "garlic",
+          "grams": 3.0
+        },
+        "1 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        },
+        "¼ tsp table salt": {
+          "food": "salt",
+          "grams": 1.5
+        },
+        "1 small red onion, sliced thin": {
+          "food": "onion-red",
+          "grams": 110.0
+        },
+        "½ cup white or red wine vinegar": {
+          "food": "vinegar-red-wine",
+          "grams": 119.5
+        },
+        "1 tsp sugar": {
+          "food": "sugar",
+          "grams": 4.2
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "Warm pita or cooked rice": {
+          "exclude": "serving suggestion, no amount"
+        },
+        "1 cucumber, sliced (optional)": {
+          "food": "cucumber",
+          "grams": 300.0
+        }
+      }
+    },
+    "california-burgers-special-sauce": {
+      "lines": {
+        "½ cup mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 110.0
+        },
+        "2 Tbsp ketchup": {
+          "food": "ketchup",
+          "grams": 30.0
+        },
+        "2 Tbsp sweet pickle relish": {
+          "food": "pickle-relish-sweet",
+          "grams": 30.6
+        },
+        "1 tsp yellow mustard": {
+          "food": "mustard-yellow",
+          "grams": 5.2
+        },
+        "1 tsp white vinegar": {
+          "food": "vinegar-distilled",
+          "grams": 5.0
+        },
+        "½ tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 1.6
+        },
+        "½ tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 1.1
+        },
+        "½ tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 1.1
+        },
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "1 tsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 4.5
+        },
+        "3 ripe avocados": {
+          "food": "avocado",
+          "grams": 450.0
+        },
+        "1½ Tbsp lime juice (about 1 lime)": {
+          "food": "lime-juice",
+          "grams": 22.7
+        },
+        "¼ tsp table salt, plus a pinch for the tomatoes": {
+          "food": "tomato-raw",
+          "grams": 0.9
+        },
+        "1 small red onion, sliced into thin rings": {
+          "food": "onion-red",
+          "grams": 110.0
+        },
+        "2 medium tomatoes, sliced ¼ inch thick": {
+          "food": "tomato-raw",
+          "grams": 246.0
+        },
+        "6 large leaves green leaf or iceberg lettuce": {
+          "food": "lettuce-green-leaf",
+          "grams": 60.0
+        },
+        "6 hamburger buns": {
+          "food": "bun-hamburger",
+          "grams": 264.0
+        }
+      }
+    },
+    "sticky-balsamic-honey-soy-chicken": {
+      "lines": {
+        "1½ lb boneless skinless chicken breast (about 2 large)": {
+          "food": "chicken-breast-raw",
+          "grams": 680.4
+        },
+        "½ tsp kosher salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "1 Tbsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 8.0
+        },
+        "2 Tbsp neutral oil (avocado or canola), divided": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "⅓ cup balsamic vinegar": {
+          "food": "vinegar-balsamic",
+          "grams": 85.0
+        },
+        "3 Tbsp low-sodium soy sauce": {
+          "food": "soy-sauce-low-sodium",
+          "grams": 47.8
+        },
+        "3 Tbsp honey": {
+          "food": "honey",
+          "grams": 63.6
+        },
+        "¼ cup water": {
+          "food": "water",
+          "grams": 59.2
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "1 Tbsp fresh ginger, grated": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "1 tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "1 tsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 4.5
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        },
+        "1 tsp sesame seeds (optional)": {
+          "food": "sesame-seeds",
+          "grams": 3.0
+        },
+        "Cooked rice, for serving": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "korean-beef-and-broccoli-rice-bowls": {
+      "lines": {
+        "3 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 47.8
+        },
+        "2 Tbsp brown sugar": {
+          "food": "brown-sugar",
+          "grams": 27.5
+        },
+        "2 Tbsp gochujang": {
+          "food": "gochujang",
+          "grams": 37.5
+        },
+        "1 Tbsp rice vinegar": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 15.0
+        },
+        "1 tsp cornstarch": {
+          "food": "cornstarch",
+          "grams": 2.7
+        },
+        "¼ cup water": {
+          "food": "water",
+          "grams": 59.2
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "1 bag (12 oz) frozen broccoli florets": {
+          "food": "broccoli-frozen",
+          "grams": 340.2
+        },
+        "2 Tbsp water, for the broccoli": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "1 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 453.6,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 medium yellow onion, halved and sliced ¼ inch thick": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "1 Tbsp fresh ginger, grated": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "1 tsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 4.5
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        },
+        "1 tsp toasted sesame seeds": {
+          "food": "sesame-seeds",
+          "grams": 3.0
+        },
+        "Cooked rice, for serving": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "crispy-smoked-paprika-chickpeas": {
+      "lines": {
+        "2 cans (15 oz each) chickpeas, drained and rinsed": {
+          "food": "chickpeas-canned",
+          "grams": 510.3
+        },
+        "1 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5
+        },
+        "1 tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 2.3
+        },
+        "½ tsp ground cumin": {
+          "food": "cumin",
+          "grams": 1.0
+        },
+        "½ tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 1.6
+        },
+        "¼ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.4
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        }
+      }
+    },
+    "chili-lime-spiced-peanuts": {
+      "lines": {
+        "1 large egg white": {
+          "food": "egg-white",
+          "grams": 33.0
+        },
+        "1 tsp water": {
+          "food": "water",
+          "grams": 4.9
+        },
+        "2 cups unsalted dry-roasted peanuts": {
+          "food": "peanuts-roasted",
+          "grams": 292.0
+        },
+        "2 tsp chili powder": {
+          "food": "chili-powder",
+          "grams": 5.2
+        },
+        "½ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.9
+        },
+        "½ tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 1.6
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "Zest of 1 lime": {
+          "exclude": "zest or wedges only, negligible"
+        }
+      }
+    },
+    "korean-spicy-cucumber-salad": {
+      "lines": {
+        "2 English cucumbers": {
+          "food": "cucumber-english",
+          "grams": 800.0
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 Tbsp gochugaru (Korean chili flakes), or 1 tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 5.3
+        },
+        "1 Tbsp rice vinegar": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 15.0
+        },
+        "1 tsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 5.3
+        },
+        "1 tsp sugar": {
+          "food": "sugar",
+          "grams": 4.2
+        },
+        "1 tsp toasted sesame oil": {
+          "food": "sesame-oil",
+          "grams": 4.5
+        },
+        "1 garlic clove, grated": {
+          "food": "garlic",
+          "grams": 3.0
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        },
+        "1 tsp toasted sesame seeds": {
+          "food": "sesame-seeds",
+          "grams": 3.0
+        }
+      }
+    },
+    "mayak-eggs": {
+      "lines": {
+        "6 large eggs, straight from the fridge": {
+          "food": "egg-whole",
+          "grams": 300.0
+        },
+        "½ cup soy sauce": {
+          "food": "soy-sauce",
+          "grams": 127.5,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "½ cup water": {
+          "food": "water",
+          "grams": 118.5
+        },
+        "2 Tbsp honey": {
+          "food": "honey",
+          "grams": 42.4,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 Tbsp rice vinegar": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 15.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "3 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 9.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "2 green onions, thinly sliced": {
+          "food": "green-onion",
+          "grams": 30.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 jalapeño, thinly sliced": {
+          "food": "jalapeno",
+          "grams": 14.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        },
+        "1 tsp toasted sesame seeds": {
+          "food": "sesame-seeds",
+          "grams": 3.0,
+          "retain": 0.5,
+          "note": "marinade is discarded; counts 50% of it as clinging to the food (KB nutrition module-05)"
+        }
+      }
+    },
+    "peanut-chicken-lettuce-cups": {
+      "lines": {
+        "3 Tbsp natural peanut butter, stirred well first": {
+          "food": "peanut-butter",
+          "grams": 48.4
+        },
+        "2 Tbsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 31.9
+        },
+        "1 Tbsp lime juice": {
+          "food": "lime-juice",
+          "grams": 15.1
+        },
+        "1 Tbsp honey": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "1 Tbsp sriracha": {
+          "food": "sriracha",
+          "grams": 16.9
+        },
+        "3 Tbsp hot water": {
+          "food": "water",
+          "grams": 44.4
+        },
+        "1 tsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 4.5
+        },
+        "1 lb ground chicken": {
+          "food": "chicken-ground-raw",
+          "grams": 453.6
+        },
+        "3 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "1 Tbsp fresh ginger, grated": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "1 head butter lettuce or romaine hearts, leaves separated": {
+          "food": "lettuce-butterhead",
+          "grams": 165.0
+        },
+        "1 cup shredded carrot": {
+          "food": "carrot",
+          "grams": 128.0
+        },
+        "¼ cup roasted peanuts, chopped": {
+          "food": "peanuts-roasted",
+          "grams": 36.5
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        }
+      }
+    },
+    "smooth-hummus": {
+      "lines": {
+        "1 can (15 oz) chickpeas, drained and rinsed": {
+          "food": "chickpeas-canned",
+          "grams": 255.1
+        },
+        "½ tsp baking soda": {
+          "food": "baking-soda",
+          "grams": 3.0
+        },
+        "1 garlic clove": {
+          "food": "garlic",
+          "grams": 3.0
+        },
+        "3 Tbsp lemon juice (about 1 lemon)": {
+          "food": "lemon-juice",
+          "grams": 45.8
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "⅓ cup tahini, stirred well first": {
+          "food": "tahini",
+          "grams": 80.0
+        },
+        "4 to 6 Tbsp ice water": {
+          "food": "water",
+          "grams": 74.1
+        },
+        "½ tsp ground cumin": {
+          "food": "cumin",
+          "grams": 1.0
+        },
+        "1 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5
+        },
+        "Pinch of smoked paprika": {
+          "food": "paprika",
+          "grams": 0.4
+        },
+        "Carrot, cucumber and bell pepper sticks, or pita": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "buffalo-greek-yogurt-dip": {
+      "lines": {
+        "1 cup plain nonfat Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 245.0
+        },
+        "¼ cup cayenne pepper hot sauce, such as Frank's RedHot": {
+          "food": "hot-sauce",
+          "grams": 67.5
+        },
+        "½ tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 1.6
+        },
+        "¼ tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 0.6
+        },
+        "½ tsp dried dill": {
+          "food": "dill-dried",
+          "grams": 0.5
+        },
+        "¼ cup crumbled blue cheese": {
+          "food": "blue-cheese",
+          "grams": 33.8
+        },
+        "Celery, carrot and bell pepper sticks, for serving": {
+          "exclude": "serving suggestion"
+        }
+      }
+    },
+    "tzatziki": {
+      "lines": {
+        "½ English cucumber": {
+          "food": "cucumber-english",
+          "grams": 200.0
+        },
+        "½ tsp table salt, divided": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 cup plain Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 245.0
+        },
+        "1 garlic clove, grated": {
+          "food": "garlic",
+          "grams": 3.0
+        },
+        "1 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        },
+        "1 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 13.5
+        },
+        "1 Tbsp chopped fresh dill, or 1 tsp dried": {
+          "food": "dill-fresh",
+          "grams": 0.6
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "Pita or vegetable sticks, for serving": {
+          "exclude": "serving suggestion"
+        }
+      }
+    },
+    "chocolate-peanut-butter-chia-pudding": {
+      "lines": {
+        "2 Tbsp natural peanut butter, stirred well first": {
+          "food": "peanut-butter",
+          "grams": 32.2
+        },
+        "1 Tbsp unsweetened cocoa powder": {
+          "food": "cocoa",
+          "grams": 5.4
+        },
+        "1 Tbsp honey": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "¼ tsp vanilla extract": {
+          "food": "vanilla",
+          "grams": 1.1
+        },
+        "Pinch of table salt": {
+          "food": "salt",
+          "grams": 0.4
+        },
+        "1 cup 2% milk": {
+          "food": "milk-2pct",
+          "grams": 244.0
+        },
+        "¼ cup chia seeds": {
+          "food": "chia",
+          "grams": 40.8
+        },
+        "Berries or a spoonful of plain Greek yogurt, for topping (optional)": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "microwave-cinnamon-apples-with-greek-yogurt": {
+      "lines": {
+        "1 medium apple, such as Honeycrisp or Gala": {
+          "food": "apple",
+          "grams": 200.0
+        },
+        "1 Tbsp water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "½ tsp ground cinnamon": {
+          "food": "cinnamon",
+          "grams": 1.3
+        },
+        "1 tsp honey": {
+          "food": "honey",
+          "grams": 7.1
+        },
+        "Pinch of table salt": {
+          "food": "salt",
+          "grams": 0.4
+        },
+        "¾ cup plain nonfat Greek yogurt": {
+          "food": "yogurt-greek-nonfat",
+          "grams": 183.8
+        },
+        "2 Tbsp roasted peanuts, chopped": {
+          "food": "peanuts-roasted",
+          "grams": 18.2
+        }
+      }
+    },
+    "peanut-butter-granola-clusters": {
+      "lines": {
+        "3 cups old-fashioned rolled oats": {
+          "food": "oats-rolled",
+          "grams": 243.0
+        },
+        "½ cup unsalted roasted peanuts, chopped": {
+          "food": "peanuts-roasted",
+          "grams": 73.0
+        },
+        "2 Tbsp ground flaxseed": {
+          "food": "flax-ground",
+          "grams": 14.0
+        },
+        "½ cup natural peanut butter, stirred well first": {
+          "food": "peanut-butter",
+          "grams": 129.0
+        },
+        "⅓ cup honey": {
+          "food": "honey",
+          "grams": 113.0
+        },
+        "1 tsp vanilla extract": {
+          "food": "vanilla",
+          "grams": 4.3
+        },
+        "1 tsp ground cinnamon": {
+          "food": "cinnamon",
+          "grams": 2.6
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 large egg white": {
+          "food": "egg-white",
+          "grams": 33.0
+        }
+      }
+    },
+    "spinach-pepper-cheddar-egg-muffins": {
+      "lines": {
+        "1 Tbsp olive oil, plus more for the tin": {
+          "food": "olive-oil",
+          "grams": 13.5
+        },
+        "½ small onion, diced ¼ inch": {
+          "food": "onion",
+          "grams": 55.0
+        },
+        "1 red bell pepper, diced ¼ inch": {
+          "food": "bell-pepper-red",
+          "grams": 120.0
+        },
+        "2 cups baby spinach, chopped": {
+          "food": "spinach",
+          "grams": 60.0
+        },
+        "12 large eggs": {
+          "food": "egg-whole",
+          "grams": 600.0
+        },
+        "¼ cup milk": {
+          "food": "milk-whole",
+          "grams": 61.0
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "¼ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.6
+        },
+        "1 cup shredded sharp cheddar": {
+          "food": "cheddar",
+          "grams": 113.0
+        }
+      }
+    },
+    "pastitsio": {
+      "lines": {
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 large yellow onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "2 Tbsp tomato paste": {
+          "food": "tomato-paste",
+          "grams": 32.8
+        },
+        "½ cup low-sodium beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 120.0
+        },
+        "1 can (15 oz) tomato sauce": {
+          "food": "tomato-sauce",
+          "grams": 425.2
+        },
+        "1½ tsp ground cinnamon": {
+          "food": "cinnamon",
+          "grams": 3.9
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "¼ tsp ground allspice": {
+          "food": "allspice",
+          "grams": 0.5
+        },
+        "1 bay leaf": {
+          "food": "bay-leaf",
+          "grams": 0.6
+        },
+        "2 Tbsp table salt, for the pasta water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "1 lb ziti": {
+          "food": "pasta-dry",
+          "grams": 453.6
+        },
+        "1 large egg": {
+          "food": "egg-whole",
+          "grams": 50.0
+        },
+        "½ cup grated parmesan cheese": {
+          "food": "parmesan",
+          "grams": 50.0
+        },
+        "8 Tbsp butter": {
+          "food": "butter",
+          "grams": 113.5
+        },
+        "⅔ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 83.3
+        },
+        "5 cups whole milk": {
+          "food": "milk-whole",
+          "grams": 1220.0
+        },
+        "¼ tsp nutmeg": {
+          "food": "nutmeg",
+          "grams": 0.6
+        },
+        "¼ cup grated parmesan cheese": {
+          "food": "parmesan",
+          "grams": 25.0
+        },
+        "3 large eggs": {
+          "food": "egg-whole",
+          "grams": 150.0
+        }
+      }
+    },
+    "beef-stroganoff-noodle-bake": {
+      "lines": {
+        "2 Tbsp table salt, for the pasta water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "12 oz wide egg noodles": {
+          "food": "egg-noodles-dry",
+          "grams": 340.2
+        },
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "16 oz white mushrooms, sliced": {
+          "food": "mushroom-white",
+          "grams": 453.6
+        },
+        "1 large yellow onion, halved and thinly sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "¼ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 31.2
+        },
+        "3 cups low-sodium beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 720.0
+        },
+        "2 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 34.4
+        },
+        "1 Tbsp Dijon mustard": {
+          "food": "mustard-yellow",
+          "grams": 15.6
+        },
+        "1½ cups full-fat sour cream": {
+          "food": "sour-cream",
+          "grams": 345.0
+        },
+        "1 cup panko bread crumbs": {
+          "food": "breadcrumbs",
+          "grams": 108.0
+        },
+        "3 Tbsp butter, melted": {
+          "food": "butter",
+          "grams": 42.6
+        },
+        "2 Tbsp chopped parsley": {
+          "food": "parsley",
+          "grams": 7.5
+        }
+      }
+    },
+    "chicken-divan": {
+      "lines": {
+        "2½ lb boneless skinless chicken breasts": {
+          "food": "chicken-breast-raw",
+          "grams": 1134.0
+        },
+        "4 cups low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 960.0
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "1 bay leaf": {
+          "food": "bay-leaf",
+          "grams": 0.6
+        },
+        "2 lb frozen broccoli florets, thawed": {
+          "food": "broccoli-frozen",
+          "grams": 907.2
+        },
+        "6 Tbsp butter": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "½ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 62.5
+        },
+        "2 cups whole milk": {
+          "food": "milk-whole",
+          "grams": 488.0
+        },
+        "8 oz sharp cheddar cheese, shredded from the block (2 cups)": {
+          "food": "cheddar",
+          "grams": 226.8
+        },
+        "2 Tbsp cooking sherry": {
+          "food": "wine-sherry-cooking",
+          "grams": 29.5
+        },
+        "1 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        },
+        "1 tsp curry powder": {
+          "food": "curry-powder",
+          "grams": 2.1
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 cup panko bread crumbs": {
+          "food": "breadcrumbs",
+          "grams": 108.0
+        },
+        "½ cup grated parmesan cheese": {
+          "food": "parmesan",
+          "grams": 50.0
+        },
+        "3 Tbsp butter, melted": {
+          "food": "butter",
+          "grams": 42.6
+        }
+      }
+    },
+    "baked-arroz-con-pollo": {
+      "lines": {
+        "3 lb boneless skinless chicken thighs, halved": {
+          "food": "chicken-thigh-raw",
+          "grams": 1360.8
+        },
+        "1 packet sazón with culantro and annatto": {
+          "food": "salt",
+          "grams": 5.0
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "2 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 27.0
+        },
+        "3 cups long-grain white rice": {
+          "food": "rice-white-raw",
+          "grams": 555.0
+        },
+        "1 large yellow onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "1 green bell pepper, diced": {
+          "food": "bell-pepper-green",
+          "grams": 120.0
+        },
+        "1 red bell pepper, diced": {
+          "food": "bell-pepper-red",
+          "grams": 120.0
+        },
+        "5 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "1 can (8 oz) tomato sauce": {
+          "food": "tomato-sauce",
+          "grams": 226.8
+        },
+        "4 cups low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 960.0
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "1 bay leaf": {
+          "food": "bay-leaf",
+          "grams": 0.6
+        },
+        "½ cup pimiento-stuffed green olives, halved": {
+          "food": "olives-green",
+          "grams": 67.0
+        },
+        "1½ cups frozen peas": {
+          "food": "peas-frozen",
+          "grams": 201.0
+        },
+        "¼ cup chopped cilantro": {
+          "food": "cilantro",
+          "grams": 4.0
+        },
+        "2 limes, cut into wedges": {
+          "exclude": "zest or wedges only, negligible"
+        }
+      }
+    },
+    "baked-chicken-biryani": {
+      "lines": {
+        "3 lb boneless skinless chicken thighs, cut into 1½-inch pieces": {
+          "food": "chicken-thigh-raw",
+          "grams": 1360.8
+        },
+        "1 cup plain whole-milk yogurt": {
+          "food": "yogurt-plain-whole",
+          "grams": 245.0
+        },
+        "2 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 30.5
+        },
+        "6 garlic cloves, grated": {
+          "food": "garlic",
+          "grams": 18.0
+        },
+        "2 Tbsp grated fresh ginger": {
+          "food": "ginger",
+          "grams": 12.0
+        },
+        "1 Tbsp garam masala": {
+          "food": "masa-harina",
+          "grams": 7.1
+        },
+        "2 tsp paprika": {
+          "food": "paprika",
+          "grams": 4.6
+        },
+        "1 tsp cayenne pepper": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "½ tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 1.5
+        },
+        "2 tsp table salt": {
+          "food": "salt",
+          "grams": 12.2
+        },
+        "3 Tbsp butter": {
+          "food": "butter",
+          "grams": 42.6
+        },
+        "2 large yellow onions, thinly sliced": {
+          "food": "onion",
+          "grams": 220.0
+        },
+        "2 jalapeños, sliced": {
+          "food": "jalapeno",
+          "grams": 28.0
+        },
+        "3 cups basmati rice": {
+          "food": "rice-white-raw",
+          "grams": 555.0
+        },
+        "2 Tbsp table salt, for the rice water": {
+          "food": "water",
+          "grams": 29.6
+        },
+        "2 bay leaves": {
+          "food": "bay-leaf",
+          "grams": 1.2
+        },
+        "1 cinnamon stick": {
+          "food": "cinnamon",
+          "grams": 3.0
+        },
+        "4 whole cloves": {
+          "food": "cloves",
+          "grams": 0.4
+        },
+        "1½ cups crispy fried onions, divided": {
+          "food": "fried-onions",
+          "grams": 84.0
+        },
+        "½ cup chopped cilantro, divided": {
+          "food": "cilantro",
+          "grams": 8.0
+        },
+        "½ cup chopped fresh mint, divided": {
+          "food": "mint-fresh",
+          "grams": 22.5
+        },
+        "¼ cup whole milk": {
+          "food": "milk-whole",
+          "grams": 61.0
+        },
+        "¼ tsp ground turmeric, for the milk": {
+          "food": "milk-whole",
+          "grams": 1.3
+        },
+        "4 Tbsp butter, melted": {
+          "food": "butter",
+          "grams": 56.8
+        }
+      }
+    },
+    "tater-tot-hotdish": {
+      "lines": {
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "1½ tsp paprika": {
+          "food": "paprika",
+          "grams": 3.4
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "1 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 2.3
+        },
+        "8 oz cremini mushrooms, sliced": {
+          "food": "mushroom-cremini",
+          "grams": 226.8
+        },
+        "1 large yellow onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "4 Tbsp butter": {
+          "food": "butter",
+          "grams": 56.8
+        },
+        "⅓ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 41.7
+        },
+        "2 cups low-sodium beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 480.0
+        },
+        "1 cup whole milk": {
+          "food": "milk-whole",
+          "grams": 244.0
+        },
+        "1 Tbsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 17.2
+        },
+        "1 bag (12 oz) frozen cut green beans": {
+          "food": "green-beans-frozen",
+          "grams": 340.2
+        },
+        "1 cup frozen corn": {
+          "food": "corn-frozen",
+          "grams": 145.0
+        },
+        "2 cups shredded sharp cheddar cheese": {
+          "food": "cheddar",
+          "grams": 226.0
+        },
+        "1 bag (32 oz) frozen tater tots": {
+          "food": "tater-tots",
+          "grams": 907.2
+        }
+      }
+    },
+    "lazy-pierogi-bake": {
+      "lines": {
+        "3 lb russet potatoes, peeled and cut into 1½-inch chunks": {
+          "food": "potato-russet-raw",
+          "grams": 1360.8
+        },
+        "1 Tbsp table salt, for the potato water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "4 Tbsp butter": {
+          "food": "butter",
+          "grams": 56.8
+        },
+        "½ cup sour cream": {
+          "food": "sour-cream",
+          "grams": 115.0
+        },
+        "2 cups shredded sharp cheddar cheese": {
+          "food": "cheddar",
+          "grams": 226.0
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 package (14 oz) smoked kielbasa, halved lengthwise and sliced ¼ inch thick": {
+          "food": "kielbasa",
+          "grams": 396.9
+        },
+        "2 large yellow onions, halved and thinly sliced": {
+          "food": "onion",
+          "grams": 220.0
+        },
+        "1 Tbsp table salt, for the pasta water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "12 lasagna noodles": {
+          "food": "pasta-dry",
+          "grams": 272,
+          "note": "12 dry noodles x 22.7 g (16-oz box of about 20)"
+        },
+        "2 Tbsp butter, melted": {
+          "food": "butter",
+          "grams": 28.4
+        },
+        "1 cup shredded sharp cheddar cheese": {
+          "food": "cheddar",
+          "grams": 113.0
+        },
+        "Sour cream": {
+          "exclude": "no amount given"
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        }
+      }
+    },
+    "chicken-pot-pie-bake": {
+      "lines": {
+        "2 lb boneless skinless chicken thighs, cut into 1-inch pieces": {
+          "food": "chicken-thigh-raw",
+          "grams": 907.2
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "6 Tbsp butter": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "1 large yellow onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "3 medium carrots, sliced ¼ inch thick": {
+          "food": "carrot",
+          "grams": 183.0
+        },
+        "3 celery ribs, sliced ¼ inch thick": {
+          "food": "celery",
+          "grams": 120.0
+        },
+        "3 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "½ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 62.5
+        },
+        "3 cups low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 720.0
+        },
+        "1 cup whole milk": {
+          "food": "milk-whole",
+          "grams": 244.0
+        },
+        "1 tsp dried thyme": {
+          "food": "thyme-dried",
+          "grams": 0.9
+        },
+        "1½ cups frozen peas": {
+          "food": "peas-frozen",
+          "grams": 201.0
+        },
+        "2 cups all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 250.0
+        },
+        "1 Tbsp baking powder": {
+          "food": "baking-powder",
+          "grams": 12.0
+        },
+        "½ tsp baking soda": {
+          "food": "baking-soda",
+          "grams": 3.0
+        },
+        "1 tsp sugar": {
+          "food": "sugar",
+          "grams": 4.2
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "1 cup cold buttermilk": {
+          "food": "buttermilk",
+          "grams": 245.0
+        },
+        "8 Tbsp butter, melted and cooled 5 minutes": {
+          "food": "butter",
+          "grams": 113.5
+        }
+      }
+    },
+    "buffalo-chicken-potato-bake": {
+      "lines": {
+        "2 lb Yukon Gold potatoes, cut into 1-inch cubes": {
+          "food": "potato-raw",
+          "grams": 907.2
+        },
+        "2 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "2 lb boneless skinless chicken thighs, cut into 1-inch cubes": {
+          "food": "chicken-thigh-raw",
+          "grams": 907.2
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "⅔ cup Frank's RedHot Original": {
+          "food": "hot-sauce",
+          "grams": 180.0
+        },
+        "4 Tbsp butter": {
+          "food": "butter",
+          "grams": 56.8
+        },
+        "1 Tbsp honey": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "6 slices bacon": {
+          "food": "bacon-cooked",
+          "grams": 48.0
+        },
+        "1½ cups shredded sharp cheddar cheese": {
+          "food": "cheddar",
+          "grams": 169.5
+        },
+        "½ cup shredded mozzarella cheese": {
+          "food": "mozzarella-lm-whole",
+          "grams": 56.5
+        },
+        "3 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 45.0
+        },
+        "Ranch or blue cheese dressing": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "scalloped-potatoes-and-ham": {
+      "lines": {
+        "4 Tbsp butter": {
+          "food": "butter",
+          "grams": 56.8
+        },
+        "1 medium yellow onion, halved and thinly sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "3 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "⅓ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 41.7
+        },
+        "2 cups whole milk": {
+          "food": "milk-whole",
+          "grams": 488.0
+        },
+        "1½ cups low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 360.0
+        },
+        "1 tsp Dijon mustard": {
+          "food": "mustard-yellow",
+          "grams": 5.2
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "1 tsp dried thyme": {
+          "food": "thyme-dried",
+          "grams": 0.9
+        },
+        "3 lb russet potatoes, peeled and sliced ⅛ inch thick": {
+          "food": "potato-russet-raw",
+          "grams": 1360.8
+        },
+        "1 lb fully cooked ham, cut into ½-inch dice (about 3 cups)": {
+          "food": "ham-cooked",
+          "grams": 453.6
+        },
+        "1½ cups shredded sharp cheddar cheese": {
+          "food": "cheddar",
+          "grams": 169.5
+        },
+        "½ cup grated parmesan cheese": {
+          "food": "parmesan",
+          "grams": 50.0
+        }
+      }
+    },
+    "tamale-pie": {
+      "lines": {
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "2 Tbsp chili powder": {
+          "food": "chili-powder",
+          "grams": 15.6
+        },
+        "2 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 4.0
+        },
+        "1 tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 2.3
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "1 large yellow onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "1 red bell pepper, diced": {
+          "food": "bell-pepper-red",
+          "grams": 120.0
+        },
+        "3 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 9.0
+        },
+        "2 chipotle peppers in adobo, minced, plus 1 Tbsp of the sauce": {
+          "food": "chipotle-adobo",
+          "grams": 30.0
+        },
+        "1 can (14.5 oz) fire-roasted diced tomatoes": {
+          "food": "tomato-canned",
+          "grams": 411.1
+        },
+        "1 can (15 oz) black beans, drained and rinsed": {
+          "food": "black-beans-canned",
+          "grams": 255.1
+        },
+        "1 cup frozen corn": {
+          "food": "corn-frozen",
+          "grams": 145.0
+        },
+        "1½ cups shredded Monterey Jack cheese": {
+          "food": "monterey-jack",
+          "grams": 169.5
+        },
+        "1½ cups masa harina": {
+          "food": "masa-harina",
+          "grams": 171.0
+        },
+        "1 tsp baking powder": {
+          "food": "baking-powder",
+          "grams": 4.0
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1¾ cups warm low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 420.0
+        },
+        "6 Tbsp butter, melted": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "½ cup shredded Monterey Jack cheese": {
+          "food": "monterey-jack",
+          "grams": 56.5
+        },
+        "Sour cream": {
+          "exclude": "no amount given"
+        },
+        "Pickled jalapeños": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "greek-lemon-chicken-orzo-bake": {
+      "lines": {
+        "2 lb boneless skinless chicken thighs (about 8)": {
+          "food": "chicken-thigh-raw",
+          "grams": 907.2
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "2 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 1.9
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "2 Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 27.0
+        },
+        "2 lemons, zested and juiced (about ⅓ cup juice)": {
+          "food": "lemon-juice",
+          "grams": 81.3
+        },
+        "1 medium yellow onion, halved and thinly sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "2 cups dry orzo": {
+          "food": "pasta-dry",
+          "grams": 210.0
+        },
+        "3½ cups low-sodium chicken broth, hot": {
+          "food": "broth-chicken-ls",
+          "grams": 840.0
+        },
+        "1 tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.9
+        },
+        "5 oz baby spinach": {
+          "food": "spinach",
+          "grams": 141.8
+        },
+        "1 pint cherry tomatoes": {
+          "food": "tomato-raw",
+          "grams": 360.0
+        },
+        "½ cup pitted kalamata olives, halved": {
+          "food": "olives-kalamata",
+          "grams": 67.0
+        },
+        "1 cup crumbled feta cheese": {
+          "food": "feta",
+          "grams": 150.0
+        },
+        "2 Tbsp chopped fresh parsley": {
+          "food": "parsley",
+          "grams": 7.5
+        }
+      }
+    },
+    "thai-peanut-chicken-noodle-bake": {
+      "lines": {
+        "¾ cup natural peanut butter, stirred well": {
+          "food": "peanut-butter",
+          "grams": 193.5
+        },
+        "1 can (13.5 oz) coconut milk": {
+          "food": "coconut-milk",
+          "grams": 382.7
+        },
+        "⅓ cup soy sauce": {
+          "food": "soy-sauce",
+          "grams": 85.0
+        },
+        "3 Tbsp brown sugar": {
+          "food": "brown-sugar",
+          "grams": 41.2
+        },
+        "3 Tbsp rice vinegar": {
+          "food": "vinegar-rice-seasoned",
+          "grams": 45.0
+        },
+        "3 Tbsp sriracha": {
+          "food": "sriracha",
+          "grams": 50.6
+        },
+        "1 Tbsp fresh ginger, grated": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "1 cup water": {
+          "food": "water",
+          "grams": 237.0
+        },
+        "1 Tbsp table salt, for the pasta water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "1 lb linguine": {
+          "food": "pasta-dry",
+          "grams": 453.6
+        },
+        "1½ lb boneless skinless chicken thighs, sliced into ½-inch strips": {
+          "food": "chicken-thigh-raw",
+          "grams": 680.4
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "1 bag (14 oz) coleslaw mix": {
+          "food": "cabbage",
+          "grams": 396.9
+        },
+        "¾ cup roasted peanuts, chopped": {
+          "food": "peanuts-roasted",
+          "grams": 109.5
+        },
+        "3 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 45.0
+        },
+        "1 lime, cut into wedges": {
+          "exclude": "zest or wedges only, negligible"
+        }
+      }
+    },
+    "keema-shepherds-pie": {
+      "lines": {
+        "2 lb 80/20 ground beef": {
+          "food": "beef-ground-80-raw",
+          "grams": 907.2,
+          "fatRetain": 0.65,
+          "note": "fat poured off after browning; assumes 35% of the fat leaves the dish (carried over from the old site code, not a measured figure)"
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "1 tsp ground cumin": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "1 tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 1.7
+        },
+        "1 tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 3.0
+        },
+        "1 tsp cayenne pepper": {
+          "food": "cayenne",
+          "grams": 1.8
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "1 large yellow onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "2 jalapeños, minced": {
+          "food": "jalapeno",
+          "grams": 28.0
+        },
+        "4 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 12.0
+        },
+        "1 Tbsp fresh ginger, grated": {
+          "food": "ginger",
+          "grams": 6.0
+        },
+        "3 Tbsp tomato paste": {
+          "food": "tomato-paste",
+          "grams": 49.1
+        },
+        "1 cup low-sodium beef broth": {
+          "food": "broth-beef-ls",
+          "grams": 240.0
+        },
+        "1½ cups frozen peas": {
+          "food": "peas-frozen",
+          "grams": 201.0
+        },
+        "2 tsp garam masala": {
+          "food": "masa-harina",
+          "grams": 4.8
+        },
+        "1 Tbsp lemon juice": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        },
+        "3 lb Yukon Gold potatoes, peeled and cut into 1½-inch chunks": {
+          "food": "potato-raw",
+          "grams": 1360.8
+        },
+        "1 Tbsp table salt, for the potato water": {
+          "food": "water",
+          "grams": 14.8
+        },
+        "6 Tbsp butter": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "1 tsp cumin seeds": {
+          "food": "cumin",
+          "grams": 2.0
+        },
+        "½ tsp ground turmeric": {
+          "food": "turmeric",
+          "grams": 1.5
+        },
+        "¾ cup whole milk, warmed": {
+          "food": "milk-whole",
+          "grams": 183.0
+        },
+        "2 Tbsp chopped fresh cilantro": {
+          "food": "cilantro",
+          "grams": 2.0
+        }
+      }
+    },
+    "quick-pickled-red-onions": {
+      "lines": {
+        "1 large red onion (about ¾ lb)": {
+          "food": "onion-red",
+          "grams": 340.2
+        },
+        "¾ cup distilled white vinegar": {
+          "food": "vinegar-distilled",
+          "grams": 178.5
+        },
+        "¼ cup water": {
+          "food": "water",
+          "grams": 59.2
+        },
+        "1 Tbsp sugar": {
+          "food": "sugar",
+          "grams": 12.5
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "2 cloves garlic, smashed": {
+          "food": "garlic",
+          "grams": 10.0
+        },
+        "½ tsp black peppercorns": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "½ tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.5
+        },
+        "1 bay leaf": {
+          "food": "bay-leaf",
+          "grams": 0.6
+        }
+      }
+    },
+    "smashed-spiced-cucumbers-mint": {
+      "lines": {
+        "1 English cucumber (or 2 regular, peeled in stripes)": {
+          "food": "cucumber-english",
+          "grams": 400.0
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "1½ Tbsp olive oil": {
+          "food": "olive-oil",
+          "grams": 20.2
+        },
+        "1 garlic clove, grated": {
+          "food": "garlic",
+          "grams": 3.0
+        },
+        "½ tsp ground coriander": {
+          "food": "coriander-seed",
+          "grams": 0.8
+        },
+        "½ tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 1.1
+        },
+        "¼ tsp ground cumin": {
+          "food": "cumin",
+          "grams": 0.5
+        },
+        "½ tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 0.9
+        },
+        "1 Tbsp lemon juice, plus the zest of ½ lemon": {
+          "food": "lemon-juice",
+          "grams": 15.2
+        },
+        "1 tsp dried mint, crumbled": {
+          "food": "mint-dried",
+          "grams": 0.5
+        }
+      }
+    },
+    "cajun-blackened-chicken-cutlets": {
+      "lines": {
+        "2 boneless skinless chicken breasts (about 1½ lb)": {
+          "food": "chicken-breast-raw",
+          "grams": 680.4
+        },
+        "2 tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 4.6
+        },
+        "1 tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 3.1
+        },
+        "1 tsp onion powder": {
+          "food": "onion-powder",
+          "grams": 2.3
+        },
+        "1 tsp dried thyme": {
+          "food": "thyme-dried",
+          "grams": 0.9
+        },
+        "½ tsp dried oregano": {
+          "food": "oregano-dried",
+          "grams": 0.5
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "½ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.9
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "2 Tbsp butter, melted": {
+          "food": "butter",
+          "grams": 28.4
+        },
+        "1 Tbsp neutral oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "1 lemon, cut in wedges (optional)": {
+          "exclude": "zest or wedges only, negligible"
+        }
+      }
+    },
+    "smoky-rice-and-red-beans": {
+      "lines": {
+        "2 Tbsp butter": {
+          "food": "butter",
+          "grams": 28.4
+        },
+        "1 small yellow onion, diced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "½ green bell pepper, diced": {
+          "food": "bell-pepper-green",
+          "grams": 60.0
+        },
+        "1 celery rib, diced": {
+          "food": "celery",
+          "grams": 40.0
+        },
+        "2 garlic cloves, minced": {
+          "food": "garlic",
+          "grams": 6.0
+        },
+        "1 cup long-grain white rice": {
+          "food": "rice-white-raw",
+          "grams": 185.0
+        },
+        "1 tsp smoked paprika": {
+          "food": "paprika",
+          "grams": 2.3
+        },
+        "½ tsp dried thyme": {
+          "food": "thyme-dried",
+          "grams": 0.5
+        },
+        "¼ tsp cayenne": {
+          "food": "cayenne",
+          "grams": 0.4
+        },
+        "1½ cups low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 360.0
+        },
+        "1 can (15 oz) red kidney beans, drained and rinsed": {
+          "food": "kidney-beans-canned",
+          "grams": 255.1
+        },
+        "¾ tsp table salt": {
+          "food": "salt",
+          "grams": 4.6
+        },
+        "1 bay leaf": {
+          "food": "bay-leaf",
+          "grams": 0.6
+        },
+        "2 green onions, sliced": {
+          "food": "green-onion",
+          "grams": 30.0
+        },
+        "Hot sauce, for serving": {
+          "exclude": "serving suggestion, no amount"
+        }
+      }
+    },
+    "citrus-herb-dry-brine-turkey-marinade": {
+      "skip": "A brine and butter for a whole 18-22 lb turkey; the recipe has no serving count, so per-serving macros would be a guess."
+    },
+    "make-ahead-turkey-gravy": {
+      "lines": {
+        "3 lb turkey wings (or drumsticks)": {
+          "exclude": "simmered for stock and discarded"
+        },
+        "1 large yellow onion, quartered, skin on": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "2 carrots, cut in chunks": {
+          "food": "carrot",
+          "grams": 122.0
+        },
+        "2 ribs celery, cut in chunks": {
+          "food": "celery",
+          "grams": 80.0
+        },
+        "1 Tbsp vegetable oil": {
+          "food": "canola-oil",
+          "grams": 13.6
+        },
+        "8 cups low-sodium chicken broth (two 32-oz boxes)": {
+          "food": "broth-chicken-ls",
+          "grams": 1920.0
+        },
+        "4 cups water, divided": {
+          "food": "water",
+          "grams": 948.0
+        },
+        "2 bay leaves": {
+          "food": "bay-leaf",
+          "grams": 1.2
+        },
+        "1 tsp dried thyme": {
+          "food": "thyme-dried",
+          "grams": 0.9
+        },
+        "1 tsp whole black peppercorns": {
+          "food": "black-pepper",
+          "grams": 2.3
+        },
+        "⅔ cup fat (skimmed turkey fat from the stock, topped up with unsalted butter)": {
+          "food": "beef-tallow",
+          "grams": 137,
+          "note": "rendered turkey fat topped up with butter; counted as rendered animal fat (USDA has no turkey fat record)"
+        },
+        "⅔ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 83.3
+        },
+        "8 cups turkey stock (from above)": {
+          "exclude": "this is the broth above after simmering, already counted"
+        },
+        "2 tsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 10.6
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "Defatted pan drippings from the roast turkey": {
+          "exclude": "no amount given"
+        },
+        "Table salt, to taste at the end": {
+          "exclude": "to taste, no amount"
+        }
+      }
+    },
+    "buttery-mashed-potatoes": {
+      "lines": {
+        "8 lb Yukon Gold potatoes": {
+          "food": "potato-raw",
+          "grams": 3628.8
+        },
+        "3 Tbsp table salt, for the cooking water": {
+          "food": "water",
+          "grams": 44.4
+        },
+        "1 cup (2 sticks) unsalted butter": {
+          "food": "butter",
+          "grams": 227.0
+        },
+        "2½ cups whole milk, plus ½ cup for holding": {
+          "food": "milk-whole",
+          "grams": 610.0
+        },
+        "¼ cup mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 55.0
+        },
+        "1½ tsp celery salt, plus more to taste": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        }
+      }
+    },
+    "sweet-potato-casserole-pecan-crumble": {
+      "lines": {
+        "5 lb sweet potatoes (6-7 medium)": {
+          "food": "sweet-potato-raw",
+          "grams": 2268.0
+        },
+        "6 Tbsp unsalted butter, melted, plus 1 Tbsp for the pan": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "⅓ cup packed brown sugar": {
+          "food": "brown-sugar",
+          "grams": 73.3
+        },
+        "2 large eggs": {
+          "food": "egg-whole",
+          "grams": 100.0
+        },
+        "½ cup whole milk": {
+          "food": "milk-whole",
+          "grams": 122.0
+        },
+        "1 tsp vanilla extract": {
+          "food": "vanilla",
+          "grams": 4.3
+        },
+        "1 tsp ground cinnamon": {
+          "food": "cinnamon",
+          "grams": 2.6
+        },
+        "¼ tsp ground nutmeg": {
+          "food": "nutmeg",
+          "grams": 0.6
+        },
+        "1 tsp table salt": {
+          "food": "salt",
+          "grams": 6.1
+        },
+        "1 cup chopped pecans": {
+          "food": "pecans",
+          "grams": 109.0
+        },
+        "¾ cup packed brown sugar": {
+          "food": "brown-sugar",
+          "grams": 165.0
+        },
+        "⅓ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 41.7
+        },
+        "5 Tbsp unsalted butter, melted": {
+          "food": "butter",
+          "grams": 70.9
+        },
+        "¼ tsp table salt": {
+          "food": "salt",
+          "grams": 1.5
+        }
+      }
+    },
+    "cranberry-sage-stuffing": {
+      "lines": {
+        "2 bags (12-14 oz each) herb-seasoned cubed stuffing mix": {
+          "food": "stuffing-mix",
+          "grams": 737.1
+        },
+        "1 bag (6 oz) dried cranberries, about 1⅓ cups": {
+          "food": "cranberries-dried",
+          "grams": 170.1
+        },
+        "½ cup chopped fresh parsley": {
+          "food": "parsley",
+          "grams": 30.0
+        },
+        "¾ cup (1½ sticks) unsalted butter, plus 1 Tbsp for the pans": {
+          "food": "butter",
+          "grams": 170.2
+        },
+        "2 large yellow onions, diced (about 3 cups)": {
+          "food": "onion",
+          "grams": 480.0
+        },
+        "4 ribs celery, diced (about 2 cups)": {
+          "food": "celery",
+          "grams": 202.0
+        },
+        "3 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "1 Tbsp chopped fresh sage (optional)": {
+          "food": "sage-ground",
+          "grams": 2.0
+        },
+        "4 cups low-sodium chicken broth, plus up to 1 cup more": {
+          "food": "broth-chicken-ls",
+          "grams": 960.0
+        },
+        "2 large eggs": {
+          "food": "egg-whole",
+          "grams": 100.0
+        },
+        "1 tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 2.3
+        }
+      }
+    },
+    "green-bean-casserole-scratch-sauce": {
+      "lines": {
+        "6 cans (14.5 oz each) cut green beans, drained": {
+          "food": "green-beans-canned",
+          "grams": 1479.9
+        },
+        "5 Tbsp unsalted butter, plus 1 Tbsp for the pan": {
+          "food": "butter",
+          "grams": 70.9
+        },
+        "12 oz cremini or white mushrooms, sliced": {
+          "food": "mushroom-cremini",
+          "grams": 340.2
+        },
+        "1 medium yellow onion, thinly sliced": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "3 cloves garlic, minced": {
+          "food": "garlic",
+          "grams": 15.0
+        },
+        "⅓ cup all-purpose flour": {
+          "food": "flour-ap",
+          "grams": 41.7
+        },
+        "1½ cups low-sodium chicken broth": {
+          "food": "broth-chicken-ls",
+          "grams": 360.0
+        },
+        "1½ cups whole milk": {
+          "food": "milk-whole",
+          "grams": 366.0
+        },
+        "2 tsp soy sauce": {
+          "food": "soy-sauce",
+          "grams": 10.6
+        },
+        "½ tsp table salt": {
+          "food": "salt",
+          "grams": 3.0
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "¼ tsp ground nutmeg": {
+          "food": "nutmeg",
+          "grams": 0.6
+        },
+        "1 container (6 oz) French-fried onions, divided": {
+          "food": "fried-onions",
+          "grams": 170.1
+        }
+      }
+    },
+    "roasted-brussels-sprouts-hot-honey": {
+      "lines": {
+        "3 lb Brussels sprouts, trimmed and halved (quarter any very large ones)": {
+          "food": "brussels-sprouts",
+          "grams": 1360.8
+        },
+        "3 Tbsp vegetable oil": {
+          "food": "canola-oil",
+          "grams": 40.9
+        },
+        "1¼ tsp table salt": {
+          "food": "salt",
+          "grams": 7.6
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "¼ cup honey": {
+          "food": "honey",
+          "grams": 84.8
+        },
+        "2 Tbsp apple cider vinegar": {
+          "food": "vinegar-cider",
+          "grams": 29.9
+        },
+        "2 Tbsp unsalted butter": {
+          "food": "butter",
+          "grams": 28.4
+        },
+        "1 tsp red pepper flakes": {
+          "food": "cayenne",
+          "grams": 1.8
+        }
+      }
+    },
+    "brown-butter-skillet-corn": {
+      "lines": {
+        "2½ lb frozen sweet corn, thawed and patted very dry (about 7½ cups)": {
+          "food": "corn-frozen",
+          "grams": 1134.0
+        },
+        "2 Tbsp vegetable oil, divided": {
+          "food": "canola-oil",
+          "grams": 27.2
+        },
+        "6 Tbsp unsalted butter": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "1 Tbsp honey": {
+          "food": "honey",
+          "grams": 21.2
+        },
+        "1½ tsp table salt": {
+          "food": "salt",
+          "grams": 9.1
+        },
+        "½ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 1.1
+        },
+        "4 green onions, thinly sliced": {
+          "food": "green-onion",
+          "grams": 60.0
+        }
+      }
+    },
+    "cranberry-orange-sauce": {
+      "lines": {
+        "1 bag (12 oz) fresh cranberries": {
+          "food": "cranberries-raw",
+          "grams": 340.2
+        },
+        "¾ cup granulated sugar": {
+          "food": "sugar",
+          "grams": 150.0
+        },
+        "½ cup orange juice": {
+          "food": "orange-juice",
+          "grams": 124.0
+        },
+        "¼ cup water": {
+          "food": "water",
+          "grams": 59.2
+        },
+        "1 tsp grated orange zest": {
+          "exclude": "zest or wedges only, negligible"
+        },
+        "⅛ tsp table salt": {
+          "food": "salt",
+          "grams": 0.8
+        },
+        "1 cinnamon stick (optional)": {
+          "food": "cinnamon",
+          "grams": 3.0
+        }
+      }
+    },
+    "soft-pull-apart-dinner-rolls": {
+      "lines": {
+        "5½ cups all-purpose flour, spooned and leveled, plus more for the counter": {
+          "food": "flour-ap",
+          "grams": 687.5
+        },
+        "⅔ cup instant mashed potato flakes": {
+          "food": "potato-flakes",
+          "grams": 40.0
+        },
+        "⅓ cup granulated sugar": {
+          "food": "sugar",
+          "grams": 66.7
+        },
+        "2¼ tsp (1 packet) instant yeast": {
+          "food": "yeast",
+          "grams": 6.8
+        },
+        "2¼ tsp table salt": {
+          "food": "salt",
+          "grams": 13.7
+        },
+        "1½ cups whole milk, lukewarm (about 100°F)": {
+          "food": "milk-whole",
+          "grams": 366.0
+        },
+        "3 Tbsp water": {
+          "food": "water",
+          "grams": 44.4
+        },
+        "1 large egg": {
+          "food": "egg-whole",
+          "grams": 50.0
+        },
+        "6 Tbsp unsalted butter, softened": {
+          "food": "butter",
+          "grams": 85.1
+        },
+        "1 Tbsp butter, for the pans": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "2 Tbsp unsalted butter, melted": {
+          "food": "butter",
+          "grams": 28.4
+        }
+      }
+    },
+    "wasabi-deviled-eggs": {
+      "lines": {
+        "12 large eggs": {
+          "food": "egg-whole",
+          "grams": 600.0
+        },
+        "⅓ cup mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 73.3
+        },
+        "2½ Tbsp Miracle Whip": {
+          "food": "miracle-whip",
+          "grams": 36.7
+        },
+        "¾ tsp wasabi paste (start at ½ tsp, up to 1 tsp)": {
+          "food": "wasabi",
+          "grams": 3.8
+        },
+        "⅛ tsp table salt": {
+          "food": "salt",
+          "grams": 0.8
+        },
+        "⅛ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.3
+        },
+        "Paprika, for dusting": {
+          "exclude": "no amount given"
+        }
+      }
+    },
+    "caramelized-french-onion-dip": {
+      "lines": {
+        "1 Tbsp unsalted butter": {
+          "food": "butter",
+          "grams": 14.2
+        },
+        "1½ tsp vegetable oil": {
+          "food": "canola-oil",
+          "grams": 6.8
+        },
+        "1 large yellow onion, diced small (¼ inch)": {
+          "food": "onion",
+          "grams": 110.0
+        },
+        "¼ tsp table salt": {
+          "food": "salt",
+          "grams": 1.5
+        },
+        "1 cup (8 oz) sour cream": {
+          "food": "sour-cream",
+          "grams": 230.0
+        },
+        "¼ cup mayonnaise": {
+          "food": "mayonnaise",
+          "grams": 55.0
+        },
+        "½ tsp Worcestershire sauce": {
+          "food": "worcestershire",
+          "grams": 2.9
+        },
+        "¼ tsp garlic powder": {
+          "food": "garlic-powder",
+          "grams": 0.8
+        },
+        "⅛ tsp black pepper": {
+          "food": "black-pepper",
+          "grams": 0.3
+        },
+        "⅛ tsp table salt, plus more to taste": {
+          "food": "salt",
+          "grams": 0.8
+        },
+        "1 Tbsp chopped chives or green onion tops": {
+          "food": "green-onion",
+          "grams": 6.2
+        }
+      }
+    }
+  }
+}
