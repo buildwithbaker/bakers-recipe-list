@@ -6634,7 +6634,7 @@
     "cookTime": "PT0M",
     "waitTime": "PT1H",
     "waitLabel": "chill dressed slaw 1-4 hr",
-    "recipeYield": "about 1 cup, dresses 6-8 cups slaw"
+    "recipeYield": "7 servings (1 cup dressed slaw each), about 1 cup dressing for 6-8 cups slaw"
   },
   {
     "id": "protein-balls-1",
@@ -7596,7 +7596,7 @@
     "cookTime": "PT0M",
     "waitTime": "PT2H",
     "waitLabel": "marinate 2-8 hr first",
-    "recipeYield": "enough for 1½ lb chicken"
+    "recipeYield": "6 servings, enough for 1½ lb chicken"
   },
   {
     "id": "chicken-marinade-spicy-maple-mustard",
@@ -7672,7 +7672,7 @@
     "cookTime": "PT0M",
     "waitTime": "PT1H",
     "waitLabel": "marinate 1-8 hr first",
-    "recipeYield": "enough for 1½ lb chicken"
+    "recipeYield": "6 servings, enough for 1½ lb chicken"
   },
   {
     "id": "chicken-marinade-lemon-herb",
@@ -7747,7 +7747,7 @@
     "cookTime": "PT0M",
     "waitTime": "PT2H",
     "waitLabel": "marinate 2-8 hr first",
-    "recipeYield": "enough for 1½ lb chicken"
+    "recipeYield": "6 servings, enough for 1½ lb chicken"
   },
   {
     "id": "stir-fry-marinade-beef",
@@ -7826,7 +7826,7 @@
     "cookTime": "PT0M",
     "waitTime": "PT30M",
     "waitLabel": "marinate 30 min",
-    "recipeYield": "enough for 1 lb chicken"
+    "recipeYield": "4 servings, enough for 1 lb chicken"
   },
   {
     "id": "stir-fry-marinade-pork",
@@ -11986,7 +11986,7 @@
     "cookTime": "PT5M",
     "waitTime": "PT1H30M",
     "waitLabel": "cool 30 min, chill 1 hr",
-    "recipeYield": "about 2 cups (one pint jar)"
+    "recipeYield": "16 servings (2 Tbsp each), about 2 cups (one pint jar)"
   },
   {
     "id": "smashed-spiced-cucumbers-mint",
@@ -12861,7 +12861,7 @@
     "cookTime": "PT3H30M",
     "waitTime": "PT8H",
     "waitLabel": "chill stock overnight to defat",
-    "recipeYield": "about 8 cups (16 servings)"
+    "recipeYield": "16 servings (½ cup each), about 8 cups"
   },
   {
     "id": "buttery-mashed-potatoes",
@@ -13504,7 +13504,7 @@
     "added": "2026-11-07",
     "prepTime": "PT5M",
     "cookTime": "PT15M",
-    "recipeYield": "about 2¼ cups"
+    "recipeYield": "9 servings (¼ cup each), about 2¼ cups"
   },
   {
     "id": "soft-pull-apart-dinner-rolls",
@@ -13803,6 +13803,6 @@
     "cookTime": "PT35M",
     "waitTime": "PT2H",
     "waitLabel": "chill 2 hr before serving",
-    "recipeYield": "about 1½ cups"
+    "recipeYield": "12 servings (2 Tbsp each), about 1½ cups"
   }
 ]
