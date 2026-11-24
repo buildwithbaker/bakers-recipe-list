@@ -13543,7 +13543,7 @@
       },
       {
         "type": "item",
-        "text": "1½ cups whole milk, lukewarm (about 100°F)"
+        "text": "1½ cups 2% milk, lukewarm (about 100°F)"
       },
       {
         "type": "item",
@@ -13602,10 +13602,11 @@
     ],
     "notes": [
       "To rewarm baked rolls, cover the pan with foil and heat at 300°F for 8-10 minutes.",
+      "Freeze ahead (up to 2 weeks): use the milk (1½ cups) cold from the fridge instead of lukewarm and raise the yeast to 2¾ tsp. Skip the first rise: shape the 30 balls right after kneading, set them in parchment-lined 9x13 pans, cover tightly and freeze until rock-hard, then bag them airtight. On the day, set them 5 by 3 in the buttered pans, cover, and let them thaw and rise 4-5 hours at 65-70°F until puffy and touching, then bake as above. Cold milk keeps the yeast dormant so fewer cells die in the freezer; the extra yeast covers the ones that do.",
       "Proportions checked against King Arthur's published Soft Dinner Rolls ratios; ingredients and method are ours."
     ],
     "is_blank": false,
-    "description": "Soft, buttery pull-apart yeast rolls made tender with potato flakes, baked 15 to a pan, with an overnight make-ahead option.",
+    "description": "Soft, buttery pull-apart yeast rolls made tender with potato flakes, baked 15 to a pan, with overnight and freeze-ahead options.",
     "added": "2026-11-07",
     "prepTime": "PT30M",
     "cookTime": "PT22M",
